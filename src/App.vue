@@ -22,7 +22,7 @@
       </div>
     </div>
   </nav>
-  <router-view/>
+  <router-view></router-view>
   <footer class="footer">
     <div class="ctn-block">
       <div class="footer-links-row">
@@ -89,7 +89,7 @@
       transition: all ease .2s;
       cursor: pointer;
       &:hover,
-      &.router-link-active{
+      &.router-link-exact-active{
         color: @active-color;
         border-color: @active-color;
       }

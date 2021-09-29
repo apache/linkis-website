@@ -8,6 +8,10 @@ const router = createRouter({
   routes,
 })
 
+router.resolve({
+  name: 'home'
+}).href
+
 const app = createApp(App);
 app.use(router);
 
