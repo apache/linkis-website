@@ -1,6 +1,6 @@
 <template>
-  <div class="ctn-block home-page text-center">
-    <div class="banner">
+  <div class="ctn-block home-page">
+    <div class="banner text-center">
       <h1 class="home-title"><span class="apache">Apache</span> <span class="linkis">Linkis</span> <span class="badge">Incubating</span></h1>
       <p class="home-desc">Decouple the upper applications and the underlying data<br>engines by building a middleware layer.</p>
       <div class="botton-row">
@@ -9,6 +9,18 @@
       </div>
     </div>
     <h1 class="home-block-title text-center">Computation Governance Concept</h1>
+    <div class="concept home-block">
+      <div class="concept-item">
+        <h3 class="concept-title">Before</h3>
+        <p class="concept-desc">Each upper application directly connects to and accesses various underlying engines in a tightly coupled way, which makes big data platform a complex network architecture.</p>
+        <!-- <img src="" alt="before" class="concept-image"> -->
+      </div>
+      <div class="concept-item">
+        <h3 class="concept-title">After</h3>
+        <p class="concept-desc">Build a common layer of "computation middleware" between the numerous upper-layer applications and the countless underlying engines to resolve these complex connection problems in a standardized reusable way</p>
+        <!-- <img src="" alt="after" class="concept-image"> -->
+      </div>
+    </div>
     <h1 class="home-block-title text-center">Core Features</h1>
     <div class="features home-block">
       <div class="feature-item">
@@ -55,6 +67,7 @@
   </div>
 </template>
 <style lang="less" scoped>
+  @import url('/src/style/virables.less');
   @import url('/src/style/base.less');
 
   .home-page {
@@ -64,6 +77,32 @@
     }
     .home-block{
       padding: 20px 0 88px;
+    }
+    .concept{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 20px;
+      .concept-item{
+        padding: 30px 20px;
+        border: 1px dashed #979797;
+        border-radius: 10px;
+        .concept-title{
+          font-size: 24px;
+          line-height: 34px;
+          margin-bottom: 16px;
+          color: @enhance-color;
+        }
+        .concept-desc{
+          font-size: 18px;
+          color: #4A4A4A;
+          line-height: 26px;
+          font-weight: 400;
+          margin-bottom: 16px;
+        }
+        .concept-image{
+          width: 100%;
+        }
+      }
     }
     .show-case{
       display: grid;
@@ -86,6 +125,10 @@
         background: #FFFFFF;
         box-shadow: 0 0 16px 0 rgba(211,211,211,0.50);
         border-radius: 10px;
+        padding-top: 100px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center top;
         .item-content{
           padding: 30px 20px;
           text-align: left;
