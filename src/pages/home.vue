@@ -3,7 +3,7 @@
     <div class="banner text-center">
       <h1 class="home-title"><span class="apache">Apache</span> <span class="linkis">Linkis</span> <span class="badge">Incubating</span></h1>
       <p class="home-desc">Decouple the upper applications and the underlying data<br>engines by building a middleware layer.</p>
-      <div class="botton-row">
+      <div class="botton-row center">
         <a href="/" class="corner-botton black">Get Started</a>
         <a href="/" class="corner-botton white">GitHub</a>
       </div>
@@ -26,6 +26,9 @@
         <h1 class="home-block-title">Description</h1>
         <p class="home-paragraph">Linkis provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), and acts as a proxy between the upper applications layer and underlying engines layer. </p>
         <p class="home-paragraph">Linkis is able to facilitate the connectivity, governance and orchestration capabilities of different kind of engines like OLAP, OLTP (developing), Streaming, and handle all these "computation governance" affairs in a standardized reusable way.</p>
+        <div class="botton-row">
+          <a href="/" class="corner-botton blue">Learn More</a>
+        </div>
       </div>
       <!-- <img src="" alt="description" class="description-image"> -->
     </div>
@@ -196,29 +199,35 @@
         line-height: 26px;
         font-weight: 400;
       }
+    }
 
-      .botton-row{
-        display: flex;
+    .botton-row{
+      display: flex;
+      &.center{
         justify-content: center;
-        .corner-botton{
-          margin-right: 22px;
-          padding: 0 40px;
-          height: 46px;
-          line-height: 46px;
-          border-radius: 25px;
-          &:last-child{
-            margin-right: 0;
-          }
-          &.black{
-            color: #fff;
-            background: @enhance-color;
-            border: 1px solid  @enhance-color;
-          }
-          &.white{
-            color: @enhance-color;
-            background: #fff;
-            border: 1px solid @enhance-color;
-          }
+      }
+      .corner-botton{
+        margin-right: 22px;
+        padding: 0 40px;
+        height: 46px;
+        line-height: 46px;
+        border-radius: 25px;
+        &:last-child{
+          margin-right: 0;
+        }
+        &.black{
+          color: #fff;
+          background: @enhance-color;
+          border: 1px solid  @enhance-color;
+        }
+        &.white{
+          color: @enhance-color;
+          background: #fff;
+          border: 1px solid @enhance-color;
+        }
+        &.blue{
+          color: #1A529C;
+          border: 1px solid #1A529C;
         }
       }
     }
