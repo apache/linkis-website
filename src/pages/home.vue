@@ -67,11 +67,12 @@
   </div>
 </template>
 <style lang="less" scoped>
-  @import url('/src/style/virables.less');
+  @import url('/src/style/variable.less');
   @import url('/src/style/base.less');
 
   .home-page {
     .home-block-title{
+      margin-bottom: 20px;
       font-size: 32px;
       line-height: 46px;
     }
