@@ -12,14 +12,22 @@
     <div class="concept home-block">
       <div class="concept-item">
         <h3 class="concept-title">Before</h3>
-        <p class="concept-desc">Each upper application directly connects to and accesses various underlying engines in a tightly coupled way, which makes big data platform a complex network architecture.</p>
+        <p class="home-paragraph">Each upper application directly connects to and accesses various underlying engines in a tightly coupled way, which makes big data platform a complex network architecture.</p>
         <!-- <img src="" alt="before" class="concept-image"> -->
       </div>
       <div class="concept-item">
         <h3 class="concept-title">After</h3>
-        <p class="concept-desc">Build a common layer of "computation middleware" between the numerous upper-layer applications and the countless underlying engines to resolve these complex connection problems in a standardized reusable way</p>
+        <p class="home-paragraph">Build a common layer of "computation middleware" between the numerous upper-layer applications and the countless underlying engines to resolve these complex connection problems in a standardized reusable way</p>
         <!-- <img src="" alt="after" class="concept-image"> -->
       </div>
+    </div>
+    <div class="description home-block">
+      <div class="description-content">
+        <h1 class="home-block-title">Description</h1>
+        <p class="home-paragraph">Linkis provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), and acts as a proxy between the upper applications layer and underlying engines layer. </p>
+        <p class="home-paragraph">Linkis is able to facilitate the connectivity, governance and orchestration capabilities of different kind of engines like OLAP, OLTP (developing), Streaming, and handle all these "computation governance" affairs in a standardized reusable way.</p>
+      </div>
+      <!-- <img src="" alt="description" class="description-image"> -->
     </div>
     <h1 class="home-block-title text-center">Core Features</h1>
     <div class="features home-block">
@@ -78,7 +86,25 @@
     }
     .home-block{
       padding: 20px 0 88px;
+      .home-paragraph{
+        font-size: 18px;
+        color: #4A4A4A;
+        line-height: 26px;
+        font-weight: 400;
+        margin-bottom: 16px;
+      }
     }
+    .description{
+      display: flex;
+      align-items: center;
+      .description-content{
+        flex: 1;
+      }
+      .description-image{
+        margin-left: 40px;
+      }
+    }
+
     .concept{
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -92,13 +118,6 @@
           line-height: 34px;
           margin-bottom: 16px;
           color: @enhance-color;
-        }
-        .concept-desc{
-          font-size: 18px;
-          color: #4A4A4A;
-          line-height: 26px;
-          font-weight: 400;
-          margin-bottom: 16px;
         }
         .concept-image{
           width: 100%;
