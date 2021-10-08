@@ -1,6 +1,16 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import { ref } from "vue";
+
+// 初始化语言
+const lang = ref(localStorage.getItem('locale'));
+
+// 切换语言
+const switchLang = (lang) => {
+  localStorage.setItem('locale', lang);
+  location.reload();
+}
 </script>
 
 <template>
@@ -12,13 +22,21 @@
       </div>
       <span class="nav-logo-badge">Incubating</span>
       <div class="menu-list">
-        <router-link class="menu-item" to="/">Home</router-link>
-        <router-link class="menu-item" to="/docs">Docs</router-link>
-        <router-link class="menu-item" to="/faq">FAQ</router-link>
-        <router-link class="menu-item" to="/download">Download</router-link>
-        <router-link class="menu-item" to="/blog">Blog</router-link>
-        <router-link class="menu-item" to="/team">Team</router-link>
-        <div class="menu-item">Language</div>
+        <router-link class="menu-item" to="/"><span class="label">Home</span></router-link>
+        <router-link class="menu-item" to="/docs"><span class="label">Docs</span></router-link>
+        <router-link class="menu-item" to="/faq"><span class="label">FAQ</span></router-link>
+        <router-link class="menu-item" to="/download"><span class="label">Download</span></router-link>
+        <router-link class="menu-item" to="/blog"><span class="label">Blog</span></router-link>
+        <router-link class="menu-item" to="/team"><span class="label">Team</span></router-link>
+        <div class="menu-item language">
+          Language
+          <div class="dropdown-menu">
+            <ul class="dropdown-menu-ctn">
+              <li class="dropdown-menu-item" :class="{active: lang === 'zh-CN'}" @click="switchLang('zh-CN')">简体中文</li>
+              <li class="dropdown-menu-item" :class="{active: lang === 'en'}" @click="switchLang('en')">English</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -90,8 +108,58 @@
       cursor: pointer;
       &:hover,
       &.router-link-exact-active{
-        color: @active-color;
+        .label{
+          color: @active-color;
+        }
         border-color: @active-color;
+      }
+      &.language{
+        position: relative;
+        &::after{
+          content: '';
+          display: inline-block;
+          vertical-align: middle;
+          width: 0;
+          height: 0;
+          margin-left: 8px;
+          border-bottom: 6px solid #ccc;
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          transition: all ease .2s;
+        }
+        &:hover{
+          &::after{
+            transform: rotate(180deg);
+          }
+          .dropdown-menu{
+            display: block;
+          }
+        }
+        .dropdown-menu{
+          display: none;
+          position: absolute;
+          z-index: 10;
+          top: 20px;
+          left: 0;
+          padding-top: 40px;
+          .dropdown-menu-ctn{
+            padding: 10px 0;
+            background: #fff;
+            border-radius: 4px;
+            border: 1px solid #FFFFFF;
+            box-shadow: 0 2px 12px 0 rgba(15,18,34,0.10);
+            .dropdown-menu-item{
+              font-size: 14px;
+              line-height: 32px;
+              padding: 0 16px;
+              cursor: pointer;
+              &.active,
+              &:hover{
+                color: @active-color;
+              }
+            }
+          }
+        }
       }
     }
   }

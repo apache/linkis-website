@@ -1,0 +1,10 @@
+{
+  "message": {
+    "common": {},
+    "home": {
+      "banner": {
+        "slogan": "Decouple the upper applications and the underlying data engines by building a computation middleware layer."
+      }
+    }
+  }
+}

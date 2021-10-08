@@ -2,7 +2,7 @@
   <div class="ctn-block home-page">
     <div class="banner text-center">
       <h1 class="home-title"><span class="apache">Apache</span> <span class="linkis">Linkis</span> <span class="badge">Incubating</span></h1>
-      <p class="home-desc">Decouple the upper applications and the underlying data<br>engines by building a middleware layer.</p>
+      <p class="home-desc">{{$t('message.home.banner.slogan')}}</p>
       <div class="botton-row center">
         <a href="/" class="corner-botton black">Get Started</a>
         <a href="/" class="corner-botton white">GitHub</a>
