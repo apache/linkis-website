@@ -1,25 +1,25 @@
 <template>
   <div class="ctn-block reading-area">
     <main class="main-content">
-      <deploy></deploy>
+      <router-view></router-view>
     </main>
     <div class="side-bar">
-      <a :href="'#/blog' + doc.anchor" class="bar-item" v-for="(doc,index) in docs" :key="index">{{doc.title}}
-        <a :href="'#/blog' + children.anchor" class="bar-item" v-for="(children,cindex) in doc.children" :key="cindex">{{children.title}}
-        </a>
-      </a>
+      <router-link :to="doc.link" class="bar-item" v-for="(doc,index) in docs" :key="index">{{doc.title}}
+        <router-link :to="children.link" class="bar-item" v-for="(children,cindex) in doc.children" :key="cindex">{{children.title}}
+        </router-link>
+      </router-link>
     </div>
   </div>
 </template>
-<style lang="less" scoped>
+<style lang="less">
   .reading-area {
     display: flex;
     padding: 60px 0;
+    min-height: 600px;
 
     .main-content {
       width: 900px;
       padding: 30px;
-      min-height: 600px;
     }
 
     .side-bar {
@@ -36,22 +36,21 @@
   }
 </style>
 <script setup>
-import deploy from '../docs/deploy.md';
   const docs = [{
     title: '部署文档',
-    anchor: 'deploy',
+    link: '/docs/deploy/main',
     children: [{
       title: '快速部署 Linkis1.0',
-      anchor: 'deploy-linkis'
+      link: '/docs/deploy/linkis',
     }, {
       title: '快速安装 EngineConnPlugin 引擎插件',
-      anchor: 'deploy-engine'
+      link: '/docs/deploy/engins',
     }, {
       title: 'Linkis1.0 分布式部署手册',
-      anchor: 'deploy-handbook'
+      link: '/docs/deploy/distributed',
     }, {
       title: 'Linkis1.0 安装包目录层级结构详解',
-      anchor: 'deploy-detail'
+      link: '/docs/deploy/structure',
     }]
   }]
 </script>

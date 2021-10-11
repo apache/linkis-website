@@ -6,7 +6,28 @@ const routes = [{
   {
     path: '/docs',
     name: 'docs',
-    component: () => import( /* webpackChunkName: "group-docs" */ './pages/docs.vue')
+    component: () => import( /* webpackChunkName: "group-docs" */ './pages/docs/index.vue'),
+    children: [{
+      path: 'deploy',
+      name: 'docDeploy',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/main.vue')
+    },{
+      path: 'deploy/linkis',
+      name: 'docDeployLinkis',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/linkis.vue')
+    },{
+      path: 'deploy/engins',
+      name: 'docDeployEngins',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/engins.vue')
+    },{
+      path: 'deploy/distributed',
+      name: 'docDeployDistributed',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/distributed.vue')
+    },{
+      path: 'deploy/structure',
+      name: 'docDeployStructure',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/structure.vue')
+    }]
   },
   {
     path: '/faq',
