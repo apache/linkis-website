@@ -27,12 +27,35 @@ const routes = [{
       path: 'deploy/structure',
       name: 'docDeployStructure',
       component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/structure.vue')
-    }]
+    },
+
+    // {
+    //   path: 'manual',
+    //   name: '',
+    //   component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/main.vue')
+    // },
+    {
+      path: 'manual/UserManual',
+      name: '',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/UserManual.vue')
+    },{
+      path: 'manual/HowToUse',
+      name: '',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/HowToUse.vue')
+    },{
+      path: 'manual/ConsoleUserManual',
+      name: '',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/ConsoleUserManual.vue')
+    },{
+        path: 'manual/CliManual',
+        name: '',
+        component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/CliManual.vue')
+      }]
   },
   {
-    path: '/faq',
+    path: '/faq/index',
     name: 'faq',
-    component: () => import( /* webpackChunkName: "group-faq" */ './pages/faq.vue')
+    component: () => import( /* webpackChunkName: "group-faq" */ './pages/faq/index.vue')
   },
   {
     path: '/download',

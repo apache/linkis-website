@@ -23,8 +23,8 @@ const switchLang = (lang) => {
       <span class="nav-logo-badge">Incubating</span>
       <div class="menu-list">
         <router-link class="menu-item" to="/"><span class="label">Home</span></router-link>
-        <router-link class="menu-item" to="/docs/deploy"><span class="label">Docs</span></router-link>
-        <router-link class="menu-item" to="/faq"><span class="label">FAQ</span></router-link>
+        <router-link class="menu-item" to="/docs/deploy/linkis"><span class="label">Docs</span></router-link>
+        <router-link class="menu-item" to="/faq/index"><span class="label">FAQ</span></router-link>
         <router-link class="menu-item" to="/download"><span class="label">Download</span></router-link>
         <router-link class="menu-item" to="/blog"><span class="label">Blog</span></router-link>
         <router-link class="menu-item" to="/team"><span class="label">Team</span></router-link>
