@@ -22,12 +22,12 @@ const switchLang = (lang) => {
       </div>
       <span class="nav-logo-badge">Incubating</span>
       <div class="menu-list">
-        <router-link class="menu-item" to="/"><span class="label">Home</span></router-link>
-        <router-link class="menu-item" to="/docs/deploy/linkis"><span class="label">Docs</span></router-link>
-        <router-link class="menu-item" to="/faq/index"><span class="label">FAQ</span></router-link>
-        <router-link class="menu-item" to="/download"><span class="label">Download</span></router-link>
-        <router-link class="menu-item" to="/blog"><span class="label">Blog</span></router-link>
-        <router-link class="menu-item" to="/team"><span class="label">Team</span></router-link>
+        <router-link class="menu-item" to="/"><span class="label">{{$t('menu.item.home')}}</span></router-link>
+        <router-link class="menu-item" to="/docs/deploy/linkis"><span class="label">{{$t('menu.item.docs')}}</span></router-link>
+        <router-link class="menu-item" to="/faq/index"><span class="label">{{$t('menu.item.faq')}}</span></router-link>
+        <router-link class="menu-item" to="/download"><span class="label">{{$t('menu.item.download')}}</span></router-link>
+        <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span></router-link>
+        <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span></router-link>
         <div class="menu-item language">
           Language
           <div class="dropdown-menu">
@@ -46,22 +46,22 @@ const switchLang = (lang) => {
       <div class="footer-links-row">
         <div class="footer-links">
           <h3 class="links-title">Linkis</h3>
-          <a href="" class="links-item">Documentation</a>
-          <a href="" class="links-item">Events</a>
-          <a href="" class="links-item">Releases</a>
+          <a href="" class="links-item">{{$t('menu.links.documentation')}}</a>
+          <a href="" class="links-item">{{$t('menu.links.events')}}</a>
+          <a href="" class="links-item">{{$t('menu.links.releases')}}</a>
         </div>
         <div class="footer-links">
-          <h3 class="links-title">Community</h3>
+          <h3 class="links-title">{{$t('menu.links.community')}}</h3>
           <a href="" class="links-item">GitHub</a>
-          <a href="" class="links-item">Issue Tracker</a>
-          <a href="" class="links-item">Pull Requests</a>
+          <a href="" class="links-item">{{$t('menu.links.issue_tracker')}}</a>
+          <a href="" class="links-item">{{$t('menu.links.pull_requests')}}</a>
         </div>
         <div class="footer-links">
-          <h3 class="links-title">Apache Software Foundation</h3>
-          <a href="" class="links-item">Foundation</a>
-          <a href="" class="links-item">License</a>
-          <a href="" class="links-item">Sponsorship</a>
-          <a href="" class="links-item">Thanks</a>
+          <h3 class="links-title">{{$t('menu.links.asf')}}</h3>
+          <a href="" class="links-item">{{$t('menu.links.foundation')}}</a>
+          <a href="" class="links-item">{{$t('menu.links.license')}}</a>
+          <a href="" class="links-item">{{$t('menu.links.sponsorship')}}</a>
+          <a href="" class="links-item">{{$t('menu.links.thanks')}}</a>
         </div>
       </div>
       <p class="footer-desc">Apache Linkis (Incubating) is an effort undergoing incubation at The Apache Software Foundation, sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p>

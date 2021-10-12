@@ -1,5 +1,5 @@
 <template>
-  <div class="ctn-block home-page">
+  <div v-if="lang === 'en'" class="ctn-block home-page">
     <div class="banner text-center">
       <h1 class="home-title"><span class="apache">Apache</span> <span class="linkis">Linkis</span> <span class="badge">Incubating</span></h1>
       <p class="home-desc">{{$t('message.home.banner.slogan')}}</p>
@@ -13,12 +13,12 @@
       <div class="concept-item">
         <h3 class="concept-title">Before</h3>
         <p class="home-paragraph">Each upper application directly connects to and accesses various underlying engines in a tightly coupled way, which makes big data platform a complex network architecture.</p>
-        <!-- <img src="" alt="before" class="concept-image"> -->
+        <img src="../assets/home/before_linkis_en.png" alt="before" class="concept-image">
       </div>
       <div class="concept-item">
         <h3 class="concept-title">After</h3>
         <p class="home-paragraph">Build a common layer of "computation middleware" between the numerous upper-layer applications and the countless underlying engines to resolve these complex connection problems in a standardized reusable way</p>
-        <!-- <img src="" alt="after" class="concept-image"> -->
+        <img src="../assets/home/after_linkis_en.png" alt="before" class="concept-image">
       </div>
     </div>
     <div class="description home-block">
@@ -30,7 +30,7 @@
           <a href="/" class="corner-botton blue">Learn More</a>
         </div>
       </div>
-      <!-- <img src="" alt="description" class="description-image"> -->
+      <img src="../assets/home/description.png" alt="description" class="description-image">
     </div>
     <h1 class="home-block-title text-center">Core Features</h1>
     <div class="features home-block">
@@ -65,7 +65,84 @@
         </div>
       </div>
     </div>
-    <h1 class="home-block-title text-center">Showcase</h1>
+    <h1 class="home-block-title text-center">Our Users</h1>
+    <div class="show-case home-block">
+      <div class="case-item"></div>
+      <div class="case-item"></div>
+      <div class="case-item"></div>
+      <div class="case-item"></div>
+      <div class="case-item"></div>
+      <div class="case-item"></div>
+      <div class="case-item"></div>
+    </div>
+  </div>
+  <div v-else class="ctn-block home-page">
+    <div class="banner text-center">
+      <h1 class="home-title"><span class="apache">Apache</span> <span class="linkis">Linkis</span> <span class="badge">Incubating</span></h1>
+      <p class="home-desc">{{$t('message.home.banner.slogan')}}</p>
+      <div class="botton-row center">
+        <a href="/" class="corner-botton black">开始</a>
+        <a href="/" class="corner-botton white">GitHub</a>
+      </div>
+    </div>
+    <h1 class="home-block-title text-center">计算治理理念</h1>
+    <div class="concept home-block">
+      <div class="concept-item">
+        <h3 class="concept-title">没有Linkis之前</h3>
+        <p class="home-paragraph">每个上层应用以紧耦合的方式直接连接和访问各种底层引擎，这使得大数据平台成为一个复杂的网络架构</p>
+        <img src="../assets/home/before_linkis_zh.png" alt="before" class="concept-image">
+      </div>
+      <div class="concept-item">
+        <h3 class="concept-title">有Linkis之后</h3>
+        <p class="home-paragraph">在丰富的上层应用和丰富的底层引擎之间构建一个公共的“计算中间件”层，以标准化的可复用方式解决这些复杂的连接问题</p>
+       <img src="../assets/home/after_linkis_zh.png" alt="before" class="concept-image">
+      </div>
+    </div>
+    <div class="description home-block">
+      <div class="description-content">
+        <h1 class="home-block-title">描述</h1>
+        <p class="home-paragraph">Linkis 提供标准化接口（REST、JDBC、WebSocket 等），方便连接各种底层引擎（Spark、Presto、Flink 等），充当上层应用层和底层引擎层之间的代理</p>
+        <p class="home-paragraph">Linkis 能够促进 OLAP、OLTP（开发）、Streaming 等不同类型引擎的连接、治理和编排能力，并以标准化的可重用方式处理所有这些“计算治理”事务.</p>
+        <div class="botton-row">
+          <a href="/" class="corner-botton blue">了解更多</a>
+        </div>
+      </div>
+     <img src="../assets/home/description.png" alt="description" class="description-image">
+    </div>
+    <h1 class="home-block-title text-center">核心功能</h1>
+    <div class="features home-block">
+      <div class="feature-item">
+        <div class="item-content">
+          <h3 class="item-title">连通性</h3>
+          <p class="item-desc">简化操作环境；上层和下层解耦，使上层在底层变化时不敏感</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="item-content">
+          <h3 class="item-title">可扩展性</h3>
+          <p class="item-desc">分布式微服务架构，具有很好的可伸缩性和扩展性；快速与新的底层引擎集成</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="item-content">
+          <h3 class="item-title">可控性</h3>
+          <p class="item-desc">融合引擎入口，统一身份验证，高风险防控，审计记录；基于标签的多级精细化资源控制和恢复能力</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="item-content">
+          <h3 class="item-title">编排</h3>
+          <p class="item-desc">基于双活、混合计算、事务Orchestrator服务的计算策略设计</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="item-content">
+          <h3 class="item-title">可复用性</h3>
+          <p class="item-desc">大大减少了上层应用开发的后端开发工作量；可基于Linkis快速高效搭建数据平台工具套件</p>
+        </div>
+      </div>
+    </div>
+    <h1 class="home-block-title text-center">我们的用户</h1>
     <div class="show-case home-block">
       <div class="case-item"></div>
       <div class="case-item"></div>
@@ -233,3 +310,8 @@
     }
   }
 </style>
+<script setup>
+  import { ref } from "vue"
+  // 初始化语言
+  const lang = ref(localStorage.getItem('locale') || 'en');
+</script>

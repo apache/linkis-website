@@ -6,5 +6,29 @@
         "slogan": "Decouple the upper applications and the underlying data engines by building a computation middleware layer."
       }
     }
+  },
+  "menu": {
+    "item":{
+      "home": "Home",
+      "docs":"Docs",
+      "faq": "FAQ",
+      "download":"Download",
+      "blog":"Blog",
+      "team":"Team"
+    },
+    "links":{
+      "documentation":"Documentation",
+      "events":"Events",
+      "releases":"Releases",
+      "community":"Community",
+      "issue_tracker":"Issue Tracker",
+      "pull_requests":"Pull Requests",
+      "asf":"Apache Software Foundation",
+      "foundation":"Foundation",
+      "license":"License",
+      "sponsorship":"Sponsorship",
+      "thanks":"Thanks"
+    }
   }
 }
+

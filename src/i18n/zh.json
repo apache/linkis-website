@@ -3,8 +3,31 @@
     "common": {},
     "home": {
       "banner": {
-        "slogan": "中文的Decouple the upper applications and the underlying data engines by building a computation middleware layer."
+        "slogan": "通过构建计算中间件层来解耦上层应用程序和底层数据引擎"
       }
+    }
+  },
+  "menu": {
+    "item":{
+      "home": "首页",
+      "docs":"文档",
+      "faq": "FAQ",
+      "download":"下载",
+      "blog":"博客",
+      "team":"团队"
+    },
+    "links":{
+      "documentation":"文档",
+      "events":"动态",
+      "releases":"版本",
+      "community":"社区",
+      "issue_tracker":"Issue追踪",
+      "pull_requests":"Pull Request",
+      "asf":"ASF",
+      "foundation":"基金会",
+      "license":"证书",
+      "sponsorship":"赞助",
+      "thanks":"致谢"
     }
   }
 }
