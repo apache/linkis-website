@@ -13,6 +13,7 @@
     </div>
 </template>
 <style lang="less">
+    @import url('/src/style/variable.less');
     .reading-area {
         display: flex;
         padding: 60px 0;
@@ -32,6 +33,10 @@
                 display: block;
                 padding: 5px 18px;
                 color: #4A4A4A;
+                &:hover,
+                &.router-link-exact-active {
+                    color: @active-color;
+                }
             }
         }
     }
@@ -63,7 +68,7 @@
 
         {
             title: '用户手册',
-            link: '/docs/manual/main',
+            link: '/docs/manual/UserManual',
             children: [
                 {
                     title: '用户使用文档',

@@ -18,38 +18,32 @@ const routes = [{
     },{
       path: 'deploy/engins',
       name: 'docDeployEngins',
-      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/engins.vue')
+      component: () => import( /* webpackChunkName: "group-doc_engins" */ './pages/docs/deploy/engins.vue')
     },{
       path: 'deploy/distributed',
       name: 'docDeployDistributed',
-      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/distributed.vue')
+      component: () => import( /* webpackChunkName: "group-doc_distributed" */ './pages/docs/deploy/distributed.vue')
     },{
       path: 'deploy/structure',
       name: 'docDeployStructure',
-      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/structure.vue')
+      component: () => import( /* webpackChunkName: "group-doc_structure" */ './pages/docs/deploy/structure.vue')
     },
-
-    // {
-    //   path: 'manual',
-    //   name: '',
-    //   component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/main.vue')
-    // },
     {
       path: 'manual/UserManual',
-      name: '',
-      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/UserManual.vue')
+      name: 'manualUserManual',
+      component: () => import( /* webpackChunkName: "group-doc_UserManual" */ './pages/docs/manual/UserManual.vue')
     },{
       path: 'manual/HowToUse',
-      name: '',
-      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/HowToUse.vue')
+      name: 'manual/HowToUse',
+      component: () => import( /* webpackChunkName: "group-doc_HowToUse" */ './pages/docs/manual/HowToUse.vue')
     },{
       path: 'manual/ConsoleUserManual',
-      name: '',
-      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/ConsoleUserManual.vue')
+      name: 'manualConsoleUserManual',
+      component: () => import( /* webpackChunkName: "group-doc_ConsoleUserManual" */ './pages/docs/manual/ConsoleUserManual.vue')
     },{
         path: 'manual/CliManual',
-        name: '',
-        component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/manual/CliManual.vue')
+        name: 'manualCliManual',
+        component: () => import( /* webpackChunkName: "group-doc_CliManual" */ './pages/docs/manual/CliManual.vue')
       }]
   },
   {
