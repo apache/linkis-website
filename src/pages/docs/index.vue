@@ -85,6 +85,24 @@
                 }]
 
 
+        },
+        {
+            title: '架构文档',
+            link: '/docs/architecture/DifferenceBetween1.0&0.x',
+            children: [
+                {
+                    title: 'Linkis1.0与Linkis0.X的区别简述',
+                    link: '/docs/architecture/DifferenceBetween1.0&0.x',
+                },
+                {
+                    title: 'Job提交准备执行流程',
+                    link: '/docs/architecture/JobSubmission',
+                }, {
+                    title: 'EngineConn新增流程',
+                    link: '/docs/architecture/AddEngineConn',
+                }]
+
+
         }
     ]
 </script>

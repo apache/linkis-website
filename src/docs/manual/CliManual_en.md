@@ -40,7 +40,7 @@ Linkis-cli currently only supports synchronous submission, that is, after submit
 * cli parameters
 
     | Parameter | Description | Data Type | Is Required |
-    | ----------- | -------------------------- | -------- |- --- |
+    | ----------- | -------------------------- | -------- |---- |
     | --gwUrl | Manually specify the linkis gateway address | String | No |
     | --authStg | Specify authentication policy | String | No |
     | --authKey | Specify authentication key | String | No |
@@ -50,7 +50,9 @@ Linkis-cli currently only supports synchronous submission, that is, after submit
 * Parameters
 
     | Parameter | Description | Data Type | Is Required |
-    | ----------- | -------------------------- | -------- |- --- |
+    | ----------- | -------------------------- | -------- |---- |
+    | Parameter      | Description                     | Data Type  | Is Required  |
+    | ----------- | -------------------------- | -------- | ---- |
     | -engType | Engine Type | String | Yes |
     | -runType | Execution Type | String | Yes |
     | -code | Execution code | String | No |

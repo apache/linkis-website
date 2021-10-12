@@ -1,0 +1,5 @@
+podling网站
+http://incubator.apache.org/guides/sites.html#podling_website_requirements
+
+web url要求
+https://www.apache.org/foundation/marks/pmcs#websites

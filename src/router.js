@@ -34,7 +34,7 @@ const routes = [{
       component: () => import( /* webpackChunkName: "group-doc_UserManual" */ './pages/docs/manual/UserManual.vue')
     },{
       path: 'manual/HowToUse',
-      name: 'manual/HowToUse',
+      name: 'manualHowToUse',
       component: () => import( /* webpackChunkName: "group-doc_HowToUse" */ './pages/docs/manual/HowToUse.vue')
     },{
       path: 'manual/ConsoleUserManual',
@@ -44,7 +44,22 @@ const routes = [{
         path: 'manual/CliManual',
         name: 'manualCliManual',
         component: () => import( /* webpackChunkName: "group-doc_CliManual" */ './pages/docs/manual/CliManual.vue')
-      }]
+      },
+
+      {
+        path: 'architecture/JobSubmission',
+        name: 'architectureJobSubmission',
+        component: () => import( /* webpackChunkName: "group-doc_JobSubmission" */ './pages/docs/architecture/JobSubmission.vue')
+      },{
+        path: 'architecture/AddEngineConn',
+        name: 'architectureAddEngineConn',
+        component: () => import( /* webpackChunkName: "group-doc_AddEngineConn" */ './pages/docs/architecture/AddEngineConn.vue')
+      },{
+        path: 'architecture/DifferenceBetween1.0&0.x',
+        name: 'architectureDifferenceBetween1.0&0.x',
+        component: () => import( /* webpackChunkName: "group-doc_DifferenceBetween1.0&0.x" */ './pages/docs/architecture/DifferenceBetween1.0&0.x.vue')
+      }
+    ]
   },
   {
     path: '/faq/index',

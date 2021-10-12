@@ -2,9 +2,9 @@
 
 ## Notes
 
-If you are new to Linkis, you can ignore this chapter, however, if you are already a Linkis user,  we recommend you reading the following article before installing or upgrading: [Brief introduction of the difference between Linkis1.0 and Linkis0.X](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/en_US/Architecture_Documents/DifferenceBetween1.0%260.x.md).
+If you are new to Linkis, you can ignore this chapter, however, if you are already a Linkis user,  we recommend you reading the following article before installing or upgrading: [Brief introduction of the difference between Linkis1.0 and Linkis0.X](#/docs/architecture/DifferenceBetween1.0&0.x).
 
-Please note: Apart from the four EngineConnPlugins included in the Linkis1.0 installation package by default: Python/Shell/Hive/Spark. You can manually install other types of engines such as JDBC depending on your own needs. For details, please refer to EngineConnPlugin installation documents.
+Please note: Apart from the four EngineConnPlugins included in the Linkis1.0 installation package by default: Python/Shell/Hive/Spark. You can manually install other types of engines such as JDBC depending on your own needs. For details, please refer to EngineConnPlugin installation documents [EngineConnPlugin installation documents](#/docs/deploy/engins).
 
 Engines that Linkis1.0 has adapted by default are listed below:
 
