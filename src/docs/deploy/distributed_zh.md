@@ -97,4 +97,4 @@ EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server1:port/eur
 修改完之后启动微服务，从web端进入eureka注册界面，可以看到已经成功注册到eureka的微服务，并且DS
 Replicas也会显示集群相邻的副本节点。
 
-![](Images/分布式部署微服务.png)
+![](../../assets/docs/deploy/distributed_deployment.png)

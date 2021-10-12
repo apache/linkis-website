@@ -14,7 +14,7 @@ at org.eclipse.jetty.servlet.ServletContextHandler\$Context.getSessionCookieConf
 
 具体异常栈：
 
-![linkis-exception-01.png](../Images/Tuning_and_Troubleshooting/linkis-exception-01.png)
+![linkis-exception-01.png](../../assets/fqa/linkis-exception-01.png)
 
 解法:jar包冲突，删除asm-5.0.4.jar;
 
@@ -22,64 +22,64 @@ at org.eclipse.jetty.servlet.ServletContextHandler\$Context.getSessionCookieConf
 
 具体异常栈：
 
-![linkis-exception-02.png](../Images/Tuning_and_Troubleshooting/linkis-exception-02.png)
+![linkis-exception-02.png](../../assets/fqa/linkis-exception-02.png)
 
 
 解法：Linkis-datasource 配置问题导致的，修改linkis.properties  hive.meta开头的三个参数：
 
-![hive-config-01.png](../Images/Tuning_and_Troubleshooting/hive-config-01.png)
+![hive-config-01.png](../../assets/fqa/hive-config-01.png)
 
 
 #### Q4、启动微服务linkis-ps-datasource时，报如下异常ClassNotFoundException HttpClient：
 
 具体异常栈：
 
-![linkis-exception-03.png](../Images/Tuning_and_Troubleshooting/linkis-exception-03.png)
+![linkis-exception-03.png](../../assets/fqa/linkis-exception-03.png)
 
 解法：1.0编译的linkis-metadata-dev-1.0.0.jar存在问题，需要重新编译打包。
 
 #### Q5、点击scriptis-数据库，不返回数据，现象如下：
 
-![page-show-01.png](../Images/Tuning_and_Troubleshooting/page-show-01.png)
+![page-show-01.png](../../assets/fqa/page-show-01.png)
 
 解法：原因hive未授权给hadoop用户，授权数据如下：
 
-![db-config-01.png](../Images/Tuning_and_Troubleshooting/db-config-01.png)
+![db-config-01.png](../../assets/fqa/db-config-01.png)
 
 #### Q6、shell引擎调度执行,页面报 Insufficient resource , requesting available engine timeout，eningeconnmanager的linkis.out，报如下错误：
 
-![linkis-exception-04.png](../Images/Tuning_and_Troubleshooting/linkis-exception-04.png)
+![linkis-exception-04.png](../../assets/fqa/linkis-exception-04.png)
 
 解法：原因hadoop没有创建/appcom/tmp/hadoop/workDir,通过root用户提前创建，然后给hadoop用户授权即可。
 
 #### Q7、shell引擎调度执行时，引擎执行目录报如下错误/bin/java:No such file or directory：
 
-![shell-error-01.png](../Images/Tuning_and_Troubleshooting/shell-error-01.png)
+![shell-error-01.png](../../assets/fqa/shell-error-01.png)
 
 解法：本地java的环境变量有问题，需要对java命令做下符号链接。
 
 #### Q8、hive引擎调度时，报如下错误EngineConnPluginNotFoundException:errorCode:70063
 
-![linkis-exception-05.png](../Images/Tuning_and_Troubleshooting/linkis-exception-05.png)
+![linkis-exception-05.png](../../assets/fqa/linkis-exception-05.png)
 
 解法：安装的时候没有修改对应引擎的Version导致，所以默认插入到db里面的引擎类型为默认版本，而编译出来的版本不是默认版本导致。具体修改步骤：cd /appcom/Install/dss-linkis/linkis/lib/linkis-engineconn-plugins/，修改dist目录下的v2.1.1 目录名 修改为v1.2.1  修改plugin目录下的子目录名2.1.1 为默认版本的1.2.1。如果是Spark需要相应修改dist/v2.4.3 和plugin/2.4.3。最后重启engineplugin服务。
 
 #### Q9、linkis微服务启动后，报如下错误Load balancer does not have available server for client：
 
-![page-show-02.png](../Images/Tuning_and_Troubleshooting/page-show-02.png)
+![page-show-02.png](../../assets/fqa/page-show-02.png)
 
 解法：这个是因为linkis微服务刚启动，还未完成注册，等待1~2分钟，重试即可。
 
 #### Q10、hive引擎调度执行时，报错如下opertion failed NullPointerException：
 
-![linkis-exception-06.png](../Images/Tuning_and_Troubleshooting/linkis-exception-06.png)
+![linkis-exception-06.png](../../assets/fqa/linkis-exception-06.png)
 
 
 解法：服务器缺少环境变量，/etc/profile增加export HIVE_CONF_DIR=/etc/hive/conf;
 
 #### Q11、hive引擎调度时，engineConnManager的错误日志如下method did not exist:SessionHandler：
 
-![linkis-exception-07.png](../Images/Tuning_and_Troubleshooting/linkis-exception-07.png)
+![linkis-exception-07.png](../../assets/fqa/linkis-exception-07.png)
 
 解法：hive引擎lib下，jetty jar包冲突，jetty-security、 jetty-server替换为9.4.20；
 
@@ -158,11 +158,11 @@ at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[?:1.8.0_181]
 
 #### Q15、python引擎调度时，报如下错误Python proces is not alive：
 
-![linkis-exception-08.png](../Images/Tuning_and_Troubleshooting/linkis-exception-08.png)
+![linkis-exception-08.png](../../assets/fqa/linkis-exception-08.png)
 
 解法：服务器安装anaconda3 包管理器，经过对python调试，发现两个问题：（1）缺乏pandas、matplotlib模块，需要手动安装;(2)新版python引擎执行时，依赖python高版本，首先安装python3，其次做下符号链接（如下图），重启engineplugin服务。
 
-![shell-error-02.png](../Images/Tuning_and_Troubleshooting/shell-error-02.png)
+![shell-error-02.png](../../assets/fqa/shell-error-02.png)
 
 #### Q16、spark引擎执行时，报如下错误NoClassDefFoundError: org/apache/hadoop/hive/ql/io/orc/OrcFile：
 
@@ -214,7 +214,7 @@ at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
 
 #### Q17、spark引擎启动时，报queue default is not exists in YARN,具体信息如下：
 
-![linkis-exception-09.png](../Images/Tuning_and_Troubleshooting/linkis-exception-09.png)
+![linkis-exception-09.png](../../assets/fqa/linkis-exception-09.png)
 
 解法：1.0的linkis-resource-manager-dev-1.0.0.jar拉取队列信息时，解析json有兼容问题，官方同学优化后，重新提供新包，jar包路径：/appcom/Install/dss-linkis/linkis/lib/linkis-computation-governance/linkis-cg-linkismanager/。
 
@@ -222,35 +222,35 @@ at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
 
 解法：yarn的地址配置迁移DB配置，需要增加如下配置：
  
-![db-config-02.png](../Images/Tuning_and_Troubleshooting/db-config-02.png)
+![db-config-02.png](../../assets/fqa/db-config-02.png)
 
 #### Q19、spark引擎调度时，首次可以执行成功，再次执行报Spark application sc has already stopped, please restart it，具体错误如下：
 
-![page-show-03.png](../Images/Tuning_and_Troubleshooting/page-show-03.png)
+![page-show-03.png](../../assets/fqa/page-show-03.png)
 
 解法：背景是linkis1.0引擎的架构体系有调整，spark session 创建后，为了避免开销、提升执行效率，session是复用的。当我们第一次执行spark.scala时，我们的脚本存在spark.stop()，这个命令会导致新创建的会话被关闭，当再次执行时，会提示会话已关闭，请重启。解决办法：首先所有脚本去掉stop(),其次是执行顺序：先执行default.sql，再执行scalaspark、pythonspark即可。
 
 #### Q20、pythonspark调度执行，报错：initialize python executor failed ClassNotFoundException org.slf4j.impl.StaticLoggerBinder，具体如下：
 
-![linkis-exception-10.png](../Images/Tuning_and_Troubleshooting/linkis-exception-10.png)
+![linkis-exception-10.png](../../assets/fqa/linkis-exception-10.png)
 
 解法：原因是spark服务端缺少 slf4j-log4j12-1.7.25.jar,copy上述jar报到/opt/cloudera/parcels/CDH-6.3.2-1.cdh6.3.2.p0.1605554/lib/spark/jars。
 
 #### Q21、pythonspark调度执行，报错：initialize python executor failed，submit-version error，具体如下：
 
-![shell-error-03.png](../Images/Tuning_and_Troubleshooting/shell-error-03.png)
+![shell-error-03.png](../../assets/fqa/shell-error-03.png)
 
 解法：原因是linkis1.0 pythonSpark引擎获取spark版本代码有bug，修复如下：
 
-![code-fix-01.png](../Images/Tuning_and_Troubleshooting/code-fix-01.png)
+![code-fix-01.png](../../assets/fqa/code-fix-01.png)
 
 #### Q22、pythonspark调度执行时，报TypeError:an integer is required(got type bytes)(单独执行拉起引擎的命令跑出的)，具体如下：
 
-![shell-error-04.png](../Images/Tuning_and_Troubleshooting/shell-error-04.png)
+![shell-error-04.png](../../assets/fqa/shell-error-04.png)
 
 解法：原因是系统spark和python版本不兼容，python是3.8，spark是2.4.0-cdh6.3.2,spark要求python version<=3.6，降低python至3.6，注释文件/opt/cloudera/parcels/CDH/lib/spark/python/lib/pyspark.zip/pyspark/context.py如下几行：
 
-![shell-error-05.png](../Images/Tuning_and_Troubleshooting/shell-error-05.png)
+![shell-error-05.png](../../assets/fqa/shell-error-05.png)
 
 #### Q23、spark引擎是2.4.0+cdh6.3.2，python引擎之前因为缺少pandas、matplotlib升级的本地python到3.8，但是spark还不支持python3.8，仅支持3.6以下；
 

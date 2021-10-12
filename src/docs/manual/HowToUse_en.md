@@ -16,14 +16,14 @@
 ## 2.1. Use Scriptis to execute scripts
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Currently Scriptis supports submitting a variety of task types to Linkis, including Spark SQL, Hive SQL, Scala, PythonSpark, etc. In order to meet the needs of data analysis, the left side of Scriptis, Provides viewing user workspace information, user database and table information, user-defined functions, and HDFS directories. It also supports uploading and downloading, result set exporting and other functions. Scriptis is very simple to use Linkis, you can easily write scripts in the edit bar, and submit them to Linkis to run.
-![Scriptis uses Linkis](../Images/EngineUsage/sparksql-run.png)
+![Scriptis uses Linkis](../../assets/docs/manual/sparksql-run.png)
 
 ## 2.2. Scriptis Management Console
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis provides an interface for resource configuration and management. If you want to configure and manage task resources, you can set it on the Scriptis management console interface, including queue settings and resource configuration , The number of engine instances, etc. Through the management console, you can easily configure the resources for submitting tasks to Linkis, making it more convenient and faster.
-![Scriptis uses Linkis](../Images/EngineUsage/queue-set.png)
+![Scriptis uses Linkis](../../assets/docs/manual/queue-set.png)
 
 ## 3. DataSphere Studio uses Linkis
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[**DataSphere Studio**](https://github.com/WeBankFinTech/DataSphereStudio), referred to as DSS, is an open source part of WeBank’s big data platform Station-type data analysis and processing platform, the DSS interactive analysis module integrates Scriptis. Using DSS for interactive analysis is the same as Scriptis. In addition to providing the basic functions of Scriptis, DSS provides and integrates richer and more powerful data analysis functions, including Data services for data extraction, workflow for developing reports, visual analysis software Visualis, etc. Due to native support, DSS is currently the most integrated software with Linkis. If you want to use the complete Linkis function, it is recommended to use DSS with Linkis.
-![DSS Run Workflow](../Images/EngineUsage/workflow.png)
+![DSS Run Workflow](../../assets/docs/manual/workflow.png)

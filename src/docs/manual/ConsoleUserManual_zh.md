@@ -34,20 +34,20 @@
 全局历史
 --------
 
->   ![](Images/全局历史界面.png)
+>   ![](../../assets/docs/manual/global_history_interface.png)
 
 
 >   全局历史界面提供了用户自身的linkis任务提交记录，各个任务的执行状态都可以在此显示，任务执行的失败原因也可以点击任务左侧的查看按钮查询
 
->   ![./media/image2.png](Images/全局历史查询按钮.png)
+>   ![./media/image2.png](../../assets/docs/manual/global_history_query_button.png)
 
 
->   ![./media/image3.png](Images/单个任务的任务执行日志.png)
+>   ![./media/image3.png](../../assets/docs/manual/task_execution_log_of_a_single_task.png)
 
 
 >   对于linkis计算治理台管理员来说，管理员可以通过点击页面的切换管理员视图查看所有用户的历史任务。
 
->   ![./media/image4.png](Images/管理员视图.png)
+>   ![./media/image4.png](../../assets/docs/manual/administrator_view.png)
 
 
 资源管理
@@ -55,7 +55,7 @@
 
 >   在资源管理界面，用户可以看到自己当前启动的引擎状态，以及占用资源的情况，也能够通过页面停止引擎。
 
->   ![./media/image5.png](Images/资源管理界面.png)
+>   ![./media/image5.png](../../assets/docs/manual/resource_management_interface.png)
 
 
 参数配置
@@ -63,17 +63,17 @@
 
 >   参数配置界面提供了用户自定义参数管理的功能，用户可以在该界面管理引擎的相关配置，管理员还能在这里新增应用类型和引擎。
 
->   ![./media/image6.png](Images/参数配置界面.png)
+>   ![./media/image6.png](../../assets/docs/manual/parameter_configuration_interface.png)
 
 
 >   用户通过点击上方的应用类型，接着选择应用中拥有的引擎类型，即可展开该目录下的所有配置信息，修改配置信息点击保存即可生效。
 
 >   编辑目录和新增应用类型仅管理员可见，点击编辑按钮可以删除已有的应用和引擎配置（注意！直接删除应用会删除该应用下所有的引擎配置，并且不可恢复），或者添加引擎，点击新增应用可以添加应用类型。
 
->   ![./media/image7.png](Images/编辑目录.png)
+>   ![./media/image7.png](../../assets/docs/manual/edit_directory.png)
 
 
->   ![./media/image8.png](Images/新增应用类型.png)
+>   ![./media/image8.png](../../assets/docs/manual/new_application_type.png)
 
 
 全局变量
@@ -81,7 +81,7 @@
 
 >   全局变量界面用户可以自定义变量用于代码编写，点击编辑按钮新增参数即可。
 
->   ![./media/image9.png](Images/全局变量界面.png)
+>   ![./media/image9.png](../../assets/docs/manual/global_variable_interface.png)
 
 
 ECM管理
@@ -89,19 +89,19 @@ ECM管理
 
 >   ECM管理界面是用于管理员管理ECM和所有引擎的地方，该界面可以查看到ECM的状态信息、修改ECM标签信息、修改ECM状态信息以及查询各个ECM下的所有引擎信息。且仅管理员可见，管理员的配置方式可以在本文章第二大章节查看。
 
->   ![./media/image10.png](Images/ECM管理界面.png)
+>   ![./media/image10.png](../../assets/docs/manual/ECM_management_interface.png)
 
 
 >   点击编辑按钮，可以编辑ECM的标签信息（仅允许编辑部分标签），以及修改ECM的状态。
 
->   ![./media/image11.png](Images/ECM编辑界面.png)
+>   ![./media/image11.png](../../assets/docs/manual/ECM_editing_interface.png)
 
 
 >   点击ECM的实例名称，可以查看该ECM下所有的引擎信息。
 
->   ![](Images/点击实例名称查看引擎信息.png)
+>   ![](../../assets/docs/manual/click_the_instance_name_to_view_engine_information.png)
 
->   ![](Images/ECM下所有的引擎信息.png)
+>   ![](../../assets/docs/manual/ECM_all_engine_information.png)
 
 >   同样地，可以在该界面停止引擎，并且可以编辑引擎的标签信息。
 
@@ -110,9 +110,9 @@ ECM管理
 
 >   微服务管理界面可以查看Linkis下的所有微服务信息，该界面也仅允许管理员可见。linkis自身的微服务可以点击Eureka注册中心查看，与linkis关联的微服务会直接在该界面列出。
 
->   ![](Images/微服务管理界面.png)
+>   ![](../../assets/docs/manual/microservice_management_interface.png)
 
->   ![](Images/Eureka注册中心.png)
+>   ![](../../assets/docs/manual/eureka_registration_center.png)
 
 常见问题
 --------

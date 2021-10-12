@@ -242,5 +242,5 @@ If you have not specified EUREKA_INSTALL_IP and EUREKA_INSTALL_IP in config.sh, 
 
 As shown in the figure below, if all of the following micro-services are registered on theEureka, it means that they've started successfully and are able to work.
 
-![Linkis1.0_Eureka](../Images/deployment/Linkis1.0_combined_eureka.png)
+![Linkis1.0_Eureka](../../assets/docs/deploy/Linkis1.0_combined_eureka.png)
 
