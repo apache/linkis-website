@@ -12,35 +12,6 @@
         </div>
     </div>
 </template>
-<style lang="less">
-    @import url('/src/style/variable.less');
-    .reading-area {
-        display: flex;
-        padding: 60px 0;
-        min-height: 600px;
-
-        .main-content {
-            width: 900px;
-            padding: 30px;
-        }
-
-        .side-bar {
-            flex: 1;
-            padding: 18px 0;
-            border-left: 1px solid #eaecef;
-
-            .bar-item {
-                display: block;
-                padding: 5px 18px;
-                color: #4A4A4A;
-                &:hover,
-                &.router-link-exact-active {
-                    color: @active-color;
-                }
-            }
-        }
-    }
-</style>
 <script setup>
     const docs = [
         {
