@@ -182,6 +182,7 @@
       }
       .description-image{
         margin-left: 40px;
+        width: 630px;
       }
     }
 
