@@ -14,34 +14,6 @@
     </div>
   </div>
 </template>
-<style lang="less" scoped>
-  .blog-ctn {
-    padding-top: 60px;
-    padding-bottom: 80px;
-
-    .blog-title {
-      font-size: 24px;
-    }
-
-    .blog-info{
-      display: flex;
-      padding: 20px 0;
-      font-size: 16px;
-      color: rgba(15,18,34,0.45);
-      &.seperator{
-        .info-item{
-          border-right: 1px solid rgba(15,18,34,0.45);
-          &:last-child{
-            border-right: 0;
-          }
-        }
-      }
-      .info-item{
-        padding: 0 20px 0 28px;
-      }
-    }
-  }
-</style>
 <script setup>
   const docs = [{
     title: '部署文档',

@@ -74,7 +74,12 @@ const routes = [{
   {
     path: '/blog',
     name: 'blog',
-    component: () => import( /* webpackChunkName: "group-blog" */ './pages/blog.vue')
+    component: () => import( /* webpackChunkName: "group-blog" */ './pages/blog/index.vue')
+  },
+  {
+    path: '/blog/event',
+    name: 'blogEvent',
+    component: () => import( /* webpackChunkName: "group-blog" */ './pages/blog/event.vue')
   },
   {
     path: '/team',

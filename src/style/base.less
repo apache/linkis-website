@@ -77,3 +77,51 @@ a:visited {
     }
   }
 }
+
+.blog-ctn {
+  padding-top: 60px;
+  padding-bottom: 80px;
+
+  .blog-title {
+    font-size: 24px;
+  }
+
+  .blog-info{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 16px;
+    color: rgba(15,18,34,0.45);
+    .info-item{
+      padding: 0 10px 0 28px;
+      &.sperator{
+       padding: 0 10px; 
+      }
+    }
+  }
+}
+
+.corner-botton{
+  margin-right: 22px;
+  padding: 0 40px;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 25px;
+  &:last-child{
+    margin-right: 0;
+  }
+  &.black{
+    color: #fff;
+    background: @enhance-color;
+    border: 1px solid  @enhance-color;
+  }
+  &.white{
+    color: @enhance-color;
+    background: #fff;
+    border: 1px solid @enhance-color;
+  }
+  &.blue{
+    color: #1A529C;
+    border: 1px solid #1A529C;
+  }
+}

@@ -284,30 +284,6 @@
       &.center{
         justify-content: center;
       }
-      .corner-botton{
-        margin-right: 22px;
-        padding: 0 40px;
-        height: 46px;
-        line-height: 46px;
-        border-radius: 25px;
-        &:last-child{
-          margin-right: 0;
-        }
-        &.black{
-          color: #fff;
-          background: @enhance-color;
-          border: 1px solid  @enhance-color;
-        }
-        &.white{
-          color: @enhance-color;
-          background: #fff;
-          border: 1px solid @enhance-color;
-        }
-        &.blue{
-          color: #1A529C;
-          border: 1px solid #1A529C;
-        }
-      }
     }
   }
 </style>
