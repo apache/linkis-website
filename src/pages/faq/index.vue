@@ -11,30 +11,30 @@
     </main>
   </div>
 </template>
-<style lang="less">
-  .reading-area {
-    display: flex;
-    padding: 60px 0;
-    min-height: 600px;
+<!--<style lang="less">-->
+<!--  .reading-area {-->
+<!--    display: flex;-->
+<!--    padding: 60px 0;-->
+<!--    min-height: 600px;-->
 
-    .main-content {
-      width: 1200px;
-      padding: 30px;
-    }
+<!--    .main-content {-->
+<!--      width: 1200px;-->
+<!--      padding: 30px;-->
+<!--    }-->
 
-    .side-bar {
-      flex: 1;
-      padding: 18px 0;
-      border-left: 1px solid #eaecef;
+<!--    .side-bar {-->
+<!--      flex: 1;-->
+<!--      padding: 18px 0;-->
+<!--      border-left: 1px solid #eaecef;-->
 
-      .bar-item {
-        display: block;
-        padding: 5px 18px;
-        color: #4A4A4A;
-      }
-    }
-  }
-</style>
+<!--      .bar-item {-->
+<!--        display: block;-->
+<!--        padding: 5px 18px;-->
+<!--        color: #4A4A4A;-->
+<!--      }-->
+<!--    }-->
+<!--  }-->
+<!--</style>-->
 <script setup>
   import { ref } from "vue";
 

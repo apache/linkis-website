@@ -1,33 +1,63 @@
 {
   "message": {
-    "common": {},
+    "common": {
+      "get_start": "Get Start",
+      "description": "Description",
+      "learn_more": "Learn More",
+      "core_features": "Core Features",
+      "connectivity": "Connectivity",
+      "scalability": "Scalability",
+      "controllability": "Controllability",
+      "orchestration": "Orchestration",
+      "reusability": "Reusability",
+      "our_users": "Our Users",
+      "read_more": "Read More"
+    },
     "home": {
       "banner": {
         "slogan": "Decouple the upper applications and the underlying data engines by building a computation middleware layer."
+      },
+      "introduce": {
+        "title": "Computation Governance Concept",
+        "before": "before",
+        "after": "after",
+        "before_text": "Each upper application directly connects to and accesses various underlying engines in a tightly coupled way, which makes big data platform a complex network architecture.",
+        "after_text": "Build a common layer of \"computation middleware\" between the numerous upper-layer applications and the countless underlying engines to resolve these complex connection problems in a standardized reusable way\n"
+      },
+      "description": {
+        "paragraph1": "Linkis provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), and acts as a proxy between the upper applications layer and underlying engines layer.",
+        "paragraph2": "Linkis is able to facilitate the connectivity, governance and orchestration capabilities of different kind of engines like OLAP, OLTP (developing), Streaming, and handle all these \"computation governance\" affairs in a standardized reusable way."
+      },
+      "core": {
+        "connectivity": "Simplify the operation environment; decouple the upper and lower layers, which make the upper layer insensitive when bottom layers changed",
+        "scalability": "Distributed microservice architecture with great scalability and extensibility; quickly integrate with the new underlying engine",
+        "controllability": "Converge engine entrance, unify identity verification, high-risk prevention and control, audit records; label-based multi-level refined resource control and recovery capabilities",
+        "orchestration": "Computing strategy design based on active-active, mixed computing, transcation Orchestrator Service",
+        "reusability": "Highly reduced the back-end development workload of upper-level applications development; Swiftly and efficiently build a data platform tool suite based on Linkis"
       }
     }
   },
   "menu": {
-    "item":{
+    "item": {
       "home": "Home",
-      "docs":"Docs",
+      "docs": "Docs",
       "faq": "FAQ",
-      "download":"Download",
-      "blog":"Blog",
-      "team":"Team"
+      "download": "Download",
+      "blog": "Blog",
+      "team": "Team"
     },
-    "links":{
-      "documentation":"Documentation",
-      "events":"Events",
-      "releases":"Releases",
-      "community":"Community",
-      "issue_tracker":"Issue Tracker",
-      "pull_requests":"Pull Requests",
-      "asf":"Apache Software Foundation",
-      "foundation":"Foundation",
-      "license":"License",
-      "sponsorship":"Sponsorship",
-      "thanks":"Thanks"
+    "links": {
+      "documentation": "Documentation",
+      "events": "Events",
+      "releases": "Releases",
+      "community": "Community",
+      "issue_tracker": "Issue Tracker",
+      "pull_requests": "Pull Requests",
+      "asf": "Apache Software Foundation",
+      "foundation": "Foundation",
+      "license": "License",
+      "sponsorship": "Sponsorship",
+      "thanks": "Thanks"
     }
   }
 }

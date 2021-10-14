@@ -84,7 +84,7 @@ const routes = [{
   {
     path: '/team',
     name: 'team',
-    component: () => import( /* webpackChunkName: "group-team" */ './pages/team.vue')
+    component: () => import( /* webpackChunkName: "group-team" */ './pages/team/team.vue')
   },
 ]
 
