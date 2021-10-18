@@ -1,5 +1,5 @@
 <template>
-  <div class="ctn-block team-page">
+  <div class="ctn-block normal-page team-page">
     <h3 class="team-title">PMC</h3>
     <p class="team-desc">{{jsonData.info.desc}}</p>
     <ul  class="character-list">
@@ -42,21 +42,9 @@
 
     }
 </script>
-
-
-
 <style lang="less" scoped>
 @import url('/src/style/variable.less');
 .team-page{
-  padding-top: 60px;
-  .team-title{
-    font-size: 24px;
-    line-height: 34px;
-  }
-  .team-desc{
-    color: @enhance-color;
-    font-weight: 400;
-  }
   .contributor-list{
     padding: 20px 0 40px;
     .contributor-item{
