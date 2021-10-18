@@ -15,12 +15,12 @@
         <p class="home-paragraph">{{$t('message.home.introduce.before_text')}}
 
         </p>
-        <img src="../assets/home/before_linkis_en.png" alt="before" class="concept-image">
+        <img src="../../assets/home/before_linkis_en.png" alt="before" class="concept-image">
       </div>
       <div class="concept-item">
         <h3 class="concept-title">{{$t('message.home.introduce.after')}}</h3>
         <p class="home-paragraph">{{$t('message.home.introduce.after_text')}}</p>
-        <img src="../assets/home/after_linkis_en.png" alt="after" class="concept-image">
+        <img src="../../assets/home/after_linkis_en.png" alt="after" class="concept-image">
       </div>
     </div>
     <div class="description home-block">
@@ -34,7 +34,7 @@
           <a href="/#/docs/architecture/DifferenceBetween1.0&0.x" class="corner-botton blue">{{$t('message.common.learn_more')}}</a>
         </div>
       </div>
-      <img src="../assets/home/description.png" alt="description" class="description-image">
+      <img src="../../assets/home/description.png" alt="description" class="description-image">
     </div>
     <h1 class="home-block-title text-center">{{$t('message.common.core_features')}}</h1>
     <div class="features home-block">
@@ -76,8 +76,10 @@
     </div>
     <h1 class="home-block-title text-center">{{$t('message.common.our_users')}}</h1>
     <div class="show-case home-block">
-      <div class="case-item"></div>
-      <div class="case-item"></div>
+      <div class="case-item"><img src="../../assets/user/97wulian.png" alt="xx"/></div>
+      <div class="case-item"><img src="../../assets/user/aisino.png" alt="xx"/></div>
+      <div class="case-item"><img src="../../assets/user/boss.png" alt="xx"/></div>
+      <div class="case-item"><img src="../../assets/user/huazhong.jpg" alt="xx"/></div>
       <div class="case-item"></div>
       <div class="case-item"></div>
       <div class="case-item"></div>
@@ -144,6 +146,7 @@
       grid-column-gap: 20px;
       .case-item{
         height: 88px;
+        width:167px;
         background: #FFFFFF;
         box-shadow: 0 1px 20px 0 rgba(15,18,34,0.10);
         border-radius: 8px;
@@ -221,7 +224,7 @@
 </style>
 <script setup>
   import { ref } from "vue"
-  import  systemConfiguration from  "../js/config"
+  import  systemConfiguration from "../../js/config"
   // 初始化语言
   const lang = ref(localStorage.getItem('locale') || 'en');
 </script>
