@@ -151,7 +151,12 @@
         background: #FFFFFF;
         box-shadow: 0 1px 20px 0 rgba(15,18,34,0.10);
         border-radius: 8px;
-        align-content: center
+        align-items: center;
+        justify-content: center;
+        > img {
+          max-width: 90%;
+          max-height: 90%;
+        }
       }
     }
     .features{
