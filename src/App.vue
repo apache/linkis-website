@@ -17,9 +17,10 @@
     <div>
         <nav class="nav">
             <div class="ctn-block">
-                <div class="nav-logo">
-                    Apache Linkis
-                </div>
+                <router-link to="/" class="nav-logo">
+                    <img class="logo" src="/src/assets/logo.png" alt="linkis">
+                    <span>Apache Linkis</span>
+                </router-link>
                 <span class="nav-logo-badge">Incubating</span>
                 <div class="menu-list">
                     <router-link class="menu-item" to="/"><span class="label">{{$t('menu.item.home')}}</span>
@@ -103,8 +104,14 @@
         }
 
         .nav-logo {
+            display: flex;
+            align-items: center;
             line-height: 54px;
             font-weight: 500;
+            .logo{
+                height: 24px;
+                margin-right: 10px;
+            }
         }
 
         .nav-logo-badge {
