@@ -76,15 +76,9 @@
     </div>
     <h1 class="home-block-title text-center">{{$t('message.common.our_users')}}</h1>
     <div class="show-case home-block">
-      <div class="case-item"><img src="../../assets/user/97wulian.png" alt="xx"/></div>
-      <div class="case-item"><img src="../../assets/user/aisino.png" alt="xx"/></div>
-      <div class="case-item"><img src="../../assets/user/boss.png" alt="xx"/></div>
-      <div class="case-item"><img src="../../assets/user/huazhong.jpg" alt="xx"/></div>
-      <div class="case-item"></div>
-      <div class="case-item"></div>
-      <div class="case-item"></div>
-      <div class="case-item"></div>
-      <div class="case-item"></div>
+      <template  v-for="item in img">
+        <div class="case-item"> <img :src="'../../src/assets/user/'+item.url" alt="name"></div>
+      </template>
     </div>
   </div>
 </template>
@@ -227,6 +221,7 @@
 <script setup>
   import { ref } from "vue"
   import  systemConfiguration from "../../js/config"
-  // 初始化语言
+  import img from "./img";
+
   const lang = ref(localStorage.getItem('locale') || 'en');
 </script>
