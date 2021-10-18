@@ -145,11 +145,13 @@
       grid-row-gap: 20px;
       grid-column-gap: 20px;
       .case-item{
+        display: flex;
+        min-width: 0;
         height: 88px;
-        width:167px;
         background: #FFFFFF;
         box-shadow: 0 1px 20px 0 rgba(15,18,34,0.10);
         border-radius: 8px;
+        align-content: center
       }
     }
     .features{

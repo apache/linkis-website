@@ -74,6 +74,7 @@
                         <a href="http://www.apache.org/foundation/thanks.html" class="links-item">{{$t('menu.links.thanks')}}</a>
                     </div>
                 </div>
+                <img src="./assets/image/incubator-logo.png" alt="incubator-logo" class="incubator-logo">
                 <p class="footer-desc">Apache Linkis (Incubating) is an effort undergoing incubation at The Apache
                     Software Foundation, sponsored by the Apache Incubator. Incubation is required of all newly accepted
                     projects until a further review indicates that the infrastructure, communications, and decision
@@ -201,6 +202,12 @@
     .footer {
         padding-top: 40px;
         background: #F9FAFB;
+
+        .incubator-logo {
+            height: 44px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
 
         .footer-desc {
             padding: 0 20px 30px;

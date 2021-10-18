@@ -1,20 +1,16 @@
 <template>
   <div class="ctn-block team-page">
-    <p>
-      {{jsonData.info.desc}}
-    </p>
-
     <h3 class="team-title">PMC</h3>
-<!--    <p class="team-desc">Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in Github release page.</p>-->
+    <p class="team-desc">{{jsonData.info.desc}}</p>
     <ul  class="character-list">
-      <li v-for="item in jsonData.list" class="character-item text-center">
+      <li v-for="(item,index) in jsonData.list" :key="index" class="character-item text-center">
         <img class="character-avatar" :src="item.avatarUrl" :alt="item.name"/>
         <div class="character-desc">
-          <h3 class="character-name"><a href="{{utils.concatStr('https://github.com/','',item.githubId)}}" class="character-name">{{item.name}}</a></h3>
+          <h3 class="character-name"><a :href="'https://github.com/'+ item.githubId" class="character-name" target="_blank">{{item.name}}</a></h3>
         </div>
       </li>
     </ul>
-    <p v-html="jsonData.info.tip"></p>
+    <p class="team-desc" v-html="jsonData.info.tip"></p>
     <!--   <h3 class="team-title">Contributors</h3>
      <p class="team-desc">Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in Github release page.</p>
     ]<ul class="contributor-list">
