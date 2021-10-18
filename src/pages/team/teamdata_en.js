@@ -1,7 +1,6 @@
 const data = {
     info: {
-        desc: "The Linkis team is comprised of Members and Contributors. Members have direct access to the source of Linkis project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. All contributions to Linkis are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.",
-        tip: "If you want to contribute, you can go directly to the <a href=\"https://github.com/apache/incubator-linkis/\" target=\"_blank\" rel=\"noopener noreferrer\">Apache Linkis</a> and fork it."
+        desc: "The Linkis team is comprised of Members and Contributors. Members have direct access to the source of Linkis project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. All contributions to Linkis are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.<br>If you want to contribute, you can go directly to the <a class=\"link\" href=\"https://github.com/apache/incubator-linkis/\" target=\"_blank\" rel=\"noopener noreferrer\">Apache Linkis</a> and fork it."
     },
     list: [
         {

@@ -1,7 +1,6 @@
 const data = {
     info: {
-        desc: "Linkis 团队由成员和贡献者组成。 成员可以直接访问 Linkis 项目的源代码并积极开发代码库。 贡献者通过提交补丁和向成员提供建议来改进项目。 项目的贡献者数量不限。 非常感谢对 Linkis 的所有贡献，无论是琐碎的修改或清理、重大的新特性新功能，还是其他的物质奖励。",
-        tip:  '如果你想参与贡献，可以直接去<a href="https://github.com/apache/incubator-linkis" target="_blank" rel="noopener noreferrer" >Apache Linkis</a> 并fork.'
+        desc: "Linkis 团队由成员和贡献者组成。 成员可以直接访问 Linkis 项目的源代码并积极开发代码库。 贡献者通过提交补丁和向成员提供建议来改进项目。 项目的贡献者数量不限。 非常感谢对 Linkis 的所有贡献，无论是琐碎的修改或清理、重大的新特性新功能，还是其他的物质奖励。<br>如果你想参与贡献，可以直接去<a class=\"link\" href=\"https://github.com/apache/incubator-linkis\" target=\"_blank\" rel=\"noopener noreferrer\" >Apache Linkis</a> 并fork."
     },
     list: [
         {

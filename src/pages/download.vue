@@ -1,7 +1,7 @@
 <template>
   <div class="ctn-block normal-page download-page">
-    <h3 class="team-title">Download</h3>
-    <p class="team-desc">Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in <a class="desc-link" href="">Github release page</a></p>
+    <h3 class="normal-title">Download</h3>
+    <p class="normal-desc">Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in <a class="desc-link" href="">Github release page</a></p>
     <ul class="download-list">
       <li class="download-item">
         <h3 class="item-title"><span>Linkis-1.0.2</span><span><span class="release-date">Release Date: </span>2021-9-2</span></h3>

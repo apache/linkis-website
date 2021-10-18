@@ -1,7 +1,7 @@
 <template>
   <div class="ctn-block normal-page team-page">
-    <h3 class="team-title">PMC</h3>
-    <p class="team-desc">{{jsonData.info.desc}}</p>
+    <h3 class="normal-title">PMC</h3>
+    <p class="normal-desc" v-html="jsonData.info.desc"></p>
     <ul  class="character-list">
       <li v-for="(item,index) in jsonData.list" :key="index" class="character-item text-center">
         <img class="character-avatar" :src="item.avatarUrl" :alt="item.name"/>
@@ -10,9 +10,9 @@
         </div>
       </li>
     </ul>
-    <p class="team-desc" v-html="jsonData.info.tip"></p>
-    <!--   <h3 class="team-title">Contributors</h3>
-     <p class="team-desc">Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in Github release page.</p>
+    <p class="normal-desc" v-html="jsonData.info.tip"></p>
+    <!--   <h3 class="normal-title">Contributors</h3>
+     <p class="normal-desc">Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in Github release page.</p>
     ]<ul class="contributor-list">
       <li class="contributor-item">apache/apisix-go-plugin-runner</li>
      </ul>-->

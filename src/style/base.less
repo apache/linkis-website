@@ -135,5 +135,12 @@ a:visited {
   .normal-desc{
     color: @enhance-color;
     font-weight: 400;
+    .link{
+      color: @active-color;
+      text-decoration: underline;
+      &:hover{
+        text-decoration: none;
+      }
+    }
   }
 }
