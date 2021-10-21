@@ -30,7 +30,7 @@ const  img=[
     {"url":"boss直聘.png"},
     {"url":"华中科技大学.jpg"},
     {"url":"联创智融.png"},
-    {"url":"mobtech..png"},
+    {"url":"mobtech.png"},
     {"url":"西安电子科技大学.jpg"},
     {"url":"依图.png"},
     {"url":"中体彩科技.png"},
