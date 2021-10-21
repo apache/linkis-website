@@ -76,7 +76,7 @@ const data = {
             "email": "Adamyuanyuan@gmail.com",
         },
         {
-            "name": "Hui Zhu",
+            "name": "朱辉",
             "avatarUrl": "https://avatars.githubusercontent.com/u/39912100?s=60&v=4",
             "githubId": "?",
             "gitUrl": "https://github.com/?",
@@ -84,7 +84,7 @@ const data = {
             "email": "huashuizhuhui@gmail.com",
         },
         {
-            "name": "Zhen Wang",
+            "name": "王震",
             "avatarUrl": "https://avatars.githubusercontent.com/u/39912100?s=60&v=4",
             "githubId": "?",
             "gitUrl": "https://github.com/?",
@@ -92,7 +92,7 @@ const data = {
             "email": "wangzhen077@gmail.com",
         },
         {
-            "name": "Rong Zhang",
+            "name": "张荣",
             "avatarUrl": "https://avatars.githubusercontent.com/u/39478871?s=60&v=4",
             "githubId": "?",
             "gitUrl": "https://github.com/brianzhangrong",
@@ -100,7 +100,7 @@ const data = {
             "email": "brian.rongzhang@gmail.com",
         },
         {
-            "name": "Xiaohua Yi",
+            "name": "易小华",
             "avatarUrl": "https://avatars.githubusercontent.com/u/39478871?s=60&v=4",
             "githubId": "?",
             "gitUrl": "https://github.com/?",

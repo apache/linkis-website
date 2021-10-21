@@ -76,9 +76,46 @@
     </div>
     <h1 class="home-block-title text-center">{{$t('message.common.our_users')}}</h1>
     <div class="show-case home-block">
-      <template  v-for="item in img">
-        <div class="case-item"> <img :src="'../../src/assets/user/'+item.url" alt="name"></div>
-      </template>
+     <div class="case-item"> <img src="/src/assets/user/招联消费金融有限公司.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/平安.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/荣耀.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/360.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/天翼云.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/理想汽车.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/萨摩耶云.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/蔚来汽车.jpg" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/T3出行.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/百望云.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/海康威视.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/立创商城.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/红象云腾.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/艾佳生活.jpg" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/顶点软件.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/97物联.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/航天信息.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/boss直聘.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/华中科技大学.jpg" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/联创智融.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/mobtech.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/西安电子科技大学.jpg" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/依图.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/中体彩科技.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/万科采筑.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/东方通.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/中国电科.jpg" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/中通云仓.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/中国通信服务.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/之江实验室.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/信用生活.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/哗啦啦.jpg" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/圈外同学.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/云徒科技.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/成都大数据.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/杭州电魂网络.png" alt="name"></div>
+      <div class="case-item"> <img src="/src/assets/user/桔子分期.png" alt="name"></div>
+       <!-- <template  v-for="(item,index) in img" :key="index"> -->
+        <!-- <div class="case-item"> <img v-bind:src="'/src/assets/user/'+item.url" alt="name"></div> -->
+      <!-- </template> -->
     </div>
   </div>
 </template>
@@ -223,10 +260,38 @@
     }
   }
 </style>
-<script setup>
+// <script setup>
+//   import { ref } from "vue"
+//   import  systemConfiguration from "../../js/config"
+//   import img from "./img";
+
+//   const lang = ref(localStorage.getItem('locale') || 'en');
+// </script>
+
+<script >
   import { ref } from "vue"
   import  systemConfiguration from "../../js/config"
   import img from "./img";
 
-  const lang = ref(localStorage.getItem('locale') || 'en');
+  export default {
+    data() {
+      return {
+        systemConfiguration,
+        img,
+      }
+    },
+    methods:{
+      imageSrc(url) {
+            require('@/assets/user/' + url) ;
+            
+        }
+    },
+    created() {
+      const lang = localStorage.getItem('locale');
+    },
+    computed: {
+        
+    }
+
+  }
 </script>
