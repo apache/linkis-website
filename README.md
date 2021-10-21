@@ -5,13 +5,13 @@ The project is specially for Linkis, based on the newest `vite` & `vue3`
 ## Local Development
 
 ```
-wnpm i
+npm install
 npm run dev
 ```
 
 ## Publish
 
 ```
-wnpm i
+npm install
 npm run build
 ```

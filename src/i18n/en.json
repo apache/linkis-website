@@ -11,7 +11,13 @@
       "orchestration": "Orchestration",
       "reusability": "Reusability",
       "our_users": "Our Users",
-      "read_more": "Read More"
+      "read_more": "Read More",
+      "download":"Download",
+      "releaseDate": "Release Date",
+      "newFeatures":"New Features",
+      "enhancement":"Enhancement",
+      "bugFixs":"BUG fixs",
+      "changeLog":"Change Log"
     },
     "home": {
       "banner": {
