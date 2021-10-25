@@ -31,8 +31,8 @@
                     </router-link>
                     <router-link class="menu-item" to="/download"><span
                             class="label">{{$t('menu.item.download')}}</span></router-link>
-                    <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span>
-                    </router-link>
+<!--                    <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span>-->
+<!--                    </router-link>-->
                     <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span>
                     </router-link>
                     <div class="menu-item language">
@@ -70,7 +70,7 @@
                     <div class="footer-links">
                         <h3 class="links-title">{{$t('menu.links.asf')}}</h3>
                         <a href="https://www.apache.org/" class="links-item">{{$t('menu.links.foundation')}}</a>
-                        <a href="https://www.apache.org/licenses/LICENSE-2.0" class="links-item">{{$t('menu.links.license')}}</a>
+                        <a href="https://www.apache.org/licenses/" class="links-item">{{$t('menu.links.license')}}</a>
                         <a href="https://www.apache.org/foundation/sponsorship.html" class="links-item">{{$t('menu.links.sponsorship')}}</a>
                         <a href="http://www.apache.org/foundation/thanks.html" class="links-item">{{$t('menu.links.thanks')}}</a>
                     </div>

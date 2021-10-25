@@ -69,7 +69,7 @@ const routes = [{
   {
     path: '/download',
     name: 'download',
-    component: () => import( /* webpackChunkName: "group-download" */ './pages/download.vue')
+    component: () => import( /* webpackChunkName: "group-download" */ './pages/download/download.vue')
   },
   {
     path: '/blog',

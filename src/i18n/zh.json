@@ -11,7 +11,13 @@
       "orchestration": "编排",
       "reusability": "可复用性",
       "our_users": "我们的用户",
-      "read_more": "阅读更多"
+      "read_more": "阅读更多",
+      "download":"下载",
+      "releaseDate": "发布日期",
+      "newFeatures":"新增特性",
+      "enhancement":"增强点",
+      "bugFixs":"BUG修复",
+      "changeLog":"详细变更"
     },
     "home": {
       "banner": {
