@@ -17,7 +17,7 @@
 
 github:
   description: Apache Linkis documents
-  homepage: https://linkis.staged.apache.org/
+  homepage: https://linkis.apache.org/
   labels:
     - linkis
     - website
@@ -26,3 +26,7 @@ github:
 staging:
   profile: ~
   whoami:  asf-staging
+  
+# asf-site branch will show up at https://linkis.apache.org
+publish:
+  whoami:  asf-site 
