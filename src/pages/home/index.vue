@@ -30,19 +30,19 @@
     </div>
   </div>
   <div class="home-page">
-    <div class="ctn-block">
-      <div class="description home-block">
-        <div class="description-content">
-          <h1 class="home-block-title">{{$t('message.common.description')}}</h1>
-          <p class="home-paragraph">{{$t('message.home.description.paragraph1')}}
-          </p>
-          <p class="home-paragraph">{{$t('message.home.description.paragraph2')}}
-          </p>
-          <div class="botton-row">
-            <a href="/#/docs/architecture/DifferenceBetween1.0&0.x" class="corner-botton blue">{{$t('message.common.learn_more')}}</a>
-          </div>
-        </div>
+    <div class="ctn-block description">
+      <h1 class="home-block-title text-center">{{$t('message.common.description')}}</h1>
+      <div class="home-block">
+        <h3 class="home-paragraph-title">Standardized Interfaces</h3>
+        <p class="home-paragraph" style="width: 600px;">{{$t('message.home.description.paragraph1')}}</p>
         <img src="../../assets/home/description.png" alt="description" class="description-image">
+        <div style="width: 570px; margin: 0 auto;">
+          <h3 class="home-paragraph-title">Computation Governance</h3>
+          <p class="home-paragraph">{{$t('message.home.description.paragraph2')}}</p>
+        </div>
+        <div class="botton-row center">
+          <a href="/#/docs/architecture/DifferenceBetween1.0&0.x" class="corner-botton blue-fill">{{$t('message.common.learn_more')}}</a>
+        </div>
       </div>
     </div>
   </div>
@@ -148,14 +148,22 @@
       }
     }
     .description{
-      display: flex;
-      align-items: center;
-      .description-content{
-        flex: 1;
+      .home-block{
+        padding: 40px 0;
+        .botton-row{
+          padding: 20px 0 40px;
+        }
+      }
+      .home-paragraph-title{
+        font-size: 20px;
+        line-height: 44px;
+        font-weight: 600;
       }
       .description-image{
-        margin-left: 40px;
+        display: block;
         width: 630px;
+        min-height: 460px;
+        margin: 52px auto;
       }
     }
 
