@@ -95,7 +95,6 @@
 
     .nav {
         font-size: 16px;
-        box-shadow: 0 2px 4px rgba(15, 18, 34, 0.2);
         color: @enhance-color;
 
         .ctn-block {

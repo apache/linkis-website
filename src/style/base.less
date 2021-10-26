@@ -102,18 +102,24 @@ a:visited {
 }
 
 .corner-botton{
-  margin-right: 22px;
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
   padding: 0 40px;
-  height: 46px;
-  line-height: 46px;
-  border-radius: 25px;
+  height: 64px;
+  line-height: 64px;
+  border-radius: 32px;
+  font-size: 18px;
   &:last-child{
     margin-right: 0;
   }
-  &.black{
+  .button-icon{
+    margin-right: 8px;
+  }
+  &.blue-fill{
     color: #fff;
-    background: @enhance-color;
-    border: 1px solid  @enhance-color;
+    background: #1E78E0;
+    border: 1px solid  #1E78E0;
   }
   &.white{
     color: @enhance-color;
@@ -121,8 +127,8 @@ a:visited {
     border: 1px solid @enhance-color;
   }
   &.blue{
-    color: #1A529C;
-    border: 1px solid #1A529C;
+    color: #1E78E0;
+    border: 1px solid #1E78E0;
   }
 }
 
