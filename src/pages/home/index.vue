@@ -314,38 +314,6 @@
     }
   }
 </style>
-// <script setup>
-//   import { ref } from "vue"
-//   import  systemConfiguration from "../../js/config"
-//   import img from "./img";
-
-//   const lang = ref(localStorage.getItem('locale') || 'en');
-// </script>
-
-<script >
-  import { ref } from "vue"
-  import  systemConfiguration from "../../js/config"
-  import img from "./img";
-
-  export default {
-    data() {
-      return {
-        systemConfiguration,
-        img,
-      }
-    },
-    methods:{
-      imageSrc(url) {
-            require('@/assets/user/' + url) ;
-            
-        }
-    },
-    created() {
-      const lang = localStorage.getItem('locale');
-    },
-    computed: {
-        
-    }
-
-  }
+<script setup>
+  import systemConfiguration from "../../js/config"
 </script>
