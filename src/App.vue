@@ -36,15 +36,11 @@
                     <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span>
                     </router-link>
                     <div class="menu-item language">
-                        Language
+                        {{ lang === 'zh-CN' ? '语言' : 'Language'}}
                         <div class="dropdown-menu">
                             <ul class="dropdown-menu-ctn">
-                                <li class="dropdown-menu-item" :class="{active: lang === 'zh-CN'}"
-                                    @click="switchLang('zh-CN')">简体中文
-                                </li>
-                                <li class="dropdown-menu-item" :class="{active: lang === 'en'}"
-                                    @click="switchLang('en')">English
-                                </li>
+                                <li class="dropdown-menu-item" :class="{active: lang === 'zh-CN'}" @click="switchLang('zh-CN')">简体中文</li>
+                                <li class="dropdown-menu-item" :class="{active: lang === 'en'}" @click="switchLang('en')">English</li>
                             </ul>
                         </div>
                     </div>
@@ -192,7 +188,7 @@
                                 line-height: 32px;
                                 padding: 0 16px;
                                 cursor: pointer;
-
+                                white-space: nowrap;
                                 &.active,
                                 &:hover {
                                     color: @active-color;
