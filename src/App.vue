@@ -23,28 +23,19 @@
                 </router-link>
                 <span class="nav-logo-badge">Incubating</span>
                 <div class="menu-list">
-                    <router-link class="menu-item" to="/"><span class="label">{{$t('menu.item.home')}}</span>
-                    </router-link>
-                    <router-link class="menu-item" to="/docs/deploy/linkis"><span
-                            class="label">{{$t('menu.item.docs')}}</span></router-link>
-                    <router-link class="menu-item" to="/faq/index"><span class="label">{{$t('menu.item.faq')}}</span>
-                    </router-link>
-                    <router-link class="menu-item" to="/download"><span
-                            class="label">{{$t('menu.item.download')}}</span></router-link>
+                    <router-link class="menu-item" to="/"><span class="label">{{$t('menu.item.home')}}</span></router-link>
+                    <router-link class="menu-item" to="/docs/deploy/linkis"><span class="label">{{$t('menu.item.docs')}}</span></router-link>
+                    <router-link class="menu-item" to="/faq/index"><span class="label">{{$t('menu.item.faq')}}</span></router-link>
+                    <router-link class="menu-item" to="/download"><span class="label">{{$t('menu.item.download')}}</span></router-link>
 <!--                    <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span>-->
 <!--                    </router-link>-->
-                    <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span>
-                    </router-link>
+                    <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span></router-link>
                     <div class="menu-item language">
-                        Language
+                        {{ lang === 'zh-CN' ? '语言' : 'Language'}}
                         <div class="dropdown-menu">
                             <ul class="dropdown-menu-ctn">
-                                <li class="dropdown-menu-item" :class="{active: lang === 'zh-CN'}"
-                                    @click="switchLang('zh-CN')">简体中文
-                                </li>
-                                <li class="dropdown-menu-item" :class="{active: lang === 'en'}"
-                                    @click="switchLang('en')">English
-                                </li>
+                                <li class="dropdown-menu-item" :class="{active: lang === 'zh-CN'}" @click="switchLang('zh-CN')">简体中文</li>
+                                <li class="dropdown-menu-item" :class="{active: lang === 'en'}" @click="switchLang('en')">English</li>
                             </ul>
                         </div>
                     </div>
@@ -95,7 +86,6 @@
 
     .nav {
         font-size: 16px;
-        box-shadow: 0 2px 4px rgba(15, 18, 34, 0.2);
         color: @enhance-color;
 
         .ctn-block {
@@ -193,7 +183,7 @@
                                 line-height: 32px;
                                 padding: 0 16px;
                                 cursor: pointer;
-
+                                white-space: nowrap;
                                 &.active,
                                 &:hover {
                                     color: @active-color;
