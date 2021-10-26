@@ -23,18 +23,13 @@
                 </router-link>
                 <span class="nav-logo-badge">Incubating</span>
                 <div class="menu-list">
-                    <router-link class="menu-item" to="/"><span class="label">{{$t('menu.item.home')}}</span>
-                    </router-link>
-                    <router-link class="menu-item" to="/docs/deploy/linkis"><span
-                            class="label">{{$t('menu.item.docs')}}</span></router-link>
-                    <router-link class="menu-item" to="/faq/index"><span class="label">{{$t('menu.item.faq')}}</span>
-                    </router-link>
-                    <router-link class="menu-item" to="/download"><span
-                            class="label">{{$t('menu.item.download')}}</span></router-link>
+                    <router-link class="menu-item" to="/"><span class="label">{{$t('menu.item.home')}}</span></router-link>
+                    <router-link class="menu-item" to="/docs/deploy/linkis"><span class="label">{{$t('menu.item.docs')}}</span></router-link>
+                    <router-link class="menu-item" to="/faq/index"><span class="label">{{$t('menu.item.faq')}}</span></router-link>
+                    <router-link class="menu-item" to="/download"><span class="label">{{$t('menu.item.download')}}</span></router-link>
 <!--                    <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span>-->
 <!--                    </router-link>-->
-                    <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span>
-                    </router-link>
+                    <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span></router-link>
                     <div class="menu-item language">
                         {{ lang === 'zh-CN' ? '语言' : 'Language'}}
                         <div class="dropdown-menu">
