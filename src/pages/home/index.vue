@@ -16,7 +16,9 @@
           <h3 class="concept-title">{{$t('message.home.introduce.before')}}</h3>
           <div class="concept-ctn">
             <p class="home-paragraph">{{$t('message.home.introduce.before_text')}}</p>
-            <img src="../../assets/home/before_linkis_en.png" alt="before" class="concept-image">
+            <div class="before-image">
+              <img src="../../assets/home/before_linkis_en.png" alt="before" class="concept-image">
+            </div>
           </div>
         </div>
         <div class="concept-item after">
@@ -73,7 +75,7 @@
           <h3 class="item-title">{{$t('message.common.orchestration')}}</h3>
           <p class="item-desc">{{$t('message.home.core.orchestration')}}</p>
         </div>
-        <div class="feature-item">
+        <div class="feature-item reusability">
           <h3 class="item-title">{{$t('message.common.reusability')}}</h3>
           <p class="item-desc">{{$t('message.home.core.reusability')}}</p>
         </div>
@@ -205,10 +207,20 @@
 
     .concept{
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 600px);
       grid-column-gap: 20px;
       .concept-item{
         &.before{
+          .before-image{
+            background: rgb(250, 250, 251);
+            margin-left: -30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            margin-right: -30px;
+            margin-bottom: -30px;
+            padding-bottom: 30px;
+            padding-top: 40px;
+          }
           .concept-ctn{
             background: #e4e5e9;
           }
@@ -217,10 +229,18 @@
           }
         }
         &.after{
+          position: relative;
+          z-index: 10;
+          left: -60px;
+          top: 52px;
           .concept-ctn{
             background: #1E78E0;
+            box-shadow: -12px 0 34px rgba(51,89,218,0.3);
             .home-paragraph{
               color: #fff;
+            }
+            .concept-image{
+              border-radius: 4px;
             }
           }
           .concept-title{
@@ -229,8 +249,11 @@
           }
         }
         .concept-ctn{
-          padding: 60px 40px;
+          padding: 40px 30px 30px;
           border-radius: 10px;
+          .home-paragraph{
+            margin-bottom: 30px;
+          }
         }
         .concept-title{
           display: inline-block;
@@ -301,6 +324,9 @@
         }
         &.orchestration{
           background-image: url(/src/assets/home/icons/orchestration.png);
+        }
+        &.reusability{
+          background-image: url(/src/assets/home/icons/reusability.png);
         }
         .item-title{
           margin-bottom: 8px;
