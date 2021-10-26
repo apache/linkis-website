@@ -32,10 +32,17 @@
   <div class="home-page">
     <div class="ctn-block description">
       <h1 class="home-block-title text-center">{{$t('message.common.description')}}</h1>
-      <div class="home-block">
-        <h3 class="home-paragraph-title">Standardized Interfaces</h3>
-        <p class="home-paragraph" style="width: 600px;">{{$t('message.home.description.paragraph1')}}</p>
+      <div class="home-block" style="position: relative;">
+        <div style="width: 660px; padding-left: 60px;">
+          <h3 class="home-paragraph-title">Standardized Interfaces</h3>
+          <p class="home-paragraph">{{$t('message.home.description.paragraph1')}}</p>
+        </div>
+        <div class="bold-dot" style="top: 64px; left: 416px;"></div>
+        <div class="bold-dot" style="top: 728px; left: 240px;"></div>
         <img src="../../assets/home/description.png" alt="description" class="description-image">
+        <svg width="860" height="860" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="49.8" class="dotted" />
+        </svg>
         <div style="width: 570px; margin: 0 auto;">
           <h3 class="home-paragraph-title">Computation Governance</h3>
           <p class="home-paragraph">{{$t('message.home.description.paragraph2')}}</p>
@@ -154,6 +161,10 @@
           padding: 20px 0 40px;
         }
       }
+      .home-paragraph{
+        font-size: 14px;
+        background: #fff;
+      }
       .home-paragraph-title{
         font-size: 20px;
         line-height: 44px;
@@ -161,9 +172,34 @@
       }
       .description-image{
         display: block;
-        width: 630px;
+        width: 780px;
         min-height: 460px;
-        margin: 52px auto;
+        margin: 52px auto 20px;
+      }
+      .bold-dot{
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #1E78E0;
+      }
+      svg{
+        height: 860px;
+        width: 860px;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        z-index: -1;
+        margin-left: -430px;
+        circle {
+          fill: transparent;
+          stroke: #1E78E0;
+          stroke-width: 0.3;
+        }
+        .dotted {
+          stroke-dasharray: 0,3;
+          stroke-linecap: round;
+        }
       }
     }
 
