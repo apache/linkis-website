@@ -50,8 +50,7 @@
                     <router-link class="menu-item" to="/docs"><span class="label">{{$t('menu.item.docs')}}</span></router-link>
                     <router-link class="menu-item" to="/faq/index"><span class="label">{{$t('menu.item.faq')}}</span></router-link>
                     <router-link class="menu-item" to="/download"><span class="label">{{$t('menu.item.download')}}</span></router-link>
-<!--                    <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span>-->
-<!--                    </router-link>-->
+<!--                <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span></router-link>-->
                     <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span></router-link>
                     <div class="menu-item language">
                         {{ lang === 'zh-CN' ? '语言' : 'Language'}}
@@ -73,22 +72,23 @@
                 <div class="footer-links-row">
                     <div class="footer-links">
                         <h3 class="links-title">Linkis</h3>
-                        <a href="/#/docs/deploy/linkis" class="links-item">{{$t('menu.links.documentation')}}</a>
-                        <a href="/#/blog" class="links-item">{{$t('menu.links.events')}}</a>
-                        <a :href="systemConfiguration.github.projectReleaseUrl" class="links-item">{{$t('menu.links.releases')}}</a>
+                        <a href="/#/docs/introduction/index" class="links-item">{{$t('menu.links.documentation')}}</a>
+                        <!--<a href="/#/blog" class="links-item">{{$t('menu.links.events')}}</a>-->
+                        <a href="/#/faq/index" class="links-item">FAQ</a>
+                        <a :href="systemConfiguration.github.projectReleaseUrl"  target="_blank" class="links-item">{{$t('menu.links.releases')}}<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
                     </div>
                     <div class="footer-links">
                         <h3 class="links-title">{{$t('menu.links.community')}}</h3>
-                        <a :href="systemConfiguration.github.projectUrl" class="links-item">GitHub</a>
-                        <a :href="systemConfiguration.github.projectIssueUrl" class="links-item">{{$t('menu.links.issue_tracker')}}</a>
-                        <a :href="systemConfiguration.github.projectPrUrl" class="links-item">{{$t('menu.links.pull_requests')}}</a>
+                        <a :href="systemConfiguration.github.projectUrl" target="_blank" class="links-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
+                        <a :href="systemConfiguration.github.projectIssueUrl" target="_blank" class="links-item">{{$t('menu.links.issueTracker')}}<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
+                        <a :href="systemConfiguration.github.projectPrUrl"  target="_blank" class="links-item">{{$t('menu.links.pullRequests')}}<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
                     </div>
                     <div class="footer-links">
                         <h3 class="links-title">{{$t('menu.links.asf')}}</h3>
-                        <a href="https://www.apache.org/" class="links-item">{{$t('menu.links.foundation')}}</a>
-                        <a href="https://www.apache.org/licenses/" class="links-item">{{$t('menu.links.license')}}</a>
-                        <a href="https://www.apache.org/foundation/sponsorship.html" class="links-item">{{$t('menu.links.sponsorship')}}</a>
-                        <a href="http://www.apache.org/foundation/thanks.html" class="links-item">{{$t('menu.links.thanks')}}</a>
+                        <a href="https://www.apache.org/" target="_blank" class="links-item">{{$t('menu.links.foundation')}}<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
+                        <a href="https://www.apache.org/licenses/" target="_blank" class="links-item">{{$t('menu.links.license')}}<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
+                        <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" class="links-item">{{$t('menu.links.sponsorship')}}<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
+                        <a href="http://www.apache.org/foundation/thanks.html" target="_blank" class="links-item">{{$t('menu.links.thanks')}}<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
                     </div>
                 </div>
                 <img src="/src/assets/image/incubator-logo.png" alt="incubator-logo" class="incubator-logo">

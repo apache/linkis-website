@@ -10,8 +10,9 @@ const data = {
             "releaseDesc":"This release mainly introduces Flink-support into Linkis ecosystem.",
             "newFeatures":"6",
             "enhancement":"5",
-            "bugFixs":"6",
-            "changeLogUrl":""
+            "bugFixs":"5",
+            "changeLogUrl":"https://github.com/apache/incubator-linkis/releases/tag/1.0.2",
+            "downloadUrl":"https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.zip"
         }
     ]
 }

@@ -1,6 +1,6 @@
 const data = {
     info: {
-        desc: "The Linkis team is comprised of Members and Contributors. Members have direct access to the source of Linkis project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. All contributions to Linkis are greatly appreciated, whether for trivial cleanups, big new features or other material rewards.<br>If you want to contribute, you can go directly to the <a class=\"link\" href=\"https://github.com/apache/incubator-linkis/\" target=\"_blank\" rel=\"noopener noreferrer\">Apache Linkis</a> and fork it."
+        desc: "You can participate in the contribution of Apache Linkis by reporting bugs/submitting new features or improvement suggestions/submitting patches/document writing/community Q&A/organizing community activities. For detailed instructions, please refer to <a class=\"link\" href=\"#/team/contributing\" rel=\"noopener noreferrer\">[Contributor's Guide]</a>."
     },
     list: [
         {
@@ -36,14 +36,6 @@ const data = {
             "email": "wimkunkun@gmail.com",
         },
         {
-            "name": "Zhiyue Yang",
-            "avatarUrl": "https://avatars.githubusercontent.com/u/26363549?s=60&v=4",
-            "githubId": "yangzhiyue",
-            "gitUrl": "https://github.com/yangzhiyue",
-            "apacheId": "",
-            "email": "zjyzy19920513@gmail.com",
-        },
-        {
             "name": "You Liu",
             "avatarUrl": "https://avatars.githubusercontent.com/u/12731931?s=60&v=4",
             "githubId": "liuyou2",
@@ -66,6 +58,30 @@ const data = {
             "gitUrl": "https://github.com/leeebai",
             "apacheId": "",
             "email": "blgg931026@gmail.com",
+        },
+        {
+            "name": "Ke Zhou",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/5548534?s=60&v=4",
+            "githubId": "?",
+            "gitUrl": "https://github.com/?",
+            "apacheId": "",
+            "email": "bleachzk@gmail.com",
+        },
+        {
+            "name": "Jian Xie",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/5548534?s=60&v=4",
+            "githubId": "?",
+            "gitUrl": "https://github.com/?",
+            "apacheId": "",
+            "email": "Jackyxxie@gmail.com",
+        },
+        {
+            "name": "Zhiyue Yang",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/26363549?s=60&v=4",
+            "githubId": "yangzhiyue",
+            "gitUrl": "https://github.com/yangzhiyue",
+            "apacheId": "",
+            "email": "zjyzy19920513@gmail.com",
         },
         {
             "name": "Xiaogang Wang",
@@ -106,23 +122,6 @@ const data = {
             "gitUrl": "https://github.com/?",
             "apacheId": "",
             "email": "yixiaohuamax@gmail.com",
-        },
-        {
-            "name": "Ke Zhou",
-            "avatarUrl": "https://avatars.githubusercontent.com/u/5548534?s=60&v=4",
-            "githubId": "?",
-            "gitUrl": "https://github.com/?",
-            "apacheId": "",
-            "email": "bleachzk@gmail.com",
-        },
-
-        {
-            "name": "Jian Xie",
-            "avatarUrl": "https://avatars.githubusercontent.com/u/5548534?s=60&v=4",
-            "githubId": "?",
-            "gitUrl": "https://github.com/?",
-            "apacheId": "",
-            "email": "Jackyxxie@gmail.com",
         }
     ]
 }

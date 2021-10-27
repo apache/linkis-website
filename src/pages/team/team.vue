@@ -1,7 +1,11 @@
 <template>
   <div class="ctn-block normal-page team-page">
-    <h3 class="normal-title">PMC</h3>
+    <h3 class="normal-title">Contributing</h3>
+    <br>
     <p class="normal-desc" v-html="jsonData.info.desc"></p>
+    <br>
+    <h3 class="normal-title">PPMC</h3>
+    <p class="normal-desc"> (排名不分先后)</p>
     <ul  class="character-list">
       <a :href="'https://github.com/'+ item.githubId" v-for="(item,index) in jsonData.list" :key="index" target="_blank">
         <li class="character-item text-center">

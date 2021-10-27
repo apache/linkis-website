@@ -1,22 +1,22 @@
 {
   "message": {
     "common": {
-      "get_start": "开始",
+      "getStart": "开始",
       "description": "描述",
-      "learn_more": "了解更多",
-      "core_features": "核心功能",
+      "learnMore": "了解更多",
+      "coreFeatures": "核心功能",
       "connectivity": "连通性",
       "scalability": "可扩展性",
       "controllability": "可控性",
       "orchestration": "编排",
       "reusability": "可复用性",
-      "our_users": "我们的用户",
-      "read_more": "阅读更多",
+      "ourUsers": "Our Users",
+      "readMore": "阅读更多",
       "download":"下载",
       "releaseDate": "发布日期",
-      "newFeatures":"新增特性",
+      "newFeatures":"新特性",
       "enhancement":"增强点",
-      "bugFixs":"BUG修复",
+      "bugFixs":"Bug修复",
       "changeLog":"详细变更"
     },
     "home": {
@@ -24,13 +24,15 @@
         "slogan": "通过构建计算中间件层来解耦上层应用程序和底层数据引擎"
       },
       "introduce": {
-        "title": "计算治理理念",
+        "title": "计算中间件",
         "before": "没有Linkis之前",
         "after": "有Linkis之后",
-        "before_text": "每个上层应用以紧耦合的方式直接连接和访问各种底层引擎，这使得大数据平台成为一个复杂的网络架构",
-        "after_text": "在丰富的上层应用和丰富的底层引擎之间构建一个公共的“计算中间件”层，以标准化的可复用方式解决这些复杂的连接问题"
+        "beforeText": "每个上层应用以紧耦合的方式直接连接和访问各种底层引擎，这种方式使得大数据平台成为一个复杂的网络架构",
+        "afterText": "在丰富的上层应用和丰富的底层引擎之间构建一个公共的“计算中间件”层，以标准化的可复用方式解决这些复杂的连接问题"
       },
       "description": {
+        "standardizedInterfaces":"标准接口",
+        "computationGovernance":"计算治理",
         "paragraph1": "Linkis 提供标准化接口（REST、JDBC、WebSocket 等），方便连接各种底层引擎（Spark、Presto、Flink 等），充当上层应用层和底层引擎层之间的代理",
         "paragraph2": "Linkis 能够促进 OLAP、OLTP（开发）、Streaming 等不同类型引擎的连接、治理和编排能力，并以标准化的可重用方式处理所有这些“计算治理”事务."
       },
@@ -57,8 +59,8 @@
       "events":"动态",
       "releases":"版本",
       "community":"社区",
-      "issue_tracker":"Issue追踪",
-      "pull_requests":"Pull Request",
+      "issueTracker":"Issue追踪",
+      "pullRequests":"Pull Request",
       "asf":"ASF",
       "foundation":"基金会",
       "license":"证书",
