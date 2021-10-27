@@ -42,7 +42,9 @@
                 </div>
             </div>
         </nav>
-        <router-view></router-view>
+        <div class="app-content">
+            <router-view></router-view>
+        </div>
         <footer class="footer">
             <div class="ctn-block">
                 <div class="footer-links-row">
@@ -85,6 +87,10 @@
     @import url('/src/style/base.less');
 
     .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         font-size: 16px;
         color: @enhance-color;
 
@@ -109,7 +115,7 @@
             margin-left: 4px;
             padding: 0 8px;
             line-height: 24px;
-            background: #E8E8E8;
+            background: #d7e3fc;
             border-radius: 4px;
             font-size: 12px;
             font-weight: 400;
@@ -194,6 +200,10 @@
                 }
             }
         }
+    }
+
+    .app-content {
+        padding-top: 54px;
     }
 
     .footer {
