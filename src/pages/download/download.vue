@@ -4,15 +4,15 @@
     <p class="normal-desc" v-html="jsonData.info.desc"></p>
     <ul class="download-list" v-for="item in jsonData.list">
       <li class="download-item">
-        <h3 class="item-title"><span>Linkis-{{item.version}}</span><span><span class="release-date">Release Date: </span>{{item.releaseDate}}</span></h3>
+        <h3 class="item-title"><span>Linkis-{{item.version}}</span><span><span class="release-date">{{$t('message.common.releaseDate')}}:</span>{{item.releaseDate}}</span></h3>
         <p class="item-desc">{{item.releaseDesc}}</p>
         <ul class="item-info">
           <li class="info-tag">{{$t('message.common.newFeatures')}} <span class="nums">{{item.newFeatures}}</span></li>
           <li class="info-tag">{{$t('message.common.enhancement')}} <span class="nums">{{item.enhancement}}</span></li>
           <li class="info-tag">{{$t('message.common.bugFixs')}} <span class="nums">{{item.bugFixs}}</span></li>
-          <li class="info-tag">{{$t('message.common.changeLog')}} </li>
+          <li class="info-tag"><a :href=item.changeLogUrl target="_blank" >{{$t('message.common.changeLog')}}</a> </li>
         </ul>
-        <a :href="systemConfiguration.github.projectReleaseUrl+'/tag/'+item.version" class="corner-botton blue">{{$t('message.common.download')}}</a>
+        <a :href=item.downloadUrl class="corner-botton blue">{{$t('message.common.download')}}</a>
       </li>
     </ul>
   </div>

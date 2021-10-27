@@ -5,8 +5,8 @@
 <script setup>
   import { ref } from "vue";
 
-  import docEn from '../../../docs/deploy/linkis_en.md';
-  import docZh from '../../../docs/deploy/linkis_zh.md';
+  import docEn from './linkis_en.md';
+  import docZh from './linkis_zh.md';
 
   // 初始化语言
   const lang = ref(localStorage.getItem('locale') || 'en');

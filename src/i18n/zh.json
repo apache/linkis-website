@@ -10,11 +10,11 @@
       "controllability": "可控性",
       "orchestration": "编排",
       "reusability": "可复用性",
-      "our_users": "我们的用户",
+      "our_users": "Our Users",
       "read_more": "阅读更多",
       "download":"下载",
       "releaseDate": "发布日期",
-      "newFeatures":"新增特性",
+      "newFeatures":"新特性",
       "enhancement":"增强点",
       "bugFixs":"BUG修复",
       "changeLog":"详细变更"
@@ -24,10 +24,10 @@
         "slogan": "通过构建计算中间件层来解耦上层应用程序和底层数据引擎"
       },
       "introduce": {
-        "title": "计算治理理念",
+        "title": "计算中间件",
         "before": "没有Linkis之前",
         "after": "有Linkis之后",
-        "before_text": "每个上层应用以紧耦合的方式直接连接和访问各种底层引擎，这使得大数据平台成为一个复杂的网络架构",
+        "before_text": "每个上层应用以紧耦合的方式直接连接和访问各种底层引擎，这种方式使得大数据平台成为一个复杂的网络架构",
         "after_text": "在丰富的上层应用和丰富的底层引擎之间构建一个公共的“计算中间件”层，以标准化的可复用方式解决这些复杂的连接问题"
       },
       "description": {

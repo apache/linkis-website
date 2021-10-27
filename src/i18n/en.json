@@ -16,15 +16,15 @@
       "releaseDate": "Release Date",
       "newFeatures":"New Features",
       "enhancement":"Enhancement",
-      "bugFixs":"BUG fixs",
+      "bugFixs":"Bug Fixs",
       "changeLog":"Change Log"
     },
     "home": {
       "banner": {
-        "slogan": "Decouple the upper applications and the underlying data<br>engines by building a computation middleware layer."
+        "slogan": "Decouple the upper applications and the underlying data engines by building a computation middleware layer."
       },
       "introduce": {
-        "title": "Computation Governance Concept",
+        "title": "Computation Middleware",
         "before": "Before",
         "after": "After",
         "before_text": "Each upper application directly connects to and accesses various underlying engines in a tightly coupled way, which makes big data platform a complex network architecture.",

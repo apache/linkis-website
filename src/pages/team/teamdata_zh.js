@@ -1,6 +1,6 @@
 const data = {
     info: {
-        desc: "Linkis 团队由成员和贡献者组成。 成员可以直接访问 Linkis 项目的源代码并积极开发代码库。 贡献者通过提交补丁和向成员提供建议来改进项目。 项目的贡献者数量不限。 非常感谢对 Linkis 的所有贡献，无论是琐碎的修改或清理、重大的新特性新功能，还是其他的物质奖励。<br>如果你想参与贡献，可以直接去<a class=\"link\" href=\"https://github.com/apache/incubator-linkis\" target=\"_blank\" rel=\"noopener noreferrer\" >Apache Linkis</a> 并fork."
+        desc: "您可以通过上报bug/提交新功能或改进建议/提交补丁/文档编写/社区答疑/组织社区活动等方式参与到Apache Linkis的贡献中，详细指引参见<a class=\"link\" href=\"#/team/contributing\" rel=\"noopener noreferrer\">【贡献者指南】</a>。"
     },
     list: [
         {
@@ -36,14 +36,6 @@ const data = {
             "email": "wimkunkun@gmail.com",
         },
         {
-            "name": "杨峙岳",
-            "avatarUrl": "https://avatars.githubusercontent.com/u/26363549?s=60&v=4",
-            "githubId": "yangzhiyue",
-            "gitUrl": "https://github.com/yangzhiyue",
-            "apacheId": "",
-            "email": "zjyzy19920513@gmail.com",
-        },
-        {
             "name": "刘有",
             "avatarUrl": "https://avatars.githubusercontent.com/u/12731931?s=60&v=4",
             "githubId": "liuyou2",
@@ -66,6 +58,30 @@ const data = {
             "gitUrl": "https://github.com/leeebai",
             "apacheId": "",
             "email": "blgg931026@gmail.com",
+        },
+        {
+            "name": "周可",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/5548534?s=60&v=4",
+            "githubId": "?",
+            "gitUrl": "https://github.com/?",
+            "apacheId": "",
+            "email": "bleachzk@gmail.com",
+        },
+        {
+            "name": "谢建",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/5548534?s=60&v=4",
+            "githubId": "?",
+            "gitUrl": "https://github.com/?",
+            "apacheId": "",
+            "email": "Jackyxxie@gmail.com",
+        },
+        {
+            "name": "杨峙岳",
+            "avatarUrl": "https://avatars.githubusercontent.com/u/26363549?s=60&v=4",
+            "githubId": "yangzhiyue",
+            "gitUrl": "https://github.com/yangzhiyue",
+            "apacheId": "",
+            "email": "zjyzy19920513@gmail.com",
         },
         {
             "name": "王小刚",
@@ -106,23 +122,6 @@ const data = {
             "gitUrl": "https://github.com/?",
             "apacheId": "",
             "email": "yixiaohuamax@gmail.com",
-        },
-        {
-            "name": "周可",
-            "avatarUrl": "https://avatars.githubusercontent.com/u/5548534?s=60&v=4",
-            "githubId": "?",
-            "gitUrl": "https://github.com/?",
-            "apacheId": "",
-            "email": "bleachzk@gmail.com",
-        },
-
-        {
-            "name": "谢建",
-            "avatarUrl": "https://avatars.githubusercontent.com/u/5548534?s=60&v=4",
-            "githubId": "?",
-            "gitUrl": "https://github.com/?",
-            "apacheId": "",
-            "email": "Jackyxxie@gmail.com",
         }
     ]
 }
