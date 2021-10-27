@@ -1,7 +1,7 @@
 const data = {
     info: {
         tip:"(排名不分先后)",
-        desc: "您可以通过上报bug/提交新功能或改进建议/提交补丁/文档编写/社区答疑/组织社区活动等方式参与到Apache Linkis的贡献中，详细指引参见<a class=\"link\" href=\"#/team/contributing\" rel=\"noopener noreferrer\">【贡献者指南】</a>。"
+        desc: "您可以通过上报bug/提交新功能或改进建议/提交补丁/文档编写/社区答疑/组织社区活动等方式参与到Apache Linkis的贡献中，详细指引参见<a class=\"link\" href=\"#/team/contributing\" rel=\"noopener noreferrer\">贡献者指南</a>。"
     },
     list: [
         {

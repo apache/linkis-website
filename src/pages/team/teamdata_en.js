@@ -1,7 +1,7 @@
 const data = {
     info: {
         tip:"(In no particular order)",
-        desc: "You can participate in the contribution of Apache Linkis by reporting bugs/submitting new features or improvement suggestions/submitting patches/document writing/community Q&A/organizing community activities. For detailed instructions, please refer to <a class=\"link\" href=\"#/team/contributing\" rel=\"noopener noreferrer\">[Contributor's Guide]</a>."
+        desc: "You can participate in the contribution of Apache Linkis by reporting bugs/submitting new features or improvement suggestions/submitting patches/document writing/community Q&A/organizing community activities. For detailed instructions, please refer to <a class=\"link\" href=\"#/team/contributing\" rel=\"noopener noreferrer\">Contributor's Guide</a>."
     },
     list: [
         {

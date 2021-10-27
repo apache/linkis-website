@@ -53,7 +53,7 @@
 <!--                <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span></router-link>-->
                     <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span></router-link>
                     <div class="menu-item language">
-                        {{ lang === 'zh-CN' ? '语言' : 'Language'}}
+                        {{ lang === 'zh-CN' ? '简体中文' : 'English'}}
                         <div class="dropdown-menu">
                             <ul class="dropdown-menu-ctn">
                                 <li class="dropdown-menu-item" :class="{active: lang === 'zh-CN'}" @click="switchLang('zh-CN')">简体中文</li>

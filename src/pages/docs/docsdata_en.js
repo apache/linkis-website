@@ -169,7 +169,7 @@ const data = {
                     link: '/docs/architecture/public_service',
                 },
                 {
-                    title: 'Microservice Governance Services',
+                    title: 'Microservice Governance',
                     link: '/docs/architecture/microservice_governance',
                 },
                 {
