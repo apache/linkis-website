@@ -1,7 +1,7 @@
 import  systemConfiguration from "../../js/config"
 const data = {
     info: {
-        desc: "使用下面列表中的链接下载所需要的Apache Linkis (Incubating) 版本. 可以在 <a class=\"desc-link\" href=\""+systemConfiguration.github.projectReleaseUrl+"\">Github发布页</a>上查看所有历史发布版本</p>"
+        desc: "使用下面列表中的链接下载所需要的Apache Linkis (Incubating) 版本. 可以在 <a class=\"link\" href=\""+systemConfiguration.github.projectReleaseUrl+"\">Github发布页</a>上查看所有历史发布版本</p>"
     },
     list: [
         {
