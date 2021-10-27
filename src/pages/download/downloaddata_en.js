@@ -1,7 +1,7 @@
 import  systemConfiguration from "../../js/config"
 const data = {
     info: {
-        desc: "Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in <a class=\"link\" href=\""+systemConfiguration.github.projectReleaseUrl+"\">Github release page</a></p>"
+        desc: "Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in <a class=\"link\" target=\"_blank\" href=\""+systemConfiguration.github.projectReleaseUrl+"\">Github release page</a></p>"
     },
     list: [
         {
