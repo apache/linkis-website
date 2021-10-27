@@ -5,9 +5,12 @@ const routes = [{
   },
   {
     path: '/docs',
-    name: 'docs',
     component: () => import( /* webpackChunkName: "group-docs" */ './pages/docs/index.vue'),
     children: [{
+      path: '',
+      name: 'docsIndex',
+      component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/main.vue')
+    },{
       path: 'deploy',
       name: 'docDeploy',
       component: () => import( /* webpackChunkName: "group-doc_linkis" */ './pages/docs/deploy/main.vue')

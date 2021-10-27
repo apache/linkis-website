@@ -47,7 +47,7 @@
                 <span class="nav-logo-badge">Incubating</span>
                 <div class="menu-list">
                     <router-link class="menu-item" to="/"><span class="label">{{$t('menu.item.home')}}</span></router-link>
-                    <router-link class="menu-item" to="/docs/deploy/linkis"><span class="label">{{$t('menu.item.docs')}}</span></router-link>
+                    <router-link class="menu-item" to="/docs"><span class="label">{{$t('menu.item.docs')}}</span></router-link>
                     <router-link class="menu-item" to="/faq/index"><span class="label">{{$t('menu.item.faq')}}</span></router-link>
                     <router-link class="menu-item" to="/download"><span class="label">{{$t('menu.item.download')}}</span></router-link>
 <!--                    <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span>-->
@@ -165,6 +165,7 @@
                 user-select: none;
 
                 &:hover,
+                &.router-link-active,
                 &.router-link-exact-active {
                     .label {
                         color: @active-color;
