@@ -3,6 +3,8 @@
     // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
     import {ref} from "vue";
     import systemConfiguration from "./js/config";
+    let isNavActive = ref(false);
+
     // 初始化语言
     const lang = ref(localStorage.getItem('locale'));
 
@@ -11,11 +13,32 @@
         localStorage.setItem('locale', lang);
         location.reload();
     }
+
+    var ticking = false;
+    
+    function onScroll(){
+        if(!ticking) {
+            requestAnimationFrame(scrollFunc);
+            ticking = true;
+        }
+    }
+
+    function scrollFunc(){
+        const dist = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (dist > 54) {
+            isNavActive.value = true;
+        } else {
+            isNavActive.value = false;
+        }
+        ticking = false;
+    }
+    // 滚动事件监听
+    window.addEventListener('scroll', onScroll, false);
 </script>
 
 <template>
-    <div>
-        <nav class="nav">
+    <div id="appCtn">
+        <nav class="nav" :class="{ active: isNavActive }">
             <div class="ctn-block">
                 <router-link to="/" class="nav-logo">
                     <img class="logo" src="/src/assets/logo.png" alt="linkis">
@@ -88,11 +111,17 @@
 
     .nav {
         position: fixed;
+        z-index: 100;
         top: 0;
         left: 0;
         width: 100%;
         font-size: 16px;
         color: @enhance-color;
+
+        &.active {
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(15, 18, 34, 0.1);
+        }
 
         .ctn-block {
             display: flex;
