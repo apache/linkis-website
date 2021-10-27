@@ -5,7 +5,7 @@
     <p class="normal-desc" v-html="jsonData.info.desc"></p>
     <br>
     <h3 class="normal-title">PPMC</h3>
-    <p class="normal-desc"> (排名不分先后)</p>
+    <p class="normal-desc">{{jsonData.info.tip}}</p>
     <ul  class="character-list">
       <li v-for="(item,index) in jsonData.list" :key="index" class="character-item text-center">
         <img class="character-avatar" :src="item.avatarUrl" :alt="item.name"/>
@@ -14,7 +14,7 @@
         </div>
       </li>
     </ul>
-    <p class="normal-desc" v-html="jsonData.info.tip"></p>
+    <!-- <p class="normal-desc" v-html="jsonData.info.tip"></p> -->
     <!--   <h3 class="normal-title">Contributors</h3>
      <p class="normal-desc">Use the links below to download the Apache Linkis (Incubating) Releases. See all Linkis releases in Github release page.</p>
     ]<ul class="contributor-list">
