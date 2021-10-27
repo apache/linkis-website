@@ -192,7 +192,7 @@
         width: 14px;
         height: 14px;
         border-radius: 50%;
-        background: #1E78E0;
+        background: @active-color;
       }
       svg{
         height: 860px;
@@ -204,7 +204,7 @@
         margin-left: -430px;
         circle {
           fill: transparent;
-          stroke: #1E78E0;
+          stroke: @active-color;
           stroke-width: 0.3;
         }
         .dotted {
@@ -243,7 +243,7 @@
           left: -60px;
           top: 52px;
           .concept-ctn{
-            background: #1E78E0;
+            background: @active-color;
             box-shadow: -12px 0 34px rgba(51,89,218,0.3);
             .home-paragraph{
               color: #fff;
@@ -254,7 +254,7 @@
           }
           .concept-title{
             color: #fff;
-            background: #1E78E0;
+            background: @active-color;
           }
         }
         .concept-ctn{
@@ -364,14 +364,14 @@
         }
 
         .linkis {
-          color: #1E78E0;
+          color: @active-color;
           font-weight: 600;
         }
 
         .badge {
           font-size: 24px;
           font-weight: 500;
-          color: #1E78E0;
+          color: @active-color;
         }
       }
 

@@ -162,6 +162,7 @@
                 border-bottom: 2px solid transparent;
                 transition: all ease .2s;
                 cursor: pointer;
+                user-select: none;
 
                 &:hover,
                 &.router-link-exact-active {
