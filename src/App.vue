@@ -3,6 +3,8 @@
     // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
     import {ref} from "vue";
     import systemConfiguration from "./js/config";
+    let isNavActive = ref(false);
+
     // 初始化语言
     const lang = ref(localStorage.getItem('locale'));
 
@@ -11,11 +13,32 @@
         localStorage.setItem('locale', lang);
         location.reload();
     }
+
+    var ticking = false;
+    
+    function onScroll(){
+        if(!ticking) {
+            requestAnimationFrame(scrollFunc);
+            ticking = true;
+        }
+    }
+
+    function scrollFunc(){
+        const dist = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+        if (dist > 54) {
+            isNavActive.value = true;
+        } else {
+            isNavActive.value = false;
+        }
+        ticking = false;
+    }
+    // 滚动事件监听
+    window.addEventListener('scroll', onScroll, false);
 </script>
 
 <template>
-    <div>
-        <nav class="nav">
+    <div id="appCtn">
+        <nav class="nav" :class="{ active: isNavActive }">
             <div class="ctn-block">
                 <router-link to="/" class="nav-logo">
                     <img class="logo" src="/src/assets/logo.png" alt="linkis">
@@ -24,7 +47,7 @@
                 <span class="nav-logo-badge">Incubating</span>
                 <div class="menu-list">
                     <router-link class="menu-item" to="/"><span class="label">{{$t('menu.item.home')}}</span></router-link>
-                    <router-link class="menu-item" to="/docs/introduction/index"><span class="label">{{$t('menu.item.docs')}}</span></router-link>
+                    <router-link class="menu-item" to="/docs"><span class="label">{{$t('menu.item.docs')}}</span></router-link>
                     <router-link class="menu-item" to="/faq/index"><span class="label">{{$t('menu.item.faq')}}</span></router-link>
                     <router-link class="menu-item" to="/download"><span class="label">{{$t('menu.item.download')}}</span></router-link>
 <!--                <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span></router-link>-->
@@ -41,7 +64,9 @@
                 </div>
             </div>
         </nav>
-        <router-view></router-view>
+        <div class="app-content">
+            <router-view></router-view>
+        </div>
         <footer class="footer">
             <div class="ctn-block">
                 <div class="footer-links-row">
@@ -85,8 +110,18 @@
     @import url('/src/style/base.less');
 
     .nav {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
         font-size: 16px;
         color: @enhance-color;
+
+        &.active {
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(15, 18, 34, 0.1);
+        }
 
         .ctn-block {
             display: flex;
@@ -109,7 +144,7 @@
             margin-left: 4px;
             padding: 0 8px;
             line-height: 24px;
-            background: #E8E8E8;
+            background: #d7e3fc;
             border-radius: 4px;
             font-size: 12px;
             font-weight: 400;
@@ -127,8 +162,10 @@
                 border-bottom: 2px solid transparent;
                 transition: all ease .2s;
                 cursor: pointer;
+                user-select: none;
 
                 &:hover,
+                &.router-link-active,
                 &.router-link-exact-active {
                     .label {
                         color: @active-color;
@@ -194,6 +231,10 @@
                 }
             }
         }
+    }
+
+    .app-content {
+        padding-top: 54px;
     }
 
     .footer {
