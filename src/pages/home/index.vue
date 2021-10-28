@@ -324,7 +324,7 @@
         padding: 126px 50px 24px;
         background-repeat: no-repeat;
         background-size: 80px;
-        background-position: center 20px;
+        background-position: center 30px;
         &:nth-child(3n+3){
           margin-right: 0;
         }
