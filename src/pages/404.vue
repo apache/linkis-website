@@ -2,7 +2,7 @@
   <div  v-if="lang === 'en'" class="ctn-block normal-page">
     <h1>Sorry,Page Not Found!!!</h1>
     <br>
-    <p>You can contact us via email(dev@linkis.incubator.apache.org) or submit an issue via github</p>
+    <p>You can contact us via email(dev@linkis.incubator.apache.org) or submitting an issue on github</p>
     <br>
    </div>
    <div  v-else class="ctn-block normal-page">
