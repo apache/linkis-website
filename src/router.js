@@ -120,9 +120,9 @@ const routes = [{
         name: 'architectureEngineStartProcess',
         component: () => import( /* webpackChunkName: "group-doc_EngineStartProcess" */ './pages/docs/architecture/engine_start_process.vue')
       }, {
-        path: 'architecture/difference_1.0_and_0.x',
-        name: 'architectureDifference_1.0_and_0.x',
-        component: () => import( /* webpackChunkName: "group-doc_Difference_1.0_and_0.x" */ './pages/docs/architecture/difference_1.0_and_0.x.vue')
+        path: 'architecture/difference',
+        name: 'architectureDifference',
+        component: () => import( /* webpackChunkName: "group-doc_Difference" */ './pages/docs/architecture/difference.vue')
       },
       {
         path: 'architecture/job_submission',

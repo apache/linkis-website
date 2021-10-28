@@ -5,8 +5,8 @@
 <script setup>
   import { ref } from "vue";
 
-  import docEn from './difference_1.0_and_0.x_en.md';
-  import docZh from './difference_1.0_and_0.x_zh.md';
+  import docEn from './difference_en.md';
+  import docZh from './difference_zh.md';
 
   // 初始化语言
   const lang = ref(localStorage.getItem('locale') || 'en');
