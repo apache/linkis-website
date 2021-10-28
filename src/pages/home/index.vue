@@ -95,8 +95,9 @@
         <div class="case-item"> <img src="/src/assets/user/荣耀.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/360.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/天翼云.png" alt="name"></div>
+        <div class="case-item"> <img src="/src/assets/user/boss直聘.png" alt="name"></div>
+         <div class="case-item"> <img src="/src/assets/user/萨摩耶云.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/理想汽车.png" alt="name"></div>
-        <div class="case-item"> <img src="/src/assets/user/萨摩耶云.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/蔚来汽车.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/T3出行.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/百望云.png" alt="name"></div>
@@ -107,7 +108,7 @@
         <div class="case-item"> <img src="/src/assets/user/顶点软件.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/97物联.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/航天信息.png" alt="name"></div>
-        <div class="case-item"> <img src="/src/assets/user/boss直聘.png" alt="name"></div>
+        <div class="case-item"> <img src="/src/assets/user/桔子分期.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/华中科技大学.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/联创智融.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/mobtech.png" alt="name"></div>
@@ -125,8 +126,7 @@
         <div class="case-item"> <img src="/src/assets/user/圈外同学.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/云徒科技.png" alt="name"></div>
         <div class="case-item"> <img src="/src/assets/user/成都大数据.png" alt="name"></div>
-        <div class="case-item"> <img src="/src/assets/user/杭州电魂网络.png" alt="name"></div>
-        <div class="case-item"> <img src="/src/assets/user/桔子分期.png" alt="name"></div>
+         <!--<div class="case-item"> <img src="/src/assets/user/杭州电魂网络.png" alt="name"></div> -->
         <!-- <template  v-for="(item,index) in img" :key="index"> -->
           <!-- <div class="case-item"> <img v-bind:src="'/src/assets/user/'+item.url" alt="name"></div> -->
         <!-- </template> -->
