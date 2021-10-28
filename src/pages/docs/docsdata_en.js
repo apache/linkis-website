@@ -3,7 +3,7 @@ const data = {
     list: [
         {
             title: 'Apache Linkis Introduction',
-            link: '/docs',
+            link: '/docs/introduction/index',
         },
         {
             title: 'Deployment',
