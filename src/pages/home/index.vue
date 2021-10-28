@@ -21,7 +21,8 @@
           <div class="concept-ctn">
             <p class="home-paragraph">{{$t('message.home.introduce.beforeText')}}</p>
             <div class="before-image">
-              <img src="../../assets/home/before_linkis_en.png" alt="before" class="concept-image">
+              <img  v-if="lang === 'en'" src="../../assets/home/before_linkis_en.png" alt="before" class="concept-image">
+              <img  v-else src="../../assets/home/before_linkis_zh.png" alt="before" class="concept-image">
             </div>
           </div>
         </div>
@@ -29,7 +30,8 @@
           <h3 class="concept-title">{{$t('message.home.introduce.after')}}</h3>
           <div class="concept-ctn">
             <p class="home-paragraph">{{$t('message.home.introduce.afterText')}}</p>
-            <img src="../../assets/home/after_linkis_en.png" alt="after" class="concept-image">
+              <img  v-if="lang === 'en'" src="../../assets/home/after_linkis_en.png" alt="after" class="concept-image">
+              <img  v-else src="../../assets/home/after_linkis_zh.png" alt="after" class="concept-image">
           </div>
         </div>
       </div>
@@ -401,4 +403,8 @@
 </style>
 <script setup>
   import systemConfiguration from "../../js/config"
+  import { ref } from "vue";
+  // 初始化语言
+  const lang = ref(localStorage.getItem('locale') || 'en');
+
 </script>
