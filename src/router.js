@@ -8,7 +8,7 @@ const routes = [{
     component: () => import( /* webpackChunkName: "group-docs" */ './pages/docs/index.vue'),
     children: [
       {
-        path: '',
+        path: 'introduction/index',
         name: 'introductionIndex',
         component: () => import( /* webpackChunkName: "group-doc_index" */ './pages/docs/introduction/index.vue')
       }, {
@@ -224,15 +224,15 @@ const routes = [{
     name: 'teamContributing',
     component: () => import( /* webpackChunkName: "group-contributing" */ './pages/team/contributing.vue')
   },
-  {
-    path: '/404',
-    name: 'PageNotExist',
-    component: () => import( /* webpackChunkName: "group-pageNotFound" */ './pages/404.vue')
-  },
-  {
-    path: "/:catchAll(.*)", // 不识别的path自动匹配404
-    redirect: '/404',
-  }
+//  {
+//    path: '/404',
+//    name: 'PageNotExist',
+//    component: () => import( /* webpackChunkName: "group-pageNotFound" */ './pages/404.vue')
+//  },
+//  {
+//    path: "/:catchAll(.*)", // 不识别的path自动匹配404
+//    redirect: '/404',
+//  }
 
 ]
 
