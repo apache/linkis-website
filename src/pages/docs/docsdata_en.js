@@ -113,7 +113,7 @@ const data = {
                 },
                 {
                     title: 'Difference Between1.0 And 0.x',
-                    link: '/docs/architecture/difference_1.0_and_0.x',
+                    link: '/docs/architecture/difference',
                 },
                 {
                     title: 'Computation Governance',

@@ -112,7 +112,7 @@ const data = {
                 },
                 {
                     title: 'Linkis1.0与Linkis0.X的区别简述',
-                    link: '/docs/architecture/difference_1.0_and_0.x',
+                    link: '/docs/architecture/difference',
                 },
                 {
                     title: '计算治理服务架构设计',
