@@ -222,8 +222,18 @@ const routes = [{
   {
     path: '/team/contributing',
     name: 'teamContributing',
-    component: () => import( /* webpackChunkName: "group-contributing" */ './pages//team/contributing.vue')
+    component: () => import( /* webpackChunkName: "group-contributing" */ './pages/team/contributing.vue')
   },
+  {
+    path: '/404',
+    name: 'PageNotExist',
+    component: () => import( /* webpackChunkName: "group-pageNotFound" */ './pages/404.vue')
+  },
+  {
+    path: "/:catchAll(.*)", // 不识别的path自动匹配404
+    redirect: '/404',
+  }
+
 ]
 
 export default routes;
