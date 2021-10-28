@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <div class="home-page">
+  <div class="home-page introduce">
     <div class="ctn-block">
       <h1 class="home-block-title text-center">{{$t('message.home.introduce.title')}}</h1>
       <div class="concept home-block">
@@ -149,6 +149,9 @@
       margin-top: -54px;
       background: #eee url(/src/assets/home/banner_bg.png) center no-repeat;
       background-size: cover;
+    }
+    &.introduce{
+      padding-bottom: 100px;
     }
     .home-block-title{
       margin-bottom: 20px;
