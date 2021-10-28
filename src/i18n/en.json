@@ -21,7 +21,7 @@
     },
     "home": {
       "banner": {
-        "slogan": "Decouple the upper applications and the underlying data engines by building a computation middleware layer."
+        "slogan": "Decouple the upper applications and the underlying data engines<br>by building a computation middleware layer."
       },
       "introduce": {
         "title": "Computation Middleware",

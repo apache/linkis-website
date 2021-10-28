@@ -232,8 +232,8 @@
           }
           .concept-ctn{
             padding: 40px 50px 30px 30px;
-            background: #e4e5e9 url(/src/assets/home/before_linkis_bg.png) 360px 20px no-repeat;
-            background-size: 240px;
+            background: #e4e5e9 url(/src/assets/home/before_linkis_bg.png) 320px 0px no-repeat;
+            background-size: 280px;
           }
           .concept-title{
             background: #E4E5E9;
@@ -245,8 +245,8 @@
           left: -60px;
           top: 52px;
           .concept-ctn{
-            background: @active-color url(/src/assets/home/after_linkis_bg.png) 290px -80px no-repeat;
-            background-size: 380px;
+            background: @active-color url(/src/assets/home/after_linkis_bg.png) 230px -120px no-repeat;
+            background-size: 450px;
             box-shadow: -12px 0 34px rgba(51,89,218,0.3);
             .home-paragraph{
               color: #fff;
