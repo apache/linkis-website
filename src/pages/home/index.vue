@@ -231,6 +231,7 @@
             padding-top: 40px;
           }
           .concept-ctn{
+            padding: 40px 50px 30px 30px;
             background: #e4e5e9;
           }
           .concept-title{
@@ -298,8 +299,8 @@
         align-items: center;
         justify-content: center;
         > img {
-          max-width: 80%;
-          max-height: 80%;
+          max-width: 90%;
+          max-height: 90%;
         }
       }
     }
