@@ -5,9 +5,7 @@
         </main>
         <div class="side-bar">
             <router-link :to="doc.link" class="bar-item" v-for="(doc,index) in jsonData.list" :key="index">{{doc.title}}
-                <router-link :to="children.link" class="bar-item" v-for="(children,cindex) in doc.children"
-                             :key="cindex">{{children.title}}
-                </router-link>
+                <router-link :to="children.link" class="bar-item" v-for="(children,cindex) in doc.children" :key="cindex">{{children.title}}</router-link>
             </router-link>
         </div>
     </div>

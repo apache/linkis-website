@@ -22,6 +22,7 @@ import zh from './zh.json';
 // 先判断是否有设置语言，没有就用本地语言
 let lang = 'en';
 const locale = localStorage.getItem('locale');
+//const locale="en"
 if (locale) {
   lang = locale;
 } else {
