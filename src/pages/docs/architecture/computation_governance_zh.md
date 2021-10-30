@@ -51,16 +51,16 @@ Linkis1.0将优化Job的整体执行流程，从提交 —\> 准备 —\>
  2. AppManager 将统筹管理所有的 EngineConnManager 和 EngineConn，EngineConn 的申请、复用、创建、切换、销毁等生命周期全交予 AppManager 进行管理；而 LabelManager 将基于多级组合标签，提供跨IDC、跨集群的 EngineConn 和 EngineConnManager 路由和管控能力；
  3. EngineConnPlugin 主要用于降低新计算存储的接入成本，真正做到让用户只需要实现一个类，就能接入一个全新的计算存储引擎。
 
- [进入LinkisManager架构设计](./LinkisManager/README.md)
+ [进入LinkisManager架构设计](/#/docs/architecture/manager)
 
 ### 4、EngineConnManager
 
  EngineConnManager (简称ECM)是 Linkis0.X EngineManager 的精简升级版。Linkis1.0下的ECM去除了引擎的申请能力，整个微服务完全无状态，将聚焦于支持各类 EngineConn 的启动和销毁。
  
- [进入EngineConnManager架构设计](./EngineConnManager/README.md)
+ [进入EngineConnManager架构设计](/#/docs/architecture/engineconn_manager)
 
 ### 5、EngineConn
 
 EngineConn 是 Linkis0.X Engine 的优化升级版本，将提供 EngineConn 和 Executor 两大模块，其中 EngineConn 用于连接底层的计算存储引擎，提供一个打通了底层各计算存储引擎的 Session 会话；Executor 则基于这个 Session 会话，提供交互式计算、流式计算、离线计算、数据存储的全栈计算能力支持。
 
-[进入EngineConn架构设计](./EngineConn/README.md)
+[进入EngineConn架构设计](/#/docs/architecture/engineconn)

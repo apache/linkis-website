@@ -25,7 +25,7 @@ The submission phase is mainly the interaction of Client -> Linkis Gateway -> En
 
 ![Flow chart of submission phase](/src/assets/docs/architecture/JobSubmission/submission.png)
 
-1. First, the Client (such as the front end or the client) initiates a Job request, and the job request information is simplified as follows (for the specific usage of Linkis, please refer to [How to use Linkis](#/docs/manual/HowToUse)):
+1. First, the Client (such as the front end or the client) initiates a Job request, and the job request information is simplified as follows (for the specific usage of Linkis, please refer to [How to use Linkis](#/docs/manual/how_to_use)):
 ```
 POST /api/rest_j/v1/entrance/submit
 ```
@@ -57,7 +57,7 @@ If the user has a reusable EngineConn in LinkisManager, the EngineConn is direct
 
 How to define a reusable EngineConn? It refers to those that can match all the label requirements of the computing task, and the EngineConn's own health status is Healthy (the load is low and the actual status is Idle). Then, all the EngineConn that meets the conditions are sorted and selected according to the rules, and finally the best one is locked.
 
-If the user does not have a reusable EngineConn, a process to request a new EngineConn will be triggered at this time. Regarding the process, please refer to: [How to add an EngineConn](/#/docs/architecture/AddEngineConn).
+If the user does not have a reusable EngineConn, a process to request a new EngineConn will be triggered at this time. Regarding the process, please refer to: [How to add an EngineConn](/#/docs/engine/add_engine).
 
 #### 2.2 Orchestrate a computing task
 

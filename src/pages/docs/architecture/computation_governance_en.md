@@ -31,10 +31,10 @@ Perform three stages to fully upgrade Linkis's Job execution architecture, as sh
 1. ResourceManager not only has Linkis0.X's resource management capabilities for Yarn and Linkis EngineManager, but also provides tag-based multi-level resource allocation and recycling capabilities, allowing ResourceManager to have full resource management capabilities across clusters and across computing resource types;
 2. AppManager will coordinate and manage all EngineConnManager and EngineConn. The life cycle of EngineConn application, reuse, creation, switching, and destruction will be handed over to AppManager for management; and LabelManager will provide cross-IDC and cross-cluster based on multi-level combined tags EngineConn and EngineConnManager routing and management capabilities;
 3. EngineConnPlugin is mainly used to reduce the access cost of new computing storage, so that users can access a new computing storage engine only by implementing one class.  
- [Enter LinkisManager Architecture Design](./LinkisManager/README.md)  
+ [Enter LinkisManager Architecture Design](/#/docs/architecture/manager)
 ### 4. Engine Manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engine conn Manager (ECM) is a simplified and upgraded version of linkis0. X engine manager. The ECM under linkis1.0 removes the application ability of the engine, and the whole microservice is completely stateless. It will focus on supporting the startup and destruction of all kinds of enginecon.  
-[Enter EngineConnManager Architecture Design](./EngineConnManager/README.md)  
+[Enter EngineConnManager Architecture Design](/#/docs/architecture/engineconn_manager)
  ### 5. EngineConn
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EngineConn is an optimized and upgraded version of Linkis0.X Engine. It will provide EngineConn and Executor two modules. EngineConn is used to connect the underlying computing storage engine and provide a session session that connects the underlying computing storage engines; Executor is based on this Session session , Provide full-stack computing support for interactive computing, streaming computing, offline computing, and data storage.  
- [Enter EngineConn Architecture Design](./EngineConn/README.md)
+ [Enter EngineConn Architecture Design](/#/docs/architecture/engineconn)
