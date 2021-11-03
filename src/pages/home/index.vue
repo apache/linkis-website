@@ -363,17 +363,21 @@
       padding: 140px 0 70px;
       .home-title {
         margin-bottom: 20px;
-        font-size: 80px;
+        font-size: 0;
         line-height: 60px;
 
         .apache {
           color: #0F1223;
           font-weight: 600;
+          font-size: 80px;
+          margin-right: 8px;
         }
 
         .linkis {
           color: @active-color;
           font-weight: 600;
+          font-size: 80px;
+          margin-right: 8px;
         }
 
         .badge {
