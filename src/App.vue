@@ -53,7 +53,7 @@
 <!--                <router-link class="menu-item" to="/blog"><span class="label">{{$t('menu.item.blog')}}</span></router-link>-->
                     <router-link class="menu-item" to="/team"><span class="label">{{$t('menu.item.team')}}</span></router-link>
                     <div class="menu-item language">
-                        {{ lang === 'zh-CN' ? '简体中文' : 'English'}}
+                        {{lang === 'zh-CN' ? '简体中文' : 'English'}}
                         <div class="dropdown-menu">
                             <ul class="dropdown-menu-ctn">
                                 <li class="dropdown-menu-item" :class="{active: lang === 'zh-CN'}" @click="switchLang('zh-CN')">简体中文</li>
@@ -176,6 +176,8 @@
 
                 &.language {
                     position: relative;
+                    display: flex;
+                    align-items: center;
 
                     &::after {
                         content: '';
@@ -184,7 +186,7 @@
                         width: 0;
                         height: 0;
                         margin-left: 8px;
-                        border-bottom: 6px solid #ccc;
+                        border-top: 6px solid #ccc;
                         border-left: 4px solid transparent;
                         border-right: 4px solid transparent;
                         transition: all ease .2s;
