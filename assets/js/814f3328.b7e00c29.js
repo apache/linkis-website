@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklinkis_web_apache=self.webpackChunklinkis_web_apache||[]).push([[2535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Q&A","permalink":"/blog/how-to-used"}]}')}}]);
