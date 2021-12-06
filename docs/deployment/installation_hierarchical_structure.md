@@ -1,6 +1,6 @@
 ---
-title: Installation directory structure
-sidebar_position: 3
+title: Installation Directory Structure
+sidebar_position: 4
 ---
 Installation directory structure
 ============

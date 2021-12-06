@@ -1,5 +1,5 @@
 ---
-title: Apache Linkis Introduction
+title: Introduction
 sidebar_position: 0
 ---
 # Introduction

@@ -1,6 +1,6 @@
 ---
-title: Linkis1.0 Deployment
-sidebar_position: 3
+title: Quick Deployment
+sidebar_position: 1
 ---
 
 ## Notes

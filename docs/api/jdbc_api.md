@@ -1,6 +1,6 @@
 ---
 title: Task Submission And Execution Of JDBC API
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Task Submission And Execution Of JDBC API Documents

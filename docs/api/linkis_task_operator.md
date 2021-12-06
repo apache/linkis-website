@@ -1,5 +1,5 @@
 ---
-title: Task submission and execution Rest Api
+title: Task Submission and Execution Rest Api
 sidebar_position: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: EngineConnPlugin installation
-sidebar_position: 2
+title: EngineConnPlugin Installation
+sidebar_position: 3
 ---
 
 EngineConnPlugin installation 

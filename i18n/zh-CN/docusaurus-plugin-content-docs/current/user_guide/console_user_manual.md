@@ -26,7 +26,7 @@
 
 >   Linkis计算治理台管理员可以通过linkis.properties中的下方参数配置：
 
->  `` wds.linkis.governance.station.admin=hadoop (多位管理员用户名通过‘,’分隔)``
+>  `wds.linkis.governance.station.admin=hadoop (多位管理员用户名通过‘,’分隔)`
 
 计算治理台功能及使用介绍
 ========================

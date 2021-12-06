@@ -1,6 +1,6 @@
 ---
 title: Console User Manual
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 Introduction to Computatoin Governance Console
@@ -13,7 +13,7 @@ Structure of Computatoin Governance Console
 
 > The Computatoin Governance Console is mainly composed of the following functional pages:
 
-- [Global History](#Global_History)
+- [Global History](Global_History)
 
 - [Resource Management](#Resource_management)
 
@@ -31,7 +31,7 @@ Structure of Computatoin Governance Console
 
 > The administrator of the Linkis computing management desk can configure through the following parameters in linkis.properties:
 
-> `` wds.linkis.governance.station.admin=hadoop (multiple administrator usernames are separated by ‘,’)''
+> wds.linkis.governance.station.admin=hadoop (multiple administrator usernames are separated by ‘,’)
 
 Introduction to the functions and use of Computatoin Governance Console
 ========================

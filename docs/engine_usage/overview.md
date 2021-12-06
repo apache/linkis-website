@@ -20,11 +20,11 @@ sidebar_position: 1
 
 ## 2. Document structure
 You can refer to the following documents for the related documents of the engines that have been accessed.
--[Spark Engine Usage Document](/Spark_User_Manual.md)
--[Hive Engine Usage Document](/Hive_User_Manual.md)
--[Presto Engine Usage Document](/Presto_User_Manual.md)
--[ElasticSearch Engine Usage Document](/ElasticSearch_User_Manual.md)
--[Python engine usage documentation](/Python_User_Manual.md)
--[Shell Engine Usage Document](/Shell_User_Manual.md)
--[JDBC Engine Usage Document](/JDBC_User_Manual.md)
--[MLSQL Engine Usage Document](/MLSQL_User_Manual.md)
+- [Spark Engine Usage Document](spark.md)
+- [Hive Engine Usage Document](hive.md)
+- [Presto Engine Usage Document](resto.md)
+- [ElasticSearch Engine Usage Document](elasticsearch.md)
+- [Python engine usage documentation](python.md)
+- [Shell Engine Usage Document](shell.md)
+- [JDBC Engine Usage Document](jdbc.md)
+- [MLSQL Engine Usage Document](mysql.md)
