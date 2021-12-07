@@ -1,3 +1,8 @@
+---
+title: AppManager架构
+sidebar_position: 1
+---
+
 ## 背景
 针对旧版本Linkis的Entrance模块负责太多的职责，对Engine的管理能力较弱，且不易于后续的扩展，新抽出了AppManager模块，完成
 以下职责：

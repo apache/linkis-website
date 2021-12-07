@@ -1,3 +1,8 @@
+---
+title: ResourceManager架构
+sidebar_position: 3
+---
+
 ResourceManager（简称RM），是Linkis的计算资源管理模块，所有的EngineConn（简称EC）、EngineConnManager（简称ECM），甚至包括Yarn在内的外部资源，都由RM负责统筹管理。RM能够基于用户、ECM或其它通过复杂标签定义的粒度对资源进行管控。
 
 ### RM在Linkis中的作用

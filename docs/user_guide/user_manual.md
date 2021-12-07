@@ -3,8 +3,6 @@ title: User Manual
 sidebar_position: 2
 ---
 
-# Linkis User Manual
-
 > Linkis provides a convenient interface for calling JAVA and SCALA. It can be used only by introducing the linkis-computation-client module. After 1.0, the method of submitting with Label is added. The following will introduce both ways that compatible with 0.X and newly added in 1.0.
 
 ## 1. Introduce dependent modules

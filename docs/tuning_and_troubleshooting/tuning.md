@@ -1,6 +1,6 @@
 ---
 title:   Tuning
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 >Linkis0.x version runs stably on the production environment of WeBank, and supports various businesses. Linkis1.0 is an optimized version of 0.x, and the related tuning logic has not changed, so this document will introduce several Linkis deployment and tuning suggestions. Due to limited space, this article cannot cover all optimization scenarios. Related tuning guides will also be supplemented and updated. Of course, we also hope that community users will provide suggestions for Linkis1.0 tuning documents.

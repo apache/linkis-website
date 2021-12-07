@@ -1,4 +1,7 @@
-# 引擎插件安装文档
+---
+title: 安装EngineConnPlugin引擎插件
+sidebar_position: 2
+---
 
 > 本文主要介绍Linkis引擎插件的使用，主要从编译、安装等方面进行介绍
 

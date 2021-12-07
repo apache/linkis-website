@@ -1,5 +1,5 @@
 ---
-title: Apache Linkis 简述
+title: Linkis 简述
 sidebar_position: 0
 ---
 # 简述

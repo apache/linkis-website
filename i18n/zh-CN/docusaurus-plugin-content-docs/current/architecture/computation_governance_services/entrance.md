@@ -1,5 +1,7 @@
-Entrance架构设计
-================
+---
+title: Entrance架构设计
+sidebar_position: 3
+---
 
 Links任务提交入口是用来负责计算任务的接收、调度、转发执行请求、生命周期管理的服务，并且能把计算结果、日志、进度返回给调用方，是从Linkis0.X的Entrance拆分出来的原生能力。
 

@@ -1,4 +1,7 @@
-# Linkis1.0 参数列表
+---
+title: 参数列表
+sidebar_position: 1
+---
 
 > Linkis1.0 在 Linkis0.x 配置基础上进行了简化，在conf目录提供了一个公共配置文件 linkis.properties，避免通用的配置参数需要同时在多个微服务里面配置。本文档将会把Linkis1.0的参数分模块列举出来。
 

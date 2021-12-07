@@ -1,6 +1,6 @@
 ---
 title:   Configurations
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Linkis1.0 Configurations

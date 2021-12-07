@@ -1,3 +1,7 @@
+---
+title: CS Client
+sidebar_position: 2
+---
 ## **CSClient设计的思路和实现**
 
 

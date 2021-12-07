@@ -1,6 +1,6 @@
 ---
 title: Linkis1.0与Linkis0.X的区别简述
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 ## 1. 简述

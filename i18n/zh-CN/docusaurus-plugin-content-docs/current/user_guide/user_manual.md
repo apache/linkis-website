@@ -1,3 +1,8 @@
+---
+title: 用户使用手册
+sidebar_position: 3
+---
+
 > Linkis 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-computation-client的模块就可以进行使用，1.0后新增支持带Label提交的方式，下面将对兼容0.X的方式和1.0新增的方式进行介绍
 
 ## 1. 引入依赖模块

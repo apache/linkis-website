@@ -1,4 +1,7 @@
-# Linkis-Message-Scheduler
+---
+title: Message Scheduler模块
+sidebar_position: 1
+---
 ## 1. 概述
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis-RPC可以实现微服务之间的通信，为了简化RPC的使用方式，Linkis提供Message-Scheduler模块，通过如@Receiver注解的方式的解析识别与调用，同时，也统一了RPC和Restful接口的使用方式，具有更好的可拓展性。
 ## 2. 架构说明

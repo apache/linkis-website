@@ -1,4 +1,7 @@
-# Spark 引擎使用文档
+---
+title: Spark 引擎
+sidebar_position: 1
+---
 
 本文主要介绍在Linkis1.0中，spark引擎的配置、部署和使用。
 

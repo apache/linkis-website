@@ -1,5 +1,7 @@
-CheckRuler架构设计
-======
+---
+title: CheckRuler架构
+sidebar_position: 3
+---
 
 CheckRuler用于在Converter和Validator之前进行检查的规则，用于检验传递参数的的合法性和完整性，除了自带的几种必要的Ruler，其余可以根据用户自身需要进行实现。
 

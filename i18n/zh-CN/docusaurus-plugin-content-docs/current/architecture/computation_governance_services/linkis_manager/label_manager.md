@@ -1,4 +1,7 @@
-## LabelManager 架构设计
+---
+title: LabelManager架构
+sidebar_position: 2
+---
 
 #### 简述
 LabelManager是Linkis中对上层应用提供标签服务的功能模组，运用标签技术管理集群资源分配、服务节点选举、用户权限匹配以及网关路由转发；包含支持各种自定义Label标签的泛化解析处理工具，以及通用的标签匹配评分器。

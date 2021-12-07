@@ -1,6 +1,6 @@
 ---
 title: 快速部署
-sidebar_position: 3
+sidebar_position: 1
 ---
 ## 注意事项
 

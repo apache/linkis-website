@@ -1,5 +1,7 @@
-EngineConnPlugin架构设计
-------------------------
+---
+title: EngineConnPlugin架构
+sidebar_position: 4
+---
 
 EngineConnPlugin用于将原本实现一个新引擎，需要实现的相关接口和类，以及需要拆分的Entrance-EngineManager-Engine三层模块体系，融合到了一个接口之中，简化用户实现新引擎的流程和代码，真正做到只要实现一个类，就能接入一个新引擎。
 

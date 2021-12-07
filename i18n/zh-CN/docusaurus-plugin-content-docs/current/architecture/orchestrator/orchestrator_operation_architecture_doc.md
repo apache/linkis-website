@@ -1,5 +1,7 @@
-Orchestrator-Operation架构设计
-===
+---
+title: Orchestrator-Operation架构
+sidebar_position: 6
+---
 
 ## 一. Operation概念
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operation操作是用于扩展异步执行期间对任务的额外操作，在调用Orchestration的异步执行后，调用者获取到的是OrchestrationFuture，该接口里面只提供了cancel、waitForCompleted、getResponse等操作任务的方法。但是当我们需要获取任务日志、进度、暂停任务时没有调用人口，这也是Operation定义的初衷，用于对外扩展更多对异步运行的任务的额外能力。定义如下：

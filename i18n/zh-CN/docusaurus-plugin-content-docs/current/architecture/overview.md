@@ -1,6 +1,6 @@
 ---
 title: 总览
-sidebar_position: 2
+sidebar_position: 0
 ---
 
 ## 1. 文档结构

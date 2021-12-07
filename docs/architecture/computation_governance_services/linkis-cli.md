@@ -1,4 +1,7 @@
-## Linkis-Client架构设计
+---
+title: Linkis-Client架构设计
+sidebar_position: 4
+---
 
 为用户提供向Linkis提交执行任务的轻量级客户端。
 

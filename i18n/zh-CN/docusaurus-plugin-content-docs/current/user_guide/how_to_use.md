@@ -1,3 +1,8 @@
+---
+title: 使用Linkis的几种方式
+sidebar_position: 1
+---
+
 ## 如何使用Linkis1.0  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis为了满足不同的使用场景需求，提供多种使用和接入方式，概括为三类，分别是Client端使用、Scriptis端使用、DataSphere Studio端使用，其中Scriptis和DataSphere Studio是微众银行大数据平台室开源的数据分析平台，由于这两个项目本质上完全兼容Linkis，所以通过Scriptis和DataSphere Studio使用Linkis最为简单。  
 ## 1. Client端使用  

@@ -1,3 +1,7 @@
+---
+title: CS Search架构
+sidebar_position: 6
+---
 ## **CSSearch架构**
 ### **总体架构**
 

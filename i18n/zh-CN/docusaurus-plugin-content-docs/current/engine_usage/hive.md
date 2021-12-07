@@ -1,4 +1,7 @@
-# Hive 引擎使用文档
+---
+title: Hive 引擎
+sidebar_position: 2
+---
 
 本文主要介绍在Linkis1.0中，Hive引擎的配置、部署和使用。
 

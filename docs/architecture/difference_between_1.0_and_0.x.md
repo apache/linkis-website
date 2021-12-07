@@ -1,6 +1,6 @@
 ---
 title: Difference Between 1.0 And 0.x
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 

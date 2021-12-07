@@ -1,4 +1,7 @@
-# JDBC 引擎使用文档
+---
+title: JDBC 引擎
+sidebar_position: 7
+---
 
 本文主要介绍在Linkis1.0中，JDBC引擎的配置、部署和使用。
 

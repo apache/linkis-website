@@ -1,3 +1,7 @@
+---
+title: CS HA架构设计
+sidebar_position: 3
+---
 ## **CS HA架构设计**
 
 ### 1，CS HA架构概要
