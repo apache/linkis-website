@@ -1,6 +1,6 @@
 ---
 title: 路径规范
-sidebar_position: 1
+sidebar_position: 6
 ---
 
 请注意：Linkis 提供了统一的 Storage模块，所以在使用路径或在配置文件中配置路径时，必须遵守 Linkis 路径规范。

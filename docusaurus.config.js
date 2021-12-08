@@ -38,13 +38,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           sidebarCollapsible: true,
           editLocalizedFiles: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/apache/incubator-linkis-website/edit/master/',
+          editUrl: 'https://github.com/apache/incubator-linkis-website/edit/docusaurus/',
         },
         blog: {
           // showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-linkis-website/edit/master/blog/',
+            'https://github.com/apache/incubator-linkis-website/edit/docusaurus/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -70,9 +70,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         backgroundColor: "#BBDFFF",
       },
       navbar: {
+       title: 'Apache EventMesh (Incubating)',
         title: 'Apache Linkis(Incubating)',
         logo: {
-          alt: 'Apache',
+          alt: 'Apache Linkis Logo',
           src: 'img/logo.png',
         },
         items: [
@@ -95,10 +96,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             activeBaseRegex: `/download/`,
           },
           {
-            to: '/development/how-to-contribute',
-            label: 'Development',
+            to: '/community/how-to-contribute',
+            label: 'Community',
             position: 'left',
-            activeBaseRegex: `/development/`,
+            activeBaseRegex: `/community/`,
           },
           {
               to: '/team',
@@ -112,12 +113,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 //            to: "/docs/user_guide/overview",
             items: [
               {
-                label: "Next",
+                label: "Next(1.0.3)",
                 to: "/docs/next/introduction",
               },
               {
                 label: "1.0.2",
-                to: "/docs/user_guide/overview",
+                to: "/docs/introduction",
               },
               {
                 label: "All versions",
@@ -142,6 +143,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             {
               title: 'Linkis',
               items: [
+                {
+                  label: 'Documentation',
+                  href: '/docs/next/introduction',
+                },
+                {
+                  label: 'FAQ',
+                  href: '/faq/index',
+                },
                 {
                   label: 'Releases',
                   href: 'https://github.com/apache/incubator-linkis/releases',
@@ -201,16 +210,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'development',
-        path: 'development',
-        routeBasePath: 'development',
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/master/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/master/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/${versionDocsDirPath}/${docPath}`;
         },
-        sidebarPath: require.resolve('./sidebarsDevelopment.js'),
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
     ],
     [
@@ -221,11 +230,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         routeBasePath: 'download',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/master/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/master/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/${versionDocsDirPath}/${docPath}`;
         },
-        sidebarPath: require.resolve('./sidebarsDevelopment.js'),
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
     ],
 
@@ -237,11 +246,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             routeBasePath: 'faq',
             editUrl: ({locale, versionDocsDirPath, docPath}) => {
               if (locale !== 'en') {
-                return `https://github.com/apache/incubator-linkis-website/edit/master/i18n/${locale}/${docPath}`;
+                return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/i18n/${locale}/${docPath}`;
               }
-              return `https://github.com/apache/incubator-linkis-website/edit/master/${versionDocsDirPath}/${docPath}`;
+              return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/${versionDocsDirPath}/${docPath}`;
             },
-            sidebarPath: require.resolve('./sidebarsDevelopment.js'),
+            sidebarPath: require.resolve('./sidebarsCommunity.js'),
           },
      ],
   ]

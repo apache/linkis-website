@@ -1,5 +1,5 @@
 ---
-title: How to Release
+title: 如何发布版本
 sidebar_position: 6
 ---
 # Apache 发布指南

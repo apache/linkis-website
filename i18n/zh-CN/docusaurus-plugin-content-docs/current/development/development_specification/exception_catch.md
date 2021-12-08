@@ -1,6 +1,6 @@
 ---
 title: 异常处理规范
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 1. 【**强制**】每个小模块的异常，都应该定义一个专门的exception类，方便后续给用户生成错误码，不允许抛出任何RuntimeException和直接抛Exception。

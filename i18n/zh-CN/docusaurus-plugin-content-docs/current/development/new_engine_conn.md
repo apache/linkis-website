@@ -1,4 +1,7 @@
-## 如何快速实现一个新引擎
+---
+title: 如何实现一个新引擎
+sidebar_position: 3
+---
 
 实现一个新的引擎其实就是实现一个新的EngineConnPlugin（ECP）引擎插件。具体步骤如下：
 

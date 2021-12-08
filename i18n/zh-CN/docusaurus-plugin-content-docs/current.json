@@ -62,6 +62,15 @@
     "description": "The label for category Upgrade Guide in sidebar tutorialSidebar"
   },
 
+  "sidebar.tutorialSidebar.category.Development Doc": {
+    "message": "开发文档",
+    "description": "The label for category Development Doc in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Development Specification": {
+    "message": "开发规范",
+    "description": "The label for category Development Specification in sidebar tutorialSidebar"
+  },
+
   "sidebar.tutorialSidebar.category.Components": {
     "message": "组件介绍",
     "description": "The label for category Components in sidebar tutorialSidebar"

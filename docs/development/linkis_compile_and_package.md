@@ -1,6 +1,6 @@
 ---
-title: Linkis Compile And Package
-sidebar_position: 3
+title: Compile And Package
+sidebar_position: 1
 ---
 
 # Linkis Compilation Document

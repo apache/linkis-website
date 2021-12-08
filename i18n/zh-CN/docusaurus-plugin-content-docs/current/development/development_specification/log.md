@@ -1,6 +1,6 @@
 ---
 title: 日志约束规范
-sidebar_position: 1
+sidebar_position: 5
 ---
 
 1.	【**约定**】Linkis选择slf4j和Log4j2作为日志打印框架，去除了Spring-Cloud包中自带的logback。由于Slf4j会随机选择一个日志框架进行绑定，所以以后在引入新maven包的时候，需要将诸如slf4j-log4j等桥接包exclude掉，不然日志打印会出现问题。但是如果新引入的maven包依赖log4j等包，不要进行exclude，不然代码运行可能会报错

@@ -3,8 +3,6 @@
 
 [English](README.md) | [中文](README_ZH.md)
 
-# English todo  
-
 这是包含 `https://linkis.apache.org` 的所有源代码的存储库。
 本指南将指导您如何为Linkis的网站做出贡献。
 

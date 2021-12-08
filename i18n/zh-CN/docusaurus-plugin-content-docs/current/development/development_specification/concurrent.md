@@ -1,6 +1,6 @@
 ---
 title: 并发规范
-sidebar_position: 1
+sidebar_position: 2
 ---
 1.	【**强制**】获取单例对象要线程安全。在单例对象里面做操作也要保证线程安全。
 

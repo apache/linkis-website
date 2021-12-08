@@ -1,3 +1,8 @@
+---
+title: 调试指引
+sidebar_position: 2
+---
+
 ## 一、前言
 &nbsp;&nbsp;&nbsp;&nbsp;Linkis的每个微服务都支持调试的，大部分服务都支持本地调试，部分服务只支持远程调试。
 

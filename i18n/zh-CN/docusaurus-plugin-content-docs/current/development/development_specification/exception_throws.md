@@ -1,6 +1,6 @@
 ---
 title: 抛出异常规范
-sidebar_position: 1
+sidebar_position: 4
 ---
 
 ## 如何定义新异常？
