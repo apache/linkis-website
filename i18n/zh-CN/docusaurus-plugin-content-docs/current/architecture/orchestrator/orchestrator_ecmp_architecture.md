@@ -14,7 +14,7 @@ Linkis
 
 以下是用户Linkis0.X实现一个新引擎需要实现的相关接口和类：
 
-![](Images/相关接口和类.png)
+![](images/相关接口和类.png)
 
 2、新版本的改进
 
@@ -23,7 +23,7 @@ Linkis
 
 以下为Linkis1.0.0，实现一个新引擎，用户需实现的接口和类：
 
-![](Images/1.0中用户需实现的接口和类.png)
+![](images/1.0中用户需实现的接口和类.png)
 
 其中EngineConnResourceFactory和EngineLaunchBuilder为非必需实现接口，只有EngineConnFactory为必需实现接口。
 
@@ -31,4 +31,4 @@ Linkis
 
 EngineConnPlugin提供了Server服务，用于启动和加载所有的引擎插件，以下给出了一个新引擎启动，访问了EngineConnPlugin-Server的全部流程：
 
-![](Images/交互流程.png)
+![](images/交互流程.png)

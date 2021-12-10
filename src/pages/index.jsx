@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Home from './Home'
+import home from './home'
 import useIsBrowser from '@docusaurus/useIsBrowser';
 
 export default function() {
@@ -28,7 +28,7 @@ export default function() {
       title={siteConfig.title}
       description="Description will go into a meta tag in <head />">
       <main>
-        <Home />
+        <home/>
       </main>
     </Layout>
   );
