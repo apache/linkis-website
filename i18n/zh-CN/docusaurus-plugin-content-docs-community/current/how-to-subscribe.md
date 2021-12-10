@@ -2,11 +2,13 @@
 title: 订阅邮件列表
 sidebar_position: 3
 ---
-
 # 订阅邮件列表
 
-邮件列表是Apache社区用来沟通交流的一种形式，通常来说，Apache社区的许多事情都是由邮件列表来承载，比如：项目的提问与解答、技术讨论、事务决策、版本发布投票等等，
-订阅邮件后，你可以第一时间获取Linkis社区的动态，可以与社区保持同步。
+Apache为每一个项目都配置了一系列的邮件列表，邮件列表作为Apache社区沟通交流的一种重要形式。
+
+社区日常运营维护的许多事情都是有邮件列表来承载，比如: 技术的讨论，任何想法或建议、项目的提问与解答，新功能/特性/重大变动的决策和通知，版本发布投票等等。只要和项目相关的，都可以这里发起讨论。
+
+只要订阅了这个邮件列表，可以第一时间获取Linkis社区的最新动态，与社区保持同步。
 
 #### Linkis项目邮件列表
 
@@ -19,6 +21,7 @@ sidebar_position: 3
 
 ## 1. 订阅邮件列表
 **以订阅dev@linkis.apache.org邮件列表为例**
+> linkis的所有邮件存档可以在[https://lists.apache.org/list.html?dev@linkis.apache.org](https://lists.apache.org/list.html?dev@linkis.apache.org)查询到
 
 具体步骤如下：
  1. 发送一封不包含任何内容或主题的邮件到: `dev-subscribe@linkis.apache.org`
@@ -34,3 +37,12 @@ sidebar_position: 3
 3. 直接回复该邮件，不用修改主题和添加邮件内容
 4. 等待直到收到一封主题为 `GOODBYE from dev@linkis.apache.org`的邮件
 5. 退订成功
+
+
+## issues相关
+
+> linkis的issues地址 [https://github.com/apache/incubator-linkis/issues](https://github.com/apache/incubator-linkis/issues)
+
+对于新的问题/想法 可以通过new issues 来创建一个新的issues，尽可能将issues描述详细，方便社区人员跟进探讨解决。项目的任何问题都建议优先创建issues来记录跟进，这样能很好的保留存档整个过程，方便后续用户进行检索。
+
+对于已有的issues，如果你感兴趣可以尽情的回复探讨，对于任务/bug类型issues，如果你感兴趣可以关注或则直接参与到任务中。非常欢迎社区小伙伴为Linkis贡献自己的力量。
