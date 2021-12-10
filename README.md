@@ -3,105 +3,87 @@
 
 [English](README.md) | [中文](README_ZH.md)
 
-This is the repository containing all the source code of `https://linkis.apache.org`.
-The project is specially for Linkis, based on the newest `vite` & `vue3`
-## Preview and generate static files
+# English todo  
 
-This website is compiled using node.
+这是包含 `https://linkis.apache.org` 的所有源代码的存储库。
+本指南将指导您如何为Linkis的网站做出贡献。
 
-1. download and install nodejs (version>12.5.0)
-2. clone the code to local
-2. run `npm install` to install the required libraries.
-3. run `npm run` in the root directory, you can visit http://localhost:3000 to view the site preview
-4. to generate static website resource files, run `npm run build`. The static resources built are in the dist directory.
+## 1.预览并生成静态文件
 
-## Contribution Guidelines
+本网站是使用node编译的，使用的是Docusaurus组件
 
-This guide will guide you how to contribute to the Linkis website.
-
-### Specification
-
-#### 1. Directory naming convention
-
-Use all lowercase, separated by a dash. If there is a plural structure, use plural nomenclature and do not use plural abbreviations.
-
-Positive example: `scripts / styles / components / images / utils / layouts / demo-styles / demo-scripts / img / doc`
-
-Counter example: `script / style / demo_scripts / demoStyles / imgs / docs`
-
-[Special] The component directory in components in the VUE project is named with kebab-case
-
-Positive example: `head-search / page-loading / authorized / notice-icon`
-
-Counter-example: `HeadSearch / PageLoading`
-
-[Special] All directories in the VUE project except the components directory are also named with kebab-case
-Positive example: `page-one / shopping-car / user-management`
-
-Counter-example: `ShoppingCar / UserManagement`
-
-#### 2.vue and static resource file naming convention
-
-All lowercase, separated by a dash
-
-Positive example: `render-dom.js / signup.css / index.html / company-logo.png`
-
-Counter example: `renderDom.js / UserManagement.html`
-
-#### 3. Resource path
-
-Image resources are unified under `src/assets/{module name}`
-
-css and other style files are placed in the `src/style` directory
+1. 下载并安装 nodejs(version>12.5.0)
+2. 克隆代码到本地 `git clone  git@github.com:apache/incubator-linkis-website.git`
+2. 运行 `npm install` 来安装所需的依赖库。
+3. 在根目录运行`npm run start`，可以访问http://localhost:3000查看站点英文模式预览
+4. 在根目录运行`npm run start-zh`，可以访问http://localhost:3000查看站点的中文模式预览
+5. 要生成静态网站资源文件，运行 `npm run build`。构建的静态资源在build目录中。
 
 
+## 2.规范
 
-### Home page modification
+### 2.1 目录命名规范
 
-Located in `src/pages/home/index.vue`
+全部采用小写方式， 以中下划线分隔，有复数结构时，要采用复数命名法， 缩写不用复数
 
+正例： `scripts / styles / components / images / utils / layouts / demo_styles / demo-scripts / img / doc`
 
+反例： `script / style / demoStyles / imgs / docs`
 
-### Document modification
+### 2.2 vue以及静态资源文件命名规范
 
-Located in src/pages/docs
+全部采用小写方式， 以中划线分隔
 
-```json
-filename.vue  //vue page
-filename_zh.md //Chinese document corresponding 
-filename_en.md //English document corresponding
+正例： `render-dom.js / signup.css / index.html / company-logo.png`
 
+反例： `renderDom.js / UserManagement.html`
+
+### 2.3 资源路径 
+
+图片资源统一放在`static/{模块名}`下
+
+css等样式文件放在`src/css`目录下
+
+### 2.4 页面内容修改 
+> 除了首页、团队、Docs>All Version 模块页面外，其余页面都能通过底部的Edit this page 直接跳转至对应的github的资源修改页
+
+### 2.5 首页页面修改
+https://linkis.apache.org/
+位于 `src/pages/home`
+
+文件详细
+```
+├─home
+│      config.json 首页中英文的配置
+│      data.json    
+│      img.json    user case的图片数据
+│      index.jsx   
+│      index.less  首页样式
+```
+### 2.6 团队页面修改
+https://linkis.apache.org/zh-CN/team
+位于 `src/pages/team`
+```
+├─team
+│      config.json
+│      index.js
+│      index.less
 ```
 
-
-### FAQ modification
-
-Located in `src/pages/home/index.vue`
-
-Chinese revision: src/pages/faq/faq_en.md
-English revision: src/pages/faq/faq_zh.md
-
-### Download page modification
-
-Chinese list data file: src/pages/download/downloaddata_en.js
-English list data file: src/pages/download/downloaddata_zh.js
-Example of list data entry
-
-```json
-{
-    "version":"1.0.2", //version
-    "releaseDate":"2021-09-02",//release date
-    "releaseDesc":"This release mainly introduces Flink-support into Linkis ecosystem.",//Description
-    "newFeatures":"6",//The number of new features added to this version
-    "enhancement":"5",//Enhanced optimization function than version
-    "bugFixs":"5",//The number of bugs fixed in this version
-    "changeLogUrl":"https://github.com/apache/incubator-linkis/releases/tag/1.0.2",//Detailed change log link to release log on github
-    "downloadUrl":"https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.zip"//version download address
-}
+### 2.7 version 列表页面修改
+访问页面  https://linkis.apache.org/zh-CN/versions/
 ```
+位于 `src/pages/versions`
+└─versions
+        config.json
+        index.js
+        index.less
+```
+## 3.新增文档 
 
-
-
-## other 
-
-The naming convention refers to "Alibaba Front-end Development Specification"
+- 英文文档 放在docs/的对应模块目录下 
+- 中文文档 放在i18n/zh-CN/docusaurus-plugin-content-docs/对应模块目录下 
+- 图片资源 放在static/目录下
+ 
+## 4.其他 
+命名规范参考《阿里前端开发规范》
