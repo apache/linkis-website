@@ -1,113 +1,203 @@
-## 一、前言
-&nbsp;&nbsp;&nbsp;&nbsp;Linkis的每个微服务都支持调试的，大部分服务都支持本地调试，部分服务只支持远程调试。
+---
+title: 调试指引
+sidebar_position: 2
+---
 
-1. 支持本地调试的服务
-- linkis-mg-eureka：设置的调试Main class是`com.webank.wedatasphere.linkis.eureka.SpringCloudEurekaApplication`
-- 其它Linkis微服务分别有自己的Main class，分别如下
-    linkis-cg-manager: `com.webank.wedatasphere.linkis.manager.am.LinkisManagerApplication`
-    linkis-ps-bml: `com.webank.wedatasphere.linkis.bml.LinkisBMLApplication`
-    linkis-ps-cs: `com.webank.wedatasphere.linkis.cs.server.LinkisCSApplication`
-    linkis-cg-engineconnmanager: `com.webank.wedatasphere.linkis.ecm.server.LinkisECMApplication`
-    linkis-cg-engineplugin: `com.webank.wedatasphere.linkis.engineplugin.server.LinkisEngineConnPluginServer`
-    linkis-cg-entrance: `com.webank.wedatasphere.linkis.entrance.LinkisEntranceApplication`
-    linkis-ps-publicservice: `com.webank.wedatasphere.linkis.jobhistory.LinkisPublicServiceAppp`
-    linkis-ps-datasource: `com.webank.wedatasphere.linkis.metadata.LinkisDataSourceApplication`
-    linkis-mg-gateway: `com.webank.wedatasphere.linkis.gateway.springcloud.LinkisGatewayApplication`
+# 调试相关 
 
-2. 只支持远程调试的服务：
-EngineConnManager服务以及由ECM启动的Engine服务都只支持远程调试。
+> 因为linkis本身模块比较多，调试起来有一定的难度，下面就指导大家如何进行一次本地的服务调试(基于1.0.3版本)。
 
-## 二、本地调试服务步骤
-&nbsp;&nbsp;&nbsp;&nbsp;Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eureka服务也可以用您已经启动的Eureka。Eureka启动后就可以启动其他服务了。
+<h4><font color="red">linkis 1.0.3版本前，还未进入apache孵化，组织还是归属webank,主类的包名为`com.webank.wedatasphere.linkis`，调试时，注意区分。</font></h4>
 
-### 2.1 Eureka服务启动
-1. 如果不想默认的20303端口可以修改端口配置：
+## step 1 准备源码并编译
+
+```plain
+git clone https://github.com/apache/incubator-linkis.git
+cd incubator-linkis
+#如果需要 可以切换到对应的分支上
+#git checkout dev-xxx
+mvn -N install 
+mvn clean Install
+```
+
+## step2 必要的参数配置
+
+对于incubator-linkis/assembly-combined-package/assembly-combined/conf/下的配置文件，需要对数据库以及hive meta等必要启动参数进行配置。 
+
+## step3 调整log4j.xml配置
+
+为了方便调试的时候将日志打印到控制台，需要修改下默认的log4j2.xml文件，修改appender默认为console。需要移除默认的RollingFile的append，增加console的appender,如下所示：
+![](/Images/development/debug_log.png)
+log4j2.xml 路径 incubator-linkis/assembly-combined-package/assembly-combined/conf/log4j2.xml
+
+```plain
+ <?xml version="1.0" encoding="UTF-8"?>
+<configuration status="error" monitorInterval="30">
+<appenders>
+    <RollingFile name="RollingFile" append="false" fileName="logs/${sys:serviceName}.log"
+                 filePattern="logs/$${date:yyyy-MM}/${sys:serviceName}/linkis-log-%d{yyyy-MM-dd}-%i.log">
+        <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%-40t] %c{1.} (%L) [%M] - %msg%xEx%n"/>
+        <SizeBasedTriggeringPolicy size="100MB"/>
+        <DefaultRolloverStrategy max="10"/>
+    </RollingFile>
+    
+    <Console name="Console" target="SYSTEM_OUT">
+        <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} %L %M - %msg%xEx%n"/>
+    </Console>
+</appenders>
+<loggers>
+    <root level="INFO">
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
+    </root>
+</loggers>
+</configuration>
+```
+
+## step 4 整体调试方案
+Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eureka服务也可以用您已经启动的Eureka。Eureka启动后就可以启动其他服务了。
+
+因为linkis内部通过-DserviceName参数设置应用名以及使用的配置文件，所以-DserviceName是必须的启动VM参数 
+
+可以通过 “-Xbootclasspath/a:配置文件路径“命令。将配置文件，追加到引导程序类的搜索路劲末尾，即将依赖的配置文件加到classpath中
+
+通过勾选Include dependencies with “Provided” scope ，这样可以在调试时，引入provided级别的依赖包。
+
+**Microservice Governance Services组件**
+
+### linkis-mg-eureka的启动 
+
+```plain
+[main Class]
+org.apache.linkis.eureka.SpringCloudEurekaApplication
+
+[VM Opitons]
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+
+[Program arguments]
+--spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
+
+[User classpath of module]
+linkis-eureka
+```
+如果不想默认的20303端口可以修改端口配置：
 ```yml
 文件路径：conf/application-eureka.yml
 修改端口：
 server:
   port: 8080 ##启动的端口
 ```
-2. 接着在Idea中新增调试配置
-可以通过点击Run或者点击下图的Add Configuration
-![01](/Images-zh/Tuning_and_Troubleshooting/debug-01.png)
-3. 然后点击新增Application并修改信息
-首先设置调试的名字：比如Eureka
-接着设置Main class：
-`com.webank.wedatasphere.linkis.eureka.SpringCloudEurekaApplication`
-最后设置该服务的Class Path,对于Eureka的classPath模块是linkis-eureka
-![02](/Images-zh/Tuning_and_Troubleshooting/debug-02.png)
-4. 接着可以点击Debug按钮启动Eureka服务了，并可以通过：[http://localhost:8080/](http://localhost:8080/)访问Eureka页面
-![03](/Images-zh/Tuning_and_Troubleshooting/debug-03.png)
+具体配置如下
+![](/Images/development/debug_application.png)
 
-### 2.2 其他服务
-1. 需要修改对应服务的Eureka配置，需要修改application.yml文件
+启动后可以通过[http://localhost:20303/](http://localhost:20303/) 查看eureka服务列表
+![](/Images/development/debug_eureka.png)
+
+###  linkis-mg-gateway的启动配置 
+
+```plain
+[main Class]
+org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
+
+[VM Opitons]
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+
+[User classpath of module]
+linkis-spring-cloud-gateway
+
 ```
-conf/application-linkis.yml    
-```
-修改对应的Eureka地址为已经启动的Eureka服务：
+注意 若出现'org.apache.logging.log4j.LoggingException: log4j-slf4j-impl cannot be present with log4j-to-slf4j' 问题 
+请exclude掉，对spring-boot-starter-logging的依赖
+
+**Public Enhancement Services组件**
+### linkis-ps-publicservice的启动配置
+
+```plain
+[main Class]
+org.apache.linkis.jobhistory.LinkisPublicServiceApp
+
+[VM Opitons]
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+
+[User classpath of module]
+linkis-jobhistory
 ```
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8080/eureka/
-```
-2. 修改linkis相关的配置,通用配置文件在conf/linkis.properties，各模块对应的配置在conf目录下以模块名称开头的properties文件中。
+### linkis-ps-cs的启动配置
 
-3. 接着新增调试服务
-Main Class都统一设置为各模块自己的Main Class，已在前言中列出。
-服务的Class Path为对应的模块：
-```
-    linkis-cg-manager: linkis-application-manager
-    linkis-ps-bml: linkis-bml
-    linkis-ps-cs: `com.webank.wedatasphere.linkis.cs.server.LinkisCSApplication`
-    linkis-cg-engineconnmanager: linkis-cs-server
-    linkis-cg-engineplugin: linkis-engineconn-plugin-server
-    linkis-cg-entrance: linkis-entrance
-    linkis-ps-publicservice: linkis-jobhistory
-    linkis-ps-datasource: linkis-metadata
-    linkis-mg-gateway: linkis-spring-cloud-gateway
-```
-并勾选provide：
+```plain
+[main Class]
+org.apache.linkis.cs.server.LinkisCSApplication
 
-![06](/Images-zh/Tuning_and_Troubleshooting/debug-06.png)
+[VM Opitons]
+-DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-4. 接着启动服务，可以看到服务在Eureka页面进行注册：
+[User classpath of module]
+linkis-cs-server
 
-![05](/Images-zh/Tuning_and_Troubleshooting/debug-05.png)
+```
+**Computation Governance Services 组件**
+### linkis-cg-linkismanager启动
 
-令外linkis-ps-publicservice需要在pom里面加入public-Module模块。
+```plain
+[main Class]
+org.apache.linkis.manager.am.LinkisManagerApplication
+
+[VM Opitons]
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+
+[User classpath of module]
+linkis-application-manager
 ```
-<dependency>
- <groupId>com.webank.wedatasphere.linkis</groupId>
- <artifactId>public-module</artifactId>
- <version>${linkis.version}</version>
-</dependency>
+### linkis-cg-entrance启动
+```plain
+[main Class]
+org.apache.linkis.entrance.LinkisEntranceApplication
+
+[VM Opitons]
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+
+[User classpath of module]
+linkis-entrance
 ```
-## 三、远程调试服务步骤
-&nbsp;&nbsp;&nbsp;&nbsp;每个服务都支持远程调试，但是需要提前打开远程调试。远程调试分为两种情况，一种是Linkis普通服务的远程调试，另一种是EngineConn的远程调试，以下分别阐述：
-1. 普通服务的远程调试：
-    a.  首先修改sbin/ext目录下的对应服务的启动脚本文件，添加调试端口：
+
+<h4><font color="red">注：暂不支持Windows本地调试的服务</font></h4>
+
+linkis-cg-engineplugin(ecp)：需要读取本地的ecp物料，本地调试需要先准备好对应的物料，建议在远程进行调试
+
+linkis-cg-engineconnmanager(ecm)：暂时ecm启动引擎使用的是unix的方式，不支持windows环境
+
 ```
-export $SERVER_JAVA_OPTS =" -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=10092"
+下面是通过正常成功安装后，linkis服务启动具体的详细命令参数 
+
+LinkisInstallDir:完整linkis的安装目录
+
+[linkis-mg-eureka]
+nohup java  -DserviceName=linkis-mg-eureka -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-mg-eureka-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-spring-cloud-services/linkis-mg-eureka/* org.apache.linkis.eureka.SpringCloudEurekaApplication  --eureka.instance.hostname=bdpujes110001 --spring.profiles.active=eureka 2>&1 > /data/LinkisInstallDir/logs/linkis-mg-eureka.out &
+
+[linkis-mg-gateway]
+nohup java  -DserviceName=linkis-mg-gateway -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-mg-gateway-gc.log  -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-spring-cloud-services/linkis-mg-gateway/* org.apache.linkis.gateway.springcloud.LinkisGatewayApplication  2>&1 >  /data/LinkisInstallDir/logs/linkis-mg-gateway.out &
+
+[linkis-ps-publicservice]
+nohup java  -DserviceName=linkis-ps-publicservice -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-ps-publicservice-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-public-enhancements/linkis-ps-publicservice/* org.apache.linkis.jobhistory.LinkisPublicServiceApp  2>&1 > /data/LinkisInstallDir/logs/linkis-ps-publicservice.out &
+
+[linkis-cg-linkismanager]
+nohup java  -DserviceName=linkis-cg-linkismanager -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-linkismanager-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-linkismanager/* org.apache.linkis.manager.am.LinkisManagerApplication  2>&1 > /data/LinkisInstallDir/logs/linkis-cg-linkismanager.out &
+
+[linkis-ps-cs]
+nohup java  -DserviceName=linkis-ps-cs -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-ps-cs-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-public-enhancements/linkis-ps-cs/* org.apache.linkis.cs.server.LinkisCSApplication  2>&1 > /data/LinkisInstallDir/logs/linkis-ps-cs.out &
+
+[linkis-cg-entrance] 
+nohup java  -DserviceName=linkis-cg-entrance -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-entrance-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-entrance/* org.apache.linkis.entrance.LinkisEntranceApplication  2>&1 > /data/LinkisInstallDir/logs/linkis-cg-entrance.out &
+
+[linkis-cg-engineconnmanager]
+nohup java  -DserviceName=linkis-cg-engineconnmanager -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-engineconnmanager-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-engineconnmanager/* org.apache.linkis.ecm.server.LinkisECMApplication  2>&1 > /data/LinkisInstallDir/logs/linkis-cg-engineconnmanager.out &
+
+[linkis-cg-engineplugin]
+nohup java  -DserviceName=linkis-cg-engineplugin -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-engineplugin-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-engineplugin/* org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer  2>&1 > /data/LinkisInstallDir/logs/linkis-cg-engineplugin.out &
 ```
-添加的内容为： `-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=10092` 其中端口可能冲突，可以修改为可用的端口。
-      b. 接着在idea里面新建一个远程调试，首先选择remote，然后增加服务的host和端口，接着选择调试的模块
-![07](/Images-zh/Tuning_and_Troubleshooting/debug-07.png)
-3. 接着点击debug按钮就可以完成远程调试了
-![08](/Images-zh/Tuning_and_Troubleshooting/debug-08.png)
-      
-2. EngineConn的远程调试：
-    a. 在EngineConn对应的linkis-engineconn.properties文件中，添加以下配置项
-```
-wds.linkis.engineconn.debug.enable=true
-```
-该配置项会在EngineConn启动时，随机分配一个debug端口。 
-      b. 在EngineConn的日志第一行，会打印出实际分配的端口。
-```
-      Listening for transport dt_socket at address: 26072
-```
-      
-   c. 在idea里新建一个远程调试，在前面已经介绍过步骤，在此不再赘述。
- 
+
+## 远程调试服务步骤
+
+todo

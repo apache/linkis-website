@@ -38,13 +38,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           sidebarCollapsible: true,
           editLocalizedFiles: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/apache/incubator-linkis-website/edit/master/',
+          editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
         },
         blog: {
           // showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-linkis-website/edit/master/blog/',
+            'https://github.com/apache/incubator-linkis-website/edit/dev/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -54,16 +54,26 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      announcementBar: {
-        id: 'announcementBar-2', // Increment on change
-        content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-linkis">GitHub</a>`,
-        backgroundColor: "#BBDFFF",
+    (
+    {
+//     algolia: {
+//          apiKey: 'xxx',
+//          indexName: 'apache_linkis',
+//       },
+      colorMode: {
+          defaultMode: 'light',
+          disableSwitch: true
       },
+//      announcementBar: {
+//        id: 'announcementBar-2', // Increment on change
+//        content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-linkis">GitHub</a>`,
+//        backgroundColor: "#BBDFFF",
+//      },
       navbar: {
+       title: 'Apache EventMesh (Incubating)',
         title: 'Apache Linkis(Incubating)',
         logo: {
-          alt: 'Apache',
+          alt: 'Apache Linkis Logo',
           src: 'img/logo.png',
         },
         items: [
@@ -73,25 +83,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             label: 'Home',
             activeBaseRegex: `^/$`,
           },
-//          {
-//            position: 'left',
-//            label: 'Doc',
-//            to: "/docs/user_guide/quick_start",
-//            items: [
-//              {
-//                label: "Next",
-//                to: "/docs/next/user_guide/quick_start",
-//              },
-//              {
-//                label: "0.11.0",
-//                to: "/docs/user_guide/quick_start",
-//              },
-//              {
-//                label: "All versions",
-//                to: "/versions/",
-//              },
-//            ],
-//          },
         {
             to: '/faq/index',
             position: 'left',
@@ -105,10 +96,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             activeBaseRegex: `/download/`,
           },
           {
-            to: '/development/how-to-contribute',
-            label: 'Development',
+            to: '/community/how-to-contribute',
+            label: 'Community',
             position: 'left',
-            activeBaseRegex: `/development/`,
+            activeBaseRegex: `/community/`,
           },
           {
               to: '/team',
@@ -116,65 +107,18 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               position: 'left',
               activeBaseRegex: `/team`,
           },
-//          {
-//            to: '/blog/how-to-used',
-//            label: 'Blog',
-//            position: 'left'
-//          },
-
-
-//          {
-//            label: 'ASF',
-//            position: 'left',
-//            items: [
-//              {
-//                label: "Foundation",
-//                to: "https://www.apache.org/",
-//              },
-//              {
-//                label: "License",
-//                to: "https://www.apache.org/licenses/",
-//              },
-//              {
-//                label: "Events",
-//                to: "https://www.apache.org/events/",
-//              },
-//              {
-//                label: "Security",
-//                to: "https://www.apache.org/security/",
-//              },
-//              {
-//                label: "Sponsorship",
-//                to: "https://www.apache.org/foundation/sponsorship.html",
-//              },
-//              {
-//                label: "Thanks",
-//                to: "https://www.apache.org/foundation/thanks.html",
-//              },
-//            ],
-//          },
-//          {
-//            type: 'localeDropdown',
-//            position: 'right',
-//          },
-//          {
-//            href: 'https://github.com/apache/incubator-Linkis',
-//            label: 'GitHub',
-//            position: 'right',
-//          },
-
           {
             position: 'right',
             label: 'Doc',
-            to: "/docs/user_guide/overview",
+//            to: "/docs/user_guide/overview",
             items: [
               {
-                label: "Next",
-                to: "/docs/next/user_guide/overview",
+                label: "Next(1.0.3)",
+                to: "/docs/next/introduction",
               },
               {
                 label: "1.0.2",
-                to: "/docs/user_guide/overview",
+                to: "/docs/introduction",
               },
               {
                 label: "All versions",
@@ -182,17 +126,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               },
             ],
           },
-//           {
-//              type: 'docsVersionDropdown',
-//              position: 'right',
-//              dropdownActiveClassDisabled: true,
-//              dropdownItemsAfter: [
-//                {
-//                  to: '/versions',
-//                  label: 'All versions',
-//                },
-//              ],
-//           },
            {
               href: 'https://github.com/apache/incubator-linkis',
               label: 'GitHub',
@@ -204,76 +137,20 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
            },
         ],
       },
-//      footer: {
-//        // style: 'dark',
-//        // links: [
-//        //   {
-//        //     title: 'Docs',
-//        //     items: [
-//        //       {
-//        //         label: 'Tutorial',
-//        //         to: '/docs/quick_start',
-//        //       },
-//        //     ],
-//        //   },
-//        //   {
-//        //     title: 'Community',
-//        //     items: [
-//        //       {
-//        //         label: 'Stack Overflow',
-//        //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-//        //       },
-//        //       {
-//        //         label: 'Discord',
-//        //         href: 'https://discordapp.com/invite/docusaurus',
-//        //       },
-//        //       {
-//        //         label: 'Twitter',
-//        //         href: 'https://twitter.com/docusaurus',
-//        //       },
-//        //     ],
-//        //   },
-//        //   {
-//        //     title: 'More',
-//        //     items: [
-//        //       {
-//        //         label: 'Blog',
-//        //         to: '/blog',
-//        //       },
-//        //       {
-//        //         label: 'GitHub',
-//        //         href: 'https://github.com/apache/incubator-Linkis',
-//        //       },
-//        //     ],
-//        //   },
-//        // ],
-//        logo: {
-//          alt: 'Apache Linkis',
-//          src: 'img/incubator-logo.svg',
-//          href: 'https://Linkis.apache.org',
-//        },
-//        copyright: `<div style="text-align: left;">
-//          <div>
-//            <p style="font-family: Avenir-Medium;font-size: 14px;color: #999;line-height: 20px;">Apache Linkis (incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p>
-//          </div>
-//          <div style="border-top: 1px solid #ccc;min-height: 60px;line-height: 20px;text-align: center;font-family: Avenir-Medium;font-size: 14px;color: #999;display: flex;align-items: center;"><span>Copyright © 2019-2020 The Apache Software Foundation. Apache Linkis, Linkis, and its feather logo are trademarks of The Apache Software Foundation.</span></div>
-//        </div>`,
-//      },
-
      footer: {
           style: 'light',
           links: [
             {
               title: 'Linkis',
               items: [
-//                {
-//                    label: 'Documentation',
-//                    to: '/docs',
-//                },
-//                {
-//                  label: 'FAQ',
-//                  to: '/faq',
-//                },
+                {
+                  label: 'Documentation',
+                  href: '/docs/next/introduction',
+                },
+                {
+                  label: 'FAQ',
+                  href: '/faq/index',
+                },
                 {
                   label: 'Releases',
                   href: 'https://github.com/apache/incubator-linkis/releases',
@@ -319,17 +196,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               ],
             },
           ],
-//          copyright: `
-//            Copyright © ${new Date().getFullYear()} The Apache Software Foundation.
-//            Apache Linkis, Apache Incubator, Linkis, Apache, the Apache feather logo,
-//            the Apache Linkis logo and the Apache Incubator project logo
-//            are trademarks of The Apache Software Foundation.
-//          `,
-//        logo: {
-//          alt: 'Apache Linkis',
-//          src: 'img/incubator-logo.svg',
-//          href: 'https://linkis.apache.org',
-//        },
          copyright: `<div><img style="height:50px" alt="Apache Software Foundation" src="/img/incubator-logo.svg" /><p style="color: #999999;  padding: 0 20px 30px;font-weight:400;text-align:left">Apache Linkis is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p></p>
              <p style="padding: 0 20px 30px;color: #999999;font-weight: 400;"> Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache Linkis, Apache Incubator, Apache, the Apache feather logo, the Apache Linkis logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.</p>
              <div>`,
@@ -344,16 +210,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'development',
-        path: 'development',
-        routeBasePath: 'development',
+        id: 'community',
+        path: 'community',
+        routeBasePath: 'community',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/master/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/master/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
-        sidebarPath: require.resolve('./sidebarsDevelopment.js'),
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
     ],
     [
@@ -364,11 +230,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         routeBasePath: 'download',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/master/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/master/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
-        sidebarPath: require.resolve('./sidebarsDevelopment.js'),
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
     ],
 
@@ -380,12 +246,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             routeBasePath: 'faq',
             editUrl: ({locale, versionDocsDirPath, docPath}) => {
               if (locale !== 'en') {
-                return `https://github.com/apache/incubator-linkis-website/edit/master/i18n/${locale}/${docPath}`;
+                return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
               }
-              return `https://github.com/apache/incubator-linkis-website/edit/master/${versionDocsDirPath}/${docPath}`;
+              return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
             },
-            sidebarPath: require.resolve('./sidebarsDevelopment.js'),
+            sidebarPath: require.resolve('./sidebarsCommunity.js'),
           },
-        ],
+     ],
   ]
 });

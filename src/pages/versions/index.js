@@ -18,6 +18,7 @@ export default function() {
         <Layout>
             <div className="div-one"><br/>
                 <h1>{dataSource.title}</h1>
+                <br/>
                 <h3>{dataSource.newVersion}</h3>
                 <p>{dataSource.newVersionExplain}</p>
                 <table>
@@ -30,7 +31,7 @@ export default function() {
                             <a href={dataSource.table.releaseUrlOne}>{dataSource.table.release}</a>
                         </td>
                         <td>
-                            <a href="https://github.com/apache/incubator-linkis">{dataSource.table.source}</a>
+                            <a target="_blank" href="https://github.com/apache/incubator-linkis/tree/1.0.2">{dataSource.table.source}</a>
                         </td>
                     </tr>
                 </table>
@@ -39,7 +40,7 @@ export default function() {
                 <p>{dataSource.nextVersionExplain}</p>
                 <table>
                     <tr>
-                        <td>Next</td>
+                        <td>Next(1.0.3)</td>
                         <td>
                             <a href={dataSource.table.nextLink}>{dataSource.table.doc}</a>
                         </td>
@@ -58,7 +59,7 @@ export default function() {
                             <a href={dataSource.table.releaseUrlOne}>{dataSource.table.release}</a>
                         </td>
                         <td>
-                            <a href="https://github.com/apache/incubator-linkis">{dataSource.table.source}</a>
+                            <a href="https://github.com/apache/incubator-linkis/tree/1.0.2">{dataSource.table.source}</a>
                         </td>
                     </tr>
                 </table>

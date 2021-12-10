@@ -1,5 +1,5 @@
 ---
-title: Contact Us
+title: 联系我们
 sidebar_position: 10
 ---
 - Mailing lists:
