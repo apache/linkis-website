@@ -20,10 +20,12 @@ p {
 }
 
 body {
+  min-width: 1200px;
   font-size: 14px;
   color: #4A4A4A;
   line-height: 26px;
   background: #ffffff;
+  font-family: PingFangSC-Regular, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 ul,
@@ -35,11 +37,12 @@ ol {
 a {
   text-decoration: none;
 }
-
+/*
+a:link,
 a:visited {
   color: @enhance-color;
 }
-
+*/
 .ctn-block {
   width: 1200px;
   padding: 0 20px;
@@ -48,4 +51,106 @@ a:visited {
 
 .text-center {
   text-align: center;
+}
+
+.reading-area {
+  display: flex;
+  padding: 60px 0;
+  min-height: 600px;
+
+  .main-content {
+    width: 900px;
+    padding: 30px;
+  }
+
+  .side-bar {
+    flex: 1;
+    padding: 18px 0;
+    border-left: 1px solid #eaecef;
+
+    .bar-item {
+      display: block;
+      padding: 5px 18px;
+      color: #4A4A4A;
+
+      &:hover,
+      &.router-link-exact-active {
+        color: @active-color;
+      }
+    }
+  }
+}
+
+.blog-ctn {
+  padding-top: 60px;
+  padding-bottom: 80px;
+
+  .blog-title {
+    font-size: 24px;
+  }
+
+  .blog-info{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 16px;
+    color: rgba(15,18,34,0.45);
+    .info-item{
+      padding: 0 10px 0 28px;
+      &.sperator{
+       padding: 0 10px; 
+      }
+    }
+  }
+}
+
+.corner-botton{
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+  padding: 0 40px;
+  height: 64px;
+  line-height: 64px;
+  border-radius: 32px;
+  font-size: 18px;
+  user-select: none;
+  &:last-child{
+    margin-right: 0;
+  }
+  .button-icon{
+    margin-right: 8px;
+  }
+  &.blue-fill{
+    color: #fff;
+    background: #1E78E0;
+    border: 1px solid  #1E78E0;
+  }
+  &.white{
+    color: @enhance-color;
+    background: #fff;
+    border: 1px solid @enhance-color;
+  }
+  &.blue{
+    color: #1E78E0;
+    border: 1px solid #1E78E0;
+  }
+}
+
+.normal-page{
+  padding-top: 60px;
+  .normal-title{
+    font-size: 24px;
+    line-height: 34px;
+  }
+  .normal-desc{
+    color: @enhance-color;
+    font-weight: 400;
+    .link{
+      color: @active-color;
+      text-decoration: underline;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
 }
