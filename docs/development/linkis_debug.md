@@ -40,7 +40,7 @@ server:
 
 You can do this by clicking Run or by clicking Add Configuration in the image below
 
-![01](/Images/Tunning_and_Troubleshooting/debug-01.png)
+![01](/Images/Tuning_and_Troubleshooting/debug-01.png)
 
 3. Then click Add Application and modify the information
 
@@ -49,11 +49,11 @@ You can do this by clicking Run or by clicking Add Configuration in the image be
 `com.webank.wedatasphere.linkis.eureka.SpringCloudEurekaApplication`
 - Finally, set the Class Path for the service. For Eureka, the classPath module is linkis-eureka
 
-![02](/Images/Tunning_and_Troubleshooting/debug-02.png)
+![02](/Images/Tuning_and_Troubleshooting/debug-02.png)
 
 4. Click the Debug button to start the Eureka service and access the Eureka page through [http://localhost:8080/](at)
 
-![03](.. /Images/Tunning_and_Troubleshooting/debug-03.png)
+![03](/Images/Tuning_and_Troubleshooting/debug-03.png)
 
 2.2 Other services
 
@@ -92,11 +92,11 @@ linkis-mg-gateway: linkis-spring-cloud-gateway
 
 And check provide:
 
-![06](/Images/Tunning_and_Troubleshooting/debug-06.png)
+![06](/Images/Tuning_and_Troubleshooting/debug-06.png)
 
 4. Then start the service and you can see that the service is registered on the Eureka page:
 
-![05](/Images/Tunning_and_Troubleshooting/debug-05.png)
+![05](/Images/Tuning_and_Troubleshooting/debug-05.png)
 
 Linkis-PS-PublicService should add a public-module Module to the POM.
 
@@ -123,11 +123,11 @@ Added: '-agentlib: JDWP = Transport = DT_Socket, Server = Y, Suspend = N, Addres
 
 B. Create a new remote debug in IDEA. Select Remote first, then add host and port for the service, and then select the debug module
 
-![07](/Images/Tunning_and_Troubleshooting/debug-07.png)
+![07](/Images/Tuning_and_Troubleshooting/debug-07.png)
 
 3. Then click the Debug button to complete the remote debugging
 
-![08](/Images/Tunning_and_Troubleshooting/debug-08.png)
+![08](/Images/Tuning_and_Troubleshooting/debug-08.png)
 
 2. Remote debugging of engineConn:
 
