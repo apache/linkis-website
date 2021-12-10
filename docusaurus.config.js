@@ -38,13 +38,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           sidebarCollapsible: true,
           editLocalizedFiles: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/apache/incubator-linkis-website/edit/docusaurus/',
+          editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
         },
         blog: {
           // showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/apache/incubator-linkis-website/edit/docusaurus/blog/',
+            'https://github.com/apache/incubator-linkis-website/edit/dev/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -215,9 +215,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         routeBasePath: 'community',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
         sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
@@ -230,9 +230,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         routeBasePath: 'download',
         editUrl: ({locale, versionDocsDirPath, docPath}) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
         sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
@@ -246,9 +246,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             routeBasePath: 'faq',
             editUrl: ({locale, versionDocsDirPath, docPath}) => {
               if (locale !== 'en') {
-                return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/i18n/${locale}/${docPath}`;
+                return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
               }
-              return `https://github.com/apache/incubator-linkis-website/edit/docusaurus/${versionDocsDirPath}/${docPath}`;
+              return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
             },
             sidebarPath: require.resolve('./sidebarsCommunity.js'),
           },
