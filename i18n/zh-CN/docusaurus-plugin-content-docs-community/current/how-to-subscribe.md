@@ -1,6 +1,6 @@
 ---
 title: 订阅邮件列表
-sidebar_position: 3
+sidebar_position: 1
 ---
 # 订阅邮件列表
 

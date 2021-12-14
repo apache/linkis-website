@@ -1,6 +1,6 @@
 ---
 title: 如何发布版本
-sidebar_position: 6
+sidebar_position: 3
 ---
 # Apache 发布指南
 
@@ -333,102 +333,7 @@ svn status
 
 
 ## 4 验证Release Candidates
-
-详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
-
-从以下地址下载要发布的Release Candidates到本地环境：
-
-```shell
-https://dist.apache.org/repos/dist/dev/incubator/linkis/1.0.3-rc01
-```
-
-然后开始验证环节，验证包含但不限于以下内容和形式
-
-### 4.1 检查签名和hash等信息
-
-> 由于操作系统不同，检查的命令或有差异，具体可参考[官方检查步骤](https://www.apache.org/info/verification.html)
-
-### 4.2 检查sha512哈希
-
-> Mac OS/Linux
-
-```shell
-$ shasum -a apache-linkis-1.0.3-incubating-src.tar.gz
-#并将输出内容与 apache-linkis-1.0.3-incubating-src.tar.gz.sha512文件内容作对比
-$ shasum -a apache-linkis-1.0.3-incubating-bin.tar.gz
-#并将输出内容与 apache-linkis-1.0.3-incubating-bin.tar.gz.sha512文件内容作对比
-```
-
-> Windows
-
-```shell
-$ certUtil -hashfile apache-linkis-1.0.3-incubating-src.tar.gz SHA512
-#并将输出内容与 apache-linkis-1.0.3-incubating-src.tar.gz.sha512文件内容作对比
-$ certUtil -hashfile apache-linkis-1.0.3-incubating-bin.tar.gz SHA512
-#并将输出内容与 apache-linkis-1.0.3-incubating-bin.tar.gz.sha512文件内容作对比
-```
-
-### 4.3 检查gpg签名
-
-首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
-
-```shell
-$ curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS >> KEYS
-$ gpg --import KEYS
-$ gpg --edit-key "${发布人的gpg用户名}"
-  > trust
-
-Please decide how far you trust this user to correctly verify other users' keys
-(by looking at passports, checking fingerprints from different sources, etc.)
-
-  1 = I don't know or won't say
-  2 = I do NOT trust
-  3 = I trust marginally
-  4 = I trust fully
-  5 = I trust ultimately
-  m = back to the main menu
-
-Your decision? 5
-
-  > save
-```
-
-然后使用如下命令检查签名
-
-```shell
-$ gpg --verify apache-linkis-1.0.3-incubating-src.tar.gz.asc apache-linkis-1.0.3-incubating-src-tar.gz
-$ gpg --verify apache-linkis-1.0.3-incubating-bin.tar.gz.asc apache-linkis-1.0.3-incubating-bin.tar.gz
-```
-
-### 4.4 检查源码包的文件内容
-
-解压缩`apache-linkis-1.0.3-incubating-src-tar.gz`，进行如下检查:
-
-- 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
-- 文件夹包含单词`incubating`
-- 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
-- `NOTICE`文件中的年份正确
-- 只存在文本文件，不存在二进制文件
-- 所有文件的开头都有ASF许可证
-- 能够正确编译，单元测试可以通过 (./gradle build) (目前支持JAVA 8/gradle 7.0/idea 2021.1.1及以上)
-- 检查是否有多余文件或文件夹，例如空文件夹等
-
-### 4.5 检查二进制包的文件内容
-解压缩`apache-linkis-1.0.3-incubating-bin-tar.gz`，进行如下检查:
-- 文件夹包含单词`incubating`
-- 存在`LICENSE`和`NOTICE`文件
-- 存在`DISCLAIMER`文件
-- `NOTICE`文件中的年份正确
-- 所有文本文件开头都有ASF许可证
-- 检查第三方依赖许可证：
-  - 第三方依赖的许可证兼容
-  - 所有第三方依赖的许可证都在`LICENSE`文件中声名
-  - 依赖许可证的完整版全部在`license`目录
-  - 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
-
-你可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
-
+详细可以参见[验证候选版本](/how-to-verify.md)
 
 
 ## 5. 发起投票

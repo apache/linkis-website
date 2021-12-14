@@ -4,7 +4,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import Button from '../../components/Button';
 import config from './config';
 import './index.less';
-import img from './img';
 import systemConfiguration from '../../js/sysConfig'
 // import 'animate.css';
 
@@ -138,56 +137,6 @@ export default function() {
              <h3 className="item-title">{dataSource.common.reusability}</h3>
              <p className="item-desc">{dataSource.home.core.reusability}</p>
            </div>
-         </div>
-       </div>
-     </div>
-     <div className="home-page">
-       <div className="ctn-block">
-         <h1 className="home-block-title text-center">{dataSource.common.ourUsers}</h1>
-         <div className="show-case home-block">
-         {/* <div className="case-item"> <img src="/src/assets/user/招联消费金融有限公司.png" alt="name"/></div> */}
-           {/* <div className="case-item"> <img src="/src/assets/user/平安.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/荣耀.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/360.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/天翼云.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/boss直聘.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/萨摩耶云.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/理想汽车.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/蔚来汽车.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/T3出行.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/百望云.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/海康威视.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/桔子分期.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/红象云腾.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/艾佳生活.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/顶点软件.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/97物联.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/航天信息.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/华中科技大学.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/联创智融.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/信用生活.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/mobtech.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/西安电子科技大学.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/依图.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/中体彩科技.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/万科采筑.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/东方通.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/中国电科.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/中通云仓.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/中国通信服务.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/之江实验室.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/哗啦啦.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/圈外同学.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/云徒科技.png" alt="name"/></div>
-           <div className="case-item"> <img src="/src/assets/user/成都大数据.png" alt="name"/></div>
-           <div className="case-item"><img src="/src/assets/user/立创商城.png" alt="name"/></div> */}
-        
-            {
-              img.map((item, i) => (
-               <div  key={i} index={i} className="case-item"><img src={useBaseUrl('/home/user/'+item.url)} alt="name"/></div>
-
-              ))
-           }
          </div>
        </div>
      </div>

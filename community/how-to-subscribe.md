@@ -1,6 +1,6 @@
 ---
 title: How to subscribe mail list
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 # Subscribe to the mailing list

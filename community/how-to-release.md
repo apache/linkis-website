@@ -1,7 +1,9 @@
 ---
 title: How to Release
-sidebar_position: 6
+sidebar_position: 3
 ---
+# Todo Translate to English 
+
 # Apache 发布指南
 
 理解 Apache 发布的内容和流程
@@ -334,6 +336,7 @@ svn status
 
 ## 4 验证Release Candidates
 
+详细可以参见[How to Verify release](/how-to-verify.md)
 详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
 从以下地址下载要发布的Release Candidates到本地环境：
