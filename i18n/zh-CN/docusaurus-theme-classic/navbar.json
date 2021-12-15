@@ -31,6 +31,10 @@
     "message": "团队",
     "description": "Navbar item with label Team"
   },
+  "item.label.Users": {
+    "message": "用户",
+    "description": "Navbar item with label Team"
+  },
   "item.label.ASF": {
     "message": "Apache",
     "description": "Navbar item with label ASF"

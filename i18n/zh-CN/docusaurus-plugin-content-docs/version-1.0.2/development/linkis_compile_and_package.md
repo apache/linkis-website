@@ -15,7 +15,7 @@ sidebar_position: 1
 
 - [4. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本](#4-如何修改linkis的依赖的hadoophivespark版本)
 
-- [5. 编译前端管理台](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Development_Documents/Web/Build.md)
+- [5. 编译前端管理台](development/web_build.md)
 
 ## 1.全量编译 Linkis
 

@@ -1,6 +1,6 @@
 ---
 title: How to Contribute
-sidebar_position: 1
+sidebar_position: 2
 ---
 # Contributing
 
@@ -25,7 +25,7 @@ Helping to answer the usage questions in the Issue is a very valuable way to con
 
 ### 1.4 Documentation improvements
 
-Linkis User Manual Documents are maintained in the Linkis-Doc project of github, you can edit the markdown file in the project and improve the document by submit a pr.
+Linkis User Manual Documents are maintained in the Linkis-Website project of github, you can edit the markdown file in the project and improve the document by submit a pr.
 
 ## 2. Contribution process
 
