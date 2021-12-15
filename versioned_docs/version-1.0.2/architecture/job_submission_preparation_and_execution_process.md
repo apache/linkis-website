@@ -30,7 +30,7 @@ The submission phase is mainly the interaction of Client -> Linkis Gateway -> En
 
 ![Flow chart of submission phase](/Images/Architecture/Job_submission_preparation_and_execution_process/submission.png)
 
-1. First, the Client (such as the front end or the client) initiates a Job request, and the job request information is simplified as follows (for the specific usage of Linkis, please refer to [How to use Linkis](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/en_US/User_Manual/How_To_Use_Linkis.md)):
+1. First, the Client (such as the front end or the client) initiates a Job request, and the job request information is simplified as follows (for the specific usage of Linkis, please refer to [How to use Linkis](user_guide/how_to_use.md)):
 ```
 POST /api/rest_j/v1/entrance/submit
 ```
@@ -100,7 +100,7 @@ The orchestration process of Linkis Orchestrator is similar to many SQL parsing 
 2. The orchestration ability of Linkis Orchestrator has nothing to do with the programming language. In theory, as long as an engine has adapted to Linkis, all the programming languages it supports can be orchestrated, while the SQL parsing engine only cares about the analysis and execution of SQL, and is only responsible for parsing a piece of SQL into one executable Physical tree, and finally calculate the result.
 3. Linkis Orchestrator also has the ability to parse SQL, but SQL parsing is just one of Orchestrator Parser's analytic implementations for the SQL programming language. The Parser of Linkis Orchestrator also considers introducing Apache Calcite to parse SQL. It supports splitting a user SQL that spans multiple computing engines (must be a computing engine that Linkis has docked) into multiple sub SQLs and submitting them to each corresponding engine during the execution phase. Finally, a suitable calculation engine is selected for summary calculation.
 
-Please refer to [Orchestrator Architecture Design](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/en_US/Architecture_Documents/Orchestrator/Orchestrator_architecture_doc.md) for more details. 
+Please refer to [Orchestrator Architecture Design](architecture/orchestrator/orchestrator_architecture_doc.md) for more details. 
 
 After the analysis and arrangement of Linkis Orchestrator, the  computing task has been transformed into a executable physical tree. Orchestrator will submit the Physical tree to Orchestrator's Execution module and enter the final execution stage.
 

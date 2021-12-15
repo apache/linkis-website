@@ -4,9 +4,9 @@ sidebar_position: 1
 ---
 ## 注意事项
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Architecture_Documents/Linkis1.0%E4%B8%8ELinkis0.X%E7%9A%84%E5%8C%BA%E5%88%AB%E7%AE%80%E8%BF%B0.md)**。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意：除了 Linkis1.0 安装包默认已经包含的：Python/Shell/Hive/Spark四个EngineConnPlugin以外，如果大家有需要，可以手动安装如 JDBC 引擎等类型的其他引擎，具体请参考 [EngineConnPlugin引擎插件安装文档](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Deployment_Documents/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意：除了 Linkis1.0 安装包默认已经包含的：Python/Shell/Hive/Spark四个EngineConnPlugin以外，如果大家有需要，可以手动安装如 JDBC 引擎等类型的其他引擎，具体请参考 [EngineConnPlugin引擎插件安装文档](deployment/engine_conn_plugin_installation.md)。
 
 **Linkis Docker镜像**  
 [Linkis 0.10.0 Docker](https://hub.docker.com/repository/docker/wedatasphere/linkis)
@@ -217,11 +217,11 @@ Linkis1.0 默认已适配的引擎列表如下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**第一次安装**必须选是。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Upgrade_Documents/Linkis%E4%BB%8E0.X%E5%8D%87%E7%BA%A7%E5%88%B01.0%E6%8C%87%E5%8D%97.md)**。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Upgrade_Documents/Linkis%E4%BB%8E0.X%E5%8D%87%E7%BA%A7%E5%88%B01.0%E6%8C%87%E5%8D%97.md)**。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Upgrade_Documents/Linkis%E4%BB%8E0.X%E5%8D%87%E7%BA%A7%E5%88%B01.0%E6%8C%87%E5%8D%97.md)**。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
 ### 3. 是否安装成功：
 
@@ -256,5 +256,5 @@ Linkis1.0 默认已适配的引擎列表如下：
 ![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
 
 #### (3)、查看服务是否正常
-1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Deployment_Documents/%E5%89%8D%E7%AB%AF%E7%AE%A1%E7%90%86%E5%8F%B0%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
-2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/User_Manual/README.md)
+1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](deployment/web_install.md)
+2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](user_guide/overview.md)

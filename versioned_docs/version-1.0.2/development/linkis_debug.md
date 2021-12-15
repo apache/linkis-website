@@ -53,7 +53,7 @@ You can do this by clicking Run or by clicking Add Configuration in the image be
 
 4. Click the Debug button to start the Eureka service and access the Eureka page through [http://localhost:8080/](at)
 
-![03](.. /Images/Tuning_and_Troubleshooting/debug-03.png)
+![03](/Images/Tuning_and_Troubleshooting/debug-03.png)
 
 2.2 Other services
 

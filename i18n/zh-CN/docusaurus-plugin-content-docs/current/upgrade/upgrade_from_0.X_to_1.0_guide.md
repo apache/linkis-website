@@ -15,7 +15,7 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;  在安装时如果需要保留0.X的数据，一定要选择1跳过建表语句（见下面代码）。
 
-&nbsp;&nbsp;&nbsp;&nbsp;  Linkis1.0 的安装可以参考[如何快速安装使用Linkis-1.0](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Deployment_Documents/%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Linkis1.0.md)
+&nbsp;&nbsp;&nbsp;&nbsp;  Linkis1.0 的安装可以参考[如何快速安装使用Linkis-1.0](deployment/quick_deploy.md)
 
 ```
 Do you want to clear Linkis table information in the database?
@@ -75,4 +75,4 @@ Please input the choice: ## choice 1
 
 ## 4. 安装Linkis1.0
 
-&nbsp;&nbsp;&nbsp;&nbsp;  启动Linkis1.0，验证服务是否已正常启动并对外提供服务，具体请参考： [如何快速安装使用Linkis-1.0](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Deployment_Documents/%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Linkis1.0.md)
+&nbsp;&nbsp;&nbsp;&nbsp;  启动Linkis1.0，验证服务是否已正常启动并对外提供服务，具体请参考： [如何快速安装使用Linkis-1.0](deployment/quick_deploy.md)

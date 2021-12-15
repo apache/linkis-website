@@ -3,7 +3,7 @@ title: 前端管理台部署
 sidebar_position: 1
 ---
 
-Linkis在1.0提供了单独的前端管理台功能，提供了展示Linis的全局历史、修改用户参数、管理ECM和微服务等功能，部署前端管理台前需要先将Linkis后端进行部署，Linkis的部署手册见：[Linkis部署手册](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Deployment_Documents/%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2Linkis1.0.md)
+Linkis在1.0提供了单独的前端管理台功能，提供了展示Linis的全局历史、修改用户参数、管理ECM和微服务等功能，部署前端管理台前需要先将Linkis后端进行部署，Linkis的部署手册见：[Linkis部署手册](deployment/quick_deploy.md)
 
 ## 1、准备工作
 

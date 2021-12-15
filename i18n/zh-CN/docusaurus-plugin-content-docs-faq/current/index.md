@@ -13,8 +13,7 @@ alization - cancelling refresh attempt: org.springframework.beans.factory.BeanCr
 A:这个是因为publicservice服务没有启动成功导致，建议手动重启下publicservice sh/sbin/linkis-dameo.sh restart ps-publicservice
 #### Q2:  Linkis-eureka调试说明
 A:  如需要调试eureka程序，需要先进行一些配置，如下图
-application-eureka.yml需要去掉部分注释配置，正常启动配置如下图：![img](file:///D:/WXWork/1688853326433565/Cache/Image/2021-12/LrfKk_n47gsmHQWhFyYUwg[1](1).png)![img](file:///D:/WXWork/1688853326433565/Cache/Image/2021-12/A2xldKavZUduF8DYL6Jzpg[1](1).png)
-
+application-eureka.yml需要去掉部分注释配置，正常启动配置如下图：
 ![1639466558031](/faq/q2_1.png)
 
 ![1639466558031](/faq/q2_2.png)
@@ -28,7 +27,7 @@ A: 这个是因为eureka的启动Java进程时没有使用nohup当会话退出�
 可以参考PR：https://github.com/WeBankFinTech/Linkis/pull/837/files
 
 #### Q4: Linkis Entrance LogWriter 缺依赖包
-A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://github.com/WeBankFinTech/LinkisDoc/blob/master/zh_CN/Development_Documents/Linkis%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md![img](file:///D:/WXWork/1688853326433565/Cache/Image/2021-12/ElZ9tE5P_1qKssLyId34zA[1].png)  
+A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://github.com/WeBankFinTech/LinkisDoc/blob/master/zh_CN/Development_Documents/Linkis%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md
 
 #### Q5: Linkis1.0 执行任务报： select list is not in  group by clause
 
@@ -346,7 +345,7 @@ Failed  to async get EngineNode ErrorException: errCode: 0 ,desc: operation fail
 ```
 
 解决办法
-需要安装下对应的引擎插件，可以参考：https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Deployment_Documents/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md
+需要安装下对应的引擎插件，可以参考：[引擎安装指引](deployment/engine_conn_plugin_installation.md)
 
 #### Q37.关闭资源检查
 报错现象：资源不足

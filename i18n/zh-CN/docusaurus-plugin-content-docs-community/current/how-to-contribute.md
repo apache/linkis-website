@@ -30,7 +30,7 @@ sidebar_position: 2
 
 ### 1.4 文档改进
 
-Linkis 用户手册文档维护在github的Linkis-Doc项目中，可以编辑项目里的 Markdown 文件，通过提pr的方式来对文档做改进。
+Linkis 用户手册文档维护在github的Linkis-Website项目中，可以编辑项目里的 Markdown 文件，通过提pr的方式来对文档做改进。
 
 ## 二、贡献流程
 

@@ -23,7 +23,7 @@ sidebar_position: 2
  - data: return specific data.
  - message: return the requested prompt message. If the status is not 0, the message returned is an error message, and the data may have a stack field, which returns specific stack information.
  
-For more information about the Linkis Restful interface specification, please refer to: [Linkis Restful Interface Specification](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Development_Documents/Development_Specification/API.md)
+For more information about the Linkis Restful interface specification, please refer to: [Linkis Restful Interface Specification](development/development_specification/api.md)
 
 ### 1). Submit for execution
 
