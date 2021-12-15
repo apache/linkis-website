@@ -333,22 +333,130 @@ svn status
 
 
 ## 4 验证Release Candidates
-详细可以参见[验证候选版本](/how-to-verify.md)
+
+详细可以参见[How to Verify release](/how-to-verify.md)
+
+## 5 非ASF版本的投票 
+
+> Linkis 非ASF版本进行Linkis社区投票 
+
+<font color='red'> 
+非ASF版本可以选择在ASF基础设施上进行投票，但它是通过非ASF基础设施分发的，并且官网如果有链接指向非ASF版本，需要明确的标记出为非ASF版本.
+可以使用非ASF版本作为发现ASF策略违规的途径并迭代解决掉不合规的机会。
+只有通过IPMC成员投票的版本才是正式的ASF版本。
+孵化项目需要成功发布多个ASF版本，然后才能从孵化器中毕业<br/>
+
+[详细信息见](https://incubator.apache.org/guides/releasemanagement.html)  https://incubator.apache.org/guides/releasemanagement.html
+
+</font>
 
 
-## 5. 发起投票
+#### 5.1 非ASF版本Linkis社区投票模板
+
+```html
+标题：
+[VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+
+内容：
+
+Hello Linkis Community,
+
+    This is a call for review and  vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
+
+	Release notes:
+	    https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
+
+    The release candidates:
+    	https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+
+	Git tag for the release:
+	    https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
+
+	Keys to verify the Release Candidate:
+	    https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS
+
+	GPG user ID:
+	${YOUR.GPG.USER.ID}
+
+    Thanks to everyone who has contributed to this release.
+
+	The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+	Please vote accordingly:
+
+	[ ] +1 approve
+	[ ] +0 no opinion
+	[ ] -1 disapprove with the reason
+
+	Checklist for reference:
+
+	[ ] Download links are valid.
+	[ ] Checksums and PGP signatures are valid.
+	[ ] Source code distributions have correct names matching the current release.
+	[ ] LICENSE and NOTICE files are correct for each Linkis repo.
+	[ ] All files have license headers if necessary.
+	[ ] No compiled archives bundled in source archive.
+
+	More detail checklist  please refer:
+        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+    
+    Steps to validate the release，Please refer to: 
+        https://linkis.apache.org/community/how-to-verify
+
+Thanks,
+${Linkis Release Manager}
+```
+
+#### 5.1.2 宣布非ASF版本投票结果模板
+
+```html
+标题：
+[RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+
+内容：
+Hello Apache Linkis community,
+
+    Thanks to everyone that participated. The vote to release Apache Linkis
+    (Incubating) ${release_version} ${rc_version} is now closed as PASSED.
+    
+    This vote passed with 6 +1 votes (4 bindings and 2 non-bindings) and no 0
+    or -1 votes.
+    
+    +1 votes
+        * Xiao Min / binding
+        * Xiao Hong
+        * Xiao Zi / binding
+    
+    0 votes
+        * No votes
+    
+    -1 votes
+        * No votes
+    
+    Vote thread can be found here [1]. 
+    
+    I'll continue with the release process and update the community as progress is made.
+
+Best regards,
+${Linkis Release Manager}
+
+[1] https://lists.apache.org/thread/xxxx
+
+```
+
+## 6. 正式版本发起投票
 
 > Linkis 仍在孵化阶段，需要进行两次投票
 
 - Linkis社区投票，发送邮件至：`dev@linkis.apache.org`
 - incubator社区投票，发送邮件至：`general@incubator.apache.org` Linkis毕业后，只需要在Linkis社区投票
 
-### 5.1 Linkis社区投票阶段
+### 6.1 Linkis社区投票阶段
 
 1. Linkis社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
 2. 宣布投票结果,发起投票结果邮件到`dev@linkis.apache.org`。
 
-#### 5.1.1 Linkis社区投票模板
+#### 6.1.1 Linkis社区投票模板
 
 ```html
 标题：
@@ -375,9 +483,6 @@ Hello Linkis Community,
 	Keys to verify the Release Candidate:
 	https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS
 
-	Hash for the release tag:
-	#hashCode of this release tag
-
 	GPG user ID:
 	${YOUR.GPG.USER.ID}
 
@@ -386,33 +491,26 @@ Hello Linkis Community,
 	Please vote accordingly:
 
 	[ ] +1 approve
-
 	[ ] +0 no opinion
-
 	[ ] -1 disapprove with the reason
 
 	Checklist for reference:
 
 	[ ] Download links are valid.
-
 	[ ] Checksums and PGP signatures are valid.
-
 	[ ] Source code distributions have correct names matching the current release.
-
 	[ ] LICENSE and NOTICE files are correct for each Linkis repo.
-
 	[ ] All files have license headers if necessary.
-
 	[ ] No compiled archives bundled in source archive.
 
 	More detail checklist  please refer:
     https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
 
 Thanks,
-Your Linkis Release Manager
+${Linkis Release Manager}
 ```
 
-#### 5.1.2 宣布投票结果模板
+#### 6.1.2 宣布投票结果模板
 
 ```html
 标题：
@@ -434,15 +532,15 @@ Hello Apache Linkis PPMC and Community,
     If this vote passes also, the release is accepted and will be published.
 
 Thank you for your support.
-Your Linkis Release Manager
+${Linkis Release Manager}
 ```
 
-### 5.2 Incubator 社区投票阶段
+### 6.2 Incubator 社区投票阶段
 
 1. Incubator社区投票，发起投票邮件到`general@incubator.apache.org`，需3个 `+1 IPMC Member`投票，方可进入下一阶段。
 2. 宣布投票结果,发起投票结果邮件到`general@incubator.apache.org` 并抄送至`dev@linkis.apache.org`。
 
-#### 5.2.1 Incubator社区投票模板
+#### 6.2.1 Incubator社区投票模板
 
 ```html
 标题：[VOTE] Release Apache Linkis(Incubating) ${release_version} ${rc_version}
@@ -491,7 +589,7 @@ On behalf of Apache Linkis(Incubating) community
 
 ```
 
-#### 5.2.2 宣布投票结果模板
+#### 6.2.2 宣布投票结果模板
 
 ```html
 标题：[RESULT][VOTE] Release Apache Linkis ${release_version} {rc_version}
@@ -519,9 +617,9 @@ On behalf of Apache Linkis(Incubating) community
 ```
 
 
-## 6.正式发布
+## 7.正式发布
 
-### 6.1 合并分支
+### 7.1 合并分支
 
 合并`${release_version}-release`分支的改动到`master`分支，合并完成后删除`release`分支
 
@@ -534,7 +632,7 @@ $ git push --delete origin ${release_version}-release
 $ git branch -d ${release_version}-release
 ```
 
-### 6.2 迁移源码与二进制包
+### 7.2 迁移源码与二进制包
 
 将源码和二进制包从svn的`dev`目录移动到`release`目录
 
@@ -544,7 +642,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m
 $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}" #拷贝dev目录KEYS到release目录
 ```
 
-### 6.3 确认dev和release下的包是否正确
+### 7.3 确认dev和release下的包是否正确
 
 - 确认[dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/)下的`${release_version}-${rc_version}`已被删除
 - 删除[release](https://dist.apache.org/repos/dist/release/incubator/linkis/)目录下上一个版本的发布包，这些包会被自动保存在[这里](https://archive.apache.org/dist/incubator/linkis/)
@@ -553,7 +651,7 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://di
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
-### 6.4 在Apache Staging仓库发布版本
+### 7.4 在Apache Staging仓库发布版本
 
 - 登录http://repository.apache.org , 使用Apache账号登录
 - 点击左侧的Staging repositories，
@@ -562,7 +660,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 > 等仓库同步到其他数据源，一般需要24小时
 
-### 6.5 GitHub版本发布
+### 7.5 GitHub版本发布
 
 1.Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. 例如：after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1.2` only.
 
@@ -570,7 +668,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 编辑版本号及版本说明，并点击 `Publish release`
 
-### 6.6 更新下载页面
+### 7.6 更新下载页面
 
 linkis的官网下载地址应该指向apache的官方地址
 
@@ -582,7 +680,7 @@ GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`h
 
 
 
-## 7.邮件通知版本发布完成
+## 8.邮件通知版本发布完成
 
 > 请确保Apache Staging仓库已发布成功，一般是在该步骤的24小时后发布邮件
 
@@ -608,8 +706,6 @@ Website: https://linkis.apache.org/
 Linkis Resources:
 - Issue: https://github.com/apache/incubator-linkis/issues
 - Mailing list: dev@linkis.apache.org
-
-
 
 - Apache Linkis (Incubating) Team
 ```

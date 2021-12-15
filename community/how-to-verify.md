@@ -1,57 +1,50 @@
 ---
-title: How to Verify release
+title: How to Verify
 sidebar_position: 4
 ---
+# Todo Translate to English
 
-# Verify Apache Release
-To verify the release, the following checklist can be used to reference:
-- [ ] Download links are valid.
-- [ ] Checksums and PGP signatures are valid.
-- [ ] DISCLAIMER-WIP(DISCLAIMER) is included.
-- [ ] Source code artifacts have correct names matching the current release.
-- [ ] LICENSE and NOTICE files are correct for the repository.
-- [ ] All files have license headers if necessary.
-- [ ] No compiled archives bundled in source archive.
-- [ ] Building is OK.
+# 验证候选版本
 
-For a detailed checklist, please refer to [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist), here we introduce how to do the verification.
+详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
-## 1. Download the release package to be verified to the local environment
-> Use the following command to download all artifacts, replace "${release_version}-${rc_version}" with the version ID of the version to be released:
+## 1. 下载要发布的候选版本到本地环境
 ```shell
+#如果本地有svn，可以clone到本地 
 svn co https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
-Or download all the material files of the version directly
+#或则 直接下载物料文件
 wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/xxx.xxx
+
 ```
+## 2. 验证上传的版本是否合规
+> 开始验证环节，验证包含但不局限于以下内容和形式
 
-## 2. Verify signature and hash
-> Start the verification process, which includes but is not limited to the following content and verification methods.
-> GnuPG is recommended, which can install by yum install gnupg or apt-get install gnupg.
+### 2.1 查看发布包是否完整
+> 上传到dist的包必须包含源码包，二进制包可选
 
-### 2.1 Check if the release package is complete
-The package to release must check:
-- Whether to include the source code package
-- Whether to include the signature of the source code package
-- Whether to include the sha512 of the source code package
-- (if include) Check the binary package, also check the contents listed in (2)-(4)
+1. 是否包含源码包
+2. 是否包含源码包的签名
+3. 是否包含源码包的sha512
+4. 如果上传了二进制包，则同样检查(2)-(4)所列的内容
 
-### 2.2 Verify signature and hash
-GnuPG is recommended, which can install by yum install GnuPG or apt-get install GnuPG.
-- Import public key
+### 2.2 检查gpg签名
+首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
+
+- 导入公钥
 ```shell
-  curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS > KEYS # Download KEYS
-  gpg --import KEYS # Import KEYS to local
+curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS > KEYS # 下载KEYS
+gpg --import KEYS # 导入KEYS到本地
 ```
-- Trust the public key
-> Trust the KEY used in this version
+- 信任公钥
+> 信任此次版本所使用的KEY
 ```shell
-    gpg --edit-key xxxxxxxxxx                           # KEY used in this version
+    gpg --edit-key xxxxxxxxxx #此次版本所使用的KEY用户
     gpg (GnuPG) 2.2.21; Copyright (C) 2020 Free Software Foundation, Inc.
     This is free software: you are free to change and redistribute it.
     There is NO WARRANTY, to the extent permitted by law.
+    
     Secret key is available.
-    gpg> trust                                          # Trust the KEY
-   
+    gpg> trust #信任
     Please decide how far you trust this user to correctly verify other users' keys
     (by looking at passports, checking fingerprints from different sources, etc.)
     
@@ -62,57 +55,93 @@ GnuPG is recommended, which can install by yum install GnuPG or apt-get install 
       5 = I trust ultimately
       m = back to the main menu
     
-    Your decision? 5                                                    # select 5
-    Do you really want to set this key to ultimate trust? (y/N) y       # select y
-
+    Your decision? 5 #选择5
+    Do you really want to set this key to ultimate trust? (y/N) y #选择y
+                                                                
     gpg> 
          
 ```
-- Check signature and hash
+- 使用如下命令检查签名
 ```shell
   for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
-  # or
+  #或者
   gpg --verify apache-linkis-${release_version}-src.tar.gz.asc apache-linkis-${release_version}-src.tar.gz
-  # Attention: if you upload a binary package, you also need to check whether the signature of the binary package is correct
+  # 如果上传二进制包，则同样需要检查二进制包的签名是否正确
   gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
- ```
-- Confirm result
-> If something similar to the following appears, it means that the signature is correct, and the keywords: **`Good signature`**
+```
+- 检查结果
 
+> 出现类似以下内容则说明签名正确，关键字：**`Good signature`**
 ```shell
-apache-linkis-xxx-incubating-src.tar.gz
-gpg: Signature made XXXX
-gpg:                using RSA key XXXXX
-gpg: Good signature from "xxx @apache.org>"
+    apache-linkis-xxx-incubating-src.tar.gz
+    gpg: Signature made XXXX
+    gpg:                using RSA key XXXXX
+    gpg: Good signature from "xxx @apache.org>"
 ```
 
-### 2.3 Verify sha512 hash
-> Calculate the sha512 hash locally, and verify that it is consistent with the one on dist
+### 2.3 检查sha512哈希
+> 本地计算sha512哈希后，验证是否与dist上的一致，如果上传二进制包，则同样需要检查二进制包的sha512哈希
+> Mac OS/Linux
+
 ```shell
 for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i; done
-# or
-gpg --print-md SHA512 apache-linkis-${release_version}-src.tar.gz
-# If include a binary package, you also need to check the sha512 hash of the binary package
-gpg --print-md SHA512 apache-linkis-${release_version}-bin.tar.gz
-# or
-for i in *.tar.gz.sha512; do echo $i; sha512sum -c $i; done
+#或者
+for i in *.tar.gz; do echo $i; shasum -a 512  $i; done
+
+#并将输出内容与 apache-linkis-${release_version}-xxx.tar.gz.sha512文件内容作对比
+
 ```
 
-### 2.4. Check the file content of the source package
-Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
-- [ ] DISCLAIMER-WIP file exists and the content is correct.
-- [ ] LICENSE and NOTICE files are correct for the repository.
-- [ ] All files have ASF license headers if necessary.
-- [ ] The source code can be compiled normally.
-- [ ] The single test can run through.
-- [ ] Building is OK.
-- [ ] ....
 
-### 2.5 Check the binary package (if the binary package is included)
-  Unzip `apache-linkis-${release_version}-src.tar.gz`, check as follows:
-- [ ] DISCLAIMER-WIP file exists and the content is correct.
-- [ ] LICENSE and NOTICE files are correct for the repository.
-- [ ] The deployment can be successful
-- [ ] Deploy a test environment to verify whether production and consumption can run normally.
-- [ ] Verify what you think might go wrong.
-- [ ] ....
+> Windows
+
+```shell
+$ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
+#并将输出内容与 apache-linkis-${release_version}-xxx.tar.gz.sha512文件内容作对比
+```
+
+
+### 2.4. 检查源码包的文件内容
+
+解压缩`apache-linkis-${release_version}-src.tar.gz`，进行如下检查:
+
+- [ ] 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
+- [ ] 文件夹包含单词`incubating`
+- [ ] 存在`LICENSE`和`NOTICE`文件
+- [ ] 存在`DISCLAIMER`或`DISCLAIMER-WIP`文件
+- [ ] `NOTICE`文件中的年份正确
+- [ ] 只存在文本文件，不存在二进制文件
+- [ ] 所有文件的开头都有ASF许可证
+- [ ] 能够正确编译
+- [ ] 检查是否有多余文件或文件夹，例如空文件夹等
+- [ ] .....
+
+### 2.5 检查二进制包(如果上传了二进制包)
+解压缩`apache-linkis-${release_version}-src.tar.gz`，进行如下检查:
+
+- [ ] 文件夹包含单词`incubating`
+- [ ] 存在`LICENSE`和`NOTICE`文件
+- [ ] 存在`DISCLAIMER`或`DISCLAIMER-WIP`文件
+- [ ] `NOTICE`文件中的年份正确
+- [ ] 所有文本文件开头都有ASF许可证
+- [ ] 检查第三方依赖许可证：
+- [ ] 第三方依赖的许可证兼容
+- [ ] 所有第三方依赖的许可证都在`LICENSE`文件中声名
+- [ ] 依赖许可证的完整版全部在`license`目录
+- [ ] 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
+- [ ] .....
+ 可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
+ 
+## 3.邮件回复 
+如果发起了发布投票，验证后，可以参照此回复示例进行邮件回复
+
+```html
++1 (xxxx)
+
+I  checked:
+1. All download links are valid
+2. Checksum and signature are OK
+3. LICENSE and NOTICE are exist
+4. Build successfully on macOS(Big Sur) 
+5. ....
+```
