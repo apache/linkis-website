@@ -37,7 +37,8 @@ sidebar_position: 1
 
 ![提交阶段流程图](/Images-zh/Architecture/Job提交准备执行流程/提交阶段流程图.png)
 
-1. 首先，Client（如前端或客户端）发起Job请求，Job请求信息精简如下（关于Linkis的具体使用方式，请参考 [如何使用Linkis](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/User_Manual/How_To_Use_Linkis.md)）：
+1. 首先，Client（如前端或客户端）发起Job请求，Job请求信息精简如下
+（关于Linkis的具体使用方式，请参考 [如何使用Linkis](user_guide/how_to_use.md)）：
 
 ```
 POST /api/rest_j/v1/entrance/submit
@@ -115,7 +116,7 @@ Linkis Orchestrator的编排流程与很多SQL解析引擎（如Spark、Hive的S
 
 3. Linkis Orchestrator也具备对SQL的解析能力，但SQL解析只是Orchestrator Parser针对SQL这种编程语言的其中一种解析实现。Linkis Orchestrator的Parser也考虑引入Apache Calcite对SQL进行解析，支持将一条跨多个计算引擎（必须是Linkis已经对接的计算引擎）的用户SQL，拆分成多条子SQL，在执行阶段时分别提交给对应的计算引擎进行执行，最后选择一个合适的计算引擎进行汇总计算。
 
-关于Orchestrator的编排详细介绍，请参考：[Orchestrator架构设计](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Architecture_Documents/Orchestrator/Orchestrator_architecture_doc.md)
+关于Orchestrator的编排详细介绍，请参考：[Orchestrator架构设计](architecture/orchestrator/orchestrator_architecture_doc.md)
 
 经过了Linkis Orchestrator的解析编排后，用户的计算任务已经转换成了一颗可被执行的Physical树。Orchestrator会将该Physical树提交给Orchestrator的Execution模块，进入最后的执行阶段。
 

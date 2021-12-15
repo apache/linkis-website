@@ -46,15 +46,15 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 请前往[Linkis releases 页面](https://github.com/WeBankFinTech/Linkis/wiki/Linkis-Releases) 下载Linkis 的已编译版本或源码包。
 
 # 编译和安装部署
-请参照[编译指引](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Development_Documents/Linkis%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md) 来编译Linkis 源码。  
-请参考[安装部署文档](https://github.com/WeBankFinTech/Linkis-Doc/tree/master/zh_CN/Deployment_Documents) 来部署Linkis。
+请参照[编译指引](development/linkis_compile_and_package.md) 来编译Linkis 源码。  
+请参考[安装部署文档](deployment/quick_deploy.md) 来部署Linkis。
 
 # 示例和使用指引
-请到 [用户手册](https://github.com/WeBankFinTech/Linkis-Doc/tree/master/zh_CN/User_Manual), [各引擎使用指引](https://github.com/WeBankFinTech/Linkis-Doc/tree/master/zh_CN/Engine_Usage_Documentations) 和[API 文档](https://github.com/WeBankFinTech/Linkis-Doc/tree/master/zh_CN/API_Documentations) 中，查看如何使用和管理Linkis 的示例和指引。
+请到 [用户手册]user_guide/overview.md), [各引擎使用指引](engine_usage/overview.md) 和[API 文档](api/overview.md) 中，查看如何使用和管理Linkis 的示例和指引。
 
 # 文档
 
-完整的Linkis 文档参见[Linkis-Doc](https://github.com/WeBankFinTech/Linkis-Doc) 或[wiki](https://github.com/WeBankFinTech/Linkis/wiki).  
+完整的Linkis 文档参见[Linkis-Website](https://github.com/apache/incubator-linkis-website) 
 
 # 架构概要
 Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服务、公共增强服务和微服务治理服务。  
@@ -62,7 +62,7 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 - 公共增强服务，包括上下文服务、物料管理服务及数据源服务等;
 - 微服务治理服务，包括定制化的Spring Cloud Gateway、Eureka、Open Feign。
 
-下面是Linkis 的架构概要图. 更多详细架构文档请见 [Linkis-Doc/Architecture](https://github.com/WeBankFinTech/Linkis-Doc/tree/master/zh_CN/Architecture_Documents).
+下面是Linkis 的架构概要图. 更多详细架构文档请见 [Linkis/Architecture](docs/architecture/overview.md).
 ![architecture](/Images/Linkis_1.0_architecture.png)
 
 基于Linkis 计算中间件，我们在大数据平台套件[WeDataSphere](https://github.com/WeBankFinTech/WeDataSphere) 中构建了许多应用和工具系统。下面是目前可用的开源项目。

@@ -37,7 +37,7 @@ sidebar_position: 0
 
 ### 三、《Q\&A问题总结》
 
-在Linkis文档中，专门整理出一篇包含安装部署过程中常见问题汇总以及解决方案的文档《 [Linkis 1.0常见问题](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Tuning_and_Troubleshooting/Q&A.md) 》
+在Linkis文档中，专门整理出一篇包含安装部署过程中常见问题汇总以及解决方案的文档《 [Linkis 1.0常见问题](/faq/index) 》
 
 
 

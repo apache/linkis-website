@@ -18,7 +18,7 @@
  - data：返回具体的数据。
  - message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。 
  
-更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](https://github.com/WeBankFinTech/Linkis-Doc/blob/master/zh_CN/Development_Documents/Development_Specification/API.md)
+更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](development/development_specification/api.md)
 
 ### 1).提交执行
 
