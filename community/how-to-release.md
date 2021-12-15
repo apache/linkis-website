@@ -354,7 +354,7 @@ svn status
 
 
 #### 5.1 非ASF版本Linkis社区投票模板
-
+- Linkis社区投票，发送邮件至：`dev@linkis.apache.org`
 ```html
 标题：
 [VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
@@ -416,10 +416,10 @@ ${Linkis Release Manager}
 [RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
 
 内容：
-Hello Apache Linkis community,
+Hello Linkis community,
 
     Thanks to everyone that participated. The vote to release Apache Linkis
-    (Incubating) ${release_version} ${rc_version} is now closed as PASSED.
+    (Incubating) ${release_version} ${rc_version} in dev@linkis is now closed as PASSED.
     
     This vote passed with 6 +1 votes (4 bindings and 2 non-bindings) and no 0
     or -1 votes.
@@ -428,6 +428,7 @@ Hello Apache Linkis community,
         * Xiao Min / binding
         * Xiao Hong
         * Xiao Zi / binding
+        * xxxx
     
     0 votes
         * No votes
