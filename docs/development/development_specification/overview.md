@@ -1,6 +1,6 @@
 ---
 title: Overview
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 In order to standardize Linkis's community development environment, improve the output quality of subsequent development iterations of Linkis, and standardize the entire development and design process of Linkis, it is strongly recommended that Contributors follow the following development specifications:

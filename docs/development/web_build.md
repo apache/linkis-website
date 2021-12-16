@@ -1,16 +1,16 @@
 ---
-title: Linkis Console 编译
+title: Linkis Console Compile
 sidebar_position: 4
 ---
 
-## 启动流程
+## Start the process
 
-### 一、安装Node.js
-将Node.js下载到电脑本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用最新的稳定版本）
-**该步骤仅第一次使用时需要执行。**
+### 1. Install Node.js
+Download Node.js to your computer and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (It is recommended to use the latest stable version)
+**This step only needs to be performed the first time you use it. **
 
-### 二、安装项目
-在终端命令行中执行以下指令：
+### Second, the installation project
+Execute the following commands in the terminal command line:
 
 ```
 git clone git@github.com:apache/incubator-linkis.git
@@ -18,70 +18,70 @@ cd Linkis/web
 npm install
 ```
 
-指令简介：
-1. 将项目包从远程仓库拉取到电脑本地
-2. 进入项目WEB根目录：cd Linkis/web
-3. 安装项目所需依赖：npm install
+Introduction to the instruction:
+1. Pull the project package from the remote warehouse to the local computer
+2. Enter the web root directory of the project: cd Linkis/web
+3. Dependencies required to install the project: npm install
 
-**该步骤仅第一次使用时需要执行。**
+**This step only needs to be performed the first time you use it. **
 
-### 三、配置
-您需要在代码中进行一些配置，如后端接口地址等，如根目录下的.env.development文件：
+### Three, configuration
+You need to make some configuration in the code, such as the back-end interface address, etc., such as the .env.development file in the root directory:
 
 ```
-// 后端接口地址
+// back-end interface address
 VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath
 ```
 
-配置的具体解释可参考vue-cli官方文档：[环境变量和模式](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%92%8C%E6%A8%A1%E5%BC%8F)
+For specific explanation of the configuration, please refer to the official vue-cli document: [Environment Variables and Modes](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E7%8E%AF%E5% A2%83%E5%8F%98%E9%87%8F%E5%92%8C%E6%A8%A1%E5%BC%8F)
 
-### 打包项目
-您可以通过在终端命令行执行以下指令对项目进行打包，生成压缩后的代码：
+### Package the project
+You can package the project by executing the following commands on the terminal command line to generate compressed code:
 
 ```
 npm run build
 ```
 
-该指令成功执行后，项目web目录下会出现一个 “dist” 的文件夹及“*-${getVersion()}-dist.zip”压缩文件，目录dist/dist即为打包好的代码，您可以直接将该文件夹放进您的静态服务器中，或者参考安装文档，使用脚本进行部署安装。
+After the command is successfully executed, a "dist" folder and a "*-${getVersion()}-dist.zip" compressed file will appear in the project web directory. The directory dist/dist is the packaged code. You can Put the folder directly into your static server, or refer to the installation document and use the script to deploy and install.
 
-### 运行项目
-如果您想在本地浏览器上运行该项目并且改动代码查看效果，需要在终端命令行中执行以下指令：
+### Run the project
+If you want to run the project on a local browser and change the code to view the effect, you need to execute the following commands in the terminal command line:
 
 ```
 npm run serve
 ```
 
-在浏览器中（建议Chrome浏览器）通过链接访问应用：[http://localhost:8080/](http://localhost:8080/) .
-当您使用该方式运行项目时，您对代码的改动产生的效果，会动态体现在浏览器上。
+In the browser (Chrome browser is recommended) to access the application through the link: [http://localhost:8080/](http://localhost:8080/).
+When you run the project in this way, the effect of your code changes will be dynamically reflected in the browser.
 
-**注意：因为项目采用前后端分离开发，所以在本地浏览器上运行时，需要对浏览器进行设置跨域才能访问后端接口：**
+**Note: Because the project is developed separately from the front and back ends, when running on a local browser, the browser needs to be set to cross domains to access the back-end interface:**
 
-比如chrome浏览器：
-windows系统下的配置方式：
-1. 关闭所有的chrome浏览器。
-2. 新建一个chrome快捷方式，右键“属性”，“快捷方式”选项卡里选择“目标”，添加  --args --disable-web-security --user-data-dir=C:\MyChromeDevUserData
-3. 通过快捷方式打开chrome浏览器
-mac系统下的配置方式：
-在终端命令行执行以下命令(需要替换路径中的yourname，若还不生效请检查您机器上MyChromeDevUserData文件夹的位置并将路径复制到下面指令的“--user-data-dir=”后面)
+For example, the chrome browser:
+Configuration method under windows system:
+1. Close all chrome browsers.
+2. Create a new chrome shortcut, right-click "Properties", select "Target" in the "Shortcut" tab, and add --args --disable-web-security --user-data-dir=C:\MyChromeDevUserData
+3. Open chrome browser via shortcut
+Configuration method under mac system:
+Execute the following command on the terminal command line (you need to replace yourname in the path, if it does not take effect, please check the location of the MyChromeDevUserData folder on your machine and copy the path to the "--user-data-dir=" in the following command)
 
 ```
-open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/yourname/MyChromeDevUserData/
+open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/yourname/MyChromeDevUserData/
 ```
 
 
-### 常见问题
+### common problem
 
-#### npm install无法成功
-如果遇到该情况，可以使用国内的淘宝npm镜像：
+#### npm install cannot succeed
+If you encounter this situation, you can use the domestic Taobao npm mirror:
 
 ```
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
-接着，通过执行以下指令代替npm install指令
+Then, replace the npm install command by executing the following command
 
 ```
 cnpm install
 ```
 
-注意，项目启动和打包时，仍然可以使用npm run build和npm run serve指令
+Note that when the project is started and packaged, you can still use the npm run build and npm run serve commands

@@ -1,38 +1,36 @@
 ---
-title: Linkis-Client架构设计
+title: Linkis-Client Architecture Design
 sidebar_position: 4
 ---
 
-为用户提供向Linkis提交执行任务的轻量级客户端。
+Provide users with a lightweight client that submits tasks to Linkis for execution.
 
-#### Linkis-Client架构图
+#### Linkis-Client architecture diagram
 
 ![img](/Images-zh/Architecture/linkis-client-01.png)
 
 
 
-#### 二级模块介绍
+#### Second-level module introduction
 
 ##### Linkis-Computation-Client
 
-以SDK的形式为用户提供向Linkis提交执行任务的接口。
+Provides an interface for users to submit execution tasks to Linkis in the form of SDK.
 
-| 核心类     | 核心功能                                         |
-| ---------- | ------------------------------------------------ |
-| Action     | 定义了请求的属性，包含的方法和参数               |
-| Result     | 定义了返回结果的属性，包含的方法和参数           |
-| UJESClient | 负责请求的提交，执行，状态、结果和相关参数的获取 |
-
- 
-
-#####  Linkis-Cli
-
-以shell命令端的形式为用户提供向Linkis提交执行任务的方式。
-
-| 核心类      | 核心功能                                                     |
-| ----------- | ------------------------------------------------------------ |
-| Common      | 定义了指令模板父类、指令解析实体类、任务提交执行各环节的父类和接口 |
-| Core        | 负责解析输入、任务执行和定义输出方式                         |
-| Application | 调用linkis-computation-client执行任务，并实时拉取日志和最终结果 |
+| Core Class | Core Function |
+| ---------- | -------------------------------------- ---------- |
+| Action | Defines the requested attributes, methods and parameters included |
+| Result | Defines the properties of the returned result, the methods and parameters included |
+| UJESClient | Responsible for request submission, execution, status, results and related parameters acquisition |
 
  
+
+##### Linkis-Cli
+
+Provides a way for users to submit tasks to Linkis in the form of a shell command terminal.
+
+| Core Class | Core Function |
+| ----------- | ------------------------------------- ----------------------- |
+| Common | Defines the parent class and interface of the instruction template parent class, the instruction analysis entity class, and the task submission and execution links |
+| Core | Responsible for parsing input, task execution and defining output methods |
+| Application | Call linkis-computation-client to perform tasks, and pull logs and final results in real time |
