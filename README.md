@@ -103,4 +103,4 @@ Located in `src/pages/versions`
 -Image resources are placed in the static/ directory
  
 ## 4. Other
-The naming convention refers to "Alibaba Front-end Development Specification
+The naming convention refers to "Alibaba Front-end Development Specification"

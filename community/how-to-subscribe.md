@@ -36,7 +36,7 @@ The steps for unsubscribing to a mailing list are similar to those for subscribi
 5. Unsubscribe success
 
 
-## issues related
+## 4. issues related
 
 > Linkis's issues address [https://github.com/apache/incubator-linkis/issues](https://github.com/apache/incubator-linkis/issues)
 

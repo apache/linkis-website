@@ -98,7 +98,7 @@ css等样式文件放在`src/css`目录下
 ## 3.新增文档 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) md文档建议通过访问官网查看,通过github查看md文档存在图片等静态资源无法正确显示问题
 
-- 英文文档 docs/对应目录为即将发布的下一个版本，历史存档版本存放在versioned_docs/version-${versionno}目录下。
+- 英文文档 docs/对应目录为即将发布的下一Next版本，历史存档版本存放在versioned_docs/version-${versionno}目录下。
 - 中文文档 放在i18n/zh-CN/docusaurus-plugin-content-docs/对应目录下，current为即将发布的下一个版本.version-${versionno}为历史存档版本。
 - 图片资源 放在static/目录下
  
