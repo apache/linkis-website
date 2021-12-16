@@ -1,7 +1,6 @@
 # Q&A 
+> Linkis1.0常见问题和解决办法：[https://docs.qq.com/doc/DWlN4emlJeEJxWlR0](https://docs.qq.com/doc/DWlN4emlJeEJxWlR0)
 
-Linkis1.0常见问题和解决办法
-：[https://docs.qq.com/doc/DWlN4emlJeEJxWlR0](https://docs.qq.com/doc/DWlN4emlJeEJxWlR0)
 
 #### Q1: linkis的ps-cs服务日志报这个错： figServletWebServerApplicationContext (559) 
 

@@ -5,8 +5,8 @@ Use the links below to download the Apache Linkis from one of our mirrors.
 ## Linkis
 | Date | Version| Comment | Downloads |
 |:---:|:--:|:--:|:--:|
-| 2021-09-02| 1.0.2 | Source | [[SRC](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)]                 [[PGP](NULL)]             [[SHA512](NULL)] |
-| |                 | Bin | [[BIN](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.0.2-combined-package-dist.tar.gz)]  [[PGP](NULL)]      [[SHA512](NULL)] |
+| 2021-09-02| 1.0.2 | Source | [[SRC](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)]
+| |                 | Bin | [[BIN](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.0.2-combined-package-dist.tar.gz)]
 
 ## Release Notes
 

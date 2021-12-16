@@ -60,7 +60,7 @@ gpg --import KEYS # Import KEYS to local
     gpg>
          
 ```
--Use the following command to check the signature
+- Use the following command to check the signature
 ```shell
   for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
   #or

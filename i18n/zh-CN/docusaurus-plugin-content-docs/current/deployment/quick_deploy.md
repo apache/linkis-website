@@ -116,7 +116,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
 ### 3.3 安装包准备
 
-从Linkis已发布的release中（[点击这里进入下载页面](https://linkis.apache.org/zh-CN/download/index)），下载最新的安装包。
+从Linkis已发布的release中（[点击这里进入下载页面](https://linkis.apache.org/zh-CN/download/main)），下载最新的安装包。
 
 先解压安装包到安装目录，并对解压后的文件进行配置修改。
 

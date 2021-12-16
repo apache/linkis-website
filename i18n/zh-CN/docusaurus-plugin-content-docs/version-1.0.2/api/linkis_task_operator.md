@@ -1,4 +1,4 @@
-# Linkis 任务提交执行Rest API文档
+# 任务提交执行 Rest API 文档
 
 - Linkis Restful接口的返回，都遵循以下的标准返回格式：
 
@@ -20,7 +20,7 @@
  
 更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](development/development_specification/api.md)
 
-### 1).提交执行
+### 1. 提交执行
 
 - 接口 `/api/rest_j/v1/entrance/execute`
 
@@ -73,7 +73,7 @@
 - taskID 是表示用户提交task的唯一ID，这个ID由数据库自增生成，为 Long 类型
 
 
-### 2).获取状态
+### 2. 获取状态
 
 - 接口 `/api/rest_j/v1/entrance/${execID}/status`
 
@@ -93,7 +93,7 @@
 }
 ```
 
-### 3).获取日志
+### 3. 获取日志
 
 - 接口 `/api/rest_j/v1/entrance/${execID}/log?fromLine=${fromLine}&size=${size}`
 
@@ -116,7 +116,7 @@
 }
 ```
 
-### 4).获取进度
+### 4. 获取进度
 
 - 接口 `/api/rest_j/v1/entrance/${execID}/progress`
 
@@ -152,7 +152,7 @@
 }
 ```
 
-### 5).kill任务
+### 5. kill任务
 
 - 接口 `/api/rest_j/v1/entrance/${execID}/kill`
 

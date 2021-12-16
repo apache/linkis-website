@@ -1,13 +1,13 @@
 ---
-title: Linkis-Cli使用
+title: Linkis-Cli 方式使用
 sidebar_position: 2
 ---
 
-## 介绍
+## 1. 介绍
 
 Linkis-Cli 是一个用于向Linkis提交任务的Shell命令行程序。
 
-## 基础案例
+## 2. 基础案例
 
 您可以参照下面的例子简单地向Linkis提交任务
 
@@ -31,13 +31,13 @@ Linkis-Cli 是一个用于向Linkis提交任务的Shell命令行程序。
 linkis-cli目前仅支持同步提交，即向linkis提交任务后，不断询问任务状态、拉取任务日志，直至任务结束。任务结束时状态如果为成功，linkis-cli还会主动拉取结果集并输出。
 
 
-## 使用方式
+## 3. 使用方式
 
 ```bash
    ./bin/linkis-cli [参数] [cli参数]
 ```
 
-## 支持的参数列表
+## 4. 支持的参数列表
 
 * cli参数
 
@@ -68,9 +68,9 @@ linkis-cli目前仅支持同步提交，即向linkis提交任务后，不断询�
     | -sourceMap  | 指定linkis sourceMap      | Map      | 否  |
 
 
-## 详细示例
+## 5. 详细示例
 
-#### 一、添加cli参数
+### 5.1 添加cli参数
 
 Cli参数可以通过手动指定的方式传入，此方式下会覆盖默认配置文件中的冲突配置项
 
@@ -78,7 +78,7 @@ Cli参数可以通过手动指定的方式传入，此方式下会覆盖默认�
     ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --gwUrl http://127.0.0.1:9001  --authStg token --authKey [tokenKey] --authVal [tokenValue] 
 ```
 
-#### 二、添加引擎初始参数
+### 5.2 添加引擎初始参数
 
 引擎的初始参数可以通过`-confMap`参数添加，注意参数的数据类型是Map，命令行的输入格式如下：
 
@@ -92,7 +92,7 @@ Cli参数可以通过手动指定的方式传入，此方式下会覆盖默认�
         
 当然，这些参数也支持以配置文件的方式读取，我们稍后会讲到
 
-#### 三、添加标签
+### 5.3 添加标签
 
 标签可以通过`-labelMap`参数添加，与`-confMap`一样，`-labelMap`参数的类型也是Map:
 
@@ -100,7 +100,7 @@ Cli参数可以通过手动指定的方式传入，此方式下会覆盖默认�
    /bin/linkis-cli -engineType spark-2.4.3 -codeType sql -labelMap labelKey=labelVal -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
 ```
 
-#### 四、变量替换
+### 5.4 变量替换
 
 Linkis-cli的变量替换通过`${}`符号和`-varMap`共同实现
 
@@ -116,7 +116,7 @@ Linkis-cli的变量替换通过`${}`符号和`-varMap`共同实现
 
 注意`'\$'`中的转义符是为了防止参数被linux提前解析，如果是`-codePath`指定本地脚本方式，则不需要转义符
 
-#### 五、使用用户配置
+### 5.5 使用用户配置
 
 1. linkis-cli支持加载用户自定义配置文件，配置文件路径通过`--userConf`参数指定，配置文件需要是`.properties`文件格式
 
@@ -179,7 +179,7 @@ Map前缀包括：
    wds.linkis.client.label.myLabel=label123
 ```
 
-#### 六、输出结果集到文件
+### 5.6 输出结果集到文件
 
 使用`-outPath`参数指定一个输出目录，linkis-cli会将结果集输出到文件，每个结果集会自动创建一个文件，输出形式如下：
 

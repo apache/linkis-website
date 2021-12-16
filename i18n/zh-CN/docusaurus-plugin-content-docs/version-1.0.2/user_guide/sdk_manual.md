@@ -1,5 +1,5 @@
 ---
-title: 用户使用手册
+title: JAVA SDK 方式使用
 sidebar_position: 3
 ---
 

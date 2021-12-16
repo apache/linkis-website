@@ -11,7 +11,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 ### step1 源码获取
 
 - 方式1：从[github仓库](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis 获取项目的源代码。
-- 方式2：从[linkis的官方下载页面](https://linkis.apache.org/download/index) https://linkis.apache.org/download/index 下载所需版本的源码包。
+- 方式2：从[linkis的官方下载页面](https://linkis.apache.org/download/main) https://linkis.apache.org/download/main 下载所需版本的源码包。
 
 **请注意**：官方推荐使用 Hadoop-2.7.2、Hive-1.2.1、Spark-2.4.3 和 Scala-2.11.12 对 Linkis 进行编译。
 

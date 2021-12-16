@@ -40,7 +40,7 @@ export default function() {
                 <p>{dataSource.nextVersionExplain}</p>
                 <table>
                     <tr>
-                        <td>Next(1.0.3)</td>
+                        <td>Next(1.0.3 WIP)</td>
                         <td>
                             <a href={dataSource.table.nextLink}>{dataSource.table.doc}</a>
                         </td>

@@ -1,20 +1,14 @@
 ---
-title: 编译打包
-sidebar_position: 1
+title: Linkis 编译打包
+sidebar_position: 0
 ---
-
-
 
 ## 目录
 
 - [1. 全量编译 Linkis](#1全量编译-linkis)
-
 - [2. 编译单个模块](#2编译单个模块)
-
 - [3. 编译某个引擎](#3-编译某个引擎)
-
 - [4. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本](#4-如何修改linkis的依赖的hadoophivespark版本)
-
 - [5. 编译前端管理台](development/web_build.md)
 
 ## 1.全量编译 Linkis

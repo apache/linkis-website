@@ -1,4 +1,4 @@
-# EngineConn新增流程
+# EngineConn 新增流程
 
 EngineConn的新增，是Linkis计算治理的计算任务准备阶段的核心流程之一。它主要包括了Client端（Entrance或用户客户端）向LinkisManager发起一个新增EngineConn的请求，LinkisManager为用户按需、按标签规则，向EngineConnManager发起一个启动EngineConn的请求，并等待EngineConn启动完成后，将可用的EngineConn返回给Client的整个流程。
 

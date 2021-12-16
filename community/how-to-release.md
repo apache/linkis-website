@@ -4,6 +4,7 @@ sidebar_position: 3
 ---
 
 # Apache Publishing Guide
+>This article takes the release of version 1.0.3 as an example
 
 Understand the content and process of Apache's release
 
@@ -216,13 +217,13 @@ For encryption settings, please refer to [here](http://maven.apache.org/guides/m
 </profiles>
 </settings>
 ```
-### 1.7. Prepare svn native environment
+### 1.7 Prepare svn native environment
 
 Apache uses svn to host the published content of the project
 
 
 
-## 2Prepare material package & release of Apache Nexus
+## 2 Prepare material package & release of Apache Nexus
 
 ### 2.1 Preparing to branch
 
@@ -337,7 +338,287 @@ svn status
 
 For details, please refer to [How to Verify release](/how-to-verify.md)
 
+## 5 Voting for non-ASF version
 
+> Linkis non-ASF version for Linkis community voting
+
+<font color='red'>
+The non-ASF version can choose to vote on the ASF infrastructure, but it is distributed through the non-ASF infrastructure, and if the official website has a link to the non-ASF version, it needs to be clearly marked as the non-ASF version.
+You can use the non-ASF version as a way to discover ASF policy violations and iteratively solve the opportunities for non-compliance.
+Only the version voted by IPMC members is the official ASF version.
+Incubating projects need to successfully release multiple ASF versions before they can graduate from the incubator<br/>
+
+[For more information, see](https://incubator.apache.org/guides/releasemanagement.html) https://incubator.apache.org/guides/releasemanagement.html
+
+</font>
+
+
+#### 5.1 Non-ASF version Linkis community voting template
+>To vote in the Linkis community, send an email to: `dev@linkis.apache.org`
+
+```html
+title:
+[VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+
+content:
+
+Hello Linkis Community,
+
+    This is a call for review and vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
+
+Release notes:
+https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
+
+    The release candidates:
+    https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+
+Git tag for the release:
+https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
+
+Keys to verify the Release Candidate:
+https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS
+
+GPG user ID:
+${YOUR.GPG.USER.ID}
+
+    Thanks to everyone who has contributed to this release.
+
+The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+Please vote accordingly:
+
+[] +1 approve
+[] +0 no opinion
+[] -1 disapprove with the reason
+
+Checklist for reference:
+
+[] Download links are valid.
+[] Checksums and PGP signatures are valid.
+[] Source code distributions have correct names matching the current release.
+[] LICENSE and NOTICE files are correct for each Linkis repo.
+[] All files have license headers if necessary.
+[] No compiled archives bundled in source archive.
+
+More detail checklist please refer:
+        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+    
+    Steps to validate the release, Please refer to:
+        https://linkis.apache.org/community/how-to-verify
+
+Thanks,
+${Linkis Release Manager}
+```
+
+#### 5.2 Announce non-ASF version voting result template
+
+```html
+title:
+[RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+
+content:
+Hello Linkis community,
+
+     Thanks to everyone that participated. The vote to release Apache Linkis
+     (Incubating) ${release_version} ${rc_version} in dev@linkis is now closed as PASSED.
+    
+     This vote passed with 6 +1 votes (4 bindings and 2 non-bindings) and no 0
+     or -1 votes.
+    
+     +1 votes
+         * Xiao Min / binding
+         * Xiao Hong
+         * Xiao Zi / binding
+         * xxxx
+    
+     0 votes
+         * No votes
+    
+     -1 votes
+         * No votes
+    
+     Vote thread can be found here [1].
+    
+     I'll continue with the release process and update the community as progress is made.
+
+Best regards,
+${Linkis Release Manager}
+
+[1] https://lists.apache.org/thread/xxxx
+
+```
+
+## 6. The official version initiates a vote
+
+> Linkis is still in the incubation stage and needs to vote twice
+
+- To vote in the Linkis community, send an email to: `dev@linkis.apache.org`
+- To vote in the incubator community, send an email to: `general@incubator.apache.org` After Linkis graduates, you only need to vote in the Linkis community
+
+### 6.1 Linkis community voting stage
+
+- To vote in the Linkis community, send a voting email to `dev@linkis.apache.org`. PMC needs to check the correctness of the version according to the document, and then vote. After at least 72 hours have passed and three `+1 PMC member` votes have been counted, you can enter the next stage of voting.
+- Announce the results of the voting and send an email to the result of the voting to `dev@linkis.apache.org`.
+
+#### 6.1.1 Linkis Community Voting Template
+
+```html
+title:
+[VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+
+content:
+
+Hello Linkis Community,
+
+    This is a call for vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
+
+Release notes:
+https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
+
+    The release candidates:
+    https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+
+    Maven artifacts are available in a staging repository at:
+    https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
+
+Git tag for the release:
+https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
+
+Keys to verify the Release Candidate:
+https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS
+
+GPG user ID:
+${YOUR.GPG.USER.ID}
+
+The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+Please vote accordingly:
+
+[] +1 approve
+[] +0 no opinion
+[] -1 disapprove with the reason
+
+Checklist for reference:
+
+[] Download links are valid.
+[] Checksums and PGP signatures are valid.
+[] Source code distributions have correct names matching the current release.
+[] LICENSE and NOTICE files are correct for each Linkis repo.
+[] All files have license headers if necessary.
+[] No compiled archives bundled in source archive.
+
+More detail checklist please refer:
+    https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+
+Thanks,
+${Linkis Release Manager}
+```
+
+#### 6.1.2 Announce voting result template
+
+```html
+title:
+[RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+
+content:
+Hello Apache Linkis PPMC and Community,
+
+    The vote closes now as 72hr have passed. The vote PASSES with
+
+    xx (+1 non-binding) votes from the PPMC,
+    xx (+1 binding) votes from the IPMC,
+    xx (+1 non-binding) votes from the rest of the developer community,
+    and no further 0 or -1 votes.
+
+    The vote thread: {vote_mail_address}
+
+    I will now bring the vote to general@incubator.apache.org to get approval by the IPMC.
+    If this vote passes also, the release is accepted and will be published.
+
+Thank you for your support.
+${Linkis Release Manager}
+```
+
+### 6.2 Incubator community voting stage
+
+1. To vote in the Incubator community, send a voting email to `general@incubator.apache.org`, and 3 `+1 IPMC Member` votes are required to proceed to the next stage.
+2. Announce the result of the poll, send an email to `general@incubator.apache.org` and send a copy to `dev@linkis.apache.org`.
+
+#### 6.2.1 Incubator community voting template
+
+```html
+Title: [VOTE] Release Apache Linkis(Incubating) ${release_version} ${rc_version}
+
+content:
+
+Hello Incubator Community,
+
+    This is a call for a vote to release Apache Linkis(Incubating) version
+    ${release_version} ${rc_version}
+
+    The Apache Linkis community has voted on and approved a proposal to release
+    Apache Linkis(Incubating) version ${release_version} ${rc_version}
+
+    We now kindly request the Incubator PMC members review and vote on this
+    incubator release.
+
+    Linkis community vote thread:
+    • [Vote Link]
+
+    Vote result thread:
+    • [Link to voting results]
+
+    The release candidate:
+    • https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+
+    Git tag for the release:
+    • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+
+    Release notes:
+    • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+
+    The artifacts signed with PGP key [fill in your personal KEY], corresponding to [fill in your personal email], that can be found in keys file:
+    • https://downloads.apache.org/incubator/linkis/KEYS
+
+    The vote will be open for at least 72 hours or until necessary number of votes are reached.
+
+    Please vote accordingly:
+
+    [] +1 approve
+    [] +0 no opinion
+    [] -1 disapprove with the reason
+
+Thanks,
+On behalf of Apache Linkis(Incubating) community
+
+```
+
+#### 6.2.2 Announce voting result template
+
+```html
+Title: [RESULT][VOTE] Release Apache Linkis ${release_version} {rc_version}
+
+content:
+Hi all
+
+Thanks for reviewing and voting for Apache Linkis(Incubating) ${release_version} {rc_version}
+release, I am happy to announce the release voting has passed with [Number of voting results]
+binding votes, no +0 or -1 votes. Binding votes are from IPMC
+
+   -xxx
+   -xxx
+   -xxx
+
+The voting thread is:
+[Vote Link]
+
+Many thanks for all our mentors helping us with the release procedure, and
+all IPMC helped us to review and vote for Apache Linkis(Incubating) release. I will
+be working on publishing the artifacts soon.
+
+Thanks
+On behalf of Apache Linkis(Incubating) community
+```
 ## 7. Official release
 
 ### 7.1 Merging branches

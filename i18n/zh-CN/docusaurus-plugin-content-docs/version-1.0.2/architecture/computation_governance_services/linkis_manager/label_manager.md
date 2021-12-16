@@ -1,5 +1,5 @@
 ---
-title: LabelManager架构
+title: LabelManager 架构
 sidebar_position: 2
 ---
 

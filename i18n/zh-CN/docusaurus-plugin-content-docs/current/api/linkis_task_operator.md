@@ -12,13 +12,12 @@
 ```
 
 **约定**：
-```
+
  - method：返回请求的Restful API URI，主要是 WebSocket 模式需要使用。
  - status：返回状态信息，其中：-1表示没有登录，0表示成功，1表示错误，2表示验证失败，3表示没该接口的访问权限。
  - data：返回具体的数据。
  - message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。 
-```
-
+ 
 更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](development/development_specification/api.md)
 
 ### 1. 提交执行

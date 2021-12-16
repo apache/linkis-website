@@ -116,7 +116,7 @@ For example: **The deploy user is hadoop**.
 
 ### c. Preparing installation package
 
-Download the latest installation package from the Linkis release. ([Click here to enter the download page](https://linkis.apache.org/zh-CN/download/index))
+Download the latest installation package from the Linkis release. ([Click here to enter the download page](https://linkis.apache.org/zh-CN/download/main))
 
 Decompress the installation package to the installation directory and modify the configuration of the decompressed file.
 

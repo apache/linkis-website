@@ -3,6 +3,7 @@ title: 如何发布版本
 sidebar_position: 3
 ---
 # Apache 发布指南
+>本文以发布1.0.3版本为示例
 
 理解 Apache 发布的内容和流程
 
@@ -15,6 +16,8 @@ Source Release 是 Apache 关注的重点，也是发布的必须内容；而 Bi
 - [Maven Release Info](http://www.apache.org/dev/publishing-maven-artifacts.html)
 
 apache的maven和SVN仓库都会使用到GPG签名来验证物料文件的合法性
+
+
 
 ## 1 工具准备
 （当本次发布者是首次进行发布时需要）
@@ -407,7 +410,7 @@ Thanks,
 ${Linkis Release Manager}
 ```
 
-#### 5.1.2 宣布非ASF版本投票结果模板
+#### 5.2 宣布非ASF版本投票结果模板
 
 ```html
 标题：

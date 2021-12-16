@@ -39,6 +39,18 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editLocalizedFiles: true,
           // Please change this to your repo.
           editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
+           versions: {
+              current: {
+                //label: 'Next v1.0.3 (WIP)',
+                path: '1.0.3',
+                //banner: 'none',
+              },
+              '1.0.2': {
+                //label: 'v1.0.2',
+                path: '1.0.2',
+                //banner: 'unmaintained',
+              }
+            }
         },
         blog: {
           // showReadingTime: true,
@@ -84,19 +96,19 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             activeBaseRegex: `^/$`,
           },
         {
-            to: '/faq/index',
+            to: '/faq/main',
             position: 'left',
             label: 'FAQ',
             activeBaseRegex: `/faq/`,
           },
           {
-            to: '/download/index',
+            to: '/download/main',
             position: 'left',
             label: 'Download',
             activeBaseRegex: `/download/`,
           },
           {
-            to: '/community/how-to-contribute',
+            to: '/community/how-to-subscribe',
             label: 'Community',
             position: 'left',
             activeBaseRegex: `/community/`,
@@ -119,12 +131,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 //            to: "/docs/user_guide/overview",
             items: [
               {
-                label: "Next(1.0.3)",
-                to: "/docs/next/introduction",
+                label: "Next-1.0.3 (WIP)",
+                to: "/docs/1.0.3/introduction",
               },
               {
                 label: "1.0.2",
-                to: "/docs/introduction",
+                to: "/docs/1.0.2/introduction",
               },
               {
                 label: "All versions",
@@ -155,7 +167,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 },
                 {
                   label: 'FAQ',
-                  href: '/faq/index',
+                  href: '/faq/main',
                 },
                 {
                   label: 'Releases',

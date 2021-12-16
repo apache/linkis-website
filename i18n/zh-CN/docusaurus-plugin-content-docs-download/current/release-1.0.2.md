@@ -4,8 +4,8 @@
 ## Linkis
 | 日期 | 版本| 备注 | 下载 |
 |:---:|:--:|:--:|:--:|
-| 2021-09-02| 1.0.2 | 源码 | [[SRC](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)]                 [[PGP](NULL)]             [[SHA512](NULL)] |
-| |                 | 二进制包 | [[BIN](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.0.2-combined-package-dist.tar.gz)]  [[PGP](NULL)]     [[SHA512](NULL)] |
+| 2021-09-02| 1.0.2 | 源码 | [[SRC](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)] |
+| |                 | 二进制包 | [[BIN](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.0.2-combined-package-dist.tar.gz)] |
 
 
 ### 发布完整性
