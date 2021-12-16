@@ -21,7 +21,7 @@ sidebar_position: 1
 
 After getting the project code from Git, compile the project installation package using Maven.
 
-**Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.8.
+**Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.12.
 
 If you want to compile Linkis with another version of Hadoop, Hive, Spark, please refer to: [How to Modify Linkis dependency of Hadoop, Hive, Spark](#4 How to Modify Linkis dependency versionof Hadoop, Hive, Spark)
 
@@ -114,7 +114,7 @@ vim pom.xml
 ```xml
 <properties>
     <hadoop.version>2.7.2</hadoop.version> <!--Change version of hadoop here-->
-    <scala.version>2.11.8</scala.version>
+    <scala.version>2.11.12</scala.version>
     <jdk.compile.version>1.8</jdk.compile.version>
  </properties>
 

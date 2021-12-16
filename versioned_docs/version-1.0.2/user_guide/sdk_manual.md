@@ -1,5 +1,5 @@
 ---
-title: User Manual
+title: JAVA SDK Manual
 sidebar_position: 2
 ---
 

@@ -53,7 +53,7 @@ Shell execution needs to pay attention to one point. If the workflow is executed
 
 ### 3.3 How to use Linkis Client
 
-Linkis also provides a client method to call the shell task, the calling method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to <https://github.com/apache/incubator-linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4 %BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>.
+Linkis also provides a client method to call the shell task, the calling method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
 
 ## 4. Shell engine user settings
 

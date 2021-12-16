@@ -56,7 +56,7 @@ The DSS workflow also has a python node, you can drag into the workflow node, th
 
 ### 3.3 How to use Linkis Client
 
-Linkis also provides a client method to call spark tasks, the call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to <https://github.com/apache/incubator-linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4 %BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>.
+Linkis also provides a client method to call spark tasks, the call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
 
 ## 4. Python engine user settings
 

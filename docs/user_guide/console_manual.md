@@ -1,9 +1,9 @@
 ---
-title: Console Manual
+title: Console User Manual
 sidebar_position: 4
 ---
 
-Introduction to linkis Console
+Introduction to Computatoin Governance Console
 ==============
 
 > Linkis1.0 has added a new Computatoin Governance Console page, which can provide users with an interactive UI interface for viewing the execution of Linkis tasks, custom parameter configuration, engine health status, resource surplus, etc, and then simplify user development and management efforts.
@@ -13,19 +13,14 @@ Structure of Computatoin Governance Console
 
 > The Computatoin Governance Console is mainly composed of the following functional pages:
 
-- [Global History](Global_History)
+- [Global History]
+- [Resource Management]
+- [Parameter Configuration]
+- [Global Variables]
+- [ECM Management] (Only visible to linkis computing management console administrators)
+- [Microservice Management] (Only visible to linkis computing management console administrators)
 
-- [Resource Management](#Resource_management)
 
-- [Parameter Configuration](#Parameter_Configuration)
-
-- [Global Variables](#Global_Variables)
-
-- [ECM Management](#ECM_management) (Only visible to linkis computing management console administrators)
-
-- [Microservice Management](#Microservice_management) (Only visible to linkis computing management console administrators)
-
-- [FAQ](#FAQ)
 
 > Global history, resource management, parameter configuration, and global variables are visible to all users, while ECM management and microservice management are only visible to linkis computing management console administrators.
 
@@ -119,7 +114,3 @@ Microservice management
 
 > ![](/Images/manual/eureka_registration_center.png)
 
-common problem
---------
-
-> To be added.

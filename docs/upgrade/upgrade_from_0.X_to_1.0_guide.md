@@ -7,7 +7,7 @@ sidebar_position: 3
 
 ## 1.Precautions
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**If you are using Linkis for the first time, you can ignore this chapter; if you are already a user of Linkis, it is recommended to read it before installing or upgrading：[Brief description of the difference between Linkis1.0 and Linkis0.X](https://github.com/apache/incubator-linkis/wiki/Linkis1.0%E4%B8%8ELinkis0.X%E7%9A%84%E5%8C%BA%E5%88%AB%E7%AE%80%E8%BF%B0)**.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**If you are using Linkis for the first time, you can ignore this chapter; if you are already a user of Linkis, it is recommended to read it before installing or upgrading：[Brief description of the difference between Linkis1.0 and Linkis0.X](architecture/difference_between_1.0_and_0.x.md)**.
 
 ## 2. Service upgrade installation
 

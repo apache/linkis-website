@@ -14,7 +14,7 @@ Execute the following commands in the terminal command line:
 
 ```
 git clone git@github.com:apache/incubator-linkis.git
-cd Linkis/web
+cd incubator-linkis/web
 npm install
 ```
 
