@@ -352,7 +352,7 @@ svn status
 
 
 #### 5.1 非ASF版本Linkis社区投票模板
-
+- Linkis社区投票，发送邮件至：`dev@linkis.apache.org`
 ```html
 标题：
 [VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}

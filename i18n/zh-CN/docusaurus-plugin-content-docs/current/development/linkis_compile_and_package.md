@@ -95,7 +95,7 @@ sidebar_position: 1
     ls wedatasphere-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.zip
 ```
 
-如何单独安装 Spark 引擎？ 请参考 [Linkis 引擎插件安装文档](../deployment/EngineConnPlugin引擎插件安装文档.md)
+如何单独安装 Spark 引擎？ 请参考 [Linkis 引擎插件安装文档](deployment/engine_conn_plugin_installation.md)
 
 ## 4. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本
 

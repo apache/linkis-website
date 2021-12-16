@@ -8,9 +8,9 @@ sidebar_position: 1
 ## 1. Client端使用  
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果需要在Linkis的基础上，接入其它应用，需要针对Linkis提供的接口进行开发，Linkis提供了多种客户端接入接口，更详细的使用介绍可以参考以下内容：  
-- [**Restful API使用方式**](./../API_Documentations/Linkis任务提交执行RestAPI文档.md)
-- [**JDBC API使用方式**](./../API_Documentations/任务提交执行JDBC_API文档.md)
-- [**Java SDK使用方式**](./../User_Manual/Linkis1.0用户使用文档.md)
+- [**Restful API使用方式**](api/linkis_task_operator.md)
+- [**JDBC API使用方式**](api/jdbc_api.md)
+- [**Java SDK使用方式**](user_guide/user_manual.md)
 ## 2. Scriptis使用Linkis
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果需要使用Linkis完成交互式在线分析处理的工作，并且不需要诸如工作流开发、工作流调度、数据服务等数据分析应用工具，可以单独安装[**Scriptis**](https://github.com/WeBankFinTech/Scriptis)，详细安装教程可参考其对应的安装部署文档。  
 ## 2.1. 使用Scriptis执行脚本
