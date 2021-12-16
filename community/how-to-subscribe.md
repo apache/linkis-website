@@ -1,5 +1,5 @@
 ---
-title: How to subscribe mail list
+title: How to Subscribe Mail List
 sidebar_position: 1
 ---
 
