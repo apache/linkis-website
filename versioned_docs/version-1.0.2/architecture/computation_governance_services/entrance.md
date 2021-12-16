@@ -1,28 +1,28 @@
 ---
-title: Entrance架构设计
+title: Entrance Architecture Design
 sidebar_position: 3
 ---
 
-Links任务提交入口是用来负责计算任务的接收、调度、转发执行请求、生命周期管理的服务，并且能把计算结果、日志、进度返回给调用方，是从Linkis0.X的Entrance拆分出来的原生能力。
+The Links task submission portal is used to receive, schedule, forward execution requests, life cycle management services for computing tasks, and can return calculation results, logs, and progress to the caller. It is split from the Entrance of Linkis0.X Native capabilities.
 
-一、Entrance架构图
+1. Entrance architecture diagram
 
 ![](/Images-zh/Architecture/linkis-entrance-01.png)
 
-**二级模块介绍：**
+**Introduction to the second-level module:**
 
 EntranceServer
 --------------
 
-EntranceServer计算任务提交入口服务是Entrance的核心服务，负责Linkis执行任务的接收、调度、执行状态跟踪、作业生命周期管理等。主要实现了把任务执行请求转成可调度的Job，调度、申请Executor执行，Job状态管理，结果集管理，日志管理等。
+EntranceServer computing task submission portal service is the core service of Entrance, responsible for the reception, scheduling, execution status tracking, and job life cycle management of Linkis execution tasks. It mainly realizes the conversion of task execution requests into schedulable Jobs, scheduling, applying for Executor execution, job status management, result set management, log management, etc.
 
-| 核心类                  | 核心功能                                                                                                                                           |
-|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| EntranceInterceptor     | Entrance拦截器用来对传入参数task进行信息的补充，使得这个task的内容更加完整， 补充的信息包括: 数据库信息补充、自定义变量替换、代码检查、limit限制等 |
-| EntranceParser          | Entrance解析器用来把请求参数Map解析成Task,也可以将Task转成可调度的Job,或者把Job转成可存储的Task。                                                  |
-| EntranceExecutorManager | Entrance执行器管理为EntranceJob的执行创建Executor,并维护Job和Executor的关系，且支持Job请求的标签能力                                               |
-| PersistenceManager      | 持久化管理负责作业相关的持久化操作，如结果集路径、作业状态变化、进度等存储到数据库。                                                               |
-| ResultSetEngine         | 结果集引擎负责作业运行后的结果集存储，以文件的形式保存到HDFS或者本地存储目录。                                                                     |
-| LogManager              | 日志管理负责作业日志的存储并对接日志错误码管理。                                                                                                   |
-| Scheduler               | 作业调度器负责所有Job的调度执行，主要通过调度作业队列实现。                                                                                        |
-|                         |                                                                                                                                                    |
+| Core Class | Core Function |
+|-------------------------|----------------------- -------------------------------------------------- -------------------------------------------------- -------------------------|
+| EntranceInterceptor | Entrance interceptor is used to supplement the information of the incoming parameter task, making the content of this task more complete. The supplementary information includes: database information supplement, custom variable replacement, code inspection, limit restrictions, etc. |
+| EntranceParser | The Entrance parser is used to parse the request parameter Map into Task, and it can also convert Task into schedulable Job, or convert Job into storable Task. |
+| EntranceExecutorManager | Entrance executor management creates an Executor for the execution of EntranceJob, maintains the relationship between Job and Executor, and supports the labeling capabilities requested by Job |
+| PersistenceManager | Persistence management is responsible for job-related persistence operations, such as the result set path, job status changes, progress, etc., stored in the database. |
+| ResultSetEngine | The result set engine is responsible for the storage of the result set after the job is run, and it is saved in the form of a file to HDFS or a local storage directory. |
+| LogManager | Log Management is responsible for the storage of job logs and the management of log error codes. |
+| Scheduler | The job scheduler is responsible for the scheduling and execution of all jobs, mainly through scheduling job queues. |
+| | |

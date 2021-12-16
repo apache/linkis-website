@@ -1,5 +1,5 @@
 ---
-title: RPC模块
+title: RPC 模块
 sidebar_position: 2
 ---
 

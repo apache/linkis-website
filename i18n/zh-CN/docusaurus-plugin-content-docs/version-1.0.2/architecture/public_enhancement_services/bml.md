@@ -1,5 +1,5 @@
 ---
-title: BML物料库架构
+title: BML 物料库架构
 sidebar_position: 2
 ---
 ## 背景

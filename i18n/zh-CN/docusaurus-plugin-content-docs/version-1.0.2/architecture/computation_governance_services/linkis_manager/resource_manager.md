@@ -1,5 +1,5 @@
 ---
-title: ResourceManager架构
+title: ResourceManager 架构
 sidebar_position: 3
 ---
 

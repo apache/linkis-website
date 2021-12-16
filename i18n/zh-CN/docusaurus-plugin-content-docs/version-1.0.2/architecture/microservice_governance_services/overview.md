@@ -15,7 +15,7 @@ sidebar_position: 0
 1. Linkis Gateway作为Linkis的网关入口，主要承担了请求转发、用户访问认证、WebSocket通信等职责。Linkis1.0的Gateway还新增了基于Label的路由转发能力。Linkis在Spring
 Cloud Gateway中，实现了WebSocket路由转发器，用于与客户端建立WebSocket连接，建立连接成功后，会自动分析客户端的WebSocket请求，通过规则判断出请求该转发给哪个后端微服务，从而将WebSocket请求转发给对应的后端微服务实例。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[进入Linkis Gateway](Gateway.md)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[进入Linkis Gateway](gateway.md)
 
 2. Linkis Eureka
 主要负责服务注册与发现，Eureka由多个instance(服务实例)组成，这些服务实例可以分为两种：Eureka Server和Eureka Client。为了便于理解，我们将Eureka client再分为Service

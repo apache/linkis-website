@@ -36,13 +36,13 @@ In theory, Linkis1.0 supports all versions of spark2.x and above. Spark 2.4.3 is
 
 If you have already compiled your spark engine plug-in has been compiled, then you need to put the new plug-in to the specified location to load, you can refer to the following article for details
 
-https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3
+[EngineConnPlugin Installation](deployment/engine_conn_plugin_installation.md) 
 
 ### 2.3 tags of spark engine
 
 Linkis1.0 is done through tags, so we need to insert data in our database, the way of inserting is shown below.
 
-https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3\#22-%E7%AE%A1%E7%90%86%E5%8F%B0configuration%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E5%8F%AF%E9%80%89
+https://github.com/apache/incubator-linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3\#22-%E7%AE%A1%E7%90%86%E5%8F%B0configuration%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E5%8F%AF%E9%80%89
 
 ## 3. Use of spark engine
 
@@ -86,7 +86,7 @@ Figure 3-5 The node where the workflow executes spark
 
 ### 3.3 How to use Linkis Client
 
-Linkis also provides a client method to call spark tasks, the call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to <https://github.com/WeBankFinTech/Linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4 %BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>.
+Linkis also provides a client method to call spark tasks, the call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
 
 ## 4. Spark engine user settings
 

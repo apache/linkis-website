@@ -1,5 +1,5 @@
 ---
-title: Entrance架构设计
+title: Entrance 架构设计
 sidebar_position: 3
 ---
 

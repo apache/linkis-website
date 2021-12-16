@@ -3,87 +3,104 @@
 
 [English](README.md) | [中文](README_ZH.md)
 
-# English todo  
-
-这是包含 `https://linkis.apache.org` 的所有源代码的存储库。
-本指南将指导您如何为Linkis的网站做出贡献。
-
-## 1.预览并生成静态文件
-
-本网站是使用node编译的，使用的是Docusaurus组件
-
-1. 下载并安装 nodejs(version>12.5.0)
-2. 克隆代码到本地 `git clone  git@github.com:apache/incubator-linkis-website.git`
-2. 运行 `npm install` 来安装所需的依赖库。
-3. 在根目录运行`npm run start`，可以访问http://localhost:3000查看站点英文模式预览
-4. 在根目录运行`npm run start-zh`，可以访问http://localhost:3000查看站点的中文模式预览
-5. 要生成静态网站资源文件，运行 `npm run build`。构建的静态资源在build目录中。
+This is the repository containing all the source code of `https://linkis.apache.org`.
+This guide will guide you how to contribute to the Linkis website.
 
 
-## 2.规范
+## Branch
+dev is the development branch. For all modifications, please fork first, and then proceed on the dev branch.
+```
+master 
+dev #development branch
+asf-site   #The official environment of asf-site official website is accessed through https://linkis.apache.org
+asf-staging #The asf-staging official website test environment is accessed through https://linkis.staged.apache.org
+```
 
-### 2.1 目录命名规范
 
-全部采用小写方式， 以中下划线分隔，有复数结构时，要采用复数命名法， 缩写不用复数
+## 1. Preview and generate static files
 
-正例： `scripts / styles / components / images / utils / layouts / demo_styles / demo-scripts / img / doc`
+This website is compiled using node, using Docusaurus framework components
 
-反例： `script / style / demoStyles / imgs / docs`
+1. Download and install nodejs (version>12.5.0)
+2. Clone the code to the local `git clone git@github.com:apache/incubator-linkis-website.git`
+2. Run `npm install` to install the required dependent libraries.
+3. Run `npm run start` in the root directory, you can visit http://localhost:3000 to view the English mode preview of the site
+4. Run `npm run start-zh` in the root directory, you can visit http://localhost:3000 to view the Chinese mode preview of the site
+5. To generate static website resource files, run `npm run build`. The static resources of the build are in the build directory.
 
-### 2.2 vue以及静态资源文件命名规范
 
-全部采用小写方式， 以中划线分隔
+## 2. Specification
 
-正例： `render-dom.js / signup.css / index.html / company-logo.png`
+### 2.1 Directory naming convention
 
-反例： `renderDom.js / UserManagement.html`
+Use all lowercase, separated by underscores. If there is a plural structure, use plural nomenclature, and do not use plural abbreviations
 
-### 2.3 资源路径 
+Positive example: `scripts / styles / components / images / utils / layouts / demo_styles / demo-scripts / img / doc`
 
-图片资源统一放在`static/{模块名}`下
+Counter example: `script / style / demoStyles / imgs / docs`
 
-css等样式文件放在`src/css`目录下
+### 2.2 Vue and the naming convention of static resource files
 
-### 2.4 页面内容修改 
-> 除了首页、团队、Docs>All Version 模块页面外，其余页面都能通过底部的Edit this page 直接跳转至对应的github的资源修改页
+All lowercase, separated by a dash
 
-### 2.5 首页页面修改
-https://linkis.apache.org/
-位于 `src/pages/home`
+Positive example: `render-dom.js / signup.css / index.html / company-logo.png`
 
-文件详细
+Counter example: `renderDom.js / UserManagement.html`
+
+### 2.3 Resource Path
+
+Image resources are unified under `static/{module name}`
+
+css and other style files are placed in the `src/css` directory
+
+### 2.4 Page content modification
+> Except for the homepage, team, user, Docs>All Version module page, all other pages can be directly jumped to the corresponding github resource modification page through the'Edit this page' button at the bottom
+
+### 2.5 Home page modification
+Visit the page https://linkis.apache.org/
+Located in `src/pages/home`
+
 ```
 ├─home
-│      config.json 首页中英文的配置
-│      data.json    
-│      img.json    user case的图片数据
-│      index.jsx   
-│      index.less  首页样式
+│ config.json Home page Chinese and English configuration
+│ index.less homepage style
 ```
-### 2.6 团队页面修改
-https://linkis.apache.org/zh-CN/team
-位于 `src/pages/team`
+### 2.6 Team page modification
+Visit the page https://linkis.apache.org/zh-CN/team
+Located in `src/pages/team`
 ```
 ├─team
-│      config.json
-│      index.js
-│      index.less
+│ config.json
+│ index.js
+│ index.less
 ```
-
-### 2.7 version 列表页面修改
-访问页面  https://linkis.apache.org/zh-CN/versions/
+### 2.7 User list page modification
+Visit the page https://linkis.apache.org/zh-CN/user/
 ```
-位于 `src/pages/versions`
+Located in `src/pages/user`
 └─versions
         config.json
+        data.json
+        img.json
         index.js
         index.less
 ```
-## 3.新增文档 
 
-- 英文文档 放在docs/的对应模块目录下 
-- 中文文档 放在i18n/zh-CN/docusaurus-plugin-content-docs/对应模块目录下 
-- 图片资源 放在static/目录下
+### 2.8 version List page modification
+Visit the page https://linkis.apache.org/zh-CN/versions/
+```
+Located in `src/pages/versions`
+└─versions
+        config.json
+        index.jsorchestrator/overview.md
+        index.less
+```
+## 3. New documents
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) It is recommended to view the md document through the official website, and view the md document through github. There is a problem that static resources such as pictures cannot be displayed correctly.
+
+-The English document docs/ corresponds to the next version to be released, and the historical archive version is stored in the versioned_docs/version-${versionno} directory.
+-Chinese documents are placed in the corresponding directory of i18n/zh-CN/docusaurus-plugin-content-docs/, current is the next version to be released. version-${versionno} is the historical archive version.
+-Image resources are placed in the static/ directory
  
-## 4.其他 
-命名规范参考《阿里前端开发规范》
+## 4. Other
+The naming convention refers to "Alibaba Front-end Development Specification"

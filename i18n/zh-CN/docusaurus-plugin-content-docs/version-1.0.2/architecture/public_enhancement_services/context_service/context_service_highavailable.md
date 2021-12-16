@@ -1,5 +1,5 @@
 ---
-title: CS HA架构设计
+title: CS HA 架构设计
 sidebar_position: 3
 ---
 ## **CS HA架构设计**

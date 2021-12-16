@@ -27,7 +27,7 @@ export default function() {
           {
               dataSource.list.map((item, i) => (
                 <a href={'https://github.com/'+ item.githubId} key={i} target="_blank">
-                    <li className="character-item text-center">
+                    <li className="character-item text-center" style={{'listStyle':'none'}}>
                       <img className="character-avatar" src={item.avatarUrl} alt={item.name}/>
                       <div className="character-desc">
                         <h3 className="character-name">{item.name}</h3>

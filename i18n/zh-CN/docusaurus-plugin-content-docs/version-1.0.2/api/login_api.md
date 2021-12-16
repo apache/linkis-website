@@ -19,15 +19,14 @@ wds.linkis.ldap.proxy.url=ldap://127.0.0.1:389/ # 您的LDAP服务URL
 wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置    
 ```    
     
-## 2.如何打开测试模式，实现免登录
+## 2.免登录配置
 
-进入/conf目录，执行命令：
+如何打开测试模式，实现免登录？进入/conf目录，执行命令：
 
 ```bash
      vim linkis-mg-gateway.properties
 ```
-    
-    
+
 将测试模式打开，参数如下：
 
 ```shell
@@ -40,9 +39,7 @@ wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置
 我们提供以下几个与登录相关的接口：
 
  - [登录](#1登录)
-
  - [登出](#2登出)
-
  - [心跳](#3心跳)
  
 
@@ -68,7 +65,7 @@ wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置
  
 更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](development/development_specification/api.md)
 
-### 1).登录
+### 4.1 登录
 
 - 接口 `/api/rest_j/v1/user/login`
 
@@ -99,7 +96,7 @@ wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置
 
  - isAdmin: Linkis只有admin用户和非admin用户，admin用户的唯一特权，就是支持在Linkis管理台查看所有用户的历史任务。
 
-### 2).登出
+### 4.2 登出
 
 - 接口 `/api/rest_j/v1/user/logout`
 
@@ -117,7 +114,7 @@ wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置
     }
 ```
 
-### 3).心跳
+### 4.3 心跳
 
 - 接口 `/api/rest_j/v1/user/heartbeat`
 

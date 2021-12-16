@@ -1,6 +1,6 @@
 ---
-title: 分布式部署方案
-sidebar_position: 3
+title: 分布式部署
+sidebar_position: 2
 ---
 
 分布式部署方案介绍

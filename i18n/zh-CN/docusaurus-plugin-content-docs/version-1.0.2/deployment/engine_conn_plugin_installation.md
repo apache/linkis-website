@@ -1,6 +1,6 @@
 ---
-title: 安装EngineConnPlugin引擎插件
-sidebar_position: 2
+title: 安装 EngineConnPlugin 引擎插件
+sidebar_position: 3
 ---
 
 > 本文主要介绍Linkis引擎插件的使用，主要从编译、安装等方面进行介绍
@@ -81,7 +81,7 @@ linkis_configuration_config_value： 插入引擎需要展示的配置
 
 ### 2.3 引擎刷新
 
-1. 引擎支持实时刷新，引擎放置到对应目录后，Linkis1.0提供了不关服热加载引擎的方法，通过restful接口向linkis-engineconn-plugin-server服务发送请求即可。
+1. 引擎支持实时刷新，引擎放置到对应目录后，Linkis1.0提供了不停服务，热加载引擎的方法，通过restful接口向linkis-engineconn-plugin-server服务发送请求即可。
 
 - 接口 `http://${engineconn-plugin-server-IP}:${port}/api/rest_j/v1/rpc/receiveAndReply`
 

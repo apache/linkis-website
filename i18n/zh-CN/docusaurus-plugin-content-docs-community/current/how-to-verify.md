@@ -125,7 +125,6 @@ $ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
 - [ ] 检查第三方依赖许可证：
 - [ ] 第三方依赖的许可证兼容
 - [ ] 所有第三方依赖的许可证都在`LICENSE`文件中声名
-- [ ] 依赖许可证的完整版全部在`license`目录
 - [ ] 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
 - [ ] .....
  可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)

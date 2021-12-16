@@ -75,12 +75,12 @@ sidebar_position: 1
 | wds.linkis.entrance.config.log.path | 无 | 如果不配置，默认采用wds.linkis.filesystem.hdfs.root.path的值 |
 | wds.linkis.default.requestApplication.name | IDE | 不指定提交系统时的默认提交系统 |
 | wds.linkis.default.runType | sql | 不指定脚本类型时的默认脚本类型 |
-| wds.linkis.warn.log.exclude | org.apache,hive.ql,hive.metastore,com.netflix,com.webank.wedatasphere | 默认不向Client端输出的实时WARN级别日志 |
-| wds.linkis.log.exclude | org.apache,hive.ql,hive.metastore,com.netflix,com.webank.wedatasphere,com.webank | 默认不向Client端输出的实时INFO级别日志 |
+| wds.linkis.warn.log.exclude | org.apache,hive.ql,hive.metastore,com.netflix,org.apache | 默认不向Client端输出的实时WARN级别日志 |
+| wds.linkis.log.exclude | org.apache,hive.ql,hive.metastore,com.netflix,org.apache,com.webank | 默认不向Client端输出的实时INFO级别日志 |
 | wds.linkis.instance | 3 | 用户每个引擎的默认并发Job数 |
 | wds.linkis.max.ask.executor.time | 5m | 向LinkisManager申请可用EngineConn的最大时间 |
 | wds.linkis.hive.special.log.include | org.apache.hadoop.hive.ql.exec.Task | 向Client端推送Hive日志时，默认不过滤哪些日志 |
-| wds.linkis.spark.special.log.include | com.webank.wedatasphere.linkis.engine.spark.utils.JobProgressUtil | 向Client端推送Spark日志时，默认不过滤哪些日志 |
+| wds.linkis.spark.special.log.include | org.apache.linkis.engine.spark.utils.JobProgressUtil | 向Client端推送Spark日志时，默认不过滤哪些日志 |
 | wds.linkis.entrance.shell.danger.check.enabled | false | 是否检查并拦截Shell危险语法 |
 | wds.linkis.shell.danger.usage | rm,sh,find,kill,python,for,source,hdfs,hadoop,spark-sql,spark-submit,pyspark,spark-shell,hive,yarn | Shell默认的危险语法 |
 | wds.linkis.shell.white.usage | cd,ls | Shell白名单语法 |

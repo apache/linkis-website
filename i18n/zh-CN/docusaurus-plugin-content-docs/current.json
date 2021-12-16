@@ -56,6 +56,10 @@
     "message": "微服务治理架构",
     "description": "The label for category Microservice Governance Services in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Orchestrator": {
+    "message": "编排器架构",
+    "description": "The label for category Orchestrator Services in sidebar tutorialSidebar"
+  },
 
   "sidebar.tutorialSidebar.category.Upgrade Guide": {
     "message": "版本升级",
