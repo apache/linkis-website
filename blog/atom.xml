@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://linkis.apache.org/blog</id>
     <title>Apache Linkis Blog</title>
-    <updated>2021-12-10T12:58:35.676Z</updated>
+    <updated>2021-12-16T02:12:05.424Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://linkis.apache.org/blog"/>
     <subtitle>Apache Linkis Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Q&A]]></title>
         <id>Q&amp;A</id>
         <link href="https://linkis.apache.org/blog/how-to-used"/>
-        <updated>2021-12-10T12:58:35.676Z</updated>
+        <updated>2021-12-16T02:12:05.424Z</updated>
         <summary type="html"><![CDATA[Q1, linkis startup error: NoSuchMethodErrorgetSessionManager()Lorg/eclipse/jetty/server/SessionManager]]></summary>
     </entry>
 </feed>

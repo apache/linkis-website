@@ -4,14 +4,14 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.apache.org/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Fri, 10 Dec 2021 12:58:35 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 16 Dec 2021 02:12:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Q&A]]></title>
             <link>https://linkis.apache.org/blog/how-to-used</link>
             <guid>Q&amp;A</guid>
-            <pubDate>Fri, 10 Dec 2021 12:58:35 GMT</pubDate>
+            <pubDate>Thu, 16 Dec 2021 02:12:05 GMT</pubDate>
             <description><![CDATA[Q1, linkis startup error: NoSuchMethodErrorgetSessionManager()Lorg/eclipse/jetty/server/SessionManager]]></description>
         </item>
     </channel>
