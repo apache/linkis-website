@@ -1,6 +1,6 @@
 ---
-title: 分布式部署方案
-sidebar_position: 3
+title: 分布式部署
+sidebar_position: 2
 ---
 
 分布式部署方案介绍
@@ -18,7 +18,8 @@ Linkis1.0仍然保持着基于SpringCloud的微服务架构，其中每个微服
 **同时在线人数 \* (所有类型的引擎占用内存) \*单用户最高并发数+ 同时在线人数 \*
 (所有类型的引擎占用内存) \*单用户最高并发数**
 
-例如只使用spark、hive、python引擎且单用户最高并发数为1的情况下，同时使用人数50人，Spark的Driver内存1G，Hive
+例如：
+只使用spark、hive、python引擎且单用户最高并发数为1的情况下，同时使用人数50人，Spark的Driver内存1G，Hive
 Client内存1G，python client 1G，每个引擎都使用1个核，那么就是 50 \*（1+1+1）G \*
 1 + 50 \*(1+1+1)核\*1 = 150G 内存 + 150 CPU核数。
 

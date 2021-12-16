@@ -39,7 +39,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 |TiSpark|1.1|\>=0.5.0|ongoing|TiSpark EngineConn. 支持用SparkSQL 查询TiDB.|
 
 # 下载
-请前往[Linkis releases 页面](https://github.com/WeBankFinTech/Linkis/wiki/Linkis-Releases) 下载Linkis 的已编译版本或源码包。
+请前往[Linkis releases 页面](https://github.com/apache/incubator-linkis/wiki/Linkis-Releases) 下载Linkis 的已编译版本或源码包。
 
 # 编译和安装部署
 请参照[编译指引](development/linkis_compile_and_package.md) 来编译Linkis 源码。  
@@ -90,5 +90,5 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 Meetup 视频 [Bilibili](https://space.bilibili.com/598542776?from=search&seid=14344213924133040656).
 
 # 谁在使用Linkis
-我们创建了[一个 issue](https://github.com/WeBankFinTech/Linkis/issues/23) 以便用户反馈和记录谁在使用Linkis.  
+我们创建了[一个 issue](https://github.com/apache/incubator-linkis/issues/23) 以便用户反馈和记录谁在使用Linkis.  
 Linkis 自2019年开源发布以来，累计已有700多家试验企业和1000+沙盒试验用户，涉及金融、电信、制造、互联网等多个行业。

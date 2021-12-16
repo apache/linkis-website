@@ -23,7 +23,7 @@ Linkis-Cli 是一个用于向Linkis提交任务的Shell命令行程序。
 第二步，进入linkis安装目录，输入指令：
 
 ```bash
-    ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop 
+    ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop 
 ```
 
 第三步，您会在控制台看到任务被提交到linkis并开始执行的信息。
@@ -34,7 +34,7 @@ linkis-cli目前仅支持同步提交，即向linkis提交任务后，不断询�
 ## 使用方式
 
 ```bash
-   ./bin/linkis-client [参数] [cli参数]
+   ./bin/linkis-cli [参数] [cli参数]
 ```
 
 ## 支持的参数列表
@@ -75,7 +75,7 @@ linkis-cli目前仅支持同步提交，即向linkis提交任务后，不断询�
 Cli参数可以通过手动指定的方式传入，此方式下会覆盖默认配置文件中的冲突配置项
 
 ```bash
-    ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --gwUrl http://127.0.0.1:9001  --authStg token --authKey [tokenKey] --authVal [tokenValue] 
+    ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --gwUrl http://127.0.0.1:9001  --authStg token --authKey [tokenKey] --authVal [tokenValue] 
 ```
 
 #### 二、添加引擎初始参数
@@ -87,7 +87,7 @@ Cli参数可以通过手动指定的方式传入，此方式下会覆盖默认�
 例如：以下示例设置了引擎启动的yarn队列、spark executor个数等启动参数：
 
 ```bash
-   ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -confMap wds.linkis.yarnqueue=q02,spark.executor.instances=3 -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
+   ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -confMap wds.linkis.yarnqueue=q02,spark.executor.instances=3 -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
 ```
         
 当然，这些参数也支持以配置文件的方式读取，我们稍后会讲到
@@ -97,7 +97,7 @@ Cli参数可以通过手动指定的方式传入，此方式下会覆盖默认�
 标签可以通过`-labelMap`参数添加，与`-confMap`一样，`-labelMap`参数的类型也是Map:
 
 ```bash
-   /bin/linkis-client -engineType spark-2.4.3 -codeType sql -labelMap labelKey=labelVal -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
+   /bin/linkis-cli -engineType spark-2.4.3 -codeType sql -labelMap labelKey=labelVal -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
 ```
 
 #### 四、变量替换
@@ -105,7 +105,7 @@ Cli参数可以通过手动指定的方式传入，此方式下会覆盖默认�
 Linkis-cli的变量替换通过`${}`符号和`-varMap`共同实现
 
 ```bash
-   ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -code "select count(*) from \${key};" -varMap key=testdb.test  -submitUser hadoop -proxyUser hadoop  
+   ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from \${key};" -varMap key=testdb.test  -submitUser hadoop -proxyUser hadoop  
 ```
 
 执行过程中sql语句会被替换为：
@@ -121,7 +121,7 @@ Linkis-cli的变量替换通过`${}`符号和`-varMap`共同实现
 1. linkis-cli支持加载用户自定义配置文件，配置文件路径通过`--userConf`参数指定，配置文件需要是`.properties`文件格式
 
 ```bash
-   ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --userConf [配置文件路径]
+   ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --userConf [配置文件路径]
 ``` 
         
 2. 哪些参数可以配置？

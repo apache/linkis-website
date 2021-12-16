@@ -7,7 +7,7 @@ sidebar_position: 2
 
 > 因为linkis本身模块比较多，调试起来有一定的难度，下面就指导大家如何进行一次本地的服务调试(基于1.0.3版本)。
 
-<h4><font color="red">linkis 1.0.3版本前，还未进入apache孵化，组织还是归属webank,主类的包名为`com.webank.wedatasphere.linkis`，调试时，注意区分。</font></h4>
+<h4><font color="red">linkis 1.0.3版本前，还未进入apache孵化，组织还是归属webank,主类的包名为`org.apache.linkis`，调试时，注意区分。</font></h4>
 
 ## step 1 准备源码并编译
 

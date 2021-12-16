@@ -2,49 +2,48 @@
 title: How to Verify
 sidebar_position: 4
 ---
-# Todo Translate to English
 
-# 验证候选版本
+# Verify the candidate version
 
-详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
+For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
-## 1. 下载要发布的候选版本到本地环境
+## 1. Download the candidate version to be released to the local environment
 ```shell
-#如果本地有svn，可以clone到本地 
+#If there is svn locally, you can clone to the local
 svn co https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
-#或则 直接下载物料文件
+#or download the material file directly
 wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/xxx.xxx
 
 ```
-## 2. 验证上传的版本是否合规
-> 开始验证环节，验证包含但不局限于以下内容和形式
+## 2. Verify that the uploaded version is compliant
+> Start the verification process, which includes but is not limited to the following content and forms
 
-### 2.1 查看发布包是否完整
-> 上传到dist的包必须包含源码包，二进制包可选
+### 2.1 Check whether the release package is complete
+> The package uploaded to dist must include the source code package, and the binary package is optional
 
-1. 是否包含源码包
-2. 是否包含源码包的签名
-3. 是否包含源码包的sha512
-4. 如果上传了二进制包，则同样检查(2)-(4)所列的内容
+1. Whether to include the source code package
+2. Whether to include the signature of the source code package
+3. Whether to include the sha512 of the source code package
+4. If the binary package is uploaded, also check the contents listed in (2)-(4)
 
-### 2.2 检查gpg签名
-首先导入发布人公钥。从svn仓库导入KEYS到本地环境。（发布版本的人不需要再导入，帮助做验证的人需要导入，用户名填发版人的即可）
+### 2.2 Check gpg signature
+First import the publisher's public key. Import KEYS from the svn repository to the local environment. (The person who releases the version does not need to import it again, the person who helps to do the verification needs to import it, and the user name is enough for the person who issued the version)
 
-- 导入公钥
+- Import public key
 ```shell
-curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS > KEYS # 下载KEYS
-gpg --import KEYS # 导入KEYS到本地
+curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS> KEYS # Download KEYS
+gpg --import KEYS # Import KEYS to local
 ```
-- 信任公钥
-> 信任此次版本所使用的KEY
+- Trust the public key
+> Trust the KEY used in this version
 ```shell
-    gpg --edit-key xxxxxxxxxx #此次版本所使用的KEY用户
+    gpg --edit-key xxxxxxxxxx #KEY user used in this version
     gpg (GnuPG) 2.2.21; Copyright (C) 2020 Free Software Foundation, Inc.
     This is free software: you are free to change and redistribute it.
     There is NO WARRANTY, to the extent permitted by law.
     
     Secret key is available.
-    gpg> trust #信任
+    gpg> trust #trust
     Please decide how far you trust this user to correctly verify other users' keys
     (by looking at passports, checking fingerprints from different sources, etc.)
     
@@ -55,40 +54,40 @@ gpg --import KEYS # 导入KEYS到本地
       5 = I trust ultimately
       m = back to the main menu
     
-    Your decision? 5 #选择5
-    Do you really want to set this key to ultimate trust? (y/N) y #选择y
+    Your decision? 5 #choose 5
+    Do you really want to set this key to ultimate trust? (y/N) y  #choose y
                                                                 
-    gpg> 
+    gpg>
          
 ```
-- 使用如下命令检查签名
+-Use the following command to check the signature
 ```shell
-  for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
-  #或者
+  for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
+  #or
   gpg --verify apache-linkis-${release_version}-src.tar.gz.asc apache-linkis-${release_version}-src.tar.gz
-  # 如果上传二进制包，则同样需要检查二进制包的签名是否正确
+  # If you upload a binary package, you also need to check whether the signature of the binary package is correct
   gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
 ```
-- 检查结果
+- test result
 
-> 出现类似以下内容则说明签名正确，关键字：**`Good signature`**
+> If something like the following appears, it means the signature is correct. Keyword: **`Good signature`**
 ```shell
     apache-linkis-xxx-incubating-src.tar.gz
     gpg: Signature made XXXX
-    gpg:                using RSA key XXXXX
+    gpg: using RSA key XXXXX
     gpg: Good signature from "xxx @apache.org>"
 ```
 
-### 2.3 检查sha512哈希
-> 本地计算sha512哈希后，验证是否与dist上的一致，如果上传二进制包，则同样需要检查二进制包的sha512哈希
+### 2.3 Check sha512 hash
+> After calculating the sha512 hash locally, verify that it is consistent with the dist. If you upload a binary package, you also need to check the sha512 hash of the binary package
 > Mac OS/Linux
 
 ```shell
 for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i; done
-#或者
-for i in *.tar.gz; do echo $i; shasum -a 512  $i; done
+#or
+for i in *.tar.gz; do echo $i; shasum -a 512 $i; done
 
-#并将输出内容与 apache-linkis-${release_version}-xxx.tar.gz.sha512文件内容作对比
+#Compare the output content with the content of the apache-linkis-${release_version}-xxx.tar.gz.sha512 file
 
 ```
 
@@ -97,50 +96,50 @@ for i in *.tar.gz; do echo $i; shasum -a 512  $i; done
 
 ```shell
 $ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
-#并将输出内容与 apache-linkis-${release_version}-xxx.tar.gz.sha512文件内容作对比
+#Compare the output content with the content of the apache-linkis-${release_version}-xxx.tar.gz.sha512 file
 ```
 
 
-### 2.4. 检查源码包的文件内容
+### 2.4. Check the file content of the source package
 
-解压缩`apache-linkis-${release_version}-src.tar.gz`，进行如下检查:
+Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
 
-- [ ] 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
-- [ ] 文件夹包含单词`incubating`
-- [ ] 存在`LICENSE`和`NOTICE`文件
-- [ ] 存在`DISCLAIMER`或`DISCLAIMER-WIP`文件
-- [ ] `NOTICE`文件中的年份正确
-- [ ] 只存在文本文件，不存在二进制文件
-- [ ] 所有文件的开头都有ASF许可证
-- [ ] 能够正确编译
-- [ ] 检查是否有多余文件或文件夹，例如空文件夹等
+- [ ] Check whether the source package contains unnecessary files, which makes the tar package too large
+- [ ] Folder contains the word `incubating`
+- [ ] There are `LICENSE` and `NOTICE` files
+- [ ] There is a `DISCLAIMER` or `DISCLAIMER-WIP` file
+- [ ] The year in the `NOTICE` file is correct
+- [ ] Only text files exist, not binary files
+- [ ] All files have ASF license at the beginning
+- [ ] Able to compile correctly
+- [ ] Check for extra files or folders, such as empty folders, etc.
 - [ ] .....
 
-### 2.5 检查二进制包(如果上传了二进制包)
-解压缩`apache-linkis-${release_version}-src.tar.gz`，进行如下检查:
+### 2.5 Check the binary package (if the binary package is uploaded)
+Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
 
-- [ ] 文件夹包含单词`incubating`
-- [ ] 存在`LICENSE`和`NOTICE`文件
-- [ ] 存在`DISCLAIMER`或`DISCLAIMER-WIP`文件
-- [ ] `NOTICE`文件中的年份正确
-- [ ] 所有文本文件开头都有ASF许可证
-- [ ] 检查第三方依赖许可证：
-- [ ] 第三方依赖的许可证兼容
-- [ ] 所有第三方依赖的许可证都在`LICENSE`文件中声名
-- [ ] 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
+- [ ] Folder contains the word `incubating`
+- [ ] There are `LICENSE` and `NOTICE` files
+- [ ] There is a `DISCLAIMER` or `DISCLAIMER-WIP` file
+- [ ] The year in the `NOTICE` file is correct
+- [ ] All text files have ASF license at the beginning
+- [ ] Check the third-party dependent license:
+- [ ] Compatible with third-party dependent licenses
+- [ ] All third-party dependent licenses are named in the `LICENSE` file
+- [ ] If you are relying on the Apache license and there is a `NOTICE` file, then these `NOTICE` files also need to be added to the version of the `NOTICE` file
 - [ ] .....
- 可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
+
+ You can refer to this article: [ASF Third Party License Policy](https://apache.org/legal/resolved.html)
  
-## 3.邮件回复 
-如果发起了发布投票，验证后，可以参照此回复示例进行邮件回复
+## 3. Email reply
+If you initiate a posting vote, you can refer to this response example to reply to the email after verification
 
 ```html
 +1 (xxxx)
-
-I  checked:
-1. All download links are valid
-2. Checksum and signature are OK
-3. LICENSE and NOTICE are exist
-4. Build successfully on macOS(Big Sur) 
-5. ....
+I checked:
+    1. All download links are valid
+    2. Checksum and signature are OK
+    3. LICENSE and NOTICE are exist
+    4. Build successfully on macOS(Big Sur)
+    5. ....
 ```

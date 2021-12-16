@@ -1,5 +1,5 @@
 ---
-title: Orchestrator-Reheater架构
+title: Orchestrator-Reheater 架构
 sidebar_position: 7
 ---
 

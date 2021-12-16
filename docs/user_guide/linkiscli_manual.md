@@ -1,5 +1,5 @@
 ---
-title: Linkis-Cli Usage
+title: Linkis-Cli Manual
 sidebar_position: 3
 ---
 
@@ -26,7 +26,7 @@ The first step is to check whether the default configuration file `linkis-cli.pr
 The second step is to enter the linkis installation directory and enter the command:
 
 ```bash
-    ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop 
+    ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop 
 ```
 
 In the third step, you will see the information on the console that the task has been submitted to linkis and started to execute.
@@ -37,7 +37,7 @@ Linkis-cli currently only supports synchronous submission, that is, after submit
 ## How to use
 
 ```bash
-   ./bin/linkis-client [parameter] [cli parameter]
+   ./bin/linkis-cli [parameter] [cli parameter]
 ```
 
 ## Supported parameter list
@@ -78,7 +78,7 @@ Linkis-cli currently only supports synchronous submission, that is, after submit
 Cli parameters can be passed in manually specified, this way will overwrite the conflicting configuration items in the default configuration file
 
 ```bash
-    ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;" -submitUser hadoop -proxyUser hadoop --gwUrl http://127.0.0.1:9001- -authStg token --authKey [tokenKey] --authVal [tokenValue]
+    ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;" -submitUser hadoop -proxyUser hadoop --gwUrl http://127.0.0.1:9001- -authStg token --authKey [tokenKey] --authVal [tokenValue]
 ```
 
 #### Two, add engine initial parameters
@@ -90,7 +90,7 @@ The initial parameters of the engine can be added through the `-confMap` paramet
 For example: the following example sets startup parameters such as the yarn queue for engine startup and the number of spark executors:
 
 ```bash
-   ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -confMap wds.linkis.yarnqueue=q02,spark.executor.instances=3 -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
+   ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -confMap wds.linkis.yarnqueue=q02,spark.executor.instances=3 -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
 ```
 
 Of course, these parameters can also be read in a configuration file, we will talk about it later
@@ -100,7 +100,7 @@ Of course, these parameters can also be read in a configuration file, we will ta
 Labels can be added through the `-labelMap` parameter. Like the `-confMap`, the type of the `-labelMap` parameter is also Map:
 
 ```bash
-   /bin/linkis-client -engineType spark-2.4.3 -codeType sql -labelMap labelKey=labelVal -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
+   /bin/linkis-cli -engineType spark-2.4.3 -codeType sql -labelMap labelKey=labelVal -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
 ```
 
 #### Fourth, variable replacement
@@ -108,7 +108,7 @@ Labels can be added through the `-labelMap` parameter. Like the `-confMap`, the 
 Linkis-cli variable substitution is realized by `${}` symbol and `-varMap`
 
 ```bash
-   ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -code "select count(*) from \${key};" -varMap key=testdb.test  -submitUser hadoop -proxyUser hadoop  
+   ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from \${key};" -varMap key=testdb.test  -submitUser hadoop -proxyUser hadoop  
 ```
 
 During execution, the sql statement will be replaced with:
@@ -124,7 +124,7 @@ Note that the escape character in `'\$'` is to prevent the parameter from being 
 1. linkis-cli supports loading user-defined configuration files, the configuration file path is specified by the `--userConf` parameter, and the configuration file needs to be in the file format of `.properties`
         
 ```bash
-   ./bin/linkis-client -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --userConf [配置文件路径]
+   ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --userConf [配置文件路径]
 ``` 
         
         

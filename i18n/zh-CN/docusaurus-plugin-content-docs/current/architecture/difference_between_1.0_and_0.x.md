@@ -1,5 +1,5 @@
 ---
-title: Linkis1.0与Linkis0.X的区别简述
+title: Linkis1.0 与 Linkis0.X 的区别简述
 sidebar_position: 1
 ---
 

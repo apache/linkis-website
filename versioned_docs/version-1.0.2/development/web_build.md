@@ -1,5 +1,5 @@
 ---
-title: 前端管理台
+title: 前端管理台编译
 sidebar_position: 4
 ---
 
@@ -13,8 +13,8 @@ sidebar_position: 4
 在终端命令行中执行以下指令：
 
 ```
-git clone git@github.com:WeBankFinTech/Linkis.git
-cd Linkis/web
+git clone git@github.com:apache/incubator-linkis.git
+cd incubator-linkis/web
 npm install
 ```
 
@@ -26,8 +26,7 @@ npm install
 **该步骤仅第一次使用时需要执行。**
 
 ### 三、配置
-您需要在代码中进行一些配置，如后端接口地址等，如根目录下的.env.development文件：
-
+您需要在代码中进行一些配置，如后端接口地址等，如根目录下的.env文件：
 ```
 // 后端接口地址
 VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath

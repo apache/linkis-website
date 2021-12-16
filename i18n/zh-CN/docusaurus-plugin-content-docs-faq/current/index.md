@@ -24,10 +24,10 @@ A: 这个是因为eureka的启动Java进程时没有使用nohup当会话退出�
 
 ![](/faq/q3_1.png)
 
-可以参考PR：https://github.com/WeBankFinTech/Linkis/pull/837/files
+可以参考PR：https://github.com/apache/incubator-linkis/pull/837/files
 
 #### Q4: Linkis Entrance LogWriter 缺依赖包
-A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://github.com/WeBankFinTech/LinkisDoc/blob/master/zh_CN/Development_Documents/Linkis%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md
+A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://linkis.apache.org/zh-CN/docs/next/development/linkis_compile_and_package/
 
 #### Q5: Linkis1.0 执行任务报： select list is not in  group by clause
 

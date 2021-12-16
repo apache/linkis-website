@@ -1,5 +1,5 @@
 ---
-title: AppManager架构
+title: AppManager 架构
 sidebar_position: 1
 ---
 

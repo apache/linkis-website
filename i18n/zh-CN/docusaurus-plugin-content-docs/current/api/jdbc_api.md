@@ -1,10 +1,10 @@
-# 任务提交执行JDBC API文档
+# 任务提交执行 JDBC API 文档
 
-### 一、引入依赖模块：
+## 1. 引入依赖模块：
 第一种方式在pom里面依赖JDBC模块：
 ```xml
 <dependency>
-    <groupId>com.webank.wedatasphere.linkis</groupId>
+    <groupId>org.apache.linkis</groupId>
     <artifactId>linkis-ujes-jdbc</artifactId>
     <version>${linkis.version}</version>
  </dependency>
@@ -16,13 +16,13 @@
 该打包指令会跳过单元测试的运行和测试代码的编译，并将JDBC模块需要的依赖一并打包进Jar包之中。
 2. 打包完成后在JDBC的target目录下会生成两个Jar包，Jar包名称中包含dependencies字样的那个就是我们需要的Jar包
 
-### 二、建立测试类：
+## 2. 建立测试类：
 建立Java的测试类LinkisClientImplTestJ，具体接口含义可以见注释：
 ```java
  public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        //1. 加载驱动类：com.webank.wedatasphere.linkis.ujes.jdbc.UJESSQLDriver
-        Class.forName("com.webank.wedatasphere.linkis.ujes.jdbc.UJESSQLDriver");
+        //1. 加载驱动类：org.apache.linkis.ujes.jdbc.UJESSQLDriver
+        Class.forName("org.apache.linkis.ujes.jdbc.UJESSQLDriver");
 
         //2. 获得连接：jdbc:linkis://gatewayIP:gatewayPort   帐号和密码对应前端的帐号密码
         Connection connection =  DriverManager.getConnection("jdbc:linkis://127.0.0.1:9001","username","password");

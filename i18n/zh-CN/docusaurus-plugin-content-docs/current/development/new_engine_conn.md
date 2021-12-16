@@ -8,7 +8,7 @@ sidebar_position: 3
 1. 新建一个maven模块，并引入ECP的maven依赖：
 ```
 <dependency>
-<groupId>com.webank.wedatasphere.linkis</groupId>
+<groupId>org.apache.linkis</groupId>
 <artifactId>linkis-engineconn-plugin-core</artifactId>
 <version>${linkis.version}</version>
 </dependency>
@@ -61,7 +61,7 @@ Hive引擎是一个交互式引擎，因此在实现Executor时，继承了Compu
 
 ```
 <dependency>
-<groupId>com.webank.wedatasphere.linkis</groupId>
+<groupId>org.apache.linkis</groupId>
 <artifactId>linkis-computation-engineconn</artifactId>
 <version>${linkis.version}</version>
 </dependency>

@@ -1,5 +1,5 @@
 ---
-title: 前端管理台
+title: Linkis Console 编译
 sidebar_position: 4
 ---
 
@@ -13,7 +13,7 @@ sidebar_position: 4
 在终端命令行中执行以下指令：
 
 ```
-git clone git@github.com:WeBankFinTech/Linkis.git
+git clone git@github.com:apache/incubator-linkis.git
 cd Linkis/web
 npm install
 ```

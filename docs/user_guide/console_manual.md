@@ -1,9 +1,9 @@
 ---
-title: Console User Manual
+title: Console Manual
 sidebar_position: 4
 ---
 
-Introduction to Computatoin Governance Console
+Introduction to linkis Console
 ==============
 
 > Linkis1.0 has added a new Computatoin Governance Console page, which can provide users with an interactive UI interface for viewing the execution of Linkis tasks, custom parameter configuration, engine health status, resource surplus, etc, and then simplify user development and management efforts.

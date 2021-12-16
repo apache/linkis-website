@@ -1,5 +1,5 @@
 ---
-title: CheckRuler架构
+title: CheckRuler 架构
 sidebar_position: 3
 ---
 

@@ -1,18 +1,19 @@
 ---
 title: 前端管理台部署
-sidebar_position: 1
+sidebar_position: 4
 ---
 
 Linkis在1.0提供了单独的前端管理台功能，提供了展示Linis的全局历史、修改用户参数、管理ECM和微服务等功能，部署前端管理台前需要先将Linkis后端进行部署，Linkis的部署手册见：[Linkis部署手册](deployment/quick_deploy.md)
 
 ## 1、准备工作
 
-1. 在linkis的安装包（wedatasphere-linkis-x.x.x-combined-package-dist.tar.gz）中解压后会有前端的压缩包：wedatasphere-linkis-web-1.0.0.zip
-2. 需要手动解压：unzip wedatasphere-linkis-web-1.0.0.zip，解压后目录为：
+1. 从linkis的release页面（[点击这里进入下载页面](https://github.com/apache/incubator-linkis/releases)）下载web安装包，apache-linkis-x.x.x-incubating-web-bin.tar.gz
+手动解压：tar -xvf  apache-linkis-x.x.x-incubating-web-bin.tar.gz，解压后目录为：
 ```
 config.sh
 dist
 install.sh
+....
 ```
 
 ## 2、部署
@@ -112,4 +113,3 @@ sudo vi /etc/nginx/conf.d/linkis.conf
 ```
 proxy_read_timeout 600s
 ```
-

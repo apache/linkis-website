@@ -51,7 +51,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 # Download
 
-Please go to the [Linkis releases page](https://github.com/WeBankFinTech/Linkis/wiki/Linkis-Releases) to download a compiled distribution or a source code package of Linkis.
+Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/wiki/Linkis-Releases) to download a compiled distribution or a source code package of Linkis.
 
 # Compile and deploy
 Please follow [Compile Guide](development/linkis_compile_and_package.md) to compile Linkis from source code.  
@@ -107,5 +107,5 @@ Meetup videos on [Bilibili](https://space.bilibili.com/598542776?from=search&sei
 
 # Who is Using Linkis
 
-We opened [an issue](https://github.com/WeBankFinTech/Linkis/issues/23) for users to feedback and record who is using Linkis.  
+We opened [an issue](https://github.com/apache/incubator-linkis/issues/23) for users to feedback and record who is using Linkis.  
 Since the first release of Linkis in 2019, it has accumulated more than **700** trial companies and **1000+** sandbox trial users, which involving diverse industries, from finance, banking, tele-communication, to manufactory, internet companies and so on.
