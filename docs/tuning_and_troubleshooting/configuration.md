@@ -82,7 +82,7 @@ sidebar_position: 1
 | wds.linkis.instance | 3 | User's default number of concurrent jobs per engine |
 | wds.linkis.max.ask.executor.time | 5m | Apply to LinkisManager for the maximum time available for EngineConn |
 | wds.linkis.hive.special.log.include | org.apache.hadoop.hive.ql.exec.Task | When pushing Hive logs to the client, which logs are not filtered by default |
-| wds.linkis.spark.special.log.include | com.webank.wedatasphere.linkis.engine.spark.utils.JobProgressUtil | When pushing Spark logs to the client, which logs are not filtered by default |
+| wds.linkis.spark.special.log.include | org.apache.linkis.engine.spark.utils.JobProgressUtil | When pushing Spark logs to the client, which logs are not filtered by default |
 | wds.linkis.entrance.shell.danger.check.enabled | false | Whether to check and block dangerous shell syntax |
 | wds.linkis.shell.danger.usage | rm,sh,find,kill,python,for,source,hdfs,hadoop,spark-sql,spark-submit,pyspark,spark-shell,hive,yarn | Shell default Dangerous grammar |
 | wds.linkis.shell.white.usage | cd,ls | Shell whitelist syntax |

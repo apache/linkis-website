@@ -8,13 +8,13 @@ sidebar_position: 2
 ## 1. Introduce dependent modules
 ```
 <dependency>
-   <groupId>com.webank.wedatasphere.linkis</groupId>
+   <groupId>org.apache.linkis</groupId>
    <artifactId>linkis-computation-client</artifactId>
    <version>${linkis.version}</version>
 </dependency>
 Such as:
 <dependency>
-   <groupId>com.webank.wedatasphere.linkis</groupId>
+   <groupId>org.apache.linkis</groupId>
    <artifactId>linkis-computation-client</artifactId>
    <version>1.0.0-RC1</version>
 </dependency>
@@ -27,20 +27,20 @@ Such as:
 Create the Java test class UJESClientImplTestJ. Refer to the comments to understand the purposes of those interfaces:
 
 ```java
-package com.webank.wedatasphere.linkis.client.test;
+package org.apache.linkis.client.test;
 
-import com.webank.wedatasphere.linkis.common.utils.Utils;
-import com.webank.wedatasphere.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy;
-import com.webank.wedatasphere.linkis.httpclient.dws.authentication.TokenAuthenticationStrategy;
-import com.webank.wedatasphere.linkis.httpclient.dws.config.DWSClientConfig;
-import com.webank.wedatasphere.linkis.httpclient.dws.config.DWSClientConfigBuilder;
-import com.webank.wedatasphere.linkis.ujes.client.UJESClient;
-import com.webank.wedatasphere.linkis.ujes.client.UJESClientImpl;
-import com.webank.wedatasphere.linkis.ujes.client.request.JobExecuteAction;
-import com.webank.wedatasphere.linkis.ujes.client.request.ResultSetAction;
-import com.webank.wedatasphere.linkis.ujes.client.response.JobExecuteResult;
-import com.webank.wedatasphere.linkis.ujes.client.response.JobInfoResult;
-import com.webank.wedatasphere.linkis.ujes.client.response.JobProgressResult;
+import org.apache.linkis.common.utils.Utils;
+import org.apache.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy;
+import org.apache.linkis.httpclient.dws.authentication.TokenAuthenticationStrategy;
+import org.apache.linkis.httpclient.dws.config.DWSClientConfig;
+import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder;
+import org.apache.linkis.ujes.client.UJESClient;
+import org.apache.linkis.ujes.client.UJESClientImpl;
+import org.apache.linkis.ujes.client.request.JobExecuteAction;
+import org.apache.linkis.ujes.client.request.ResultSetAction;
+import org.apache.linkis.ujes.client.response.JobExecuteResult;
+import org.apache.linkis.ujes.client.response.JobInfoResult;
+import org.apache.linkis.ujes.client.response.JobProgressResult;
 import org.apache.commons.io.IOUtils;
 
 import java.util.HashMap;
@@ -115,16 +115,16 @@ Run the above code to interact with Linkis
 ### 3. Scala test code:
 
 ```scala
-package com.webank.wedatasphere.linkis.client.test
+package org.apache.linkis.client.test
 
 import java.util.concurrent.TimeUnit
 
-import com.webank.wedatasphere.linkis.common.utils.Utils
-import com.webank.wedatasphere.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy
-import com.webank.wedatasphere.linkis.httpclient.dws.config.DWSClientConfigBuilder
-import com.webank.wedatasphere.linkis.ujes.client.UJESClient
-import com.webank.wedatasphere.linkis.ujes.client.request.JobExecuteAction.EngineType
-import com.webank.wedatasphere.linkis.ujes.client.request.{JobExecuteAction, ResultSetAction}
+import org.apache.linkis.common.utils.Utils
+import org.apache.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy
+import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder
+import org.apache.linkis.ujes.client.UJESClient
+import org.apache.linkis.ujes.client.request.JobExecuteAction.EngineType
+import org.apache.linkis.ujes.client.request.{JobExecuteAction, ResultSetAction}
 import org.apache.commons.io.IOUtils
 
 object LinkisClientImplTest extends App {
@@ -203,21 +203,21 @@ Linkis1.0 adds the client.submit method, which is used to adapt with the new tas
 ### 3.1 Java Test Class
 
 ```java
-package com.webank.wedatasphere.linkis.client.test;
+package org.apache.linkis.client.test;
 
-import com.webank.wedatasphere.linkis.common.utils.Utils;
-import com.webank.wedatasphere.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy;
-import com.webank.wedatasphere.linkis.httpclient.dws.config.DWSClientConfig;
-import com.webank.wedatasphere.linkis.httpclient.dws.config.DWSClientConfigBuilder;
-import com.webank.wedatasphere.linkis.manager.label.constant.LabelKeyConstant;
-import com.webank.wedatasphere.linkis.protocol.constants.TaskConstant;
-import com.webank.wedatasphere.linkis.ujes.client.UJESClient;
-import com.webank.wedatasphere.linkis.ujes.client.UJESClientImpl;
-import com.webank.wedatasphere.linkis.ujes.client.request.JobSubmitAction;
-import com.webank.wedatasphere.linkis.ujes.client.request.ResultSetAction;
-import com.webank.wedatasphere.linkis.ujes.client.response.JobExecuteResult;
-import com.webank.wedatasphere.linkis.ujes.client.response.JobInfoResult;
-import com.webank.wedatasphere.linkis.ujes.client.response.JobProgressResult;
+import org.apache.linkis.common.utils.Utils;
+import org.apache.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy;
+import org.apache.linkis.httpclient.dws.config.DWSClientConfig;
+import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder;
+import org.apache.linkis.manager.label.constant.LabelKeyConstant;
+import org.apache.linkis.protocol.constants.TaskConstant;
+import org.apache.linkis.ujes.client.UJESClient;
+import org.apache.linkis.ujes.client.UJESClientImpl;
+import org.apache.linkis.ujes.client.request.JobSubmitAction;
+import org.apache.linkis.ujes.client.request.ResultSetAction;
+import org.apache.linkis.ujes.client.response.JobExecuteResult;
+import org.apache.linkis.ujes.client.response.JobInfoResult;
+import org.apache.linkis.ujes.client.response.JobProgressResult;
 import org.apache.commons.io.IOUtils;
 
 import java.util.HashMap;
@@ -303,18 +303,18 @@ public class JavaClientTest {
 ### 3.2 Scala Test Class
 
 ```scala
-package com.webank.wedatasphere.linkis.client.test
+package org.apache.linkis.client.test
 
 import java.util
 import java.util.concurrent.TimeUnit
 
-import com.webank.wedatasphere.linkis.common.utils.Utils
-import com.webank.wedatasphere.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy
-import com.webank.wedatasphere.linkis.httpclient.dws.config.DWSClientConfigBuilder
-import com.webank.wedatasphere.linkis.manager.label.constant.LabelKeyConstant
-import com.webank.wedatasphere.linkis.protocol.constants.TaskConstant
-import com.webank.wedatasphere.linkis.ujes.client.UJESClient
-import com.webank.wedatasphere.linkis.ujes.client.request.{JobSubmitAction, ResultSetAction}
+import org.apache.linkis.common.utils.Utils
+import org.apache.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy
+import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder
+import org.apache.linkis.manager.label.constant.LabelKeyConstant
+import org.apache.linkis.protocol.constants.TaskConstant
+import org.apache.linkis.ujes.client.UJESClient
+import org.apache.linkis.ujes.client.request.{JobSubmitAction, ResultSetAction}
 import org.apache.commons.io.IOUtils
 
 

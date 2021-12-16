@@ -33,7 +33,7 @@ sidebar_position: 1
 
 如果您已经编译完了您的spark引擎的插件已经编译完成，那么您需要将新的插件放置到指定的位置中才能加载，具体可以参考下面这篇文章
 
-[EngineConnPlugin Installation](deployment/engine_conn_plugin_installation.md) 
+[EngineConnPlugin引擎插件安装](deployment/engine_conn_plugin_installation.md) 
 
 ### 2.3 spark引擎的标签
 

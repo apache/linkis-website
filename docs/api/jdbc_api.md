@@ -8,7 +8,7 @@ sidebar_position: 2
 The first way depends on the JDBC module in the pom:  
 ```xml
 <dependency>
-    <groupId>com.webank.wedatasphere.linkis</groupId>
+    <groupId>org.apache.linkis</groupId>
     <artifactId>linkis-ujes-jdbc</artifactId>
     <version>${linkis.version}</version>
  </dependency>
@@ -24,8 +24,8 @@ Establish a Java test class LinkisClientImplTestJ, the specific interface meanin
 ```java
  public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        //1. Load driver class：com.webank.wedatasphere.linkis.ujes.jdbc.UJESSQLDriver
-        Class.forName("com.webank.wedatasphere.linkis.ujes.jdbc.UJESSQLDriver");
+        //1. Load driver class：org.apache.linkis.ujes.jdbc.UJESSQLDriver
+        Class.forName("org.apache.linkis.ujes.jdbc.UJESSQLDriver");
 
         //2. Get connection：jdbc:linkis://gatewayIP:gatewayPort
         //   the front-end account password
