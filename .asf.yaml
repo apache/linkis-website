@@ -15,6 +15,9 @@
 #
 
 github:
+  features:
+    # Enable issue management
+    issues: true
   description: Apache Linkis documents
   homepage: https://linkis.apache.org/
   labels:
