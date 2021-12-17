@@ -69,11 +69,13 @@ This website is compiled using node, using Docusaurus framework components
 ```
 The following table illustrates how versioned files are mapped to their version and generated URL.
 
-| file Path | Version | http URL |
-| --------------------------------------- | --------- ----- | ----------------- |
-| `versioned_docs/version-1.0.1/hello.md` | 1.0.1 | /docs/1.0.1/hello |
-| `versioned_docs/version-1.0.2/hello.md` | 1.0.2 (latest current stable version) | /docs/latest/hello |
-| `docs/hello.md` | current (the next version to be released) | /docs/next/hello |
+
+| file Path                               | Version        | http URL              |
+| --------------------------------------- | -------------- | ----------------- |
+| `versioned_docs/version-1.0.1/hello.md` | 1.0.1         | /docs/1.0.1/hello |
+| `versioned_docs/version-1.0.2/hello.md` | 1.0.2 (latest current stable version) | /docs/latest/hello  |
+| `docs/hello.md`                         | current (the next version to be released)     | /docs/next/hello  |
+
 
 
 ## 3. Specification
