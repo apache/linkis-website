@@ -8,7 +8,7 @@
 
 
 ## 分支 
-dev为开发分支，所有修改请先fork，然后在dev分支上进行。
+dev为开发分支，修改请先fork到自己的仓库，然后在dev分支上进行开发修改。
 ```
 master  主分支
 dev     开发分支
@@ -28,10 +28,57 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 4. 在根目录运行`npm run start-zh`，可以访问http://localhost:3000查看站点的中文模式预览
 5. 要生成静态网站资源文件，运行 `npm run build`。构建的静态资源在build目录中。
 
+## 2.目录结构
+```html
+|-- community //社区
+|-- docs     //文档  存方下一个即将发布的版本
+|-- download //下载
+|-- faq      //Q&A
+|-- i18n    
+|   `-- zh-CN  //国际化中文
+|       |-- code.json
+|       |-- docusaurus-plugin-content-docs
+|       |-- docusaurus-plugin-content-docs-community
+|       |-- docusaurus-plugin-content-docs-download
+|       |-- docusaurus-plugin-content-docs-faq
+|       `-- docusaurus-theme-classic
+|-- src
+|   |-- components
+|   |-- css
+|   |-- js
+|   |-- pages
+|   |   |-- home
+|   |   |-- index.jsx
+|   |   |-- team
+|   |   |-- user
+|   |   `-- versions
+|   |-- styles
+|-- static //图片静态资源
+|   |-- Images
+|   |-- Images-zh
+|   |-- faq
+|   |-- home
+|   `-- img
+|-- docusaurus.config.js
+|-- versioned_docs //历史版本存档
+|   `-- version-1.0.2
+|-- versioned_sidebars
+|   `-- version-1.0.2-sidebars.json
+`-- versions.json
 
-## 2.规范
+```
+下表说明了版本化文件如何映射到其版本和生成的 URL。
 
-### 2.1 目录命名规范
+| 资源路径                                    | 版本        | 访问URL               |
+| --------------------------------------- | -------------- | ----------------- |
+| `versioned_docs/version-1.0.1/hello.md` | 1.0.1         | /docs/1.0.1/hello |
+| `versioned_docs/version-1.0.2/hello.md` | 1.0.2(latest 当前稳定版本) | /docs/latest/hello  |
+| `docs/hello.md`                         | current(下一个将发布的版本)      | /docs/next/hello  |
+
+
+## 3.规范
+
+### 3.1 目录命名规范
 
 全部采用小写方式， 以中下划线分隔，有复数结构时，要采用复数命名法， 缩写不用复数
 
@@ -39,7 +86,7 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 
 反例： `script / style / demoStyles / imgs / docs`
 
-### 2.2 vue以及静态资源文件命名规范
+### 3.2 vue以及静态资源文件命名规范
 
 全部采用小写方式， 以中划线分隔
 
@@ -47,16 +94,16 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 
 反例： `renderDom.js / UserManagement.html`
 
-### 2.3 资源路径 
+### 3.3 资源路径 
 
 图片资源统一放在`static/{模块名}`下
 
 css等样式文件放在`src/css`目录下
 
-### 2.4 页面内容修改 
+### 3.4 页面内容修改 
 > 除了首页、团队、用户、Docs>All Version 模块页面外，其余页面都能通过底部的'Edit this page'按钮 直接跳转至对应的github的资源修改页
 
-### 2.5 首页页面修改
+### 3.5 首页页面修改
 访问页面  https://linkis.apache.org/
 位于 `src/pages/home`
 
@@ -65,7 +112,7 @@ css等样式文件放在`src/css`目录下
 │      config.json 首页中英文的配置  
 │      index.less  首页样式
 ```
-### 2.6 团队页面修改
+### 3.6 团队页面修改
 访问页面  https://linkis.apache.org/zh-CN/team
 位于 `src/pages/team`
 ```
@@ -74,7 +121,7 @@ css等样式文件放在`src/css`目录下
 │      index.js
 │      index.less
 ```
-### 2.7  用户 列表页面修改
+### 3.7  用户 列表页面修改
 访问页面  https://linkis.apache.org/zh-CN/user/
 ```
 位于 `src/pages/user`
@@ -86,7 +133,7 @@ css等样式文件放在`src/css`目录下
         index.less
 ```
 
-### 2.8 version 列表页面修改
+### 3.8 version 列表页面修改
 访问页面  https://linkis.apache.org/zh-CN/versions/
 ```
 位于 `src/pages/versions`
@@ -95,12 +142,13 @@ css等样式文件放在`src/css`目录下
         index.jsorchestrator/overview.md
         index.less
 ```
-## 3.新增文档 
+## 4.新增文档 
+
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) md文档建议通过访问官网查看,通过github查看md文档存在图片等静态资源无法正确显示问题
 
 - 英文文档 docs/对应目录为即将发布的下一Next版本，历史存档版本存放在versioned_docs/version-${versionno}目录下。
 - 中文文档 放在i18n/zh-CN/docusaurus-plugin-content-docs/对应目录下，current为即将发布的下一个版本.version-${versionno}为历史存档版本。
 - 图片资源 放在static/目录下
  
-## 4.其他 
+## 5.其他 
 命名规范参考《阿里前端开发规范》

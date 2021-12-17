@@ -115,10 +115,12 @@ Linkis Orchestrator的编排流程与很多SQL解析引擎（如Spark、Hive的S
 2. Linkis Orchestrator的编排能力与编程语言无关，理论上只要是Linkis已经对接的引擎，其支持的所有编程语言都支持编排；而SQL解析引擎只关心SQL的解析和执行，只负责将一条SQL解析成一颗可执行的Physical树，最终计算出结果。
 
 3. Linkis Orchestrator也具备对SQL的解析能力，但SQL解析只是Orchestrator Parser针对SQL这种编程语言的其中一种解析实现。Linkis Orchestrator的Parser也考虑引入Apache Calcite对SQL进行解析，支持将一条跨多个计算引擎（必须是Linkis已经对接的计算引擎）的用户SQL，拆分成多条子SQL，在执行阶段时分别提交给对应的计算引擎进行执行，最后选择一个合适的计算引擎进行汇总计算。
+
 <!--
 #todo  Orchestrator文档还没准备好！！
 关于Orchestrator的编排详细介绍，请参考：[Orchestrator架构设计](architecture/orchestrator/orchestrator_architecture_doc.md)
 -->
+
 经过了Linkis Orchestrator的解析编排后，用户的计算任务已经转换成了一颗可被执行的Physical树。Orchestrator会将该Physical树提交给Orchestrator的Execution模块，进入最后的执行阶段。
 
 ## 三、执行阶段

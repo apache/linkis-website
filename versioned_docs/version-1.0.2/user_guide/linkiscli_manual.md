@@ -124,7 +124,7 @@ Note that the escape character in `'\$'` is to prevent the parameter from being 
 1. linkis-cli supports loading user-defined configuration files, the configuration file path is specified by the `--userConf` parameter, and the configuration file needs to be in the file format of `.properties`
         
 ```bash
-   ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --userConf [configuration file path]
+   ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --userConf [配置文件路径]
 ``` 
         
         

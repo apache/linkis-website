@@ -34,7 +34,7 @@ Perform three stages to fully upgrade Linkis's Job execution architecture, as sh
 <!--
 #todo  Orchestrator documentation is not ready yet 
 [Enter Orchestrator Architecture Design](orchestrator/overview.md) 
---> 
+-->
 
 ### 3. LinkisManager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As the management brain of Linkis, LinkisManager is mainly composed of AppManager, ResourceManager, LabelManager and EngineConnPlugin.  
@@ -48,3 +48,4 @@ Perform three stages to fully upgrade Linkis's Job execution architecture, as sh
  ### 5. EngineConn
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EngineConn is an optimized and upgraded version of Linkis0.X Engine. It will provide EngineConn and Executor two modules. EngineConn is used to connect the underlying computing storage engine and provide a session session that connects the underlying computing storage engines; Executor is based on this Session session , Provide full-stack computing support for interactive computing, streaming computing, offline computing, and data storage.  
  [Enter EngineConn Architecture Design](engine/engine_conn.md)
+ 

@@ -30,6 +30,7 @@ Perform three stages to fully upgrade Linkis's Job execution architecture, as sh
 [Entrance Architecture Design](entrance.md)  
 ### 2. Orchestrator
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Orchestrator, as the entrance to the preparation phase, inherits the capabilities of parsing Jobs, applying for Engines, and submitting execution from Entrance of Linkis0.X; at the same time, Orchestrator will provide powerful orchestration and computing strategy capabilities to meet multiple activities, active backups, transactions, and replays. , Current limiting, heterogeneous and mixed computing and other application scenarios.  
+
 <!--
 #todo  Orchestrator documentation is not ready yet 
 [Enter Orchestrator Architecture Design](orchestrator/overview.md) 
