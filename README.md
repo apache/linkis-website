@@ -28,10 +28,59 @@ This website is compiled using node, using Docusaurus framework components
 4. Run `npm run start-zh` in the root directory, you can visit http://localhost:3000 to view the Chinese mode preview of the site
 5. To generate static website resource files, run `npm run build`. The static resources of the build are in the build directory.
 
+## 2. Directory structure
+```html
+|-- community 
+|-- docs     //The next version of the document that will be released soon
+|-- download 
+|-- faq      //Q&A
+|-- i18n    
+|   `-- zh-CN  //Internationalized Chinese
+|       |-- code.json
+|       |-- docusaurus-plugin-content-docs
+|       |-- docusaurus-plugin-content-docs-community
+|       |-- docusaurus-plugin-content-docs-download
+|       |-- docusaurus-plugin-content-docs-faq
+|       `-- docusaurus-theme-classic
+|-- src
+|   |-- components
+|   |-- css
+|   |-- js
+|   |-- pages
+|   |   |-- home
+|   |   |-- index.jsx
+|   |   |-- team
+|   |   |-- user
+|   |   `-- versions
+|   |-- styles
+|-- static //Picture static resource
+|   |-- Images
+|   |-- Images-zh
+|   |-- faq
+|   |-- home
+|   `-- img
+|-- docusaurus.config.js
+|-- versioned_docs //Historical version archive
+|   `-- version-1.0.2
+|-- versioned_sidebars
+|   `-- version-1.0.2-sidebars.json
+`-- versions.json
 
-## 2. Specification
+```
+The following table illustrates how versioned files are mapped to their version and generated URL.
 
-### 2.1 Directory naming convention
+
+| file Path                               | Version        | http URL              |
+| --------------------------------------- | -------------- | ----------------- |
+| `versioned_docs/version-1.0.1/hello.md` | 1.0.1         | /docs/1.0.1/hello |
+| `versioned_docs/version-1.0.2/hello.md` | 1.0.2 (latest current stable version) | /docs/latest/hello  |
+| `docs/hello.md`                         | current (the next version to be released)     | /docs/next/hello  |
+
+
+
+## 3. Specification
+
+### 3.1 Directory naming convention
 
 Use all lowercase, separated by underscores. If there is a plural structure, use plural nomenclature, and do not use plural abbreviations
 
@@ -39,7 +88,7 @@ Positive example: `scripts / styles / components / images / utils / layouts / de
 
 Counter example: `script / style / demoStyles / imgs / docs`
 
-### 2.2 Vue and the naming convention of static resource files
+### 3.2 Vue and the naming convention of static resource files
 
 All lowercase, separated by a dash
 
@@ -47,17 +96,17 @@ Positive example: `render-dom.js / signup.css / index.html / company-logo.png`
 
 Counter example: `renderDom.js / UserManagement.html`
 
-### 2.3 Resource Path
+### 3.3 Resource Path
 
 Image resources are unified under `static/{module name}`
 
 css and other style files are placed in the `src/css` directory
 
-### 2.4 Page content modification
+### 3.4 Page content modification
 > Except for the homepage, team, user, Docs>All Version module page, all other pages can be directly jumped to the corresponding github resource modification page through the'Edit this page' button at the bottom
 
-### 2.5 Home page modification
-Visit the page https://linkis.apache.org/
+### 3.5 Home page modification
+Visit the page https://linkis.apache.org
 Located in `src/pages/home`
 
 ```
@@ -65,8 +114,8 @@ Located in `src/pages/home`
 │ config.json Home page Chinese and English configuration
 │ index.less homepage style
 ```
-### 2.6 Team page modification
-Visit the page https://linkis.apache.org/zh-CN/team
+### 3.6 Team page modification
+Visit the page https://linkis.apache.org/team
 Located in `src/pages/team`
 ```
 ├─team
@@ -74,8 +123,8 @@ Located in `src/pages/team`
 │ index.js
 │ index.less
 ```
-### 2.7 User list page modification
-Visit the page https://linkis.apache.org/zh-CN/user/
+### 3.7 User list page modification
+Visit the page https://linkis.apache.org/user
 ```
 Located in `src/pages/user`
 └─versions
@@ -86,8 +135,8 @@ Located in `src/pages/user`
         index.less
 ```
 
-### 2.8 version List page modification
-Visit the page https://linkis.apache.org/zh-CN/versions/
+### 3.8 version List page modification
+Visit the page https://linkis.apache.org/versions
 ```
 Located in `src/pages/versions`
 └─versions
@@ -95,12 +144,13 @@ Located in `src/pages/versions`
         index.jsorchestrator/overview.md
         index.less
 ```
-## 3. New documents
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) It is recommended to view the md document through the official website, and view the md document through github. There is a problem that static resources such as pictures cannot be displayed correctly.
+## 4. New documents
 
--The English document docs/ corresponds to the next version to be released, and the historical archive version is stored in the versioned_docs/version-${versionno} directory.
--Chinese documents are placed in the corresponding directory of i18n/zh-CN/docusaurus-plugin-content-docs/, current is the next version to be released. version-${versionno} is the historical archive version.
--Image resources are placed in the static/ directory
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The md document is recommended to be viewed by visiting the official website and viewing the md document through github. There is a problem that static resources such as pictures cannot be displayed correctly
+
+- The English document docs/ corresponds to the next Next version to be released, and the historical archive version is stored in the versioned_docs/version-${versionno} directory.
+- Chinese documents are placed in the corresponding directory of i18n/zh-CN/docusaurus-plugin-content-docs/, current is the next version to be released. version-${versionno} is the historical archive version.
+- Image resources are placed in the static/ directory
  
-## 4. Other
+## 5. Other
 The naming convention refers to "Alibaba Front-end Development Specification"

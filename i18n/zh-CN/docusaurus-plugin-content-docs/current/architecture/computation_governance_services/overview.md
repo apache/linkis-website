@@ -46,8 +46,11 @@ Linkis1.0将优化Job的整体执行流程，从提交 —\> 准备 —\>
 ### 2、Orchestrator
 
  Orchestrator 作为准备阶段的入口，从 Linkis0.X 的 Entrance 继承了解析Job、申请Engine和提交执行的能力；同时，Orchestrator将提供强大的编排和计算策略能力，满足多活、主备、事务、重放、限流、异构和混算等多种应用场景的需求。
- 
+
+<!--
+ #todo  Orchestrator文档还没准备好！！
  [进入Orchestrator架构设计](orchestrator/overview.md)
+-->
 
 ### 3、LinkisManager
 

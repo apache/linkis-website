@@ -1,5 +1,5 @@
 ---
-title: Linkis-Cli Usage
+title: Linkis-Cli Manual
 sidebar_position: 3
 ---
 
