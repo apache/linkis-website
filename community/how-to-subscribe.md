@@ -3,12 +3,13 @@ title: How to Subscribe
 sidebar_position: 1
 ---
 
-# Subscribe to the mailing list
+Apache has configured a series of mailing lists for each project. Mailing lists are an important form of communication in the Apache community.
 
-## 1. Preface
-Mailing lists are a form of communication used by the Apache community，Generally speaking，Many things in the Apache community are hosted by mailing lists，For example: project Q&A, technical discussion, transaction decision, release vote, etc，By subscribing, you can get the first update of the Linkis community and keep up with the community.
+Many things in the daily operation and maintenance of the community are carried by mailing lists, such as technical discussions, any ideas or suggestions, project questions and answers, new functions/features/major changes decisions and notifications, version release voting, etc. As long as it is related to the project, you can initiate a discussion here.
 
-#### Linkis Project mailing list
+As long as you subscribe to this mailing list, you can get the latest developments in the Linkis community for the first time and keep pace with the community.
+
+**Linkis project mailing list**
 
 |name|description|Subscribe|Unsubscribe|archive|
 |:-----|:--------|:------|:-------|:-----|
