@@ -107,7 +107,7 @@ Among them:
     {
         "method": "/api/rest_j/v1/user/logout",
         "status": 0,
-        "message": "退出登录成功！"
+        "message": "Logout successful(退出登录成功)！"
     }
 ```
 
@@ -125,6 +125,6 @@ Among them:
     {
          "method": "/api/rest_j/v1/user/heartbeat",
          "status": 0,
-         "message": "维系心跳成功！"
+         "message": "Maintain heartbeat success(维系心跳成功)!"
     }
 ```

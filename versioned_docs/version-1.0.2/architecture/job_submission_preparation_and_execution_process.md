@@ -37,13 +37,13 @@ POST /api/rest_j/v1/entrance/submit
 
 ```json
 {
-    "executionContent": {"code": "show tables", "runType": "sql"},
-    "params": {"variable": {}, "configuration": {}},  //非必须
-    "source": {"scriptPath": "file:///1.hql"}, //非必须，仅用于记录代码来源
-    "labels": {
-        "engineType": "spark-2.4.3",  //指定引擎
-        "userCreator": "johnnwnag-IDE"  // 指定提交用户和提交系统
-    }
+     "executionContent": {"code": "show tables", "runType": "sql"},
+     "params": {"variable": {}, "configuration": {}}, //not required
+     "source": {"scriptPath": "file:///1.hql"}, //not required, only used to record code source
+     "labels": {
+         "engineType": "spark-2.4.3", //Specify engine
+         "userCreator": "username-IDE" // Specify the submission user and submission system
+     }
 }
 ```
 
@@ -99,8 +99,10 @@ The orchestration process of Linkis Orchestrator is similar to many SQL parsing 
 1. What Linkis Orchestrator mainly wants to solve is the orchestration requirements caused by different computing tasks for computing strategies. For example, in order to be multi-active, Orchestrator will submit a calculation task for the user, based on the "multi-active" computing strategy requirements, compile a physical tree, so as to submit to multiple clusters to perform this calculation task. And in the process of constructing the entire Physical tree, various possible abnormal scenarios have been fully considered, and they have all been reflected in the Physical tree.
 2. The orchestration ability of Linkis Orchestrator has nothing to do with the programming language. In theory, as long as an engine has adapted to Linkis, all the programming languages it supports can be orchestrated, while the SQL parsing engine only cares about the analysis and execution of SQL, and is only responsible for parsing a piece of SQL into one executable Physical tree, and finally calculate the result.
 3. Linkis Orchestrator also has the ability to parse SQL, but SQL parsing is just one of Orchestrator Parser's analytic implementations for the SQL programming language. The Parser of Linkis Orchestrator also considers introducing Apache Calcite to parse SQL. It supports splitting a user SQL that spans multiple computing engines (must be a computing engine that Linkis has docked) into multiple sub SQLs and submitting them to each corresponding engine during the execution phase. Finally, a suitable calculation engine is selected for summary calculation.
-
+<!--
+#todo  Orchestrator documentation is not ready yet 
 Please refer to [Orchestrator Architecture Design](architecture/orchestrator/orchestrator_architecture_doc.md) for more details. 
+-->
 
 After the analysis and arrangement of Linkis Orchestrator, the  computing task has been transformed into a executable physical tree. Orchestrator will submit the Physical tree to Orchestrator's Execution module and enter the final execution stage.
 

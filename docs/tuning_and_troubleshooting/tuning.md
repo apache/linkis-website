@@ -42,7 +42,7 @@ In the Linkis source code, we set a default value for the number of concurrent t
     if (!groupNameToGroups.containsKey(groupName)) synchronized {
       val initCapacity = 100
       val maxCapacity = 100
-      // 其它代码...
+      // other codes...
         }
       }
 ```
@@ -56,11 +56,11 @@ The related configuration of Spark and Hive are as follows:
 Part of the Spark configuration in linkis-engineconn-plugins/engineconn-plugins, you can adjust the configuration to change the runtime environment of tasks submitted to Yarn. Due to limited space, such as more about Hive, Yarn configuration requires users to refer to the source code and the parameters documentation.
 
 ```shell
-"spark.driver.memory" = 2 //单位为G
-"wds.linkis.driver.cores" = 1
-"spark.executor.memory" = 4 //单位为G
-"spark.executor.cores" = 2
-"spark.executor.instances" = 3
-"wds.linkis.rm.yarnqueue" = "default"
+    "spark.driver.memory" = 2 //Unit is G
+    "wds.linkis.driver.cores" = 1
+    "spark.executor.memory" = 4 //Unit is G
+    "spark.executor.cores" = 2
+    "spark.executor.instances" = 3
+    "wds.linkis.rm.yarnqueue" = "default"
 ```
 

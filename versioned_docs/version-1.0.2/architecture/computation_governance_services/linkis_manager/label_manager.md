@@ -9,7 +9,7 @@ sidebar_position: 3
 LabelManager is a functional module in Linkis that provides label services to upper-level applications. It uses label technology to manage cluster resource allocation, service node election, user permission matching, and gateway routing and forwarding; it includes generalized analysis and processing tools that support various custom Label labels, And a universal tag matching scorer.
 ### Overall architecture schematic
 
-![整体架构示意图](/Images/Architecture/LabelManager/label_manager_global.png)  
+![label_manager_global](/Images/Architecture/LabelManager/label_manager_global.png)  
 
 #### Architecture description
 - LabelBuilder: Responsible for the work of label analysis. It can parse the input label type, keyword or character value to obtain a specific label entity. There is a default generalization implementation class or custom extensions.
@@ -32,7 +32,7 @@ In order to select a suitable engine node based on the tag list attached to the 
 In the label definition, each label has a feature value, namely CORE, SUITABLE, PRIORITIZED, OPTIONAL, and each feature value has a boost value, which is equivalent to a weight and an incentive value.
 At the same time, some features such as CORE and SUITABLE must be unique features, that is, strong filtering is required during the matching process, and a node can only be associated with one CORE/SUITABLE label.
 According to the relationship between existing tags, nodes, and request attached tags, the following schematic diagram can be drawn:
-![标签打分](/Images/Architecture/LabelManager/label_manager_scorer.png)  
+![label_manager_scorer](/Images/Architecture/LabelManager/label_manager_scorer.png)  
 
 The built-in default scoring logic process should generally include the following steps:
 1. The input of the method should be two sets of network relationship lists, namely `Label -> Node` and `Node -> Label`, where the Node node in the `Node -> Label` relationship must have all the CORE and SUITABLE feature labels, these nodes are also called candidate nodes.
