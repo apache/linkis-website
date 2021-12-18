@@ -33,7 +33,7 @@ You need to make some configuration in the code, such as the back-end interface 
 VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath
 ```
 
-For specific explanation of the configuration, please refer to the official vue-cli document: [Environment Variables and Modes](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E7%8E%AF%E5% A2%83%E5%8F%98%E9%87%8F%E5%92%8C%E6%A8%A1%E5%BC%8F)
+For specific explanation of the configuration, please refer to the official vue-cli document: [Environment Variables and Modes](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%92%8C%E6%A8%A1%E5%BC%8F)
 
 ### Package the project
 You can package the project by executing the following commands on the terminal command line to generate compressed code:

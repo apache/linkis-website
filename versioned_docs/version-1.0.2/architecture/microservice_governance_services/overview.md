@@ -21,7 +21,7 @@ The Gateway of Linkis 1.0 also added Label-based routing and forwarding capabili
 A WebSocket routing and forwarder is implemented by Spring Cloud Gateway in Linkis, it is used to establish a WebSocket connection with the client.
 After the connection is established, it will automatically analyze the client's WebSocket request and determine which backend microservice the request should be forward to through the rules, 
 then the request is forwarded to the corresponding backend microservice instance.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Linkis Gateway](Gateway.md)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Linkis Gateway](gateway.md)
 
 2. Linkis Eureka  
 Mainly responsible for service registration and discovery. Eureka consists of multiple instances(service instances). These service instances can be divided into two types: Eureka Server and Eureka Client. 

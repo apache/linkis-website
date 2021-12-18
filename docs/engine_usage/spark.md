@@ -42,7 +42,7 @@ If you have already compiled your spark engine plug-in has been compiled, then y
 
 Linkis1.0 is done through tags, so we need to insert data in our database, the way of inserting is shown below.
 
-https://github.com/apache/incubator-linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3\#22-%E7%AE%A1%E7%90%86%E5%8F%B0configuration%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E5%8F%AF%E9%80%89
+[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](deployment/engine_conn_plugin_installation.md) 
 
 ## 3. Use of spark engine
 
