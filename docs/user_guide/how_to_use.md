@@ -10,9 +10,9 @@ sidebar_position: 1
 ## 1. Client side usage
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you need to connect to other applications on the basis of Linkis, you need to develop the interface provided by Linkis. Linkis provides a variety of client access interfaces. For detailed usage introduction, please refer to the following:
--[**Restful API Usage**](api/linkis_task_operator.md)
--[**JDBC API Usage**](api/jdbc_api.md)
--[**How ​​to use Java SDK**](user_guide/sdk_manual.md)
+- [**Restful API Usage**](api/linkis_task_operator.md)
+- [**JDBC API Usage**](api/jdbc_api.md)
+- [**How ​​to use Java SDK**](user_guide/sdk_manual.md)
 
 ## 2. Scriptis uses Linkis
 

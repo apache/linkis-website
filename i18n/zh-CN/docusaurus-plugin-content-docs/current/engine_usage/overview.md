@@ -24,4 +24,3 @@ sidebar_position: 0
 - [Python 引擎使用](python.md)  
 - [Shell 引擎使用](shell.md)  
 - [JDBC 引擎使用](jdbc.md)  
-- [MLSQL 引擎使用](mysql.md)

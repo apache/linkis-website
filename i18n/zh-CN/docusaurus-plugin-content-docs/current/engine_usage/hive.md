@@ -41,7 +41,7 @@ on Tez，需要您按照此pr进行一下修改。
 
 Linkis1.0是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-https://github.com/apache/incubator-linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3#22-%E7%AE%A1%E7%90%86%E5%8F%B0configuration%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E5%8F%AF%E9%80%89
+[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](deployment/engine_conn_plugin_installation.md) 
 
 ## 3.hive引擎的使用
 

@@ -25,4 +25,3 @@ You can refer to the following documents for the related documents of the engine
 - [Python Engine Usage](python.md)
 - [Shell Engine Usage](shell.md)
 - [JDBC Engine Usage](jdbc.md)
-- [MLSQL Engine Usage](mysql.md)

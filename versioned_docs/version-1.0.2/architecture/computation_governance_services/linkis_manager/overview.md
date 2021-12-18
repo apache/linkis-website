@@ -15,6 +15,7 @@ LinkisManager Architecture Design
 ## 2. Introduction to the second-level module
 ### 2.1. Application management module linkis-application-manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppManager is used for unified scheduling and management of engines:  
+
 | Core Interface/Class | Main Function |
 |------------|--------|
 |EMInfoService | Defines EngineConnManager information query and modification functions |
