@@ -139,7 +139,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               },
               {
                 label: "Events",
-                to: "https://www.apache.org/events/",
+                to: "https://www.apache.org/events/current-event",
               },
               {
                 label: "Security",
