@@ -126,6 +126,36 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             activeBaseRegex: `/user`,
           },
           {
+            label: 'ASF',
+            position: 'left',
+            items: [
+              {
+                label: "Foundation",
+                to: "https://www.apache.org/",
+              },
+              {
+                label: "License",
+                to: "https://www.apache.org/licenses/",
+              },
+              {
+                label: "Events",
+                to: "https://www.apache.org/events/",
+              },
+              {
+                label: "Security",
+                to: "https://www.apache.org/security/",
+              },
+              {
+                label: "Sponsorship",
+                to: "https://www.apache.org/foundation/sponsorship.html",
+              },
+              {
+                label: "Thanks",
+                to: "https://www.apache.org/foundation/thanks.html",
+              },
+            ],
+          },
+          {
             position: 'right',
             label: 'Doc',
 //            to: "/docs/user_guide/overview",
@@ -162,8 +192,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               title: 'Linkis',
               items: [
                 {
-                  label: 'Documentation',
-                  href: '/docs/next/introduction',
+                  label: 'Document',
+                  href: '/docs/latest/introduction',
                 },
                 {
                   label: 'FAQ',
@@ -193,26 +223,52 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               ],
             },
             {
-              title: 'Apache Software Foundation',
+              title: 'Subscribe Mailing List',
               items: [
                 {
-                  label: 'Foundation',
-                  href: 'https://www.apache.org/',
+                  label: 'How to Subscribe',
+                  to: '/community/how-to-subscribe',
                 },
                 {
-                  label: 'License',
-                  href: 'https://www.apache.org/licenses/LICENSE-2.0',
+                  label: 'Subscribe Mail',
+                  href: 'mailto:dev-subscribe@linkis.apache.org',
                 },
                 {
-                  label: 'Sponsorship',
-                  href: 'https://www.apache.org/foundation/sponsorship.html',
-                },
-                {
-                  label: 'Thanks',
-                  href: 'http://www.apache.org/foundation/thanks.html',
+                  label: 'Mail Archive',
+                  href: 'https://lists.apache.org/list.html?dev@linkis.apache.org',
                 },
               ],
             },
+//            {
+                //              title: 'Apache Software Foundation',
+                //              items: [
+                //
+                //                {
+                //                  label: 'Events',
+                //                  href: 'https://www.apache.org/events/current-event',
+                //                },
+                //                {
+                //                  label: 'Thanks',
+                //                  href: 'http://www.apache.org/foundation/thanks.html',
+                //                },
+                //                {
+                //                  label: 'License',
+                //                  href: 'https://www.apache.org/licenses/',
+                //                },
+                //                {
+                //                  label: 'Security',
+                //                  href: 'https://www.apache.org/security/',
+                //                },
+                //                {
+                //                  label: 'Sponsorship',
+                //                  href: 'https://www.apache.org/foundation/sponsorship.html',
+                //                },
+                //                {
+                //                  label: 'Foundation',
+                //                  href: 'https://www.apache.org/',
+                //                }
+                //              ],
+                //            },
           ],
          copyright: `<div><img style="height:50px" alt="Apache Software Foundation" src="/img/incubator-logo.svg" /><p style="color: #999999;  padding: 0 20px 30px;font-weight:400;text-align:left">Apache Linkis is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p></p>
              <p style="padding: 0 20px 30px;color: #999999;font-weight: 400;"> Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache Linkis, Apache Incubator, Apache, the Apache feather logo, the Apache Linkis logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.</p>

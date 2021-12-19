@@ -18,7 +18,7 @@ As long as you subscribe to this mailing list, you can get the latest developmen
 
 
 
-## 2. Subscribe to the mailing list
+## 1. Subscribe to the mailing list
 **For example,Take subscribing to the dev@linkis.apache.org mailing list**
 
 The steps are as follows：
@@ -28,7 +28,7 @@ The steps are as follows：
  4. Wait until you receive an email with the subject line `WELCOME to dev@linkis.apache.org` .
  5. If you receive an email from (4), you have successfully subscribed to the email. To initiate a discussion, you can send an email directly to `dev@linkis.apache.org`, which will be sent to everyone who subscribed to the mailing list.
 
-## 3. Unsubscribe from the mailing list
+## 2. Unsubscribe from the mailing list
 The steps for unsubscribing to a mailing list are similar to those for subscribing to a mailing list:：
 1. Send an email without any content or subject to: `dev-unsubscribe@linkis.apache.org`
 2. Wait until you receive an email with the subject line `confirm unsubscribe from dev@linkis.apache.org` 
@@ -37,7 +37,7 @@ The steps for unsubscribing to a mailing list are similar to those for subscribi
 5. Unsubscribe success
 
 
-## 4. issues related
+## 3. Issues related
 
 > Linkis's issues address [https://github.com/apache/incubator-linkis/issues](https://github.com/apache/incubator-linkis/issues)
 

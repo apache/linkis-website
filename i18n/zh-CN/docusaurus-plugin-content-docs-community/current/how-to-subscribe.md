@@ -39,7 +39,7 @@ Apache为每一个项目都配置了一系列的邮件列表，邮件列表作�
 5. 5.退订成功
 
 
-## 4. issues相关
+## 3. Issues相关
 
 > linkis的issues地址 [https://github.com/apache/incubator-linkis/issues](https://github.com/apache/incubator-linkis/issues)
 

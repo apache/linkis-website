@@ -312,7 +312,7 @@ Create a directory of version numbers.
 mkdir -p dist/linkis_svn_dev/1.0.3-rc01
 ```
 
-Add the source code package, binary package, and ShenYu executable binary package to the SVN working directory.
+Add the source code package, binary package, and Linkis executable binary package to the SVN working directory.
 
 ```shell
 cp -f dist/apache-linkis/* dist/linkis_svn_dev/1.0.3-rc01
