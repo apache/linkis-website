@@ -74,7 +74,7 @@ The following table illustrates how versioned files are mapped to their version 
 | --------------------------------------- | -------------- | ----------------- |
 | `versioned_docs/version-1.0.1/hello.md` | 1.0.1         | /docs/1.0.1/hello |
 | `versioned_docs/version-1.0.2/hello.md` | 1.0.2 (latest current stable version) | /docs/latest/hello  |
-| `docs/hello.md`                         | current (the next version to be released)     | /docs/next/hello  |
+| `docs/hello.md`                         | current (the next version 1.0.3 to be released)     | /docs/1.0.3/hello  |
 
 
 
