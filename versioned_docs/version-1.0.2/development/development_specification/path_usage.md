@@ -1,5 +1,5 @@
 ---
-title: Path_Usage
+title: Path Usage
 sidebar_position: 1
 ---
 

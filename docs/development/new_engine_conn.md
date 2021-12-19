@@ -10,7 +10,7 @@ To implement a new engine is to implement a new "EngineConnPlugin(ECP)" means en
 1.Create a new maven module and introduce the maven dependency of "ECP"：
 ```
 <dependency>
-<groupId>com.webank.wedatasphere.linkis</groupId>
+<groupId>org.apache.linkis</groupId>
 <artifactId>linkis-engineconn-plugin-core</artifactId>
 <version>${linkis.version}</version>
 </dependency>
@@ -61,7 +61,7 @@ Hive engine is an interactive engine, so when implementing Executor, it inherits
 
 ``` 
 <dependency>
-<groupId>com.webank.wedatasphere.linkis</groupId>
+<groupId>org.apache.linkis</groupId>
 <artifactId>linkis-computation-engineconn</artifactId>
 <version>${linkis.version}</version>
 </dependency>

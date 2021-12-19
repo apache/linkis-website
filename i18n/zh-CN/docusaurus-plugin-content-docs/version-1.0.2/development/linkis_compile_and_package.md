@@ -1,20 +1,14 @@
 ---
-title: 编译打包
-sidebar_position: 1
+title: Linkis 编译打包
+sidebar_position: 0
 ---
-
-
 
 ## 目录
 
 - [1. 全量编译 Linkis](#1全量编译-linkis)
-
 - [2. 编译单个模块](#2编译单个模块)
-
 - [3. 编译某个引擎](#3-编译某个引擎)
-
 - [4. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本](#4-如何修改linkis的依赖的hadoophivespark版本)
-
 - [5. 编译前端管理台](development/web_build.md)
 
 ## 1.全量编译 Linkis
@@ -23,7 +17,7 @@ sidebar_position: 1
 
    从 git 获取项目代码后，使用 maven 编译项目安装包。  
    
-   **请注意**：官方推荐使用 Hadoop-2.7.2、Hive-1.2.1、Spark-2.4.3 和 Scala-2.11.8 对 Linkis 进行编译。
+   **请注意**：官方推荐使用 Hadoop-2.7.2、Hive-1.2.1、Spark-2.4.3 和 Scala-2.11.12 对 Linkis 进行编译。
 
    如果您想使用 Hadoop、Hive、Spark 的其他版本对 Linkis 进行编译，请参考：[如何修改Linkis的依赖的Hadoop、Hive、Spark版本](#4-如何修改linkis的依赖的hadoophivespark版本)
 
@@ -95,7 +89,7 @@ sidebar_position: 1
     ls wedatasphere-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.zip
 ```
 
-如何单独安装 Spark 引擎？ 请参考 [Linkis 引擎插件安装文档](../deployment/EngineConnPlugin引擎插件安装文档.md)
+如何单独安装 Spark 引擎？ 请参考 [Linkis 引擎插件安装文档](deployment/engine_conn_plugin_installation.md)
 
 ## 4. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本
 
@@ -118,7 +112,7 @@ sidebar_position: 1
       
         <hadoop.version>2.7.2</hadoop.version> <!--> 在这里修改Hadoop版本号 <-->
               
-        <scala.version>2.11.8</scala.version>
+        <scala.version>2.11.12</scala.version>
         <jdk.compile.version>1.8</jdk.compile.version>
               
     </properties>

@@ -17,6 +17,7 @@ In Linkis, other services that interact with RM mainly include:
 ## 3. Resource type and format
 ![05](/Images-zh/Architecture/rm-05.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As shown in the figure above, all resource classes implement a top-level Resource interface, which defines the calculation and comparison methods that all resource classes need to support, and overloads the corresponding mathematical operators to enable resources to be Directly calculated and compared like numbers.  
+
 | Operator | Correspondence Method | Operator | Correspondence Method |
 |--------|-------------|--------|-------------|
 | \+ | add | \> | moreThan |
@@ -54,7 +55,8 @@ In Linkis, other services that interact with RM mainly include:
 
 3. When the ECM is closed, it will broadcast a message that the ECM is closed. After receiving the message, the RM will go offline according to the ECM instance information in the message, that is, delete the resource and associated records corresponding to the ECM instance tag.  
 
-**Configuration模块标签资源配置**：  
+**Configuration module tag resource configuration**
+ 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In the Configuration module, users can configure the number of resources based on different tag combinations, such as limiting the maximum available resources of the User/Creator/EngineType combination.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The RM queries the Configuration module for resource information through the RPC message, using the combined tag as the query condition, and converts it into a Resource object to participate in subsequent comparison and recording.  

@@ -1,5 +1,5 @@
 ---
-title: Linkis Client架构设计
+title: Linkis Client 架构设计
 sidebar_position: 4
 ---
 

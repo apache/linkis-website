@@ -1,5 +1,5 @@
 ---
-title: CS Search架构
+title: CS Search 架构
 sidebar_position: 6
 ---
 ## **CSSearch架构**

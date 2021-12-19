@@ -41,13 +41,16 @@ Linkis1.0将优化Job的整体执行流程，从提交 —\> 准备 —\>
 
  Entrance作为计算类型任务的提交入口，提供任务的接收、调度和Job信息的转发能力，是从Linkis0.X的Entrance拆分出来的原生能力；
  
- [进入Entrance架构设计](./Entrance/Entrance.md)
+ [进入Entrance架构设计](entrance.md)
 
 ### 2、Orchestrator
 
  Orchestrator 作为准备阶段的入口，从 Linkis0.X 的 Entrance 继承了解析Job、申请Engine和提交执行的能力；同时，Orchestrator将提供强大的编排和计算策略能力，满足多活、主备、事务、重放、限流、异构和混算等多种应用场景的需求。
  
- [进入Orchestrator架构设计](../Orchestrator/README.md)
+<!--
+ #todo  Orchestrator文档还没准备好！！
+ [进入Orchestrator架构设计](orchestrator/overview.md)
+-->
 
 ### 3、LinkisManager
 
@@ -57,16 +60,16 @@ Linkis1.0将优化Job的整体执行流程，从提交 —\> 准备 —\>
  2. AppManager 将统筹管理所有的 EngineConnManager 和 EngineConn，EngineConn 的申请、复用、创建、切换、销毁等生命周期全交予 AppManager 进行管理；而 LabelManager 将基于多级组合标签，提供跨IDC、跨集群的 EngineConn 和 EngineConnManager 路由和管控能力；
  3. EngineConnPlugin 主要用于降低新计算存储的接入成本，真正做到让用户只需要实现一个类，就能接入一个全新的计算存储引擎。
 
- [进入LinkisManager架构设计](./LinkisManager/README.md)
+ [进入LinkisManager架构设计](linkis_manager/overview.md)
 
 ### 4、EngineConnManager
 
  EngineConnManager (简称ECM)是 Linkis0.X EngineManager 的精简升级版。Linkis1.0下的ECM去除了引擎的申请能力，整个微服务完全无状态，将聚焦于支持各类 EngineConn 的启动和销毁。
  
- [进入EngineConnManager架构设计](./EngineConnManager/README.md)
+ [进入EngineConnManager架构设计](engine/engine_conn_manager.md)
 
 ### 5、EngineConn
 
 EngineConn 是 Linkis0.X Engine 的优化升级版本，将提供 EngineConn 和 Executor 两大模块，其中 EngineConn 用于连接底层的计算存储引擎，提供一个打通了底层各计算存储引擎的 Session 会话；Executor 则基于这个 Session 会话，提供交互式计算、流式计算、离线计算、数据存储的全栈计算能力支持。
 
-[进入EngineConn架构设计](./EngineConn/README.md)
+[进入EngineConn架构设计](engine/engine_conn.md)

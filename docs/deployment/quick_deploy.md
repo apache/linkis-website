@@ -116,12 +116,13 @@ For example: **The deploy user is hadoop**.
 
 ### c. Preparing installation package
 
-Download the latest installation package from the Linkis release. ([Click here to enter the download page](https://github.com/WeBankFinTech/Linkis/releases))
+Download the latest installation package from the Linkis release. ([Click here to enter the download page](https://linkis.apache.org/zh-CN/download/main))
 
 Decompress the installation package to the installation directory and modify the configuration of the decompressed file.
 
-```bash   
-    tar -xvf  wedatasphere-linkis-x.x.x-combined-package-dist.tar.gz
+```bash
+     #version >=1.0.3
+     tar -xvf apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
 
 ### d. Basic configuration modification(Do not rely on HDFS)
@@ -142,7 +143,7 @@ Decompress the installation package to the installation directory and modify the
 
     ## LDAP configuration. Linkis only supports deploy user login by default, you need to configure the following parameters to support multi-user login.
     #LDAP_URL=ldap://localhost:1389/ 
-    #LDAP_BASEDN=dc=webank,dc=com
+    #LDAP_BASEDN=xxx
 ```
 
 ### e. Basic configuration modification(Rely on HDFS/Hive/Spark)

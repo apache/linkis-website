@@ -49,7 +49,7 @@ DSS工作流也有JDBC的节点，您可以拖入工作流节点，然后双击�
 
 ### 3.3 Linkis Client的使用方式
 
-Linkis也提供了client的方式进行调用JDBC的任务，调用的方式是通过LinkisClient提供的SDK的方式。我们提供了java和scala两种方式进行调用，具体的使用方式可以参考<https://github.com/WeBankFinTech/Linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>。
+Linkis也提供了client的方式进行调用JDBC的任务，调用的方式是通过LinkisClient提供的SDK的方式。我们提供了java和scala两种方式进行调用，具体的使用方式可以参考<https://github.com/apache/incubator-linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>。
 
 ## 4.JDBC引擎的用户设置
 

@@ -34,6 +34,7 @@ EngineConn-Plugin-Loader Engine Connector Plugin Loader
 ---------------------------------------
 
 The engine connector plug-in loader is a loader used to dynamically load the engine connector plug-ins according to request parameters, and has the characteristics of caching. The specific loading process is mainly composed of two parts: 1) Plug-in resources such as the main program package and program dependency packages are loaded locally (not open). 2) Plug-in resources are dynamically loaded from the local into the service process environment, for example, loaded into the JVM virtual machine through a class loader.
+
 | Core Class                          | Core Function                                     |
 |---------------------------------|----------------------------------------------|
 | EngineConnPluginsResourceLoader | Load engine connector plug-in resources                       |
@@ -54,6 +55,7 @@ EngineConn-Plugin-Core: Engine connector plug-in core module
 ---------------------------------------------
 
 The engine connector plug-in core module is the core module of the engine connector plug-in. Contains the implementation of the basic functions of the engine plug-in, such as the construction of the engine connector start command, the construction of the engine resource factory and the implementation of the core interface of the engine connector plug-in.
+
 | Core Class                  | Core Function                                                 |
 |-------------------------|----------------------------------------------------------|
 | EngineConnLaunchBuilder | Build Engine Connector Launch Request                                   |
@@ -65,6 +67,7 @@ EngineConn-Plugins: Engine connection plugin collection
 -----------------------------------
 
 The engine connection plug-in collection is used to place the default engine connector plug-in library that has been implemented based on the plug-in interface defined by us. Provides the default engine connector implementation, such as jdbc, spark, python, shell, etc. Users can refer to the implemented cases based on their own needs to implement more engine connectors.
+
 | Core Class              | Core Function         |
 |---------------------|------------------|
 | engineplugin-jdbc   | jdbc engine connector   |

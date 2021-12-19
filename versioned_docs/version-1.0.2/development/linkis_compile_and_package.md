@@ -5,23 +5,13 @@ sidebar_position: 1
 
 # Linkis Compilation Document
 
-## directory
-
-- [1. Fully compile Linkis](#1-Fully-compile-Linkis)
-
-- [2. Build a single module](#2-Build-a-single-module)
-
-- [3. Build an engine](#3-Build-an-engine)
-
-- [4. How to Modify Linkis dependency versions of Hadoop, Hive, Spark](#4-How-to-Modify-Linkis-dependency-versions-of-Hadoop,-Hive,-Spark)
-
 ## 1. Fully compile Linkis
 
 **Environment requirements:** Version of JDK must be higher then **JDK8**,  **Oracle/Sun** and **OpenJDK** are both supported.
 
 After getting the project code from Git, compile the project installation package using Maven.
 
-**Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.8.
+**Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.12.
 
 If you want to compile Linkis with another version of Hadoop, Hive, Spark, please refer to: [How to Modify Linkis dependency of Hadoop, Hive, Spark](#4 How to Modify Linkis dependency versionof Hadoop, Hive, Spark)
 
@@ -93,7 +83,7 @@ mvn clean install
 ls  wedatasphere-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.zip
 ```
 
-How do I install the Spark engine separately? Please refer to [Linkis Engine Plug-in Installation Documentation](.. / Deployment_Documents EngineConnPlugin engine plug-in installation document. Md)
+How do I install the Spark engine separately? Please refer to [Linkis Engine Plug-in Installation Documentation](development/new_engine_conn.md)
 
 ## 4. How to Modify Linkis dependency versions of Hadoop, Hive, Spark
 
@@ -114,7 +104,7 @@ vim pom.xml
 ```xml
 <properties>
     <hadoop.version>2.7.2</hadoop.version> <!--Change version of hadoop here-->
-    <scala.version>2.11.8</scala.version>
+    <scala.version>2.11.12</scala.version>
     <jdk.compile.version>1.8</jdk.compile.version>
  </properties>
 
@@ -122,21 +112,20 @@ vim pom.xml
 
 **Please note: If your hadoop version is hadoop3, you need to modify the pom file of linkis-hadoop-common**
 Because under hadoop2.8, hdfs-related classes are in the hadoop-hdfs module, but in hadoop 3.X the corresponding classes are moved to the module hadoop-hdfs-client, you need to modify this file:
-
-```
 pom:Linkis/linkis-commons/linkis-hadoop-common/pom.xml
 Modify the dependency hadoop-hdfs to hadoop-hdfs-client:
+```
   <dependency>
              <groupId>org.apache.hadoop</groupId>
              <artifactId>hadoop-hdfs</artifactId> <!-- Replace this line with <artifactId>hadoop-hdfs-client</artifactId>-->
              <version>${hadoop.version}</version>
-             ...
+ </dependency>
   Modify hadoop-hdfs to:
-   <dependency>
-             <groupId>org.apache.hadoop</groupId>
-             <artifactId>hadoop-hdfs-client</artifactId>
-             <version>${hadoop.version}</version>
-             ...
+ <dependency>
+     <groupId>org.apache.hadoop</groupId>
+     <artifactId>hadoop-hdfs-client</artifactId>
+     <version>${hadoop.version}</version>
+ </dependency>
 ```
 
 #### How to modify Spark, Hive versions that Linkis relies on?

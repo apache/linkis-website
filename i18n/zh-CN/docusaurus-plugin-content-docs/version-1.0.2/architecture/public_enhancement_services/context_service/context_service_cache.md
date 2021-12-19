@@ -1,5 +1,5 @@
 ---
-title: CS Cache架构
+title: CS Cache 架构
 sidebar_position: 1
 ---
 

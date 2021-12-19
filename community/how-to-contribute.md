@@ -122,7 +122,7 @@ To package a single module, simply run mvn clean package directly in each module
 ```
 ### 2.3 Pull Request Guidelines
 
-#### If you still don’t know how to initiate a PR to an open source project, please refer to this description
+**If you still don’t know how to initiate a PR to an open source project, please refer to this description**
 
 ```
 Whether it is bug fixes or new feature development, please submit a PR to the dev-1.0.0 branch.
@@ -143,9 +143,8 @@ Add or fix a feature or problem that a large number of users urgently need
 Simple and effective
 Easy to test, with test cases
 Reduce complexity and amount of code
+Issues that have been discussed by the community and identified for improvement
 ```
-
-#### Issues that have been discussed by the community and identified for improvement
 
 #### 2.4.2 Side effects and risks
 

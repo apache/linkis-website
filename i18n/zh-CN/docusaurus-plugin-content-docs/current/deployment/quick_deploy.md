@@ -2,21 +2,20 @@
 title: 快速部署
 sidebar_position: 1
 ---
-## 注意事项
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
+## 1. 注意事项
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意：除了 Linkis1.0 安装包默认已经包含的：Python/Shell/Hive/Spark四个EngineConnPlugin以外，如果大家有需要，可以手动安装如 JDBC 引擎等类型的其他引擎，具体请参考 [EngineConnPlugin引擎插件安装文档](deployment/engine_conn_plugin_installation.md)。
+**如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
 
-**Linkis Docker镜像**  
-[Linkis 0.10.0 Docker](https://hub.docker.com/repository/docker/wedatasphere/linkis)
+请注意：除了 Linkis1.0 安装包默认已经包含的：Python/Shell/Hive/Spark四个EngineConnPlugin以外，如果大家有需要，可以手动安装如 JDBC 引擎等类型的其他引擎，具体请参考 [EngineConnPlugin引擎插件安装文档](deployment/engine_conn_plugin_installation.md)。
 
-Linkis1.0 默认已适配的引擎列表如下：
+Linkis1.0.3 默认已适配的引擎列表如下：
 
 | 引擎类型 | 适配情况 | 官方安装包是否包含 |
 |---|---|---|
 | Python | 1.0已适配 | 包含 |
 | JDBC | 1.0已适配 | **不包含** |
+| Flink | 1.0已适配 | **不包含** |
 | Shell | 1.0已适配 | 包含 |
 | Hive | 1.0已适配 | 包含 |
 | Spark | 1.0已适配 | 包含 |
@@ -27,9 +26,8 @@ Linkis1.0 默认已适配的引擎列表如下：
 | MLSQL | **1.0未适配** | **不包含** |
 | TiSpark | **1.0未适配** | **不包含** |
 
-## 一、确定您的安装环境
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里给出每个引擎的依赖信息列表：
+## 2. 确定您的安装环境
+这里给出每个引擎的依赖信息列表：
 
 | 引擎类型 | 依赖环境 | 特殊说明 |
 |---|---|---|
@@ -54,19 +52,19 @@ Linkis1.0 默认已适配的引擎列表如下：
 
 ----
 
-## 二、Linkis环境准备
+## 3. Linkis环境准备
 
-### a. 基础软件安装
+### 3.1 基础软件安装
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面的软件必装：
+下面的软件必装：
 
 - MySQL (5.5+)，[如何安装MySQL](https://www.runoob.com/mysql/mysql-install.html)
 - JDK (1.8.0_141以上)，[如何安装JDK](https://www.runoob.com/java/java-environment-setup.html)
 
  
-### b. 创建用户
+### 3.2 创建用户
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如: **部署用户是hadoop账号**
+例如: **部署用户是hadoop账号**
 
 1. 在部署机器上创建部署用户，用于安装
 
@@ -116,17 +114,18 @@ Linkis1.0 默认已适配的引擎列表如下：
     python -m pip install matplotlib
 ```
 
-### c. 安装包准备
+### 3.3 安装包准备
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从Linkis已发布的release中（[点击这里进入下载页面](https://github.com/WeBankFinTech/Linkis/releases)），下载最新安装包。
+从Linkis已发布的release中（[点击这里进入下载页面](https://linkis.apache.org/zh-CN/download/main)），下载最新的安装包。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先解压安装包到安装目录，并对解压后的文件进行配置修改。
+先解压安装包到安装目录，并对解压后的文件进行配置修改。
 
 ```bash   
-    tar -xvf  wedatasphere-linkis-x.x.x-combined-package-dist.tar.gz
+    #version >=1.0.3
+    tar -xvf  apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
       
-### d. 不依赖HDFS的基础配置修改
+### 3.4 不依赖HDFS的基础配置修改
 
 ```bash
     vi config/linkis-env.sh
@@ -174,7 +173,7 @@ Linkis1.0 默认已适配的引擎列表如下：
 
     ## LDAP配置，默认Linkis只支持部署用户登录，如果需要支持多用户登录可以使用LDAP，需要配置以下参数：
     #LDAP_URL=ldap://localhost:1389/ 
-    #LDAP_BASEDN=dc=webank,dc=com
+    #LDAP_BASEDN=
     
     ##如果spark不是2.4.3的版本需要修改参数：
     #SPARK_VERSION=3.1.1
@@ -183,7 +182,7 @@ Linkis1.0 默认已适配的引擎列表如下：
     #HIVE_VERSION=2.3.3
 ```
 
-### f. 修改数据库配置 
+###  3.5 修改数据库配置 
 
 ```bash   
     vi config/db.sh 
@@ -201,15 +200,15 @@ Linkis1.0 默认已适配的引擎列表如下：
     MYSQL_PASSWORD=
  ```
  
-## 三、安装和启动
+## 4. 安装和启动
 
-### 1. 执行安装脚本：
+### 4.1 执行安装脚本：
 
 ```bash
     sh bin/install.sh
 ```
 
-### 2. 安装步骤
+### 4.2 安装步骤
 
 - install.sh脚本会询问您是否需要初始化数据库并导入元数据。
 
@@ -223,7 +222,7 @@ Linkis1.0 默认已适配的引擎列表如下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
-### 3. 是否安装成功：
+### 4.3 是否安装成功：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过查看控制台打印的日志信息查看是否安装成功。
 
@@ -231,7 +230,7 @@ Linkis1.0 默认已适配的引擎列表如下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您也可以通过查看我们的[常见问题](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)，获取问题的解答。
 
-### 4. 快速启动Linkis
+### 4.4 快速启动Linkis
 
 #### (1)、启动服务：
   
@@ -256,5 +255,5 @@ Linkis1.0 默认已适配的引擎列表如下：
 ![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
 
 #### (3)、查看服务是否正常
-1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](deployment/web_install.md)
+1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web_install.md) 
 2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](user_guide/overview.md)
