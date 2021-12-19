@@ -312,7 +312,7 @@ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis  dist/linkis_svn_
 mkdir -p dist/linkis_svn_dev/1.0.3-rc01
 ```
 
-将源码包、二进制包和ShenYu可执行二进制包添加至SVN工作目录。
+将源码包、二进制包和Linkis可执行二进制包添加至SVN工作目录。
 
 ```shell
 cp -f  dist/apache-linkis/*   dist/linkis_svn_dev/1.0.3-rc01

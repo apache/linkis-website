@@ -73,7 +73,7 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 | --------------------------------------- | -------------- | ----------------- |
 | `versioned_docs/version-1.0.1/hello.md` | 1.0.1         | /docs/1.0.1/hello |
 | `versioned_docs/version-1.0.2/hello.md` | 1.0.2(latest 当前稳定版本) | /docs/latest/hello  |
-| `docs/hello.md`                         | current(下一个将发布的版本)      | /docs/next/hello  |
+| `docs/hello.md`                         | current(下一个将发布的版本 1.0.3)      | /docs/1.0.3/hello  |
 
 
 ## 3.规范
