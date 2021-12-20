@@ -77,6 +77,13 @@ The following table illustrates how versioned files are mapped to their version 
 | `docs/hello.md`                         | current (the next version 1.0.3 to be released)     | /docs/1.0.3/hello  |
 
 
+Current version information
+
+| Version | Access Path | English Document Path | Chinese Document Path |
+| ---------------------------------------| -------------- | -------------- | ----------------- |
+| 1.0.2|https://linkis.apache.org/docs/latest/xxx (https://linkis.apache.org/zh-CN/docs/latest/xxx)| versioned_docs/version-1.0.2/  |  i18n/zh-CN/docusaurus-plugin-content-docs/version-1.0.2 |
+|1.0.3|https://linkis.apache.org/docs/1.0.3/xxx (https://linkis.apache.org/zh-CN/docs/1.0.3/xxx) |  /docs  |i18n/zh-CN/docusaurus-plugin-content-docs/current|
+
 
 ## 3. Specification
 
