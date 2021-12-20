@@ -3,144 +3,205 @@ title: Linkis Debug
 sidebar_position: 2
 ---
 
-## 1 Preface
-&nbsp; &nbsp; &nbsp; &nbsp; Every Linkis micro service supports debugging, most of them support local debugging, some of them only support remote debugging.
+# Debugging related
 
-1. Services that support local debugging
-- linkis-mg-eureka: set of debugging Main class is `com.webank.Wedatasphere.Linkis.Eureka.SpringCloudEurekaApplication`
-- Other Linkis microservices have their own Main classes, as shown below
-linkis-cg-manager: `com.webank.wedatasphere.linkis.manager.am.LinkisManagerApplication`
-linkis-ps-bml: `com.webank.wedatasphere.linkis.bml.LinkisBMLApplication`
-linkis-ps-cs: `com.webank.wedatasphere.linkis.cs.server.LinkisCSApplication`
-linkis-cg-engineconnmanager: `com.webank.wedatasphere.linkis.ecm.server.LinkisECMApplication`
-linkis-cg-engineplugin: `com.webank.wedatasphere.linkis.engineplugin.server.LinkisEngineConnPluginServer`
-linkis-cg-entrance: `com.webank.wedatasphere.linkis.entrance.LinkisEntranceApplication`
-linkis-ps-publicservice: `com.webank.wedatasphere.linkis.jobhistory.LinkisPublicServiceAppp`
-linkis-ps-datasource: `com.webank.wedatasphere.linkis.metadata.LinkisDataSourceApplication`
-linkis-mg-gateway: `com.webank.wedatasphere.linkis.gateway.springcloud.LinkisGatewayApplication`
+> Because linkis itself has many modules, it is difficult to debug, the following will guide you how to perform a local service debugging (based on version 1.0.3).
 
-2. Services that only support remote debugging:
-The EngineConnManager service and the Engine service started by ECM only support remote debugging.
+<h4><font color="red">Before version 1.0.3, linkis has not yet entered apache incubation. The organization still belongs to webank. The package name of the main class is `org.apache.linkis`. Pay attention to the distinction when debugging. </font></h4>
 
-## 2. Local debugging service steps
-&nbsp; &nbsp; &nbsp; &nbsp; Linkis and DSS both rely on Eureka for their services, so you need to start the Eureka service first. The Eureka service can also use the Eureka that you have already started. Once Eureka is started, you can start other services.
+## step 1 Prepare source code and compile
 
-2.1 Eureka service start
-1. If you do not want the default port 20303, you can modify the port configuration:
+```plain
+git clone https://github.com/apache/incubator-linkis.git
+cd incubator-linkis
+#If needed, you can switch to the corresponding branch
+#git checkout dev-xxx
+mvn -N install
+mvn clean Install
+```
 
+## step2 Necessary parameter configuration
+
+For the configuration file under incubator-linkis/assembly-combined-package/assembly-combined/conf/, you need to configure the database and hive meta and other necessary startup parameters.
+
+
+
+
+## step3 Adjust log4j.xml configuration
+
+In order to facilitate the printing of logs to the console during debugging, you need to modify the default log4j2.xml file and modify the appender to default to console. You need to remove the append of the default RollingFile and add the appender of the console, as shown below:
+![](/Images/development/debug_log.png)
+log4j2.xml path incubator-linkis/assembly-combined-package/assembly-combined/conf/log4j2.xml
+
+```plain
+ <?xml version="1.0" encoding="UTF-8"?>
+<configuration status="error" monitorInterval="30">
+<appenders>
+    <RollingFile name="RollingFile" append="false" fileName="logs/${sys:serviceName}.log"
+                 filePattern="logs/$${date:yyyy-MM}/${sys:serviceName}/linkis-log-%d{yyyy-MM-dd}-%i.log">
+        <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%-40t] %c{1.} (%L) [%M]-%msg%xEx %n"/>
+        <SizeBasedTriggeringPolicy size="100MB"/>
+        <DefaultRolloverStrategy max="10"/>
+    </RollingFile>
+    
+    <Console name="Console" target="SYSTEM_OUT">
+        <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} %L %M-%msg%xEx%n"/>
+    </Console>
+</appenders>
+<loggers>
+    <root level="INFO">
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
+    </root>
+</loggers>
+</configuration>
+```
+
+## step 4 Overall debugging plan
+Both Linkis and DSS services rely on Eureka, so you need to start the Eureka service first, and the Eureka service can also use the Eureka you have started. After Eureka is started, other services can be started.
+
+Because linkis internally uses the -DserviceName parameter to set the application name and the configuration file used, so -DserviceName is a necessary startup VM parameter
+
+You can use the "-Xbootclasspath/a: configuration file path" command. Append the configuration file to the end of the search path of the bootloader class, and add the dependent configuration file to the classpath
+
+By checking Include dependencies with "Provided" scope, you can introduce provided-level dependency packages during debugging.
+
+**Microservice Governance Services component**
+
+### Start of linkis-mg-eureka
+
+```plain
+[main Class]
+org.apache.linkis.eureka.SpringCloudEurekaApplication
+
+[VM Opitons]
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+
+[Program arguments]
+--spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
+
+[User classpath of module]
+linkis-eureka
+```
+If you don’t want the default port 20303, you can modify the port configuration:
 ```yml
 File path: conf/application-eureka.yml
-Port to be modified in config file:
-
+Modify the port:
 server:
-    Port: 8080 # Port to setup
+  port: 8080 ##Started port
 ```
+The specific configuration is as follows
+![](/Images/development/debug_application.png)
 
-2. Then to add debug configuration in IDEA
+After startup, you can view the list of eureka services through [http://localhost:20303/](http://localhost:20303/)
+![](/Images/development/debug_eureka.png)
 
-You can do this by clicking Run or by clicking Add Configuration in the image below
+### Linkis-mg-gateway startup configuration
 
-![01](/Images/Tuning_and_Troubleshooting/debug-01.png)
+```plain
+[main Class]
+org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 
-3. Then click Add Application and modify the information
+[VM Opitons]
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-- Set the debug name first: Eureka, for example
-- Then set the Main class:
-`com.webank.wedatasphere.linkis.eureka.SpringCloudEurekaApplication`
-- Finally, set the Class Path for the service. For Eureka, the classPath module is linkis-eureka
-
-![02](/Images/Tuning_and_Troubleshooting/debug-02.png)
-
-4. Click the Debug button to start the Eureka service and access the Eureka page through [http://localhost:8080/](at)
-
-![03](/Images/Tuning_and_Troubleshooting/debug-03.png)
-
-2.2 Other services
-
-1. The Eureka configuration of the corresponding service needs to be modified. The Application.yml file needs to be modified
+[User classpath of module]
+linkis-spring-cloud-gateway
 
 ```
-    conf/application-linkis.yml
-```
-Change the corresponding Eureka address to the Eureka service that has been started:
+Note If there is a problem of'org.apache.logging.log4j.LoggingException: log4j-slf4j-impl cannot be present with log4j-to-slf4j'
+Please exclude, the dependency on spring-boot-starter-logging
 
-```
-    eureka:
-    client:
-    serviceUrl:
-    defaultZone: http://localhost:8080/eureka/
-```
+**Public Enhancement Services component**
+### Linkis-ps-publicservice startup configuration
 
-2. Modify the configuration related to Linkis. The general configuration file is in conf/linkis.properties, and the corresponding configuration of each module is in the properties file beginning with the module name in conf directory.
+```plain
+[main Class]
+org.apache.linkis.jobhistory.LinkisPublicServiceApp
 
-3. Then add debugging service
+[VM Opitons]
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-The Main Class is uniformly set to its own Main Class for each module, which is listed in the foreword.
-The Class Path of the service is the corresponding module:
-
-```
-linkis-cg-manager: linkis-application-manager
-linkis-ps-bml: linkis-bml
-linkis-ps-cs: `com.webank.wedatasphere.linkis.cs.server.LinkisCSApplication`
-linkis-cg-engineconnmanager: linkis-cs-server
-linkis-cg-engineplugin: linkis-engineconn-plugin-server
-linkis-cg-entrance: linkis-entrance
-linkis-ps-publicservice: linkis-jobhistory
-linkis-ps-datasource: linkis-metadata
-linkis-mg-gateway: linkis-spring-cloud-gateway
+[User classpath of module]
+linkis-jobhistory
 ```
 
-And check provide:
+### Linkis-ps-cs startup configuration
 
-![06](/Images/Tuning_and_Troubleshooting/debug-06.png)
+```plain
+[main Class]
+org.apache.linkis.cs.server.LinkisCSApplication
 
-4. Then start the service and you can see that the service is registered on the Eureka page:
+[VM Opitons]
+-DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-![05](/Images/Tuning_and_Troubleshooting/debug-05.png)
-
-Linkis-PS-PublicService should add a public-module Module to the POM.
-
-```
-<dependency>
-    <groupId>com.webank.wedatasphere.linkis</groupId>
-    <artifactId>public-module</artifactId>
-    <version>${linkis.version}</version>
-</dependency>
-```
-
-## 3. Steps of remote debugging service
-&nbsp; &nbsp; &nbsp; &nbsp; Each service supports remote debugging, but you need to turn it on ahead of time. There are two types of remote debugging, one is the remote debugging of Linkis common service, and the other is the remote debugging of EngineConn, which are described as follows:
-
-1. Remote debugging of common service:
-
-A. First, modify the startup script file of the corresponding service under sbin/ext directory, and add debug port:
+[User classpath of module]
+linkis-cs-server
 
 ```
-export $SERVER_JAVA_OPTS =" -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=10092"
+
+**Computation Governance Services component**
+### linkis-cg-linkismanager start
+
+```plain
+[main Class]
+org.apache.linkis.manager.am.LinkisManagerApplication
+
+[VM Opitons]
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+
+[User classpath of module]
+linkis-application-manager
+```
+### linkis-cg-entrance start
+```plain
+[main Class]
+org.apache.linkis.entrance.LinkisEntranceApplication
+
+[VM Opitons]
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+
+[User classpath of module]
+linkis-entrance
 ```
 
-Added: '-agentlib: JDWP = Transport = DT_Socket, Server = Y, Suspend = N, Address =10092' where ports may conflict and can be changed to available ports.
+<h4><font color="red">Note: Windows local debugging service is not currently supported</font></h4>
 
-B. Create a new remote debug in IDEA. Select Remote first, then add host and port for the service, and then select the debug module
+linkis-cg-engineplugin(ecp): Need to read local ecp materials, local debugging needs to prepare the corresponding materials first, it is recommended to debug remotely
 
-![07](/Images/Tuning_and_Troubleshooting/debug-07.png)
+linkis-cg-engineconnmanager(ecm): temporarily ecm starts the engine using the unix method and does not support the windows environment
 
-3. Then click the Debug button to complete the remote debugging
-
-![08](/Images/Tuning_and_Troubleshooting/debug-08.png)
-
-2. Remote debugging of engineConn:
-
-A. Add the following configuration items to the linkis-engineconn.properties file corresponding to EngineConn
 ```
-wds.linkis.engineconn.debug.enable=true
+The following are the specific detailed command parameters for starting the linkis service after a normal and successful installation
+
+LinkisInstallDir: complete linkis installation directory
+
+[linkis-mg-eureka]
+nohup java -DserviceName=linkis-mg-eureka -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-mg-eureka-gc.log -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir /lib/linkis-spring-cloud-services/linkis-mg-eureka/* org.apache.linkis.eureka.SpringCloudEurekaApplication --eureka.instance.hostname=bdpujes110001 --spring.profiles.active=eureka 2>&1> / data/LinkisInstallDir/logs/linkis-mg-eureka.out &
+
+[linkis-mg-gateway]
+nohup java -DserviceName=linkis-mg-gateway -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-mg-gateway-gc.log -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir /lib/linkis-spring-cloud-services/linkis-mg-gateway/* org.apache.linkis.gateway.springcloud.LinkisGatewayApplication 2>&1> /data/LinkisInstallDir/logs/linkis-mg-gateway.out &
+
+[linkis-ps-publicservice]
+nohup java -DserviceName=linkis-ps-publicservice -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-ps-publicservice-gc.log -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir /lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-public-enhancements/linkis-ps-publicservice/* org.apache.linkis.jobhistory.LinkisPublicServiceApp 2>&1> /data/LinkisInstallDir /logs/linkis-ps-publicservice.out &
+
+[linkis-cg-linkismanager]
+nohup java -DserviceName=linkis-cg-linkismanager -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-linkismanager-gc.log -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir /lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-linkismanager/* org.apache.linkis.manager.am.LinkisManagerApplication 2>&1> /data /LinkisInstallDir/logs/linkis-cg-linkismanager.out &
+
+[linkis-ps-cs]
+nohup java -DserviceName=linkis-ps-cs -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-ps-cs-gc.log -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir /lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-public-enhancements/linkis-ps-cs/* org.apache.linkis.cs.server.LinkisCSApplication 2>&1> /data /LinkisInstallDir/logs/linkis-ps-cs.out &
+
+[linkis-cg-entrance]
+nohup java -DserviceName=linkis-cg-entrance -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-entrance-gc.log -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir /lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-entrance/* org.apache.linkis.entrance.LinkisEntranceApplication 2>&1> /data/LinkisInstallDir /logs/linkis-cg-entrance.out &
+
+[linkis-cg-engineconnmanager]
+nohup java -DserviceName=linkis-cg-engineconnmanager -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-engineconnmanager-gc.log -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir /lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-engineconnmanager/* org.apache.linkis.ecm.server.LinkisECMApplication 2>&1> /data /LinkisInstallDir/logs/linkis-cg-engineconnmanager.out &
+
+[linkis-cg-engineplugin]
+nohup java -DserviceName=linkis-cg-engineplugin -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-engineplugin-gc.log -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir /lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-engineplugin/* org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer 2>&1> /data /LinkisInstallDir/logs/linkis-cg-engineplugin.out &
 ```
 
-This configuration item will randomly assign a debug port when engineConn starts.
+## Remote debugging service steps
 
-B. In the first line of the engineConn log, the actual assigned port is printed.
-```
-      Listening for transport dt_socket at address: 26072
-```
-
-C. Create a new remote debug in IDEA. The steps have been described in the previous section and will not be repeated here.
+todo
