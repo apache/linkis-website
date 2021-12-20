@@ -34,7 +34,11 @@ JDBC引擎不需要用户自行编译，直接使用编译好的JDBC引擎插件
 图3-1 JDBC配置信息
 
 您也可以才提交任务接口中的RuntimeMap进行修改即可
-
+```shell
+wds.linkis.jdbc.connect.url 
+wds.linkis.jdbc.username
+wds.linkis.jdbc.password
+```
 
 ### 3.1 通过Linkis SDK进行使用
 

@@ -37,6 +37,11 @@ You need to configure JDBC connection information, including connection address 
 Figure 3-1 JDBC configuration information
 
 You can also specify in the RuntimeMap of the submitted task
+```shell
+wds.linkis.jdbc.connect.url 
+wds.linkis.jdbc.username
+wds.linkis.jdbc.password
+```
 
 ### 3.1 How to use Linkis SDK
 
