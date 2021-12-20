@@ -33,7 +33,30 @@ JDBC引擎不需要用户自行编译，直接使用编译好的JDBC引擎插件
 
 图3-1 JDBC配置信息
 
-### 3.1 Scriptis的使用方式
+您也可以才提交任务接口中的RuntimeMap进行修改即可
+
+
+### 3.1 通过Linkis SDK进行使用
+
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+对于JDBC任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
+
+```java
+        Map<String, Object> labels = new HashMap<String, Object>();
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "jdbc-4"); // required engineType Label
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
+```
+
+### 3.2 通过Linkis-cli进行任务提交
+
+Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，JDBC的使用如下：
+```shell
+sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
+```
+具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
+### 3.3 Scriptis的使用方式
 
 Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建JDBC脚本并编写JDBC代码并点击执行。
 
@@ -42,14 +65,6 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 ![](/Images-zh/EngineUsage/jdbc-run.png)
 
 图3-2 JDBC的执行效果截图
-
-### 3.2工作流的使用方式
-
-DSS工作流也有JDBC的节点，您可以拖入工作流节点，然后双击进入然后进行编辑代码，然后以工作流的形式进行执行。
-
-### 3.3 Linkis Client的使用方式
-
-Linkis也提供了client的方式进行调用JDBC的任务，调用的方式是通过LinkisClient提供的SDK的方式。我们提供了java和scala两种方式进行调用，具体的使用方式可以参考<https://github.com/apache/incubator-linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>。
 
 ## 4.JDBC引擎的用户设置
 

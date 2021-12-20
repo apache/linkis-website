@@ -52,6 +52,8 @@ Hive's MapReduce task requires yarn resources, so you need to set up the queue a
 
 Figure 3-1 Queue settings
 
+You can also add the queue value in the StartUpMap of the submission parameter: `startupMap.put("wds.linkis.rm.yarnqueue", "dws")`
+
 ### 3.1 How to use Linkis SDK
 
 Linkis  provides a client method to call hive tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
@@ -67,7 +69,7 @@ If you use Hive, you only need to make the following changes:
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of Hive is as follows:
 ```shell
-sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show tables"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
 The specific usage can refer to [Linkis CLI Manual](user_guide/linkiscli_manual.md).
 

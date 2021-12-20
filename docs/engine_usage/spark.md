@@ -19,7 +19,7 @@ It is strongly recommended that you check these environment variables of the exe
 | JAVA_HOME | JDK installation path | Required |
 | HADOOP_HOME | Hadoop installation path | Required |
 | HADOOP_CONF_DIR | Hadoop configuration path | Required |
-| HIVE\_CONF_DIR | Hive configuration path | Required |
+| HIVE_CONF_DIR | Hive configuration path | Required |
 | SPARK_HOME | Spark installation path | Required |
 | SPARK_CONF_DIR | Spark configuration path | Required |
 | python | python | Anaconda's python is recommended as the default python |
@@ -54,6 +54,8 @@ Because the execution of spark is a resource that requires a queue, the user mus
 
 Figure 3-1 Queue settings
 
+You can also add the queue value in the StartUpMap of the submission parameter: `startupMap.put("wds.linkis.rm.yarnqueue", "dws")`
+
 ### 3.1 How to use Linkis SDK
 
 Linkis  provides a client method to call Spark tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
@@ -75,9 +77,9 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables"  -
 The specific usage can refer to [Linkis CLI Manual](user_guide/linkiscli_manual.md).
 
 
-### 3.1 How to use Scriptis
+### 3.3 How to use Scriptis
 
-The use of Scriptis is the simplest. You can directly enter Scriptis and create a new sql, scala or pyspark script for execution.
+The use of [Scriptis](https://github.com/WeBankFinTech/Scriptis) is the simplest. You can directly enter Scriptis and create a new sql, scala or pyspark script for execution.
 
 The sql method is the simplest. You can create a new sql script and write and execute it. When it is executed, the progress will be displayed. If the user does not have a spark EngineConn at the beginning, the execution of sql will start a spark session (it may take some time here),
 After the SparkSession is initialized, you can start to execute sql.

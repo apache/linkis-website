@@ -36,6 +36,8 @@ You need to configure JDBC connection information, including connection address 
 
 Figure 3-1 JDBC configuration information
 
+You can also specify in the RuntimeMap of the submitted task
+
 ### 3.1 How to use Linkis SDK
 
 Linkis provides a client method to call jdbc tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).

@@ -56,7 +56,7 @@ The specific usage can refer to [Linkis CLI Manual](user_guide/linkiscli_manual.
 
 ### 3.3 How to use Scriptis
 
-The use of Scriptis is the simplest. You can directly enter Scriptis, right-click the directory and create a new shell script, write shell code and click Execute.
+The use of [Scriptis](https://github.com/WeBankFinTech/Scriptis) is the simplest. You can directly enter Scriptis, right-click the directory and create a new shell script, write shell code and click Execute.
 
 The execution principle of the shell is that the shell EngineConn starts a system process to execute through the ProcessBuilder that comes with java, and redirects the output of the process to the EngineConn and writes it to the log.
 

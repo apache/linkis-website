@@ -60,7 +60,7 @@ The specific usage can refer to [Linkis CLI Manual](user_guide/linkiscli_manual.
 
 ### 3.3 How to use Scriptis
 
-The way to use Scriptis is the simplest. You can directly enter Scriptis, right-click the directory and create a new python script, write python code and click Execute.
+The way to use [Scriptis](https://github.com/WeBankFinTech/Scriptis) is the simplest. You can directly enter Scriptis, right-click the directory and create a new python script, write python code and click Execute.
 
 The execution logic of python is to start a python through Py4j
 Gateway, and then the Python EngineConn submits the code to the python executor for execution.
