@@ -1,4 +1,5 @@
 # Linkis Release-1.0.2
+> Non-ASF Version 
 
 Use the links below to download the Apache Linkis from one of our mirrors.
 

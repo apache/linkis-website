@@ -1,5 +1,7 @@
 # Linkis Release-1.0.2
-  使用以下链接下载Linkis
+> 非ASF官方版本 
+
+使用以下链接下载Linkis
 
 ## Linkis
 | 日期 | 版本| 备注 | 下载 |
@@ -15,11 +17,11 @@
 
 Linkis-1.0.2 包括所有 [Project Linkis-1.0.2](https://github.com/apache/incubator-linkis/projects/11)。
 
-本次发布主要将 Flink-support 引入 Linkis 生态。
+本次发布主要将 Flink-Support 引入 Linkis 工程中。
 
 添加了以下主要功能：
-* Flink-EngineConn 为 Flink 作业提供坚实的支持。现在可以执行、调试和监控 Flink SQL 或应用程序，以及由 Linkis Orchestrator 提供支持的 SQL 增强功能。
-* LinkisManagerClient 可以直接访问 LinkisManager。提交和管理OnceJob 依赖此功能。
+* Flink-EngineConn 为 Flink 作业提供支持。现在可以执行、调试和监控 Flink SQL 或应用程序，以及由 Linkis Orchestrator 提供支持的 SQL 增强功能。
+* LinkisManagerClient 可以直接访问 LinkisManager。提交和管理OnceJob 需要依赖此功能。
 
 
 缩写：
@@ -40,7 +42,7 @@ MGS: Microservice Governance Services
 #### EnginePlugin
 * [Linkis-935](https://github.com/apache/incubator-linkis/pull/935) [CGS-EngineConnPlugin-Flink] 支持 Flink EngineConn
 * [Linkis-947](https://github.com/apache/incubator-linkis/pull/947) [CGS-EngineConnPlugin-Flink]支持执行Flink SQL和Flink应用
-* [Linkis-948](https://github.com/apache/incubator-linkis/pull/948) [CGS-EngineConnPlugin-Flink] Flink EngineConn 多数据源支持
+* [Linkis-948](https://github.com/apache/incubator-linkis/pull/948) [CGS-EngineConnPlugin-Flink] Flink EngineConn 的多数据源支持
 * [Linkis-949](https://github.com/apache/incubator-linkis/pull/949) [CGS-EngineConnPlugin-Flink] 监控 Flink Metrics
 
 #### ComputationClient
@@ -66,7 +68,7 @@ MGS: Microservice Governance Services
 
 ## 致谢 
 
-Linkis 1.0.2 的发布离不开 Linkis 社区的贡献者。感谢所有社区贡献者！
+Linkis 1.0.2 的成功发布离不开 Linkis 社区的贡献者。感谢所有社区贡献者！
 
 ---
 ## 编译版本
