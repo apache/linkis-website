@@ -54,7 +54,7 @@ Figure 3-1 Queue settings
 
 ### 3.1 How to use Linkis SDK
 
-Linkis also provides a client method to call hive tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis  provides a client method to call hive tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
 If you use Hive, you only need to make the following changes:
 ```java
         Map<String, Object> labels = new HashMap<String, Object>();
@@ -65,17 +65,15 @@ If you use Hive, you only need to make the following changes:
 
 ### 3.2 How to use Linkis-cli
 
-The use of Scriptis is the simplest. You can directly enter Scriptis, right-click the directory and create a new hive script and write hivesql code.
-
-The implementation of the hive engineConn is by instantiating the driver instance of hive, and then the driver submits the task, and obtains the result set and displays it.
-
-![](/Images/EngineUsage/hive-run.png)
-
-Figure 3-2 Screenshot of the execution effect of hql
+After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of Hive is as follows:
+```shell
+sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show tables"  -submitUser hadoop -proxyUser hadoop
+```
+The specific usage can refer to [Linkis CLI Manual](user_guide/linkiscli_manual.md).
 
 ### 3.3 How to use Scriptis
 
-The use of Scriptis is the simplest. You can directly enter Scriptis, right-click the directory and create a new hive script and write hivesql code.
+The use of [Scriptis](https://github.com/WeBankFinTech/Scriptis) is the simplest. You can directly enter Scriptis, right-click the directory and create a new hive script and write hivesql code.
 
 The implementation of the hive engineConn is by instantiating the driver instance of hive, and then the driver submits the task, and obtains the result set and displays it.
 
