@@ -42,6 +42,7 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 |       |-- docusaurus-plugin-content-docs-download
 |       |-- docusaurus-plugin-content-docs-faq
 |       `-- docusaurus-theme-classic
+|-- resource // 架构/时序/流程图等的原始工程文件
 |-- src
 |   |-- components
 |   |-- css

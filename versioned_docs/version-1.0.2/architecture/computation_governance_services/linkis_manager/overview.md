@@ -36,6 +36,7 @@ LinkisManager Architecture Design
 ![AppManager](/Images/Architecture/LinkisManager/AppManager-01.png)  
 ### 2. Label management module linkis-label-manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LabelManager provides label management and analysis capabilities.  
+
 | Core Interface/Class | Main Function |
 |------------|--------|
 |LabelService | Provides the function of adding, deleting, modifying and checking labels |
