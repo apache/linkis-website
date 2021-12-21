@@ -3,7 +3,7 @@
 ## Download links
   Use the links below to download the Apache Linkis Releases, the latest release is 1.0.2.
 
-## 1.0.2 release
+## 1.0.2 release(Non-ASF)
  - Released: June 6th, 2020
  - [Release Notes](release-1.0.2.md)
  - Source: [linkis-1.0.2-src.tar.gz](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)
