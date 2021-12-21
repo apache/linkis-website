@@ -33,7 +33,7 @@ LinkisManager Architecture Design
 |AMHeartbeatService | Provides EngineConnManager and EngineConn node heartbeat processing functions |
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The process of applying for an engine through AppManager is as follows:  
-![AppManager](/Images-zh/Architecture/LinkisManager/AppManager-01.png)  
+![AppManager](/Images/Architecture/LinkisManager/AppManager-01.png)  
 ### 2. Label management module linkis-label-manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LabelManager provides label management and analysis capabilities.  
 | Core Interface/Class | Main Function |
@@ -42,6 +42,6 @@ LinkisManager Architecture Design
 |ResourceLabelService | Provides resource label management functions |
 |UserLabelService | Provides user label management functions |  
 The LabelManager architecture diagram is as follows:  
-![ResourceManager](/Images-zh/Architecture/LinkisManager/ResourceManager-01.png)  
+![ResourceManager](/Images/Architecture/LinkisManager/ResourceManager-01.png)  
 ### 4. Monitoring module linkis-manager-monitor
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitor provides the function of node status monitoring.
