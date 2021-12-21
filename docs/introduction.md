@@ -51,7 +51,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 # Download
 
-Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/wiki/Linkis-Releases) to download a compiled distribution or a source code package of Linkis.
+Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/releases) to download a compiled distribution or a source code package of Linkis.
 
 # Compile and deploy
 Please follow [Compile Guide](development/linkis_compile_and_package.md) to compile Linkis from source code.  

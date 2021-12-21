@@ -7,7 +7,7 @@ The Links task submission portal is used to receive, schedule, forward execution
 
 1. Entrance architecture diagram
 
-![](/Images-zh/Architecture/linkis-entrance-01.png)
+![](/Images/Architecture/linkis-entrance-01.png)
 
 **Introduction to the second-level module:**
 

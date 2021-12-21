@@ -7,7 +7,7 @@ EngineConnManager（ECM）：EngineConn的管理器，提供引擎的生命周�
 
 ### 一、ECM架构
 
-![](images/ecm架构图.png)
+![](/Images-zh/Architecture/engine/ecm-01.png)
 
 ### 二、二级模块介绍
 
@@ -48,4 +48,4 @@ ECM的服务端，定义了ECM健康信息处理服务、ECM指标信息处理�
 
 ECM构建EngineConn启动流程：
 
-![](images/创建engineconn请求流程.png)
+![](/Images-zh/Architecture/engine/engineconn-01.png)

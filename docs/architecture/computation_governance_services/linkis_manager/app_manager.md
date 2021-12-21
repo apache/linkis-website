@@ -13,10 +13,10 @@ sidebar_position: 3
 6. AM also needs to dock the label module for label analysis, and need to obtain a list of serverInstances with a series of scores through a series of labels (How to distinguish between EM and Engine? the labels are completely different).
 7. Need to provide external basic interface: including the addition, deletion and modification of engine and engine manager, metric query, etc.  
 ## Architecture diagram
-![AppManager03](/Images-zh/Architecture/AppManager-03.png)  
+![AppManager03](/Images/Architecture/AppManager-03.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As shown in the figure above: AM belongs to the AppManager module in LinkisMaster and provides services.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New engine application flow chart:  
-![AppManager02](/Images-zh/Architecture/AppManager-02.png)  
+![AppManager02](/Images/Architecture/AppManager-02.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From the above engine life cycle flow chart, it can be seen that Entrance is no longer doing the management of the Engine, and the startup and management of the engine are controlled by AM.  
 ## Architecture description
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppManager mainly includes engine service and EM service:

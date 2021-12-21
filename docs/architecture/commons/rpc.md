@@ -9,7 +9,7 @@ At the same time, because Feign only supports simple service selection rules, it
 
 ## 2. Architecture description
 ## 2.1. Architecture design diagram
-![Linkis RPC architecture diagram](/Images-zh/Architecture/Commons/linkis-rpc.png)
+![Linkis RPC architecture diagram](/Images/Architecture/Commons/linkis-rpc.png)
 ## 2.2. Module description
 The functions of the main modules are introduced as follows:
 * Eureka: service registration center, user management service, service discovery.
