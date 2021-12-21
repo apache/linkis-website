@@ -7,7 +7,7 @@ LinkisManager Architecture Design
 ====================
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As an independent microservice of Linkis, LinkisManager provides AppManager (application management), ResourceManager (resource management), and LabelManager (label management) capabilities. It can support multi-active deployment and has the characteristics of high availability and easy expansion.  
 ## 1. Architecture Diagram
-![Architecture Diagram](/Images-zh/Architecture/LinkisManager/LinkisManager-01.png)  
+![Architecture Diagram](/Images/Architecture/LinkisManager/LinkisManager-01.png)  
 ### Noun explanation
 - EngineConnManager (ECM): Engine Manager, used to start and manage engines.
 - EngineConn (EC): Engine connector, used to connect the underlying computing engine.
@@ -33,7 +33,7 @@ LinkisManager Architecture Design
 |AMHeartbeatService | Provides EngineConnManager and EngineConn node heartbeat processing functions |
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The process of applying for an engine through AppManager is as follows:  
-![AppManager](/Images-zh/Architecture/LinkisManager/AppManager-01.png)  
+![AppManager](/Images/Architecture/LinkisManager/AppManager-01.png)  
 ### 2. Label management module linkis-label-manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LabelManager provides label management and analysis capabilities.  
 | Core Interface/Class | Main Function |
@@ -42,6 +42,6 @@ LinkisManager Architecture Design
 |ResourceLabelService | Provides resource label management functions |
 |UserLabelService | Provides user label management functions |  
 The LabelManager architecture diagram is as follows:  
-![ResourceManager](/Images-zh/Architecture/LinkisManager/ResourceManager-01.png)  
+![ResourceManager](/Images/Architecture/LinkisManager/ResourceManager-01.png)  
 ### 4. Monitoring module linkis-manager-monitor
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitor provides the function of node status monitoring.
