@@ -42,6 +42,7 @@ This website is compiled using node, using Docusaurus framework components
 |       |-- docusaurus-plugin-content-docs-download
 |       |-- docusaurus-plugin-content-docs-faq
 |       `-- docusaurus-theme-classic
+|-- resource  // Original project files for architecture/timing diagram/flow chart, etc.
 |-- src
 |   |-- components
 |   |-- css
