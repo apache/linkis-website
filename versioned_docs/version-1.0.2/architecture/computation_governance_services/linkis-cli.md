@@ -7,7 +7,7 @@ Provide users with a lightweight client that submits tasks to Linkis for executi
 
 #### Linkis-Client architecture diagram
 
-![img](/Images-zh/Architecture/linkis-client-01.png)
+![img](/Images/Architecture/linkis-client-01.png)
 
 
 

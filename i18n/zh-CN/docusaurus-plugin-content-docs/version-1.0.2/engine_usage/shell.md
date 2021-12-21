@@ -35,7 +35,27 @@ Shell引擎不需要用户自行编译，直接使用编译好的shell引擎插�
 
 在linkis上提交shell之前，您只需要保证您的用户的\$PATH中有shell的路径即可。
 
-### 3.1 Scriptis的使用方式
+### 3.1 通过Linkis SDK进行使用
+
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+对于Shell任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
+
+```java
+        Map<String, Object> labels = new HashMap<String, Object>();
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "shell-1"); // required engineType Label
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "shell"); // required codeType
+```
+
+### 3.2 通过Linkis-cli进行任务提交
+
+Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Shell的使用如下：
+```shell
+sh ./bin/linkis-cli -engineType shell-1 -codeType shell -code "echo \"hello\" "  -submitUser hadoop -proxyUser hadoop
+```
+具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
+### 3.3 Scriptis的使用方式
 
 Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建shell脚本并编写shell代码并点击执行。
 
@@ -44,16 +64,6 @@ shell的执行原理是shell引擎通过java自带的ProcessBuilder启动一个�
 ![](/Images-zh/EngineUsage/shell-run.png)
 
 图3-1 shell的执行效果截图
-
-### 3.2工作流的使用方式
-
-DSS工作流也有shell的节点，您可以拖入工作流节点，然后双击进入然后进行编辑代码，然后以工作流的形式进行执行。
-
-Shell执行需要注意一点，在工作流中如果是多行执行的话,工作流节点是否成功是由最后一个命令确定，比如前两行是错的,但是最后一行的shell返回值是0，那么这个节点是成功的。
-
-### 3.3 Linkis Client的使用方式
-
-Linkis也提供了client的方式进行调用shell的任务，调用的方式是通过LinkisClient提供的SDK的方式。我们提供了java和scala两种方式进行调用，具体的使用方式可以参考<https://github.com/apache/incubator-linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>。
 
 ## 4.Shell引擎的用户设置
 

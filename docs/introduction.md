@@ -36,7 +36,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 | **Engine** | **Supported Version** | **Linkis 0.X version requirement**| **Linkis 1.X version requirement** | **Description** |
 |:---- |:---- |:---- |:---- |:---- |
-|Flink |1.11.0|\>=dev-0.12.0, PR #703 not merged yet.|ongoing|	Flink EngineConn. Supports FlinkSQL code, and also supports Flink Jar to Linkis Manager to start a new Yarn application.|
+|Flink |1.12.2|\>=dev-0.12.0, PR #703 not merged yet.|>=1.0.2|	Flink EngineConn. Supports FlinkSQL code, and also supports Flink Jar to Linkis Manager to start a new Yarn application.|
 |Impala|\>=3.2.0, CDH >=6.3.0"|\>=dev-0.12.0, PR #703 not merged yet.|ongoing|Impala EngineConn. Supports Impala SQL.|
 |Presto|\>= 0.180|\>=0.11.0|ongoing|Presto EngineConn. Supports Presto SQL.|
 |ElasticSearch|\>=6.0|\>=0.11.0|ongoing|ElasticSearch EngineConn. Supports SQL and DSL code.|
@@ -51,7 +51,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 # Download
 
-Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/wiki/Linkis-Releases) to download a compiled distribution or a source code package of Linkis.
+Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/releases) to download a compiled distribution or a source code package of Linkis.
 
 # Compile and deploy
 Please follow [Compile Guide](development/linkis_compile_and_package.md) to compile Linkis from source code.  

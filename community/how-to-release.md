@@ -36,8 +36,8 @@ $ gpg --version #Check the version, it should be 2.x
 ### 1.2. Generate key with gpg
 
 **Note the following points:**
--The mailbox used should be apache mailbox
--It is best to use pinyin or English for the name, otherwise garbled characters will appear
+- The mailbox used should be apache mailbox
+- It is best to use pinyin or English for the name, otherwise garbled characters will appear
 
 According to the prompt, generate the key
 ```shell
@@ -129,9 +129,9 @@ Go directly to https://pgpkeys.mit.edu/ and enter the username mingXiao to searc
 ```
 
 
-### 1.5 Add the gpg public key to the KEYS file of the Apache SVN project repository
+### 1.5 Add the gpg public key
 
-> This step requires SVN
+>  Add the gpg public key to the KEYS file of the Apache SVN project repository，This step requires SVN
 
 Linkis DEV branch https://dist.apache.org/repos/dist/dev/incubator/linkis
 
@@ -157,7 +157,7 @@ svn add KEY
 svn ci -m "add gpg key for YOUR_NAME"
 ```
 
-#### 1.5.2 Add the public key to KEYS in the release branch
+#### 1.5.2 Add public key to KEYS in release branch
 
 Used to release the official version
 
@@ -541,8 +541,8 @@ ${Linkis Release Manager}
 
 ### 6.2 Incubator community voting stage
 
-1. To vote in the Incubator community, send a voting email to `general@incubator.apache.org`, and 3 `+1 IPMC Member` votes are required to proceed to the next stage.
-2. Announce the result of the poll, send an email to `general@incubator.apache.org` and send a copy to `dev@linkis.apache.org`.
+- To vote in the Incubator community, send a voting email to `general@incubator.apache.org`, and 3 `+1 IPMC Member` votes are required to proceed to the next stage.
+- Announce the result of the poll, send an email to `general@incubator.apache.org` and send a copy to `dev@linkis.apache.org`.
 
 #### 6.2.1 Incubator community voting template
 
@@ -646,8 +646,8 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://di
 
 ### 7.3 Confirm whether the packages under dev and release are correct
 
--Confirm that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/) has been deleted
--Delete the release package of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved in [here](https:/ /archive.apache.org/dist/incubator/linkis/)
+- Confirm that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/) has been deleted
+- Delete the release package of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved in [here](https:/ /archive.apache.org/dist/incubator/linkis/)
 
 ```shell
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
@@ -655,18 +655,17 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 ### 7.4 Release version in Apache Staging repository
 
--Log in to http://repository.apache.org and log in with your Apache account
--Click on Staging repositories on the left,
--Search for Linkis keywords, select your recently uploaded repository, and vote for the repository specified in the email
--Click the `Release` button above, a series of checks will be carried out in this process
+- Log in to http://repository.apache.org and log in with your Apache account
+- Click on Staging repositories on the left,
+- Search for Linkis keywords, select your recently uploaded repository, and vote for the repository specified in the email
+- Click the `Release` button above, a series of checks will be carried out in this process
 
 > It usually takes 24 hours to wait for the repository to synchronize to other data sources
 
 ### 7.5 GitHub version released
 
-1.Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. For example: after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1. 2` only.
-
-2. Click `Edit` on the version `${release_version}` on the [GitHub Releases](https://github.com/apache/incubator/linkis/releases) page
+- Tag the commit (on which the vote happened) with the release version without `-${RELEASE_CANDIDATE}`. For example: after a successful vote on `v1.2-rc5`, the hash will be tagged again with `v1. 2` only.
+- Click `Edit` on the version `${release_version}` on the [GitHub Releases](https://github.com/apache/incubator/linkis/releases) page
 
 Edit the version number and version description, and click `Publish release`
 
@@ -710,4 +709,5 @@ Linkis Resources:
 -Mailing list: dev@linkis.apache.org
 
 -Apache Linkis (Incubating) Team
+
 ```

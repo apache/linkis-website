@@ -20,10 +20,10 @@ sidebar_position: 0
 
 The new architecture of Linkis1.0 computing governance service can solve these problems well.  
 ## Architecture Diagram  
-![linkis Computation Gov](/Images-zh/Architecture/linkis-computation-gov-01.png)  
+![linkis Computation Gov](/Images/Linkis_1.0_architecture.png)  
 **Operation process optimization:** Linkis1.0 will optimize the overall execution process of the job, from submission —\> preparation —\>
 Perform three stages to fully upgrade Linkis's Job execution architecture, as shown in the following figure:  
-![](/Images-zh/Architecture/linkis-computation-gov-02.png)  
+![](/Images/Architecture/linkis-computation-gov-02.png)  
 ## Architecture Description
 ### 1. Entrance
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Entrance, as the submission portal for computing tasks, provides task reception, scheduling and job information forwarding capabilities. It is a native capability split from Linkis0.X's Entrance.  

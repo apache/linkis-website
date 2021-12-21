@@ -1,6 +1,6 @@
 ---
 title: Linkis Console Deployment
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 Linkis 1.0 provides a Linkis Console, which provides functions such as displaying Linis's global history, modifying user parameters, managing ECM and microservices, etc. Before deploying the front-end management console, you need to deploy the Linkis back-end. Linkis deployment manual See: [Linkis Deployment Manual](deployment/quick_deploy.md)

@@ -9,7 +9,7 @@ EngineConnManager architecture design
 EngineConnManager (ECM): EngineConn's manager, provides engine lifecycle management, and reports load information and its own health status to RM.
 ###  ECM architecture
 
-![](Images/ECM-01.png)
+![](/Images/Architecture/engine/ecm-01.png)
 
 ###  Introduction to the second-level module
 
