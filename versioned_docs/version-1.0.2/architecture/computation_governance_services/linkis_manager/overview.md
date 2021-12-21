@@ -7,7 +7,7 @@ LinkisManager Architecture Design
 ====================
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As an independent microservice of Linkis, LinkisManager provides AppManager (application management), ResourceManager (resource management), and LabelManager (label management) capabilities. It can support multi-active deployment and has the characteristics of high availability and easy expansion.  
 ## 1. Architecture Diagram
-![Architecture Diagram](/Images-zh/Architecture/LinkisManager/LinkisManager-01.png)  
+![Architecture Diagram](/Images/Architecture/LinkisManager/LinkisManager-01.png)  
 ### Noun explanation
 - EngineConnManager (ECM): Engine Manager, used to start and manage engines.
 - EngineConn (EC): Engine connector, used to connect the underlying computing engine.

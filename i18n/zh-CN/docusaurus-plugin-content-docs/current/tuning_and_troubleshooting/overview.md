@@ -111,6 +111,6 @@ sidebar_position: 0
 
 ### 六、定位源码远程debug
 
-通常情况下，对源码远程debug是定位问题最有效的方式，但相对查阅文档来说，需要用户对源码结构有一定的了解，这里建议您在远程debug前查阅Linkis WIKI中的《 [Linkis源码层级结构详解](https://github.com/apache/incubator-linkis/wiki/Linkis%E6%BA%90%E7%A0%81%E5%B1%82%E7%BA%A7%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3) 》,对项目的源码结构进行初步的了解，有一定程度上的熟悉之后，可以参考WIKI中的《 [如何DebugLinkis](https://github.com/apache/incubator-linkis/wiki/Linkis%E5%92%8CDSS%E8%B0%83%E8%AF%95%E6%96%87%E6%A1%A3) 》一文调试对应微服务下的代码。
+通常情况下，对源码远程debug是定位问题最有效的方式，但相对查阅文档来说，需要用户对源码结构有一定的了解，这里建议您在远程debug前查阅Linkis WIKI中的《 [Linkis源码层级结构详解](deployment/sourcecode_hierarchical_structure.md) 》,对项目的源码结构进行初步的了解，有一定程度上的熟悉之后，可以参考WIKI中的《 [如何DebugLinkis](development/linkis_debug.md) 》一文调试对应微服务下的代码。
 
 
