@@ -49,7 +49,7 @@ Linkis provides a client method to call jdbc tasks. The call method is through t
 If you use Hive, you only need to make the following changes:
 ```java
         Map<String, Object> labels = new HashMap<String, Object>();
-        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "jdbc-2.3.3"); // required engineType Label
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "jdbc-4"); // required engineType Label
         labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
         labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
 ```
