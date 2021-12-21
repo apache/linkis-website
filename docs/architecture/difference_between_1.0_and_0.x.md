@@ -33,7 +33,7 @@ sidebar_position: 1
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EngineConnPlugin is mainly used to reduce the cost of access and deployment of new computing storage. It truly enables users to “just need to implement a class to connect to a new computing storage engine; just execute a script to quickly deploy a new engine ".  
 ### 5.1 New Engine Implementation Comparison
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following are the relevant interfaces and classes that the user Linkis0.X needs to implement to implement a new engine:  
-![Linkis0.X How to implement a brand new engine](/Images/Architecture/ architecture.png)  
+![Linkis0.X How to implement a brand new engine](/Images/Architecture/Linkis0.X-NewEngine-architecture.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following is Linkis 1.0.0, which implements a new engine, the interfaces and classes that users need to implement:  
 ![Linkis1.0 How to implement a brand new engine](/Images/Architecture/Linkis1.0-NewEngine-architecture.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Among them, EngineConnResourceFactory and EngineLaunchBuilder are not required to implement interfaces, and only EngineConnFactory is required to implement interfaces.  
