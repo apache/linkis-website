@@ -655,7 +655,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 ### 7.4 Release version in Apache Staging repository
 
-- Login to http://repository.apache.org and log in with your Apache account
+- Log in to http://repository.apache.org and log in with your Apache account
 - Click on Staging repositories on the left,
 - Search for Linkis keywords, select your recently uploaded repository, and vote for the repository specified in the email
 - Click the `Release` button above, a series of checks will be carried out in this process

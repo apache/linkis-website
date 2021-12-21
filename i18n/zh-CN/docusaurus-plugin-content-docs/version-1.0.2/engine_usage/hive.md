@@ -53,27 +53,37 @@ hive的MapReduce任务是需要用到yarn的资源，所以需要您在一开始
 
 图3-1 队列设置
 
-### 3.1 Scriptis的使用方式
+您也可以通过在提交参数的StartUpMap里面添加队列的值：`startupMap.put("wds.linkis.rm.yarnqueue", "dws")`
 
-Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建hive脚本并编写hivesql代码。
+### 3.1 通过Linkis SDK进行使用
+
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+对于Hive任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
+
+```java
+        Map<String, Object> labels = new HashMap<String, Object>();
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-2.3.3"); // required engineType Label
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
+```
+
+### 3.2 通过Linkis-cli进行任务提交
+
+Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Hive的使用如下：
+```shell
+sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show tables"  -submitUser hadoop -proxyUser hadoop
+```
+具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
+### 3.3 Scriptis的使用方式
+
+[Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建hive脚本并编写hivesql代码
 
 hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来提交任务，并获取结果集并展示。
 
 ![](/Images-zh/EngineUsage/hive-run.png)
 
 图3-2 hivesql的执行效果截图
-
-### 3.2工作流的使用方式
-
-DSS工作流也有hive的节点，您可以拖入工作流节点，然后双击进入然后进行编辑代码，然后以工作流的形式进行执行。
-
-![](/Images-zh/EngineUsage/workflow.png)
-
-图3-5 工作流执行hive的节点
-
-### 3.3 Linkis Client的使用方式
-
-Linkis也提供了client的方式进行调用hive的任务，调用的方式是通过LinkisClient提供的SDK的方式。我们提供了java和scala两种方式进行调用，具体的使用方式可以参考<https://github.com/apache/incubator-linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>。
 
 ## 4.Hive引擎的用户设置
 

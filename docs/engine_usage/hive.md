@@ -1,15 +1,15 @@
 ---
-title:  Hive Engine Usage
+title:  Hive engineConn Usage
 sidebar_position: 2
 ---
 
-# Hive engine usage documentation
+# Hive engineConn usage documentation
 
-This article mainly introduces the configuration, deployment and use of Hive engine in Linkis1.0.
+This article mainly introduces the configuration, deployment and use of Hive engineConn in Linkis1.0.
 
-## 1. Environment configuration before Hive engine use
+## 1. Environment configuration before Hive engineConn use
 
-If you want to use the hive engine on your server, you need to ensure that the following environment variables have been set correctly and that the user who started the engine has these environment variables.
+If you want to use the hive engineConn on your linkis server, you need to ensure that the following environment variables have been set correctly and that the user who started the engineConn has these environment variables.
 
 It is strongly recommended that you check these environment variables of the executing user before executing hive tasks.
 
@@ -22,30 +22,27 @@ It is strongly recommended that you check these environment variables of the exe
 
 Table 1-1 Environmental configuration list
 
-## 2. Hive engine configuration and deployment
+## 2. Hive engineConn configuration and deployment
 
 ### 2.1 Hive version selection and compilation
 
-The version of Hive supports hive1.x and hive2.x, the default is to support hive on MapReduce, if you want to change to Hive
-on Tez, you need to make some changes in accordance with this pr.
+The version of Hive supports hive1.x/hive2.x/hive3.x. The hive version supported by default is 2.3.3. If you want to modify the hive version, such as 2.3.3, you can find the linkis-engineConnplugin-hive module and change the \<hive.version\> tag to 2.3 .3, then compile this module separately.
+The default is to support hive on MapReduce, if you want to change to Hive on Tez, You need to copy all the jars prefixed with tez-* to the directory: `${LINKIS_HOME}/lib/linkis-engineconn-plugins/hive/dist/version/lib`.
+Other hive operating modes are similar, just copy the corresponding dependencies to the lib directory of Hive EngineConn.
 
-<https://github.com/apache/incubator-linkis/pull/541>
+### 2.2 hive engineConnConn deployment and loading
 
-The hive version supported by default is 1.2.1. If you want to modify the hive version, such as 2.3.3, you can find the linkis-engineplugin-hive module and change the \<hive.version\> tag to 2.3 .3, then compile this module separately
+If you have already compiled your hive engineConn plug-in has been compiled, then you need to put the new plug-in in the specified location to load, you can refer to the following article for details
 
-### 2.2 hive engineConn deployment and loading
+[engineConnConnPlugin Installation](deployment/engineConn_conn_plugin_installation.md) 
 
-If you have already compiled your hive engine plug-in has been compiled, then you need to put the new plug-in in the specified location to load, you can refer to the following article for details
+### 2.3 Linkis adds Hive console parameters(optional)
 
-[EngineConnPlugin Installation](deployment/engine_conn_plugin_installation.md) 
+Linkis can configure the corresponding EngineConn parameters on the management console. If your newly added EngineConn needs this feature, you can refer to the following documents:
 
-### 2.3 Hive engine tags
+[engineConnConnPlugin Installation > 2.2 Configuration modification of management console (optional)](deployment/engineConn_conn_plugin_installation.md) 
 
-Linkis1.0 is done through tags, so we need to insert data in our database, the way of inserting is shown below.
-
-[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](deployment/engine_conn_plugin_installation.md) 
-
-## 3. Use of hive engine
+## 3. Use of hive engineConn
 
 ### Preparation for operation, queue setting
 
@@ -55,31 +52,40 @@ Hive's MapReduce task requires yarn resources, so you need to set up the queue a
 
 Figure 3-1 Queue settings
 
-### 3.1 How to use Scriptis
+You can also add the queue value in the StartUpMap of the submission parameter: `startupMap.put("wds.linkis.rm.yarnqueue", "dws")`
 
-The use of Scriptis is the simplest. You can directly enter Scriptis, right-click the directory and create a new hive script and write hivesql code.
+### 3.1 How to use Linkis SDK
 
-The implementation of the hive engine is by instantiating the driver instance of hive, and then the driver submits the task, and obtains the result set and displays it.
+Linkis  provides a client method to call hive tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
+If you use Hive, you only need to make the following changes:
+```java
+        Map<String, Object> labels = new HashMap<String, Object>();
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-2.3.3"); // required engineType Label
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
+```
+
+### 3.2 How to use Linkis-cli
+
+After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of Hive is as follows:
+```shell
+sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
+```
+The specific usage can refer to [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
+### 3.3 How to use Scriptis
+
+The use of [Scriptis](https://github.com/WeBankFinTech/Scriptis) is the simplest. You can directly enter Scriptis, right-click the directory and create a new hive script and write hivesql code.
+
+The implementation of the hive engineConn is by instantiating the driver instance of hive, and then the driver submits the task, and obtains the result set and displays it.
 
 ![](/Images/EngineUsage/hive-run.png)
 
-Figure 3-2 Screenshot of the execution effect of hivesql
+Figure 3-2 Screenshot of the execution effect of hql
 
-### 3.2 How to use workflow
+## 4. Hive engineConn user settings
 
-DSS workflow also has a hive node, you can drag in the workflow node, then double-click to enter and edit the code, and then execute it in the form of a workflow.
-
-![](/Images/EngineUsage/workflow.png)
-
-Figure 3-5 The node where the workflow executes hive
-
-### 3.3 How to use Linkis Client
-
-Linkis also provides a client method to call hive tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
-
-## 4. Hive engine user settings
-
-In addition to the above engine configuration, users can also make custom settings, including the memory size of the hive Driver process, etc.
+In addition to the above engineConn configuration, users can also make custom settings, including the memory size of the hive Driver process, etc.
 
 ![](/Images/EngineUsage/hive-config.png)
 

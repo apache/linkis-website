@@ -50,8 +50,30 @@ Linkis1.0是通过标签来进行的，所以需要在我们数据库中插入�
 ![](/Images-zh/EngineUsage/queue-set.png)
 
 图3-1 队列设置
+您也可以通过在提交参数的StartUpMap里面添加队列的值：`startupMap.put("wds.linkis.rm.yarnqueue", "dws")`
 
-### 3.1 Scriptis的使用方式
+### 3.1 通过Linkis SDK进行使用
+
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+对于Spark任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
+
+```java
+        Map<String, Object> labels = new HashMap<String, Object>();
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
+```
+
+### 3.2 通过Linkis-cli进行任务提交
+
+Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Spark的使用如下：
+```shell
+You can also add the queue value in the StartUpMap of the submission parameter: `startupMap.put("wds.linkis.rm.yarnqueue", "dws")`
+
+```
+具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
+### 3.3 Scriptis的使用方式
 
 Scriptis的使用方式是最简单的，您可以直接进入Scriptis，新建sql、scala或者pyspark脚本进行执行。
 
@@ -72,18 +94,6 @@ spark-scala的任务，我们已经初始化好了sqlContext等变量，用户�
 
 ![](/Images-zh/EngineUsage/pyspakr-run.png)
 图3-4 pyspark的执行方式
-
-### 3.2工作流的使用方式
-
-DSS工作流也是有spark的三个节点，您可以拖入工作流节点，如sql、scala或者pyspark节点，然后双击进入然后进行编辑代码，然后以工作流的形式进行执行。
-
-![](/Images-zh/EngineUsage/workflow.png)
-
-图3-5 工作流执行spark的节点
-
-### 3.3 Linkis Client的使用方式
-
-Linkis也提供了client的方式进行调用spark的任务，调用的方式是通过LinkisClient提供的SDK的方式。我们提供了java和scala两种方式进行调用，具体的使用方式可以参考<https://github.com/apache/incubator-linkis/wiki/Linkis1.0%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3>。
 
 ## 4.spark引擎的用户设置
 

@@ -16,191 +16,13 @@ Such as:
 <dependency>
    <groupId>org.apache.linkis</groupId>
    <artifactId>linkis-computation-client</artifactId>
-   <version>1.0.0-RC1</version>
+   <version>1.0.3</version>
 </dependency>
 ```
 
-## 2. Compatible with 0.X Execute method submission
+## 2. Java test code
 
-### 2.1 Java test code
-
-Create the Java test class UJESClientImplTestJ. Refer to the comments to understand the purposes of those interfaces:
-
-```java
-package org.apache.linkis.client.test;
-
-import org.apache.linkis.common.utils.Utils;
-import org.apache.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy;
-import org.apache.linkis.httpclient.dws.authentication.TokenAuthenticationStrategy;
-import org.apache.linkis.httpclient.dws.config.DWSClientConfig;
-import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder;
-import org.apache.linkis.ujes.client.UJESClient;
-import org.apache.linkis.ujes.client.UJESClientImpl;
-import org.apache.linkis.ujes.client.request.JobExecuteAction;
-import org.apache.linkis.ujes.client.request.ResultSetAction;
-import org.apache.linkis.ujes.client.response.JobExecuteResult;
-import org.apache.linkis.ujes.client.response.JobInfoResult;
-import org.apache.linkis.ujes.client.response.JobProgressResult;
-import org.apache.commons.io.IOUtils;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-public class LinkisClientTest {
-
-    public static void main(String[] args){
-
-        String user = "hadoop";
-        String executeCode = "show databases;";
-
-        // 1. Configure DWSClientBuilder, get a DWSClientConfig through DWSClientBuilder
-        DWSClientConfig clientConfig = ((DWSClientConfigBuilder) (DWSClientConfigBuilder.newBuilder()
-                .addServerUrl("http://${ip}:${port}")  //Specify ServerUrl, the address of the linkis gateway, such as http://{ip}:{port}
-                .connectionTimeout(30000)   //connectionTimeOut Client connection timeout
-                .discoveryEnabled(false).discoveryFrequency(1, TimeUnit.MINUTES)  //Whether to enable registration discovery, if enabled, the newly launched Gateway will be automatically discovered
-                .loadbalancerEnabled(true)  // Whether to enable load balancing, if registration discovery is not enabled, load balancing is meaningless
-                .maxConnectionSize(5)   //Specify the maximum number of connections, that is, the maximum number of concurrent
-                .retryEnabled(false).readTimeout(30000)   //Execution failed, whether to allow retry
-                .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis login authentication method
-                .setAuthTokenKey("${username}").setAuthTokenValue("${password}")))  //Authentication key, generally the user name; authentication value, generally the password corresponding to the user name
-                .setDWSVersion("v1").build();  //The version of the linkis backend protocol, the current version is v1
-
-        // 2. Obtain a UJESClient through DWSClientConfig
-        UJESClient client = new UJESClientImpl(clientConfig);
-
-        try {
-            // 3. Start code execution
-            System.out.println("user : " + user + ", code : [" + executeCode + "]");
-            Map<String, Object> startupMap = new HashMap<String, Object>();
-            startupMap.put("wds.linkis.yarnqueue", "default"); // A variety of startup parameters can be stored in startupMap, see linkis management console configuration
-            JobExecuteResult jobExecuteResult = client.execute(JobExecuteAction.builder()
-                    .setCreator("linkisClient-Test")  //creator，the system name of the client requesting linkis, used for system-level isolation
-                    .addExecuteCode(executeCode)   //ExecutionCode Requested code
-                    .setEngineType((JobExecuteAction.EngineType) JobExecuteAction.EngineType$.MODULE$.HIVE()) // The execution engine type of the linkis that you want to request, such as Spark hive, etc.
-                    .setUser(user)   //User，Requesting users; used for user-level multi-tenant isolation
-                    .setStartupParams(startupMap)
-                    .build());
-            System.out.println("execId: " + jobExecuteResult.getExecID() + ", taskId: " + jobExecuteResult.taskID());
-
-            // 4. Get the execution status of the script
-            JobInfoResult jobInfoResult = client.getJobInfo(jobExecuteResult);
-            int sleepTimeMills = 1000;
-            while(!jobInfoResult.isCompleted()) {
-                // 5. Get the execution progress of the script
-                JobProgressResult progress = client.progress(jobExecuteResult);
-                Utils.sleepQuietly(sleepTimeMills);
-                jobInfoResult = client.getJobInfo(jobExecuteResult);
-            }
-
-            // 6. Get the job information of the script
-            JobInfoResult jobInfo = client.getJobInfo(jobExecuteResult);
-            // 7. Get a list of result sets (if the user submits multiple SQL at a time, multiple result sets will be generated)
-            String resultSet = jobInfo.getResultSetList(client)[0];
-            // 8. Get a specific result set through a result set information
-            Object fileContents = client.resultSet(ResultSetAction.builder().setPath(resultSet).setUser(jobExecuteResult.getUser()).build()).getFileContent();
-            System.out.println("fileContents: " + fileContents);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            IOUtils.closeQuietly(client);
-        }
-        IOUtils.closeQuietly(client);
-    }
-}
-```
-
-Run the above code to interact with Linkis
-
-### 3. Scala test code:
-
-```scala
-package org.apache.linkis.client.test
-
-import java.util.concurrent.TimeUnit
-
-import org.apache.linkis.common.utils.Utils
-import org.apache.linkis.httpclient.dws.authentication.StaticAuthenticationStrategy
-import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder
-import org.apache.linkis.ujes.client.UJESClient
-import org.apache.linkis.ujes.client.request.JobExecuteAction.EngineType
-import org.apache.linkis.ujes.client.request.{JobExecuteAction, ResultSetAction}
-import org.apache.commons.io.IOUtils
-
-object LinkisClientImplTest extends App {
-
-  var executeCode = "show databases;"
-  var user = "hadoop"
-
-  // 1. Configure DWSClientBuilder, get a DWSClientConfig through DWSClientBuilder
-  val clientConfig = DWSClientConfigBuilder.newBuilder()
-    .addServerUrl("http://${ip}:${port}") //Specify ServerUrl, the address of the Linkis server-side gateway, such as http://{ip}:{port}
-    .connectionTimeout(30000) //connectionTimeOut client connection timeout
-    .discoveryEnabled(false).discoveryFrequency(1, TimeUnit.MINUTES) //Whether to enable registration discovery, if enabled, the newly launched Gateway will be automatically discovered
-    .loadbalancerEnabled(true) // Whether to enable load balancing, if registration discovery is not enabled, load balancing is meaningless
-    .maxConnectionSize(5) //Specify the maximum number of connections, that is, the maximum number of concurrent
-    .retryEnabled(false).readTimeout(30000) //execution failed, whether to allow retry
-    .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authentication method
-    .setAuthTokenKey("${username}").setAuthTokenValue("${password}") //Authentication key, generally the user name; authentication value, generally the password corresponding to the user name
-    .setDWSVersion("v1").build() //Linkis backend protocol version, the current version is v1
-
-  // 2. Get a UJESClient through DWSClientConfig
-  val client = UJESClient(clientConfig)
-  
-  try {
-    // 3. Start code execution
-    println("user: "+ user + ", code: [" + executeCode + "]")
-    val startupMap = new java.util.HashMap[String, Any]()
-    startupMap.put("wds.linkis.yarnqueue", "default") //Startup parameter configuration
-    val jobExecuteResult = client.execute(JobExecuteAction.builder()
-      .setCreator("LinkisClient-Test") //creator, requesting the system name of the Linkis client, used for system-level isolation
-      .addExecuteCode(executeCode) //ExecutionCode The code to be executed
-      .setEngineType(EngineType.SPARK) // The execution engine type of Linkis that you want to request, such as Spark hive, etc.
-      .setStartupParams(startupMap)
-      .setUser(user).build()) //User, request user; used for user-level multi-tenant isolation
-    println("execId: "+ jobExecuteResult.getExecID + ", taskId:" + jobExecuteResult.taskID)
-    
-    // 4. Get the execution status of the script
-    var jobInfoResult = client.getJobInfo(jobExecuteResult)
-    val sleepTimeMills: Int = 1000
-    while (!jobInfoResult.isCompleted) {
-      // 5. Get the execution progress of the script
-      val progress = client.progress(jobExecuteResult)
-      val progressInfo = if (progress.getProgressInfo != null) progress.getProgressInfo.toList else List.empty
-      println("progress: "+ progress.getProgress + ", progressInfo:" + progressInfo)
-      Utils.sleepQuietly(sleepTimeMills)
-      jobInfoResult = client.getJobInfo(jobExecuteResult)
-    }
-    if (!jobInfoResult.isSucceed) {
-      println("Failed to execute job: "+ jobInfoResult.getMessage)
-      throw new Exception(jobInfoResult.getMessage)
-    }
-
-    // 6. Get the job information of the script
-    val jobInfo = client.getJobInfo(jobExecuteResult)
-    // 7. Get the list of result sets (if the user submits multiple SQL at a time, multiple result sets will be generated)
-    val resultSetList = jobInfoResult.getResultSetList(client)
-    println("All result set list:")
-    resultSetList.foreach(println)
-    val oneResultSet = jobInfo.getResultSetList(client).head
-    // 8. Get a specific result set through a result set information
-    val fileContents = client.resultSet(ResultSetAction.builder().setPath(oneResultSet).setUser(jobExecuteResult.getUser).build()).getFileContent
-    println("First fileContents: ")
-    println(fileContents)
-  } catch {
-    case e: Exception => {
-      e.printStackTrace()
-    }
-  }
-  IOUtils.closeQuietly(client)
-}
-```
-
-## 3. Linkis1.0 new submit interface with Label support
-
-Linkis1.0 adds the client.submit method, which is used to adapt with the new task execution interface of 1.0, and supports the input of Label and other parameters
-
-### 3.1 Java Test Class
+Create the Java test class LinkisClientTest. Refer to the comments to understand the purposes of those interfaces:
 
 ```java
 package org.apache.linkis.client.test;
@@ -214,93 +36,146 @@ import org.apache.linkis.protocol.constants.TaskConstant;
 import org.apache.linkis.ujes.client.UJESClient;
 import org.apache.linkis.ujes.client.UJESClientImpl;
 import org.apache.linkis.ujes.client.request.JobSubmitAction;
+import org.apache.linkis.ujes.client.request.JobExecuteAction;
 import org.apache.linkis.ujes.client.request.ResultSetAction;
-import org.apache.linkis.ujes.client.response.JobExecuteResult;
-import org.apache.linkis.ujes.client.response.JobInfoResult;
-import org.apache.linkis.ujes.client.response.JobProgressResult;
+import org.apache.linkis.ujes.client.response.*;
 import org.apache.commons.io.IOUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class JavaClientTest {
+public class LinkisClientTest {
+
+    // 1. build config: linkis gateway url
+    private static DWSClientConfig clientConfig = ((DWSClientConfigBuilder) (DWSClientConfigBuilder.newBuilder()
+            .addServerUrl("http://127.0.0.1:9001/")   //set linkis-mg-gateway url: http://{ip}:{port}
+            .connectionTimeout(30000)   //connectionTimeOut
+            .discoveryEnabled(false) //disable discovery
+            .discoveryFrequency(1, TimeUnit.MINUTES)  // discovery frequency
+            .loadbalancerEnabled(true)  // enable loadbalance
+            .maxConnectionSize(5)   // set max Connection
+            .retryEnabled(false) // set retry
+            .readTimeout(30000)  //set read timeout
+            .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis authen suppory static and Token
+            .setAuthTokenKey("hadoop")  // set submit user
+            .setAuthTokenValue("hadoop")))  // set passwd or token (setAuthTokenValue("BML-AUTH"))
+            .setDWSVersion("v1") //linkis rest version v1
+            .build();
+
+    // 2. new Client(Linkis Client) by clientConfig
+    private static UJESClient client = new UJESClientImpl(clientConfig);
 
     public static void main(String[] args){
 
-        String user = "hadoop";
-        String executeCode = "show tables";
-
-        // 1. Configure ClientBuilder and get ClientConfig
-        DWSClientConfig clientConfig = ((DWSClientConfigBuilder) (DWSClientConfigBuilder.newBuilder()
-                .addServerUrl("http://${ip}:${port}") //Specify ServerUrl, the address of the linkis server-side gateway, such as http://{ip}:{port}
-                .connectionTimeout(30000) //connectionTimeOut client connection timeout
-                .discoveryEnabled(false).discoveryFrequency(1, TimeUnit.MINUTES) //Whether to enable registration discovery, if enabled, the newly launched Gateway will be automatically discovered
-                .loadbalancerEnabled(true) // Whether to enable load balancing, if registration discovery is not enabled, load balancing is meaningless
-                .maxConnectionSize(5) //Specify the maximum number of connections, that is, the maximum number of concurrent
-                .retryEnabled(false).readTimeout(30000) //execution failed, whether to allow retry
-                .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authentication method
-                .setAuthTokenKey("${username}").setAuthTokenValue("${password}"))) //Authentication key, generally the user name; authentication value, generally the password corresponding to the user name
-                .setDWSVersion("v1").build(); //Linkis background protocol version, the current version is v1
-
-        // 2. Get a UJESClient through DWSClientConfig
-        UJESClient client = new UJESClientImpl(clientConfig);
-
+        String user = "hadoop"; // execute user
+        String executeCode = "df=spark.sql(\"show tables\")\n" +
+                "show(df)"; // code support:sql/hql/py/scala
         try {
-            // 3. Start code execution
-            System.out.println("user: "+ user + ", code: [" + executeCode + "]");
-            Map<String, Object> startupMap = new HashMap<String, Object>();
-            // A variety of startup parameters can be stored in startupMap, see linkis management console configuration
-            startupMap.put("wds.linkis.yarnqueue", "q02");
-            //Specify Label
-            Map<String, Object> labels = new HashMap<String, Object>();
-            //Add the label that this execution depends on: EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel
-            labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-1.2.1");
-            labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");
-            labels.put(LabelKeyConstant.ENGINE_RUN_TYPE_KEY, "hql");
-            //Specify source
-            Map<String, Object> source = new HashMap<String, Object>();
-            source.put(TaskConstant.SCRIPTPATH, "LinkisClient-test");
-            JobExecuteResult jobExecuteResult = client.submit( JobSubmitAction.builder()
-                    .addExecuteCode(executeCode)
-                    .setStartupParams(startupMap)
-                    .setUser(user)//Job submit user
-                    .addExecuteUser(user)//The actual execution user
-                    .setLabels(labels)
-                    .setSource(source)
-                    .build()
-            );
-            System.out.println("execId: "+ jobExecuteResult.getExecID() + ", taskId:" + jobExecuteResult.taskID());
 
-            // 4. Get the execution status of the script
+            System.out.println("user : " + user + ", code : [" + executeCode + "]");
+            // 3. build job and execute
+            JobExecuteResult jobExecuteResult = toSubmit(user, executeCode);
+            //0.x:JobExecuteResult jobExecuteResult = toExecute(user, executeCode);
+            System.out.println("execId: " + jobExecuteResult.getExecID() + ", taskId: " + jobExecuteResult.taskID());
+            // 4. get job jonfo
             JobInfoResult jobInfoResult = client.getJobInfo(jobExecuteResult);
             int sleepTimeMills = 1000;
+            int logFromLen = 0;
+            int logSize = 100;
             while(!jobInfoResult.isCompleted()) {
-                // 5. Get the execution progress of the script
+                // 5. get progress and log
                 JobProgressResult progress = client.progress(jobExecuteResult);
+                System.out.println("progress: " + progress.getProgress());
+                JobLogResult logRes = client.log(jobExecuteResult, logFromLen, logSize);
+                logFromLen = logRes.fromLine();
+                // 0: info 1: warn 2: error 3: all
+                System.out.println(logRes.log().get(3));
                 Utils.sleepQuietly(sleepTimeMills);
                 jobInfoResult = client.getJobInfo(jobExecuteResult);
             }
 
-            // 6. Get the job information of the script
             JobInfoResult jobInfo = client.getJobInfo(jobExecuteResult);
-            // 7. Get the list of result sets (if the user submits multiple SQL at a time, multiple result sets will be generated)
+            // 6. Get the result set list (if the user submits multiple SQLs at a time,
+            // multiple result sets will be generated)
             String resultSet = jobInfo.getResultSetList(client)[0];
-            // 8. Get a specific result set through a result set information
+            // 7. get resultContent
             Object fileContents = client.resultSet(ResultSetAction.builder().setPath(resultSet).setUser(jobExecuteResult.getUser()).build()).getFileContent();
-            System.out.println("fileContents: "+ fileContents);
-
+            System.out.println("res: " + fileContents);
         } catch (Exception e) {
             e.printStackTrace();
             IOUtils.closeQuietly(client);
         }
         IOUtils.closeQuietly(client);
     }
-}
 
+    /**
+     * Linkis 1.0 recommends the use of Submit method
+     */
+    private static JobExecuteResult toSubmit(String user, String code) {
+        // 1. build  params
+        // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
+        Map<String, Object> labels = new HashMap<String, Object>();
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-IDE");// required execute user and creator
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // required codeType
+        // set start up map :engineConn start params
+        Map<String, Object> startupMap = new HashMap<String, Object>(16);
+        // Support setting engine native parameters,For example: parameters of engines such as spark/hive
+        startupMap.put("spark.executor.instances", 2);
+        // setting linkis params
+        startupMap.put("wds.linkis.rm.yarnqueue", "dws");
+
+        // 2. build jobSubmitAction
+        JobSubmitAction jobSubmitAction = JobSubmitAction.builder()
+                .addExecuteCode(code)
+                .setStartupParams(startupMap)
+                .setUser(user) //submit user
+                .addExecuteUser(user)  // execute user
+                .setLabels(labels)
+                .build();
+        // 3. to execute
+        return client.submit(jobSubmitAction);
+    }
+
+    /**
+     * Compatible with 0.X execution mode
+     */
+    private static JobExecuteResult toExecute(String user, String code) {
+        // 1. build  params
+        // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
+        Map<String, Object> labels = new HashMap<String, Object>();
+        // labels.put(LabelKeyConstant.TENANT_KEY, "fate");
+        // set start up map :engineConn start params
+        Map<String, Object> startupMap = new HashMap<String, Object>(16);
+        // Support setting engine native parameters,For example: parameters of engines such as spark/hive
+        startupMap.put("spark.executor.instances", 2);
+        // setting linkis params
+        startupMap.put("wds.linkis.rm.yarnqueue", "dws");
+
+        // 2. build JobExecuteAction (0.X old way of using)
+        JobExecuteAction executionAction = JobExecuteAction.builder()
+                .setCreator("IDE")  //creator, the system name of the client requesting linkis, used for system-level isolation
+                .addExecuteCode(code)   //Execution Code
+                .setEngineTypeStr("spark") // engineConn type
+                .setRunTypeStr("py") // code type
+                .setUser(user)   //execute user
+                .setStartupParams(startupMap) // start up params
+                .build();
+        executionAction.addRequestPayload(TaskConstant.LABELS, labels);
+        String body = executionAction.getRequestPayload();
+        System.out.println(body);
+
+        // 3. to execute
+        return client.execute(executionAction);
+    }
+}
 ```
 
-### 3.2 Scala Test Class
+Run the above code to interact with Linkis
+
+### 3. Scala test code:
+Create the Scala test class LinkisClientTest. Refer to the comments to understand the purposes of those interfaces:
 
 ```scala
 package org.apache.linkis.client.test
@@ -314,79 +189,73 @@ import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder
 import org.apache.linkis.manager.label.constant.LabelKeyConstant
 import org.apache.linkis.protocol.constants.TaskConstant
 import org.apache.linkis.ujes.client.UJESClient
-import org.apache.linkis.ujes.client.request.{JobSubmitAction, ResultSetAction}
+import org.apache.linkis.ujes.client.request._
+import org.apache.linkis.ujes.client.response._
 import org.apache.commons.io.IOUtils
+import org.apache.commons.lang.StringUtils
 
+object LinkisClientTest {
+// 1. build config: linkis gateway url
+  val clientConfig = DWSClientConfigBuilder.newBuilder()
+    .addServerUrl("http://127.0.0.1:9001/")   //set linkis-mg-gateway url: http://{ip}:{port}
+    .connectionTimeout(30000)   //connectionTimeOut
+    .discoveryEnabled(false) //disable discovery
+    .discoveryFrequency(1, TimeUnit.MINUTES)  // discovery frequency
+    .loadbalancerEnabled(true)  // enable loadbalance
+    .maxConnectionSize(5)   // set max Connection
+    .retryEnabled(false) // set retry
+    .readTimeout(30000)  //set read timeout
+    .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis authen suppory static and Token
+    .setAuthTokenKey("hadoop")  // set submit user
+    .setAuthTokenValue("hadoop")  // set passwd or token (setAuthTokenValue("BML-AUTH"))
+    .setDWSVersion("v1") //linkis rest version v1
+    .build();
 
-object ScalaClientTest {
+  // 2. new Client(Linkis Client) by clientConfig
+  val client = UJESClient(clientConfig)
 
   def main(args: Array[String]): Unit = {
-    val executeCode = "show tables"
-    val user = "hadoop"
-
-    // 1. Configure DWSClientBuilder, get a DWSClientConfig through DWSClientBuilder
-    val clientConfig = DWSClientConfigBuilder.newBuilder()
-      .addServerUrl("http://${ip}:${port}") //Specify ServerUrl, the address of the Linkis server-side gateway, such as http://{ip}:{port}
-      .connectionTimeout(30000) //connectionTimeOut client connection timeout
-      .discoveryEnabled(false).discoveryFrequency(1, TimeUnit.MINUTES) //Whether to enable registration discovery, if enabled, the newly launched Gateway will be automatically discovered
-      .loadbalancerEnabled(true) // Whether to enable load balancing, if registration discovery is not enabled, load balancing is meaningless
-      .maxConnectionSize(5) //Specify the maximum number of connections, that is, the maximum number of concurrent
-      .retryEnabled(false).readTimeout(30000) //execution failed, whether to allow retry
-      .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authentication method
-      .setAuthTokenKey("${username}").setAuthTokenValue("${password}") //Authentication key, generally the user name; authentication value, generally the password corresponding to the user name
-      .setDWSVersion("v1").build() //Linkis backend protocol version, the current version is v1
-
-    // 2. Get a UJESClient through DWSClientConfig
-    val client = UJESClient(clientConfig)
-
+    val user = "hadoop" // execute user
+    val executeCode = "df=spark.sql(\"show tables\")\n" +
+      "show(df)"; // code support:sql/hql/py/scala
     try {
-      // 3. Start code execution
-      println("user: "+ user + ", code: [" + executeCode + "]")
-      val startupMap = new java.util.HashMap[String, Any]()
-      startupMap.put("wds.linkis.yarnqueue", "q02") //Startup parameter configuration
-      //Specify Label
-      val labels: util.Map[String, Any] = new util.HashMap[String, Any]
-      //Add the label that this execution depends on, such as engineLabel
-      labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-1.2.1")
-      labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE")
-      labels.put(LabelKeyConstant.ENGINE_RUN_TYPE_KEY, "hql")
-      //Specify source
-      val source: util.Map[String, Any] = new util.HashMap[String, Any]
-      source.put(TaskConstant.SCRIPTPATH, "LinkisClient-test")
-      val jobExecuteResult = client.submit(JobSubmitAction.builder
-          .addExecuteCode(executeCode)
-          .setStartupParams(startupMap)
-          .setUser(user) //Job submit user
-          .addExecuteUser(user) //The actual execution user
-          .setLabels(labels)
-          .setSource(source)
-          .build) //User, requesting user; used for user-level multi-tenant isolation
-      println("execId: "+ jobExecuteResult.getExecID + ", taskId:" + jobExecuteResult.taskID)
-
-      // 4. Get the execution status of the script
+      // 3. build job and execute
+      println("user : " + user + ", code : [" + executeCode + "]")
+      val jobExecuteResult = toSubmit(user, executeCode)
+      //0.X: val jobExecuteResult = toExecute(user, executeCode)
+      println("execId: " + jobExecuteResult.getExecID + ", taskId: " + jobExecuteResult.taskID)
+      // 4. get job jonfo
       var jobInfoResult = client.getJobInfo(jobExecuteResult)
-      val sleepTimeMills: Int = 1000
+      var logFromLen = 0
+      val logSize = 100
+      val sleepTimeMills : Int = 1000
       while (!jobInfoResult.isCompleted) {
-        // 5. Get the execution progress of the script
+        // 5. get progress and log
         val progress = client.progress(jobExecuteResult)
-        val progressInfo = if (progress.getProgressInfo != null) progress.getProgressInfo.toList else List.empty
-        println("progress: "+ progress.getProgress + ", progressInfo:" + progressInfo)
+       println("progress: " + progress.getProgress)
+        val logObj = client .log(jobExecuteResult, logFromLen, logSize)
+        logFromLen = logObj.fromLine
+        val logArray = logObj.getLog
+        // 0: info 1: warn 2: error 3: all
+        if (logArray != null && logArray.size >= 4 && StringUtils.isNotEmpty(logArray.get(3))) {
+          println(s"log: ${logArray.get(3)}")
+        }
         Utils.sleepQuietly(sleepTimeMills)
         jobInfoResult = client.getJobInfo(jobExecuteResult)
       }
       if (!jobInfoResult.isSucceed) {
-        println("Failed to execute job: "+ jobInfoResult.getMessage)
+        println("Failed to execute job: " + jobInfoResult.getMessage)
         throw new Exception(jobInfoResult.getMessage)
       }
 
-      // 6. Get the job information of the script
+      // 6. Get the result set list (if the user submits multiple SQLs at a time,
+      // multiple result sets will be generated)
       val jobInfo = client.getJobInfo(jobExecuteResult)
-      // 7. Get the list of result sets (if the user submits multiple SQL at a time, multiple result sets will be generated)
       val resultSetList = jobInfoResult.getResultSetList(client)
       println("All result set list:")
       resultSetList.foreach(println)
       val oneResultSet = jobInfo.getResultSetList(client).head
-      // 8. Get a specific result set through a result set information
+      // 7. get resultContent
       val fileContents = client.resultSet(ResultSetAction.builder().setPath(oneResultSet).setUser(jobExecuteResult.getUser).build()).getFileContent
       println("First fileContents: ")
       println(fileContents)
@@ -398,6 +267,63 @@ object ScalaClientTest {
     IOUtils.closeQuietly(client)
   }
 
-}
+  /**
+   * Linkis 1.0 recommends the use of Submit method
+   */
+  def toSubmit(user: String, code: String): JobExecuteResult = {
+    // 1. build  params
+    // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
+    val labels: util.Map[String, Any] = new util.HashMap[String, Any]
+    labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
+    labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-IDE");// required execute user and creator
+    labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // required codeType
 
+    val startupMap = new java.util.HashMap[String, Any]()
+    // Support setting engine native parameters,For example: parameters of engines such as spark/hive
+    startupMap.put("spark.executor.instances", 2);
+    // setting linkis params
+    startupMap.put("wds.linkis.rm.yarnqueue", "dws");
+    // 2. build jobSubmitAction
+    val jobSubmitAction = JobSubmitAction.builder
+      .addExecuteCode(code)
+      .setStartupParams(startupMap)
+      .setUser(user) //submit user
+      .addExecuteUser(user) //execute user
+      .setLabels(labels)
+      .build
+    // 3. to execute
+    client.submit(jobSubmitAction)
+  }
+
+
+  /**
+   * Compatible with 0.X execution mode
+   */
+  def toExecute(user: String, code: String): JobExecuteResult = {
+    // 1. build  params
+    // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
+    val labels = new util.HashMap[String, Any]
+    // labels.put(LabelKeyConstant.TENANT_KEY, "fate");
+
+    val startupMap = new java.util.HashMap[String, Any]()
+    // Support setting engine native parameters,For example: parameters of engines such as spark/hive
+    startupMap.put("spark.executor.instances", 2)
+    // setting linkis params
+    startupMap.put("wds.linkis.rm.yarnqueue", "dws")
+    // 2. build JobExecuteAction (0.X old way of using)
+    val  executionAction = JobExecuteAction.builder()
+      .setCreator("IDE")  //creator, the system name of the client requesting linkis, used for system-level isolation
+      .addExecuteCode(code)   //Execution Code
+      .setEngineTypeStr("spark") // engineConn type
+      .setRunTypeStr("py") // code type
+      .setUser(user)   //execute user
+      .setStartupParams(startupMap) // start up params
+      .build();
+    executionAction.addRequestPayload(TaskConstant.LABELS, labels);
+    // 3. to execute
+    client.execute(executionAction)
+  }
+
+
+}
 ```

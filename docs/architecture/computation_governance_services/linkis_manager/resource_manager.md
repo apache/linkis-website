@@ -6,16 +6,16 @@ sidebar_position: 3
 ## 1. Background
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResourceManager (RM for short) is the computing resource management module of Linkis. All EngineConn (EC for short), EngineConnManager (ECM for short), and even external resources including Yarn are managed by RM. RM can manage resources based on users, ECM, or other granularities defined by complex tags.  
 ## 2. The role of RM in Linkis
-![01](/Images-zh/Architecture/rm-01.png)  
-![02](/Images-zh/Architecture/rm-02.png)  
+![01](/Images/Architecture/rm-01.png)
+![02](/Images/Architecture/rm-02.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As a part of Linkis Manager, RM mainly functions as follows: maintain the available resource information reported by ECM, process the resource application submitted by ECM, record the actual resource usage information reported by EC in real time during the life cycle after successful application, and provide query current resource usage The relevant interface of the situation.  
 In Linkis, other services that interact with RM mainly include:  
 1. Engine Manager, ECM for short: Processes the microservices that start the engine connector request. As a resource provider, ECM is responsible for registering and unregistering resources with RM. At the same time, as the manager of the engine, ECM is responsible for applying for resources from RM instead of the new engine connector that is about to start. For each ECM instance, there is a corresponding resource record in the RM, which contains information such as the total resources and protection resources it provides, and dynamically updates the used resources.  
-![03](/Images-zh/Architecture/rm-03.png)  
+![03](/Images/Architecture/rm-03.png)  
 2. The engine connector, referred to as EC, is the actual execution unit of user operations. At the same time, as the actual user of the resource, the EC is responsible for reporting the actual use of the resource to the RM. Each EC has a corresponding resource record in the RM: during the startup process, it is reflected as a locked resource; during the running process, it is reflected as a used resource; after being terminated, the resource record is subsequently deleted.  
-![04](/Images-zh/Architecture/rm-04.png)  
+![04](/Images/Architecture/rm-04.png)  
 ## 3. Resource type and format
-![05](/Images-zh/Architecture/rm-05.png)  
+![05](/Images/Architecture/rm-05.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As shown in the figure above, all resource classes implement a top-level Resource interface, which defines the calculation and comparison methods that all resource classes need to support, and overloads the corresponding mathematical operators to enable resources to be Directly calculated and compared like numbers.  
 
 | Operator | Correspondence Method | Operator | Correspondence Method |
@@ -124,7 +124,7 @@ That is, to determine whether the remaining available resources are greater than
 2. Abstract the cluster into one or more tags, and maintain the environmental information corresponding to each cluster tag in the external resource management module to achieve dynamic docking.
 
 3. Abstract a general external resource management module. If you need to access new external resource types, you can convert different types of resource information into Resource entities in the RM as long as you implement a fixed interface to achieve unified management.  
-![06](/Images-zh/Architecture/rm-06.png)  
+![06](/Images/Architecture/rm-06.png)  
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other modules of RM obtain external resource information through the interface provided by ExternalResourceService.
 
