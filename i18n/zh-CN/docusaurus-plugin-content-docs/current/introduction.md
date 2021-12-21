@@ -25,7 +25,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 ## 支持的引擎类型
 | **引擎** | **引擎版本** | **Linkis 0.X 版本要求**| **Linkis 1.X 版本要求** | **说明** |
 |:---- |:---- |:---- |:---- |:---- |
-|Flink |1.11.0|\>=dev-0.12.0, PR #703 尚未合并|ongoing|	Flink EngineConn。支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序。|
+|Flink |1.12.2|\>=dev-0.12.0, PR #703 尚未合并|>=1.0.2|	Flink EngineConn。支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序。|
 |Impala|\>=3.2.0, CDH >=6.3.0"|\>=dev-0.12.0, PR #703 尚未合并|ongoing|Impala EngineConn. 支持Impala SQL 代码.|
 |Presto|\>= 0.180|\>=0.11.0|ongoing|Presto EngineConn. 支持Presto SQL 代码.|
 |ElasticSearch|\>=6.0|\>=0.11.0|ongoing|ElasticSearch EngineConn. 支持SQL 和DSL 代码.|
