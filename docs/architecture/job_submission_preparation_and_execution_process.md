@@ -15,7 +15,7 @@ Among them:
 
 - Entrance, as the entrance to the submission stage, provides task reception, scheduling and job information forwarding capabilities. It is the unified entrance for all computing tasks. It will forward computing tasks to Orchestrator for scheduling and execution.
 - Orchestrator, as the entrance to the preparation phase, mainly provides job analysis, orchestration and execution capabilities.
-- Linkis Manager: The management center of computing governance capabilities. Its main responsibilities are as follow:
+- Linkis Manager: The management center of computing governance capabilities. Its main responsibilities are as follows:
 
   1. ResourceManager：Not only has the resource management capabilities of Yarn and Linkis EngineConnManager, but also provides tag-based multi-level resource allocation and recovery capabilities, allowing ResourceManager to have full resource management capabilities across clusters and across computing resource types；
   2. AppManager:  Coordinate and manage all EngineConnManager and EngineConn, including the life cycle of EngineConn application, reuse, creation, switching, and destruction to AppManager for management;
@@ -78,7 +78,7 @@ The main process is as follows:
 - Parser: Complete the analysis of ASTJob. Split ASTJob into an AST tree composed of ASTJob and ASTStage.
 - Validator: Complete the inspection and information supplement of ASTJob and ASTStage, such as code inspection, necessary Label information supplement, etc.
 - Planner: Convert an AST tree into a Logical tree. The Logical tree at this time has been composed of LogicalTask, which contains all the execution logic of the entire computing task.
-- Optimizer: Convert a Logical tree to a Physica tree and optimize the Physical tree.
+- Optimizer: Convert a Logical tree to a Physical tree and optimize the Physical tree.
 
 In a physical tree, the majority of nodes are computing strategy logic. Only the middle ExecTask truly encapsulates the execution logic which will be further submitted to and executed at EngineConn. As shown below:
 
@@ -122,7 +122,7 @@ Let us go back to the Execution stage, where we focus on the execution logic of 
 
 1. As mentioned earlier, the first step in the preparation phase is to obtain a usable EngineConn from LinkisManager. After ExecTask gets this EngineConn, it will submit the user's computing task to EngineConn through an RPC request.
 2. After EngineConn receives the computing task, it will asynchronously submit it to the underlying computing storage engine through the thread pool, and then immediately return an execution ID.
-3. After ExecTask gets this execution ID, it can then use the this ID to asynchronously pull the execution status of the computing task (such as: status, progress, log, result set, etc.).
+3. After ExecTask gets this execution ID, it can then use the ID to asynchronously pull the execution status of the computing task (such as: status, progress, log, result set, etc.).
 4. At the same time, EngineConn will monitor the execution of the underlying computing storage engine in real time through multiple registered Listeners. If the computing storage engine does not support registering Listeners, EngineConn will start a daemon thread for the computing task and periodically pull the execution status from the computing storage engine.
 5. EngineConn will pull the execution status back to the microservice where Orchestrator is located in real time through RCP request.
 6. After the Receiver of the microservice receives the execution status, it will broadcast it through the ListenerBus, and the Orchestrator Execution will consume the event and dynamically update the execution status of the Physical tree.
