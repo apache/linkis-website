@@ -16,7 +16,7 @@ Please refer to the following link to find more ASF release guidelines:
 - [Apache Release Policy](http://www.apache.org/dev/release.html)
 - [Maven Release Info](http://www.apache.org/dev/publishing-maven-artifacts.html)
 
-Both apache's maven and SVN repositorys use GPG signatures to verify the legitimacy of material files
+Both apache's maven and SVN repositories use GPG signatures to verify the legitimacy of material files
 
 ## 1 Tool preparation
 (Required when this publisher is releasing for the first time)
@@ -672,7 +672,7 @@ Edit the version number and version description, and click `Publish release`
 
 ### 7.6 Update download page
 
-The linkis official website download address should point to the official apache address
+The Linkis official website download address should point to the official apache address
 
 After waiting and confirming that the new release version is synchronized to the Apache mirror, update the following page:
 

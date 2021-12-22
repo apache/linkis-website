@@ -80,7 +80,7 @@ gpg --import KEYS # Import KEYS to local
 
 ### 2.3 Check sha512 hash
 > After calculating the sha512 hash locally, verify that it is consistent with the dist. If you upload a binary package, you also need to check the sha512 hash of the binary package
-> Mac OS/Linux
+> macOS/Linux
 
 ```shell
 for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i; done
