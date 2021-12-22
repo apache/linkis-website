@@ -16,7 +16,7 @@ Please refer to the following link to find more ASF release guidelines:
 - [Apache Release Policy](http://www.apache.org/dev/release.html)
 - [Maven Release Info](http://www.apache.org/dev/publishing-maven-artifacts.html)
 
-Both apache's maven and SVN repositorys use GPG signatures to verify the legitimacy of material files
+Both apache's maven and SVN repositories use GPG signatures to verify the legitimacy of material files
 
 ## 1 Tool preparation
 (Required when this publisher is releasing for the first time)
