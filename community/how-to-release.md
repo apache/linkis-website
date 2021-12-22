@@ -351,6 +351,7 @@ Incubating projects need to successfully release multiple ASF versions before th
 [For more information, see](https://incubator.apache.org/guides/releasemanagement.html) https://incubator.apache.org/guides/releasemanagement.html
 
 </font>
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)Notice：All links to checksums, detached signatures and public keys must reference the main Apache web site and should use https:// (SSL). For example: https://downloads.apache.org/incubator/linkis/KEYS.
 
 
 #### 5.1 Non-ASF version Linkis community voting template
@@ -366,47 +367,47 @@ Hello Linkis Community,
 
     This is a call for review and vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
 
-Release notes:
-https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
-
-    The release candidates:
-    https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
-
-Git tag for the release:
-https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
-
-Keys to verify the Release Candidate:
-https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS
-
-GPG user ID:
-${YOUR.GPG.USER.ID}
-
-    Thanks to everyone who has contributed to this release.
-
-The vote will be open for at least 72 hours or until necessary number of votes are reached.
-
-Please vote accordingly:
-
-[] +1 approve
-[] +0 no opinion
-[] -1 disapprove with the reason
-
-Checklist for reference:
-
-[] Download links are valid.
-[] Checksums and PGP signatures are valid.
-[] Source code distributions have correct names matching the current release.
-[] LICENSE and NOTICE files are correct for each Linkis repo.
-[] All files have license headers if necessary.
-[] No compiled archives bundled in source archive.
-
-More detail checklist please refer:
-        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+    Release notes:
+        https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
     
+    The release candidates:
+        https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+    
+    Git tag for the release:
+        https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
+    
+    Keys to verify the Release Candidate:
+        https://downloads.apache.org/incubator/linkis/KEYS
+    
+    GPG user ID:
+    ${YOUR.GPG.USER.ID}
+    
+    Thanks to everyone who has contributed to this release.
+    
+    The vote will be open for at least 72 hours or until necessary number of votes are reached.
+    
+    Please vote accordingly:
+    
+    [] +1 approve
+    [] +0 no opinion
+    [] -1 disapprove with the reason
+    
+    Checklist for reference:
+    
+    [] Download links are valid.
+    [] Checksums and PGP signatures are valid.
+    [] Source code distributions have correct names matching the current release.
+    [] LICENSE and NOTICE files are correct for each Linkis repo.
+    [] All files have license headers if necessary.
+    [] No compiled archives bundled in source archive.
+    
+    More detail checklist please refer:
+        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+        
     Steps to validate the release, Please refer to:
         https://linkis.apache.org/community/how-to-verify
-
-Thanks,
+    
+    Thanks,
 ${Linkis Release Manager}
 ```
 
@@ -472,44 +473,44 @@ Hello Linkis Community,
 
     This is a call for vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
 
-Release notes:
-https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
-
+    Release notes:
+        https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
+    
     The release candidates:
-    https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
-
-    Maven artifacts are available in a staging repository at:
-    https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
-
-Git tag for the release:
-https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
-
-Keys to verify the Release Candidate:
-https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS
-
-GPG user ID:
-${YOUR.GPG.USER.ID}
-
-The vote will be open for at least 72 hours or until necessary number of votes are reached.
-
-Please vote accordingly:
-
-[] +1 approve
-[] +0 no opinion
-[] -1 disapprove with the reason
-
-Checklist for reference:
-
-[] Download links are valid.
-[] Checksums and PGP signatures are valid.
-[] Source code distributions have correct names matching the current release.
-[] LICENSE and NOTICE files are correct for each Linkis repo.
-[] All files have license headers if necessary.
-[] No compiled archives bundled in source archive.
-
-More detail checklist please refer:
-    https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
-
+        https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+    
+     Maven artifacts are available in a staging repository at:
+        https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
+    
+    Git tag for the release:
+        https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
+    
+    Keys to verify the Release Candidate:
+        https://downloads.apache.org/incubator/linkis/KEYS
+    
+    GPG user ID:
+    ${YOUR.GPG.USER.ID}
+    
+    The vote will be open for at least 72 hours or until necessary number of votes are reached.
+    
+    Please vote accordingly:
+    
+    [] +1 approve
+    [] +0 no opinion
+    [] -1 disapprove with the reason
+    
+    Checklist for reference:
+    
+    [] Download links are valid.
+    [] Checksums and PGP signatures are valid.
+    [] Source code distributions have correct names matching the current release.
+    [] LICENSE and NOTICE files are correct for each Linkis repo.
+    [] All files have license headers if necessary.
+    [] No compiled archives bundled in source archive.
+    
+    More detail checklist please refer:
+        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+    
 Thanks,
 ${Linkis Release Manager}
 ```
@@ -675,7 +676,7 @@ The linkis official website download address should point to the official apache
 
 After waiting and confirming that the new release version is synchronized to the Apache mirror, update the following page:
 
-https://linkis.apache.org/#/download
+https://linkis.apache.org/download/main/
 
 The download connection of the GPG signature file and the hash verification file should use this prefix: `https://downloads.apache.org/incubator/linkis/`
 
@@ -696,18 +697,18 @@ Hi all,
 
 Apache Linkis (Incubating) Team is glad to announce the new release of Apache Linkis (Incubating) ${release_version}.
 
-Apache Linkis (Incubating) is a dynamic cloud-native eventing infrastruture used to decouple the application and backend middleware layer, which supports a wide range of use cases that encompass complex multi-cloud, widely distributed topologies using diverse technology stacks.
+Apache Linkis (Incubating) builds a computation middleware layer to decouple the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), while enables cross engine context sharing, unified job& engine governance and orchestration.
 
-Download Links: https://linkis.apache.org/projects/linkis/download/
+Download Links: https://linkis.apache.org/download/main/
 
-Release Notes: https://linkis.apache.org/events/release-notes/v${release_version}/
+Release Notes: https://linkis.apache.org/download/release-${release_version}/
 
 Website: https://linkis.apache.org/
 
 Linkis Resources:
--Issue: https://github.com/apache/incubator-linkis/issues
--Mailing list: dev@linkis.apache.org
+- Issue: https://github.com/apache/incubator-linkis/issues
+- Mailing list: dev@linkis.apache.org
 
--Apache Linkis (Incubating) Team
+- Apache Linkis (Incubating) Team
 
 ```

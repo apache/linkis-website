@@ -3,7 +3,7 @@
 ## 下载链接
   使用以下链接，下载Linkis，最新版本为1.0.2. 
 
-## 1.0.2 release(非ASF版本)
+## 1.0.2 release(<font color='red'> 非ASF版本</font>)
 - 发布时间: 2021-09-02
 - [发版说明](release-1.0.2.md)
 - 源码: [linkis-1.0.2-src.tar.gz](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)

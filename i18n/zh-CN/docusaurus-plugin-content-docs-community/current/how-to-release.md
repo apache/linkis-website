@@ -2,6 +2,7 @@
 title: 如何发布版本
 sidebar_position: 3
 ---
+
 # Apache 发布指南
 >本文以发布1.0.3版本为示例
 
@@ -353,6 +354,7 @@ svn status
 
 </font>
 
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)注意事项：所有指向校验和、签名和公钥的链接都必须引用Apache主网站https://downloads.apache.org/并应使用https://(SSL)。例如：https://downloads.apache.org/incubator/linkis/KEYS
 
 #### 5.1 非ASF版本Linkis社区投票模板
 - Linkis社区投票，发送邮件至：`dev@linkis.apache.org`
@@ -376,7 +378,7 @@ Hello Linkis Community,
 	    https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
 
 	Keys to verify the Release Candidate:
-	    https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS
+	    https://downloads.apache.org/incubator/linkis/KEYS
 
 	GPG user ID:
 	${YOUR.GPG.USER.ID}
@@ -473,19 +475,19 @@ Hello Linkis Community,
     This is a call for vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
 
 	Release notes:
-	https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
+	    https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
 
     The release candidates:
     	https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
 
     Maven artifacts are available in a staging repository at:
-    https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
+        https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
 
 	Git tag for the release:
-	https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
+	    https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
 
 	Keys to verify the Release Candidate:
-	https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS
+	    https://downloads.apache.org/incubator/linkis/KEYS
 
 	GPG user ID:
 	${YOUR.GPG.USER.ID}
@@ -508,8 +510,9 @@ Hello Linkis Community,
 	[ ] No compiled archives bundled in source archive.
 
 	More detail checklist  please refer:
-    https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
-
+        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+    Steps to validate the release，Please refer to: 
+        https://linkis.apache.org/community/how-to-verify
 Thanks,
 ${Linkis Release Manager}
 ```
@@ -563,22 +566,22 @@ Hello Incubator Community,
     incubator release.
 
     Linkis community vote thread:
-    • [投票链接]
+        • [投票链接]
 
     Vote result thread:
-    • [投票结果链接]
+        • [投票结果链接]
 
     The release candidate:
-    • https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+        • https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
 
     Git tag for the release:
-    • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+        • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
 
     Release notes:
-    • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+        • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
 
     The artifacts signed with PGP key [填写你个人的KEY], corresponding to [填写你个人的邮箱], that can be found in keys file:
-    • https://downloads.apache.org/incubator/linkis/KEYS
+        • https://downloads.apache.org/incubator/linkis/KEYS
 
     The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -587,6 +590,12 @@ Hello Incubator Community,
     [ ] +1 approve
     [ ] +0 no opinion
     [ ] -1 disapprove with the reason
+
+    More detail checklist  please refer:
+        • https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
+
+    Steps to validate the release，Please refer to: 
+        • https://linkis.apache.org/community/how-to-verify
 
 Thanks,
 On behalf of Apache Linkis(Incubating) community
@@ -694,16 +703,15 @@ GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`h
 [ANNOUNCE] Apache Linkis (Incubating) ${release_version} available
 
 内容：
-
 Hi all,
 
 Apache Linkis (Incubating) Team is glad to announce the new release of Apache Linkis (Incubating) ${release_version}.
 
-Apache Linkis (Incubating) is a dynamic cloud-native eventing infrastruture used to decouple the application and backend middleware layer, which supports a wide range of use cases that encompass complex multi-cloud, widely distributed topologies using diverse technology stacks.
+Apache Linkis (Incubating) builds a computation middleware layer to decouple the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), while enables cross engine context sharing, unified job& engine governance and orchestration.
 
-Download Links: https://linkis.apache.org/projects/linkis/download/
+Download Links: https://linkis.apache.org/download/main/
 
-Release Notes: https://linkis.apache.org/events/release-notes/v${release_version}/
+Release Notes: https://linkis.apache.org/download/release-${release_version}/
 
 Website: https://linkis.apache.org/
 
@@ -712,4 +720,5 @@ Linkis Resources:
 - Mailing list: dev@linkis.apache.org
 
 - Apache Linkis (Incubating) Team
+
 ```
