@@ -671,7 +671,7 @@ Edit the version number and version description, and click `Publish release`
 
 ### 7.6 Update download page
 
-The linkis official website download address should point to the official apache address
+The Linkis official website download address should point to the official apache address
 
 After waiting and confirming that the new release version is synchronized to the Apache mirror, update the following page:
 
