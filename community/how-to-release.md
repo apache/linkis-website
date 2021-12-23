@@ -4,14 +4,9 @@ sidebar_position: 3
 ---
 
 # Apache Publishing Guide
->This article takes the release of version 1.0.3 as an example
+> This article takes the release of 1.0.3 Apache version as an example. If it is a non-Apache version, please refer to the [detailed information](https://incubator.apache.org/guides/releasemanagement.html) https://incubator.apache.org/guides/releasemanagement.html
 
-Understand the content and process of Apache's release
-
-Source Release is the focus of Apache’s attention and is also a required content for release; Binary Release is optional.
-
-Please refer to the following link to find more ASF release guidelines:
-
+Understand the content and process of Apache's release. Source Release is the focus of Apache’s attention and is also a required content for release; Binary Release is optional. Please refer to the following link to find more ASF release guidelines:
 - [Apache Release Guide](http://www.apache.org/dev/release-publishing)
 - [Apache Release Policy](http://www.apache.org/dev/release.html)
 - [Maven Release Info](http://www.apache.org/dev/publishing-maven-artifacts.html)
@@ -24,13 +19,14 @@ Mainly include the preparation of the signature tool GnuPG, Maven repository cer
 
 ### 1.1 Install GPG
 
-(Take the Window system as an example, if the git client has been installed, gpg may already exist, and there is no need to install it again)
+**(Take the Window system as an example, if the git client has been installed, gpg may already exist, and there is no need to install it again)**
 
 Download the binary installation package (GnuPG binary releases) at [GnuPG official website](https://www.gnupg.org/download/index.html). The latest version is [Gpg4win-3.1.16 2021-06-11](https://gpg4win.org/download.html) After downloading, please complete the installation operation first
 Note: The commands of GnuPG 1.x version and 2.x version are slightly different. The following description takes 2.2.28 as an example
 After installation, the gpg command is added to the system environment variables and is available
 ```sh
-$ gpg --version #Check the version, it should be 2.x
+#Check the version, it should be 2.x
+$ gpg --version 
 ```
 
 ### 1.2. Generate key with gpg
@@ -672,7 +668,7 @@ Edit the version number and version description, and click `Publish release`
 
 ### 7.6 Update download page
 
-The Linkis official website download address should point to the official apache address
+The linkis official website download address should point to the official apache address
 
 After waiting and confirming that the new release version is synchronized to the Apache mirror, update the following page:
 

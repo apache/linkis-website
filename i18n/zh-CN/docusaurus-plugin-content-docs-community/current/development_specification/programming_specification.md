@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 ## 1. 命名规约
 1. 【**强制**】不要用中文拼音和看不懂的缩写
-2. 基本的Java命名规范可以参考[naming-conventions](https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#naming-conventions)
+2. 基本的Java命名规范可以参考[命名规范](https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#naming-conventions)
 3. 【约束】在linkis中有scalastyle风格配置文件，如果不符合规范的需要按照scalastyle的风格进行命名
 4. 【**强制**】配置文件命令、启动命名、进程命名、配置的key等也需要遵守命名规范，规范如下：
 
