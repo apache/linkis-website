@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## 1. Fully compile Linkis
 
-**Compilation environment requirements**:Must be **JDK8** or above, both **Oracle/Sun** and **OpenJDK** are supported.
+**Environment requirements:** Version of JDK must be higher then **JDK8**,  **Oracle/Sun** and **OpenJDK** are both supported.
 
 After obtaining the project code from [github repository](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis, use maven to compile the project installation package.
 
@@ -14,9 +14,10 @@ After obtaining the project code from [github repository](https://github.com/apa
 - Method 1: Obtain the source code of the project from [github repository](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis.
 - Method 2: Download the source code package of the required version from the [linkis official download page](https://linkis.apache.org/download/main) https://linkis.apache.org/download/main.
 
-**Please note**: The official recommendation is to use Hadoop-2.7.2, Hive-1.2.1, Spark-2.4.3 and Scala-2.11.12 to compile Linkis.
+**Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.12.
 
-If you want to use other versions of Hadoop, Hive, Spark to compile Linkis, please refer to: [How to modify the version of Hadoop, Hive, Spark that Linkis depends on] (#4-How to modify the version of hadoophivespark that Linkis depends on)
+If you want to compile Linkis with another version of Hadoop, Hive, Spark, please refer to: [How to Modify Linkis dependency of Hadoop, Hive, Spark](#4 How to Modify Linkis dependency versionof Hadoop, Hive, Spark)
+
 
 ### step2 Compile for the first time (not the first time you can skip this step)
 
@@ -61,15 +62,15 @@ Enter the corresponding module to compile, for example, if you want to recompile
 ```
 
 ### step3 Obtain the installation package
-Obtain the installation package, there will be a compiled package in the ->target directory of the corresponding module:
+Get the installation package, there will be a compiled package in the ->target directory of the corresponding module:
    
 ```
-    ls incubator-linkis-x.x.x/linkis-computation-governance/linkis-entrance/target/linkis-entrance.x.x.x.jar
+    incubator-linkis-x.x.x/linkis-computation-governance/linkis-entrance/target/linkis-entrance.x.x.x.jar
 ```
 
 ## 3. Compile an engine
 
-Here is an example of compiling the Spark engine of Linkis:
+Here's an example of the Spark engine that builds Linkis:
 
 ### step1 Compile for the first time (skip this step for non-first time)
 **If you are using it locally for the first time, you must first execute the following command in the root directory of the Linkis source code package**:
@@ -86,7 +87,7 @@ Enter the directory where the Spark engine is located to compile and package, th
     mvn clean install
 ```
 ### step3 Obtain the installation package
-Obtain the installation package, there will be a compiled package in the ->target directory of the corresponding module:
+Get the installation package, there will be a compiled package in the ->target directory of the corresponding module:
    
 ```
    incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.jar
@@ -97,13 +98,13 @@ How to install Spark engine separately? Please refer to [Linkis Engine Plugin In
 ## 4. How to modify the Hadoop, Hive, and Spark versions that Linkis depends on
 
 Please note: Hadoop is a big data basic service, Linkis must rely on Hadoop for compilation;
-This is not true for computing storage engines such as Spark and Hive. If you do not want to use a certain engine, you do not need to set the engine version or compile the engine plug-in.
+If you don't want to use an engine, you don't need to set the version of the engine or compile the engine plug-in.
 
-Specifically, the way to modify the version of Hadoop is different from that of Spark, Hive and other computing engines. The following is a detailed introduction:
+Specifically, the version of Hadoop can be modified in a different way than Spark, Hive, and other computing engines, as described below:
 
 #### How to modify the Hadoop version that Linkis depends on?
 
-Enter the root directory of the Linkis source code package and manually modify the Hadoop version information of the pom.xml file as follows:
+Enter the source package root directory of Linkis, and manually modify the Hadoop version information of the pom.xml file, as follows:
 
 ```bash
     cd incubator-linkis-x.x.x
@@ -121,8 +122,7 @@ Enter the root directory of the Linkis source code package and manually modify t
 ```
 
 **Please note: If your hadoop version is hadoop3, you need to modify the pom file of linkis-hadoop-common**
-Because when the hadoop 2.8 is below, the hdfs related class is in the hadoop-hdfs module, but in hadoop 3.X the corresponding class is moved to the module hadoop-hdfs-client, you need to modify this file:
-
+Because under hadoop2.8, hdfs-related classes are in the hadoop-hdfs module, but in hadoop 3.X the corresponding classes are moved to the module hadoop-hdfs-client, you need to modify this file:
 pom:Linkis/linkis-commons/linkis-hadoop-common/pom.xml
 Modify the dependency hadoop-hdfs to hadoop-hdfs-client:
 ```
@@ -141,7 +141,7 @@ Modify the dependency hadoop-hdfs to hadoop-hdfs-client:
 
 #### How to modify the Spark and Hive versions that Linkis depends on?
 
-Here is an example of modifying the version of Spark. Enter the directory where the Spark engine is located, and manually modify the Spark version information in the pom.xml file, as follows:
+Here's an example of changing the version of Spark. Go to the directory where the Spark engine is located and manually modify the Spark version information of the pom.xml file as follows:
 
 ```bash
     cd incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
