@@ -1,6 +1,6 @@
 ---
 title: 接口规范
-sidebar_position: 1
+sidebar_position: 4
 ---
 
 > Contributor为Linkis贡献新的Restful接口时，需遵循如下接口规范进行接口开发。
