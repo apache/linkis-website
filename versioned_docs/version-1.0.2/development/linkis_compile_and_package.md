@@ -38,7 +38,7 @@ The compiled complete installation package is in the assembly-combined-package->
 
 ```bash
     #Detailed path is as follows
-    incubator-linkis-x.x.x/assembly-combined-package/target/wedatasphere-linkis-x.x.x-incubating-bin.tar.gz
+     incubator-linkis-x.x.x/assembly-combined-package/target/wedatasphere-linkis-x.x.x-dist.tar.gz
 ```
 
 ## 2. Compile a single module
