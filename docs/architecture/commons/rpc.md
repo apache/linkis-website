@@ -15,7 +15,7 @@ The functions of the main modules are introduced as follows:
 * Eureka: service registration center, user management service, service discovery.
 * Sender: Service request interface, the sender uses Sender to request service from the receiver.
 * Receiver: The service request receives the corresponding interface, and the receiver responds to the service through this interface.
-* Interceptor: Sender sender will pass the user's request to the interceptor. The interceptor intercepts the request and performs additional functional processing on the request. The broadcast interceptor is used to broadcast operations on the request, the retry interceptor is used to retry the processing of failed requests, and the cache interceptor is used to read and cache simple and unchanged requests. , And the default interceptor that provides the default implementation.
+* Interceptor: Sender will pass the user's request to the interceptor. The interceptor intercepts the request and performs additional functional processing on the request. The broadcast interceptor is used to broadcast operations on the request, the retry interceptor is used to retry the processing of failed requests, and the cache interceptor is used to read and cache simple and unchanged requests. , And the default interceptor that provides the default implementation.
 * Decoder, Encoder: used for request encoding and decoding.
 * Feign: is a lightweight framework for http request calls, a declarative WebService client program, used for Linkis-RPC bottom communication.
 * Listener: monitor module, mainly used to monitor broadcast requests.
