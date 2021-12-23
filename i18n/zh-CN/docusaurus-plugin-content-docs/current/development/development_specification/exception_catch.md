@@ -13,7 +13,8 @@ LinkisException：异常继承于Exception，存在三个静态属性，是服�
     static int hostPort;//Microservice port
 ```
 可继承异常：
-|异常类|	所在服务|    错误描述|
+
+|异常类 | 所在服务|    错误描述|
 |:----  |:---   |:---   |
 |LinkisException|	common|	顶级父类，继承自Exception,不允许直接继承|
 |LinkisRuntimeException|	common|	顶级父类，继承自RuntimeException,不允许直接继承|
