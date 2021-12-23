@@ -1,6 +1,6 @@
 ---
 title: Path Usage
-sidebar_position: 1
+sidebar_position: 6
 ---
 
 Please note: Linkis provides a unified Storage module, so you must follow the Linkis path specification when using the path or configuring the path in the configuration file.

@@ -1,6 +1,6 @@
 ---
 title: API
-sidebar_position: 1
+sidebar_position: 4
 ---
 
  > When Contributor contributes new RESTful interfaces to Linkis, it is required to follow the following interface specifications for interface development.
