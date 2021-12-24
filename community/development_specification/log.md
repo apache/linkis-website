@@ -1,5 +1,5 @@
 ---
-title: Log
+title: Log Specification
 sidebar_position: 2
 ---
 

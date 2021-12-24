@@ -1,5 +1,5 @@
 ---
-title: API
+title: API Specification
 sidebar_position: 4
 ---
 
