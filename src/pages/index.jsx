@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { throttle } from 'lodash-es';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Home from './home'
@@ -28,11 +29,10 @@ export default function() {
         classList.remove('index-nav');
       }
 
-      // dealing scoll nav style of Index Page
-      window.onscroll = (e) => {
+     // dealing scoll nav style of Index Page
+      window.onscroll = throttle((e) => {
         try {
           if (isIndexPage()) {
-            console.log(e);
             if (e.target.scrollingElement.scrollTop > 0) {
               classList.remove('index-nav');
             } else {
@@ -42,7 +42,7 @@ export default function() {
         } catch (err) {
           console.warn(err);
         }
-      }
+      }, 150);
     }
   }, [isBrowser, pathname])
 
