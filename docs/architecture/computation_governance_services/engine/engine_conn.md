@@ -6,7 +6,7 @@ sidebar_position: 3
 EngineConn architecture design
 ==================
 
-EngineConn: Engine connector, a module that provides functions such as unified configuration management, context service, physical library, data source management, micro service management, and historical task query for other micro service modules.
+EngineConn: Engine connector, a module that provides functions such as unified configuration management, context service, physical library, data source management, microservice management, and historical task query for other microservice modules.
 
 EngineConn architecture diagram
 
@@ -29,7 +29,7 @@ The ability to provide interactive computing tasks.
 linkis-engineconn-common engine connector common module
 --------------------------------------------
 
-Define the most basic entity classes and interfaces in the engine connector. EngineConn is used to create a connection session Session for the underlying computing storage engine, which contains the session information between the engine and the specific cluster, and is the client that communicates with the specific engine.
+Define the most basic entity classes and interfaces in the engine connector. EngineConn is used to create a connection session for the underlying computing storage engine, which contains the session information between the engine and the specific cluster, and is the client that communicates with the specific engine.
 
 | Core Service           | Core function                                                             |
 |-----------------------|----------------------------------------------------------------------|
