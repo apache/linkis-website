@@ -10,15 +10,38 @@ export default function() {
 
   const pathname = isBrowser && location.pathname
 
+  const isIndexPage = () => {
+    if (pathname === '/' || pathname === '/zh-CN/') {
+      return true;
+    }
+    return false;
+  };
+
   useEffect(() => {
     if (isBrowser) {
       const nav = document.getElementsByTagName('nav')[0];
       const classList = nav &&  nav.classList;
       if(!classList) return;
-      if (pathname === '/' || pathname === '/zh-CN/') {
+      if (isIndexPage()) {
         classList.add('index-nav');
       } else {
         classList.remove('index-nav');
+      }
+
+      // dealing scoll nav style of Index Page
+      window.onscroll = (e) => {
+        try {
+          if (isIndexPage()) {
+            console.log(e);
+            if (e.target.scrollingElement.scrollTop > 0) {
+              classList.remove('index-nav');
+            } else {
+              classList.add('index-nav');
+            }
+          }
+        } catch (err) {
+          console.warn(err);
+        }
       }
     }
   }, [isBrowser, pathname])

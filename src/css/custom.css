@@ -42,11 +42,6 @@ html {
   background: rgb(255 255 255 / 40%);
 }
 
-.navbar.index-nav + .main-wrapper {
-  position: relative;
-  top: -60px;
-}
-
 aside {
   font-family: Avenir-Heavy;
 }

@@ -82,7 +82,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 //        backgroundColor: "#BBDFFF",
 //      },
       navbar: {
-       title: 'Apache EventMesh (Incubating)',
         title: 'Apache Linkis(Incubating)',
         logo: {
           alt: 'Apache Linkis Logo',
