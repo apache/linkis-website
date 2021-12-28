@@ -24,19 +24,19 @@ Apache为每一个项目都配置了一系列的邮件列表，邮件列表作�
 > linkis的所有邮件存档可以在[https://lists.apache.org/list.html?dev@linkis.apache.org](https://lists.apache.org/list.html?dev@linkis.apache.org)查询到
 
 具体步骤如下：
- 1. 1.发送一封不包含任何内容或主题的邮件到: `dev-subscribe@linkis.apache.org`
- 2. 2.等待直到收到一封主题为 `confirm subscribe to dev@linkis.apache.org` 的邮件(如果长时间未能收到，请确认该邮件是否被你的邮箱拦截，确定没有被拦截且长时间会收到回复邮件的话，返回第1步）
- 3. 3.直接回复该邮件，不用修改主题和添加邮件内容。
- 4. 4.等待直到收到一封主题为 `WELCOME to dev@linkis.apache.org` 的邮件。
- 5. 5.收到(4)的邮件后，就说明订阅邮件成功，​若想发起讨论，直接往`dev@linkis.apache.org`发送邮件即可，所有订阅了邮件列表的人都会收到邮件。
+1. 发送一封不包含任何内容或主题的邮件到: `dev-subscribe@linkis.apache.org`
+2. 等待直到收到一封主题为 `confirm subscribe to dev@linkis.apache.org` 的邮件(如果长时间未能收到，请确认该邮件是否被你的邮箱拦截，确定没有被拦截且长时间会收到回复邮件的话，返回第1步）
+3. 直接回复该邮件，不用修改主题和添加邮件内容。
+4. 等待直到收到一封主题为 `WELCOME to dev@linkis.apache.org` 的邮件。
+5. 收到(4)的邮件后，就说明订阅邮件成功，​若想发起讨论，直接往`dev@linkis.apache.org`发送邮件即可，所有订阅了邮件列表的人都会收到邮件。
 
 ## 2. 退订邮件列表
 退订邮件列表的步骤与订阅邮件列表类似，具体步骤如下：
-1. 1.发送一封不包含任何内容或主题的邮件到: `dev-unsubscribe@linkis.apache.org`
-2. 2.等待直到收到一封主题为 `confirm unsubscribe from dev@linkis.apache.org` 的邮件
-3. 3.直接回复该邮件，不用修改主题和添加邮件内容
-4. 4.等待直到收到一封主题为 `GOODBYE from dev@linkis.apache.org`的邮件
-5. 5.退订成功
+1. 发送一封不包含任何内容或主题的邮件到: `dev-unsubscribe@linkis.apache.org`
+2. 等待直到收到一封主题为 `confirm unsubscribe from dev@linkis.apache.org` 的邮件
+3. 直接回复该邮件，不用修改主题和添加邮件内容
+4. 等待直到收到一封主题为 `GOODBYE from dev@linkis.apache.org`的邮件
+5. 退订成功
 
 
 ## 3. Issues相关
