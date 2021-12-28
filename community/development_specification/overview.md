@@ -11,5 +11,6 @@ In order to standardize Linkis's community development environment, improve the 
 - [Concurrency Specification](concurrent.md)
 - [Path Specification](path_usage.md)
 - [Test Specification](unit_test.md)
+- [version and new feature specification](version_feature_specifications.md)
 
 **Note**: The development specifications of the initial version of Linkis1.0 are relatively brief, and will continue to be supplemented and improved with the iteration of Linkis. Contributors are welcome to provide their own opinions and comments.
