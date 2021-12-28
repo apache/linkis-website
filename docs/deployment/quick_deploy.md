@@ -7,9 +7,9 @@ sidebar_position: 1
 
 If you are new to Linkis, you can ignore this chapter, however, if you are already a Linkis user,  we recommend you reading the following article before installing or upgrading: [Brief introduction of the difference between Linkis1.0 and Linkis0.X](architecture/difference_between_1.0_and_0.x.md).
 
-Please note: Apart from the four EngineConnPlugins included in the Linkis1.0 installation package by default: Python/Shell/Hive/Spark. You can manually install other types of engines such as JDBC depending on your own needs. For details, please refer to EngineConnPlugin installation documents.
+Please note: Apart from the four EngineConnPlugins included in the Linkis 1.0 installation package by default: Python/Shell/Hive/Spark. You can manually install other types of engines such as JDBC depending on your own needs. For details, please refer to EngineConnPlugin installation documents.
 
-Engines that Linkis1.0 has adapted by default are listed below:
+Engines that Linkis 1.0 has adapted by default are listed below:
 
 | Engine Type   | Adaptation Situation   | Included in official installation package |
 | ------------- | ---------------------- | ----------------------------------------- |
@@ -37,17 +37,17 @@ The following is the dependency information for each engine.
 | Hive        | Hadoop and Hive Environment |                                                              |
 | Spark       | Hadoop/Hive/Spark           |                                                              |
                                                          
-**Requirement: At least 3G memory is required to install Linkis. **
+**Requirement: At least 3G memory is required to install Linkis.**
                                                          
-The default JVM heap memory of each microservice is 512M, and the heap memory of each microservice can be adjusted uniformly by modifying `SERVER_HEAP_SIZE`.If your computer resources are small, we suggest to modify this parameter to 128M. as follows:
+The default JVM heap memory of each microservice is 512M, and the heap memory of each microservice can be adjusted uniformly by modifying `SERVER_HEAP_SIZE`. If your computer resource is limited, we suggest modifying this parameter to 128M. as follows:
 
 ```bash
-    vim ${LINKIS_HOME}/config/linkis-env.sh
+vim ${LINKIS_HOME}/config/linkis-env.sh
 ```
 
 ```bash
-    # java application default jvm memory.
-    export SERVER_HEAP_SIZE="128M"
+# java application default jvm memory.
+export SERVER_HEAP_SIZE="128M"
 ```
 
 ----
@@ -56,62 +56,62 @@ The default JVM heap memory of each microservice is 512M, and the heap memory of
 
 ### a. Fundamental software installation
 
-The following softwares must be installed:
+The following pieces of software must be installed:
 
 - MySQL (5.5+), How to install MySQL
 - JDK (1.8.0_141 or higher) How to install JDK
 
 ### b. Create user
 
-For example: **The deploy user is hadoop**.
+For example: **The deployment user is hadoop**.
 
-1. Create a deploy user on the machine for installation.
+1. Create a deployment user on the machine for installation.
 
 ```bash
-    sudo useradd hadoop  
+sudo useradd hadoop  
 ```
 
-2. Since the services of Linkis use  sudo -u {linux-user} to switch engines to execute jobs, the deploy user should have sudo permission and do not need to enter the password.
+2. Since the services of Linkis use  sudo -u {linux-user} to switch engines to execute jobs, the deployment user should have sudo permission and do not need to enter the password.
 
 ```bash
-    vi /etc/sudoers
+vi /etc/sudoers
 ```
 
 ```text
-    hadoop  ALL=(ALL)       NOPASSWD: NOPASSWD: ALL
+hadoop  ALL=(ALL)       NOPASSWD: NOPASSWD: ALL
 ```
 
 3. **Set the following global environment variables on each installation node so that Linkis can use Hadoop, Hive and Spark.**
 
-   Modify the .bash_rc of the deploy user, the command is as follows:
+   Modify the .bash_rc of the deployment user, the command is as follows:
 
 ```bash     
-    vim /home/hadoop/.bash_rc ##Take the deploy user hadoop as an example.
+vim /home/hadoop/.bash_rc ##Take the deployment user hadoop as an example.
 ```
 
 ​		The following is an example of setting environment variables:
 
 ```bash
-    #JDK
-    export JAVA_HOME=/nemo/jdk1.8.0_141
+ #JDK
+ export JAVA_HOME=/nemo/jdk1.8.0_141
 
-    ##If you do not use Hive, Spark or other engines and do not rely on Hadoop as 			well,then there is no need to modify the following environment variables.
-    #HADOOP  
-    export HADOOP_HOME=/appcom/Install/hadoop
-    export HADOOP_CONF_DIR=/appcom/config/hadoop-config
-    #Hive
-    export HIVE_HOME=/appcom/Install/hive
-    export HIVE_CONF_DIR=/appcom/config/hive-config
-    #Spark
-    export SPARK_HOME=/appcom/Install/spark
-    export SPARK_CONF_DIR=/appcom/config/spark-config/spark-submit
-    export PYSPARK_ALLOW_INSECURE_GATEWAY=1  # Parameters must be added to Pyspark
+ ##If you do not use Hive, Spark or other engines and do not rely on Hadoop as 			well,then there is no need to modify the following environment variables.
+ #HADOOP  
+ export HADOOP_HOME=/appcom/Install/hadoop
+ export HADOOP_CONF_DIR=/appcom/config/hadoop-config
+ #Hive
+ export HIVE_HOME=/appcom/Install/hive
+ export HIVE_CONF_DIR=/appcom/config/hive-config
+ #Spark
+ export SPARK_HOME=/appcom/Install/spark
+ export SPARK_CONF_DIR=/appcom/config/spark-config/spark-submit
+ export PYSPARK_ALLOW_INSECURE_GATEWAY=1  # Parameters must be added to Pyspark
 ```
 
 4. **If you want to equip your Pyspark and Python with drawing functions, you need to install the drawing module on each installation node**. The command is as follows:
 
 ```bash
-    python -m pip install matplotlib
+python -m pip install matplotlib
 ```
 
 ### c. Preparing installation package
@@ -121,85 +121,83 @@ Download the latest installation package from the Linkis release. ([Click here t
 Decompress the installation package to the installation directory and modify the configuration of the decompressed file.
 
 ```bash
-     #version >=1.0.3
-     tar -xvf apache-linkis-x.x.x-incubating-bin.tar.gz
+#version >=1.0.3
+tar -xvf apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
 
 ### d. Basic configuration modification(Do not rely on HDFS)
 
 ```bash
-    vi config/linkis-env.sh
+vi config/linkis-env.sh
 ```
 
 ```properties
+ #SSH_PORT=22        #Specify SSH port. No need to configuer if the stand-alone version is installed
+ deployUser=hadoop      #Specify deploy user
+ LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # Specify installation directory.
+ WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # Specify user root directory. Generally used to store user's script and log files, it's user's workspace. 
+ RESULT_SET_ROOT_PATH=file:///tmp/linkis   # The result set file path, used to store the result set files of the Job.
+ ENGINECONN_ROOT_PATH=/appcom/tmp #Store the installation path of ECP. A local directory where deploy user has write permission.
+ ENTRANCE_CONFIG_LOG_PATH=file:///tmp/linkis/  #Entrance's log path
 
-    #SSH_PORT=22        #Specify SSH port. No need to configuer if the stand-alone version is installed
-    deployUser=hadoop      #Specify deploy user
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # Specify installation directory.
-    WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # Specify user root directory. Generally used to store user's script and log files, it's user's workspace. 
-    RESULT_SET_ROOT_PATH=file:///tmp/linkis   # The result set file path, used to store the result set files of the Job.
-	ENGINECONN_ROOT_PATH=/appcom/tmp #Store the installation path of ECP. A local directory where deploy user has write permission.
-    ENTRANCE_CONFIG_LOG_PATH=file:///tmp/linkis/  #Entrance's log path
-
-    ## LDAP configuration. Linkis only supports deploy user login by default, you need to configure the following parameters to support multi-user login.
-    #LDAP_URL=ldap://localhost:1389/ 
-    #LDAP_BASEDN=xxx
+ ## LDAP configuration. Linkis only supports deploy user login by default, you need to configure the following parameters to support multi-user login.
+ #LDAP_URL=ldap://localhost:1389/ 
+ #LDAP_BASEDN=xxx
 ```
 
 ### e. Basic configuration modification(Rely on HDFS/Hive/Spark)
 
 ```bash
-     vi config/linkis-env.sh
+vi config/linkis-env.sh
 ```
 
 ```properties
-    SSH_PORT=22       #Specify SSH port. No need to configuer if the stand-alone version is installed
-    deployUser=hadoop      #Specify deploy user
-    WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop     #Specify user root directory. Generally used to store user's script and log files, it's user's workspace.
-    RESULT_SET_ROOT_PATH=hdfs:///tmp/linkis   # The result set file path, used to store the result set files of the Job.
-	ENGINECONN_ROOT_PATH=/appcom/tmp #Store the installation path of ECP. A local directory where deploy user has write permission.
-    ENTRANCE_CONFIG_LOG_PATH=hdfs:///tmp/linkis/  #Entrance's log path
+ SSH_PORT=22       #Specify SSH port. No need to configuer if the stand-alone version is installed
+ deployUser=hadoop      #Specify deploy user
+ WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop     #Specify user root directory. Generally used to store user's script and log files, it's user's workspace.
+ RESULT_SET_ROOT_PATH=hdfs:///tmp/linkis   # The result set file path, used to store the result set files of the Job.
+ ENGINECONN_ROOT_PATH=/appcom/tmp #Store the installation path of ECP. A local directory where deploy user has write permission.
+ ENTRANCE_CONFIG_LOG_PATH=hdfs:///tmp/linkis/  #Entrance's log path
 
-    #1.0 supports multi-Yarn clusters, therefore, YARN_RESTFUL_URL must be configured
- 	YARN_RESTFUL_URL=http://127.0.0.1:8088  #URL of Yarn's ResourceManager
+ #1.0 supports multi-Yarn clusters, therefore, YARN_RESTFUL_URL must be configured
+ YARN_RESTFUL_URL=http://127.0.0.1:8088  #URL of Yarn's ResourceManager
 
-    # If you want to use it with Scriptis, for CDH version of hive, you need to set the following parameters.(For the community version of Hive, you can leave out the following configuration.)
-    HIVE_META_URL=jdbc://...   #URL of Hive metadata database
-    HIVE_META_USER=   # username of the Hive metadata database 
-    HIVE_META_PASSWORD=    # password of the Hive metadata database
-    
-    # set the conf directory of hadoop/hive/spark
-    HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop's conf directory
-    HIVE_CONF_DIR=/appcom/config/hive-config   #hive's conf directory
-    SPARK_CONF_DIR=/appcom/config/spark-config #spark's conf directory
+ # If you want to use it with Scriptis, for CDH version of hive, you need to set the following parameters.(For the community version of Hive, you can leave out the following configuration.)
+ HIVE_META_URL=jdbc://...   #URL of Hive metadata database
+ HIVE_META_USER=   # username of the Hive metadata database 
+ HIVE_META_PASSWORD=    # password of the Hive metadata database
+ 
+ # set the conf directory of hadoop/hive/spark
+ HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop's conf directory
+ HIVE_CONF_DIR=/appcom/config/hive-config   #hive's conf directory
+ SPARK_CONF_DIR=/appcom/config/spark-config #spark's conf directory
 
-    ## LDAP configuration. Linkis only supports deploy user login by default, you need to configure the following parameters to support multi-user login.
-    #LDAP_URL=ldap://localhost:1389/ 
-    #LDAP_BASEDN=dc=webank,dc=com
-    
-    ##If your spark version is not 2.4.3, you need to modify the following parameter：
-    #SPARK_VERSION=3.1.1
+ ## LDAP configuration. Linkis only supports deploy user login by default, you need to configure the following parameters to support multi-user login.
+ #LDAP_URL=ldap://localhost:1389/ 
+ #LDAP_BASEDN=dc=webank,dc=com
+ 
+ ##If your spark version is not 2.4.3, you need to modify the following parameter：
+ #SPARK_VERSION=3.1.1
 
-    ##：If your hive version is not 1.2.1, you need to modify the following parameter：
-    #HIVE_VERSION=2.3.3
+ ##：If your hive version is not 1.2.1, you need to modify the following parameter：
+ #HIVE_VERSION=2.3.3
 ```
 
 ### f. Modify the database configuration
 
 ```bash   
-    vi config/db.sh 
+vi config/db.sh 
 ```
 
 ```properties    
-
-    # set the connection information of the database
-    # including ip address, database's name, username and port
-    # Mainly used to store user's customized variables, configuration parameters, UDFs, and samll functions, and to provide underlying storage of the JobHistory.
-    MYSQL_HOST=
-    MYSQL_PORT=
-    MYSQL_DB=
-    MYSQL_USER=
-    MYSQL_PASSWORD=
+# set the connection information of the database
+# including ip address, database's name, username and port
+# Mainly used to store user's customized variables, configuration parameters, UDFs, and samll functions, and to provide underlying storage of the JobHistory.
+MYSQL_HOST=
+MYSQL_PORT=
+MYSQL_DB=
+MYSQL_USER=
+MYSQL_PASSWORD=
 ```
 
 ## 3. Installation and Startup
@@ -207,7 +205,7 @@ Decompress the installation package to the installation directory and modify the
 ### 1. Execute the installation script:
 
 ```bash
-    sh bin/install.sh
+sh bin/install.sh
 ```
 
 ### 2. Installation steps
@@ -233,7 +231,7 @@ If there is an error message, check the specific reason for that error or refer 
 Run the following commands on the installation directory to start all services.
 
 ```bash  
-  sh sbin/linkis-start-all.sh
+sh sbin/linkis-start-all.sh
 ```
 
 (2). Check if start successfully 
@@ -244,7 +242,7 @@ Open http://${EUREKA_INSTALL_IP}:${EUREKA_PORT} on the browser and check if serv
 
 If you have not specified EUREKA_INSTALL_IP and EUREKA_INSTALL_IP in config.sh, then the HTTP address is http://127.0.0.1:20303
 
-As shown in the figure below, if all of the following micro-services are registered on theEureka, it means that they've started successfully and are able to work.
+As shown in the figure below, if all the following micro-services are registered in the Eureka, it means that they've started successfully and been able to work.
 
 ![Linkis1.0_Eureka](/Images/deployment/Linkis1.0_combined_eureka.png)
 

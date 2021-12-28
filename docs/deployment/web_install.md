@@ -3,11 +3,11 @@ title: Linkis Console Deployment
 sidebar_position: 6
 ---
 
-Linkis 1.0 provides a Linkis Console, which provides functions such as displaying Linis's global history, modifying user parameters, managing ECM and microservices, etc. Before deploying the front-end management console, you need to deploy the Linkis back-end. Linkis deployment manual See: [Linkis Deployment Manual](deployment/quick_deploy.md)
+Linkis 1.0 provides a Linkis Console, which provides functions such as displaying Linkis' global history, modifying user parameters, managing ECM and microservices, etc. Before deploying the front-end management console, you need to deploy the Linkis back-end. Linkis deployment manual See: [Linkis Deployment Manual](deployment/quick_deploy.md)
 
 ## 1. Preparation
 
-1. Download the web installation package from the release page of linkis ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)), apache-linkis-xxx-incubating-web-bin. tar.gz
+1. Download the web installation package from the release page of Linkis ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)), apache-linkis-xxx-incubating-web-bin. tar.gz
 Manually decompress: tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz, the decompressed directory is:
 ```
 config.sh
@@ -21,7 +21,7 @@ install.sh
 
 ### 2.1 Automated deployment
 &nbsp;&nbsp;&nbsp;&nbsp;Enter the unzipped front-end directory, and edit ```vi config.sh ``` in the directory
-Change the front-end port and back-end interface address, the back-end interface address is the gateway address of linkis
+Change the front-end port and back-end interface address, the back-end interface address is the gateway address of Linkis.
 
 ```$xslt
 #Configuring front-end ports
