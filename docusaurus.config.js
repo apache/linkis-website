@@ -76,13 +76,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           defaultMode: 'light',
           disableSwitch: true
       },
-//      announcementBar: {
-//        id: 'announcementBar-2', // Increment on change
-//        content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-linkis">GitHub</a>`,
-//        backgroundColor: "#BBDFFF",
-//      },
+     announcementBar: {
+       id: 'announcementBar-2', // Increment on change
+       content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-linkis">GitHub</a>`,
+       backgroundColor: "#BBDFFF",
+     },
       navbar: {
-       title: 'Apache EventMesh (Incubating)',
         title: 'Apache Linkis(Incubating)',
         logo: {
           alt: 'Apache Linkis Logo',
