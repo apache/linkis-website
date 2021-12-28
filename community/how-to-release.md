@@ -227,7 +227,7 @@ Pull the new branch from the branch to be released as the release branch. If you
 :::
 
 ```
-#If the currently developed source code branch is dev-1.0.3, the version 1.0.3-RC needs to be released
+#If the currently developed source code branch is dev-1.0.3, the version 1.0.3 needs to be released
 git clone --branch dev-1.0.3 git@github.com:yougithub/incubator-linkis.git
 cd incubator-linkis
 git pull
@@ -281,19 +281,54 @@ After step 2.3 is executed, the binary file has been generated, located in assem
 cp assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-linkis
 ```
 
-### 2.6 Sign source package/binary package/sha512
+### 2.6 Package front-end management console
+:::caution Note
+If you do not publish the front-end project, you can skip this step
+:::
+
+#### 2.6.1 Install Node.js
+Download Node.js to the local and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (It is recommended to use the latest stable version)
+**This step only needs to be performed the first time you use it. **
+
+#### 2.6.2 Install dependencies
+Execute the following commands in the terminal command line:
+```
+#Enter the project WEB root directory
+cd incubator-linkis/web
+#Required dependencies for installation project
+npm install
+```
+**This step only needs to be performed the first time you use it. **
+
+#### 2.6.3 Package console project
+Execute the following instructions on the terminal command line to package the project and generate a compressed deployment installation package.
+Check web/package.json, web/.env files, and check whether the version number of the front-end management console is correct.
+```
+npm run build
+```
+After the above command is successfully executed, the front-end management console installation package `apache-linkis-${version}-incubating-web-bin.tar.gz` will be generated
+
+#### 2.6.4 Copy console installation package
+
+After step 2.6.3 is executed, the front-end management console installation package has been generated, located at web/apache-linkis-1.0.3-incubating-web-bin.tar.gz
+```shell
+cp web/apache-linkis-1.0.3-incubating-web-bin.tar.gz dist/apache-linkis
+```
+
+### 2.7 Sign the source package/binary package/sha512
 ```shell
 cd dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i> $i.sha512; done # Calculate SHA512
 for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i; done # Calculate signature
 ```
 
-### 2.7 Check whether the generated signature/sha512 is correct
-For example, verify that the signature is correct as follows:
+### 2.8 Check whether the generated signature/sha512 is correct
+Verify that the signature is correct as follows:
 ```shell
 cd dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
 ```
+The detailed verification process can be found in [Verification Candidate Version](how-to-verify.md)
 
 
 
@@ -313,7 +348,9 @@ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis dist/linkis_svn_d
 
 ### 3.2 Add the content to be published to the SVN directory
 
-Create a directory of version numbers.
+Create a version number directory and name it in the way of `${release_version}-${RC_version}`, RC_version starts from 1, that is, the candidate version starts from RC1. During the release process, there is a problem that causes the vote to be rejected, and it needs to be corrected and iterated. RC version, RC version number should be +1.
+For example: 1.0.3-RC1 version is voted, if the vote is passed without any problems, the RC1 version material will be released as the final version material.
+If there is a problem (when voting in the linkis/incubator community, voters will strictly check various release requirements and compliance issues) and need to be corrected. After the correction, the vote will be re-initiated. The candidate version for the next vote is 1.0.3- RC2.
 
 ```shell
 mkdir -p dist/linkis_svn_dev/1.0.3-RC1
@@ -637,38 +674,52 @@ Step 2.4-3.3 execute the command, which can be combined in the release.sh script
 
 # tar source code
 release_version=1.0.3
+#The RC version carried out this time Format RCX
 rc_version=RC1
-git_branch=1.0.3-RC
+#Corresponding git warehouse branch
+git_branch=release-1.0.3-rc1
 
 workDir=$(cd "$(dirname "$0")"; pwd)
 cd ${workDir}; echo "enter work dir:$(pwd)"
 
-rm -rf ../dist
+rm -rf dist
 
-mkdir -p ../dist/apache-linkis
-cd ../
+mkdir -p dist/apache-linkis
 
+#step1 Packaging source files
 git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz" $git_branch
 echo "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz' $git_branch"
-#copy source bin file
+
+#step2 Copy the binary package
 cp assembly-combined-package/target/apache-linkis-$release_version-incubating-bin.tar.gz dist/apache-linkis
 
+#step3 Package the web (if you need to publish the front end)
+
+cd web
+#Installation dependencies
+npm install
+npm run build
+cp apache-linkis-*-incubating-web-bin.tar.gz ../dist/apache-linkis
+
+#step4 Signature
+
 ### Sign the source package/binary package/sha512
-cd dist/apache-linkis
+cd ../dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i> $i.sha512; done # Calculate SHA512
 for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i; done # Calculate signature
-
 
 ### Check whether the generated signature/sha512 is correct
 for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
 
-###Upload to svn
+
+#step5 Upload to svn
+
 cd ../
 rm -rf linkis-svn-dev
 svn co https://dist.apache.org/repos/dist/dev/incubator/linkis linkis-svn-dev
 
 
-mkdir linkis-svn-dev/${release_version}-${rc_version}
+mkdir -p linkis-svn-dev/${release_version}-${rc_version}
 cp apache-linkis/*tar.gz* linkis-svn-dev/${release_version}-${rc_version}
 cd linkis-svn-dev
 
