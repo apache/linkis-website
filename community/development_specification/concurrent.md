@@ -1,5 +1,5 @@
 ---
-title: Concurrent
+title: Concurrent Specification
 sidebar_position: 5
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Exception Catch
+title: Exception Catch Specification
 sidebar_position: 3
 ---
 

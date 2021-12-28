@@ -5,7 +5,7 @@ sidebar_position: 0
 为了规范 Linkis 的社区开发环境，提高 Linkis 后续版本开发迭代的产出质量，规范 Linkis 的整个开发设计流程，强烈建议各位 Contributor 遵守以下开发规范：
 
 - [编程规范](programming_specification.md)
-- [日志约束规范](log.md)
+- [日志规范](log.md)
 - [异常规范](exception_catch.md)
 - [接口规范](api.md)
 - [并发规范](concurrent.md)

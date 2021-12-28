@@ -230,7 +230,7 @@ svn ci -m "add gpg key for YOUR_NAME"
 
 
 ```
-#如当前开发的源码分支为dev-1.0.3，需要发布1.0.3-RC的版本
+#如当前开发的源码分支为dev-1.0.3，需要发布1.0.3的版本
 git clone --branch dev-1.0.3 git@github.com:yougithub/incubator-linkis.git
 cd  incubator-linkis
 git pull
@@ -286,19 +286,54 @@ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-inc
 cp  assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz   dist/apache-linkis
 ```
 
-### 2.6 对源码包/二进制包进行签名/sha512
+### 2.6 打包前端管理台(如果需要发布前端)
+:::caution 注意
+如果不发布前端项目，可以跳过此步骤
+:::
+
+#### 2.6.1 安装Node.js
+将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用最新的稳定版本）
+**该步骤仅第一次使用时需要执行。**
+
+#### 2.6.2 安装依赖包
+在终端命令行中执行以下指令：
+```
+#进入项目WEB根目录
+cd incubator-linkis/web
+#安装项目所需依赖
+npm install
+```
+**该步骤仅第一次使用时需要执行。**
+
+#### 2.6.3 打包前端管理台项目
+在终端命令行执行以下指令对项目进行打包，生成压缩后的部署安装包。
+检查web/package.json，web/.env文件，检查前端管理台版本号是否正确。
+```
+npm run build
+```
+上述命令执行成功后，会生成前端管理台安装包 `apache-linkis-${version}-incubating-web-bin.tar.gz`
+
+#### 2.6.4 拷贝前端管理台安装包
+
+步骤2.6.3执行后，前端管理台安装包已经生成，位于 web/apache-linkis-1.0.3-incubating-web-bin.tar.gz
+```shell
+cp  web/apache-linkis-1.0.3-incubating-web-bin.tar.gz   dist/apache-linkis
+```
+
+### 2.7 对源码包/二进制包进行签名/sha512
 ```shell
 cd  dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done # 计算SHA512
 for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # 计算签名
 ```
 
-### 2.7 检查生成的签名/sha512是否正确
-比如验证签名是否正确如下：
+### 2.8 检查生成的签名/sha512是否正确
+验证签名是否正确如下：
 ```shell
 cd dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
 ```
+详细验证流程可以参见[验证候选版本](how-to-verify.md)
 
 
 
@@ -321,7 +356,7 @@ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis  dist/linkis_svn_
 
 创建版本号目录,以`${release_version}-${RC_version}`方式命名，RC_version 从1开始，即候选版本从RC1开始，在发布过程中，存在问题导致投票不通过，需要修正，则需要迭代RC版本，RC版本号要+1。
 比如:1.0.3-RC1版本进行投票，若投票通过，无任何问题，则这个RC1版本物料作为最终版本物料发布。
-若存在问题（linkis/incubator社区投票时，投票者会严格检查何种发布要求项以及合规问题），需要修正，则修正后，再重新发起投票，下次投票的候选版本为1.0.3-RC2。
+若存在问题（linkis/incubator社区投票时，投票者会严格检查各种发布要求项以及合规问题），需要修正，则修正后，再重新发起投票，下次投票的候选版本为1.0.3-RC2。
 
 ```shell
 mkdir -p dist/linkis_svn_dev/1.0.3-RC1
@@ -766,38 +801,52 @@ Linkis Resources:
 
 # tar source code
 release_version=1.0.3
+#本次进行的RC版本 格式RCX
 rc_version=RC1
-git_branch=1.0.3-RC
+#对应的git 仓库分支
+git_branch=release-1.0.3-rc1
 
 workDir=$(cd "$(dirname "$0")"; pwd)
 cd ${workDir}; echo "enter work dir:$(pwd)"
 
-rm -rf ../dist
+rm -rf dist
 
-mkdir -p  ../dist/apache-linkis
-cd ../
+mkdir -p  dist/apache-linkis
 
+#step1 打包源码文件
 git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz"  $git_branch
 echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz'  $git_branch"
-#copy  source bin file
+
+#step2 拷贝二进制编译包
 cp  assembly-combined-package/target/apache-linkis-$release_version-incubating-bin.tar.gz   dist/apache-linkis
 
+#step3 打包web(如果需要发布前端)
+
+cd web
+#安装依赖
+npm install
+npm run build
+cp  apache-linkis-*-incubating-web-bin.tar.gz  ../dist/apache-linkis
+
+#step4 签名
+
 ### 对源码包/二进制包进行签名/sha512
-cd  dist/apache-linkis
+cd   ../dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done # 计算SHA512
 for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # 计算签名
-
 
 ### 检查生成的签名/sha512是否正确
 for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
 
-###上传至svn
+
+#step5 上传至svn
+
 cd ../
 rm -rf linkis-svn-dev
 svn co https://dist.apache.org/repos/dist/dev/incubator/linkis   linkis-svn-dev
 
 
-mkdir linkis-svn-dev/${release_version}-${rc_version}
+mkdir -p linkis-svn-dev/${release_version}-${rc_version}
 cp  apache-linkis/*tar.gz*    linkis-svn-dev/${release_version}-${rc_version}
 cd  linkis-svn-dev
 
