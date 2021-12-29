@@ -5,7 +5,7 @@ sidebar_position: 4
 Installation directory structure
 ============
 
-The directory structure of Linkis1.0 is very different from the 0.X version. Each microservice in 0.X has a root directory that exists independently. The main advantage of this directory structure is that it is easy to distinguish microservices and facilitate individual Microservices are managed, but there are some obvious problems:
+The directory structure of Linkis 1.0 is very different from the 0.X version. Each microservice in 0.X has a root directory that exists independently. The main advantage of this directory structure is that it is easy to distinguish microservices and facilitate individual Microservices are managed, but there are some obvious problems:
 
 1.	The microservice catalog is too complicated and it is not convenient to switch catalog management
 2.	There is no unified startup script, which makes it more troublesome to start and stop microservices
@@ -15,7 +15,7 @@ The directory structure of Linkis1.0 is very different from the 0.X version. Eac
 Therefore, in Linkis 1.0, we have greatly optimized and adjusted the installation directory structure, reducing the number of microservice directories, reducing the jar packages that are repeatedly dependent, and reusing configuration files and microservice management scripts as much as possible. Mainly reflected in the following aspects:
 
 1.The bin folder is no longer provided for each microservice, and modified to be shared by all microservices.
-> The Bin folder is modified to the installation directory, which is mainly used to install Linkis1.0 and check the environment status. The new sbin directory provides one-click start and stop for Linkis, and provides independent start and stop for all microservices by changing parameters.
+> The Bin folder is modified to the installation directory, which is mainly used to install Linkis 1.0 and check the environment status. The new sbin directory provides one-click start and stop for Linkis, and provides independent start and stop for all microservices by changing parameters.
 
 2.No longer provide a separate conf directory for each microservice, and modify it to be shared by all microservices.
 > The Conf folder contains two aspects of content. On the one hand, it is the configuration information shared by all microservices. This type of configuration information contains information that users can customize configuration according to their own environment; on the other hand, it is the special characteristics of each microservice. Configuration, under normal circumstances, users do not need to change by themselves.
@@ -26,7 +26,7 @@ Therefore, in Linkis 1.0, we have greatly optimized and adjusted the installatio
 4.The log directory is no longer provided for each microservice, modified to be shared by all microservices
 > The Log directory contains log files of all microservices.
 
-The simplified directory structure of Linkis1.0 is as follows.
+The simplified directory structure of Linkis 1.0 is as follows.
 
 ````
 ├── bin ──installation directory
@@ -146,7 +146,7 @@ After modifying the configuration items, you can start the microservice in the s
 | Abbreviation | Full English Name | Full Chinese Name |
 |------|-------------------------|------------|
 | cg | Computation Governance | Computing Governance |
-| mg | Microservice Covernance | Microservice Governance |
+| mg | Microservice Governance | Microservice Governance |
 | ps | Public Enhancement Service | Public Enhancement Service |
 
 In the past, to start and stop a single microservice, you need to enter the bin directory of each microservice and execute the start/stop script. When there are many microservices, it is troublesome to start and stop. A lot of additional directory switching operations are added. Linkis1.0 will all The scripts related to the start and stop of microservices are placed in the sbin directory, and only a single entry script needs to be executed.
@@ -165,7 +165,7 @@ sh linkis-start-all.sh
 sh linkis-stop-all.sh
 ````
 
-3.Start a single microservice (the service name needs to be removed from the linkis prefix, such as mg-eureka)
+3.Start a single microservice (the service name needs to be removed from the Linkis prefix, such as mg-eureka)
 ````
 sh linkis-daemon.sh start service-name
 ````

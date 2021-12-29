@@ -10,7 +10,7 @@ This article mainly introduces the use of Linkis EngineConnPlugins, mainly from 
 
 ## 1. Compilation and packaging of EngineConnPlugins
 
-After linkis1.0, the engine is managed by EngineConnManager, and the EngineConnPlugin (ECP) supports real-time effectiveness.
+After Linkis 1.0, the engine is managed by EngineConnManager, and the EngineConnPlugin (ECP) supports real-time effectiveness.
 In order to facilitate the EngineConnManager to be loaded into the corresponding EngineConnPlugin by labels, it needs to be packaged according to the following directory structure (take hive as an example):
 ```
 hive: engine home directory, must be the name of the engine
@@ -30,7 +30,7 @@ If you are adding a new engine, you can refer to hive's assembly configuration m
 2.Second, confirm the engine Jar package directory:
 wds.linkis.engineconn.plugin.loader.store.path, which is used by EngineConnPluginServer to read the actual implementation Jar of the engine.
 
-It is highly recommended to specify **wds.linkis.engineconn.home and wds.linkis.engineconn.plugin.loader.store.path as** the same directory, so that you can directly unzip the engine ZIP package exported by maven into this directory, such as: Place it in the ${LINKIS_HOME}/lib/linkis-engineconn-plugins directory.
+It is highly recommended specifying **wds.linkis.engineconn.home and wds.linkis.engineconn.plugin.loader.store.path as** the same directory, so that you can directly unzip the engine ZIP package exported by maven into this directory, such as: Place it in the ${LINKIS_HOME}/lib/linkis-engineconn-plugins directory.
 
 ```
 ${LINKIS_HOME}/lib/linkis-engineconn-plugins:
