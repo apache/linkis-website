@@ -4,6 +4,9 @@ sidebar_position: 1
 ---
 
 ## Notes
+<font color="red">
+Because the mysql-connector-java driver is under the GPL2.0 agreement and does not meet the license policy of the Apache open source agreement, starting from version 1.0.3, the official deployment package of the Apache version is provided. The default is no mysql-connector-java-x.x.x.jar dependency package. You need to add dependencies to the corresponding lib package during installation and deployment.
+</font>
 
 If you are new to Linkis, you can ignore this chapter, however, if you are already a Linkis user,  we recommend you reading the following article before installing or upgrading: [Brief introduction of the difference between Linkis1.0 and Linkis0.X](architecture/difference_between_1.0_and_0.x.md).
 
@@ -224,7 +227,21 @@ You can check whether the installation is successful or not by viewing the logs 
 
 If there is an error message, check the specific reason for that error or refer to FAQ for help.
 
-### 4. Linkis quick startup
+### <font color="red"> 4. Add mysql driver package</font>
+
+:::caution Note
+Because the mysql-connector-java driver is under the GPL2.0 agreement and does not meet the license policy of the Apache open source agreement, starting from version 1.0.3, the official deployment package of the Apache version is provided. The default is no mysql-connector-java-x.x.x.jar dependency package, you need to add dependencies to the corresponding lib package during installation and deployment
+:::
+
+To download the mysql driver, take version 5.1.49 as an example: [download link](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar) https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar
+
+Copy the mysql driver package to the lib package path
+```
+cp mysql-connector-java-5.1.49.jar {LINKIS_INSTALL_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar {LINKIS_INSTALL_HOME}/lib/linkis-commons/public-module/
+```
+
+### 5. Linkis quick startup
 
 (1). Start services
 

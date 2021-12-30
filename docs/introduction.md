@@ -2,7 +2,7 @@
 title: Introduction
 sidebar_position: 0
 ---
-# Introduction
+## Introduction
 
  Linkis builds a layer of computation middleware between upper applications and underlying engines. By using standard interfaces such as REST/WS/JDBC provided by Linkis, the upper applications can easily access the underlying engines such as MySQL/Spark/Hive/Presto/Flink, etc., and achieve the intercommunication of user resources like unified variables, scripts, UDFs, functions and resource files at the same time.
 
@@ -15,11 +15,11 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 ![linkis-intro-03](https://user-images.githubusercontent.com/11496700/84615483-bb435d80-aefb-11ea-81b5-67f62b156628.png)
 
-# Features
+## Features
 
 - **Support for diverse underlying computation storage engines**.  
     Currently supported computation/storage engines: Spark, Hive, Python, Presto, ElasticSearch, MLSQL, TiSpark, JDBC, Shell, etc;      
-    Computation/storage engines to be supported: Flink, Impala, etc;      
+    Computation/storage engines to be supported: Flink((Supported in version >=1.0.3)), Impala, etc;      
     Supported scripting languages: SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala and JDBC, etc.  
   
 - **Powerful task/request governance capabilities**. With services such as Orchestrator, Label Manager and customized Spring Cloud Gateway, Linkis is able to provide multi-level labels based, cross-cluster/cross-IDC fine-grained routing, load balance, multi-tenancy, traffic control, resource control, and orchestration strategies like dual-active, active-standby, etc.  
@@ -32,7 +32,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 - **Unified materials**. System and user-level unified material management, which can be shared and transferred across users and systems.
 
-# Supported engine types
+## Supported engine types
 
 | **Engine** | **Supported Version** | **Linkis 0.X version requirement**| **Linkis 1.X version requirement** | **Description** |
 |:---- |:---- |:---- |:---- |:---- |
@@ -49,22 +49,22 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 |Python|\>=2.6|\>=0.5.0|\>=1.0.0_rc1|Python EngineConn. Supports python code.|
 |TiSpark|1.1|\>=0.5.0|ongoing|TiSpark EngineConn. Support querying TiDB data by SparkSQL.|
 
-# Download
+## Download
 
 Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/releases) to download a compiled distribution or a source code package of Linkis.
 
-# Compile and deploy
+## Compile and deploy
 Please follow [Compile Guide](development/linkis_compile_and_package.md) to compile Linkis from source code.  
 Please refer to [Deployment_Documents](deployment/quick_deploy.md) to do the deployment. 
 
-# Examples and Guidance
+## Examples and Guidance
 You can find examples and guidance for how to use and manage Linkis in [User_Manual](user_guide/overview.md), [Engine_Usage_Documents](engine_usage/overview.md) and [API_Documents](dapi/overview.md).
 
-# Documentation
+## Documentation
 
 The documentation of linkis is in [Linkis-WebSite](https://github.com/apache/incubator-linkis-website)
 
-# Architecture
+## Architecture
 Linkis services could be divided into three categories: computation governance services, public enhancement services and microservice governance services.  
 - The computation governance services, support the 3 major stages of processing a task/request: submission -> preparation -> execution;  
 - The public enhancement services, including the material library service, context service, and data source service;  
@@ -91,12 +91,12 @@ Based on Linkis the computation middleware, we've built a lot of applications an
 
 More projects upcoming, please stay tuned.
 
-# Contributing
+## Contributing
 
 Contributions are always welcomed, we need more contributors to build Linkis together. either code, or doc, or other supports that could help the community.  
 For code and documentation contributions, please follow the [contribution guide](/community/how-to-contribute).
 
-# Contact Us
+## Contact Us
 
 Any questions or suggestions please kindly submit an issue.  
 You can scan the QR code below to join our WeChat and QQ group to get more immediate response.
@@ -105,7 +105,7 @@ You can scan the QR code below to join our WeChat and QQ group to get more immed
 
 Meetup videos on [Bilibili](https://space.bilibili.com/598542776?from=search&seid=14344213924133040656).
 
-# Who is Using Linkis
+## Who is Using Linkis
 
 We opened [an issue](https://github.com/apache/incubator-linkis/issues/23) for users to feedback and record who is using Linkis.  
 Since the first release of Linkis in 2019, it has accumulated more than **700** trial companies and **1000+** sandbox trial users, which involving diverse industries, from finance, banking, tele-communication, to manufactory, internet companies and so on.

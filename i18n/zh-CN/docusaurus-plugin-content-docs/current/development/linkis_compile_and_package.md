@@ -2,13 +2,14 @@
 title: Linkis 编译打包
 sidebar_position: 0
 ---
-## 1. 全量编译 Linkis
+
+## 1 前置准备 
 
 __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK**都支持。
 
 从[github仓库](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis 获取项目代码后，使用 maven 编译项目安装包。  
 
-### step1 源码获取
+### 1.1 源码获取
 
 - 方式1：从[github仓库](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis 获取项目的源代码。
 - 方式2：从[linkis的官方下载页面](https://linkis.apache.org/download/main) https://linkis.apache.org/download/main 下载所需版本的源码包。
@@ -17,7 +18,22 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 如果您想使用 Hadoop、Hive、Spark 的其他版本对 Linkis 进行编译，请参考：[如何修改Linkis的依赖的Hadoop、Hive、Spark版本](#4-如何修改linkis的依赖的hadoophivespark版本)
 
-### step2 首次编译(非首次可跳过此步)
+### <font color="red">1.2 修改依赖配置</font>  
+:::caution 注意
+因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，对mysql-connector-java的依赖项作用域scope默认是test，若自行编译，可以修改顶级pom.xml的mysql-connector-java依赖的scope作用域（注释掉即可）
+:::
+```xml
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>${mysql.connector.version}</version>
+    <!--<scope>test</scope>-->
+</dependency>
+```
+
+## 2. 全量编译 Linkis
+
+### step1 首次编译(非首次可跳过此步)
 
 **如果您是本地第一次编译使用，必须在 Linkis 源码包根目录先执行以下命令**：
 ```bash
@@ -25,7 +41,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
     mvn -N  install
 ```
 
-### step3 执行编译
+### step2 执行编译
 在 Linkis 源码包根目录执行以下命令:
     
 ```bash
@@ -34,7 +50,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 ```  
 
-### step4 获取安装包
+### step3 获取安装包
 编译后的完整安装包，在工程的assembly-combined-package->target目录下：
 
 ```bash
@@ -42,7 +58,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
     incubator-linkis-x.x.x/assembly-combined-package/target/apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
 
-## 2. 编译单个模块
+## 3. 编译单个模块
 
 ### step1 首次编译(非首次可跳过此步)
 **如果您是本地第一次编译使用，必须在 Linkis 源码包根目录先执行以下命令**：
@@ -66,7 +82,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
     ls incubator-linkis-x.x.x/linkis-computation-governance/linkis-entrance/target/linkis-entrance.x.x.x.jar
 ```
 
-## 3. 编译某个引擎
+## 4. 编译某个引擎
 
 这里以编译 Linkis 的 Spark 引擎为例：
 
@@ -93,7 +109,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 如何单独安装 Spark 引擎？请参考 [Linkis 引擎插件安装文档](deployment/engine_conn_plugin_installation.md)
 
-## 4. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本
+## 5. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本
 
 请注意：Hadoop 作为大数据基础服务，Linkis 必须依赖 Hadoop 进行编译；
 而 Spark、Hive等计算存储引擎则不然，如果您不想使用某个引擎，可以无需设置该引擎的版本，无需编译该引擎插件。
@@ -155,4 +171,4 @@ pom:Linkis/linkis-commons/linkis-hadoop-common/pom.xml
 
 修改其他引擎的版本与修改 Spark 版本类似，先进入相关引擎所在的目录，手动修改 pom.xml 文件的引擎版本信息即可。
 
-然后请参考 [编译某个引擎](#3-编译某个引擎)
+然后请参考 [编译某个引擎](#4-编译某个引擎)
