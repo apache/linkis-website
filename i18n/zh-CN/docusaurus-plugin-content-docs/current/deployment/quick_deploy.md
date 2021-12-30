@@ -4,6 +4,9 @@ sidebar_position: 1
 ---
 
 ## 1. 注意事项
+<font color="red">
+因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包，安装部署时需要添加依赖到对应的lib包中。
+</font>
 
 **如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
 
@@ -124,7 +127,8 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     #version >=1.0.3
     tar -xvf  apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
-      
+
+
 ### 3.4 不依赖HDFS的基础配置修改
 
 ```bash
@@ -230,7 +234,22 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您也可以通过查看我们的[常见问题](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)，获取问题的解答。
 
-### 4.4 快速启动Linkis
+### <font color="red"> 4.4 添加mysql驱动包</font>
+
+:::caution 注意
+因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包，安装部署时需要自行添加依赖到对应的lib包中
+:::
+
+下载mysql驱动 以5.1.49版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar) https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar
+
+拷贝mysql 驱动包至lib包下 
+```
+cp mysql-connector-java-5.1.49.jar  {LINKIS_INSTALL_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar  {LINKIS_INSTALL_HOME}/lib/linkis-commons/public-module/
+```
+
+
+### 4.5 快速启动Linkis
 
 #### (1)、启动服务：
   

@@ -3,13 +3,12 @@ title: Compile And Package
 sidebar_position: 1
 ---
 
-## 1. Fully compile Linkis
-
+## 1. Preparation
 **Environment requirements:** Version of JDK must be higher then **JDK8**,  **Oracle/Sun** and **OpenJDK** are both supported.
 
 After obtaining the project code from [github repository](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis, use maven to compile the project installation package.
 
-### step1 Source code acquisition
+### 1.1 Source code acquisition
 
 - Method 1: Obtain the source code of the project from [github repository](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis.
 - Method 2: Download the source code package of the required version from the [linkis official download page](https://linkis.apache.org/download/main) https://linkis.apache.org/download/main.
@@ -18,8 +17,24 @@ After obtaining the project code from [github repository](https://github.com/apa
 
 If you want to compile Linkis with another version of Hadoop, Hive, Spark, please refer to: [How to Modify Linkis dependency of Hadoop, Hive, Spark](#4 How to Modify Linkis dependency versionof Hadoop, Hive, Spark)
 
+### <font color="red">1.2 Modify dependency configuration</font>
+:::caution Note
+Because the mysql-connector-java driver is under the GPL2.0 agreement and does not meet the license policy of the Apache open source agreement, starting from version 1.0.3, the scope of the dependency on mysql-connector-java is test by default. If you compile by yourself , You can modify the scope scope that the mysql-connector-java of the top-level pom.xml depends on (just comment it out)
+:::
+```xml
+<dependency>
+     <groupId>mysql</groupId>
+     <artifactId>mysql-connector-java</artifactId>
+     <version>${mysql.connector.version}</version>
+     <!--<scope>test</scope>-->
+</dependency>
+```
 
-### step2 Compile for the first time (not the first time you can skip this step)
+## 2. Fully compile Linkis
+
+
+
+### step1 Compile for the first time (not the first time you can skip this step)
 
 **If you are compiling and using it locally for the first time, you must first execute the following command in the root directory of the Linkis source code package**:
 ```bash
@@ -27,7 +42,7 @@ If you want to compile Linkis with another version of Hadoop, Hive, Spark, pleas
     mvn -N install
 ```
 
-### step3 Execute compilation
+### step2 Execute compilation
 Execute the following commands in the root directory of the Linkis source code package:
     
 ```bash
@@ -36,7 +51,7 @@ Execute the following commands in the root directory of the Linkis source code p
 
 ```
 
-### step4 Obtain the installation package
+### step3 Obtain the installation package
 The compiled complete installation package is in the assembly-combined-package->target directory of the project:
 
 ```bash
@@ -44,7 +59,7 @@ The compiled complete installation package is in the assembly-combined-package->
     incubator-linkis-x.x.x/assembly-combined-package/target/apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
 
-## 2. Compile a single module
+## 3. Compile a single module
 
 ### step1 Compile for the first time (skip this step for non-first time)
 **If you are compiling and using it locally for the first time, you must first execute the following command in the root directory of the Linkis source code package**:
@@ -68,7 +83,7 @@ Get the installation package, there will be a compiled package in the ->target d
     incubator-linkis-x.x.x/linkis-computation-governance/linkis-entrance/target/linkis-entrance.x.x.x.jar
 ```
 
-## 3. Compile an engine
+## 4. Compile an engine
 
 Here's an example of the Spark engine that builds Linkis:
 
@@ -95,7 +110,7 @@ Get the installation package, there will be a compiled package in the ->target d
 
 How to install Spark engine separately? Please refer to [Linkis Engine Plugin Installation Document](deployment/engine_conn_plugin_installation.md)
 
-## 4. How to modify the Hadoop, Hive, and Spark versions that Linkis depends on
+## 5. How to modify the Hadoop, Hive, and Spark versions that Linkis depends on
 
 Please note: Hadoop is a big data basic service, Linkis must rely on Hadoop for compilation;
 If you don't want to use an engine, you don't need to set the version of the engine or compile the engine plug-in.
@@ -156,7 +171,7 @@ Here's an example of changing the version of Spark. Go to the directory where th
 
 Modifying the version of other engines is similar to modifying the Spark version. First, enter the directory where the relevant engine is located, and manually modify the engine version information in the pom.xml file.
 
-Then please refer to [3. Compile an engine]
+Then please refer to [4. Compile an engine](#4-compile-an-engine)
 
 
 
