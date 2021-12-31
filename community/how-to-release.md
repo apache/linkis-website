@@ -334,8 +334,8 @@ The detailed verification process can be found in [Verification Candidate Versio
 
 ## 3 Publish the Apache SVN repository
 
-- The Linkis DEV branch (https://dist.apache.org/repos/dist/dev/incubator/linkis) is used to store the source code and binary materials of the candidate version
-- The RC version voted by the Linkis Release branch (https://dist.apache.org/repos/dist/release/incubator/linkis) will eventually be moved to the release library
+- The Linkis [DEV branch](https://dist.apache.org/repos/dist/dev/incubator/linkis) is used to store the source code and binary materials of the candidate version
+- The RC version voted by the Linkis [Release branch](https://dist.apache.org/repos/dist/release/incubator/linkis) will eventually be moved to the release library
 
 ### 3.1 Check out the Linkis release directory
 
@@ -373,7 +373,7 @@ svn status
 svn add 1.0.3-RC1
 svn status
 # Submit to svn remote server
-#svn commit -m "prepare for 1.0.3-RC1"
+svn commit -m "prepare for 1.0.3-RC1"
 
 ```
 

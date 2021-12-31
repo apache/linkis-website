@@ -339,8 +339,8 @@ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
 
 ## 3 发布Apache SVN仓库
 
-- Linkis DEV分支(https://dist.apache.org/repos/dist/dev/incubator/linkis)用来存储候选版本的源码和二进制等原始物料
-- Linkis Release分支(https://dist.apache.org/repos/dist/release/incubator/linkis)投票通过的RC版本，最终会移动到release库中
+- Linkis [DEV分支](https://dist.apache.org/repos/dist/dev/incubator/linkis) 用来存储候选版本的源码和二进制等原始物料
+- Linkis [Release分支](https://dist.apache.org/repos/dist/release/incubator/linkis) 投票通过的RC版本，最终会移动到release库中
 
 
 ### 3.1 检出Linkis发布目录
@@ -378,8 +378,8 @@ svn status
 # 添加到svn版本
 svn add 1.0.3-RC1
 svn status
-# 提交至svn远程服务器 
-#svn commit -m "prepare for 1.0.3-RC1"
+#提交至svn远程服务器 
+svn commit -m "prepare for 1.0.3-RC1"
 
 ```
 
@@ -503,16 +503,16 @@ ${Linkis Release Manager}
 
 > Linkis 仍在孵化阶段，需要进行两次投票
 
-- Linkis社区投票，发送邮件至：`dev@linkis.apache.org`
-- incubator社区投票，发送邮件至：`general@incubator.apache.org` Linkis毕业后，只需要在Linkis社区投票
+- Linkis 社区投票，发送邮件至：`dev@linkis.apache.org`
+- incubator 社区投票，发送邮件至：`general@incubator.apache.org` Linkis毕业后，只需要在Linkis社区投票
 
-### 5.1 Linkis社区投票阶段
+### 5.1 Linkis 社区投票阶段
 
-1. Linkis社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
+1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
 
 2. 宣布投票结果,发起投票结果邮件到`dev@linkis.apache.org`。
 
-#### 5.1.1 Linkis社区投票模板
+#### 5.1.1 Linkis 社区投票模板
 
 ```html
 标题：
@@ -597,7 +597,7 @@ ${Linkis Release Manager}
 1. Incubator社区投票，发起投票邮件到`general@incubator.apache.org`，需3个 `+1 IPMC Member`投票，方可进入下一阶段。
 2. 宣布投票结果,发起投票结果邮件到`general@incubator.apache.org` 并抄送至`dev@linkis.apache.org`。
 
-#### 5.2.1 Incubator社区投票模板
+#### 5.2.1 Incubator 社区投票模板
 
 ```html
 标题：[VOTE] Release Apache Linkis(Incubating) ${release_version} ${rc_version}
@@ -727,7 +727,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 > 等仓库同步到其他数据源，一般需要24小时
 
-### 6.5 GitHub版本发布
+### 6.5 GitHub 版本发布
 
 1. 基于最终发布的分支或则commit id打上tag。
 
