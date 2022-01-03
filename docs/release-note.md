@@ -1,5 +1,5 @@
 ---
-title: Release Note
+title: Release Notes
 sidebar_position: 0.1
 ---
 Apache Linkis(incubating) 1.0.3 includes all of [Project Linkis-1.0.3](https://github.com/apache/incubator-linkis/projects/13).
