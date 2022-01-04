@@ -7,7 +7,12 @@ sidebar_position: 4
 
 For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
-## 1. Download the candidate version to be released to the local environment
+## 1. Download the candidate version 
+> Download the candidate version to be released to the local environment
+
+:::caution Note
+If the network is poor, downloading may be time-consuming. The download is completed normally in about 20 minutes, please wait patiently.
+:::
 ```shell
 #If there is svn locally, you can clone to the local
 svn co https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
@@ -80,6 +85,7 @@ gpg --import KEYS # Import KEYS to local
 
 ### 2.3 Check sha512 hash
 > After calculating the sha512 hash locally, verify that it is consistent with the dist. If you upload a binary package, you also need to check the sha512 hash of the binary package
+
 > macOS/Linux
 
 ```shell
@@ -115,7 +121,9 @@ Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
 - [ ] Check for extra files or folders, such as empty folders, etc.
 - [ ] .....
 
-### 2.5 Check the binary package (if the binary package is uploaded)
+### 2.5 Check the binary package
+> If the binary package is uploaded, check the binary package.
+
 Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
 
 - [ ] Folder contains the word `incubating`
