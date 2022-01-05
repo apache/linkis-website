@@ -401,7 +401,8 @@ svn status
 svn commit -m "prepare for 1.0.3-RC1"
 
 ```
-
+若svn命令出现中文乱码，可尝试设置编码格式。
+ 
 ## 4 验证Release Candidates
 
 详细可以参见[How to Verify release](/how-to-verify.md)
@@ -689,6 +690,7 @@ Linkis Resources:
 - Apache Linkis (Incubating) Team
 
 ```
+
 
 ## 附件 
 ### 附件1 release.sh

@@ -394,7 +394,7 @@ svn status
 svn commit -m "prepare for 1.0.3-RC1"
 
 ```
-
+If Chinese garbled characters appear in the svn command, you can try to set the encoding format.
 
 ## 4 Verify Release Candidates
 
