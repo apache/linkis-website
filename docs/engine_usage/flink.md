@@ -1,4 +1,7 @@
-# Flink engine usage documentation
+---
+title:  Flink Engine Usage
+sidebar_position: 8
+---
 
 This article mainly introduces the configuration, deployment and use of the flink engine in Linkis1.0.
 
@@ -53,13 +56,13 @@ cd ${LINKIS_HOME}/sbin
 sh linkis-daemon restart cg-engineplugin
 ```
 A more detailed introduction to engineplugin can be found in the following article.
-https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3% 85%E6%96%87%E6%A1%A3
+[EngineConnPlugin Installation](deployment/engine_conn_plugin_installation.md) 
 
 ### 2.3 Flink engine tags
 
 Linkis1.0 is done through tags, so we need to insert data in our database, the way of inserting is shown below.
 
-https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3% 85%E6%96%87%E6%A1%A3\#22-%E7%AE%A1%E7%90%86%E5%8F%B0configuration%E9%85%8D%E7%BD%AE%E4% BF%AE%E6%94%B9%E5%8F%AF%E9%80%89
+[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](deployment/engine_conn_plugin_installation.md) 
 
 ## 3. The use of Flink engine
 
@@ -67,7 +70,7 @@ https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%
 
 The Flink engine of Linkis 1.0 is started by flink on yarn, so you need to specify the queue used by the user. The way to specify the queue is shown in Figure 3-1.
 
-![](../Images/EngineUsage/queue-set.png)
+![](/Images/EngineUsage/queue-set.png)
 
 Figure 3-1 Queue settings
 
@@ -105,7 +108,16 @@ select * from mysql_binlog where id> 10;
 ```
 When debugging with select syntax in Scriptis, the Flink engine will have an automatic cancel mechanism, that is, when the specified time is reached or the number of sampled rows reaches the specified number, the Flink engine will actively cancel the task, and it will have been obtained The result set of is persisted, and then the front end will call the interface to open the result set to display the result set on the front end.
 
-### 3.2 OnceEngineConn method
+### 3.2 Task submission via Linkis-cli
+
+After Linkis 1.0, a cli method is provided to submit tasks. We only need to specify the corresponding EngineConn and CodeType tag types. The use of Hive is as follows:
+```shell
+sh ./bin/linkis-cli -engineType flink-1.12.2 -codeType sql -code "show tables" -submitUser hadoop -proxyUser hadoop
+```
+
+For specific usage, please refer to: [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
+### 3.3 OnceEngineConn method
 
 The use of OnceEngineConn is to officially start Flink's streaming application. Specifically, it calls LinkisManager's createEngineConn interface through LinkisManagerClient, and sends the code to the created Flink engine, and then the Flink engine starts to execute. This method can be used by other systems. Make a call, such as Streamis. The use of Client is also very simple, first create a new maven project, or introduce the following dependencies in your project
 ```xml

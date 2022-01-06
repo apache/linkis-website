@@ -12,10 +12,12 @@ sidebar_position: 0
 | Hive  | 支持 | 支持 |
 | Presto  | 支持 | 支持 |
 | ElasticSearch  | 支持 | 支持 |
-| python  | 支持 | 支持 |
+| Python  | 支持 | 支持 |
 | Shell  | 支持 | 支持 |
 | JDBC  | 支持 | 支持 |
 | MySQL  | 支持 | 支持 |
+| Flink  | 支持 | 支持 |
+
 
 ## 2. 文档结构
 已经接入的引擎相关文档可以参考如下文档。  
@@ -24,3 +26,4 @@ sidebar_position: 0
 - [Python 引擎使用](python.md)  
 - [Shell 引擎使用](shell.md)  
 - [JDBC 引擎使用](jdbc.md)  
+- [Flink 引擎使用](flink.md)  

@@ -1,3 +1,8 @@
+---
+title: Flink 引擎
+sidebar_position: 8
+---
+
 # Flink 引擎使用文档
 
 本文主要介绍在Linkis1.0中，flink引擎的配置、部署和使用。
@@ -59,7 +64,7 @@ https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%
 
 Linkis1.0是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3\#22-%E7%AE%A1%E7%90%86%E5%8F%B0configuration%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9%E5%8F%AF%E9%80%89
+[EngineConnPlugin引擎插件安装](deployment/engine_conn_plugin_installation.md) 
 
 ## 3.Flink引擎的使用
 
@@ -67,7 +72,7 @@ https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%
 
 Linkis1.0的Flink引擎是通过flink on yarn的方式进行启动的,所以需要指定用户使用的队列。指定队列的方式如图3-1所示。
 
-![](../Images/EngineUsage/queue-set.png)
+![](/Images/EngineUsage/queue-set.png)
 
 图3-1 队列设置
 
@@ -105,12 +110,23 @@ select * from mysql_binlog where id > 10;
 ```
 在Scriptis中使用select语法进行调试的时候，Flink引擎会有一个自动cancel的机制，即到了指定的时间或者采样的行数到了指定的数量，Flink引擎将会主动将任务cancel，并且将已经获取到的结果集持久化，然后前端会调用打开结果集的接口将结果集在前端进行展示。
 
-### 3.2 OnceEngineConn方式
+
+### 3.2 通过Linkis-cli进行任务提交
+
+Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Hive的使用如下：
+```shell
+sh ./bin/linkis-cli -engineType flink-1.12.2 -codeType sql -code "show tables"  -submitUser hadoop -proxyUser hadoop
+```
+
+具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
+
+### 3.3 OnceEngineConn方式
 
 OnceEngineConn的使用方式是用于正式启动Flink的流式应用,具体的是通过LinkisManagerClient调用LinkisManager的createEngineConn的接口，并将代码发给创建的Flink引擎，然后Flink引擎就开始执行，此方式可以被其他系统进行调用，比如Streamis。Client的使用方式也很简单，首先新建一个maven项目，或者在您的项目中引入以下的依赖
 ```xml
 <dependency>
-    <groupId>com.webank.wedatasphere.linkis</groupId>
+    <groupId>org.apache.linkis</groupId>
     <artifactId>linkis-computation-client</artifactId>
     <version>${linkis.version}</version>
 </dependency>
