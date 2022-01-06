@@ -1,10 +1,7 @@
 ---
-title:  JDBC EngineConn Usage
+title:  JDBC Engine Usage
 sidebar_position: 2
 ---
-
-
-# JDBC EngineConn usage documentation
 
 This article mainly introduces the configuration, deployment and use of JDBC EngineConn in Linkis1.0.
 

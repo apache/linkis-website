@@ -1,10 +1,8 @@
 ---
-title:  Spark EngineConn Usage
+title:  Spark Engine Usage
 sidebar_position: 2
 ---
 
-
-# Spark EngineConn usage documentation
 
 This article mainly introduces the configuration, deployment and use of spark EngineConn in Linkis1.0.
 

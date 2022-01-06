@@ -1,10 +1,7 @@
 ---
-title:  Python EngineConn Usage
+title:  Python Engine Usage
 sidebar_position: 2
 ---
-
-
-# Python EngineConn usage documentation
 
 This article mainly introduces the configuration, deployment and use of the Python EngineConn in Linkis1.0.
 
