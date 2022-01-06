@@ -1,74 +1,74 @@
 ---
-title:  Source Code Directory Structure
+title: Source Code Directory Structure
 sidebar_position: 5
 ---
 
-> Linkis Level Directory Structure Explanation. If you want to detail Linkis, check the Linkis's architecture design document
+> Linkis hierarchical directory structure explanation, if you want to detail Linkis, please check Linkis related architecture design documents
 
 ```shell script
 ├─assembly
 ├─bin
 ├─conf
-├─core  //核心抽象，里面放有所有的公用模块
-│  ├─cloudModule   //微服务必须引入的模块，内嵌Jetty + WebSocket + SpringBoot + Jersey
-│  ├─cloudMybatis    //SpringCloud的Mybatis模块
-│  ├─cloudProtocol    //通用协议，如Entrance与Engine的RPC通信
-│  ├─cloudRPC   //RPC模块，基于Feign实现的复杂双向通信
-│  ├─common   //通用模块，内置很多通用工具类
-│  ├─httpclient    //Java SDK顶层接口
-│  └─scheduler    //通用调度模块
-├─db    //数据库信息
-├─docs    //所有文档
-├─eurekaServer     //Eureka模块
-├─extensions     //插件
-│  └─spark-excel     //spark支持excel转DF/DF导成excel的插件
-├─gateway    //网关模块
-│  ├─core    //网关核心实现，包括前端接口的鉴权/解析/路由
-│  ├─gateway-httpclient-support    //gateway对Java SDK的支持
-│  ├─gateway-ujes-support    //对UJES接口的解析和路由支持
-│  └─springcloudgateway    //引入spring cloud gateway，前端请求都从这里拦截
-├─publicService    //公共服务
-│  ├─application    //应用模块
-│  ├─bin
-│  ├─conf
-│  ├─configuration    //参数模块，各引擎参数从这里获取
-│  ├─database    //提供Hive元数据查询服务
-│  ├─query    //提供Job Manager和Job History
-│  ├─udf    //UDF模块
-│  ├─variable    //用户自定义变量模块
-│  └─workspace    //工作空间模块，管理用户脚本
-├─resourceManager    //资源管理服务
-│  ├─resourcemanagerclient    //资源管理客户端
-│  ├─resourcemanagercommon    //通用模块
-│  └─resourcemanagerserver    //资源管理服务端
-├─storage  //统一存储服务
-│  ├─pesIO  //远程存储服务
-│  │  ├─io-engine    //远程存储的engine端，实际访问底层存储端
-│  │  ├─io-enginemanager    //远程存储的engineManger
-│  │  └─io-entrance   //远程存储的请求入口
-│  └─storage    //统一存储的对外统一接口
-└─ujes    //统一作业执行服务
-│  ├─client    //Java SDK，用户通过Client可直接访问Linkis   
-│  ├─definedEngines    //已经实现的引擎  
-│  │  ├─hive    //Hive引擎
-│  │  │  ├─engine    //实际对接底层Hive的engine执行端
-│  │  │  ├─enginemanager
-│  │  │  └─entrance  
-│  │  ├─pipeline    //导入导出引擎，用于存储系统之间互导
-│  │  │  ├─engine
-│  │  │  ├─enginemanager
-│  │  │  └─entrance
-│  │  ├─python    //单机版Python引擎
-│  │  │  ├─engine    //实际对接底层Python的engine执行端
-│  │  │  ├─enginemanager
-│  │  │  └─entrance
-│  │  ├─spark    //spark引擎
-│  │  │  ├─engine    //实际对接底层Spark的engine执行端
-│  │  │  ├─enginemanager   
-│  │  │  └─entrance   
-│  │  └─tispark    //TiSpark引擎，实际对接TiSpark的engine端
-│  ├─engine    //通用底层engine模块   
-│  ├─enginemanager    //通用底层enginemanager模块  
-│  ├─entrance    //通用底层entrance模块  
-│  └─entranceclient    //简化版的entrance
+├─core //Core abstraction, which contains all common modules
+│ ├─cloudModule //Modules that must be introduced by microservices, embedded Jetty + WebSocket + SpringBoot + Jersey
+│ ├─cloudMybatis //Mybatis module of SpringCloud
+│ ├─cloudProtocol //General protocol, such as RPC communication between Entrance and Engine
+│ ├─cloudRPC //RPC module, complex two-way communication based on Feign implementation
+│ ├─common //Common module, built-in many common tools
+│ ├─httpclient //Java SDK top-level interface
+│ └─scheduler //General scheduling module
+├─db //Database information
+├─docs //All documents
+├─eurekaServer //Eureka module
+├─extensions //plugin
+│ └─spark-excel //spark supports excel to DF/DF to excel plug-in
+├─gateway //Gateway module
+│ ├─core //Gateway core implementation, including authentication/analysis/routing of front-end interfaces
+│ ├─gateway-httpclient-support //gateway support for Java SDK
+│ ├─gateway-ujes-support //Analysis and routing support for UJES interface
+│ └─springcloudgateway //Introduce spring cloud gateway, front-end requests are intercepted from here
+├─publicService //public service
+│ ├─application //application module
+│ ├─bin
+│ ├─conf
+│ ├─configuration //Parameter module, get the engine parameters from here
+│ ├─database //Provide Hive metadata query service
+│ ├─query //Provide Job Manager and Job History
+│ ├─udf //UDF module
+│ ├─variable //User-defined variable module
+│ └─workspace //Workspace module, manage user scripts
+├─resourceManager //Resource management service
+│ ├─resourcemanagerclient //resource management client
+│ ├─resourcemanagercommon //Common module
+│ └─resourcemanagerserver //Resource management server
+├─storage //Unified storage service
+│ ├─pesIO //Remote storage service
+│ │ ├─io-engine //The engine side of remote storage, which actually accesses the bottom storage side
+│ │ ├─io-enginemanager //engineManger for remote storage
+│ │ └─io-entrance //Request entry for remote storage
+│ └─storage //Unified external interface for unified storage
+└─ujes //Unified operation execution service
+│ ├─client //Java SDK, users can directly access Linkis through Client
+│ ├─definedEngines //Implemented engines
+│ │ ├─hive //Hive engine
+│ │ │ ├─engine //The engine execution end of the actual docking with the underlying Hive
+│ │ │ ├─enginemanager
+│ │ │ └─entrance
+│ │ ├─pipeline //Import and export engine for mutual conduction between storage systems
+│ │ │ ├─engine
+│ │ │ ├─enginemanager
+│ │ │ └─entrance
+│ │ ├─python //stand-alone Python engine
+│ │ │ ├─engine //The engine execution end that actually docks with the underlying Python
+│ │ │ ├─enginemanager
+│ │ │ └─entrance
+│ │ ├─spark //spark engine
+│ │ │ ├─engine //The actual connection to the engine execution end of the underlying Spark
+│ │ │ ├─enginemanager
+│ │ │ └─entrance
+│ │ └─tispark //TiSpark engine, actually docking with TiSpark engine
+│ ├─engine //General low-level engine module
+│ ├─enginemanager //General low-level enginemanager module
+│ ├─entrance //General low-level entrance module
+│ └─entranceclient //Simplified version of entrance
 ```

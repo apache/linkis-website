@@ -3,54 +3,54 @@ title: Login Api
 sidebar_position: 1
 ---
 
-> Login related interfaces, valid for HTTP and WebSocket access
+> Log in to the related interface, which is effective for both HTTP access and WebSocket access of the upper system
 
 ## 1 Linkis interface specification
 
-Linkis defines a set of its own interface norms when interacting at the back and back end.
+Linkis defines its own set of interface specifications when interacting between the front and back ends.
 
-If you are interested in interface specifications, please click here[to view interface norms](/community/development_specification/api)
+If you are interested in the interface specification, please click here [view interface specification](/community/development_specification/api)
 
-## 2 How do I do not sign in
+## 2 How to achieve login-free
 
-Enter linkis-gateway/conf directory, execute command：
+Enter the linkis-gateway/conf directory and execute the command:
 
 ```bash
     vim linkis.properties
 ```
-
-Open test mode with the following parameter：
+    
+Turn on the test mode, the parameters are as follows:
 
 ```properties
-    wds.linkis.test.mode=true # Open test mode
-    wds.linkis.test.us=enjoyyin # Specify which user all requests are represented
+    wds.linkis.test.mode=true # Turn on test mode
+    wds.linkis.test.user=enjoyyin # Specify which user all requests are delegated to in test mode
 ```
 
-## 3 Login Interface Summary
+## 3 Login interface summary
 
-We provide the following interfaces associated with login：
+We provide the following login-related interfaces:
 
- - Sign in
- - Logout
- - Heart
+ - Log in
+ - Sign out
+ -Heartbeat
+ 
 
-
-## 4 Interface Details
+## 4 Interface details
 
 ### 4.1 Login
 
-- Interface `/api/res_j/v1/user/login`
+- Interface `/api/rest_j/v1/user/login`
 
-- Submit Method `POST`
+- Submission method `POST`
 
 ```json
       {
         "userName": "",
         "password": ""
-}
+      }
 ```
 
-- Return Example
+- Return to example
 
 ```json
     {
@@ -67,36 +67,36 @@ We provide the following interfaces associated with login：
 ```
 
 ### 4.2 Logout
-- Interface `/api/res_j/v1/user/logout`
+- Interface `/api/rest_j/v1/user/logout`
 
-- Submit Method `POST`
+- Submission method `POST`
 
-  No arguments
+  No parameters
 
-- Return Example
+- Return to example
 
 ```json
-    LOD
-        "method": "/api/res_j/v1/user/logout",
+    {
+        "method": "/api/rest_j/v1/user/logout",
         "status": 0,
-        "message": "Logout success!"
-}
+        "message": "Logout successfully!"
+    }
 ```
 
-### 4.3 Jumps
+### 4.3 Heartbeat
 
-- Interface `/api/res_j/v1/user/heartbeat`
+- Interface `/api/rest_j/v1/user/heartbeat`
 
-- Submit Method `POST`
+- Submission method `POST`
 
-  No arguments
+  No parameters
 
-- Return Example
+- Return to example
 
 ```json
-    LOCK
-         "method": "/api/res_j/v1/user/heartbeat",
+    {
+         "method": "/api/rest_j/v1/user/heartbeat",
          "status": 0,
-         "message": "Maintain success!"
-}
+         "message": "Maintaining the heartbeat success!"
+    }
 ```

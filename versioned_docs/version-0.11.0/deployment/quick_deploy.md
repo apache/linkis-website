@@ -2,168 +2,165 @@
 title: Quick Deployment
 sidebar_position: 1
 ---
-#### Hint：If you want to experience the entire LINKIS bucke：DSS + Linkis + Qualitis + Visualis + Azkaban, visit[DSSS key deployment](https://github.com/WeBankFinTech/DataSphereStudio/blob/master/docs/zh_CN/ch2/DSS_LINKIS_Quick_Install.md)
+#### Reminder: If you want to experience LINKIS Family Bucket: DSS + Linkis + Qualitis + Visualis + Azkaban, please visit [DSS One-Key Deployment](https://github.com/WeBankFinTech/DataSphereStudio/blob/master/docs/zh_CN/ch2/DSS_LINKIS_Quick_Install.md)
 
-## Determine the installation environment
+## 1 Determine the installation environment
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis根据安装的难易程度，提供了以下三种安装环境的准备方式，其区别如下：
-
-----
-
-**Streamlined version**：
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum environmental dependence, single node installation mode contains only Python engines, only the user Linux environment supports Python.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please note that：is only allowed to submit Python scripts.
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis provides the following three installation environment preparation methods according to the difficulty of installation, the differences are as follows:
 
 ----
 
-**Simple version**：
+**Lite**:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Depending on Python, Hadoop and Hive, distributed setup mode with Python and Hive engines and requiring the user Linux environment to first install Hadoop and Hive.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum environment dependency, single-node installation mode, only includes Python engine, and only needs the user's Linux environment to support Python.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simple version allows users to submit HiveQL and Python scripts.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please note: the lite version only allows users to submit Python scripts.
 
 
 ----
 
-**Standard Version**
+**Simple version**:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Depends on Python, Hadoop, Hive and Spark, distributed setup modes, including Python, Hive Engine and Spark engines, requiring the user's Linux environments to first install Hadoop, Hive and Spark, Linkis machines that rely on cluster hadoop/hive/spark configuration files and do not need to deploy together with DataNode and NameNode machines on separate Client machines.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depends on Python, Hadoop and Hive, distributed installation mode, including Python engine and Hive engine, requires the user's Linux environment to install Hadoop and Hive first.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standard versions allow users to submit Spark scripts (including SparkSQL, Pyspark and Scala), HiveQL and Python scripts. **请注意：安装标准版需要机器内存在10G以上** 如果机器内存不够，需要添加或者修改环境变量：`export SERVER_HEAP_SIZE="512M"`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The simple version allows users to submit HiveQL and Python scripts.
 
 
 ----
 
-## 2 Streamlining Linkis environment preparation
+**Standard Edition**
 
-### Basic software installation
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Depends on Python, Hadoop, Hive and Spark, distributed installation mode, including Python engine, Hive engine and Spark engine, requires the user's Linux environment to install Hadoop first , Hive and Spark, Linkis machines rely on the cluster's hadoop/hive/spark configuration files, and do not need to be deployed with the DataNode and NameNode machines, but can be deployed on a separate Client machine.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following software must be loaded：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The standard version allows users to submit Spark scripts (including SparkSQL, Pyspark and Scala), HiveQL and Python scripts.
+**Please note: the installation of the standard version requires the machine's memory to be above 10G** If the machine's memory is not enough, you need to add or modify the environment variable: `export SERVER_HEAP_SIZE="512M"`
 
-- MySQL (5.5+),[how to install MySQL](https://www.runoob.com/mysql/mysql-install.html)
-- JDK (1.8.0_more than 141),[how to install JDK](https://www.runoob.com/java/java-environment-setup.html)
-- Python (2.x and 3.x supported),[how to install Python](https://www.runoob.com/python/python-install.html)
 
+----
+
+## 2 Simplified version of Linkis environment preparation
+
+### 2.1. Basic software installation
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following software must be installed:
+
+- MySQL (5.5+), [How to install MySQL](https://www.runoob.com/mysql/mysql-install.html)
+- JDK (above 1.8.0_141), [How to install JDK](https://www.runoob.com/java/java-environment-setup.html)
+- Python (support both 2.x and 3.x), [How to install Python](https://www.runoob.com/python/python-install.html)
+ 
 ### 2.2 Create User
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g. **Deploy user is hadoop**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example: **Deployment user is hadoop account**
 
-1. Create a deployment user on a deployment machine to install
-
-```bash
-    sudo useradd hadoop  
-```
-
-2. Since Linkis services are used to switch engines in the form of sudo -u ${linux-user} to perform assignments, deployment of users requires sudo permissions and is free from encryption.
+1. Create a deployment user on the deployment machine for installation
 
 ```bash
-    v/etc/sudoers
+    sudo useradd hadoop
 ```
+        
+2. Because the Linkis service uses sudo -u ${linux-user} to switch engines to perform operations, the deployment user needs to have sudo permissions and is password-free.
 
+```bash
+    vi /etc/sudoers
+```
 
          hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
-3. **If your Python wants to have drawing features, it will be necessary to install the node and install the image module**.Command below：
+3. **If your Python wants to have the drawing function, you also need to install the drawing module in the installation node**. The command is as follows:
 
 ```bash
-    python -m pip install match
+    python -m pip install matplotlib
 ```
 
 ### 2.3 Installation package preparation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download the latest installation package from Linkis released ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)), Download the latest installation package.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uninstall the package to the installation directory before changing the configuration of the unpacked file.
-
-```bash   
-    tar -xvf wedatasphere-linkis-x.x.x-dist.tar.gz
-```
-
-   (1) Modify base configuration
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First decompress the installation package to the installation directory, and modify the configuration of the decompressed files.
 
 ```bash
-    vi conf/config.sh   
+    tar -xvf wedatasphere-linkis-x.x.x-dist.tar.gz
 ```
+      
+   (1) Modify the basic configuration
 
+```bash
+    vi conf/config.sh
+```
+        
 ```properties
-    SSH_PORT=22 #Specify SSH port if one-machine version installation is unconfigured
-    deEmployUser=hadoop #Designated Deployer
-    LINKIS_INKIS_INSTAL_HOME=/appcom/Install/Linkis # Specified Installation Directory
-    WORKSPACE_USER_ROOT_PATH=file://tmp/hadoop # Specify user roots, which are typically used to store user scripts files and log files, etc. are user's workspace.
-    RESULT_SET_ROOT_PATH=file://tmp/linkis # resultset file path to store Job's resultset file
-    #HDF_USER_ROOT_PATH=hdfs://tmp/linkis #Simplified installation requires comment on this parameter
+    SSH_PORT=22 #Specify the SSH port, if the stand-alone version is installed, it may not be configured
+    deployUser=hadoop #Specify deployment user
+    LINKIS_INSTALL_HOME=/appcom/Install/Linkis # Specify the installation directory
+    WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop # Specify the user root directory, which is generally used to store the user's script files and log files, etc. It is the user's workspace.
+    RESULT_SET_ROOT_PATH=file:///tmp/linkis # The result set file path, used to store the result set file of the job
+    #HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis #This parameter needs to be commented for the streamlined version installation
 ```
+        
+   (2) Modify the database configuration
 
-   (2) Modify database configuration
-
-```bash   
-    vi conf/db.sh 
+```bash
+    vi conf/db.sh
 ```
-
-```properties         
-    # Setup connection information for database
-    # includes IP address, database name, username, port
-    # primarily used to store user custom variables, configuration parameters, UDF and widgets, as well as to provide access to Job History bottom storage
+            
+```properties
+    # Set the connection information of the database
+    # Including IP address, database name, user name, port
+    # Mainly used to store user-defined variables, configuration parameters, UDF and small functions, and provide the underlying storage of JobHistory
     MYSQL_HOST=
     MYSQL_PORT=
     MYSQL_DB=
     MYSQL_USER=
     MYSQL_PASSWORD=
-
  ```
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The environment is ready, click me to enter [5-installation deployment](#5-installation deployment)
+   
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Environment is ready. Tap me to [5 - Install Deployment](#5-安装部署)
+## 3 Simple version of Linkis environment preparation
 
+### 3.1 Basic software installation
 
-## 3 Simple version of Linkis Environment Preparedness
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following software must be installed:
 
-### 3.1 Basic Software Installation
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following software must be loaded：
-
-- MySQL (5.5+),[how to install MySQL](https://www.runoob.com/mysql/mysql-install.html)
-- JDK (1.8.0_more than 141),[how to install JDK](https://www.runoob.com/java/java-environment-setup.html)
-- Python (2.x and 3.x supported),[how to install Python](https://www.runoob.com/python/python-install.html)
-- Hadoop (**Community version and CDH3.0 are supported**
-- Hive(1.2.1,**version 2.0 and above, there may be compatibility problems**
+- MySQL (5.5+), [How to install MySQL](https://www.runoob.com/mysql/mysql-install.html)
+- JDK (above 1.8.0_141), [How to install JDK](https://www.runoob.com/java/java-environment-setup.html)
+- Python (support both 2.x and 3.x), [How to install Python](https://www.runoob.com/python/python-install.html)
+- Hadoop (**Community version and versions below CDH3.0 are supported**)
+- Hive (1.2.1, **2.0 and above 2.0, there may be compatibility issues**)
 
 ### 3.2 Create User
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g. **Deploy user is hadoop**
-
-1. Create a deployment user on all machines that need to be deployed to install
+        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example: **Deployment user is hadoop account**
+   
+1. Create deployment users on all machines that need to be deployed for installation
 
 ```bash
     sudo useradd hadoop
 ```
-
-2. Since Linkis services are used to switch engines in the form of sudo -u ${linux-user} to perform assignments, deployment of users requires sudo permissions and is free from encryption.
+        
+2. Because the Linkis service uses sudo -u ${linux-user} to switch engines to perform operations, the deployment user needs to have sudo permissions and is password-free.
 
 ```bash
-    v/etc/sudoers
+    vi /etc/sudoers
 ```
 
-
          hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
+         
+3. **Set the following global environment variables on each installation node so that Linkis can use Hadoop and Hive normally**
+  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modify the installation user's .bash_rc, the command is as follows:
 
-3. **Sets the following global environment variables in each of the installed nodes to enable Linkis to use Hadoop and Hive properly**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modify installed user .bash_rc, the following command is：
-
-```bash     
+```bash
     vim /home/hadoop/.bash_rc
 ```
 
-
-    Below is an environmental variable example：
+    The following is an example of environment variables:
 
 ```bash
     #JDK
     export JAVA_HOME=/nemo/jdk1.8.0_141
-    #HADOOP  
+    #HADOOP
     export HADOOP_HOME=/appcom/Install/hadoop
     export HADOOP_CONF_DIR=/appcom/config/hadoop-config
     #Hive
@@ -171,199 +168,197 @@ sidebar_position: 1
     export HIVE_CONF_DIR=/appcom/config/hive-config
 ```
 
-### 3.3 SSH decryption configuration (distribution mode must)
+### 3.3 SSH password-free configuration (required for distributed mode)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This step can be skipped if your Linkis is deployed on the same server.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If your Linkis are deployed on the same server, this step can be skipped.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If your Linkis is deployed on multiple servers, you also need to configure ssh/free login for these servers.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If your Linkis is deployed on multiple servers, then you also need to configure ssh password-free login for these servers.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[How to configure SSH free login](https://www.jianshu.com/p/0922095f69f3)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[How to configure SSH password-free login](https://www.jianshu.com/p/0922095f69f3)
 
-### 3.4 Package preparation
+### 3.4 Installation package preparation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download the latest installation package from Linkis released ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)), Download the latest installation package.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uninstall the package to the installation directory before changing the configuration of the unpacked file.
-
-```bash   
-    tar -xvf wedatasphere-linkis-x.x.x-dist.tar.gz
-```
-
-   (1) Modify base configuration
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First decompress the installation package to the installation directory, and modify the configuration of the decompressed files.
 
 ```bash
-    vi /conf/config.sh   
+    tar -xvf wedatasphere-linkis-x.x.x-dist.tar.gz
 ```
+      
+   (1) Modify the basic configuration
 
+```bash
+    vi /conf/config.sh
+```
+        
+```prop
+erties
+   
+    deployUser=hadoop #Specify deployment user
+    LINKIS_INSTALL_HOME=/appcom/Install/Linkis # Specify the installation directory
+    WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop # Specify the user root directory, which is generally used to store the user's script files and log files, etc. It is the user's workspace.
+    HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis # Specify the user's HDFS root directory, which is generally used to store the result set files of the job
+
+    # If you want to use it with Scriptis, the CDH version of Hive, you also need to configure the following parameters (the community version of Hive can ignore this configuration)
+    HIVE_META_URL=jdbc://... # HiveMeta Metadata Database URL
+    HIVE_META_USER= # HiveMeta Metadata Database User
+    HIVE_META_PASSWORD= # Password of HiveMeta Metabase
+
+    # Configure hadoop/hive/spark configuration directory
+    HADOOP_CONF_DIR=/appcom/config/hadoop-config #hadoop's conf directory
+    HIVE_CONF_DIR=/appcom/config/hive-config #hive's conf directory
+```
+        
+   (2) Modify the database configuration
+
+```bash
+       vi conf/db.sh
+```
+            
 ```properties
 
-    EmployerUser=hadoop #Designated Deployed User
-    LINKIS_INSTAT_HOME=/appcom/Install/Linkis # Specify Installation Directory
-    WORKSPACE_USER_ROOT_PATH=file:// tmp/hadoop # Specify User Root directory, commonly used to store user scripts and log files etc. are user's workspace.
-    HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis   # 指定用户的HDFS根目录，一般用于存储Job的结果集文件
-
-    # 如果您想配合Scriptis一起使用，CDH版的Hive，还需要配置如下参数（社区版Hive可忽略该配置）
-    HIVE_META_URL=jdbc://...   # HiveMeta元数据库的URL
-    HIVE_META_USER=   # HiveMeta元数据库的用户
-    HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
-
-    # 配置hadoop/hive/spark的配置目录 
-    HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop的conf目录
-    HIVE_CONF_DIR=/appcom/config/hive-config   #hive的conf目录
-```
-
-   (2) Modify database configuration
-
-```bash   
-       vi conf/db.sh 
-```
-
-```properties    
-
-    # Setup connection information for database
-    # includes IP address, database name, username, port
-    # primarily used to store user custom variables, configuration parameters, UDF and widgets, as well as to provide access to Job History bottom storage
+    # Set the connection information of the database
+    # Including IP address, database name, user name, port
+    # Mainly used to store user-defined variables, configuration parameters, UDF and small functions, and provide the underlying storage of JobHistory
     MYSQL_HOST=
     MYSQL_PORT=
     MYSQL_DB=
     MYSQL_USER=
     MYSQL_PASSWORD=
-
  ```
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The environment is ready, click me to enter [5-installation deployment](#5-installation deployment)
+ 
+ 
+## 4 Standard Linkis Environment Preparation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Environment is ready. Tap me to  [5 - Install Deployment](#5-安装部署)
+### 4.1 Basic software installation
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following software must be installed:
 
-## 4 Standard version of Linkis Environment Preparedness
-
-### 4.1 Basic Software Installation
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following software must be loaded：
-
-- MySQL (5.5+),[how to install MySQL](https://www.runoob.com/mysql/mysql-install.html)
-- JDK (1.8.0_more than 141),[how to install JDK](https://www.runoob.com/java/java-environment-setup.html)
-- Python (2.x and 3.x supported),[how to install Python](https://www.runoob.com/python/python-install.html)
-- Hadoop (**Community version and CDH3.0 are supported**
-- Hive(1.2.1,**version 2.0 and above, there may be compatibility problems**
-- Spark (**Linkis release0.7.0, supports Spark2.0 and above all version**
+- MySQL (5.5+), [How to install MySQL](https://www.runoob.com/mysql/mysql-install.html)
+- JDK (above 1.8.0_141), [How to install JDK](https://www.runoob.com/java/java-environment-setup.html)
+- Python (support both 2.x and 3.x), [How to install Python](https://www.runoob.com/python/python-install.html)
+- Hadoop (**Community version and versions below CDH3.0 are supported**)
+- Hive (1.2.1, **2.0 and above 2.0, there may be compatibility issues**)
+- Spark (**Start from Linkis release 0.7.0, support all versions above Spark 2.0**)
 
 
 ### 4.2 Create User
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g. **Deploy user is hadoop**
-
-1. Create a deployment user on all machines that need to be deployed to install
+        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example: **Deployment user is hadoop account**
+   
+1. Create deployment users on all machines that need to be deployed for installation
 
 ```bash
     sudo useradd hadoop
 ```
-
-2. Since Linkis services are used to switch engines in the form of sudo -u ${linux-user} to perform assignments, deployment of users requires sudo permissions and is free from encryption.
+        
+2. Because the Linkis service uses sudo -u ${linux-user} to switch engines to perform operations, the deployment user needs to have sudo permissions and is password-free.
 
 ```bash
-    v/etc/sudoers
+    vi /etc/sudoers
 ```
 
 ```properties
     hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ```
 
-3. **Sets the following global environment variables in each install node so that Linkis can use Hadoop, Hive, and Spark normally**
+3. **Set the following global environment variables on each installation node so that Linkis can use Hadoop, Hive and Spark normally**
+  
+    Modify the .bash_rc of the installing user, the command is as follows:
 
-    Modify installed user .bash_rc, the following command is：
-
-```bash     
+```bash
     vim /home/hadoop/.bash_rc
 ```
 
-
-    Below is an environmental variable example：
+    The following is an example of environment variables:
 
 ```bash
     #JDK
-    export JAVA_HOME=/nemo/jdk1.8. _141
-    #HADOOP  
-    export HADOOP_HOME=/appcom/Install/hadop
+    export JAVA_HOME=/nemo/jdk1.8.0_141
+    #HADOOP
+    export HADOOP_HOME=/appcom/Install/hadoop
     export HADOOP_CONF_DIR=/appcom/config/hadoop-config
     #Hive
     export HIVE_HOME=/appcom/Install/hive
     export HIVE_CONF_DIR=/appcom/config/hive-config
     #Spark
     export SPARK_HOME=/appcom/Install/spark
-    export SPARK_CONF_DIR=/appcom/config/spark-park-sumit
-    export PYSPARK_ALLOW_INSEECURE_GATEWAY=1 # Pyspark
+    export SPARK_CONF_DIR=/appcom/config/spark-config/spark-submit
+    export PYSPARK_ALLOW_INSECURE_GATEWAY=1 # Pyspark must add parameters
 ```
 
-4. **If your Pyspark wants to have graphic features, you need to install the image module at all your nods**Command below：
+4. **If your Pyspark wants to have the drawing function, you also need to install the drawing module on all installation nodes**. The command is as follows:
 
 ```bash
-    python -m pip install match
+    python -m pip install matplotlib
 ```
 
-### 4.3 SSH decryption configuration (distribution mode must)
+### 4.3 SSH password-free configuration (required for distributed mode)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This step can be skipped if your Linkis is deployed on the same server.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If your Linkis are deployed on the same server, this step can be skipped.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If your Linkis is deployed on multiple servers, you also need to configure ssh/free login for these servers.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If your Linkis is deployed on multiple servers, then you also need to configure ssh password-free login for these servers.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[How to configure SSH free login](https://www.jianshu.com/p/0922095f69f3)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[How to configure SSH password-free login](https://www.jianshu.com/p/0922095f69f3)
 
-### 4.4 Package preparation
+### 4.4 Installation package preparation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download the latest installation package from Linkis released ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)), Download the latest installation package.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uninstall the package to the installation directory before changing the configuration of the unpacked file.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First decompress the installation package to the installation directory, and modify the configuration of the decompressed files.
 
-```bash   
+```bash
     tar -xvf wedatasphere-linkis-x.x.0-dist.tar.gz
 ```
-
-   (1) Modify base configuration
+      
+   (1) Modify the basic configuration
 
 ```bash
-    vi conf/config.sh   
+    vi conf/config.sh
 ```
-
+        
 ```properties
-    SSH_PORT=22 #Specify SSH port if one-machine version installation is unconfigured
-    deEmployUser=hadoop #Designated Deployer
-    LINKIS_INKIS_INSTAL_HOME=/appcom/Install/Linkis # Specified Installation Directory
-    WORKSPACE_USER_ROOT_PATH=file://tmp/hadoop # Specify user roots, which are typically used to store user scripts files and log files, etc. are user's workspace.
-    HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis   # 指定用户的HDFS根目录，一般用于存储Job的结果集文件
+    SSH_PORT=22 #Specify the SSH port, if the stand-alone version is installed, it may not be configured
+    deployUser=hadoop #Specify deployment user
+    LINKIS_INSTALL_HOME=/appcom/Install/Linkis # Specify the installation directory
+    WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop # Specify the user root directory, which is generally used to store the user's script files and log files, etc. It is the user's workspace.
+    HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis # Specify the user's HDFS root directory, which is generally used to store the result set files of the job
 
-    # 如果您想配合Scriptis一起使用，CDH版的Hive，还需要配置如下参数（社区版Hive可忽略该配置）
-    HIVE_META_URL=jdbc://...   # HiveMeta元数据库的URL
-    HIVE_META_USER=   # HiveMeta元数据库的用户
-    HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
-
-    # 配置hadoop/hive/spark的配置目录 
-    HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop的conf目录
-    HIVE_CONF_DIR=/appcom/config/hive-config   #hive的conf目录
-    SPARK_CONF_DIR=/appcom/config/spark-config #spark的conf目录
+    # If you want to use it with Scriptis, the CDH version of Hive, you also need to configure the following parameters (the community version of Hive can ignore this configuration)
+    HIVE_META_URL=jdbc://... # HiveMeta Metadata Database URL
+    HIVE_META_USER= # HiveMeta Metadata Database User
+    HIVE_META_PASSWORD= # Password of HiveMeta Metabase
+    
+    # Configure hadoop/hive/spark configuration directory
+    HADOOP_CONF_DIR=/appcom/config/hadoop-config #hadoop's conf directory
+    HIVE_CONF_DIR=/appcom/config/hive-config #hive's conf directory
+    SPARK_CONF_DIR=/appcom/config/spark-config #spark's conf directory
 ```
 
-   (2) Modify database configuration
+   (2) Modify the database configuration
 
-```bash   
-    vi conf/db.sh 
+```bash
+    vi conf/db.sh
 ```
+            
+```properties
 
-```properties    
-
-    # Setup connection information for database
-    # includes IP address, database name, username, port
-    # primarily used to store user custom variables, configuration parameters, UDF and widgets, as well as to provide access to Job History bottom storage
+    # Set the connection information of the database
+    # Including IP address, database name, user name, port
+    # Mainly used to store user-defined variables, configuration parameters, UDF and small functions, and provide the underlying storage of JobHistory
     MYSQL_HOST=
     MYSQL_PORT=
     MYSQL_DB=
     MYSQL_USER=
     MYSQL_PASSWORD=
-
  ```
+ 
+## 5 Installation and deployment
 
-## 5 Installation
-
-### 5.1 Execute Installation Script：
+### 5.1 Execute the installation script:
 
 ```bash
     sh bin/install.sh
@@ -371,45 +366,46 @@ sidebar_position: 1
 
 ### 5.2 Installation steps
 
-- install.sh script will ask you how to install it.
+- The install.sh script will ask you about the installation mode.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Installation mode is streamlined, simple or standard mode. Please select the appropriate installation mode depending on the environment you prepared.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The installation mode is condensed mode, simple mode or standard mode. Please choose the appropriate installation mode according to the environment you prepare.
 
-- install.sh script will ask if you need to initialize the database and import metadata.
+- The install.sh script will ask you if you need to initialize the database and import metadata.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The user will be asked if they need to initialize the database and import metadata because of the fear that the user data in the database will be empty because of the fear that the user will repeat the install.sh script.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Because the user is worried that the user repeatedly executes the install.sh script to clear the user data in the database, when the install.sh is executed, the user will be asked if they need to initialize the database and import metadata.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**First installation**must be selected.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Yes must be selected for the first installation**.
 
-### 5.3 Installation successfully：
+### 5.3 Is the installation successful:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check the console print to see if it is installed.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check whether the installation is successful by viewing the log information printed on the console.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If there is an error message, you can see the reason for the specific error.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If there is an error message, you can check the specific reason for the error.
 
 
-### 5.4 Quick Launch Linkis
+### 5.4 Quick start Linkis
 
-#### (1), start service：
+#### (1), start the service:
+  
+  Execute the following command in the installation directory to start all services:
 
-  Execute the following commands in the installation directory, start all services：
-
-```bash  
-  ./bin/start-all.sh > start.log 2>start_error.log
+```bash
+  ./bin/start-all.sh> start.log 2>start_error.log
 ```
+        
+#### (2), check whether the startup is successful
+    
+  You can check the success of the service startup on the Eureka interface, and check the method:
+    
+  Use http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, open it in a browser, and view the server
+Whether the registration is successful.
+    
+  If you did not specify EUREKA_INSTALL_IP and EUREKA_INSTALL_IP in config.sh, the HTTP address is: http://127.0.0.1:20303
+    
+  As shown in the figure below, if the following microservices appear on your Eureka homepage, it means that the services have been started successfully and you can provide services to the outside world normally:
 
-#### (2), see whether or not the start was successful
-
-  You can view service startup success on the Eureka interface, see method：
-
-  Use http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, open in browser, see whether the service was registered successfully.
-
-  If you do not specify in config.sh, EUREKA_INSTAL_IP_SPECIAL L_IP, then HTTP address is：http://127.0.0.1:20303
-
-  如下图，如您的Eureka主页出现以下微服务，则表示服务都启动成功，可以正常对外提供服务了：
-
-  __NOTE:__ Rated for DSS; the rest for Linkis, if only the link is used to ignore the red portion
-
+  __Note:__ The ones marked in red are DSS services, and the rest are services of Linkis. If you only use linkis, you can ignore the parts marked in red
+    
  ![Eureka](../images/ch1/Eureka_homepage.png)
 
 
@@ -417,26 +413,26 @@ sidebar_position: 1
 
 ### 6.1 Overview
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis provides JavaScript clients with implementation and allows users to use UJESClient for quick access to Linkis background.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis provides users with a Java client implementation, and users can use UJESClient to quickly access Linkis back-end services.
 
-### 6.2 Quick operation
+### 6.2 Fast running
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们在ujes/client/src/test模块下，提供了UJESClient的两个测试类：
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We provide two test classes of UJESClient under the ujes/client/src/test module:
 
 ```
     com.webank.wedatasphere.linkis.ujes.client.UJESClientImplTestJ # Java-based test class
-    com.webank.wedatasphere.linkis.ujes.UJESClientImplTest # based on Scala
-
+    com.webank.wedatasphere.linkis.ujes.client.UJESClientImplTest # Test class based on Scala implementation
+    
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you clone the Linkis's source code you can run both test classes directly.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you cloned the source code of Linkis, you can run these two test classes directly.
+   
 
+### 6.3 Quick implementation
 
-### 6.3 Rapid implementation
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Below is a specific description of how to quickly implement a code submission for Linkis.**
-
-#### 6.3.1 Maven dependency
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**The following specifically introduces how to quickly implement a linkis code submission and execution. **
+   
+#### 6.3.1 maven dependency
 
 ```xml
 <dependency>
@@ -446,9 +442,9 @@ sidebar_position: 1
 </dependency>
 ```
 
-#### 6.3.2 Reference implementation
+#### 6.3.2 Reference Implementation
 
-- **JAVA**
+-**JAVA**
 
 ```java
 package com.webank.bdp.dataworkcloud.ujes.client;
@@ -472,52 +468,52 @@ import java.util.concurrent.TimeUnit;
 
 public class UJESClientImplTestJ{
     public static void main(String[] args){
-        // 1. 配置DWSClientBuilder，通过DWSClientBuilder获取一个DWSClientConfig
+        // 1. Configure DWSClientBuilder, get a DWSClientConfig through DWSClientBuilder
         DWSClientConfig clientConfig = ((DWSClientConfigBuilder) (DWSClientConfigBuilder.newBuilder()
-                .addUJESServerUrl("http://${ip}:${port}")  //指定ServerUrl，Linkis服务器端网关的地址,如http://{ip}:{port}
-                .connectionTimeout(30000)   //connectionTimeOut 客户端连接超时时间
-                .discoveryEnabled(true).discoveryFrequency(1, TimeUnit.MINUTES)  //是否启用注册发现，如果启用，会自动发现新启动的Gateway
-                .loadbalancerEnabled(true)  // 是否启用负载均衡，如果不启用注册发现，则负载均衡没有意义
-                .maxConnectionSize(5)   //指定最大连接数，即最大并发数
-                .retryEnabled(false).readTimeout(30000)   //执行失败，是否允许重试
-                .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis认证方式
-                .setAuthTokenKey("johnnwang").setAuthTokenValue("Abcd1234")))  //认证key，一般为用户名;  认证value，一般为用户名对应的密码
-                .setDWSVersion("v1").build();  //Linkis后台协议的版本，当前版本为v1
-
-        // 2. 通过DWSClientConfig获取一个UJESClient
+                .addUJESServerUrl("http://${ip}:${port}") //Specify ServerUrl, the address of the Linkis server-side gateway, such as http://{ip}:{port}
+                .connectionTimeout(30000) //connectionTimeOut client connection timeout
+                .discoveryEnabled(true).discoveryFrequency(1, TimeUnit.MINUTES) //Whether to enable registration discovery, if enabled, the newly launched Gateway will be automatically discovered
+                .loadbalancerEnabled(true) // Whether to enable load balancing, if registration discovery is not enabled, load balancing is meaningless
+                .maxConnectionSize(5) //Specify the maximum number of connections, that is, the maximum number of concurrent
+                .retryEnabled(false).readTimeout(30000) //execution failed, whether to allow retry
+                .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authentication method
+                .setAuthTokenKey("johnnwang").setAuthTokenValue("Abcd1234"))) //Authentication key, generally the user name; authentication value, generally the password corresponding to the user name
+                .setDWSVersion("v1").build(); //Linkis backend protocol version, the current version is v1
+        
+        // 2. Get a UJESClient through DWSClientConfig
         UJESClient client = new UJESClientImpl(clientConfig);
 
-        // 3. 开始执行代码
+        // 3. Start code execution
         JobExecuteResult jobExecuteResult = client.execute(JobExecuteAction.builder()
-                .setCreator("LinkisClient-Test")  //creator，请求Linkis的客户端的系统名，用于做系统级隔离
-                .addExecuteCode("show tables")   //ExecutionCode 请求执行的代码
-                .setEngineType(JobExecuteAction.EngineType$.MODULE$.HIVE()) // 希望请求的Linkis的执行引擎类型，如Spark hive等
-                .setUser("johnnwang")   //User，请求用户；用于做用户级多租户隔离
+                .setCreator("LinkisClient-Test") //creator, requesting the system name of the Linkis client, used for system-level isolation
+                .addExecuteCode("show tables") //ExecutionCode The code to be executed
+                .setEngineType(JobExecuteAction.EngineType$.MODULE$.HIVE()) // The execution engine type of Linkis that you want to request, such as Spark hive, etc.
+                .setUser("johnnwang") //User, requesting user; used for user-level multi-tenant isolation
                 .build());
-        System.out.println("execId: " + jobExecuteResult.getExecID() + ", taskId: " + jobExecuteResult.taskID());
-
-        // 4. 获取脚本的执行状态
+        System.out.println("execId: "+ jobExecuteResult.getExecID() + ", taskId:" + jobExecuteResult.taskID());
+        
+        // 4. Get the execution status of the script
         JobStatusResult status = client.status(jobExecuteResult);
         while(!status.isCompleted()) {
-            // 5. 获取脚本的执行进度
+            // 5. Get the execution progress of the script
             JobProgressResult progress = client.progress(jobExecuteResult);
             Utils.sleepQuietly(500);
             status = client.status(jobExecuteResult);
         }
-
-        // 6. 获取脚本的Job信息
+        
+        // 6. Get the job information of the script
         JobInfoResult jobInfo = client.getJobInfo(jobExecuteResult);
-        // 7. 获取结果集列表（如果用户一次提交多个SQL，会产生多个结果集）
+        // 7. Get the list of result sets (if the user submits multiple SQL at a time, multiple result sets will be generated)
         String resultSet = jobInfo.getResultSetList(client)[0];
-        // 8. 通过一个结果集信息，获取具体的结果集
+        // 8. Get a specific result set through a result set information
         Object fileContents = client.resultSet(ResultSetAction.builder().setPath(resultSet).setUser(jobExecuteResult.getUser()).build()).getFileContent();
-        System.out.println("fileContents: " + fileContents);
+        System.out.println("fileContents: "+ fileContents);
         IOUtils.closeQuietly(client);
     }
 }
 ```
 
-- **SCALA**
+-**SCALA**
 
 ```scala
 
@@ -525,54 +521,55 @@ import java.util.concurrent.TimeUnit
 
 import com.webank.wedatasphere.Linkis.common.utils.Utils
 import com.webank.wedatasphere.Linkis.httpclient.dws.authentication.StaticAuthenticationStrategy
-import com.webank.wedatasphere.Linkis.httpclient.dws.config.DWSClientConfigBuilder
+import com.webank.wedatasphere.Lin
+kis.httpclient.dws.config.DWSClientConfigBuilder
 import com.webank.wedatasphere.Linkis.ujes.client.request.JobExecuteAction.EngineType
 import com.webank.wedatasphere.Linkis.ujes.client.request.{JobExecuteAction, ResultSetAction}
 import org.apache.commons.io.IOUtils
 
 object UJESClientImplTest extends App {
 
-  // 1. 配置DWSClientBuilder，通过DWSClientBuilder获取一个DWSClientConfig
+  // 1. Configure DWSClientBuilder, get a DWSClientConfig through DWSClientBuilder
   val clientConfig = DWSClientConfigBuilder.newBuilder()
-    .addUJESServerUrl("http://${ip}:${port}")  //指定ServerUrl，Linkis服务器端网关的地址,如http://{ip}:{port}
-    .connectionTimeout(30000)  //connectionTimeOut 客户端连接超时时间
-    .discoveryEnabled(true).discoveryFrequency(1, TimeUnit.MINUTES)  //是否启用注册发现，如果启用，会自动发现新启动的Gateway
-    .loadbalancerEnabled(true)  // 是否启用负载均衡，如果不启用注册发现，则负载均衡没有意义
-    .maxConnectionSize(5)   //指定最大连接数，即最大并发数
-    .retryEnabled(false).readTimeout(30000)   //执行失败，是否允许重试
-    .setAuthenticationStrategy(new StaticAuthenticationStrategy())  //AuthenticationStrategy Linkis认证方式
-    .setAuthTokenKey("${username}").setAuthTokenValue("${password}")  //认证key，一般为用户名;  认证value，一般为用户名对应的密码
-    .setDWSVersion("v1").build()  //Linkis后台协议的版本，当前版本为v1
-
-  // 2. 通过DWSClientConfig获取一个UJESClient
+    .addUJESServerUrl("http://${ip}:${port}") //Specify ServerUrl, the address of the Linkis server-side gateway, such as http://{ip}:{port}
+    .connectionTimeout(30000) //connectionTimeOut client connection timeout
+    .discoveryEnabled(true).discoveryFrequency(1, TimeUnit.MINUTES) //Whether to enable registration discovery, if enabled, the newly launched Gateway will be automatically discovered
+    .loadbalancerEnabled(true) // Whether to enable load balancing, if registration discovery is not enabled, load balancing is meaningless
+    .maxConnectionSize(5) //Specify the maximum number of connections, that is, the maximum number of concurrent
+    .retryEnabled(false).readTimeout(30000) //execution failed, whether to allow retry
+    .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authentication method
+    .setAuthTokenKey("${username}").setAuthTokenValue("${password}") //Authentication key, generally the user name; authentication value, generally the password corresponding to the user name
+    .setDWSVersion("v1").build() //Linkis backend protocol version, the current version is v1
+  
+  // 2. Get a UJESClient through DWSClientConfig
   val client = UJESClient(clientConfig)
 
-  // 3. 开始执行代码
+  // 3. Start code execution
   val jobExecuteResult = client.execute(JobExecuteAction.builder()
-    .setCreator("LinkisClient-Test")  //creator，请求Linkis的客户端的系统名，用于做系统级隔离
-    .addExecuteCode("show tables")   //ExecutionCode 请求执行的代码
-    .setEngineType(EngineType.SPARK) // 希望请求的Linkis的执行引擎类型，如Spark hive等
-    .setUser("${username}").build())  //User，请求用户；用于做用户级多租户隔离
-  println("execId: " + jobExecuteResult.getExecID + ", taskId: " + jobExecuteResult.taskID)
-
-  // 4. 获取脚本的执行状态
+    .setCreator("LinkisClient-Test") //creator, requesting the system name of the Linkis client, used for system-level isolation
+    .addExecuteCode("show tables") //ExecutionCode The code to be executed
+    .setEngineType(EngineType.SPARK) // The execution engine type of Linkis that you want to request, such as Spark hive, etc.
+    .setUser("${username}").build()) //User, request user; used for user-level multi-tenant isolation
+  println("execId: "+ jobExecuteResult.getExecID + ", taskId:" + jobExecuteResult.taskID)
+  
+  // 4. Get the execution status of the script
   var status = client.status(jobExecuteResult)
   while(!status.isCompleted) {
-  // 5. 获取脚本的执行进度
+  // 5. Get the execution progress of the script
     val progress = client.progress(jobExecuteResult)
     val progressInfo = if(progress.getProgressInfo != null) progress.getProgressInfo.toList else List.empty
-    println("progress: " + progress.getProgress + ", progressInfo: " + progressInfo)
+    println("progress: "+ progress.getProgress + ", progressInfo:" + progressInfo)
     Utils.sleepQuietly(500)
     status = client.status(jobExecuteResult)
   }
-
-  // 6. 获取脚本的Job信息
+  
+  // 6. Get the job information of the script
   val jobInfo = client.getJobInfo(jobExecuteResult)
-  // 7. 获取结果集列表（如果用户一次提交多个SQL，会产生多个结果集）
+  // 7. Get the list of result sets (if the user submits multiple SQL at a time, multiple result sets will be generated)
   val resultSet = jobInfo.getResultSetList(client).head
-  // 8. 通过一个结果集信息，获取具体的结果集
+  // 8. Get a specific result set through a result set information
   val fileContents = client.resultSet(ResultSetAction.builder().setPath(resultSet).setUser(jobExecuteResult.getUser).build()).getFileContent
-  println("fileContents: " + fileContents)
+  println("fileContents: "+ fileContents)
   IOUtils.closeQuietly(client)
 }
 ```

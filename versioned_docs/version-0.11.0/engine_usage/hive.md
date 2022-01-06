@@ -2,88 +2,92 @@
 title: Hive Engine
 sidebar_position: 2
 ---
-## 1 Hive Engine Use
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Hive implementation engine implemented by Linkis now supports HiveQL submissions and users can submit their own HiveQL to the cluster where they submit their own HiveQL via Linkis using the three interface modes of the document (SDK, HTTP, WebSocket).
+## 1 Use of Hive Engine
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Hive execution engine implemented by Linkis now supports HiveQL submission, and users submit their own execution through Linkis using the three interface methods in the document (SDK, HTTP, WebSocket) Code, you can submit your HiveQL to the cluster for execution.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To implement the HiveQL program using Linkis, you need to download the Linkis's release package and configure, install and start the specified microservices.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to use the Linkis system to execute the HiveQL program, you need to download the Linkis release installation package and configure, install and start the specified specified microservice.
 
-### Environment Variable Configuration
+### 1.1 Environment variable configuration
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Environment variables on which the Hive engine depends: HADOOP_HOME, HADOOP_CONF_DIR, HIVE_HOME, and HIVE_CONF_DIR.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Environmental variables that the Hive engine depends on: HADOOP_HOME, HADOOP_CONF_DIR, HIVE_HOME, and HIVE_CONF_DIR.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before starting the microservice associated with the Hive execution engine, make sure that the above environment variables are set up, if not, in the linkis.properties configuration file in /home/${USER}/.bash_rc or linkis-ujes-spark-enginemanager/conf.As shown below
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before starting the microservices related to the hive execution engine, please make sure that the above environment variables have been set. If not, please log in /home/${ USER}/.bash_rc or linkis-ujes-spark-enginemanager/conf in the linkis.properties configuration file. As shown below
 
 ```properties
-  HADOOP_HOME=${真实的hadoop安装目录}
-  HADOOP_CONF_DIR=${真实的hadoop配置目录}
-  HIVE_CONF_DIR=${真实的hive配置目录}
-  HIVE_HOME=${真实的hive安装目录 }
+  HADOOP_HOME=${real hadoop installation directory}
+  HADOOP_CONF_DIR=${Real hadoop configuration directory}
+  HIVE_CONF_DIR=${Real hive configuration directory}
+  HIVE_HOME=${Real hive installation directory}
 ```
 
-### 1.2 Dependency service activation
+### 1.2 Dependent service startup
 
-Launch of the Hive engine, depends on the following Linkis microservices:
+The startup of the Hive engine requires the following Linkis microservices:
 
-- 1), Eureka: for service registration for discovery.
-- 2), Linkis-gateway: for user request forwarding.
-- 3), Linkis-publicService: provision of basic functions such as persistence, udf and more.
-- 4), Linkis-ResourceManager: Provides Linkis Resource Management features.
+-1), Eureka: Used for service registration and discovery.
+-2), Linkis-gateway: used for user request forwarding.
+-3) Linkis-publicService: Provides basic functions such as persistence and udf.
+-4) Linkis-ResourceManager: Provides Linkis resource management functions.
 
-### 1.3 Custom Parameter Configuration
+### 1.3 Custom parameter configuration
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You also need to start HiveEntrance and HiveEngineManager when using hive.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To use hive normally, you also need to start HiveEntrance and HiveEngineManager.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HiveEntrance is the recipient of the Hive operation and the HiveEngineer is the initiator of the HiveEngine.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HiveEntrance is the recipient of hive jobs, and HiveEngineManager is the initiator of HiveEngine.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before starting, users can set custom parameters for the hive engine.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before starting, users can set custom parameters about the hive engine.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis, taking into account the user desire to be freer to set the parameters, provides many configuration parameters.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis provides many configuration parameters in consideration of users' desire to set parameters more freely.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following table contains some commonly used parameters. The Hive Engine supports the configuration of more parameters to achieve better performance, such as you have the best needs and welcome to read the pamphlets.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following table has some commonly used parameters. The Hive engine supports configuring more parameters for better performance. If you have tuning needs, welcome to read Tuning manual.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Users can configure these parameters in linkis.properties.
 
-| Parameter Name                                | Ref Value | Note                                                                     |
-| --------------------------------------------- | --------- | ------------------------------------------------------------------------ |
-| wds.linkis.enginemanager.memori.max           | 40G       | Total memory used to specify clients for all hiveEM-started engines      |
-| wds.linkis.enginemanager.cores.max            | 20        | Total CPU nucleus used to specify clients for all hiveEM-started engines |
-| wds.linkis.enginemanager.engine.instances.max | 10        | Specify the number of engines hiveEM can start                           |
+| Parameter name | Reference value | Description |
+| ------------ | ------------ | ------------ |
+| wds.linkis.enginemanager.memory.max | 40G| Used to specify the total memory of the client of all engines started by hiveEM |
+| wds.linkis.enginemanager.cores.max | 20 | Used to specify the total number of CPU cores of the clients of all engines started by hiveEM |
+| wds.linkis.enginemanager.engine.instances.max | 10 | Used to specify the number of engines that hiveEM can start |
 
-### 1.4 Frontend deployment
+### 1.4 Front-end deployment
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After the microservice launch started successfully, users need to submit their HiveQL code via a webbrowser.可以通过部署配置微众另一款开源的前端产品[Scriptis](https://github.com/WeBankFinTech/Scriptis/blob/master/docs/zh_CN/ch1/%E5%89%8D%E5%8F%B0%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3.md)，该产品让用户能在web页面上编辑、提交代码，并能够实时接收后台给的信息。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After the above microservices are successfully launched and deployed, users need to submit their own HiveQL code through a web browser. You can deploy another open source front-end product of WeBank [Scriptis](https://github.com/WeBankFinTech/Scriptis/blob/master/docs/zh_CN/ch1/%E5%89%8D%E5%8F% B0%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3.md), this product allows users to edit and submit codes on web pages, and receive real-time feedback from the background information.
 
-**1.5 Run Effect Graph**
+**1.5 Running effect chart**
 
-![Hive Run Effect Graph 1](../images/ch6/hive_run1.png)<br/> Figure 1 Operation effect figure 1
+![Hive running effect chart 1](../images/ch6/hive_run1.png)<br/>
+Figure 1 Hive running effect Figure 1
 
-![Hive Run Effect Chart 2](../images/ch6/hive_run2.png)<br/> Figure 2
+![Hive running effect chart 2](../images/ch6/hive_run2.png)<br/>
+Figure 2 Hive running effect Figure 2
 
-## 2 Hive Engine Implementation Method
+## 2 Hive engine implementation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The implementation of the Hive execution engine is the necessary interface for the three modules Entrance, Engineer and Engineer in the context of the Linkis development documents, of which the Engineering Module is the most special and the Hive method of delivery has its own logic.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The implementation of the Hive execution engine is to implement the necessary interfaces of the Entrance, EngineManager and Engine three modules with reference to the Linkis development document. The Engine module is the most special, Hive The way of implementation also has its own set of logic.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis now providing version of Release, based on version 2.7.2, and version 1.2.1, both of which is apache.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Release version now provided by Linkis is based on hadoop version 2.7.2, hive version is 1.2.1, both are apache versions.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis's Hive engine interacts with bottom hive mainly through the HiveEngineExecutor class, which is instantiated by HiveEngineExecutorFactory, the bean.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis's Hive engine interacts with the underlying hive mainly through the HiveEngineExecutor class, which is instantiated by the HiveEngineExecutorFactory bean.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In the executeLine interface implemented by HiveEngineecutor, Linkis passing through the CommandProcessorFactory class in use by Hive is provided with configuration information on local hive, obtained a org.apache.hadoop.hive.ql.Driver, and the Driver class provides the API to help submit user scripts code to be executed in the cluster.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In the executeLine interface implemented by HiveEngineExecutor, Linkis uses the CommandProcessorFactory class provided by hive to pass in local hive configuration information to obtain an org.apache.hadoop. The hive.ql.Driver class, the Driver class provides an API to help submit the user's script code to the cluster for execution.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After submitting the hive sql code, Driver has an API that provides whether the execution is successful and if you get the results set.If executed successfully, use the Unified Storage Service provided by Linkis, store the results set in the specified directory for user viewing.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After the driver submits the hive sql code, there is an API to provide whether the execution is successful and to obtain the result set after the success is obtained. If the execution is successful, with the help of the unified storage service provided by Linkis, the result set will be stored in the specified directory for users to view.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moreover, after submitting the hive sql, if the map mission is created, we can also kill the already submitted Hive Query mission via the API, provided by HadoopJobExecuecHelper, which is the logic of the user front kill.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In addition, after the Driver submits hive sql, if a mapreduce task is generated, we can also kill the submitted hive query task through the killRunningJobs API provided by HadoopJobExecHelper , This is the logic of the user's foreground kill task. <br/>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On another point, the Linkis hive engine also performs progress features.In particular, through the runningJobs field of HadoopJobExecHelper to get the running MR tasks, which then have the corresponding map and reduction progress, making them a mathematical calculation, and bearing in mind that runningJobs are operational MR jobs that will be removed from the List, so that the sql implementation plan will need to be obtained at the outset and can be seen in the implementation of the code.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;One more thing, Linkis's hive engine also implements a progress function. Specifically, the runningJobs field of HadoopJobExecHelper is used to obtain the running MR tasks, and then these MR tasks have corresponding map and reduce progress. You can get the total progress of the task by doing a mathematical calculation. It should be noted that runningJobs is running The MR job will be deleted from the List once it is executed, so it is necessary to get the execution plan of SQL at the beginning. For details, please refer to the implementation of the code.
 
-## 3 Fit your own hive version
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since the current version of Linkis is an apache version that supports 1.2.1, the clusters of many users may not be consistent with our companies, so they need to re-compile the Hive execution engine themselves.
+## 3 Adapt your own hive version
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Because the current version of Linkis is the apache version that supports 1.2.1, many users' clusters may not be consistent with our company, so you need to recompile the Hive execution engine by yourself .
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To give an example, if the user uses a cdh version of 1.1.0, he needs to convert hive.version to the specified version at the top level and then compile it.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example, if the user is using the 1.1.0 cdh version, he needs to change the hive.version to the specified version in the top-level pom.xml and then Compile.
 
-When appropriate, we also found that jar kits had clashes, which required users to view the log to exclude and, if it was not possible to determine the cause, to welcome group consultations.
+When we were adapting, we also found that there was a conflict in the jar package. This requires the user to check the log to eliminate it. If the cause is still unclear, welcome to join the group for consultation.
 
-![Microletter & QQ Group](../images/ch6/group.png)<br/>
+![WeChat and QQ group](../images/ch6/group.png)<br/>
 
-## 4 Future objectives
+## 4 Future goals
 
-1. Strictly fit more versions of hive. 2. Deployment is simpler and attempts to use containerization. 3. Improved functionality, accuracy and completeness in terms of implementation progress, accuracy of data, etc.
+1. Seamlessly adapt to more hive versions.
+2. The deployment method is simpler, try to use the containerized method.
+3. The function is more complete, and it is more accurate and complete in terms of execution progress, data accuracy, etc.

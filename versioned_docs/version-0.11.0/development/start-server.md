@@ -1,5 +1,5 @@
 ---
-title: Start of a single service
+title: Start Of A Single Service
 sidebar_position: 1
 ---
 

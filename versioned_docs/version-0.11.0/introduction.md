@@ -26,7 +26,7 @@ As shown in the graph below, when our upper-tier applications, tool systems and 
 
 <br/>
 
-不断引入新组件来实现业务需求，越来越多的痛点也随之产生：
+Continuously introducing new components to achieve business needs, more and more pain points have also arisen:
 
 1. Business needs vary from one end to another, upper layers of components are unique and users use them to break up with a strong sense of fragmentation and high learning costs.
 
@@ -36,7 +36,7 @@ As shown in the graph below, when our upper-tier applications, tool systems and 
 
 4. The upper-tier application directly interfaces the bottom computing storage engine and will directly affect the normal use of business products as soon as the background changes occur.
 
-## Designed for settlement
+## Original design intention
 
 How to provide a uniform data intermediary, block all calls and usage details from the bottom, and really get business users to focus only on the realization of the business, even if the extension and overall relocation of the bottom platform is not affected, the Linkis's original design!
 
@@ -78,7 +78,7 @@ Each microservice cluster assumes a part of the functional responsibilities of t
 Building on the interaction of these microservice clusters, we have improved the way and process of external service across the large data platform.
 
 
-## Operational framework
+## Business architecture
 
 ![Operational framework](images/ch4/ujes/business_architecture_diagram.png)
 
@@ -148,7 +148,7 @@ Name Explanation：
  12. Once SQL has been successfully executed, Engineering has taken the initiative to push the results set to Entrance, Entrance notifies the frontend to obtain the results.
 
 
- ## How to ensure high real time lags
+ ## How to ensure high real-time
 
  It is well known that Spring Cloud is integrated as a communication tool between microservices.
 
@@ -174,7 +174,7 @@ Name Explanation：
 
  3. Delivery is an asynchronous request method, as long as the process at the sending end does not exit, the request will be sent to the receiving end later through other threads.
 
-## How to support high congestion
+## How to support high concurrency
 
 Linkis designed 5 Asynchronous Message Queue and Thread Pools, with Jobs using less than 1 milliseconds per occupation to ensure that more than 10,000 + TPS Resident Job requests can be accepted per single entry.
 

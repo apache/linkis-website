@@ -5,123 +5,123 @@ sidebar_position: 2
 
 ## 1 Background
 
-An HTTP interface between Feign-based microservices can only satisfy a simple microservices instance of a random selection of a service instance of a microservice under simple rules that cannot be achieved if you want asynchronous messages to the caller.
+The call of HTTP interface between Feign-based microservices can only satisfy a simple A microservice instance that randomly selects a service instance in B microservices according to simple rules, and if this B microservice instance wants to asynchronously return information To the caller, it is simply impossible to achieve.
 
-At the same time, since Feigns only support simple service selection rules, it is not possible to forward requests to the specified microservice instance and do not allow all instances in which a request is broadcast to the recipient microservice.
+At the same time, because Feign only supports simple service selection rules, it cannot forward the request to the specified microservice instance, and cannot broadcast a request to all instances of the recipient microservice.
 
 
 ## 2 Introduction
 
-Linkis has implemented its own base RPC communication program based on Feign.
+Linkis has implemented a set of its own underlying RPC communication scheme based on Feign.
 
-Linkis RPC, as the bottom communication programme, will provide SDK to be integrated into needed microservices.
+As the underlying communication solution, Linkis RPC integrates the SDK into the microservices in need.
 
-A microservice can be both the caller and the recipient of the request.
+A microservice can be both a request caller and a request receiver.
 
-When serving as the caller, Receiver, through Sender, requests for the microservices of the target receiver, and as the requesting recipient, will provide Receiver, which will be used to handle requests sent by the requesting receiver Sender, in order to complete synchronized or asynchronous responses.
+As the request caller, the Receiver of the target receiver's microservice will be requested through the Sender. As the request receiver, the Receiver will be provided to process the request sent by the request receiver Sender in order to complete a synchronous response or an asynchronous response.
 
-![Linkis RPC Architecture](../../images/ch4/rpc1.png)
+![Linkis RPC architecture diagram](../../images/ch4/rpc1.png)
 
 
 ## 3 Implementation
 
-The Sender system based on the requesting party and the Receiver system of the requesting party form the whole structure of the Linkis RPC.
+Based on the Sender system of the requesting party and the Receiver system of the requesting party, the entire structure of Linkis RPC is formed.
 
-![Linkis RPC Detailed Architecture](../../images/ch4/rpc2.png)
+![Linkis RPC detailed architecture diagram](../../images/ch4/rpc2.png)
 
-### 3.1 Sender
+### 3.1 Sending end
 
-Linkis RPC, as the bottom layer of communication, does not require the sender to write any actual code.
+As the underlying communication layer, Linkis RPC does not require users to write any actual code on the sending end.
 
-- 1) Users obtain a Sender sender by calling SDK provided by Linkis RPC, either through a microservice name (Service Name) or a designated microservice instance (Microservice Name + Microservice Instances IPs and Ports).
+-1) The user obtains a Sender by calling the SDK provided by Linkis RPC, using the microservice name (Service Name) or specifying the microservice instance (microservice name + IP and port of the microservice instance).
 
- &ensp; &ensp; &ensp; &ensp; Sender提供的可使用方法，见如下伪代码：
+ &ensp; &ensp; &ensp; &ensp; Sender provides usable methods, see the following pseudo code:
 
 ```java
-abstract class Sender 56
-    Object ask (Oject message);
-    Object ask (Oject message, Duration time);
-    void send(Object message);
-    void delivery (Oject message);
+abstract class Sender {
+Object ask(Object message);
+Object ask(Object message, Duration timeout);
+void send(Object message);
+void deliver(Object message);
 }
 ```
 
- &ensp; &ensp; &ensp; &ensp;where:
+ &ensp; &ensp; &ensp; &ensp; where:
 
-        The ask method is the synchronous request response method;
-        2. Sendmethod is the synchronous request method, only responsible for synchronizing sending requests to the receiving end and not requesting a response from the receiving end;
-        3. delivery is the asynchronous request method, as long as the sending end's process does not exit, the request will be sent to the receiving end later through other threads.
+        1. The ask method is a synchronous request response method, requiring the receiving end to return a response synchronously;
+        2. The send method is a synchronous request method, which is only responsible for sending the request to the receiving end synchronously, and does not require the receiving end to give a reply;
+        3. Deliver is an asynchronous request method. As long as the process on the sending end does not exit abnormally, the request will be sent to the receiving end through other threads later.
 
-- 2) Users send requests to the receiving end through the request method provided by the Sender sender as the sending end.
+-2) As the sender, the user sends a request to the receiver through the request method provided by the sender.
 
-- 3) Sender sender will pass the user's request to the blocker.拦截器拦截请求，开始对请求做额外的功能性处理：
+-3) The Sender sends the user's request to the interceptor. The interceptor intercepts the request and starts to do additional functional processing on the request:
 
-     a) Radio interceptors.
-
-     Broadcast interceptors will only be effective for requests requiring broadcasting.
-
-     The broadcast interceptor will provide a special broadcast interface, and if the request is implemented and the request is not being broadcast, the broadcast interceptor considers that the request needs to be broadcast, which will trigger the broadcasting operation.
-
-     The specific steps are：to get all microservices instances that request to broadcast. If empty, broadcast by default to the microservice; then mark the request as being in the broadcast, call step 1), get all Senders of all microservice instances that correspond to them, start sending the request by multi-thread; and wait until Sender in the threaded pool sends a request and mark this broadcast request as successful, return to the user and complete it.
-
+     a) Broadcast interceptor.
+     
+     The broadcast interceptor only takes effect for requests that need to be broadcast.
+     
+     The broadcast interceptor will provide a special broadcast interface. If this request implements the broadcast interface and the request is not being broadcast, the broadcast interceptor thinks that this request needs to be broadcast, and the broadcast operation will be triggered at this time.
+     
+     The specific steps are: get all the microservice instances for which the request needs to be broadcasted. If it is empty, it will broadcast to all instances of the microservice by default; then mark the request as being broadcast and call step 1) to obtain the corresponding microservice instances. All Senders start to send requests in a multi-threaded manner; when all Senders in the thread pool have finished sending requests, the broadcast request is marked as successful and returned to the user to complete the processing.
+     
      b) Retry the interceptor.
-
-     Retry the blocker will provide a retry feature for all next steps.
-
-     If the sender has successfully sent the request, but the receiving party returns an exception requesting a retry, which triggers a retry of the interceptor and automatically resubmit the request; if there is no specific instance of the microservice receiver, there will be a connection exception (connection exception) at the time the request is sent; or if the user has specified certain exceptions that need to be retrated, the interceptor will be automatically retrated.
-
-     c) Cache blockers.
-
-     The cache blocker is set to respond to synchronized requests that are unlikely to change frequently.
-
-     The cache interceptor will also provide a special cache interface, and if this request is implemented, will first find in the cache interceptor whether the request has cached the response of the receiving end or, if there is it, return the cache response directly, continue the next step down and, if the response is returned on the receiving end will first be cached and the response will be returned to the user for processing.
-
-     d) Default interceptor.
-
-     The default blocker is used to call the next handling.
-
-     e) Custom interceptors.Users can also implement their own custom interceptors to perform some specific features.
-
-- 4) The request encoder will convert the data requested by the user (Entity Bean) into a serialized JSON string and then pass to the Feign's client generator.
-
-
-- 5) Feig client generator to generate a Feign client that can access the Recipient Restful request receiver.
+     
+     The retry interceptor will provide a retry function for all the next steps.
+     
+     If the sender successfully sends the request, but the receiver returns an exception that requires a retry, the retry interceptor will be triggered to re-submit the request automatically; if the request does not specify a specific instance of the microservice receiver, send If a ConnectException (connection exception) occurs during the request, it will actively retry; or if the user has specified certain exceptions to be retryed, the retry interceptor will automatically retry at this time.
+     
+     c) Cache interceptor.
+     
+     The cache interceptor is set for synchronization requests whose response content is unlikely to change frequently.
+     
+     The cache interceptor will also provide a special cache interface. If this request implements the cache interface, it will first look for whether the request has cached the response from the receiving end in the cache interceptor. If so, it will directly return the cached response, otherwise continue to connect. After the pull-down step and the response is returned at the receiving end, the response is first cached, and then the response is returned to the user, and the processing is completed.
+     
+     d) The default interceptor.
+     
+     The default interceptor is used to call the next processing steps.
+     
+     e) Custom interceptor. Users can also implement their own custom interceptors to achieve some specific functions.
+ 
+-4) The request encoder will first convert the data (entity bean) requested by the user into a serialized JSON string, and then pass it to the Feign client generator.
 
 
-- 6) The generated Feigne client will call the service discovery manager, get all the microservice lists, use the service selector, and use the service selector if the user is a microservice name in step 1, then request forward for a request to select a suitable recipient microservice instance or rewrite the FeignLoadBalancer (Fign Load Balancer) for Spring Cloud Fox and assign the corresponding microservice instance as step 1 when creating the LoadBalancerCommand).
+-5) Feign client generator, which generates Feign client that can access the receiver Restful request receiver.
 
 
-- 7) Call Feign's client to start requesting Restful request receiver at the receiving end.
+-6) The generated Feign client will call the service discovery manager to obtain a list of all microservices. Through the service selector, if the user specifies the microservice name in step 1), then it will pass Feign's load balancing strategy. Select a suitable receiver microservice instance for request forwarding, otherwise the service selector will rewrite Spring Cloud Feign's FeignLoadBalancer (Feign load balancer). When creating LoadBalancerCommand, specify the corresponding microservice instance as step 1) Obtain The microservice instance specified when Sender.
 
 
-### 3.2 Recipient
+-7) Call the Feign client to start requesting the Restful request receiver on the receiving end.
 
- Receiver-interface needs users to implement to handle real business logic.
 
-1) Restful request receiver as the HTTP web service embedded in Linkis RPC, responsible for receiving requests from the sending side
+### 3.2 Receiver
 
-2) Restful's request receiver receives the request by calling the request decoder to decode the request, parse the actual request message and send the microservice information (microservice name+Microservice instance IP and port) and, if the resolution fails, respond directly to the parsing request.
+ The receiving end requires users to implement the Receiver interface for processing real business logic.
 
-3) Put parsed requests and outgoing microservice messages in the request message queue;
+1) The Restful request receiver, as an embedded HTTP request Web Service service in Linkis RPC, is responsible for receiving requests from the sender
 
-4) Consumer's request will consume the request message queue, already decode the sender’s request.
+2) After the Restful request receiver receives the request, it first calls the request decoder to decode the request, and parses out the actual request information and sender microservice information (microservice name + microservice instance IP and port), if the analysis fails , Will directly respond to the failure of the analysis request.
 
- Get a suitable Receive by calling a Receiver; and generate a Sender to send end using the Sender generator by retrieving the Sender microservice information received.The consumer is then requested to pass the actual request information and the generated Sender, to Receiver, for processing;
+3) Put the parsed request information and sender microservice information into the request message queue;
 
-5) Receiver, as the actual processing module for user requests, requires the user to implement the Receiver interface and complete the practical processing logic of the call end request.
+4) The request consumer will consume the decoded sender request in the request message queue.
 
- Receiver's pseudo-code below：
+ Obtain a suitable Receiver by calling the Receiver manager; at the same time, use the Sender generator to generate a Sender pointing to the sender through the obtained sender microservice information. Then the request consumer sends the actual request information and the generated sender Sender to the Receiver for processing;
+
+5) Receiver, as the actual processing unit of user requests, requires users to implement the Receiver interface to complete the actual processing logic of the caller request.
+
+ The pseudo code of Receiver is as follows:
 
 ```java
-Public interface Receiver {
-    void receive(Object message, Sender senter);
-    Object receiveAndReply (Oject message, Sender senter);
-    Object receiveAndReply (Oject message, Duration duration, Sender senter);
+public interface Receiver {
+void receive(Object message, Sender sender);
+Object receiveAndReply(Object message, Sender sender);
+    Object receiveAndReply(Object message, Duration duration, Sender sender);
 }
 ```
 
- Receiver provides a way to process synchronized and asynchronous requests.
+ Receiver provides methods to handle synchronous and asynchronous requests.
 
-6) If this request is an asynchronous request, the Receiver's receiving method is called and it is up to the top level of business to decide whether a response is required through the Sender of the sending end.
+6) If this request is an asynchronous request, the Receive method of Receiver is called, and the upper-layer business decides whether it needs to send back the response through the Sender of the sender.
 
-7) If this request is sync, call Receiver's receiveAndReply, return value as a response and send it back.
+7) If this request is a synchronous request, call Receiver's receiveAndReply method, take the return value as the response result, and send back to the sender.

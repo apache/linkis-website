@@ -1,90 +1,90 @@
 ---
-title: Installation of Individual Services
+title: Installation Of A Single Service
 sidebar_position: 1
 ---
 
 
 
-## 1 Get Package and Install
+## 1 Obtain the installation package and install it
 
-&nbsp;&nbsp;&nbsp;&nbsp;通过在我们的release安装包里拿到对应模块的安装包：
+&nbsp;&nbsp;&nbsp;&nbsp;By getting the installation package of the corresponding module in our release installation package:
 
 ````bash
- ## 1. 解压安装包
-tar -xvzf wedatasphere-linkis-0.11.0-dist.tar.gz 
-cd wedatasphere-linkis-0.11.0-dist 
- ## 2. 选择对应的服务安装包,到对应的安装目录：$SERVER_HOME
-cp wedatasphere-linkis-0.11.0-dist/share/linkis/linkis-publicservice/linkis-publicservice.zip  $SERVER_HOME
- ## 3. 拷贝安装包到对应的安装目录比如：publicservice  需要拷贝 linkis-publicservice.zip
- ##    解压对应的服务
-unzip $SERVERNAME.zip 
- ## 4. module包是公共包，除了gateway和Eureka不需要其他的都需要拷贝
+ ## 1. Unzip the installation package
+tar -xvzf wedatasphere-linkis-0.11.0-dist.tar.gz
+cd wedatasphere-linkis-0.11.0-dist
+ ## 2. Select the corresponding service installation package and go to the corresponding installation directory: $SERVER_HOME
+cp wedatasphere-linkis-0.11.0-dist/share/linkis/linkis-publicservice/linkis-publicservice.zip $SERVER_HOME
+ ## 3. Copy the installation package to the corresponding installation directory. For example: publicservice needs to copy linkis-publicservice.zip
+ ## Decompress the corresponding service
+unzip $SERVERNAME.zip
+ ## 4. The module package is a public package, except for gateway and Eureka, everything else needs to be copied.
 cp ${workDir}/share/linkis/module/module.zip $SERVER_HOME
- ## 5. 解压module包
-cd $SERVER_HOME/;unzip  module.zip > /dev/null;
- ## 6. 拷贝相应的安装包
-cp module/lib/*  $SERVER_HOME/$SERVERNAME/lib/
+ ## 5. Unzip the module package
+cd $SERVER_HOME/;unzip module.zip> /dev/null;
+ ## 6. Copy the corresponding installation package
+cp module/lib/* $SERVER_HOME/$SERVERNAME/lib/
 
 ````
 
 ## 2 Modify configuration
 
-&nbsp;&nbsp;&nbsp;&nbsp;The package is ready to modify the configuration, which primarily modifies application.yml and linkis.properties, all below the conf directory
+&nbsp;&nbsp;&nbsp;&nbsp;After the package is ready, it is to modify the configuration, the configuration mainly modify application.yml and linkis.properties, the configuration is under the conf directory
 
-### 2.1 Modification of application.yml
+### 2.1 Modify application.yml
 
 ```yaml
 server:
-  port: $SERVER_PORT   #corresponding service port
+  port: $SERVER_PORT #corresponding service port
 eureka:
   client:
     serviceUrl:
       defaultZone: $EUREKA_URL #corresponding EUREKA address
 ```
 
-### 2.2 Modification of linkis.properties
+### 2.2 Modify linkis.properties
 
-每个服务的linkis.properties修改都不一样，现在把所有的服务列到下面并进行解释：
+The linkis.properties modification of each service is different, now all services are listed below and explained:
 
 - GateWay:
 
 ```properties
-    wds.linkis.ldap.proxy.url=$LDAP_URL  #LDAP address, login required
+    wds.linkis.ldap.proxy.url=$LDAP_URL #LDAP address, login required
     wds.linkis.ldap.proxy.baseDN=$LDAP_BASEDN
-    wds.linkis.gateway.admin.user=$deployUser #Deploy user as administrator
+    wds.linkis.gateway.admin.user=$deployUser #Deployment user, as the administrator user
 ```
 
-- PublicService：
+- PublicService:
 
 ```properties
-    ## Database connection information
-    wds.linkis.server.mybatis.database.url=jdbc:mysql:/${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?charactering=UTF-8
-    wds.linkis.server.mybatis.dataource.username=$MYSQL_USER
-    wds.linkis.server.mybatis.dasource.password=$MYSQL_PASSWORD
-
+    ##Database connection information
+    wds.linkis.server.mybatis.datasource.url=jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?characterEncoding=UTF-8
+    wds.linkis.server.mybatis.datasource.username=$MYSQL_USER
+    wds.linkis.server.mybatis.datasource.password=$MYSQL_PASSWORD
+    
     wds.linkis.workspace.filesystem.localuserrootpath=$WORKSPACE_USER_ROOT_PATH ##Workspace directory
-    wds.linkis.workspace.filesystem.hdfuserrootpath.prefix=$HDFS_USER_ROOT_PATH #HDFS users root directory
+    wds.linkis.workspace.filesystem.hdfsuserrootpath.prefix=$HDFS_USER_ROOT_PATH ##HDFS user root directory
 ```
 
 - Linkis-Database
 
 ```properties
-    ## Database connection information
-    wds.linkis.server.mybatis.database.url=jdbc:mysql:/${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?charactering=UTF-8
-    wds.linkis.server.mybatis.dataresource.username=$MYSQL_USER
-    wds.linkis.server.mybatis.dataource.password=$MYSQL_PASSWORD
+    ##Database connection information
+    wds.linkis.server.mybatis.datasource.url=jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?characterEncoding=UTF-8
+    wds.linkis.server.mybatis.datasource.username=$MYSQL_USER
+    wds.linkis.server.mybatis.datasource.password=$MYSQL_PASSWORD
 ```
 
 - ResourceManager
 
 ```properties
-    ## Database connection information
-    wds.linkis.server.mybatis.database.url=jdbc:mysql:/${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?charactering=UTF-8
-    wds.linkis.server.mybatis.dataresource.username=$MYSQL_USER
-    wds.linkis.server.mybatis.dataource.password=$MYSQL_PASSWORD
+    ##Database connection information
+    wds.linkis.server.mybatis.datasource.url=jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?characterEncoding=UTF-8
+    wds.linkis.server.mybatis.datasource.username=$MYSQL_USER
+    wds.linkis.server.mybatis.datasource.password=$MYSQL_PASSWORD
 ```
 
-- Entrance：
+- Entrance:
 
 ```properties
     wds.linkis.entrance.config.logPath=$WORKSPACE_USER_ROOT_PATH
@@ -94,16 +94,16 @@ eureka:
 - EngineManager:
 
 ```properties
-    #User switch script
-    wds.linkis.enginemanager.sudo.script=$SERVER_HOME/$SERVERNAME/bin/rootScript.sh 
+    ##User switching script
+    wds.linkis.enginemanager.sudo.script=$SERVER_HOME/$SERVERNAME/bin/rootScript.sh
 
 ```
 
-- Additional parameters for SparkEngineManager
+- Additional parameters added by SparkEngineManager
 
 ```properties
-    ## Configure jar in engine
+    ## Configure engine jar
     wds.linkis.enginemanager.core.jar=$SERVER_HOME/$SERVERNAME/lib/linkis-ujes-spark-engine-version.jar
-    #Configure main jer
-    wds.linkis.spark.driver.conf.mainjar=$SERVER_HOME/$SERVERNAME/conf:$SERVER_HOME/$SERVERNAME/lib/* 
+    ##Configure main jar
+    wds.linkis.spark.driver.conf.mainjar=$SERVER_HOME/$SERVERNAME/conf:$SERVER_HOME/$SERVERNAME/lib/*
 ```

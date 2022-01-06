@@ -99,7 +99,7 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
 }
 ```
 
-- execID是用户任务提交到UJES之后，为该任务生成的唯一标识的执行ID，为String类型，这个ID只在任务运行时有用，类似PID的概念。ExecID的设计为(requestApplicationName长度)(executeAppName长度1)(Instance长度2)${requestApplicationName}${executeApplicationName}${entranceInstance信息ip+port}${requestApplicationName}_${umUser}_${index}
+- execID是用户任务提交到UJES之后，为该任务生成的唯一标识的执行ID，为String类型，这个ID只在任务运行时有用，类似PID的概念。ExecID的设计为(requestApplicationName长度)(executeAppName长度1)(Instance长度2)${requestApplicationName}${executeApplicationName}${entranceInstance ip+port}${requestApplicationName}_${umUser}_${index}
 - taskID 是表示用户提交task的唯一ID，这个ID由数据库自增生成，为Long 类型
 
 
@@ -148,7 +148,7 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
 {
   "method": "/api/rest_j/v1/entrance/${execID}/log",
   "status": 0,
-  "message": "返回进度信息信息",
+  "message": "返回进度信息",
   "data": {
     "execID": "${execID}",
     "taskID":28594,

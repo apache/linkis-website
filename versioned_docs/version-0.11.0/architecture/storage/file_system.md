@@ -1,30 +1,39 @@
 ---
-title: Receive Multiple Filesystems
+title: Docking Multiple File Systems
 sidebar_position: 1
 ---
-> How to manage multiple filesystems
+>How to realize the docking of multiple file systems
 
 
 ## 1 Background
 
-Many systems face the need to access many document systems.Using local and HDFS filesystems, for example, users need to know Java SDK for both filesystems and have significant learning costs.
+Many systems face the need to access multiple file systems. For example, to use the local file system and the HDFS file system, users need to understand the Java SDK of the two file systems, which has a great learning cost.
 
-Also when using its Java SDK, instantiating FileSystem requires a lot of configuration information to be passed into and initialized, increasing the complexity of user use.
+In addition, when using its Java SDK, instantiating FileSystem requires a lot of configuration information and a lot of initialization, which increases the complexity of users.
 
-Can you read the file by automatically allowing the file system to automatically identify and switch to the bottom file system by specifying the schema header of the path?
+Can the file system automatically recognize and switch the underlying file system to read the file by specifying the scheme header of the path?
 
 ## 2 Ideas
 
-提供通用的文件系统Java SDK，用户通过调用FSFactory创建FileSystem，使用通用接口进行多种文件系统的访问，整体方案如下图：
+Provide a common file system Java SDK, users create FileSystem by calling FSFactory, and use common interfaces to access multiple file systems. The overall plan is as follows:
 
-![Generic File System Scheme](../../images/ch4/storage/file_system.png)
+![Common File System Scheme](../../images/ch4/storage/file_system.png)
 
 ## 3 Implementation
 
-**(1)** Users get a Fs via FS Factory, FsPath. FsPath instantiates different filesystem types by schema, such as local:// tmp/test.txt and hdfs://tmp/test.txt,FsFactory can access FileSystem objects by schema headers (e.g.：local or hdfs);
+**(1)** 
+The user obtains an Fs through the file system factory (FSFactory) and by passing in the FsPath.
+When FsPath is instantiated, different file system types can be distinguished by schema, such as: local:///tmp/test.txt and hdfs:///tmp/test.txt, FsFactory can use the schema header (such as: local or hdfs). Obtain the FileSystem object corresponding to the file system;
 
-**(2)** FileSystem object, providing universal interfaces such as：getting file size and creating, deleting files (folders), reading and writing files. The user needs only to call the method inside the FileSystem object to complete the corresponding filesystem.
+**(2)** 
+The FileSystem object provides a common interface, such as: obtaining the size of a file (folder), creating and deleting a file (folder), reading and writing files, etc.
+The user only needs to call the method in the FileSystem object to complete the operation of the corresponding file system.
 
-**(3)** Users can operate the corresponding filesystem via FileSystem and incoming to the corresponding FsPath. Generic filesystem operations can be implemented through the second point of operation.
+**(3)**
+The user can operate the corresponding file system through FileSystem and pass in the corresponding FsPath, and the general file system operation can be realized through the operation provided in the second point.
 
-**(4)** FileSystems, which corresponds to actual filesystem objects and interfaces, are blocked for users and can operate different filesystems at the bottom once they know the interface and methods of FileSystems. If the user needs to read the local file local:// tmp/test.tx, the user can simply call the FileSystem's reader method to read and extract the contents from the file input stream of the local file system. The File System (File System) interface has now implemented local LoaclFileSystem and HDFSFileSystems. Users can easily extend access to different filesystems by implementing the File System (File System) interface.
+**(4)**
+The bottom layer of FileSystem corresponds to the actual file system objects and interfaces. These interfaces are shielded for users. Users only need to understand the interfaces and methods of FileSystem before they can operate different file systems at the bottom.
+If the user needs to read a local file whose path is local:///tmp/test.tx, the user only needs to call the read method of FileSystem to be mapped to the file input stream of the local file system to read the corresponding content.
+Among them, the file system (File System) interface has now implemented the local LoaclFileSystem and HDFSFileSystem.
+Users can connect to different file systems by implementing the File System interface, which is extremely convenient for expansion.

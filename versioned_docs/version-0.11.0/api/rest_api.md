@@ -2,178 +2,178 @@
 title: Restful Api
 sidebar_position: 2
 ---
-> Linkis provides a convenient HTTP interface to facilitate front-end upside apps or background calls via Restful's interface
+> Linkis provides a convenient HTTP interface to facilitate the front-end upper application or the back-end to call through the Restful interface
 
 
 ## 1 Linkis interface specification
 
-Linkis defines a set of its own interface norms when interacting at the back and back end.
+Linkis defines its own set of interface specifications when interacting between the front and back ends.
 
-If you are interested in interface specifications, please click here[to view interface norms](/community/development_specification/api)
+If you are interested in the interface specification, please click here [view interface specification](/community/development_specification/api)
 
-## 2 HTTP Interface Summary
+## 2 HTTP interface summary
 
-We provide the following interfaces to facilitate rapid user submission of Jobs for implementation.
+We provide the following interfaces to facilitate users to quickly submit execution jobs and obtain execution results.
 
- - Submit for Implementation
- - Get Status
- - Get Logs
- - Get Progress
- - Kill Tasks
+ - Submit for execution
+ - Get status
+ - Get logs
+ - Get progress
+ - Kill mission
 
-## 3 Interface Details
+## 3 Interface details
 
-### 3.1 Submission of implementation
+### 3.1 Submit for execution
 
-- Interface `/api/res_j/v1/entrance/exit`
+- Interface `/api/rest_j/v1/entrance/execute`
 
-- Submit Method `POST`
+- Submission method `POST`
 
 ```json
 {
-    "method":"/api/rest_j/v1/entrance/execute",
-    "params": {
-        "variable":{
-            "k1":"v1"
-        },
-        "configuration":{
-            "special":{
-                "k2":"v2"
-            },
-            "runtime":{
-                "k3":"v3"
-            },
-            "startup":{
-                "k4":"v4"
-            }
-        }
+ "method":"/api/rest_j/v1/entrance/execute",
+ "params": {
+    "variable":{
+    "k1":"v1"
+    },
+    "configuration":{
+    "special":{
+    "k2":"v2"
+    },
+    "runtime":{
+    "k3":"v3"
+    },
+    "startup":{
+    "k4":"v4"
+    }
+    }
     },
     "executeApplicationName":"spark",
     "executionCode":"show tables",
     "runType":"sql",
     "source":{
-        "scriptPath": "/home/Linkis/Linkis.sql"
+    "scriptPath": "/home/Linkis/Linkis.sql"
     }
 }
 ```
 
-- The parameters in the requested body data are described below.
+- The parameters in the request body data are described as follows
 
 
-| Parameter Name         | Definition of parameters                                                        | Type   | Remarks                                        |
-| ---------------------- | ------------------------------------------------------------------------------- | ------ | ---------------------------------------------- |
-| executeApplicationName | Engine services such as Spark, hive, etc. the user expects to use               | String | must not be empty                              |
-| requestApplicationName | Name of system to launch the request                                            | String | is empty                                       |
-| params                 | User-specified parameters for running the service program                       | Map    | Required, the value inside is empty            |
-| Execution Code         | Execution code submitted by user                                                | String | must not be empty                              |
-| runType                | When users perform such services as spark, they can select python, R, SQL, etc. | String | must not be empty                              |
-| scriptPath             | Path to store for user submitted code scripts                                   | String | If IDE, it cannot be empty with execution code |
+| Parameter name | Parameter definition | Type | Remarks |
+| ------------ | ------------ | ------------ | ----------- |
+| executeApplicationName | The engine service that the user expects to use, such as Spark, hive, etc. | String | cannot be empty |
+| requestApplicationName | The name of the system that initiated the request | String | Can be empty |
+| params | User-specified parameters for running the service program | Map | Required, the value inside can be empty |
+| executionCode | Execution code submitted by the user | String | cannot be empty |
+| runType | When users execute services such as spark, they can choose python, R, SQL, etc. runType| String | Cannot be empty |
+| scriptPath | The storage path of the script submitted by the user | String | If it is an IDE, and executionCode cannot be empty at the same time |
 
 
-- Return Example
+- Return to example
 
 ```json
 {
  "method": "/api/rest_j/v1/entrance/execute",
  "status": 0,
- "message": "请求执行成功",
+ "message": "Request executed successfully",
  "data": {
    "execID": "030418IDEhivebdpdwc010004:10087IDE_johnnwang_21",
-   "taskID": "123"  
+   "taskID": "123"
  }
 }
 ```
 
-- The execID is the unique execution ID generated for the task after the user task has been submitted to UJES, the String type that is useful only when the task is running, similar to the PID concept.ExecID is designed (requestApplicationName length) (executeAppName length1) (Instalment 2)${requestApplicationName}${executeApplicationName}${entranceInstance信息ip+port}${requestApplicationName}_${umUser}_${index}
-- taskID is the unique ID that represents the user submission of tasks. This ID is generated by database auto-adding, long type
+- execID is the uniquely identified execution ID generated for the task after the user task is submitted to UJES. It is of String type. This ID is only useful when the task is running, similar to the concept of PID. ExecID is designed as (requestApplicationName length) (executeAppName length 1) (Instance length 2)${requestApplicationName}${executeApplicationName}${entranceInstance information ip+port}${requestApplicationName}_${umUser}_${index}
+- taskID is the unique ID of the task submitted by the user. This ID is generated by the database self-increment and is of Long type
 
 
-### 3.2 Access Status
+### 3.2 Get status
 
-- Interface `/api/res_j/v1/entrance/${execID}/status`
+- Interface `/api/rest_j/v1/entrance/${execID}/status`
 
-- Submission mode `GET`
+- Submission method `GET`
 
-- Return Example
+- Return to example
 
 ```json
-LOCK
- "method": "/api/res_j/v1/entrance/{execID}/status",
+{
+ "method": "/api/rest_j/v1/entrance/{execID}/status",
  "status": 0,
- "message": "Get states"
- "data": File
+ "message": "Get status successful",
+ "data": {
    "execID": "${execID}",
    "status": "Running"
  }
 }
 ```
 
-### 3.3 Access to logs
+### 3.3 Obtaining logs
 
-- Interface `/api/res_j/v1/entrance/${execID}/log?fromLine=${fromLine}&size=${size}`
+- Interface `/api/rest_j/v1/entrance/${execID}/log?fromLine=${fromLine}&size=${size}`
 
-- Submission mode `GET`
+- Submission method `GET`
 
-- The requested parameter fromLine refers to fetch from the first line, size refers to the request for several lines of log
+- The request parameter fromLine refers to the number of lines from which to get, and size refers to the number of lines of logs that this request gets
 
-- Returns the example in which the fromLine returns the parameter required for the next log
+- Return example, where the returned fromLine needs the parameters of the next log request
 
 ```json
-LOCK
-  "method": "/api/res_j/v1/entrance/${execID}/log",
+{
+  "method": "/api/rest_j/v1/entrance/${execID}/log",
   "status": 0,
-  "message": "Back to log information",
-  "data": LOs
+  "message": "Return log information",
+  "data": {
     "execID": "${execID}",
-    "log": ["error log", warn log", "info", "alllog"],
+    "log": ["error log","warn log","info log", "all log"],
     "fromLine": 56
-  }
+   }
 }
 ```
 
-### 3.4 Progress
+### 3.4 Get progress
 
-- Interface `/api/res_j/v1/entrance/${execID}/progres`
+- Interface `/api/rest_j/v1/entrance/${execID}/progress`
 
-- Submission mode `GET`<br/>
+- Submission method `GET`<br/>
 
-- Return Example
+- Return to example
 
 ```json
 {
   "method": "/api/rest_j/v1/entrance/{execID}/progress",
   "status": 0,
-  "message": "返回进度信息",
+  "message": "Return progress information",
   "data": {
     "execID": "${execID}",
     "progress": 0.2,
     "progressInfo": [
         {
-            "id": "job-1",
-            "succeedTasks": 2,
-            "failedTasks": 0,
-            "runningTasks": 5,
-            "totalTasks": 10
+        "id": "job-1",
+        "succeedTasks": 2,
+        "failedTasks": 0,
+        "runningTasks": 5,
+        "totalTasks": 10
         },
         {
-            "id": "job-2",
-            "succeedTasks": 5,
-            "failedTasks": 0,
-            "runningTasks": 5,
-            "totalTasks": 10
+        "id": "job-2",
+        "succeedTasks": 5,
+        "failedTasks": 0,
+        "runningTasks": 5,
+        "totalTasks": 10
         }
     ]
   }
 }
 ```
 
-### 3.5 kill tasks
+### 3.5 kill task
 
-- Interface `/api/res_j/v1/entrance/${execID}/kill`
+- Interface `/api/rest_j/v1/entrance/${execID}/kill`
 
-- Submission mode `GET`
+- Submission method `GET`
 
-- Returns the example in which the fromLine returns the parameter required for the next log
+- Return example, where the returned fromLine needs the parameters of the next log request
 
 ```json
 {
@@ -188,18 +188,19 @@ LOCK
 
 ### 3.6 System User Agent Settings
 
-- gateway proxy settings
+- Gateway proxy settings
 
-  Edit proxy.properties file in gateway installation directory conf, add content： token=user1,user2
+  Modify the proxy.properties file in the gateway installation directory conf and add content:
+  token=user1,user2
+  
+  Note: The token is the secret key given to the system user, and the right is the other users that the system user can act as proxy. For example, token=*, the user is not restricted.
 
-  Instructions：token is the key given to the user of the system and other users on the right that the user can proxy, such as token=*.
+- http request proxy settings
 
-- httpRequest Proxy Settings
-
-  Add two arguments settings to the requested Headers parameter
-
+  Add two parameter settings to the Headers parameter of the request
+  
  ```
     Proxy-User = proxy user xxx
-    Validation-Code = gateway configured system token
+    Validation-Code = system token configured by the gateway
 
  ```

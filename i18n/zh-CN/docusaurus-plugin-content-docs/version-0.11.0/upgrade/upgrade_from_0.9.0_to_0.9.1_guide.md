@@ -5,9 +5,7 @@ sidebar_position: 0
 > 本文简单介绍Linkis从0.9.0升级到0.9.1的注意事项，Linkis新增了许多功能并修复了多个Issue，如果之前做过版本适配，您不需要按照新的安装包进行安装，可以通过该指南进行升级
 
 ## 1 下载对应的升级包
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在release页面下载
-
-wedataSphere-linkis-from-0.9.0-udpdate-0.9.1.zip
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在release页面下载 wedataSphere-linkis-from-0.9.0-udpdate-0.9.1.zip
 
 ## 2 升级步骤 
 ### 2.1 不需要更新的模块

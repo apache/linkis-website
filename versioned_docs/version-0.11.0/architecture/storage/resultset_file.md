@@ -1,104 +1,104 @@
 ---
-title: Result Collection File Storage
+title: ResultSet File Storage
 sidebar_position: 3
 ---
-> Result collection file storage scheme - Dolphin file
+>Result set file storage scheme-Dolphin file
 
 ## 1 Background
 
-Linkis faces the need to store multiple types of data into the file, such as：store the Hive Table data into the file and want to save metadata such as types, listings and comments in the field.
+Linkis faces the need to store multiple types of data in files, such as storing Hive table data in files, and hopes to save metadata information such as field types, column names, and comments.
 
-Existing file storage schemes generally only support specific data types such as：ORC supports data tables but does not support unstructured data saving.
+Existing file storage solutions generally only support specific data types for storage. For example, ORC supports data tables but does not support the storage of unstructured data.
 
-At the same time, support for saving special characters has also prompted us to define the new file format.If a field has special characters such as a newliner in：textFile, parsing the content will cause an anomaly.
+At the same time, support for saving special characters is also the reason that prompted us to define a new file format. For example, if there are special characters such as line breaks in a field in textFile, the content will be abnormal when it is parsed and read.
 
-Finally, if the file is too large, Linkis usually wants to provide page-splitting, the existing file storage scheme supports only how many bytes, not how many lines to skip or read only one line of the file.
+Finally, if the content of the file is too large, Linkis usually hopes to provide a paging function. Existing file storage schemes only support how many bytes are skipped, but do not support how many lines are skipped, or only read a certain line in the file.
 
 ## 2 Ideas
 
-Linkis defines a Dolphin file format that stores multiple data types.
+Linkis defines a file storage format Dolphin file that stores multiple data types.
 
-![Dolphin File Format](../../images/ch4/storage/dolphin_file.png)
+![Dolphin file format](../../images/ch4/storage/dolphin_file.png)
 
-Dolphin's file structure is shown above in graph：
+The file structure of Dolphin is shown in the figure above:
 
-- The Dolphin logo is stored at the beginning of the file to distinguish if the file is Dolphin
+- The Dolphin logo is stored at the beginning of the file to distinguish whether the file is a Dolphin file
 
-- Metadata：内容元数据信息
+- Metadata: content metadata information
 
-- Index Data: Line long index
+- index Data: row length index
 
-- RowData: RowData.
+- RowData: Row data.
 
- RowData stores a row of data such as：stores data from a row of the table, including the length of the row and Byte data of the row.
+ RowData stores a row of data, such as the data of a row of the table, including the length of the row data and the Byte information of the row data.
 
-- PostData: File Basic Information
+- PostData: Basic file information
 
-- PostDataLen：basic information length
+- PostDataLen: Basic information length
 
-where PostDatais is the primary message of the file by：
+Among them, PostData is the basic information of the file mainly composed of:
 
-- Type：store content
+- type: the type of storage content
 
-- Codec：encoding format
+- Codec: encoding format
 
-- Statistical information：file content statistics include rows, max, etc.
+- Statistical information: The statistical information of the file content includes the number of lines, the maximum and minimum values, etc.
 
 ## 3 Implementation
 
-Dolphin文件的读入和写入的具体流程如下图：
+The specific process of reading and writing Dolphin files is as follows:
 
-![Dolphin File Writing Flow](../../images/ch4/storage/dolphin_progress.png)
+![Dolphin file read and write flow chart](../../images/ch4/storage/dolphin_progress.png)
 
-### 3.1 Data written in Dolphin
+### 3.1 Write data to Dolphin
 
-The user needs to store a file content (e.g.：table) into Dolphin as follows：
+When the user needs to store the contents of a file (for example: table) in a Dolphin file, the steps are as follows:
 
-Writing Dolphin file identifier
+1. Write Dolphin file ID
 
-Type of data written
+2. Write data type Type
 
-By Serializer, write to Metadata (metadata) such as table listing, type per column, annotation, etc.;
+3. Through the serializer (Serializer), write Metadata (metadata) such as the column name of the table, the type of each column, column comments, etc.;
 
-4 Incoming data to Dolphin Writer and Dolphin Writer by Serializer serializer to Dolphin by serializer
+4. Pass in a row of data to DolphinWriter, DolphinWriter serializes the row of data through a serializer (Serializer) to obtain the row length and serialized Bytes to write to the Dolphin file;
 
-5. Update statistical information after writing this row data, add rows, update the minimum values per column, etc.;
+5. After writing the row of data, it will update the statistical information (Statistical information), increase the number of row records, update the maximum and minimum values ​​of each column, etc.;
 
-6, DolphinWriter writes statistical information, encoding information, etc. PostData(basic information) to Dolphin files;
+6. DolphinWriter writes PostData (basic information) composed of statistical information and encoding information to the Dolphin file;
 
-7, length of writing to PostData. Finish writing action.
+7. Write the length of PostData to complete the write operation.
 
 
-### 3.2 Reading Dolphin
+### 3.2 Read Dolphin file
 
-User read Dolphin file content step below：
+The steps for users to read the contents of the Dolphin file are as follows:
 
-1. read Dolphin file identifier and drop anomalies if not Dolphin;
+1. Read the Dolphin file ID, and throw an exception if it is not a Dolphin file;
 
-2. If users only need to read statistical information, read PostData's length and get PostDatadata based on that length.
+2. If the user only needs to read Statistical information, read the length of PostData, and obtain PostData according to the length.
 
- By PostData, parse basic information to the corresponding Type, Codec, MetaData, Statistical information.
+ Through PostData, the basic information is parsed into corresponding Type, Codec, MetaData, and Statistical information.
+ 
+ Return to complete this reading operation.
 
- Returned, complete this reading operation.
+3. If the user wants to read data, first read the data type Type.
 
-If the user wishes to read the data, then the type of data will be read first.
+4. Read the Metadata information, get the Deserializer through Type, and encapsulate the read Bytes data into MetaData
 
-Reads Metadata messages, fetches the deserializer via Type, and encapsulates the read Bytes data into MetaData
+5. Read the row length index, and read the row Bytes through the row length index. Obtain Deserializer through Type, convert Bytes into Record data, and encapsulate RowData with Record and MetaData;
 
-Reading the curtain index and reading the lines Bytes through the curtain index.Gets the deserializer via Type, convert Bytes to Records, encapsulate Recording RowData with MetaData;
+6. The read RowData row content is given to the user to complete the entire reading.
 
-6. Complete reading by giving the read RowDataline content to the user.
+### 3.3 Skip
 
-### 3.3 Reading
+**Question**: How to read a row? How many lines to start reading?
 
-**Question**：How to read a line?How many lines to start read?
-
-**Answer**： will first write the cursor index when writing in a line, so that users can index and jump to read when reading;
+**Answer**: When writing a row, the row length index will be written first, so that the user can read the index and skip row reading through the row length index when reading;
 
 ### 3.4 Serialization
 
-Serializer will serialize data into byte arrays, deserializer will parse byte arrays as strings to achieve proper reading of special characters;
+The serializer (Serializer) serializes the data into a byte array, and the deserializer (Deserializer) parses the byte array into string data to achieve correct reading and writing of special characters;
 
-Serializer (Serializer) and Deserializer (Deserializer) are associated with type (Type), and different data types can define different Serializers and Deserializers.
+Serializer and Deserializer are related to Type. Different data types can define different Serializer and Deserializer.
 
-Dolphin provides a common interface to support other types of files with user customization.
+Dolphin provides a common interface for user-defined implementations to support other types of files.
