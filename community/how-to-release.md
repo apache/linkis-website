@@ -105,23 +105,23 @@ uid [ultimate] mingXiao (test key for apache create at 20211110) <xiaoming@apach
 sub rsa4096/399AA54F 2021-11-10 [E]
 
 # Send public key to keyserver via key id
-$ gpg --keyserver pgpkeys.mit.edu --send-key 584EE68E
-# Among them, pgpkeys.mit.edu is a randomly selected keyserver, and the keyserver list is: https://sks-keyservers.net/status/, which are automatically synchronized with each other, you can choose any one.
+$ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
+# Among them, keyserver.ubuntu.com is the selected keyserver, it is recommended to use this, because the Apache Nexus verification uses this keyserver
 ```
 ### 1.4. Check whether the key is created successfully
 Verify whether it is synchronized to the public network. It takes about a minute to find out. If it is not successful, you can upload and retry several times
 ```shell
 method one
-$ gpg --keyserver hkp://pgpkeys.mit.edu --recv-keys 584EE68E #584EE68E is the corresponding key id
+$ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E is the corresponding key id
 
-D:\>gpg --keyserver hkp://pgpkeys.mit.edu --recv-keys 584EE68E
+D:\>gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E
 #Results are as follows
 gpg: key 1AE82584584EE68E: "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>" not changed
 gpg: Total number processed: 1
 gpg: unchanged: 1
 
 Way two
-Go directly to https://pgpkeys.mit.edu/ and enter the username mingXiao to search the query results
+Go directly to https://keyserver.ubuntu.com/ and enter the username mingXiao to search the query results
 ```
 
 
@@ -217,24 +217,21 @@ For encryption settings, please refer to [here](http://maven.apache.org/guides/m
 
 ## 2 Prepare material package & release of Apache Nexus
 
-### 2.1 Preparing to branch
+### 2.1 Prepare branch/Tag/Release Notes
 
-Pull the new branch from the branch to be released as the release branch. If you want to release the $`{release_version}` version now, check out the new branch `${release_version}-RC` from the branch to be released, and all operations thereafter are in `${ Release_version}-RC` branch. After the final release is completed, modify the branch name to release-${release_version}, tag the version, and merge it into the main branch.
+Pull the new branch from the branch to be released as the branch to be released. If you want to release the $`{release_version}` version now, check out the new branch `release-${release_version}-${condition_version}` from the branch to be released, and all after that The operations are all performed on the `release-${release_version}-${condition_version}` branch, and merge into the main branch after the final release is completed.
+
+If the source branch currently developed is dev-1.0.3, version 1.0.3 needs to be released
+-Create branch: release-1.0.3-rc1
+-Create tag: release-1.0.3-rc1
+
+Sort out the content description of this change and release, sort by [module][pr_url].
+Enter the creation page https://github.com/apache/incubator-linkis/releases/new
+Create a release based on the previous release-1.0.3-rc1 tag, and check `This is a pre-release` to write the release notes.
 
 :::caution Note
-- After the main warehouse apache/incubator-linkis is ready to release the branch `${release_version}-RC`, please fork to your own warehouse and perform the following steps
-- Before completing the release, please do not create a release-xxx branch on the main warehouse apache/incubator-linkis, because release-xxx has branch protection and cannot be deleted directly.
+-After the main warehouse apache/incubator-linkis is ready to release the branch/tag/release notes, please fork to your own warehouse and perform the following steps
 :::
-
-```
-#If the currently developed source code branch is dev-1.0.3, the version 1.0.3 needs to be released
-git clone --branch dev-1.0.3 git@github.com:yougithub/incubator-linkis.git
-cd incubator-linkis
-git pull
-git checkout -b 1.0.3-RC
-git push origin 1.0.3-RC
-
-```
 
 ### 2.2 Version number confirmation
 
@@ -272,7 +269,7 @@ Step 2.4-3.3 execute the command, merge it in the release.sh script, or execute 
 
 ```shell
 mkdir dist/apache-linkis
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" 1.0.3-RC
+git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" release-1.0.3-rc1
 ```
 ### 2.5 Copy binary files
 
@@ -287,7 +284,7 @@ If you do not publish the front-end project, you can skip this step
 :::
 
 #### 2.6.1 Install Node.js
-Download Node.js to the local and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (It is recommended to use the latest stable version)
+Download Node.js to the local and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (node v14 version is recommended)
 **This step only needs to be performed the first time you use it. **
 
 #### 2.6.2 Install dependencies
@@ -299,6 +296,27 @@ cd incubator-linkis/web
 npm install
 ```
 **This step only needs to be performed the first time you use it. **
+
+Notice:
+```
+1. An error is reported in the npm install step under Windows:
+Error: Can't find Python executable "python", you can set the PYTHON env variable
+Install windows-build-tools (administrator rights)
+npm install --global --production windows-build-tools
+Install node-gyp
+npm install --global node-gyp
+
+2. If the compilation fails, please follow the steps below to clean up and re-execute
+#Enter the project working directory, delete node_modules
+rm -rf node_modules
+#Delete package-lock.json
+rm -rf package-lock.json
+#Clear npm cache
+npm cache clear --force
+#Re-download dependencies
+npm install
+
+```
 
 #### 2.6.3 Package console project
 Execute the following instructions on the terminal command line to package the project and generate a compressed deployment installation package.
@@ -376,7 +394,7 @@ svn status
 svn commit -m "prepare for 1.0.3-RC1"
 
 ```
-
+If Chinese garbled characters appear in the svn command, you can try to set the encoding format.
 
 ## 4 Verify Release Candidates
 
@@ -386,6 +404,10 @@ For details, please refer to [How to Verify release](/how-to-verify.md)
 ## 5 Initiates a vote
 
 > Linkis is still in the incubation stage and needs to vote twice
+
+:::caution Note
+All links to checksums, signatures, and public keys must refer to the main Apache website https://downloads.apache.org/ and should use https://(SSL). For example: https://downloads.apache.org/incubator/linkis/KEYS
+:::
 
 - To vote in the Linkis community, send an email to: `dev@linkis.apache.org`
 - To vote in the incubator community, send an email to: `general@incubator.apache.org` After Linkis graduates, you only need to vote in the Linkis community

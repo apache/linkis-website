@@ -109,23 +109,23 @@ uid         [ultimate] mingXiao (test key for apache create at 20211110) <xiaomi
 sub   rsa4096/399AA54F 2021-11-10 [E]
 
 # 通过key id发送public key到keyserver 
-$ gpg --keyserver pgpkeys.mit.edu --send-key 584EE68E
-# 其中，pgpkeys.mit.edu为随意挑选的keyserver，keyserver列表为：https://sks-keyservers.net/status/，相互之间是自动同步的，选任意一个都可以。
+$ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
+# 其中，keyserver.ubuntu.com为挑选的keyserver，建议使用这个, 因为Apache Nexus校验时是使用的这个keyserver
 ```
 ### 1.4 查看key是否创建成功
 验证是否同步到公网，大概需要一分钟才能查到,未成功可以进行上传重试几次 
 ```shell
 方式一
-$ gpg --keyserver hkp://pgpkeys.mit.edu --recv-keys 584EE68E #584EE68E是对应的key id
+$ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E是对应的key id
 
-D:\>gpg --keyserver hkp://pgpkeys.mit.edu --recv-keys 584EE68E
+D:\>gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E
 #结果如下
 gpg: key 1AE82584584EE68E: "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>" not changed
 gpg: Total number processed: 1
 gpg:              unchanged: 1
 
 方式二
-直接访问https://pgpkeys.mit.edu/  输入用户名mingXiao搜索查询结果
+直接访问https://keyserver.ubuntu.com/  输入用户名mingXiao搜索查询结果
 ```
 
 ### 1.5 将gpg公钥加入Apache SVN项目仓库的KEYS文件
@@ -219,25 +219,22 @@ svn ci -m "add gpg key for YOUR_NAME"
 
 ## 2 准备物料包&Apache Nexus发布
 
-### 2.1 准备分支
+### 2.1 准备分支/Tag/Release Notes
 
-从待发布分支拉取新分支作为发布分支，如现在要发布$`{release_version}`版本，则从待发布分支检出新分支`${release_version}-RC`，此后所有操作都在`${release_version}-RC`分支上进行，在最终发布完成后，修改分支名为release-${release_version}，打版本tag，合入主干分支。
+从待发布分支拉取新分支作为待发布分支，如现在要发布$`{release_version}`版本，则从待发布分支检出新分支`release-${release_version}-${condition_version}`，此后所有操作都在`release-${release_version}-${condition_version}`分支上进行，在最终发布完成后，合入主干分支。
+
+如当前开发的源码分支为dev-1.0.3，需要发布1.0.3的版本
+- 创建分支：release-1.0.3-rc1
+- 创建tag：release-1.0.3-rc1
+
+梳理本次变更发布的内容说明，按[模块][pr_url]方式排序。
+进入到创建页面 https://github.com/apache/incubator-linkis/releases/new 
+基于之前release-1.0.3-rc1的tag，创建一个release，并勾选`This is a pre-release`，将release notes 写入。
+
 :::caution 注意
-- 主仓库apache/incubator-linkis准备好发布分支`${release_version}-RC`后,请fork到自己的仓库中进行下面步骤
-- 未完成发布前，请不要在主仓库apache/incubator-linkis上创建release-xxx分支，因为release-xxx有分支保护,无法直接删除。
-
+- 主仓库apache/incubator-linkis准备好发布分支/tag/release notes后,请fork到自己的仓库中进行下面步骤
 :::
 
-
-```
-#如当前开发的源码分支为dev-1.0.3，需要发布1.0.3的版本
-git clone --branch dev-1.0.3 git@github.com:yougithub/incubator-linkis.git
-cd  incubator-linkis
-git pull
-git checkout -b 1.0.3-RC
-git push origin 1.0.3-RC
-
-```
 
 ### 2.2 版本号确认
 
@@ -277,7 +274,7 @@ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 
 ```shell
 mkdir  dist/apache-linkis
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz"  1.0.3-RC
+git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz"  release-1.0.3-rc1
 ```
 ### 2.5 拷贝二进制文件
 
@@ -292,7 +289,7 @@ cp  assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz  
 :::
 
 #### 2.6.1 安装Node.js
-将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用最新的稳定版本）
+将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node v14版本）
 **该步骤仅第一次使用时需要执行。**
 
 #### 2.6.2 安装依赖包
@@ -312,6 +309,28 @@ npm install
 npm run build
 ```
 上述命令执行成功后，会生成前端管理台安装包 `apache-linkis-${version}-incubating-web-bin.tar.gz`
+
+注意：
+
+```
+1.Windows下npm install 步骤报错：
+Error: Can't find Python executable "python", you can set the PYTHON env variable
+安装windows-build-tools （管理员权限）
+npm install --global --production windows-build-tools
+安装node-gyp
+npm install --global node-gyp
+
+2.如果编译失败 请按如下步骤清理后重新执行
+#进入项目工作目录，删除 node_modules
+rm -rf node_modules
+#删除 package-lock.json
+rm -rf package-lock.json
+#清除 npm 缓存
+npm cache clear --force
+#重新下载依赖
+npm install
+
+```
 
 #### 2.6.4 拷贝前端管理台安装包
 
@@ -382,124 +401,18 @@ svn status
 svn commit -m "prepare for 1.0.3-RC1"
 
 ```
-
+若svn命令出现中文乱码，可尝试设置编码格式。
+ 
 ## 4 验证Release Candidates
 
 详细可以参见[How to Verify release](/how-to-verify.md)
 
-<!--
-## 5 非ASF版本的投票 
-
-> Linkis 非ASF版本进行Linkis社区投票 
-
-<font color='red'> 
-非ASF版本可以选择在ASF基础设施上进行投票，但它是通过非ASF基础设施分发的，并且官网如果有链接指向非ASF版本，需要明确的标记出为非ASF版本.
-可以使用非ASF版本作为发现ASF策略违规的途径并迭代解决掉不合规的机会。
-只有通过IPMC成员投票的版本才是正式的ASF版本。
-孵化项目需要成功发布多个ASF版本，然后才能从孵化器中毕业<br/>
-
-[详细信息见](https://incubator.apache.org/guides/releasemanagement.html)  https://incubator.apache.org/guides/releasemanagement.html
-
-</font>
-
-注意事项：所有指向校验和、签名和公钥的链接都必须引用Apache主网站https://downloads.apache.org/并应使用https://(SSL)。例如：https://downloads.apache.org/incubator/linkis/KEYS
-
-#### 5.1 非ASF版本Linkis社区投票模板
-- Linkis社区投票，发送邮件至：`dev@linkis.apache.org`
-```html
-标题：
-[VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
-
-内容：
-
-Hello Linkis Community,
-
-    This is a call for review and  vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
-
-	Release notes:
-	    https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
-
-    The release candidates:
-    	https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
-
-	Git tag for the release:
-	    https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
-
-	Keys to verify the Release Candidate:
-	    https://downloads.apache.org/incubator/linkis/KEYS
-
-	GPG user ID:
-	${YOUR.GPG.USER.ID}
-
-    Thanks to everyone who has contributed to this release.
-
-	The vote will be open for at least 72 hours or until necessary number of votes are reached.
-
-	Please vote accordingly:
-
-	[ ] +1 approve
-	[ ] +0 no opinion
-	[ ] -1 disapprove with the reason
-
-	Checklist for reference:
-
-	[ ] Download links are valid.
-	[ ] Checksums and PGP signatures are valid.
-	[ ] Source code distributions have correct names matching the current release.
-	[ ] LICENSE and NOTICE files are correct for each Linkis repo.
-	[ ] All files have license headers if necessary.
-	[ ] No compiled archives bundled in source archive.
-
-	More detail checklist  please refer:
-        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
-    
-    Steps to validate the release，Please refer to: 
-        https://linkis.apache.org/community/how-to-verify
-
-Thanks,
-${Linkis Release Manager}
-```
-
-#### 5.2 宣布非ASF版本投票结果模板
-
-```html
-标题：
-[RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
-
-内容：
-Hello Linkis community,
-
-    Thanks to everyone that participated. The vote to release Apache Linkis
-    (Incubating) ${release_version} ${rc_version} in dev@linkis is now closed as PASSED.
-    
-    This vote passed with 6 +1 votes (4 bindings and 2 non-bindings) and no 0
-    or -1 votes.
-    
-    +1 votes
-        * Xiao Min / binding
-        * Xiao Hong
-        * Xiao Zi / binding
-        * xxxx
-    
-    0 votes
-        * No votes
-    
-    -1 votes
-        * No votes
-    
-    Vote thread can be found here [1]. 
-    
-    I'll continue with the release process and update the community as progress is made.
-
-Best regards,
-${Linkis Release Manager}
-
-[1] https://lists.apache.org/thread/xxxx
-
-```
--->
-
 ## 5 发起投票
+
+:::caution 注意
+所有指向校验和、签名和公钥的链接都必须引用Apache主网站https://downloads.apache.org/并应使用https://(SSL)。例如：https://downloads.apache.org/incubator/linkis/KEYS
+:::
+
 
 > Linkis 仍在孵化阶段，需要进行两次投票
 
@@ -508,7 +421,7 @@ ${Linkis Release Manager}
 
 ### 5.1 Linkis 社区投票阶段
 
-1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1 PMC member`票后，即可进入下一阶段的投票。
+1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1` PMC member票后，才可进入下一阶段的投票。
 
 2. 宣布投票结果,发起投票结果邮件到`dev@linkis.apache.org`。
 
@@ -594,7 +507,7 @@ ${Linkis Release Manager}
 
 ### 5.2 Incubator 社区投票阶段
 
-1. Incubator社区投票，发起投票邮件到`general@incubator.apache.org`，需3个 `+1 IPMC Member`投票，方可进入下一阶段。
+1. Incubator社区投票，发起投票邮件到`general@incubator.apache.org`，需至少3个 `+1` IPMC Member投票，才可进入下一阶段。
 2. 宣布投票结果,发起投票结果邮件到`general@incubator.apache.org` 并抄送至`dev@linkis.apache.org`。
 
 #### 5.2.1 Incubator 社区投票模板
@@ -777,6 +690,7 @@ Linkis Resources:
 - Apache Linkis (Incubating) Team
 
 ```
+
 
 ## 附件 
 ### 附件1 release.sh

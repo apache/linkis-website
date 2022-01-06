@@ -7,6 +7,9 @@ sidebar_position: 4
 详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
 ## 1. 下载要发布的候选版本到本地环境
+:::caution 注意
+如果网络较差，下载可能会比较耗时。正常完成下载大约20分钟左右，请耐心等待。
+:::
 ```shell
 #如果本地有svn，可以clone到本地 
 svn co https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
@@ -79,6 +82,7 @@ gpg --import KEYS # 导入KEYS到本地
 
 ### 2.3 检查sha512哈希
 > 本地计算sha512哈希后，验证是否与dist上的一致，如果上传二进制包，则同样需要检查二进制包的sha512哈希
+
 > Mac OS/Linux
 
 ```shell
@@ -127,7 +131,8 @@ $ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
 - [ ] 所有第三方依赖的许可证都在`LICENSE`文件中声名
 - [ ] 如果依赖的是Apache许可证并且存在`NOTICE`文件，那么这些`NOTICE`文件也需要加入到版本的`NOTICE`文件中
 - [ ] .....
- 可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
+
+详细的检查项，可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
  
 ## 3.邮件回复 
 如果发起了发布投票，验证后，可以参照此回复示例进行邮件回复
@@ -136,9 +141,9 @@ $ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
 +1 (xxxx)
 
 I  checked:
-1. All download links are valid
-2. Checksum and signature are OK
-3. LICENSE and NOTICE are exist
-4. Build successfully on macOS(Big Sur) 
-5. ....
+    1. All download links are valid
+    2. Checksum and signature are OK
+    3. LICENSE and NOTICE are exist
+    4. Build successfully on macOS(Big Sur) 
+    5. ....
 ```
