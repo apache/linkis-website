@@ -49,7 +49,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 //label: 'v1.0.2',
                 path: 'latest',
                 //banner: 'unmaintained',
-              }
+              },
+              '0.11.0': {
+                  path: '0.11.0',
+               }
             }
         },
         blog: {
@@ -166,6 +169,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               {
                 label: "1.0.2",
                 to: "/docs/latest/introduction",
+              },
+             {
+                label: "0.11.0",
+                to: "/docs/0.11.0/introduction",
               },
               {
                 label: "All versions",
