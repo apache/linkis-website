@@ -230,7 +230,7 @@ Enter the creation page https://github.com/apache/incubator-linkis/releases/new
 Create a release based on the previous release-1.0.3-rc1 tag, and check `This is a pre-release` to write the release notes.
 
 :::caution Note
--After the main warehouse apache/incubator-linkis is ready to release the branch/tag/release notes, please fork to your own warehouse and perform the following steps
+- After the main repository apache/incubator-linkis is ready to release the branch/tag/release notes, please fork to your own repository and perform the following steps
 :::
 
 ### 2.2 Version number confirmation
@@ -247,6 +247,7 @@ Check whether the code is normal, including the version number, the compilation 
 #build check
 $ mvn clean install -Dmaven.javadoc.skip=true
 #RAT LICENSE check
+#It can be executed within 5 minutes normally. If the execution has not ended for a long time, please check whether additional files that need not be checked have been added due to actions such as compiling.
 $ mvn apache-rat:check
 ```
 
@@ -698,7 +699,7 @@ Step 2.4-3.3 execute the command, which can be combined in the release.sh script
 release_version=1.0.3
 #The RC version carried out this time Format RCX
 rc_version=RC1
-#Corresponding git warehouse branch
+#Corresponding git repository branch
 git_branch=release-1.0.3-rc1
 
 workDir=$(cd "$(dirname "$0")"; pwd)

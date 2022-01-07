@@ -19,7 +19,7 @@ npm install
 ```
 
 Introduction to the instruction:
-1. Pull the project package from the remote warehouse to the local computer
+1. Pull the project package from the remote git repository  to the local computer
 2. Enter the web root directory of the project: cd Linkis/web
 3. Dependencies required to install the project: npm install
 

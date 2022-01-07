@@ -13,7 +13,7 @@ The first way depends on the JDBC module in the pom:
     <version>${linkis.version}</version>
  </dependency>
 ```  
-**Note:** The module has not been deployed to the central warehouse. You need to execute `mvn install -Dmaven.test.skip=true` in the ujes/jdbc directory for local installation.
+**Note:** The module has not been deployed to the central repository. You need to execute `mvn install -Dmaven.test.skip=true` in the ujes/jdbc directory for local installation.
 
 **The second way is through packaging and compilation:**
 1. Enter the ujes/jdbc directory in the Linkis project and enter the command in the terminal to package `mvn assembly:assembly -Dmaven.test.skip=true`
