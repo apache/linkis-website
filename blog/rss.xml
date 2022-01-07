@@ -4,14 +4,14 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.apache.org/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Fri, 07 Jan 2022 10:16:33 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 07 Jan 2022 13:25:12 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[todo]]></title>
             <link>https://linkis.apache.org/blog/how-to-used</link>
             <guid>todo</guid>
-            <pubDate>Fri, 07 Jan 2022 10:16:33 GMT</pubDate>
+            <pubDate>Fri, 07 Jan 2022 13:25:12 GMT</pubDate>
         </item>
     </channel>
 </rss>
