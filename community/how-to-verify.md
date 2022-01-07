@@ -89,11 +89,7 @@ gpg --import KEYS # Import KEYS to local
 > macOS/Linux
 
 ```shell
-for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i; done
-#or
-for i in *.tar.gz; do echo $i; shasum -a 512 $i; done
-
-#Compare the output content with the content of the apache-linkis-${release_version}-xxx.tar.gz.sha512 file
+for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 ```
 
