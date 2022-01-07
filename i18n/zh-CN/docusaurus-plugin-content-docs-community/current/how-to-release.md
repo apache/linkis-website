@@ -249,7 +249,8 @@ mvn versions:set -DnewVersion=1.0.3
 ```
 #build检查
 $ mvn clean install -Dmaven.javadoc.skip=true
-#RAT LICENSE检查
+#RAT LICENSE检查 
+#正常5分钟内可以执行完，如果长时间未执行结束，请检查是否由于编译等动作，增加了额外不必要检查的文件
 $ mvn apache-rat:check
 ```
 
