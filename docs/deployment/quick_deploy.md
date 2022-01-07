@@ -45,7 +45,7 @@ The following is the dependency information for each engine.
 The default JVM heap memory of each microservice is 512M, and the heap memory of each microservice can be adjusted uniformly by modifying `SERVER_HEAP_SIZE`. If your computer resource is limited, we suggest modifying this parameter to 128M. as follows:
 
 ```bash
-vim ${LINKIS_HOME}/config/linkis-env.sh
+vim ${LINKIS_HOME}/deploy-config/linkis-env.sh
 ```
 
 ```bash
@@ -131,7 +131,7 @@ tar -xvf apache-linkis-x.x.x-incubating-bin.tar.gz
 ### d. Basic configuration modification(Do not rely on HDFS)
 
 ```bash
-vi config/linkis-env.sh
+vi deploy-config/linkis-env.sh
 ```
 
 ```properties
@@ -151,7 +151,7 @@ vi config/linkis-env.sh
 ### e. Basic configuration modification(Rely on HDFS/Hive/Spark)
 
 ```bash
-vi config/linkis-env.sh
+vi deploy-config/linkis-env.sh
 ```
 
 ```properties
@@ -189,7 +189,7 @@ vi config/linkis-env.sh
 ### f. Modify the database configuration
 
 ```bash   
-vi config/db.sh 
+vi deploy-config/db.sh 
 ```
 
 ```properties    

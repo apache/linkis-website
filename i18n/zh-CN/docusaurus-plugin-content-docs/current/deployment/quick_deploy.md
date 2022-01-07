@@ -45,7 +45,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 默认每个微服务JVM堆内存为512M，可以通过修改`SERVER_HEAP_SIZE`来统一调整每个微服务的堆内存，如果您的服务器资源较少，我们建议修改该参数为128M。如下：
 
 ```bash
-    vim ${LINKIS_HOME}/config/linkis-env.sh
+    vim ${LINKIS_HOME}/deploy-config/linkis-env.sh
 ```
 
 ```bash
@@ -132,7 +132,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ### 3.4 不依赖HDFS的基础配置修改
 
 ```bash
-    vi config/linkis-env.sh
+    vi deploy-config/linkis-env.sh
 ```
         
 ```properties
@@ -151,7 +151,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ### e. 依赖HDFS/Hive/Spark的基础配置修改
 
 ```bash
-     vi config/linkis-env.sh
+     vi deploy-config/linkis-env.sh
 ```
         
 ```properties
@@ -189,7 +189,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ###  3.5 修改数据库配置 
 
 ```bash   
-    vi config/db.sh 
+    vi deploy-config/db.sh 
 ```
             
 ```properties    
