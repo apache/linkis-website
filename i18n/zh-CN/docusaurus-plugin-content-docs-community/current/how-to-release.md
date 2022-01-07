@@ -343,8 +343,9 @@ cp  web/apache-linkis-1.0.3-incubating-web-bin.tar.gz   dist/apache-linkis
 ### 2.7 对源码包/二进制包进行签名/sha512
 ```shell
 cd  dist/apache-linkis
-for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done # 计算SHA512
 for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # 计算签名
+
+for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # 计算SHA512
 ```
 
 ### 2.8 检查生成的签名/sha512是否正确
@@ -353,6 +354,14 @@ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; don
 cd dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
 ```
+
+验证sha512是否正确如下：
+```shell
+cd dist/apache-linkis
+for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
+
+```
+
 详细验证流程可以参见[验证候选版本](how-to-verify.md)
 
 

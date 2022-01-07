@@ -86,14 +86,10 @@ gpg --import KEYS # 导入KEYS到本地
 > Mac OS/Linux
 
 ```shell
-for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i; done
-#或者
-for i in *.tar.gz; do echo $i; shasum -a 512  $i; done
 
-#并将输出内容与 apache-linkis-${release_version}-xxx.tar.gz.sha512文件内容作对比
+for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 ```
-
 
 > Windows
 
@@ -101,7 +97,6 @@ for i in *.tar.gz; do echo $i; shasum -a 512  $i; done
 $ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
 #并将输出内容与 apache-linkis-${release_version}-xxx.tar.gz.sha512文件内容作对比
 ```
-
 
 ### 2.4. 检查源码包的文件内容
 
