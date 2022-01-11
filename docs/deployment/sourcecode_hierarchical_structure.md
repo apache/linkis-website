@@ -11,7 +11,7 @@ sidebar_position: 5
 |-- assembly-combined-package //Compile the module of the entire project
 |        |-- assembly-combined
 |        |-- bin
-|        |-- config
+|        |-- deploy-config
 |        |-- src
 |-- linkis-commons //Core abstraction, which contains all common modules
 |        |-- linkis-common //Common module, built-in many common tools
@@ -63,3 +63,18 @@ sidebar_position: 5
 |        |-- dependencies
 |
 |-- web //Management desk code of linkis
+|
+|-- scalastyle-config.xml //Scala code format check configuration file
+|-- CONTRIBUTING.md
+|-- CONTRIBUTING_CN.md
+|-- DISCLAIMER-WIP
+|-- LICENSE //LICENSE of the project source code
+|-- LICENSE-binary //LICENSE of binary package
+|-- LICENSE-binary-ui //LICENSE of the front-end compiled package
+|-- NOTICE //NOTICE of project source code
+|-- NOTICE-binary // NOTICE of binary package
+|-- NOTICE-binary-ui // NOTICE of front-end binary package
+|-- licenses-binary The detailed dependent license file of the binary package
+|-- licenses-binary-ui //The license file that the front-end compilation package depends on in detail
+|-- README.md
+|-- README_CN.md
