@@ -80,7 +80,7 @@ some other action (type on the keyboard, move the mouse, utilize the
 disks) during the prime generation; this gives the random number
 generator a better chance to gain enough entropy.
 
-# 此时会弹出对话框，要求为这个gpg输入密钥。
+# 此时会弹出对话框，要求为这个gpg输入密钥，需要记住，后续发布会用到。
 ┌──────────────────────────────────────────────────────┐
 │ Please enter this passphrase to protect your new key │
 │                                                      │
@@ -274,7 +274,8 @@ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 ### 2.4 打包源码
 
 ```shell
-mkdir  dist/apache-linkis
+mkdir -p dist/apache-linkis
+#基于release-1.0.3-rc1分支打包源码的tar.gz物料
 git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz"  release-1.0.3-rc1
 ```
 ### 2.5 拷贝二进制文件
@@ -353,6 +354,13 @@ for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # 计算SHA512
 ```shell
 cd dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
+```
+出现类似以下内容则说明签名正确，关键字：**`Good signature`**
+```shell
+    apache-linkis-xxx-incubating-src.tar.gz
+    gpg: Signature made XXXX
+    gpg:                using RSA key XXXXX
+    gpg: Good signature from "xxx @apache.org>"
 ```
 
 验证sha512是否正确如下：
@@ -756,11 +764,12 @@ cp  apache-linkis-*-incubating-web-bin.tar.gz  ../dist/apache-linkis
 
 ### 对源码包/二进制包进行签名/sha512
 cd   ../dist/apache-linkis
-for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i > $i.sha512 ; done # 计算SHA512
 for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # 计算签名
+for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # 计算SHA512
 
 ### 检查生成的签名/sha512是否正确
 for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
+for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 
 #step5 上传至svn
