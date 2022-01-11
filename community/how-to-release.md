@@ -76,14 +76,14 @@ some other action (type on the keyboard, move the mouse, utilize the
 disks) during the prime generation; this gives the random number
 generator a better chance to gain enough entropy.
 
-# At this time, a dialog box will pop up, asking you to enter the key for this gpg.
-┌────────────────────────────────────────────── ─────┐
-│ Please enter this passphrase to protect your new key │
-│ │
-│ Passphrase: _______ no less than 8 digits ______________ │
-│ Repeat: _______________________________ │
-│ <OK> <Cancel> │
-└────────────────────────────────────────────── ─────┘
+# At this time, a dialog box will pop up, asking you to enter the key for this gpg. you need to remember that it will be used in subsequent steps.
+┌─────────────────────────────────────────────────────┐
+│ Please enter this passphrase to protect your new key│
+│                                                     │
+│ Passphrase: _______ no less than 8 digits _________ │
+│ Repeat: ___________________________________________ │
+│ <OK> <Cancel>                                       │
+└─────────────────────────────────────────────────────┘
 #After entering the secret key, a certain random action needs to be performed to generate encrypted prime numbers. After creation, the following information will be output
 gpg: key 1AE82584584EE68E marked as ultimately trusted
 gpg: revocation certificate stored as'C:/Users/xxx/AppData/Roaming/gnupg/openpgp-revocs.d\E7A9B12D1AC2D8CF857AF5851AE82584584EE68E.rev'
@@ -269,7 +269,8 @@ Step 2.4-3.3 execute the command, merge it in the release.sh script, or execute 
 ### 2.4 Package source code
 
 ```shell
-mkdir dist/apache-linkis
+mkdir -p dist/apache-linkis
+#based on the release-1.0.3-rc1 branch to package the source code tar.gz material
 git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" release-1.0.3-rc1
 ```
 ### 2.5 Copy binary files
@@ -349,6 +350,14 @@ Verify that the signature is correct as follows:
 cd dist/apache-linkis
 for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
 ```
+
+If something like the following appears, the signature is correct. Keyword: **`Good signature`**
+```shell
+     apache-linkis-xxx-incubating-src.tar.gz
+     gpg: Signature made XXXX
+     gpg: using RSA key XXXXX
+     gpg: Good signature from "xxx @apache.org>"
+````
 
 Verify that sha512 is correct as follows:
 ```shell
@@ -736,13 +745,14 @@ cp apache-linkis-*-incubating-web-bin.tar.gz ../dist/apache-linkis
 
 #step4 Signature
 
-### Sign the source package/binary package/sha512
+### Sign source/binary packages/sha512
 cd ../dist/apache-linkis
-for i in *.tar.gz; do echo $i; gpg --print-md SHA512 $i> $i.sha512; done # Calculate SHA512
-for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i; done # Calculate signature
+for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # Calculate signature
+for i in *.tar.gz; do echo $i; sha512sum $i > $i.sha512 ; done # Calculate SHA512
 
-### Check whether the generated signature/sha512 is correct
-for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
+### Check if the generated signature/sha512 is correct
+for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
+for i in *.tar.gz; do echo $i; sha512sum --check $i.sha512; done
 
 
 #step5 Upload to svn
