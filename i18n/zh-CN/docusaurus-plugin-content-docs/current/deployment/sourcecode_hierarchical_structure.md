@@ -13,7 +13,7 @@ sidebar_position: 5
 |-- assembly-combined-package //编译整个项目的模块
 |        |-- assembly-combined
 |        |-- bin
-|        |-- config
+|        |-- deploy-config
 |        |-- src
 |-- linkis-commons  //核心抽象，里面放有所有的公用模块
 |        |-- linkis-common  //通用模块，内置很多通用工具类
@@ -57,13 +57,24 @@ sidebar_position: 5
 |        |-- linkis-service-discovery
 |        |-- linkis-service-gateway //网关Gateway
 |-- db  //数据库信息
-|-- license-doc //license的详细信息
-|        |-- license //后台项目的license
-|         -- ui-license //linkis管理台的license
 |-- tool //工具脚本
 |        |-- check.sh
 |        |-- dependencies
 |
-|-- web  //linkis的管理台代码
+|-- web  //linkis的管理台代码 
+|-- scalastyle-config.xml  //Scala 代码格式检查配置文件
+|-- CONTRIBUTING.md
+|-- CONTRIBUTING_CN.md
+|-- DISCLAIMER-WIP
+|-- LICENSE //项目源码的LICENSE
+|-- LICENSE-binary //二进制包的LICENSE
+|-- LICENSE-binary-ui //前端web编译包的LICENSE 
+|-- NOTICE  //项目源码的NOTICE
+|-- NOTICE-binary //二进制包的NOTICE
+|-- NOTICE-binary-ui //前端web二进制包的NOTICE
+|-- licenses-binary  二进制包的详细依赖的license文件
+|-- licenses-binary-ui //前端web编译包详细依赖的license文件
+|-- README.md
+|-- README_CN.md
 
 ```
