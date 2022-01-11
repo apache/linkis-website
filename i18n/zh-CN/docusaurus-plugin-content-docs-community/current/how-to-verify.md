@@ -129,12 +129,45 @@ $ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
 
 详细的检查项，可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
  
+ 
+### 2.6 源码编译验证
+```shell script
+
+mkdir apache-linkis-${release_version}-incubating-src
+
+tar -xvf  `apache-linkis-${release_version}-incubating-src.tar.gz` -C apache-linkis-${release_version}-incubating-src  
+
+cd apache-linkis-${release_version}-incubating-src
+
+mvn -N install  
+#如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
+mvn  clean install -Dmaven.javadoc.skip=true
+```
+  
+
 ## 3.邮件回复 
+
 如果发起了发布投票，验证后，可以参照此回复示例进行邮件回复
 
-```html
-+1 (xxxx)
+<font color="red">
+回复的邮件一定要带上自己检查了那些项信息，仅仅回复`+1 approve`，是无效的。
 
+PPMC/IPMC成员，投票时请带上 binding后缀，表示具有约束性投票，方便统计投票结果
+</font>
+
+```html
++1 (non-binding)
+I  checked:
+    1. All download links are valid
+    2. Checksum and signature are OK
+    3. LICENSE and NOTICE are exist
+    4. Build successfully on macOS(Big Sur) 
+    5. ....
+```
+
+PPMC/IPMC成员
+```html
++1 (binding)
 I  checked:
     1. All download links are valid
     2. Checksum and signature are OK

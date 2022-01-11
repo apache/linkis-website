@@ -135,15 +135,45 @@ Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
 
  You can refer to this article: [ASF Third Party License Policy](https://apache.org/legal/resolved.html)
  
+ ### 2.6 Source code compilation verification
+ ```shell script
+ 
+ mkdir apache-linkis-${release_version}-incubating-src
+ 
+ tar -xvf `apache-linkis-${release_version}-incubating-src.tar.gz` -C apache-linkis-${release_version}-incubating-src
+ 
+ cd apache-linkis-${release_version}-incubating-src
+ 
+ mvn -N install
+ #If the performance of the machine where the compilation is located is poor, this process will be time-consuming, usually about 30min
+ mvn clean install -Dmaven.javadoc.skip=true
+ ````
+
 ## 3. Email reply
 If you initiate a posting vote, you can refer to this response example to reply to the email after verification
+<font color="red">
+When replying to the email, you must bring the information that you have checked by yourself. Simply replying to `+1 approve` is invalid.
+
+PPMC/IPMC member voting is best with the binding suffix, indicating a binding vote, which is convenient for counting voting results
+</font>
 
 ```html
-+1 (xxxx)
++1 (non-binding)
 I checked:
-    1. All download links are valid
-    2. Checksum and signature are OK
-    3. LICENSE and NOTICE are exist
-    4. Build successfully on macOS(Big Sur)
-    5. ....
-```
+     1. All download links are valid
+     2. Checksum and signature are OK
+     3. LICENSE and NOTICE are exist
+     4. Build successfully on macOS(Big Sur)
+     5.  
+````
+
+PPMC/IPMC member
+```html
++1 (binding)
+I checked:
+     1. All download links are valid
+     2. Checksum and signature are OK
+     3. LICENSE and NOTICE are exist
+     4. Build successfully on macOS(Big Sur)
+     5.  
+````
