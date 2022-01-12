@@ -133,9 +133,10 @@ Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
 - [ ] If you are relying on the Apache license and there is a `NOTICE` file, then these `NOTICE` files also need to be added to the version of the `NOTICE` file
 - [ ] .....
 
- You can refer to this article: [ASF Third Party License Policy](https://apache.org/legal/resolved.html)
+You can refer to this article: [ASF Third Party License Policy](https://apache.org/legal/resolved.html)
  
- ### 2.6 Source code compilation verification
+
+### 2.6 Source code compilation verification
  ```shell script
  
  mkdir apache-linkis-${release_version}-incubating-src
@@ -157,6 +158,7 @@ When replying to the email, you must bring the information that you have checked
 PPMC/IPMC member voting is best with the binding suffix, indicating a binding vote, which is convenient for counting voting results
 </font>
 
+Non-PPMC/IPMC member
 ```html
 +1 (non-binding)
 I checked:

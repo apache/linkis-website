@@ -14,7 +14,10 @@ Understand the content and process of Apache's release. Source Release is the fo
 Both apache's maven and SVN repositories use GPG signatures to verify the legitimacy of material files
 
 ## 1 Tool preparation
-(Required when this publisher is releasing for the first time)
+:::caution Note
+Required when this publisher is publishing for the first time
+:::
+
 Mainly include the preparation of the signature tool GnuPG, Maven repository certification
 
 ### 1.1 Install GPG
@@ -249,7 +252,21 @@ $ mvn clean install -Dmaven.javadoc.skip=true
 #RAT LICENSE check
 #It can be executed within 5 minutes normally. If the execution has not ended for a long time, please check whether additional files that need not be checked have been added due to actions such as compiling.
 $ mvn apache-rat:check
-```
+
+#Check all rat files after no exception
+find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
+````
+
+Check all license information in merged-rat.txt, and note that Binaries and Archives files are 0.
+````text
+Notes: 0
+Binaries: 0
+Archives: 0
+0 Unknown Licenses
+````
+<font color="red">
+If it is not 0, you need to confirm whether there is a license for the binary or compressed file in the source code. You can refer to `linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7- src.zip`
+</font>
 
 ### 2.3 Publish jar package to Apache Nexus repository
 ```shell
@@ -427,6 +444,10 @@ For details, please refer to [How to Verify release](/how-to-verify.md)
 
 :::caution Note
 All links to checksums, signatures, and public keys must refer to the main Apache website https://downloads.apache.org/ and should use https://(SSL). For example: https://downloads.apache.org/incubator/linkis/KEYS
+
+The DISCLAIMER-WIP disclaimer is currently used, please add this description `As the DISCLAIMER-WIP shows....` to the email. If the WIP pending problem is solved later, it can be removed.
+
+Use of WIP, see https://issues.apache.org/jira/browse/LEGAL-469 for details
 :::
 
 - To vote in the Linkis community, send an email to: `dev@linkis.apache.org`
@@ -467,6 +488,8 @@ Hello Linkis Community,
     GPG user ID:
     ${YOUR.GPG.USER.ID}
     
+    As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
+
     The vote will be open for at least 72 hours or until necessary number of votes are reached.
     
     Please vote accordingly:
@@ -556,6 +579,8 @@ Hello Incubator Community,
 
     The artifacts signed with PGP key [fill in your personal KEY], corresponding to [fill in your personal email], that can be found in keys file:
     • https://downloads.apache.org/incubator/linkis/KEYS
+
+    As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
 
     The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
