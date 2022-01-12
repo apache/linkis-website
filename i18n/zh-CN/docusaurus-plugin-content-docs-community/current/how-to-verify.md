@@ -155,6 +155,7 @@ mvn  clean install -Dmaven.javadoc.skip=true
 PPMC/IPMC成员，投票时请带上 binding后缀，表示具有约束性投票，方便统计投票结果
 </font>
 
+非PPMC/IPMC成员
 ```html
 +1 (non-binding)
 I  checked:

@@ -18,8 +18,11 @@ Apache的maven和SVN仓库都会使用到GPG签名来验证物料文件的合法
 
 
 ## 1 工具准备
-**（当本次发布者是首次进行发布时需要）
-主要包括签名工具GnuPG、Maven 仓库认证相关准备**
+:::caution 注意
+当本次发布者是首次进行发布时需要
+:::
+
+**主要包括签名工具GnuPG、Maven 仓库认证相关准备**
 
 ### 1.1 安装GPG
 
@@ -250,9 +253,27 @@ mvn versions:set -DnewVersion=1.0.3
 #build检查
 $ mvn clean install -Dmaven.javadoc.skip=true
 #RAT LICENSE检查 
+
 #正常5分钟内可以执行完，如果长时间未执行结束，请检查是否由于编译等动作，增加了额外不必要检查的文件
 $ mvn apache-rat:check
+
+#无异常后 检查所有的rat文件 
+find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
+若check异常，请检查是否由于编译等动作，增加了额外不必要检查的文件，可以移除掉。
+rat check的白名单文件配置在外层pom.xml中的apache-rat-plugin插件配置中。
+
+检查merged-rat.txt中所有license信息，注意Binaries 和Archives文件是否为0。
+```text
+Notes: 0
+Binaries: 0
+Archives: 0
+0 Unknown Licenses
+```
+<font color="red">
+如果不为0，需要确认源码中是否有对该二进制或则压缩文件的license进行说明，可以参考源码中引用的`linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`
+</font>
+
 
 ### 2.3 发布jar包到Apache Nexus仓库
 ```shell
@@ -429,6 +450,10 @@ svn commit -m "prepare for 1.0.3-RC1"
 
 :::caution 注意
 所有指向校验和、签名和公钥的链接都必须引用Apache主网站https://downloads.apache.org/并应使用https://(SSL)。例如：https://downloads.apache.org/incubator/linkis/KEYS
+
+目前是用的DISCLAIMER-WIP免责申明，请在邮件中加入此说明`As the DISCLAIMER-WIP shows....`。如果后续解决了WIP待处理的问题后，可以去掉
+
+WIP的使用，详细可见 https://issues.apache.org/jira/browse/LEGAL-469
 :::
 
 
@@ -442,6 +467,7 @@ svn commit -m "prepare for 1.0.3-RC1"
 1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1` PMC member票后，才可进入下一阶段的投票。
 
 2. 宣布投票结果,发起投票结果邮件到`dev@linkis.apache.org`。
+
 
 #### 5.1.1 Linkis 社区投票模板
 
@@ -472,6 +498,8 @@ Hello Linkis Community,
 
 	GPG user ID:
 	${YOUR.GPG.USER.ID}
+
+    As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
 
 	The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -563,6 +591,8 @@ Hello Incubator Community,
 
     The artifacts signed with PGP key [填写你个人的KEY], corresponding to [填写你个人的邮箱], that can be found in keys file:
         • https://downloads.apache.org/incubator/linkis/KEYS
+
+    As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
 
     The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
