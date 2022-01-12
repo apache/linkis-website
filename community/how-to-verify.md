@@ -110,7 +110,7 @@ tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
 
 cd apache-linkis-${release_version}-incubating-src
 ```
-### 2.4.1 ASF License RAT Check
+#### 2.4.1 ASF License RAT Check
 
 ````
 #normally can be executed within 5 minutes
@@ -132,13 +132,13 @@ If it is not 0, you need to confirm whether the source code has the license for 
 </font>
 
 
-### 2.4.2 Source code compilation verification
+#### 2.4.2 Source code compilation verification
 ```shell script
 mvn -N install
 #If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
 mvn clean install -Dmaven.javadoc.skip=true
 ````
-### 2.4.3 Check related compliance items
+#### 2.4.3 Check related compliance items
 
 and check as follows:
 

@@ -108,7 +108,7 @@ tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
 cd apache-linkis-${release_version}-incubating-src
 ```
 
-### 2.4.1 ASF许可证RAT检查
+#### 2.4.1 ASF许可证RAT检查
 
 ```
 #正常5分钟内可以执行完
@@ -130,13 +130,13 @@ Archives: 0
 </font>
 
 
-### 2.4.2 源码编译验证
+#### 2.4.2 源码编译验证
 ```shell script
 mvn -N install  
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
 mvn  clean install -Dmaven.javadoc.skip=true
 ```
-### 2.4.3 相关合规项检查 
+#### 2.4.3 相关合规项检查 
 
 进行如下检查:
 
