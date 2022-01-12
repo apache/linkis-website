@@ -260,6 +260,8 @@ $ mvn apache-rat:check
 #无异常后 检查所有的rat文件 
 find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
+若check异常，请检查是否由于编译等动作，增加了额外不必要检查的文件，可以移除掉。
+rat check的白名单文件配置在外层pom.xml中的apache-rat-plugin插件配置中。
 
 检查merged-rat.txt中所有license信息，注意Binaries 和Archives文件是否为0。
 ```text
@@ -269,7 +271,7 @@ Archives: 0
 0 Unknown Licenses
 ```
 <font color="red">
-如果不为0，需要确认源码中是否有对该二进制或则压缩文件的license进行说明，可以参考`linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`
+如果不为0，需要确认源码中是否有对该二进制或则压缩文件的license进行说明，可以参考源码中引用的`linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`
 </font>
 
 

@@ -257,6 +257,10 @@ $ mvn apache-rat:check
 find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ````
 
+If the check is abnormal, please check whether additional unnecessary files have been added due to compilation and other actions, which can be removed.
+
+The whitelist file of rat check is configured in the apache-rat-plugin plugin configuration in the outer pom.xml.
+
 Check all license information in merged-rat.txt, and note that Binaries and Archives files are 0.
 ````text
 Notes: 0
