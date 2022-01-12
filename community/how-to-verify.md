@@ -97,14 +97,50 @@ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 > Windows
 
 ```shell
-$ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
-#Compare the output content with the content of the apache-linkis-${release_version}-xxx.tar.gz.sha512 file
+$ certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
+#Compare the output content with the content of the apache-linkis-${release_version}-incubating-xxx.tar.gz.sha512 file
 ```
 
 
 ### 2.4. Check the file content of the source package
 
-Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
+Unzip `apache-linkis-${release_version}-incubating-src.tar.gz` 
+```text
+tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
+
+cd apache-linkis-${release_version}-incubating-src
+```
+### 2.4.1 ASF License RAT Check
+
+````
+#normally can be executed within 5 minutes
+$ mvn apache-rat:check
+
+#Check all rat files after no exception
+find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
+````
+The whitelist file of rat check is configured in the apache-rat-plugin plugin configuration in the outer pom.xml.
+Check all the license information in merged-rat.txt, and notice if the Binaries and Archives files are 0.
+````text
+Notes: 0
+Binaries: 0
+Archives: 0
+0 Unknown Licenses
+````
+<font color="red">
+If it is not 0, you need to confirm whether the source code has the license for the binary or compressed file. You can refer to the `linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j- 0.10.7-src.zip`
+</font>
+
+
+### 2.4.2 Source code compilation verification
+```shell script
+mvn -N install
+#If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
+mvn clean install -Dmaven.javadoc.skip=true
+````
+### 2.4.3 Check related compliance items
+
+and check as follows:
 
 - [ ] Check whether the source package contains unnecessary files, which makes the tar package too large
 - [ ] Folder contains the word `incubating`
@@ -118,10 +154,16 @@ Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
 - [ ] .....
 
 ### 2.5 Check the binary package
-> If the binary package is uploaded, check the binary package.
+> If the binary/web-binary package is uploaded, check the binary package. 
 
-Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
+Unzip `apache-linkis-${release_version}-incubating-bin.tar.gz` 
 
+```shell script
+mkdir apache-linkis-${release_version}-incubating-bin
+tar -xvf  apache-linkis-${release_version}-incubating-bin.tar.gz -C  apache-linkis-${release_version}-incubating-bin
+cd apache-linkis-${release_version}-incubating-bin
+```
+and check as follows:
 - [ ] Folder contains the word `incubating`
 - [ ] There are `LICENSE` and `NOTICE` files
 - [ ] There is a `DISCLAIMER` or `DISCLAIMER-WIP` file
@@ -135,20 +177,6 @@ Unzip `apache-linkis-${release_version}-src.tar.gz` and check as follows:
 
 You can refer to this article: [ASF Third Party License Policy](https://apache.org/legal/resolved.html)
  
-
-### 2.6 Source code compilation verification
- ```shell script
- 
- mkdir apache-linkis-${release_version}-incubating-src
- 
- tar -xvf `apache-linkis-${release_version}-incubating-src.tar.gz` -C apache-linkis-${release_version}-incubating-src
- 
- cd apache-linkis-${release_version}-incubating-src
- 
- mvn -N install
- #If the performance of the machine where the compilation is located is poor, this process will be time-consuming, usually about 30min
- mvn clean install -Dmaven.javadoc.skip=true
- ````
 
 ## 3. Email reply
 If you initiate a posting vote, you can refer to this response example to reply to the email after verification

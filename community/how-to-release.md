@@ -291,8 +291,12 @@ Step 2.4-3.3 execute the command, merge it in the release.sh script, or execute 
 
 ```shell
 mkdir -p dist/apache-linkis
+
 #based on the release-1.0.3-rc1 branch to package the source code tar.gz material
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" release-1.0.3-rc1
+#--prefix=apache-linkis-1.0.3-incubating-src/ Note that the `/` archive will be in the apache-linkis-1.0.3-incubating-src folder after decompression
+#A pax_global_header file will be generated to record the commitid information. Without the --prefix, it will cause pax_global_header to be in the same level directory as the source file after decompression
+
+git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" --prefix=apache-linkis-1.0.3-incubating-src/  release-1.0.3-rc1
 ```
 ### 2.5 Copy binary files
 
@@ -758,8 +762,8 @@ rm -rf dist
 mkdir -p dist/apache-linkis
 
 #step1 Packaging source files
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz" $git_branch
-echo "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz' $git_branch"
+git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz"  --prefix=apache-linkis-$release_version-incubating-src/   $git_branch
+echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz' --prefix=apache-linkis-$release_version-incubating-src/   $git_branch"
 
 #step2 Copy the binary package
 cp assembly-combined-package/target/apache-linkis-$release_version-incubating-bin.tar.gz dist/apache-linkis
