@@ -94,13 +94,51 @@ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 > Windows
 
 ```shell
-$ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
-#并将输出内容与 apache-linkis-${release_version}-xxx.tar.gz.sha512文件内容作对比
+$ certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
+#并将输出内容与 apache-linkis-${release_version}-incubating-xxx.tar.gz.sha512文件内容作对比
 ```
 
 ### 2.4. 检查源码包的文件内容
 
-解压缩`apache-linkis-${release_version}-src.tar.gz`，进行如下检查:
+解压缩`apache-linkis-${release_version}-incubating-src.tar.gz`
+
+```text
+tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
+
+cd apache-linkis-${release_version}-incubating-src
+```
+
+#### 2.4.1 ASF许可证RAT检查
+
+```
+#正常5分钟内可以执行完
+$ mvn apache-rat:check
+
+#无异常后 检查所有的rat文件 
+find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
+```
+rat check的白名单文件配置在外层pom.xml中的apache-rat-plugin插件配置中。
+检查merged-rat.txt中所有license信息，注意Binaries 和Archives文件是否为0。
+```text
+Notes: 0
+Binaries: 0
+Archives: 0
+0 Unknown Licenses
+```
+<font color="red">
+如果不为0，需要确认源码中是否有对该二进制或则压缩文件的license进行说明，可以参考源码中引用的`linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`
+</font>
+
+
+#### 2.4.2 源码编译验证
+```shell script
+mvn -N install  
+#如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
+mvn  clean install -Dmaven.javadoc.skip=true
+```
+#### 2.4.3 相关合规项检查 
+
+进行如下检查:
 
 - [ ] 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
 - [ ] 文件夹包含单词`incubating`
@@ -113,9 +151,20 @@ $ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
 - [ ] 检查是否有多余文件或文件夹，例如空文件夹等
 - [ ] .....
 
-### 2.5 检查二进制包(如果上传了二进制包)
-解压缩`apache-linkis-${release_version}-src.tar.gz`，进行如下检查:
 
+### 2.5 检查二进制包
+>如果上传了项目的二进制包/web的编译包
+
+解压缩`apache-linkis-${release_version}-incubating-bin.tar.gz`，
+
+```shell script
+
+mkdir apache-linkis-${release_version}-incubating-bin
+tar -xvf  apache-linkis-${release_version}-incubating-bin.tar.gz -C  apache-linkis-${release_version}-incubating-bin
+cd apache-linkis-${release_version}-incubating-bin
+```
+
+进行如下检查：
 - [ ] 文件夹包含单词`incubating`
 - [ ] 存在`LICENSE`和`NOTICE`文件
 - [ ] 存在`DISCLAIMER`或`DISCLAIMER-WIP`文件
@@ -130,21 +179,6 @@ $ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
 详细的检查项，可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
  
  
-### 2.6 源码编译验证
-```shell script
-
-mkdir apache-linkis-${release_version}-incubating-src
-
-tar -xvf  `apache-linkis-${release_version}-incubating-src.tar.gz` -C apache-linkis-${release_version}-incubating-src  
-
-cd apache-linkis-${release_version}-incubating-src
-
-mvn -N install  
-#如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
-mvn  clean install -Dmaven.javadoc.skip=true
-```
-  
-
 ## 3.邮件回复 
 
 如果发起了发布投票，验证后，可以参照此回复示例进行邮件回复

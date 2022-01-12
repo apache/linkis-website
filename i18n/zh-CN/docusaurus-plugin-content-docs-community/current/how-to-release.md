@@ -296,8 +296,11 @@ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 
 ```shell
 mkdir -p dist/apache-linkis
-#基于release-1.0.3-rc1分支打包源码的tar.gz物料
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz"  release-1.0.3-rc1
+#基于release-1.0.3-rc1分支打包源码的tar.gz物料 
+#--prefix=apache-linkis-1.0.3-incubating-src/  注意带上`/`  压缩包解压后会是在apache-linkis-1.0.3-incubating-src文件夹中
+#会生成一个pax_global_header文件 记录的是commitid信息，不加--prefix会导致解压后pax_global_header 和源码文件同级目录
+
+git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz"  --prefix=apache-linkis-1.0.3-incubating-src/  release-1.0.3-rc1
 ```
 ### 2.5 拷贝二进制文件
 
@@ -776,8 +779,8 @@ rm -rf dist
 mkdir -p  dist/apache-linkis
 
 #step1 打包源码文件
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz"  $git_branch
-echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz'  $git_branch"
+git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz"  --prefix=apache-linkis-$release_version-incubating-src/   $git_branch
+echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz' --prefix=apache-linkis-$release_version-incubating-src/   $git_branch"
 
 #step2 拷贝二进制编译包
 cp  assembly-combined-package/target/apache-linkis-$release_version-incubating-bin.tar.gz   dist/apache-linkis
