@@ -3,7 +3,7 @@ title: Linkis 编译打包
 sidebar_position: 0
 ---
 
-## 1 前置准备 
+## 1. 前置准备 
 
 __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK**都支持。
 
@@ -16,7 +16,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 **请注意**：官方推荐使用 Hadoop-2.7.2、Hive-1.2.1、Spark-2.4.3 和 Scala-2.11.12 对 Linkis 进行编译。
 
-如果您想使用 Hadoop、Hive、Spark 的其他版本对 Linkis 进行编译，请参考：[如何修改Linkis的依赖的Hadoop、Hive、Spark版本](#4-如何修改linkis的依赖的hadoophivespark版本)
+如果您想使用 Hadoop、Hive、Spark 的其他版本对 Linkis 进行编译，请参考：[如何修改Linkis的依赖的Hadoop、Hive、Spark版本](#5-如何修改linkis的依赖的hadoophivespark版本)
 
 ### <font color="red">1.2 修改依赖配置</font>  
 :::caution 注意
@@ -116,7 +116,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 具体而言，修改 Hadoop 的版本与 Spark、Hive 等计算引擎的方式不同，下面详细介绍：
 
-#### 如何修改 Linkis 依赖的 Hadoop 版本？
+### 5.1 如何修改 Linkis 依赖的 Hadoop 版本
 
 进入 Linkis 源码包根目录，手动修改 pom.xml 文件的 Hadoop 版本信息，具体如下：
 
@@ -154,7 +154,7 @@ pom:Linkis/linkis-commons/linkis-hadoop-common/pom.xml
 </dependency>
 ```
 
-#### 如何修改 Linkis 依赖的 Spark、Hive 版本？
+### 5.2 如何修改 Linkis 依赖的 Spark、Hive 版本
 
 这里以修改 Spark 的版本为例进行介绍。进入 Spark 引擎所在的目录，手动修改 pom.xml 文件的 Spark 版本信息，具体如下：
 

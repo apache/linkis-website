@@ -15,7 +15,7 @@ After obtaining the project code from [github repository](https://github.com/apa
 
 **Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.12.
 
-If you want to compile Linkis with another version of Hadoop, Hive, Spark, please refer to: [How to Modify Linkis dependency of Hadoop, Hive, Spark](#4 How to Modify Linkis dependency versionof Hadoop, Hive, Spark)
+If you want to compile Linkis with another version of Hadoop, Hive, Spark, please refer to: [How to Modify Linkis dependency of Hadoop, Hive, Spark](#5 How to Modify Linkis dependency versionof Hadoop, Hive, Spark)
 
 ### <font color="red">1.2 Modify dependency configuration</font>
 :::caution Note
@@ -117,7 +117,7 @@ If you don't want to use an engine, you don't need to set the version of the eng
 
 Specifically, the version of Hadoop can be modified in a different way than Spark, Hive, and other computing engines, as described below:
 
-#### How to modify the Hadoop version that Linkis depends on?
+### 5.1 How to modify the Hadoop version that Linkis depends on
 
 Enter the source package root directory of Linkis, and manually modify the Hadoop version information of the pom.xml file, as follows:
 
@@ -154,7 +154,7 @@ Modify the dependency hadoop-hdfs to hadoop-hdfs-client:
 </dependency>
 ```
 
-#### How to modify the Spark and Hive versions that Linkis depends on?
+### 5.2 How to modify the Spark and Hive versions that Linkis depends on
 
 Here's an example of changing the version of Spark. Go to the directory where the Spark engine is located and manually modify the Spark version information of the pom.xml file as follows:
 

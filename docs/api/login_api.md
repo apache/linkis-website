@@ -33,11 +33,11 @@ Turn on the test mode and the parameters are as follows:
 
 ## 3.Log In Interface Summary
 We provide the following login-related interfaces:
- - [Login In](#1LoginIn)
+ - Login In
 
- - [Login Out](#2LoginOut)
+ - Login Out
 
- - [Heart Beat](#3HeartBeat)
+ - Heart Beat
  
 
 ## 4. Interface details
