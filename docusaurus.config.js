@@ -67,8 +67,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   themeConfig:
    {
      algolia: {
-        apiKey: '45704b29a165163f47127b8d8bbaac6f',
-        indexName: 'linkis-apache',
+         // If Algolia did not provide you any appId, use 'BH4D9OD16A'
+         appId: 'AE29KQB3IA',
+         // Public API key: it is safe to commit it
+         apiKey: '45704b29a165163f47127b8d8bbaac6f',
+         indexName: 'linkis-apache',
      },
      colorMode: {
           defaultMode: 'light',
