@@ -67,11 +67,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   themeConfig:
    {
      algolia: {
-        appId: 'AE29KQB3IA',
         apiKey: '45704b29a165163f47127b8d8bbaac6f',
         indexName: 'linkis-apache',
-//        container: '### REPLACE ME WITH A CONTAINER (e.g. div) ###',
-        debug: true // Set debug to true if you want to inspect the modal
      },
      colorMode: {
           defaultMode: 'light',
