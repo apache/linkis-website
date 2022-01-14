@@ -23,7 +23,7 @@ The subject of the email can be roughly divided into the following types
 
 ## 2. Mail Specifications
 :::caution general specification
-- Whenever possible do not send plain HTML messages, but plain text. If you use QQ mailbox, its email content is in html format by default. Please switch to pure html text format when writing. For detailed switching instructions, see the appendix of this article.
+- Whenever possible do not send plain HTML messages, but plain text. If you use QQ mailbox, its email content is in html format by default. Please switch to plain text text format when writing. For detailed switching instructions, see the appendix of this article.
 - Developers/community users/PPMC members initiate email discussions/needs for help/notifications for the content of the above scenarios, please send them to dev@linkis.apache.org
 - Please put the corresponding type prefix before the email subject: such as `[HELP] XXXXXXX`, `[DISCUSS] XXXXXXX`
 
