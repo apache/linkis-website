@@ -1,5 +1,5 @@
 ---
-title: version and new feature specification
+title: Version and New Feature Specification
 sidebar_position: 8
 ---
 
