@@ -19,7 +19,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 - **Support for diverse underlying computation storage engines**.  
     Currently supported computation/storage engines: Spark, Hive, Python, Presto, ElasticSearch, MLSQL, TiSpark, JDBC, Shell, etc;      
-    Computation/storage engines to be supported: Flink((Supported in version >=1.0.3)), Impala, etc;      
+    Computation/storage engines to be supported: Flink(Supported in version >=1.0.2), Impala, etc;      
     Supported scripting languages: SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala and JDBC, etc.  
   
 - **Powerful task/request governance capabilities**. With services such as Orchestrator, Label Manager and customized Spring Cloud Gateway, Linkis is able to provide multi-level labels based, cross-cluster/cross-IDC fine-grained routing, load balance, multi-tenancy, traffic control, resource control, and orchestration strategies like dual-active, active-standby, etc.  
