@@ -78,8 +78,39 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 3. 主持的周例会，会议前需要发布会议邀约提醒邮件/会议后要发送会议纪要邮件至dev@linkis.apache.org邮箱中
 4. 新的committer/ppmc投票需要发送投票邮件至private@linkis.apache.org邮箱中。新的committer/ppmc推选流程见 https://community.apache.org/newcommitter.html
 
+## 5. 版本发布投票邮件的回复
+如果发起了发布投票，验证后(详细验证流程见[如何验证](how-to-verify.md))，可以参照此回复示例进行邮件回复
 
-## 5. 附录
+<font color="red">
+回复的邮件一定要带上自己检查了那些项信息，仅仅回复`+1 approve`，是无效的。
+
+PPMC/IPMC成员，投票时请带上 binding后缀，表示具有约束性投票，方便统计投票结果
+</font>
+
+非PPMC/IPMC成员
+```html
++1 (non-binding)
+I  checked:
+    1. All download links are valid
+    2. Checksum and signature are OK
+    3. LICENSE and NOTICE are exist
+    4. Build successfully on macOS(Big Sur) 
+    5. ....
+```
+
+PPMC/IPMC成员
+```html
++1 (binding)
+I  checked:
+    1. All download links are valid
+    2. Checksum and signature are OK
+    3. LICENSE and NOTICE are exist
+    4. Build successfully on macOS(Big Sur) 
+    5. ....
+```
+
+## 6. 附录
+
 ** QQ邮箱切换纯文本格式 **
 
 ![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)

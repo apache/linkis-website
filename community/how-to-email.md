@@ -80,7 +80,39 @@ From the determination of a version to the release, it may involve specific comm
 4. New committer/ppmc votes need to be sent to private@linkis.apache.org. See https://community.apache.org/newcommitter.html for the new committee/ppmc selection process
 
 
-## 5. Appendix
+## 5. How to Reply to Version Release Voting Emails
+If a release vote is initiated, after verification (see [How to verify](how-to-verify.md) for the detailed verification process), you can refer to this reply example for email reply
+
+If you initiate a posting vote, you can refer to this response example to reply to the email after verification
+<font color="red">
+When replying to the email, you must bring the information that you have checked by yourself. Simply replying to `+1 approve` is invalid.
+
+PPMC/IPMC member voting is best with the binding suffix, indicating a binding vote, which is convenient for counting voting results
+</font>
+
+Non-PPMC/Non-IPMC member
+```html
++1 (non-binding)
+I checked:
+     1. All download links are valid
+     2. Checksum and signature are OK
+     3. LICENSE and NOTICE are exist
+     4. Build successfully on macOS(Big Sur)
+     5.  
+````
+
+PPMC/IPMC member
+```html
++1 (binding)
+I checked:
+     1. All download links are valid
+     2. Checksum and signature are OK
+     3. LICENSE and NOTICE are exist
+     4. Build successfully on macOS(Big Sur)
+     5.  
+````
+
+## 6. Appendix
 ** QQ mailbox switch to plain text format **
 
 ![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)
