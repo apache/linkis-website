@@ -90,7 +90,8 @@ Abbreviations:
 
 ## Others
 * \[Commons&MGS-LinkisServiceGateway][[Linkis-1192]](https://github.com/apache/incubator-linkis/pull/1092) third-party dependencies of mysql-connector-java which violates apache licensing policy, because of the apache licensing policy, project cannot dependency on mysql-connector-java, if only for your own project used, you can rely on mysql-connector-java in your own project.
-
+* \[Commons&MGS-LinkisEureka][[Linkis-1291]](https://github.com/apache/incubator-linkis/pull/1291) remove the jar package io.github.x-stream with unclear license attribution category:mxparser
+* \[Console][[Linkis-1301]](https://github.com/apache/incubator-linkis/pull/1301) remove font files with unknown license authorization and front-end resource files such as unused image icons
 ---------
 
 ## Credits 

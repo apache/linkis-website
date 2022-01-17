@@ -179,6 +179,7 @@ You can refer to this article: [ASF Third Party License Policy](https://apache.o
  
 
 ## 3. Email reply
+
 If you initiate a posting vote, you can refer to this response example to reply to the email after verification
 <font color="red">
 When replying to the email, you must bring the information that you have checked by yourself. Simply replying to `+1 approve` is invalid.
@@ -186,7 +187,7 @@ When replying to the email, you must bring the information that you have checked
 PPMC/IPMC member voting is best with the binding suffix, indicating a binding vote, which is convenient for counting voting results
 </font>
 
-Non-PPMC/IPMC member
+Non-PPMC/Non-IPMC member
 ```html
 +1 (non-binding)
 I checked:

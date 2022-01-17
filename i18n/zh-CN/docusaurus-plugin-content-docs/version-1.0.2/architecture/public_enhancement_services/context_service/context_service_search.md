@@ -116,7 +116,7 @@ sidebar_position: 6
 >   以树A和树B为例子，分别计算出这两个树的代价，如下图所示，节点中的数字为Cost\|Weight，假设ABCDE这5个简单条件的Cost为10、100、50、10和100。由此可以得出，树B的代价小于树A，为更优方案。
 
 
-<center class="half">
+<center>
     <img src="/Images-zh/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-search-06.png" width="300"/> <img src="/Images-zh/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-search-07.png" width="300"/>
 </center>
 

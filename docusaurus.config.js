@@ -70,6 +70,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
          appId: 'AE29KQB3IA',
          apiKey: '9ca054a67ee2403605e78587a518b0d6',
          indexName: 'linkis-apache',
+         contextualSearch:true,
      },
      colorMode: {
           defaultMode: 'light',
