@@ -12,12 +12,12 @@ Linkis' archived mail can be viewed here [archived mail](https://lists.apache.or
 ## 1. Themes
 The subject of the email can be roughly divided into the following types
 - **\[DISCUSS]** Discussion on a feature/function/logic modification/CI/CD, which can be implementation/design/optimization suggestion, etc.
-- **\[PROPOSAL]** proposals, such as adding/removing certain features, are not much different from \[DISCUSS]
+- **\[PROPOSAL]** Proposals, such as adding/removing certain features, are not much different from \[DISCUSS]
 - **\[VOTE]** Vote for changes/elect Committer/elect new PPMC members, etc., such as version release, each version will be voted on in the community dev mailing list; you can also choose multiple options ,Poll.
 - **\[ANNOUNCE]** Announce the completion of the release of the new version, announcing the new Committer/PPMC elected, etc.
-- **\[NOTICE]** is mainly used to notify some temporary announcements, etc., such as the community sandbox environment is suspended for maintenance/upgrade, the web official website is abnormally unavailable, etc.; as well as online and offline weekly meetings/exchange meetings and various Event information announcements, etc.
+- **\[NOTICE]** Mainly used to notify some temporary announcements, etc., such as the community sandbox environment is suspended for maintenance/upgrade, the web official website is abnormally unavailable, etc.; as well as online and offline weekly meetings/exchange meetings and various Event information announcements, etc.
 - **\[HELP]** Ask for help, because there are many git code notifications, and sometimes it is impossible to check them in time; in addition, github network access is limited, and some students may not be able to submit issues through github smoothly. Initiated by email, it is easier to identify and be perceived.
-- **\[VOTE]\[RESULT]** announce the results of the release vote
+- **\[VOTE]\[RESULT]** Announce the results of the release vote
 
 
 
