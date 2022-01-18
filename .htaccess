@@ -1,5 +1,3 @@
 Options -Indexes
-DirectorySlash off
+DirectorySlash on
 RewriteEngine on
-RewriteOptions AllowNoSlash
-
