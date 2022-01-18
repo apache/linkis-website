@@ -1,11 +1,7 @@
 ---
-title: Release Notes RC2
+title: Release Notes RC1
 sidebar_position: 0.1
 ---
-:::info Notice
-The RC2 version is mainly modified and improved for the license problem reported during the voting process of the RC1 version release.
-:::
-
 Apache Linkis(incubating) 1.0.3 includes all of [Project Linkis-1.0.3](https://github.com/apache/incubator-linkis/projects/13).
 
 This version is the first version of Linkis entering Apache incubation. It mainly completes the ASF infrastructure construction including license improvement/package name modification, etc., adds EngineConn support for Operator and other features, and fixes community feedback about 1.0.2 version bugs.
@@ -94,10 +90,6 @@ Abbreviations:
 
 ## Others
 * \[Commons&MGS-LinkisServiceGateway][[Linkis-1192]](https://github.com/apache/incubator-linkis/pull/1092) third-party dependencies of mysql-connector-java which violates apache licensing policy, because of the apache licensing policy, project cannot dependency on mysql-connector-java, if only for your own project used, you can rely on mysql-connector-java in your own project.
-* \[Commons&MGS-LinkisEureka][[Linkis-1291]](https://github.com/apache/incubator-linkis/pull/1291) remove the jar package io.github.x-stream with unclear license attribution category:mxparser
-* \[Commons][[Linkis-1287]](https://github.com/apache/incubator-linkis/pull/1287) split binary distribution package and source code LICENSE/NOTICE and some other files
-* \[Console][[Linkis-1301]](https://github.com/apache/incubator-linkis/pull/1301) remove font files with unknown license authorization and front-end resource files such as unused image icons
-* \[CGS-EngineConnPlugins-Python][[Linkis-1281]](https://github.com/apache/incubator-linkis/pull/1281) remove pyspark.zip from source code and add py4j LICENSE.txt
 
 ---------
 

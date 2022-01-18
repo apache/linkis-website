@@ -1,11 +1,7 @@
 ---
-title: 版本说明 RC2
+title: 版本说明 RC1
 sidebar_position: 0.1
 ---
-:::info 注意
-RC2 版本主要是针对RC1版本发布投票过程中，反馈的license等问题，进行了修改完善。
-:::
-
 Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://github.com/apache/incubator-linkis/projects/13)。
 
 该版本是Linkis进入Apache孵化的第一个版本。主要完成ASF基础设施建设，包括License完善/包名修改等，增加EngineConn对Operator的支持等功能，修复社区反馈的1.0.2版本中的bug。
@@ -30,6 +26,7 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[CGS-LinkisManager][[Linkis-1043]](https://github.com/apache/incubator-linkis/pull/1043) 支持引擎operator
 * \[CGS-LinkisOnceEngineconn][[Linkis-946]](https://github.com/apache/incubator-linkis/pull/946) 支持服务发现进行服务调用时使用IP地址
 * \[CGS-LinkisOnceEngineconn][[Linkis-1078]](https://github.com/apache/incubator-linkis/pull/1078) 支持EngineConn/OnceEngineConn 通用operator
+
 
 
 ---
@@ -89,10 +86,6 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 
 ## 其他
 * \[Commons&MGS-LinkisServiceGateway][[Linkis-1192]](https://github.com/apache/incubator-linkis/pull/1092) 第三方依赖mysql-connector-java违反了Apache 许可政策。所以从1.0.3开始移除了对 mysql-connector-java 的依赖，如果只为自己的项目使用，可以自行在项目中增加 mysql-connector-java 依赖。
-* \[Commons&MGS-LinkisEureka][[Linkis-1291]](https://github.com/apache/incubator-linkis/pull/1291) 移除license归属类别不明确的jar包 io.github.x-stream:mxparser 
-* \[Commons][[Linkis-1287]](https://github.com/apache/incubator-linkis/pull/1287) 拆分二进制发布包和源码的LICENSE/NOTICE等文件
-* \[Console][[Linkis-1301]](https://github.com/apache/incubator-linkis/pull/1301) 移除license授权未知的字体文件以及未使用到的图片图标等前端资源文件
-* \[CGS-EngineConnPlugins-Python][[Linkis-1281]](https://github.com/apache/incubator-linkis/pull/1281) 移除源码中的pyspark.zip，添加py4j的LICENSE.txt文件
 
 ---------
 
