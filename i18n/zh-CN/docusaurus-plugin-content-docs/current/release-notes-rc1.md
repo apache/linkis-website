@@ -1,5 +1,5 @@
 ---
-title: 版本说明
+title: 版本说明 RC1
 sidebar_position: 0.1
 ---
 Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://github.com/apache/incubator-linkis/projects/13)。
@@ -86,8 +86,6 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 
 ## 其他
 * \[Commons&MGS-LinkisServiceGateway][[Linkis-1192]](https://github.com/apache/incubator-linkis/pull/1092) 第三方依赖mysql-connector-java违反了Apache 许可政策。所以从1.0.3开始移除了对 mysql-connector-java 的依赖，如果只为自己的项目使用，可以自行在项目中增加 mysql-connector-java 依赖。
-* \[Commons&MGS-LinkisEureka][[Linkis-1291]](https://github.com/apache/incubator-linkis/pull/1291)移除license归属类别不明确的jar包 io.github.x-stream:mxparser 
-* \[Console][[Linkis-1301]](https://github.com/apache/incubator-linkis/pull/1301)移除license授权未知的字体文件以及未使用到的图片图标等前端资源文件
 
 ---------
 

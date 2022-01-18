@@ -174,7 +174,7 @@ public class LinkisClientTest {
 
 Run the above code to interact with Linkis
 
-## 3. Scala test code:
+## 3. Scala test code
 Create the Scala test class LinkisClientTest. Refer to the comments to understand the purposes of those interfaces:
 
 ```scala
