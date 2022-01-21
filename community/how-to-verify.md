@@ -15,9 +15,9 @@ If the network is poor, downloading may be time-consuming. The download is compl
 :::
 ```shell
 #If there is svn locally, you can clone to the local
-svn co https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
 #or download the material file directly
-wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/xxx.xxx
+$ wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/xxx.xxx
 
 ```
 ## 2. Verify that the uploaded version is compliant
@@ -36,54 +36,54 @@ First import the publisher's public key. Import KEYS from the svn repository to 
 
 #### 2.2.1 Import public key
 ```shell
-curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS> KEYS # Download KEYS
-gpg --import KEYS # Import KEYS to local
+$ curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS> KEYS # Download KEYS
+$ gpg --import KEYS # Import KEYS to local
 ```
 #### 2.2.2 Trust the public key
 > Trust the KEY used in this version
 
 ```shell
-    gpg --edit-key xxxxxxxxxx #KEY user used in this version
-    gpg (GnuPG) 2.2.21; Copyright (C) 2020 Free Software Foundation, Inc.
-    This is free software: you are free to change and redistribute it.
-    There is NO WARRANTY, to the extent permitted by law.
-    
-    Secret key is available.
-    gpg> trust #trust
-    Please decide how far you trust this user to correctly verify other users' keys
-    (by looking at passports, checking fingerprints from different sources, etc.)
-    
-      1 = I don't know or won't say
-      2 = I do NOT trust
-      3 = I trust marginally
-      4 = I trust fully
-      5 = I trust ultimately
-      m = back to the main menu
-    
-    Your decision? 5 #choose 5
-    Do you really want to set this key to ultimate trust? (y/N) y  #choose y
-                                                                
-    gpg>
+$ gpg --edit-key xxxxxxxxxx #KEY user used in this version
+gpg (GnuPG) 2.2.21; Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+gpg> trust #trust
+Please decide how far you trust this user to correctly verify other users' keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+  1 = I don't know or won't say
+  2 = I do NOT trust
+  3 = I trust marginally
+  4 = I trust fully
+  5 = I trust ultimately
+  m = back to the main menu
+
+Your decision? 5 #choose 5
+Do you really want to set this key to ultimate trust? (y/N) y  #choose y
+                                                            
+gpg>
          
 ```
 #### 2.2.3 Use the following command to check the signature
 
 ```shell
-  for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
-  #or
-  gpg --verify apache-linkis-${release_version}-src.tar.gz.asc apache-linkis-${release_version}-src.tar.gz
-  # If you upload a binary package, you also need to check whether the signature of the binary package is correct
-  gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
+$ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
+#or
+$ gpg --verify apache-linkis-${release_version}-src.tar.gz.asc apache-linkis-${release_version}-src.tar.gz
+# If you upload a binary package, you also need to check whether the signature of the binary package is correct
+$ gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
 ```
 check result
 
 > If something like the following appears, it means the signature is correct. Keyword: **`Good signature`**
 
 ```shell
-    apache-linkis-xxx-incubating-src.tar.gz
-    gpg: Signature made XXXX
-    gpg: using RSA key XXXXX
-    gpg: Good signature from "xxx @apache.org>"
+apache-linkis-xxx-incubating-src.tar.gz
+gpg: Signature made XXXX
+gpg: using RSA key XXXXX
+gpg: Good signature from "xxx @apache.org>"
 ```
 
 ### 2.3 Check sha512 hash
@@ -92,7 +92,7 @@ check result
 > macOS/Linux
 
 ```shell
-for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
+$ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 ```
 
@@ -100,7 +100,7 @@ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 > Windows
 
 ```shell
-certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
+$ certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
 #Compare the output content with the content of the apache-linkis-${release_version}-incubating-xxx.tar.gz.sha512 file
 ```
 
@@ -109,20 +109,21 @@ certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
 
 Unzip `apache-linkis-${release_version}-incubating-src.tar.gz` 
 ```text
-tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
+$ tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
 
-cd apache-linkis-${release_version}-incubating-src
+$ cd apache-linkis-${release_version}-incubating-src
 ```
 #### 2.4.1 ASF License RAT Check
 
-````
+```shell
 #normally can be executed within 5 minutes
-mvn -N install 
-mvn apache-rat:check
+$ mvn -N install 
+$ mvn apache-rat:check
 
 #Check all rat files after no exception
-find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
-````
+$ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
+```
+
 The whitelist file of rat check is configured in the apache-rat-plugin plugin configuration in the outer pom.xml.
 Check all the license information in merged-rat.txt, and notice if the Binaries and Archives files are 0.
 ````text
@@ -137,10 +138,10 @@ If it is not 0, you need to confirm whether the source code has the license for 
 
 
 #### 2.4.2 Source code compilation verification
-```shell script
-mvn -N install
+```shell
+$ mvn -N install
 #If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
-mvn clean install -Dmaven.javadoc.skip=true
+$ mvn clean install -Dmaven.javadoc.skip=true
 ````
 #### 2.4.3 Check related compliance items
 
@@ -162,10 +163,10 @@ and check as follows:
 
 Unzip `apache-linkis-${release_version}-incubating-bin.tar.gz` 
 
-```shell script
-mkdir apache-linkis-${release_version}-incubating-bin
-tar -xvf  apache-linkis-${release_version}-incubating-bin.tar.gz -C  apache-linkis-${release_version}-incubating-bin
-cd apache-linkis-${release_version}-incubating-bin
+```shell
+$ mkdir apache-linkis-${release_version}-incubating-bin
+$ tar -xvf  apache-linkis-${release_version}-incubating-bin.tar.gz -C  apache-linkis-${release_version}-incubating-bin
+$ cd apache-linkis-${release_version}-incubating-bin
 ```
 and check as follows:
 - [ ] Folder contains the word `incubating`

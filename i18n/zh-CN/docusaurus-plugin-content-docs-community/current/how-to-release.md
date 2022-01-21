@@ -44,7 +44,7 @@ gpg --version
 
 根据提示，生成 key
 ```shell
-C:\Users\xxx>gpg --full-gen-key
+$ gpg --full-gen-key
 gpg (GnuPG) 2.2.28; Copyright (C) 2021 g10 Code GmbH
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -105,23 +105,22 @@ sub   rsa4096 2021-11-10 [E]
 ### 1.3 上传生成的key到公共服务器
 
 ```shell
-gpg  --keyid-format SHORT --list-keys 
+$ gpg  --keyid-format SHORT --list-keys 
 pub   rsa4096/584EE68E 2021-11-10 [SC] #584EE68E就是key id
       E7A9B12D1AC2D8CF857AF5851AE82584584EE68E
 uid         [ultimate] mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>
 sub   rsa4096/399AA54F 2021-11-10 [E]
 
 # 通过key id发送public key到keyserver 
-gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
+$ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
 # 其中，keyserver.ubuntu.com为挑选的keyserver，建议使用这个, 因为Apache Nexus校验时是使用的这个keyserver
 ```
 ### 1.4 查看key是否创建成功
 验证是否同步到公网，大概需要一分钟才能查到,未成功可以进行上传重试几次 
 ```shell
 方式一
-gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E是对应的key id
+$ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E是对应的key id
 
-D:\>gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E
 #结果如下
 gpg: key 1AE82584584EE68E: "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>" not changed
 gpg: Total number processed: 1
@@ -143,19 +142,19 @@ gpg:              unchanged: 1
 用于发布RC版本
 
 ```shell
-mkdir -p linkis_svn/dev
-cd linkis_svn/dev
+$ mkdir -p linkis_svn/dev
+$ cd linkis_svn/dev
 
-svn co https://dist.apache.org/repos/dist/dev/incubator/linkis 
+$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis 
 # 这个步骤比较慢，会把所有版本都拷贝下来，如果网断了，用svn cleanup删掉锁，重新执行一下，会断点续传
-cd linkis_svn/dev/linkis
+$ cd linkis_svn/dev/linkis
 
 # 追加你生成的KEY到文件KEYS中, 追加后最好检查一下是否正确
-(gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS 
+$ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS 
 # 如果之前存在KEYS文件，则不需要
-svn add KEYS	
+$ svn add KEYS	
 #提交到SVN
-svn ci -m "add gpg key for YOUR_NAME" 
+$ svn ci -m "add gpg key for YOUR_NAME" 
 ```
 
 #### 1.5.2 在release分支中添加公钥到KEYS
@@ -163,20 +162,19 @@ svn ci -m "add gpg key for YOUR_NAME"
 用于发布正式版本
 
 ```shell
+$ mkdir -p linkis_svn/release
+$ cd linkis_svn/release
 
-mkdir -p linkis_svn/release
-cd linkis_svn/release
-
-svn co https://dist.apache.org/repos/dist/release/incubator/linkis
+$ svn co https://dist.apache.org/repos/dist/release/incubator/linkis
 # 这个步骤比较慢，会把所有版本都拷贝下来，如果网断了，用svn cleanup删掉锁，重新执行一下，会断点续传
 
-cd  linkis
+$ cd  linkis
 # 追加你生成的KEY到文件KEYS中, 追加后最好检查一下是否正确
-(gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS 
+$ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS 
 # 如果之前存在KEYS文件，则不需要
-svn add KEYS	
+$ svn add KEYS	
 #提交到SVN
-svn ci -m "add gpg key for YOUR_NAME" 
+$ svn ci -m "add gpg key for YOUR_NAME" 
 ```
 
 
@@ -243,22 +241,22 @@ svn ci -m "add gpg key for YOUR_NAME"
 
 如果版本号不正确，需要统一修改版本号为
 
-```
-mvn versions:set -DnewVersion=1.0.3 
+```shell
+$ mvn versions:set -DnewVersion=1.0.3 
 #修改最外层pom.xml中的配置  
 <linkis.version>1.0.3</linkis.version>
 ```
 检查代码是否正常，包括版本号，编译成功、单元测试全部成功，RAT检查成功等等
 ```
 #build检查
-mvn clean install -Dmaven.javadoc.skip=true
+$ mvn clean install -Dmaven.javadoc.skip=true
 #RAT LICENSE检查 
 
 #正常5分钟内可以执行完，如果长时间未执行结束，请检查是否由于编译等动作，增加了额外不必要检查的文件
-mvn apache-rat:check
+$ mvn apache-rat:check
 
 #无异常后 检查所有的rat文件 
-find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
+$ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
 若check异常，请检查是否由于编译等动作，增加了额外不必要检查的文件，可以移除掉。
 rat check的白名单文件配置在外层pom.xml中的apache-rat-plugin插件配置中。
@@ -278,7 +276,7 @@ Archives: 0
 ### 2.3 发布jar包到Apache Nexus仓库
 ```shell
 # 开始编译并上传 耗时大概在1h40min左右
-mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  
+$ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  
 ```
 :::caution 注意
 出现下列情况，请先登陆https://repository.apache.org/#stagingRepositories
@@ -295,18 +293,18 @@ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 ### 2.4 打包源码
 
 ```shell
-mkdir -p dist/apache-linkis
+$ mkdir -p dist/apache-linkis
 #基于release-1.0.3-rc1分支打包源码的tar.gz物料 
 #--prefix=apache-linkis-1.0.3-incubating-src/  注意带上`/`  压缩包解压后会是在apache-linkis-1.0.3-incubating-src文件夹中
 #会生成一个pax_global_header文件 记录的是commitid信息，不加--prefix会导致解压后pax_global_header 和源码文件同级目录
 
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz"  --prefix=apache-linkis-1.0.3-incubating-src/  release-1.0.3-rc1
+$ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz"  --prefix=apache-linkis-1.0.3-incubating-src/  release-1.0.3-rc1
 ```
 ### 2.5 拷贝二进制文件
 
 步骤2.3执行后，二进制文件已经生成，位于assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz
 ```shell
-cp  assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz   dist/apache-linkis
+$ cp  assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz   dist/apache-linkis
 ```
 
 ### 2.6 打包前端管理台(如果需要发布前端)
@@ -322,9 +320,9 @@ cp  assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz  
 在终端命令行中执行以下指令：
 ```
 #进入项目WEB根目录
-cd incubator-linkis/web
+$ cd incubator-linkis/web
 #安装项目所需依赖
-npm install
+$ npm install
 ```
 **该步骤仅第一次使用时需要执行。**
 
@@ -332,29 +330,29 @@ npm install
 在终端命令行执行以下指令对项目进行打包，生成压缩后的部署安装包。
 检查web/package.json，web/.env文件，检查前端管理台版本号是否正确。
 ```
-npm run build
+$ npm run build
 ```
 上述命令执行成功后，会生成前端管理台安装包 `apache-linkis-${version}-incubating-web-bin.tar.gz`
 
 注意：
 
-```
+```shell
 1.Windows下npm install 步骤报错：
 Error: Can't find Python executable "python", you can set the PYTHON env variable
 安装windows-build-tools （管理员权限）
-npm install --global --production windows-build-tools
+$ npm install --global --production windows-build-tools
 安装node-gyp
-npm install --global node-gyp
+$ npm install --global node-gyp
 
 2.如果编译失败 请按如下步骤清理后重新执行
 #进入项目工作目录，删除 node_modules
-rm -rf node_modules
+$ rm -rf node_modules
 #删除 package-lock.json
-rm -rf package-lock.json
+$ rm -rf package-lock.json
 #清除 npm 缓存
-npm cache clear --force
+$ npm cache clear --force
 #重新下载依赖
-npm install
+$ npm install
 
 ```
 
@@ -362,22 +360,22 @@ npm install
 
 步骤2.6.3执行后，前端管理台安装包已经生成，位于 web/apache-linkis-1.0.3-incubating-web-bin.tar.gz
 ```shell
-cp  web/apache-linkis-1.0.3-incubating-web-bin.tar.gz   dist/apache-linkis
+$ cp  web/apache-linkis-1.0.3-incubating-web-bin.tar.gz   dist/apache-linkis
 ```
 
 ### 2.7 对源码包/二进制包进行签名/sha512
 ```shell
-cd  dist/apache-linkis
-for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # 计算签名
+$ cd  dist/apache-linkis
+$ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # 计算签名
 
-for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # 计算SHA512
+$ for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # 计算SHA512
 ```
 
 ### 2.8 检查生成的签名/sha512是否正确
 验证签名是否正确如下：
 ```shell
-cd dist/apache-linkis
-for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
+$ cd dist/apache-linkis
+$ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
 ```
 出现类似以下内容则说明签名正确，关键字：**`Good signature`**
 ```shell
@@ -389,8 +387,8 @@ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
 
 验证sha512是否正确如下：
 ```shell
-cd dist/apache-linkis
-for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
+$ cd dist/apache-linkis
+$ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 ```
 
@@ -409,7 +407,7 @@ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 从Apache SVN dev目录检出Linkis发布目录。
 
 ```shell
-svn co https://dist.apache.org/repos/dist/dev/incubator/linkis  dist/linkis_svn_dev
+$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis  dist/linkis_svn_dev
 
 ```
 
@@ -420,27 +418,27 @@ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis  dist/linkis_svn_
 若存在问题（linkis/incubator社区投票时，投票者会严格检查各种发布要求项以及合规问题），需要修正，则修正后，再重新发起投票，下次投票的候选版本为1.0.3-RC2。
 
 ```shell
-mkdir -p dist/linkis_svn_dev/1.0.3-RC1
+$ mkdir -p dist/linkis_svn_dev/1.0.3-RC1
 ```
 
 将源码包、二进制包和Linkis可执行二进制包添加至SVN工作目录。
 
 ```shell
-cp -f  dist/apache-linkis/*   dist/linkis_svn_dev/1.0.3-RC1
+$ cp -f  dist/apache-linkis/*   dist/linkis_svn_dev/1.0.3-RC1
 
 ```
 ### 3.3 提交Apache SVN
 
 ```shell
-cd  dist/linkis_svn_dev/
+$ cd  dist/linkis_svn_dev/
 
 # 检查svn状态
-svn status
+$ svn status
 # 添加到svn版本
-svn add 1.0.3-RC1
-svn status
+$ svn add 1.0.3-RC1
+$  status
 #提交至svn远程服务器 
-svn commit -m "prepare for 1.0.3-RC1"
+$ svn commit -m "prepare for 1.0.3-RC1"
 
 ```
 若svn命令出现中文乱码，可尝试设置编码格式(设置编码格式:export LANG=en_US.UTF-8)。
@@ -651,12 +649,12 @@ On behalf of Apache Linkis(Incubating) community
 合并`${release_version}-RC`分支的改动到`master`分支，合并完成后删除`${release_version}-RC`分支
 
 ```shell
-git checkout master
-git merge origin/${release_version}-RC
-git pull
-git push origin master
-git push --delete origin ${release_version}-RC
-git branch -d ${release_version}-RC
+$ git checkout master
+$ git merge origin/${release_version}-RC
+$ git pull
+$ git push origin master
+$ git push --delete origin ${release_version}-RC
+$ git branch -d ${release_version}-RC
 ```
 
 ### 6.2 迁移源码与二进制包
@@ -665,12 +663,14 @@ git branch -d ${release_version}-RC
 
 ```shell
 #移动源码包与二进制包
-svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
+$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
+
 # 下面操作 按实际情况 决定是否更新release 分支的key
 # 清除原有release目录下的KEYS
-svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
+$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
+
 # 拷贝dev目录KEYS到release目录
-svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
+$ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
 ```
 
 ### 6.3 确认dev和release下的包是否正确
@@ -679,7 +679,7 @@ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist
 - 删除[release](https://dist.apache.org/repos/dist/release/incubator/linkis/)目录下 上一个版本的发布包，这些包会被自动保存在[这里](https://archive.apache.org/dist/incubator/linkis/)
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
+$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
 ### 6.4 在Apache Staging仓库发布版本
