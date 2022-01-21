@@ -29,7 +29,7 @@ Note: The commands of GnuPG 1.x version and 2.x version are slightly different. 
 After installation, the gpg command is added to the system environment variables and is available
 ```sh
 #Check the version, it should be 2.x
-$ gpg --version 
+gpg --version 
 ```
 
 ### 1.2. Generate key with gpg
@@ -101,21 +101,21 @@ sub rsa4096 2021-11-10 [E]
 ### 1.3. Upload the generated key to the public server
 
 ```shell
-$ gpg --keyid-format SHORT --list-keys
+gpg --keyid-format SHORT --list-keys
 pub rsa4096/584EE68E 2021-11-10 [SC] #584EE68E is the key id
       E7A9B12D1AC2D8CF857AF5851AE82584584EE68E
 uid [ultimate] mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>
 sub rsa4096/399AA54F 2021-11-10 [E]
 
 # Send public key to keyserver via key id
-$ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
+gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
 # Among them, keyserver.ubuntu.com is the selected keyserver, it is recommended to use this, because the Apache Nexus verification uses this keyserver
 ```
 ### 1.4. Check whether the key is created successfully
 Verify whether it is synchronized to the public network. It takes about a minute to find out. If it is not successful, you can upload and retry several times
 ```shell
 method one
-$ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E is the corresponding key id
+gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E is the corresponding key id
 
 D:\>gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E
 #Results are as follows
@@ -248,10 +248,10 @@ Modify the configuration in pom.xml
 Check whether the code is normal, including the version number, the compilation is successful, the unit test is all successful, the RAT check is successful, etc.
 ```
 #build check
-$ mvn clean install -Dmaven.javadoc.skip=true
+mvn clean install -Dmaven.javadoc.skip=true
 #RAT LICENSE check
 #It can be executed within 5 minutes normally. If the execution has not ended for a long time, please check whether additional files that need not be checked have been added due to actions such as compiling.
-$ mvn apache-rat:check
+mvn apache-rat:check
 
 #Check all rat files after no exception
 find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
@@ -439,7 +439,7 @@ svn status
 svn commit -m "prepare for 1.0.3-RC1"
 
 ```
-If Chinese garbled characters appear in the svn command, you can try to set the encoding format.
+If Chinese garbled characters appear in the svn command, you can try to set the encoding format (set the encoding format: export LANG=en_US.UTF-8).
 
 ## 4 Verify Release Candidates
 
@@ -636,12 +636,12 @@ On behalf of Apache Linkis(Incubating) community
 Merge the changes from the `${release_version}-RC` branch to the `master` branch, and delete the `${release_version}-RC` branch after the merge is completed
 
 ```shell
-$ git checkout master
-$ git merge origin/${release_version}-RC
-$ git pull
-$ git push origin master
-$ git push --delete origin ${release_version}-RC
-$ git branch -d ${release_version}-RC
+git checkout master
+git merge origin/${release_version}-RC
+git pull
+git push origin master
+git push --delete origin ${release_version}-RC
+git branch -d ${release_version}-RC
 ```
 
 ### 6.2 Migrating source and binary packages
@@ -650,12 +650,12 @@ Move the source and binary packages from the `dev` directory of svn to the `rele
 
 ```shell
 #Mobile source package and binary package
-$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/ linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
+svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/ linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
 # The following operations decide whether to update the key of the release branch according to the actual situation
 # Remove KEYS in the original release directory
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
+svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
 #copy dev directory KEYS to release directory
-$ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}" 
+svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}" 
 ```
 
 ### 6.3 Confirm whether the packages under dev and release are correct
@@ -664,7 +664,7 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://di
 - Delete the release package of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved in [here](https:/ /archive.apache.org/dist/incubator/linkis/)
 
 ```shell
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
+svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
 ### 6.4 Release version in Apache Staging repository

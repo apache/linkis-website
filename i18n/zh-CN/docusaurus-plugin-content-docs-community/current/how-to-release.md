@@ -33,7 +33,7 @@ Apache的maven和SVN仓库都会使用到GPG签名来验证物料文件的合法
 安装后gpg命令添加至系统环境变量且可用
 ```sh
 #检查版本，应该为2.x
-$ gpg --version 
+gpg --version 
 ```
 
 ### 1.2 用gpg生成key
@@ -105,21 +105,21 @@ sub   rsa4096 2021-11-10 [E]
 ### 1.3 上传生成的key到公共服务器
 
 ```shell
-$ gpg  --keyid-format SHORT --list-keys 
+gpg  --keyid-format SHORT --list-keys 
 pub   rsa4096/584EE68E 2021-11-10 [SC] #584EE68E就是key id
       E7A9B12D1AC2D8CF857AF5851AE82584584EE68E
 uid         [ultimate] mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>
 sub   rsa4096/399AA54F 2021-11-10 [E]
 
 # 通过key id发送public key到keyserver 
-$ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
+gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
 # 其中，keyserver.ubuntu.com为挑选的keyserver，建议使用这个, 因为Apache Nexus校验时是使用的这个keyserver
 ```
 ### 1.4 查看key是否创建成功
 验证是否同步到公网，大概需要一分钟才能查到,未成功可以进行上传重试几次 
 ```shell
 方式一
-$ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E是对应的key id
+gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E是对应的key id
 
 D:\>gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E
 #结果如下
@@ -251,11 +251,11 @@ mvn versions:set -DnewVersion=1.0.3
 检查代码是否正常，包括版本号，编译成功、单元测试全部成功，RAT检查成功等等
 ```
 #build检查
-$ mvn clean install -Dmaven.javadoc.skip=true
+mvn clean install -Dmaven.javadoc.skip=true
 #RAT LICENSE检查 
 
 #正常5分钟内可以执行完，如果长时间未执行结束，请检查是否由于编译等动作，增加了额外不必要检查的文件
-$ mvn apache-rat:check
+mvn apache-rat:check
 
 #无异常后 检查所有的rat文件 
 find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
@@ -443,7 +443,7 @@ svn status
 svn commit -m "prepare for 1.0.3-RC1"
 
 ```
-若svn命令出现中文乱码，可尝试设置编码格式。
+若svn命令出现中文乱码，可尝试设置编码格式(设置编码格式:export LANG=en_US.UTF-8)。
  
 ## 4 验证Release Candidates
 
@@ -651,12 +651,12 @@ On behalf of Apache Linkis(Incubating) community
 合并`${release_version}-RC`分支的改动到`master`分支，合并完成后删除`${release_version}-RC`分支
 
 ```shell
-$ git checkout master
-$ git merge origin/${release_version}-RC
-$ git pull
-$ git push origin master
-$ git push --delete origin ${release_version}-RC
-$ git branch -d ${release_version}-RC
+git checkout master
+git merge origin/${release_version}-RC
+git pull
+git push origin master
+git push --delete origin ${release_version}-RC
+git branch -d ${release_version}-RC
 ```
 
 ### 6.2 迁移源码与二进制包
@@ -665,12 +665,12 @@ $ git branch -d ${release_version}-RC
 
 ```shell
 #移动源码包与二进制包
-$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
+svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
 # 下面操作 按实际情况 决定是否更新release 分支的key
 # 清除原有release目录下的KEYS
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
+svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
 # 拷贝dev目录KEYS到release目录
-$ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
+svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
 ```
 
 ### 6.3 确认dev和release下的包是否正确
@@ -679,7 +679,7 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://di
 - 删除[release](https://dist.apache.org/repos/dist/release/incubator/linkis/)目录下 上一个版本的发布包，这些包会被自动保存在[这里](https://archive.apache.org/dist/incubator/linkis/)
 
 ```shell
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
+svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
 ### 6.4 在Apache Staging仓库发布版本
