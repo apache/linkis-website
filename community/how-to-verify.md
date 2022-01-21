@@ -100,7 +100,7 @@ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 > Windows
 
 ```shell
-$ certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
+certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
 #Compare the output content with the content of the apache-linkis-${release_version}-incubating-xxx.tar.gz.sha512 file
 ```
 
@@ -117,8 +117,8 @@ cd apache-linkis-${release_version}-incubating-src
 
 ````
 #normally can be executed within 5 minutes
-$ mvn -N install 
-$ mvn apache-rat:check
+mvn -N install 
+mvn apache-rat:check
 
 #Check all rat files after no exception
 find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
