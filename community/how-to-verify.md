@@ -34,13 +34,14 @@ wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-
 ### 2.2 Check gpg signature
 First import the publisher's public key. Import KEYS from the svn repository to the local environment. (The person who releases the version does not need to import it again, the person who helps to do the verification needs to import it, and the user name is enough for the person who issued the version)
 
-- Import public key
+#### 2.2.1 Import public key
 ```shell
 curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS> KEYS # Download KEYS
 gpg --import KEYS # Import KEYS to local
 ```
-- Trust the public key
+#### 2.2.2 Trust the public key
 > Trust the KEY used in this version
+
 ```shell
     gpg --edit-key xxxxxxxxxx #KEY user used in this version
     gpg (GnuPG) 2.2.21; Copyright (C) 2020 Free Software Foundation, Inc.
@@ -65,7 +66,8 @@ gpg --import KEYS # Import KEYS to local
     gpg>
          
 ```
-- Use the following command to check the signature
+#### 2.2.3 Use the following command to check the signature
+
 ```shell
   for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
   #or
@@ -73,9 +75,10 @@ gpg --import KEYS # Import KEYS to local
   # If you upload a binary package, you also need to check whether the signature of the binary package is correct
   gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
 ```
-- test result
+check result
 
 > If something like the following appears, it means the signature is correct. Keyword: **`Good signature`**
+
 ```shell
     apache-linkis-xxx-incubating-src.tar.gz
     gpg: Signature made XXXX
@@ -114,6 +117,7 @@ cd apache-linkis-${release_version}-incubating-src
 
 ````
 #normally can be executed within 5 minutes
+$ mvn -N install 
 $ mvn apache-rat:check
 
 #Check all rat files after no exception
