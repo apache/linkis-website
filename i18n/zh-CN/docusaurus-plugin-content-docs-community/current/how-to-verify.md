@@ -34,54 +34,54 @@ wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-
 #### 2.2.1 导入公钥
 
 ```shell
-curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS > KEYS # 下载KEYS
-gpg --import KEYS # 导入KEYS到本地
+$ curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS > KEYS # 下载KEYS
+$ gpg --import KEYS # 导入KEYS到本地
 ```
 #### 2.2.2 信任公钥
 
 > 信任此次版本所使用的KEY
 
 ```shell
-    gpg --edit-key xxxxxxxxxx #此次版本所使用的KEY用户
-    gpg (GnuPG) 2.2.21; Copyright (C) 2020 Free Software Foundation, Inc.
-    This is free software: you are free to change and redistribute it.
-    There is NO WARRANTY, to the extent permitted by law.
-    
-    Secret key is available.
-    gpg> trust #信任
-    Please decide how far you trust this user to correctly verify other users' keys
-    (by looking at passports, checking fingerprints from different sources, etc.)
-    
-      1 = I don't know or won't say
-      2 = I do NOT trust
-      3 = I trust marginally
-      4 = I trust fully
-      5 = I trust ultimately
-      m = back to the main menu
-    
-    Your decision? 5 #选择5
-    Do you really want to set this key to ultimate trust? (y/N) y #选择y
-                                                                
-    gpg> 
-         
+$ gpg --edit-key xxxxxxxxxx #此次版本所使用的KEY用户
+gpg (GnuPG) 2.2.21; Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+gpg> trust #信任
+Please decide how far you trust this user to correctly verify other users' keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+  1 = I don't know or won't say
+  2 = I do NOT trust
+  3 = I trust marginally
+  4 = I trust fully
+  5 = I trust ultimately
+  m = back to the main menu
+
+Your decision? 5 #选择5
+Do you really want to set this key to ultimate trust? (y/N) y #选择y
+                                                            
+gpg> 
+     
 ```
 #### 2.2.3 使用如下命令检查签名
 
 ```shell
-  for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
+$ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
   #或者
-  gpg --verify apache-linkis-${release_version}-src.tar.gz.asc apache-linkis-${release_version}-src.tar.gz
+$ gpg --verify apache-linkis-${release_version}-src.tar.gz.asc apache-linkis-${release_version}-src.tar.gz
   # 如果上传二进制包，则同样需要检查二进制包的签名是否正确
-  gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
+$ gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
 ```
 检查结果
 > 出现类似以下内容则说明签名正确，关键字：**`Good signature`**
 
 ```shell
-    apache-linkis-xxx-incubating-src.tar.gz
-    gpg: Signature made XXXX
-    gpg:                using RSA key XXXXX
-    gpg: Good signature from "xxx @apache.org>"
+apache-linkis-xxx-incubating-src.tar.gz
+gpg: Signature made XXXX
+gpg:                using RSA key XXXXX
+gpg: Good signature from "xxx @apache.org>"
 ```
 
 ### 2.3 检查sha512哈希
@@ -90,14 +90,14 @@ gpg --import KEYS # 导入KEYS到本地
 > Mac OS/Linux
 
 ```shell
-for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
+$ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 ```
 
 > Windows
 
 ```shell
-certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
+$ certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
 #并将输出内容与 apache-linkis-${release_version}-incubating-xxx.tar.gz.sha512文件内容作对比
 ```
 
@@ -106,20 +106,20 @@ certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
 解压缩`apache-linkis-${release_version}-incubating-src.tar.gz`
 
 ```text
-tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
+$ tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
 
-cd apache-linkis-${release_version}-incubating-src
+$ cd apache-linkis-${release_version}-incubating-src
 ```
 
 #### 2.4.1 ASF许可证RAT检查
 
-```
+```shell
 #正常5分钟内可以执行完
-mvn -N install 
-mvn apache-rat:check
+$ mvn -N install 
+$ mvn apache-rat:check
 
 #无异常后 检查所有的rat文件 
-find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
+$ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
 rat check的白名单文件配置在外层pom.xml中的apache-rat-plugin插件配置中。
 检查merged-rat.txt中所有license信息，注意Binaries 和Archives文件是否为0。
@@ -135,10 +135,10 @@ Archives: 0
 
 
 #### 2.4.2 源码编译验证
-```shell script
-mvn -N install  
+```shell
+$ mvn -N install  
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
-mvn  clean install -Dmaven.javadoc.skip=true
+$ mvn  clean install -Dmaven.javadoc.skip=true
 ```
 #### 2.4.3 相关合规项检查 
 
@@ -161,11 +161,11 @@ mvn  clean install -Dmaven.javadoc.skip=true
 
 解压缩`apache-linkis-${release_version}-incubating-bin.tar.gz`，
 
-```shell script
+```shell
 
-mkdir apache-linkis-${release_version}-incubating-bin
-tar -xvf  apache-linkis-${release_version}-incubating-bin.tar.gz -C  apache-linkis-${release_version}-incubating-bin
-cd apache-linkis-${release_version}-incubating-bin
+$ mkdir apache-linkis-${release_version}-incubating-bin
+$ tar -xvf  apache-linkis-${release_version}-incubating-bin.tar.gz -C  apache-linkis-${release_version}-incubating-bin
+$ cd apache-linkis-${release_version}-incubating-bin
 ```
 
 进行如下检查：

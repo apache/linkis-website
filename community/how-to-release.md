@@ -29,7 +29,7 @@ Note: The commands of GnuPG 1.x version and 2.x version are slightly different. 
 After installation, the gpg command is added to the system environment variables and is available
 ```sh
 #Check the version, it should be 2.x
-gpg --version 
+$ gpg --version 
 ```
 
 ### 1.2. Generate key with gpg
@@ -40,7 +40,7 @@ gpg --version
 
 According to the prompt, generate the key
 ```shell
-C:\Users\xxx>gpg --full-gen-key
+$ gpg --full-gen-key
 gpg (GnuPG) 2.2.28; Copyright (C) 2021 g10 Code GmbH
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -101,29 +101,28 @@ sub rsa4096 2021-11-10 [E]
 ### 1.3. Upload the generated key to the public server
 
 ```shell
-gpg --keyid-format SHORT --list-keys
+$ gpg --keyid-format SHORT --list-keys
 pub rsa4096/584EE68E 2021-11-10 [SC] #584EE68E is the key id
       E7A9B12D1AC2D8CF857AF5851AE82584584EE68E
 uid [ultimate] mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>
 sub rsa4096/399AA54F 2021-11-10 [E]
 
 # Send public key to keyserver via key id
-gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
+$ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
 # Among them, keyserver.ubuntu.com is the selected keyserver, it is recommended to use this, because the Apache Nexus verification uses this keyserver
 ```
 ### 1.4. Check whether the key is created successfully
 Verify whether it is synchronized to the public network. It takes about a minute to find out. If it is not successful, you can upload and retry several times
 ```shell
-method one
-gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E is the corresponding key id
+# method one
+$ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E is the corresponding key id
 
-D:\>gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E
 #Results are as follows
 gpg: key 1AE82584584EE68E: "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>" not changed
 gpg: Total number processed: 1
 gpg: unchanged: 1
 
-Way two
+# method two
 Go directly to https://keyserver.ubuntu.com/ and enter the username mingXiao to search the query results
 ```
 
@@ -141,19 +140,19 @@ Go directly to https://keyserver.ubuntu.com/ and enter the username mingXiao to 
 Used to release RC version
 
 ```shell
-mkdir -p linkis_svn/dev
-cd linkis_svn/dev
+$ mkdir -p linkis_svn/dev
+$ cd linkis_svn/dev
 
-svn co https://dist.apache.org/repos/dist/dev/incubator/linkis
+$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis
 # This step is relatively slow, and all versions will be copied. If the network is broken, use svn cleanup to delete the lock and re-execute it, and the upload will be resumed.
-cd linkis_svn/dev/linkis
+$ cd linkis_svn/dev/linkis
 
 # Append the KEY you generated to the file KEYS, it is best to check if it is correct after appending
-(gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS
+$ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS
 # If there is a KEYS file before, it is not needed
-svn add KEYS
+$ svn add KEYS
 #Submit to SVN
-svn ci -m "add gpg key for YOUR_NAME"
+$ svn ci -m "add gpg key for YOUR_NAME"
 ```
 
 #### 1.5.2 Add public key to KEYS in release branch
@@ -162,19 +161,19 @@ Used to release the official version
 
 ```shell
 
-mkdir -p linkis_svn/release
-cd linkis_svn/release
+$ mkdir -p linkis_svn/release
+$ cd linkis_svn/release
 
-svn co https://dist.apache.org/repos/dist/release/incubator/linkis
+$ svn co https://dist.apache.org/repos/dist/release/incubator/linkis
 # This step is relatively slow, and all versions will be copied. If the network is broken, use svn cleanup to delete the lock and re-execute it, and the upload will be resumed.
 
-cd linkis
+$ cd linkis
 # Append the KEY you generated to the file KEYS, it is best to check if it is correct after appending
-(gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS
+$ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS
 # If there is a KEYS file before, it is not needed
-svn add KEYS
+$ svn add KEYS
 #Submit to SVN
-svn ci -m "add gpg key for YOUR_NAME"
+$ svn ci -m "add gpg key for YOUR_NAME"
 ```
 
 
@@ -240,21 +239,22 @@ Create a release based on the previous release-1.0.3-rc1 tag, and check `This is
 
 If the version number is incorrect, you need to modify the version number to
 
-```
-mvn versions:set -DnewVersion=1.0.3
+```shell
+$ mvn versions:set -DnewVersion=1.0.3
+
 Modify the configuration in pom.xml 
 <linkis.version>1.0.3</linkis.version>
 ```
 Check whether the code is normal, including the version number, the compilation is successful, the unit test is all successful, the RAT check is successful, etc.
-```
+```shell
 #build check
-mvn clean install -Dmaven.javadoc.skip=true
+$ mvn clean install -Dmaven.javadoc.skip=true
 #RAT LICENSE check
 #It can be executed within 5 minutes normally. If the execution has not ended for a long time, please check whether additional files that need not be checked have been added due to actions such as compiling.
-mvn apache-rat:check
+$ mvn apache-rat:check
 
 #Check all rat files after no exception
-find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
+$ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ````
 
 If the check is abnormal, please check whether additional unnecessary files have been added due to compilation and other actions, which can be removed.
@@ -275,7 +275,7 @@ If it is not 0, you need to confirm whether there is a license for the binary or
 ### 2.3 Publish jar package to Apache Nexus repository
 ```shell
 # Start to compile and upload, it takes about 1h40min
-mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
+$ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 ```
 :::caution Note
 
@@ -290,19 +290,19 @@ Step 2.4-3.3 execute the command, merge it in the release.sh script, or execute 
 ### 2.4 Package source code
 
 ```shell
-mkdir -p dist/apache-linkis
+$ mkdir -p dist/apache-linkis
 
 #based on the release-1.0.3-rc1 branch to package the source code tar.gz material
 #--prefix=apache-linkis-1.0.3-incubating-src/ Note that the `/` archive will be in the apache-linkis-1.0.3-incubating-src folder after decompression
 #A pax_global_header file will be generated to record the commitid information. Without the --prefix, it will cause pax_global_header to be in the same level directory as the source file after decompression
 
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" --prefix=apache-linkis-1.0.3-incubating-src/  release-1.0.3-rc1
+$ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" --prefix=apache-linkis-1.0.3-incubating-src/  release-1.0.3-rc1
 ```
 ### 2.5 Copy binary files
 
 After step 2.3 is executed, the binary file has been generated, located in assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz
 ```shell
-cp assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-linkis
+$ cp assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-linkis
 ```
 
 ### 2.6 Package front-end management console
@@ -316,40 +316,40 @@ Download Node.js to the local and install it. Download link: [http://nodejs.cn/d
 
 #### 2.6.2 Install dependencies
 Execute the following commands in the terminal command line:
-```
+```shell
 #Enter the project WEB root directory
-cd incubator-linkis/web
+$ cd incubator-linkis/web
 #Required dependencies for installation project
-npm install
+$ npm install
 ```
 **This step only needs to be performed the first time you use it. **
 
-Notice:
-```
+**Notice:**
+```shell
 1. An error is reported in the npm install step under Windows:
 Error: Can't find Python executable "python", you can set the PYTHON env variable
 Install windows-build-tools (administrator rights)
-npm install --global --production windows-build-tools
-Install node-gyp
-npm install --global node-gyp
+$ npm install --global --production windows-build-tools
+$ Install node-gyp
+$ npm install --global node-gyp
 
 2. If the compilation fails, please follow the steps below to clean up and re-execute
 #Enter the project working directory, delete node_modules
-rm -rf node_modules
+$ rm -rf node_modules
 #Delete package-lock.json
-rm -rf package-lock.json
+$ rm -rf package-lock.json
 #Clear npm cache
-npm cache clear --force
+$ npm cache clear --force
 #Re-download dependencies
-npm install
+$ npm install
 
 ```
 
 #### 2.6.3 Package console project
 Execute the following instructions on the terminal command line to package the project and generate a compressed deployment installation package.
 Check web/package.json, web/.env files, and check whether the version number of the front-end management console is correct.
-```
-npm run build
+```shell
+$ npm run build
 ```
 After the above command is successfully executed, the front-end management console installation package `apache-linkis-${version}-incubating-web-bin.tar.gz` will be generated
 
@@ -357,23 +357,23 @@ After the above command is successfully executed, the front-end management conso
 
 After step 2.6.3 is executed, the front-end management console installation package has been generated, located at web/apache-linkis-1.0.3-incubating-web-bin.tar.gz
 ```shell
-cp web/apache-linkis-1.0.3-incubating-web-bin.tar.gz dist/apache-linkis
+$ cp web/apache-linkis-1.0.3-incubating-web-bin.tar.gz dist/apache-linkis
 ```
 
 ### 2.7 Sign the source package/binary package/sha512
 ```shell
-cd dist/apache-linkis
+$ cd dist/apache-linkis
 
-for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i; done # Calculate signature
+$ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i; done # Calculate signature
 
-for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # Calculate SHA512
+$ for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # Calculate SHA512
 ```
 
 ### 2.8 Check whether the generated signature/sha512 is correct
 Verify that the signature is correct as follows:
 ```shell
-cd dist/apache-linkis
-for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
+$ cd dist/apache-linkis
+$ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
 ```
 
 If something like the following appears, the signature is correct. Keyword: **`Good signature`**
@@ -386,8 +386,8 @@ If something like the following appears, the signature is correct. Keyword: **`G
 
 Verify that sha512 is correct as follows:
 ```shell
-cd dist/apache-linkis
-for i in *.tar.gz; do echo $i; sha512sum --check $i.sha512; done
+$ cd dist/apache-linkis
+$ for i in *.tar.gz; do echo $i; sha512sum --check $i.sha512; done
 
 ```
 
@@ -405,7 +405,7 @@ The detailed verification process can be found in [Verification Candidate Versio
 Check out the Linkis distribution directory from the Apache SVN dev directory.
 
 ```shell
-svn co https://dist.apache.org/repos/dist/dev/incubator/linkis dist/linkis_svn_dev
+$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis dist/linkis_svn_dev
 
 ```
 
@@ -416,27 +416,27 @@ For example: 1.0.3-RC1 version is voted, if the vote is passed without any probl
 If there is a problem (when voting in the linkis/incubator community, voters will strictly check various release requirements and compliance issues) and need to be corrected. After the correction, the vote will be re-initiated. The candidate version for the next vote is 1.0.3- RC2.
 
 ```shell
-mkdir -p dist/linkis_svn_dev/1.0.3-RC1
+$ mkdir -p dist/linkis_svn_dev/1.0.3-RC1
 ```
 
 Add the source code package, binary package, and Linkis executable binary package to the SVN working directory.
 
 ```shell
-cp -f dist/apache-linkis/* dist/linkis_svn_dev/1.0.3-RC1
+$ cp -f dist/apache-linkis/* dist/linkis_svn_dev/1.0.3-RC1
 
 ```
 ### 3.3 Submit Apache SVN
 
 ```shell
-cd dist/linkis_svn_dev/
+$ cd dist/linkis_svn_dev/
 
 # Check svn status
-svn status
+$ svn status
 # Add to svn version
-svn add 1.0.3-RC1
-svn status
+$ svn add 1.0.3-RC1
+$ svn status
 # Submit to svn remote server
-svn commit -m "prepare for 1.0.3-RC1"
+$ svn commit -m "prepare for 1.0.3-RC1"
 
 ```
 If Chinese garbled characters appear in the svn command, you can try to set the encoding format (set the encoding format: export LANG=en_US.UTF-8).
@@ -636,12 +636,12 @@ On behalf of Apache Linkis(Incubating) community
 Merge the changes from the `${release_version}-RC` branch to the `master` branch, and delete the `${release_version}-RC` branch after the merge is completed
 
 ```shell
-git checkout master
-git merge origin/${release_version}-RC
-git pull
-git push origin master
-git push --delete origin ${release_version}-RC
-git branch -d ${release_version}-RC
+$ git checkout master
+$ git merge origin/${release_version}-RC
+$ git pull
+$ git push origin master
+$ git push --delete origin ${release_version}-RC
+$ git branch -d ${release_version}-RC
 ```
 
 ### 6.2 Migrating source and binary packages
@@ -650,12 +650,12 @@ Move the source and binary packages from the `dev` directory of svn to the `rele
 
 ```shell
 #Mobile source package and binary package
-svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/ linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
+$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/ linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
 # The following operations decide whether to update the key of the release branch according to the actual situation
 # Remove KEYS in the original release directory
-svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
+$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
 #copy dev directory KEYS to release directory
-svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}" 
+$ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}" 
 ```
 
 ### 6.3 Confirm whether the packages under dev and release are correct
@@ -664,7 +664,7 @@ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist
 - Delete the release package of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved in [here](https:/ /archive.apache.org/dist/incubator/linkis/)
 
 ```shell
-svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
+$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
 ### 6.4 Release version in Apache Staging repository
