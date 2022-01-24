@@ -19,50 +19,73 @@ export default function() {
             <div className="div-one"><br/>
                 <h1>{dataSource.title}</h1>
                 <br/>
-                <h3>{dataSource.newVersion}</h3>
-                <p>{dataSource.newVersionExplain}</p>
+                <h3>{dataSource.latestVersion}</h3>
+                <p>{dataSource.latestVersionExplain}</p>
                 <table>
-                    <tr>
-                        <td>1.0.2</td>
-                        <td>
-                            <a href={dataSource.table.latestUrl}>{dataSource.table.doc}</a>
-                        </td>
-                        <td>
-                            <a href={dataSource.table.releaseUrlOne}>{dataSource.table.release}</a>
-                        </td>
-                        <td>
-                            <a target="_blank" href="https://github.com/apache/incubator-linkis/tree/1.0.2">{dataSource.table.source}</a>
-                        </td>
-                    </tr>
+                  <tbody>
+                     {
+                      dataSource.table.latestData.map((item, i) => (
+                       <tr  key={i} index={i}>
+                       <td>{item.versionLabel}</td>
+                       <td>
+                           <a href={item.docUrl}>{dataSource.table.doc}</a>
+                       </td>
+                       <td>
+                           <a href={item.downloadUrl}>{dataSource.table.release}</a>
+                       </td>
+                       <td>
+                           <a target="_blank" href={"https://github.com/apache/incubator-linkis/tree/"+item.sourceTag}>{dataSource.table.source}</a>
+                       </td>
+                       </tr>
+                      ))
+                     }
+                  </tbody>
                 </table>
                 <br/>
+
                 <h3>{dataSource.nextVersion}</h3>
                 <p>{dataSource.nextVersionExplain}</p>
                 <table>
-                    <tr>
-                        <td>Next(1.0.3 WIP)</td>
-                        <td>
-                            <a href={dataSource.table.nextLink}>{dataSource.table.doc}</a>
-                        </td>
-                    </tr>
+                  <tbody>
+                     {
+                      dataSource.table.nextData.map((item, i) => (
+                       <tr  key={i} index={i}>
+                       <td>{item.versionLabel}</td>
+                       <td>
+                           <a href={item.docUrl}>{dataSource.table.doc}</a>
+                       </td>
+                       </tr>
+                      ))
+                      }
+                  </tbody>
                 </table>
                 <br/>
-                <h3>{dataSource.passVersion}</h3>
-                <p>{dataSource.passVersionExplain}</p>
+
+                <h3>{dataSource.historyVersion}</h3>
+                <p>{dataSource.historyVersionExplain}</p>
                 <table>
-                    <tr>
-                        <td>1.0.2</td>
+                   <tbody>
+                     {
+                      dataSource.table.historyData.map((item, i) => (
+                       <tr  key={i} index={i}>
+                       <td>{item.versionLabel}</td>
+                       <td>
+                           <a href={item.docUrl}>{dataSource.table.doc}</a>
+                       </td>
+                       { item.downloadUrl &&
                         <td>
-                            <a href={dataSource.table.link}>{dataSource.table.doc}</a>
+                        <a href={item.downloadUrl}>{dataSource.table.release}</a>
                         </td>
-                        <td>
-                            <a href={dataSource.table.releaseUrlOne}>{dataSource.table.release}</a>
-                        </td>
-                        <td>
-                            <a href="https://github.com/apache/incubator-linkis/tree/1.0.2">{dataSource.table.source}</a>
-                        </td>
-                    </tr>
+                       }
+                       <td>
+                          <a target="_blank" href={"https://github.com/apache/incubator-linkis/tree/"+item.sourceTag}>{dataSource.table.source}</a>
+                       </td>
+                       </tr>
+                      ))
+                      }
+                   </tbody>
                 </table>
+
             </div>
         </Layout>
     );

@@ -1,5 +1,5 @@
 ---
-title: 安装 EngineConnPlugin 引擎插件
+title: 安装 EngineConnPlugin 引擎
 sidebar_position: 3
 ---
 

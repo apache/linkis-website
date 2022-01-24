@@ -23,6 +23,10 @@ github:
   labels:
     - linkis
     - website
+notifications:
+  commits: commits@linkis.apache.org
+  issues: commits@linkis.apache.org
+  pullrequests: commits@linkis.apache.org
 
 # If this branch is asf-staging, it will be published to https://linkis.staged.apache.org/
 staging:
@@ -32,3 +36,4 @@ staging:
 # asf-site branch will show up at https://linkis.apache.org
 publish:
   whoami:  asf-site
+

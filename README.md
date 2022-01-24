@@ -17,7 +17,7 @@ asf-staging #The asf-staging official website test environment is accessed throu
 ```
 
 
-## 1. Preview and generate static files
+## 1 Preview and generate static files
 
 This website is compiled using node, using Docusaurus framework components
 
@@ -28,7 +28,7 @@ This website is compiled using node, using Docusaurus framework components
 4. Run `npm run start-zh` in the root directory, you can visit http://localhost:3000 to view the Chinese mode preview of the site
 5. To generate static website resource files, run `npm run build`. The static resources of the build are in the build directory.
 
-## 2. Directory structure
+## 2 Directory structure
 ```html
 |-- community 
 |-- docs     //The next version of the document that will be released soon
@@ -86,7 +86,7 @@ Current version information
 |1.0.3|https://linkis.apache.org/docs/1.0.3/xxx (https://linkis.apache.org/zh-CN/docs/1.0.3/xxx) |  /docs  |i18n/zh-CN/docusaurus-plugin-content-docs/current|
 
 
-## 3. Specification
+## 3 Specification
 
 ### 3.1 Directory naming convention
 
@@ -152,13 +152,22 @@ Located in `src/pages/versions`
         index.jsorchestrator/overview.md
         index.less
 ```
-## 4. New documents
+## 4 New documents
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The md document is recommended to be viewed by visiting the official website and viewing the md document through github. There is a problem that static resources such as pictures cannot be displayed correctly
 
 - The English document docs/ corresponds to the next Next version to be released, and the historical archive version is stored in the versioned_docs/version-${versionno} directory.
 - Chinese documents are placed in the corresponding directory of i18n/zh-CN/docusaurus-plugin-content-docs/, current is the next version to be released. version-${versionno} is the historical archive version.
 - Image resources are placed in the static/ directory
- 
-## 5. Other
+
+## 5 How to deploy
+The official website of linkis is divided into test environment and formal environment
+-Test environment access URL https://linkis.staged.apache.org
+-Official environment visit URL https://linkis.apache.org
+
+When the dev branch code is updated, git action will automatically execute the source build of the dev branch, and automatically update the compiled resource results to the asf-staging branch.
+The internal mechanism of Apache will deploy the content of the asf-staging branch to the test environment, so when the git action is successfully executed, it can be verified by visiting https://linkis.staged.apache.org.
+After the verification is correct, the asf-staging branch can be merged to the asf-site branch. The internal mechanism of Apache will deploy the content of the asf-site branch to the formal environment. After the merge, the formal environment is considered to be updated successfully.
+
+## 6 Other
 The naming convention refers to "Alibaba Front-end Development Specification"

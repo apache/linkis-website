@@ -1,38 +1,80 @@
 {
   "zh-CN": {
     "title": "Apache Linkis 所有文档版本",
-    "newVersion": "这是当前的文档版本",
-    "newVersionExplain": "在这里您可以找到当前发布的文档版本",
-    "nextVersion": "这是未发布文档版本",
-    "nextVersionExplain": "在这里您可以找到未发布的文档版本",
-    "passVersion": "这是以前发布的历史文档版本",
-    "passVersionExplain": "在这里您可以找到以前发布的文档版本",
+    "latestVersion": "这是当前最新稳定版本的文档",
+    "latestVersionExplain": "在这里您可以找到当前发布的最稳定版本的文档",
+    "nextVersion": "这是未发布版本的文档",
+    "nextVersionExplain": "在这里您可以找到未发布版本的文档",
+    "historyVersion": "这是以前发布的历史版本文档",
+    "historyVersionExplain": "在这里您可以找到以前发布历史版本的文档",
     "table": {
       "doc": "文档",
-      "link": "/zh-CN/docs/introduction",
+      "source": "源代码",
       "release": "Release Note",
-      "releaseUrlOne": "/zh-CN/download/release-1.0.2",
-      "nextLink": "/zh-CN/docs/next/introduction",
-      "latestUrl": "/zh-CN/docs/introduction",
-      "source": "源代码"
+      "latestData": [
+        {
+        "versionLabel": "1.0.2",
+        "downloadUrl": "/zh-CN/download/release-1.0.2",
+        "docUrl": "/zh-CN/docs/latest/introduction",
+        "sourceTag":"1.0.2"
+        }
+      ],
+      "nextData": [
+        {
+        "versionLabel": "1.0.3(WIP)",
+        "docUrl": "/zh-CN/docs/1.0.3/introduction"
+        },
+        {
+          "versionLabel": "Next-1.1.0(WIP)",
+          "docUrl": "/zh-CN/docs/1.1.0/introduction"
+        }
+      ],
+      "historyData": [
+        {
+          "versionLabel": "0.11.0",
+          "docUrl": "/zh-CN/docs/0.11.0/introduction",
+          "sourceTag":"0.11.0"
+        }
+      ]
     }
   },
   "en": {
     "title": "Apache Linkis all document versions",
-    "newVersion": "This is the current document version",
-    "newVersionExplain": "Here you can find the currently published version of the document",
+    "latestVersion": "This is the current document version",
+    "latestVersionExplain": "Here you can find the currently published version of the document",
     "nextVersion": "This is an unpublished document version",
     "nextVersionExplain": "Here you can find the unpublished version of the document",
-    "passVersion": "This is the previously published version of the document",
-    "passVersionExplain": "Here you can find the previously published version of the document",
+    "historyVersion": "This is the previously published version of the document",
+    "historVersionExplain": "Here you can find the previously published version of the document",
     "table": {
       "doc": "Document",
-      "link": "/docs/introduction",
+      "source": "Source Code",
       "release": "Release Note",
-      "releaseUrlOne": "/download/release-1.0.2",
-      "nextLink": "/docs/next/introduction",
-      "latestUrl": "/docs/introduction",
-      "source": "Source Code"
+      "latestData": [
+        {
+          "versionLabel": "1.0.2",
+          "downloadUrl": "/download/release-1.0.2",
+          "docUrl": "/docs/latest/introduction",
+          "sourceTag":"1.0.2"
+        }
+      ],
+      "nextData": [
+        {
+          "versionLabel": "1.0.3",
+          "docUrl": "/docs/1.0.3/introduction"
+        },
+        {
+          "versionLabel": "1.1.0",
+          "docUrl": "/docs/1.1.0/introduction"
+        }
+      ],
+      "historyData": [
+        {
+          "versionLabel": "0.11.0",
+          "docUrl": "/docs/0.11.0/introduction",
+          "sourceTag":"0.11.0"
+        }
+      ]
     }
   }
 }

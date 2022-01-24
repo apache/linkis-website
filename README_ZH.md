@@ -17,7 +17,7 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 ```
 
 
-## 1.预览并生成静态文件
+## 1 预览并生成静态文件
 
 本网站是使用node编译的，使用的是Docusaurus框架组件
 
@@ -28,7 +28,7 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 4. 在根目录运行`npm run start-zh`，可以访问http://localhost:3000查看站点的中文模式预览
 5. 要生成静态网站资源文件，运行 `npm run build`。构建的静态资源在build目录中。
 
-## 2.目录结构
+## 2 目录结构
 ```html
 |-- community //社区
 |-- docs     //文档  存方下一个即将发布的版本
@@ -87,7 +87,7 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 
 
 
-## 3.规范
+## 3 规范
 
 ### 3.1 目录命名规范
 
@@ -153,13 +153,22 @@ css等样式文件放在`src/css`目录下
         index.jsorchestrator/overview.md
         index.less
 ```
-## 4.新增文档 
+## 4 新增文档 
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) md文档建议通过访问官网查看,通过github查看md文档存在图片等静态资源无法正确显示问题
 
 - 英文文档 docs/对应目录为即将发布的下一Next版本，历史存档版本存放在versioned_docs/version-${versionno}目录下。
 - 中文文档 放在i18n/zh-CN/docusaurus-plugin-content-docs/对应目录下，current为即将发布的下一个版本.version-${versionno}为历史存档版本。
 - 图片资源 放在static/目录下
- 
-## 5.其他 
+
+## 5 如何部署
+linkis的官网分为测试环境和正式环境
+- 测试环境访问网址 https://linkis.staged.apache.org
+- 正式环境访问网址 https://linkis.apache.org
+
+当dev分支代码有更新时，git action会自动执行dev分支的源码build,并将编译的资源结果自动更新至asf-staging分支。
+Apache内部机制会将asf-staging分支内容部署至测试环境，所以当git action执行成功后，可以通过访问https://linkis.staged.apache.org 进行验证。
+验证无误后，可以将asf-staging分支 merge到asf-site分支，Apache内部机制会将asf-site分支内容部署至正式环境，merge后，正式环境才算更新成功。
+    
+## 6 其他 
 命名规范参考《阿里前端开发规范》

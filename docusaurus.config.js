@@ -41,6 +41,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
            versions: {
               current: {
+                path: '1.1.0',
+              },
+              '1.0.3': {
                 //label: 'Next v1.0.3 (WIP)',
                 path: '1.0.3',
                 //banner: 'none',
@@ -49,7 +52,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 //label: 'v1.0.2',
                 path: 'latest',
                 //banner: 'unmaintained',
-              }
+              },
+              '0.11.0': {
+                  path: '0.11.0',
+               }
             }
         },
         blog: {
@@ -65,22 +71,21 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     ],
   ],
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    (
-    {
-//     algolia: {
-//          apiKey: 'xxx',
-//          indexName: 'apache_linkis',
-//       },
-      colorMode: {
+   {
+     algolia: {
+         appId: 'AE29KQB3IA',
+         apiKey: '9ca054a67ee2403605e78587a518b0d6',
+         indexName: 'linkis-apache'
+     },
+     colorMode: {
           defaultMode: 'light',
           disableSwitch: true
       },
-     announcementBar: {
-       id: 'announcementBar-2', // Increment on change
-       content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-linkis">GitHub</a>`,
-       backgroundColor: "#BBDFFF",
-     },
+//     announcementBar: {
+//       id: 'announcementBar-2', // Increment on change
+//       content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-linkis">GitHub</a>`,
+//       backgroundColor: "#BBDFFF",
+//     },
       navbar: {
         title: 'Apache Linkis(Incubating)',
         logo: {
@@ -160,12 +165,20 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 //            to: "/docs/user_guide/overview",
             items: [
               {
-                label: "Next-1.0.3 (WIP)",
+                label: "Next-1.1.0 (WIP)",
+                to: "/docs/1.1.0/introduction",
+              },
+              {
+                label: "1.0.3 (WIP)",
                 to: "/docs/1.0.3/introduction",
               },
               {
                 label: "1.0.2",
                 to: "/docs/latest/introduction",
+              },
+             {
+                label: "0.11.0",
+                to: "/docs/0.11.0/introduction",
               },
               {
                 label: "All versions",
@@ -238,36 +251,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 },
               ],
             },
-//            {
-                //              title: 'Apache Software Foundation',
-                //              items: [
-                //
-                //                {
-                //                  label: 'Events',
-                //                  href: 'https://www.apache.org/events/current-event',
-                //                },
-                //                {
-                //                  label: 'Thanks',
-                //                  href: 'http://www.apache.org/foundation/thanks.html',
-                //                },
-                //                {
-                //                  label: 'License',
-                //                  href: 'https://www.apache.org/licenses/',
-                //                },
-                //                {
-                //                  label: 'Security',
-                //                  href: 'https://www.apache.org/security/',
-                //                },
-                //                {
-                //                  label: 'Sponsorship',
-                //                  href: 'https://www.apache.org/foundation/sponsorship.html',
-                //                },
-                //                {
-                //                  label: 'Foundation',
-                //                  href: 'https://www.apache.org/',
-                //                }
-                //              ],
-                //            },
           ],
          copyright: `<div><img style="height:50px" alt="Apache Software Foundation" src="/img/incubator-logo.svg" /><p style="color: #999999;  padding: 0 20px 30px;font-weight:400;text-align:left">Apache Linkis is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p></p>
              <p style="padding: 0 20px 30px;color: #999999;font-weight: 400;"> Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache Linkis, Apache Incubator, Apache, the Apache feather logo, the Apache Linkis logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.</p>
@@ -277,7 +260,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         theme: require('prism-react-renderer/themes/dracula'),
         darkTheme: darkCodeTheme,
       },
-    }),
+    },
   plugins: [
     'docusaurus-plugin-less',
     [

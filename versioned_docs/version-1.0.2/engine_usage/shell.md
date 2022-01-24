@@ -1,9 +1,9 @@
 ---
-title:  Shell EngineConn Usage
+title:  Shell Engine Usage
 sidebar_position: 2
 ---
 
-# Shell EngineConn usage document
+# Shell Engine Usage document
 
 This article mainly introduces the configuration, deployment and use of Shell EngineConn in Linkis1.0
 ## 1. The environment configuration before using the Shell EngineConn

@@ -104,7 +104,7 @@ org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 -DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
-linkis-spring-cloud-gateway
+linkis-gateway-server-support
 
 ```
 注意 若出现'org.apache.logging.log4j.LoggingException: log4j-slf4j-impl cannot be present with log4j-to-slf4j' 问题 

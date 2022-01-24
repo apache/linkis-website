@@ -117,8 +117,8 @@ Provide a search interface, receive Map as a parameter, and filter out the corre
 > Taking tree A and tree B as examples, calculate the costs of these two trees respectively, as shown in the figure below, the number in the node is Cost\|Weight, assuming that the cost of the 5 simple conditions of ABCDE is 10, 100, 50 , 10, and 100. It can be concluded that the cost of tree B is less than that of tree A, which is a better solution.
 
 
-<center class="half">
-    <img src="/Images/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-search-06.png" width="300"/> <img src="./../ /Images/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-search-07.png" width="300"/>
+<center>
+    <img src="/Images/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-search-06.png" width="300"/> <img src="/Images/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-search-07.png" width="300"/>
 </center>
 
 1. Use CostCalculator to measure the cost of simple conditions:
