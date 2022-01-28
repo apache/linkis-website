@@ -632,7 +632,9 @@ On behalf of Apache Linkis(Incubating) community
 ## 6 Official release
 
 ### 6.1 Migrating source and binary packages
-
+:::caution note
+The path name of release cannot carry the rc identifier
+:::
 Move source and binary packages from svn's `dev` directory to the `release` directory
 
 ```shell

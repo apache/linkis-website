@@ -648,12 +648,15 @@ On behalf of Apache Linkis(Incubating) community
 ## 6 正式发布
 
 ### 6.1 迁移源码与二进制包
+:::caution 注意
+release的分支路径名不能带rc标识
+:::
 
 将源码和二进制包从svn的`dev`目录移动到`release`目录
 
 ```shell
 #移动源码包与二进制包
-$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
+$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/linkis/${release_version} -m "transfer packages for ${release_version}-${rc_version}" 
 
 # 下面操作 按实际情况 决定是否更新release 分支的key
 # 清除原有release目录下的KEYS
