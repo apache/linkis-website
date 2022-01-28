@@ -471,7 +471,7 @@ WIP的使用，详细可见 https://issues.apache.org/jira/browse/LEGAL-469
 
 
 #### 5.1.1 Linkis 社区投票模板
-
+参考示例:[\[VOTE\] Release Apache Linkis (Incubating) 1.0.3-RC2](https://lists.apache.org/thread/8j8f8vqotpg4f2kjwq3gg436vtx40p20)  https://lists.apache.org/thread/8j8f8vqotpg4f2kjwq3gg436vtx40p20
 ```html
 标题：
 [VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
@@ -528,7 +528,7 @@ ${Linkis Release Manager}
 ```
 
 #### 5.1.2 宣布投票结果模板
-
+参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.0.3-RC2](https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3) https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3
 ```html
 标题：
 [RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
@@ -558,6 +558,8 @@ ${Linkis Release Manager}
 2. 宣布投票结果,发起投票结果邮件到`general@incubator.apache.org` 并抄送至`dev@linkis.apache.org`。
 
 #### 5.2.1 Incubator 社区投票模板
+
+参考示例:[\[VOTE\] Release Apache Linkis (Incubating) 1.0.3-RC2](https://lists.apache.org/thread/9jr6hsf53jmwvnkh8nkt6spwcwc1q42j) https://lists.apache.org/thread/9jr6hsf53jmwvnkh8nkt6spwcwc1q42j
 
 ```html
 标题：[VOTE] Release Apache Linkis(Incubating) ${release_version} ${rc_version}
@@ -616,6 +618,7 @@ On behalf of Apache Linkis(Incubating) community
 
 #### 5.2.2 宣布投票结果模板
 
+参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.0.3-RC2](https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63) https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63
 ```html
 标题：[RESULT][VOTE] Release Apache Linkis ${release_version} {rc_version}
 
@@ -644,20 +647,7 @@ On behalf of Apache Linkis(Incubating) community
 
 ## 6 正式发布
 
-### 6.1 合并分支
-
-合并`${release_version}-RC`分支的改动到`master`分支，合并完成后删除`${release_version}-RC`分支
-
-```shell
-$ git checkout master
-$ git merge origin/${release_version}-RC
-$ git pull
-$ git push origin master
-$ git push --delete origin ${release_version}-RC
-$ git branch -d ${release_version}-RC
-```
-
-### 6.2 迁移源码与二进制包
+### 6.1 迁移源码与二进制包
 
 将源码和二进制包从svn的`dev`目录移动到`release`目录
 
@@ -673,16 +663,17 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m
 $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
 ```
 
-### 6.3 确认dev和release下的包是否正确
+### 6.2 确认dev和release下的包是否正确
 
 - 确认[dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/)下的`${release_version}-${rc_version}`已被删除
 - 删除[release](https://dist.apache.org/repos/dist/release/incubator/linkis/)目录下 上一个版本的发布包，这些包会被自动保存在[这里](https://archive.apache.org/dist/incubator/linkis/)
 
 ```shell
+#删除前请确认上一个版本发布包已更新至https://archive.apache.org/dist/incubator/linkis/
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ```
 
-### 6.4 在Apache Staging仓库发布版本
+### 6.3 在Apache Staging仓库发布版本
 
 - 登录 http://repository.apache.org , 使用Apache账号登录
 - 点击左侧的 Staging repositories，
@@ -691,25 +682,23 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 > 等仓库同步到其他数据源，一般需要24小时
 
-### 6.5 GitHub 版本发布
 
-1. 基于最终发布的分支或则commit id打上tag。
-
-2. 在 [GitHub Releases](https://github.com/apache/incubator/linkis/releases) 页面的 `${release_version}` 版本上点击 `Edit` 编辑版本号及版本说明，并点击 `Publish release`
-
-### 6.6 更新下载页面
+### 6.4 更新下载页面
 
 <font color='red'>中英文文档都要更新</font>
 
 linkis的官网下载地址应该指向apache的官方地址
 
-等待并确认新的发布版本同步至 Apache 镜像后，更新如下页面：
+等待并确认新的发布版本同步至Apache镜像(https://archive.apache.org/dist/incubator/linkis/) 后，更新如下页面：
 
 - https://linkis.apache.org/zh-CN/download/main
 - https://linkis.apache.org/download/main
 
-GPG签名文件和哈希校验文件的下载连接应该使用这个前缀：`https://downloads.apache.org/incubator/linkis/`
+### 6.5 GitHub 版本发布
 
+1. 合并`${release_version}-RC`分支到`master`分支(如果未合并)
+2. 打正式版本tag，投票过程中的RC版本tag可以移除
+3. 在 [GitHub Releases](https://github.com/apache/incubator-linkis/releases) 页面，更新版本号及版本说明等
 
 
 ## 7 邮件通知版本发布完成
