@@ -1,13 +1,12 @@
 # Linkis Release-1.0.2
-<font color='red'> This is Non-ASF Version </font> 
+<font color='red'> 这是Non-ASF版本 </font> 
 
 使用以下链接下载Linkis
 
-## Linkis
 | 日期 | 版本| 备注 | 下载 |
 |:-----|:--------|:------|:-------|
-| 2021-09-02| 1.0.2 | 源码 | [[SRC](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)] |
-| |                 | 二进制包 | [[BIN](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.0.2-combined-package-dist.tar.gz)] |
+| 2021-09-02| 1.0.2 | 源码 | [[tar](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)] |
+| |                 | 二进制包 | [[tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.0.2-combined-package-dist.tar.gz)] |
 
 
 ### 发布完整性
@@ -69,9 +68,3 @@ MGS: Microservice Governance Services
 ## 致谢 
 
 Linkis 1.0.2 的成功发布离不开 Linkis 社区的贡献者。感谢所有社区贡献者！
-
----
-## 编译版本
-
-**腾讯云**：
-[Linkis-1.0.2 Compiled (.tar.gz)](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.0.2-combined-package-dist.tar.gz)

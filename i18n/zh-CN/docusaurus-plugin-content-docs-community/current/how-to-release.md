@@ -666,12 +666,13 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://di
 ### 6.2 确认dev和release下的包是否正确
 
 - 确认[dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/)下的`${release_version}-${rc_version}`已被删除
-- 删除[release](https://dist.apache.org/repos/dist/release/incubator/linkis/)目录下 上一个版本的发布包，这些包会被自动保存在[这里](https://archive.apache.org/dist/incubator/linkis/)
+- 删除[release](https://dist.apache.org/repos/dist/release/incubator/linkis/)目录下 上一个版本的发布包，这些包会被自动保存在[这里](https://downloads.apache.org/incubator/linkis/)
 
 ```shell
-#删除前请确认上一个版本发布包已更新至https://archive.apache.org/dist/incubator/linkis/
+#删除前请确认上一个版本发布包已更新至https://downloads.apache.org/incubator/linkis/
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ```
+同步至https://downloads.apache.org/incubator/linkis/ 至少需要1小时 
 
 ### 6.3 在Apache Staging仓库发布版本
 
@@ -689,8 +690,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 linkis的官网下载地址应该指向apache的官方地址
 
-等待并确认新的发布版本同步至Apache镜像(https://archive.apache.org/dist/incubator/linkis/) 后，更新如下页面：
-
+等待并确认新的发布版本同步至Apache镜像(https://downloads.apache.org/incubator/linkis/) 后，更新如下页面：
 - https://linkis.apache.org/zh-CN/download/main
 - https://linkis.apache.org/download/main
 

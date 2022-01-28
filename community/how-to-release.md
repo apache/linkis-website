@@ -650,10 +650,10 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://di
 ### 6.2 Confirm whether the packages under dev and release are correct
 
 - Confirm that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/) has been removed
-- Delete the release packages of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved [here](https:/ /archive.apache.org/dist/incubator/linkis/)
+- Delete the release packages of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved [here](https://downloads.apache.org/incubator/linkis/)
 
 ```shell
-#Before deleting, please confirm that the previous version release package has been updated to https://archive.apache.org/dist/incubator/linkis/
+#Before deleting, please confirm that the previous version release package has been updated to https://downloads.apache.org/incubator/linkis/
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ````
 
@@ -673,7 +673,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 The official website download address of linkis should point to the official address of apache
 
-After waiting and confirming that the new release version is synced to the Apache mirror (https://archive.apache.org/dist/incubator/linkis/), update the following page:
+After waiting and confirming that the new release version is synced to the Apache mirror (https://downloads.apache.org/incubator/linkis/), update the following page:
 
 - https://linkis.apache.org/en-US/download/main
 - https://linkis.apache.org/download/main
