@@ -14,9 +14,9 @@ Use the links below to download the Apache Linkis Releases, the latest release i
 ## 1.0.3 release
 - Release time: 2022-01-29
 - [Release Notes](release-1.0.3.md)
-- Source: [linkis-1.0.3-src.tar.gz](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3 -incubating-src.tar.gz)
-- Compile the complete package: [linkis-1.0.3-bin.tar.gz](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0 .3-incubating-bin.tar.gz)
-- Compile web package: [linkis-1.0.3-web-bin.tar.gz](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis -1.0.3-incubating-web-bin.tar.gz)
+- Source: [linkis-1.0.3-src.tar.gz](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz)
+- Compile Package: [linkis-1.0.3-bin.tar.gz](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz)
+- Compile Web Package: [linkis-1.0.3-web-bin.tar.gz](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz)
 
 ## Release Integrity
    You must [verify](https://www.apache.org/info/verification.html) the integrity of the downloaded files. We provide OpenPGP signatures for every release file. 
