@@ -631,67 +631,58 @@ On behalf of Apache Linkis(Incubating) community
 ```
 ## 6 Official release
 
-### 6.1 Merging branches
+### 6.1 Migrating source and binary packages
 
-Merge the changes from the `${release_version}-RC` branch to the `master` branch, and delete the `${release_version}-RC` branch after the merge is completed
-
-```shell
-$ git checkout master
-$ git merge origin/${release_version}-RC
-$ git pull
-$ git push origin master
-$ git push --delete origin ${release_version}-RC
-$ git branch -d ${release_version}-RC
-```
-
-### 6.2 Migrating source and binary packages
-
-Move the source and binary packages from the `dev` directory of svn to the `release` directory
+Move source and binary packages from svn's `dev` directory to the `release` directory
 
 ```shell
 #Mobile source package and binary package
-$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/ linkis/ -m "transfer packages for ${release_version}-${rc_version}" 
+$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/ linkis/ -m "transfer packages for ${release_version}-${rc_version}"
+
 # The following operations decide whether to update the key of the release branch according to the actual situation
-# Remove KEYS in the original release directory
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
-#copy dev directory KEYS to release directory
-$ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}" 
+# Clear the KEYS in the original release directory
+$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS"
+
+# Copy the dev directory KEYS to the release directory
+$ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
 ```
 
-### 6.3 Confirm whether the packages under dev and release are correct
+### 6.2 Confirm whether the packages under dev and release are correct
 
-- Confirm that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/) has been deleted
-- Delete the release package of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved in [here](https:/ /archive.apache.org/dist/incubator/linkis/)
+- Confirm that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/) has been removed
+- Delete the release packages of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved [here](https:/ /archive.apache.org/dist/incubator/linkis/)
 
 ```shell
+#Before deleting, please confirm that the previous version release package has been updated to https://archive.apache.org/dist/incubator/linkis/
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
-```
+````
 
-### 6.4 Release version in Apache Staging repository
+### 6.3 Release version in Apache Staging repository
 
-- Log in to http://repository.apache.org and log in with your Apache account
+- Log in to http://repository.apache.org , log in with your Apache account
 - Click on Staging repositories on the left,
-- Search for Linkis keywords, select your recently uploaded repository, and vote for the repository specified in the email
-- Click the `Release` button above, a series of checks will be carried out in this process
+- Search for Linkis keywords, select your recently uploaded repository, and the repository specified in the voting email
+- Click the `Release` button above, this process will perform a series of checks
 
 > It usually takes 24 hours to wait for the repository to synchronize to other data sources
 
-### 6.5 GitHub version released
 
-- Tag the branch based on the final release or commit id.
-- Click `Edit` on the version `${release_version}` on the [GitHub Releases](https://github.com/apache/incubator/linkis/releases) page. Edit the version number and version description, and click `Publish release`
+### 6.4 Update download page
 
-### 6.6 Update download page
-<font color='red'>Chinese and English documents must be updated</font>
-The linkis official website download address should point to the official apache address
+<font color='red'>Chinese and English documents should be updated</font>
 
-After waiting and confirming that the new release version is synchronized to the Apache mirror, update the following page:
+The official website download address of linkis should point to the official address of apache
 
-- https://linkis.apache.org/zh-CN/download/main
+After waiting and confirming that the new release version is synced to the Apache mirror (https://archive.apache.org/dist/incubator/linkis/), update the following page:
+
+- https://linkis.apache.org/en-US/download/main
 - https://linkis.apache.org/download/main
 
-The download connection of the GPG signature file and the hash verification file should use this prefix: `https://downloads.apache.org/incubator/linkis/`
+### 6.5 GitHub version released
 
+1. Merge `${release_version}-RC` branch to `master` branch (if not merged)
+2. Tag the official version, and the RC version tag during the voting process can be removed
+3. On the [GitHub Releases](https://github.com/apache/incubator-linkis/releases) page, update the version number and version description, etc.
 
 
 ## 7 Email notification version is released
