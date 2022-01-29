@@ -29,21 +29,19 @@ sidebar_position: 1.0
 ## 2. 审批过程
     本节描述了一个典型的 Linkis 项目处理投票以添加新提交者的过程
 1. 概括 
-    - 1.1 发起投票（templates/committerVote.txt）。
-    - 1.2 关闭投票 。
-    - 1.3 如果结果是肯定的，请邀请新的提交者 (templates/committerInvite.txt)。
+    - 1.1 发起投票（templates/committerVote.txt）
+    - 1.2 关闭投票 
+    - 1.3 如果结果是肯定的，请邀请新的提交者 (templates/committerInvite.txt)
 2. 邀请流程
-    - 2.1 接受提交者 (templates/committerAccept.txt)。
-    - 2.2 等到我们看到记录了 CLA 的收据。
-    - 2.3 请求创建提交者帐户 (template/committerCreate.txt)。
-```html
+    - 2.1 接受提交者 (templates/committerAccept.txt)
+    - 2.2 等到我们看到记录了 CLA 的收据
+    - 2.3 请求创建提交者帐户 (template/committerCreate.txt)
+        ```html
         2.3.1 等到root说完成。
         2.3.2 PMC 主席启用 svn 和其他访问。
         2.3.3 将提交者添加到 JIRA 和 CWiki 中的相应组。
-```
+        ```
 
-
-
-    - 2.4 通知提交者完成（template/committerDone.txt）。
-    - 2.5 如果提交者也是 PMC 成员，PMC 主席会向 board@ 发送电子邮件，要求确认新 PMC 成员（templates/email-member-ack.txt）。
-    - 2.6 宣布新的提交者 (template/committerAnnounce.txt)。
+    - 2.4 通知提交者完成（template/committerDone.txt）
+    - 2.5 如果提交者也是 PMC 成员，PMC 主席会向 board@ 发送电子邮件，要求确认新 PMC 成员（templates/email-member-ack.txt）
+    - 2.6 宣布新的提交者 (template/committerAnnounce.txt)
