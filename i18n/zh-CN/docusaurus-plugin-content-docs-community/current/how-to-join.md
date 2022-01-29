@@ -42,6 +42,8 @@ sidebar_position: 1.0
         2.3.3 将提交者添加到 JIRA 和 CWiki 中的相应组。
 ```
 
+
+
     - 2.4 通知提交者完成（template/committerDone.txt）。
     - 2.5 如果提交者也是 PMC 成员，PMC 主席会向 board@ 发送电子邮件，要求确认新 PMC 成员（templates/email-member-ack.txt）。
     - 2.6 宣布新的提交者 (template/committerAnnounce.txt)。
