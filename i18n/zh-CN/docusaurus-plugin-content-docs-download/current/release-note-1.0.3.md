@@ -1,21 +1,7 @@
 ---
-title: Linkis Release-1.0.3
+title: Release Note 1.0.3
 sidebar_position: 9
 --- 
-
-使用以下链接下载Linkis
-
-| 日期 | 版本| 备注 | 下载 |
-|:-----|:--------|:------|:-------|
-| 2022-01-28| 1.0.3 | 源码 | [[Source](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz)]  [[Sign](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz.asc)]   [[SHA512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz.sha512)] |
-| |                 | 二进制包 | [[Binary](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz)]  [[Sign](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz.asc)]   [[SHA512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz.sha512)] |
-| |                 | web包 | [[Binary](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz)]  [[Sign](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz.asc)]   [[SHA512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz.sha512)] |
-
-
-## 发布完整性
-   您必须[验证](https://www.apache.org/info/verification.html) 下载文件的完整性。 我们为每个发布文件提供 OpenPGP 签名。 此签名应与包含 Linkis 发布经理的 OpenPGP 密钥的 [KEYS](https://downloads.apache.org/incubator/linkis/KEYS) 文件匹配。 我们还为每个发布文件提供 <code>SHA-512</code> 校验和。 下载文件后，您应该计算下载的校验和，并确保它与我们的相同。
-
-## 发行说明
 
 Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://github.com/apache/incubator-linkis/projects/13)。
 

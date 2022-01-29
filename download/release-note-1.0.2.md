@@ -1,18 +1,8 @@
 ---
-title: Linkis Release-1.0.2
+title: Release Note 1.0.2
 sidebar_position: 10
 --- 
-
-<font color='red'> This is Non-ASF Version </font>
-
-Use the links below to download the Apache Linkis from one of our mirrors.
-
-| Date | Version| Comment | Downloads |
-|:-----|:--------|:------|:-------|
-| 2021-09-02| 1.0.2 | Source | [[Source](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.2.tar.gz)]
-| |                 | Bin | [[Binary](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.0.2-combined-package-dist.tar.gz)]
-
-## Release Notes
+><font color='red'> This is Non-ASF Version </font>
 
 Linkis-1.0.2 includes all of [Project Linkis-1.0.2](https://github.com/apache/incubator-linkis/projects/11).
 
