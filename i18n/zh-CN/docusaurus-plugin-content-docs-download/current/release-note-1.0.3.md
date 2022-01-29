@@ -1,7 +1,8 @@
 ---
-title: 版本说明
-sidebar_position: 0.1
----
+title: Release Note 1.0.3
+sidebar_position: 9
+--- 
+
 Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://github.com/apache/incubator-linkis/projects/13)。
 
 该版本是Linkis进入Apache孵化的第一个版本。主要完成ASF基础设施建设，包括License完善/包名修改等，增加EngineConn对Operator的支持等功能，修复社区反馈的1.0.2版本中的bug。
