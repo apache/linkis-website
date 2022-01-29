@@ -1,5 +1,5 @@
 ---
-title: Release Note 1.0.2
+title: Release Notes 1.0.2
 sidebar_position: 10
 --- 
 > <font color='red'> 这是Non-ASF版本 </font>

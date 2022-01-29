@@ -1,5 +1,5 @@
 ---
-title: Release Note 1.0.3
+title: Release Notes 1.0.3
 sidebar_position: 9
 --- 
 
