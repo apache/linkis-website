@@ -1,4 +1,8 @@
-# Linkis Release-1.0.2
+---
+title: Linkis Release-1.0.2
+sidebar_position: 9
+--- 
+
 <font color='red'> 这是Non-ASF版本 </font> 
 
 使用以下链接下载Linkis
