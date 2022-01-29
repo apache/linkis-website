@@ -4,7 +4,7 @@ sidebar_position: 1.0
 ---
 > 介绍加入linkis候选人的要求以及流程
 
-候选人申请邮件格式详情可以在此处查看[申请邮件](https://community.apache.org/newcommitter.html#new-committer-process)
+候选人申请邮件格式详情参考此处[申请邮件](https://inlong.apache.org/zh-CN/development/how-to-vote-a-committer-ppmc)
 ## 1. 申请者评审规范
     在投票时，所有 PMC 成员都需要自己决定是否应批准候选人成为提交者。他们可能会搜索邮件列表和 JIRA，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与对话）。
     以下是在评估候选人的承诺资格时需要考虑的一些要点。
