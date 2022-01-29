@@ -7,9 +7,9 @@ sidebar_position: 9
 
 | 日期 | 版本| 备注 | 下载 |
 |:-----|:--------|:------|:-------|
-| 2022-01-28| 1.0.3 | 源码 | [[tar](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz)]  [[asc](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz.asc)]   [[sha512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz.sha512)] |
-| |                 | 二进制包 | [[tar](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz)]  [[asc](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz.asc)]   [[sha512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz.sha512)] |
-| |                 | web包 | [[tar](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz)]  [[asc](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz.asc)]   [[sha512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz.sha512)] |
+| 2022-01-28| 1.0.3 | 源码 | [[Source](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz)]  [[Sign](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz.asc)]   [[SHA512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-src.tar.gz.sha512)] |
+| |                 | 二进制包 | [[Binary](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz)]  [[Sign](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz.asc)]   [[SHA512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-bin.tar.gz.sha512)] |
+| |                 | web包 | [[Binary](https://www.apache.org/dyn/closer.lua/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz)]  [[Sign](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz.asc)]   [[SHA512](https://downloads.apache.org/incubator/linkis/release-1.0.3/apache-linkis-1.0.3-incubating-web-bin.tar.gz.sha512)] |
 
 
 ## 发布完整性
