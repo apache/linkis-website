@@ -1,6 +1,6 @@
 ---
 title: Linkis Release-1.0.3
-sidebar_position: 10
+sidebar_position: 9
 --- 
 
 使用以下链接下载Linkis

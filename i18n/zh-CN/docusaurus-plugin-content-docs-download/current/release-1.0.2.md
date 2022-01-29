@@ -1,6 +1,6 @@
 ---
 title: Linkis Release-1.0.2
-sidebar_position: 9
+sidebar_position: 10
 --- 
 
 <font color='red'> 这是Non-ASF版本 </font> 
