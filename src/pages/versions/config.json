@@ -13,17 +13,13 @@
       "release": "Release Note",
       "latestData": [
         {
-        "versionLabel": "1.0.2",
-        "downloadUrl": "/zh-CN/download/release-1.0.2",
-        "docUrl": "/zh-CN/docs/latest/introduction",
-        "sourceTag":"1.0.2"
+          "versionLabel": "1.0.3",
+          "downloadUrl": "/zh-CN/download/release-1.0.3",
+          "docUrl": "/zh-CN/docs/1.0.3/introduction",
+          "sourceTag":"1.0.3"
         }
       ],
       "nextData": [
-        {
-        "versionLabel": "1.0.3(WIP)",
-        "docUrl": "/zh-CN/docs/1.0.3/introduction"
-        },
         {
           "versionLabel": "Next-1.1.0(WIP)",
           "docUrl": "/zh-CN/docs/1.1.0/introduction"
@@ -31,7 +27,14 @@
       ],
       "historyData": [
         {
+          "versionLabel": "1.0.2",
+          "downloadUrl": "/zh-CN/download/release-1.0.2",
+          "docUrl": "/zh-CN/docs/latest/introduction",
+          "sourceTag":"1.0.2"
+        },
+        {
           "versionLabel": "0.11.0",
+          "downloadUrl": "https://github.com/apache/incubator-linkis/releases/tag/0.11.0",
           "docUrl": "/zh-CN/docs/0.11.0/introduction",
           "sourceTag":"0.11.0"
         }
@@ -52,25 +55,28 @@
       "release": "Release Note",
       "latestData": [
         {
-          "versionLabel": "1.0.2",
-          "downloadUrl": "/download/release-1.0.2",
-          "docUrl": "/docs/latest/introduction",
-          "sourceTag":"1.0.2"
+          "versionLabel": "1.0.3",
+          "docUrl": "/docs/1.0.3/introduction",
+          "downloadUrl": "/download/release-1.0.3",
+          "sourceTag":"1.0.3"
         }
       ],
       "nextData": [
         {
-          "versionLabel": "1.0.3",
-          "docUrl": "/docs/1.0.3/introduction"
-        },
-        {
-          "versionLabel": "1.1.0",
+          "versionLabel": "Next-1.1.0(WIP)",
           "docUrl": "/docs/1.1.0/introduction"
         }
       ],
       "historyData": [
         {
+          "versionLabel": "1.0.2",
+          "downloadUrl": "/download/release-1.0.2",
+          "docUrl": "/docs/latest/introduction",
+          "sourceTag":"1.0.2"
+        },
+        {
           "versionLabel": "0.11.0",
+          "downloadUrl": "https://github.com/apache/incubator-linkis/releases/tag/0.11.0",
           "docUrl": "/docs/0.11.0/introduction",
           "sourceTag":"0.11.0"
         }
