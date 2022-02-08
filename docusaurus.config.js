@@ -58,12 +58,23 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                }
             }
         },
-        blog: {
-          // showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/apache/incubator-linkis-website/edit/dev/blog/',
-        },
+         blog: {
+                  // routeBasePath: '/',
+                  path: 'blog',
+                  editUrl: ({locale, blogDirPath, blogPath}) => {
+                   if (locale !== 'en') {
+                     return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}`;
+                   }
+                   return `https://github.com/apache/incubator-linkis-website/edit/dev/${blogDirPath}/${blogPath}`;
+                 },
+
+                  postsPerPage: 5,
+                  feedOptions: {
+                    type: 'all',
+                    //copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+                  },
+                  blogSidebarCount: 'ALL'
+                },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -116,6 +127,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             label: 'Community',
             position: 'left',
             activeBaseRegex: `/community/`,
+          },
+          {
+            to: 'blog',
+            label: 'Blog',
+            position: 'left',
+            activeBaseRegex: `/blog/`,
           },
           {
               to: '/team',
@@ -294,20 +311,51 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       },
     ],
 
-     [
-          '@docusaurus/plugin-content-docs',
-          {
-            id: 'faq',
-            path: 'faq',
-            routeBasePath: 'faq',
-            editUrl: ({locale, versionDocsDirPath, docPath}) => {
-              if (locale !== 'en') {
-                return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
-              }
-              return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
-            },
-            sidebarPath: require.resolve('./sidebarsCommunity.js'),
-          },
-     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'faq',
+        path: 'faq',
+        routeBasePath: 'faq',
+        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+          if (locale !== 'en') {
+            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+          }
+          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+        },
+        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+      },
+    ],
+//    [
+//      '@docusaurus/plugin-content-docs',
+//      {
+//        id: 'blog',
+//        path: 'blog',
+//        routeBasePath: 'blog',
+//        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+//          if (locale !== 'en') {
+//            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+//          }
+//          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+//        },
+//        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+//      },
+//    ],
+
+//    [
+//      '@docusaurus/plugin-content-docs',
+//      {
+//        id: 'blog',
+//        path: 'blog',
+//        routeBasePath: 'blog',
+//        editUrl: ({locale, versionDocsDirPath, docPath}) => {
+//          if (locale !== 'en') {
+//            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+//          }
+//          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+//        },
+//        sidebarPath: require.resolve('./sidebarsCommunity.js'),
+//      },
+//    ],
   ]
 });
