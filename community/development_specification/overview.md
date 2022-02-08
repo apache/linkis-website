@@ -4,6 +4,7 @@ sidebar_position: 0
 ---
 
 In order to standardize Linkis's community development environment, improve the output quality of subsequent development iterations of Linkis, and standardize the entire development and design process of Linkis, it is strongly recommended that Contributors follow the following development specifications:
+- [License Notes](license.md)
 - [Programming Specification](programming_specification.md)
 - [Log Specification](log.md)
 - [Exception Handling Specification](exception_catch.md)
