@@ -449,12 +449,15 @@ $ svn commit -m "prepare for 1.0.3-RC1"
 
 ## 5 发起投票
 
+:::tip
+发送邮件时请使用您的 apache.org 邮箱发送，并使用纯文本格式，详细见[附录-邮件切换纯文本格式](#邮件切换纯文本格式)
+:::
+
 :::caution 注意
+
 所有指向校验和、签名和公钥的链接都必须引用Apache主网站https://downloads.apache.org/并应使用https://(SSL)。例如：https://downloads.apache.org/incubator/linkis/KEYS
 
-目前是用的DISCLAIMER-WIP免责申明，请在邮件中加入此说明`As the DISCLAIMER-WIP shows....`。如果后续解决了WIP待处理的问题后，可以去掉
-
-WIP的使用，详细可见 https://issues.apache.org/jira/browse/LEGAL-469
+目前是用的DISCLAIMER-WIP免责申明，请在邮件中加入此说明`As the DISCLAIMER-WIP shows....`。如果后续解决了WIP待处理的问题后，可以去掉。WIP的使用，详细可见 https://issues.apache.org/jira/browse/LEGAL-469
 :::
 
 
@@ -735,7 +738,7 @@ Linkis Resources:
 ```
 
 
-## 附件 
+## 附录 
 ### 附件1 release.sh
 
 步骤2.4-3.3执行命令，可以合并在release.sh脚本中
@@ -817,3 +820,17 @@ svn status
 svn commit -m "prepare for ${release_version} ${rc_version}"
 
 ```
+
+### 邮件切换纯文本格式
+
+不要发送纯 HTML 消息；而是发送纯文本（内容类型：文本/纯文本）。发送 HTML 会减少阅读您的电子邮件的人数，并且经常会被apache.org入站垃圾邮件过滤器拒绝。如果您的邮件被退回并且错误消息说垃圾邮件命中包括HTML_MESSAGE，请以纯文本形式重新发送邮件。
+更多可以参阅官方[邮件规范](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips
+
+
+** Gmail邮箱切换纯文本格式 **
+
+![image](https://user-images.githubusercontent.com/7869972/152912490-a5038505-e487-4451-be9a-e26021877e4f.png)
+
+** QQ邮箱切换纯文本格式 **
+
+![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)

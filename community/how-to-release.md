@@ -449,13 +449,15 @@ For details, please refer to [How to Verify release](/how-to-verify.md)
 ## 5 Initiates a vote
 
 > Linkis is still in the incubation stage and needs to vote twice
+:::tip
+Please use your apache.org mailbox to send emails, and use `plain text mode`, for details see [Appendix-Mail Switching Plain Text Format](#mail-switch-to-plain-text-format)
+:::
 
 :::caution Note
+
 All links to checksums, signatures, and public keys must refer to the main Apache website https://downloads.apache.org/ and should use https://(SSL). For example: https://downloads.apache.org/incubator/linkis/KEYS
 
-The DISCLAIMER-WIP disclaimer is currently used, please add this description `As the DISCLAIMER-WIP shows....` to the email. If the WIP pending problem is solved later, it can be removed.
-
-Use of WIP, see https://issues.apache.org/jira/browse/LEGAL-469 for details
+The DISCLAIMER-WIP disclaimer is currently used, please add this description `As the DISCLAIMER-WIP shows....` to the email. If the WIP pending problem is solved later, it can be removed. Use of WIP, see https://issues.apache.org/jira/browse/LEGAL-469 for details
 :::
 
 - To vote in the Linkis community, send an email to: `dev@linkis.apache.org`
@@ -801,3 +803,17 @@ svn status
 svn commit -m "prepare for ${release_version} ${rc_version}"
 
 ```
+
+### Mail switch to plain text format
+
+Do not send plain HTML messages; instead, send plain text (content-type: text/plain). Sending HTML reduces the number of people reading your email and is often rejected by the apache.org inbound spam filter. If your message is bounced and the error message says that the spam hit includes HTML_MESSAGE, please resend the message in plain text.
+For more information, please refer to the official [Email Specification](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips
+
+
+** Gmail mailbox switch to plain text format **
+
+![image](https://user-images.githubusercontent.com/7869972/152912490-a5038505-e487-4451-be9a-e26021877e4f.png)
+
+** QQ mailbox switch to plain text format **
+
+![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)
