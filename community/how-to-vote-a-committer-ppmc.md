@@ -36,7 +36,7 @@ In most cases, new PPMC members are nominated from the Committer team. But it is
 :::tip
 ${Candidate Name}: represents the electee eg: Joe Bloggs
 
-${Committer/PPMC}: Represents the type of Committer/PPMC
+${Committer/PPMC}: represents the type of Committer/PPMC
 :::
 
 ### 2.1 Initiate community mail discussion
