@@ -36,7 +36,7 @@ Abbreviations:
 ---
 
 ## Enhancement
-* \[Commons][[Linkis-1026]](https://github.com/apache/incubator-linkis/pull/1026) Optimization of data export to excel, better support for numeric fields
+* \[Commons][[Linkis-1026]](https://github.com/apache/incubator-linkis/pull/1026) Optimize of data export to excel, better support for numeric fields
 * \[Commons][[Linkis-1036]](https://github.com/apache/incubator-linkis/pull/1036) File permission optimization of shared file system in LocalFileSystem mode
 * \[Commons][[Linkis-1185]](https://github.com/apache/incubator-linkis/pull/1185) Add some scala code specification checking rules to automatically detect scala code specification
 * \[Orchestrator][[Linkis-1183]](https://github.com/apache/incubator-linkis/pull/1183) Optimize the code with high cyclic complexity of the calculation orchestrator and the Map problem under high concurrency ,
