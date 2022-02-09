@@ -33,45 +33,52 @@ sidebar_position: 6
 
 ## 2. 推举详细流程
 
+:::tip 
+${Candidate Name}：代表被选举人 如：Joe Bloggs
+
+${Committer/PPMC}：代表推选的类型 Committer/PPMC
+:::
+
 ### 2.1 发起社区邮件讨论
 
 >任何linkis的 PPMC 成员都可以发起投票讨论，在 PPMC 发现社区贡献者任何有价值的贡献并取得候选人本人同意后，可以在linkis的private邮件列表发起讨论。讨论邮件里提议者要把候选人的贡献说清楚，并且给出复核对应贡献的地址，便于大家讨论分析。讨论邮件主送private@linkis.apache.org邮箱，讨论将持续至少72个小时，项目组成员，包括mentor们会针对提议邮件充分发表自己的看法。
+
 
 如下是讨论邮件样例：
 
 ```html
 To: private@linkis.apache.org
-Subject: [DISCUSS]  YYYYY as an Linkis XXXXXX candidate
+Subject: [DISCUSS]  ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
 Content:
 
 Hi all:
-    I nominate YYYYY as an Linkis XXXXXX candidate
+    I nominate ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
  
-    Judging from the contributions in recent months, YYYYY has submitted many implementations[1],[2] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in the actual project optimization and improvement, to let the project more perfect and easier to use.
+    Judging from the contributions in recent months, ${Candidate Name} has submitted many implementations[1],[2] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in the actual project optimization and improvement, to let the project more perfect and easier to use.
   
-    So I nominated YYYYY as XXXXXX of the Linkis project.
+    So I nominated ${Candidate Name} as ${Committer/PPMC} of the Linkis project.
   
-    1. https://github.com/apache/incubator-linkis/issues/created_by/YYYYY 
-    2. https://github.com/apache/incubator-linkis/commits?author=YYYYY 
-    3.....
+    1. https://github.com/apache/incubator-linkis/issues/created_by/${Candidate Githubid} 
+    2. https://github.com/apache/incubator-linkis/commits?author=${Candidate Githubid} 
+    3. https://lists.apache.org/list?dev@linkis.apache.org?xxxx
+    4. ....
 Thanks!
-XXXX
 ```
     
 ### 2.2 发起社区邮件投票
->如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在linkis的private邮件列表发起Committer或 PPMC 的选举投票。投票邮件主送private@linkis.apache.org，至少持续72小时，至少要3票+1通过；如果有1票-1投票票则整个投票失败；如果发起-1投票，投票人需要把-1的原因说清楚，便于大家理解和知晓。
+>如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在linkis的private邮件列表发起Committer或 PPMC 的选举投票。投票邮件主送private@linkis.apache.org，至少持续72小时，至少要3票+1通过；如果存在-1投票则整个投票失败；投票人需要把-1的原因说清楚，便于大家理解和知晓。
 
 如下是投票邮件样例：
 ```html
 To: private@linkis.apache.org
-Subject: [VOTE] YYYYY as an Linkis XXXXXX candidate
+Subject: [VOTE] ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
 Content: 
 Hi all:
-    Judging from the contributions in recent months, YYYYY has submitted many implementations[1],[2],[3] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in the actual project optimization and improvement, to let the project more perfect and easier to use.
+    Judging from the contributions in recent months, ${Candidate Name} has submitted many implementations[1],[2],[3] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in the actual project optimization and improvement, to let the project more perfect and easier to use.
 
-    I think making him a XXXXXX will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept YYYYY as an Linkis XXXXXX.
+    I think making him a ${Committer/PPMC} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PPMC}.
   
-    Voting will continue for at least a week or until the required number of votes is reached.
+    Voting will continue for at least 72 hours or until the required number of votes is reached.
  
     Please vote accordingly:
     [ ] +1 approve
@@ -79,13 +86,11 @@ Hi all:
     [ ] -1 disapprove with the reason  
    
     Here are three links to his contributions to Linkis:
-    1. Issues: https://github.com/apache/incubator-linkis/pulls?q=YYYYY
-    2. PRs   : https://github.com/apache/incubator-linkis/issues?q=YYYYY
-
-    3. Others:  https://xxx.com/xxx/xxx/?q=YYYYY
+    1. https://github.com/apache/incubator-linkis/issues/created_by/${Candidate Githubid} 
+    2. https://github.com/apache/incubator-linkis/commits?author=${Candidate Githubid}
+    3. Others: https://xxx.com/xxx/xxx/
 
 Thanks!
-XXXX
 ```
 ### 2.3 宣布投票结果
 >投票邮件结束后，投票发起者需要在第二封[VOTE]邮件里提醒投票结束；同时，投票发起者需要发起邮票宣布投票结果，发送至private@linkis.apache.org。
@@ -93,11 +98,11 @@ XXXX
 如下投票结果样例：
 ```html
 To: private@linkis.apache.org
-Subject: [RESULTS][VOTE] YYYYY as an Linkis XXXXXX
+Subject: [RESULTS][VOTE] ${Candidate Name} as an Linkis ${Committer/PPMC}
 Content: 
 
 Hi all:
-    The vote for "YYYYY as an Linkis XXXXXX" has PASSED and closed now.
+    The vote for "${Candidate Name} as an Linkis ${Committer/PPMC}" has PASSED and closed now.
 
     The result is as follows:
 
@@ -107,15 +112,14 @@ Hi all:
     - ccc
 
     Vote thread:
-    https://lists.apache.org/thread/aaaaaxxxx
+    https://lists.apache.org/thread/xx
 
-    Then I'm going to invite YYYYY to join us.
+    Then I'm going to invite ${Candidate Name} to join us.
 
     Thanks for everyone's support!   
 Thanks!
-XXXX
 ```
-**备注：如果是未通过，结果是 "The vote for "YYYYY as an Linkis XXXXXX" has FAILED and closed now."**
+**备注：如果是未通过，结果是 "The vote for "${Candidate Name} as an Linkis ${Committer/PPMC}" has FAILED and closed now."**
    
 ### 2.4 新增 PPMC 的通知邮件
 >该步骤只针对新的 PPMC 推举流程，如果选举的是Committer，该步跳过不执行。
@@ -125,18 +129,17 @@ XXXX
 如下是新增推选 PPMC 的通知邮件样例：
 ```html
 To: board@apache.org
-Cc: private@seatunnel.apache.org
-Subject：[NOTICE] YYYYY for Linkis PPMC
+Cc: private@linkis.apache.org
+Subject：[NOTICE] ${Candidate Name} for Linkis PPMC
 Content:
 Hi everyone,
 
-    YYYYY has been voted as a new member of the Linkis PPMC. 
+    ${Candidate Name} has been voted as a new member of the Linkis PPMC. 
 
     The vote thread is at:
-    https://lists.apache.org/thread/aaaaaxxxx
+    https://lists.apache.org/thread/xx
 
 Thanks!
-xxxxx
 ```
 
 72 小时后，如果董事会不反对提名（大多数情况下不会反对），则可以向候选人发送邀请。
@@ -152,7 +155,7 @@ To: JoeBloggs@foo.net
 Cc: private@linkis.apache.org
 Subject: Invitation to become Linkis committer: Joe Bloggs
     
-Hello [invitee name],
+Hello Joe Bloggs,
 
     The Linkis Podling Project Management Committee] (PPMC) 
     hereby offers you committer privileges to the project 
@@ -211,7 +214,7 @@ The Apache Linkis(Incubating) PPMC
 然后，该邀请将被项目的 PPMC 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
 
 一旦邀请被接受，新的提交者必须采取以下步骤：
-- 订阅`dev@seatunnel.apache.org`。通常这已经完成了。
+- 订阅`dev@linkis.apache.org`。通常这已经完成了。
 - 选择一个未被使用过 [apache committers list page](http://people.apache.org/committer-index.html) 的 Apache ID。
 - 下载 [ICLA](https://www.apache.org/licenses/icla.pdf) org/licenses/cla-corporate.pdf）是预期的）。
 - `icla.pdf`（或`ccla.pdf`）填写正确信息后，打印，手写签名，扫描成PDF，作为附件发送至[secretary@apache.org ]（邮箱：secretary@apache.org）。 （如果首选电子签名，请按照[此页面]（http://www.apache.org/licenses/contributor-agreements.html#submitting）上的步骤操作）
@@ -219,7 +222,7 @@ The Apache Linkis(Incubating) PPMC
 
 详细指引见[开通Apache的github仓库权限](https://docs.qq.com/doc/DVURNYkhMV3llWEhR)
 ```html
-Dear XXX,
+Dear ${Candidate Name},
 
 This message acknowledges receipt of your ICLA, which has been filed in the Apache Software Foundation records.
 
@@ -255,16 +258,16 @@ PPMC 成员应通过 [Roster](https://whimsy.apache.org/roster/committee/linkis)
 如下是通知邮件样例：
 ```html
 To: private@linkis.apache.org
-Subject: [ANNOUNCE] New XXXXXX: YYYYY
+Subject: [ANNOUNCE] New ${Committer/PPMC}: ${Candidate Name}
 Content: 
 Hi all:
     Hi everyone,
 
-    The Project Management Committee(PMC) for Apache Linkis has invited YYYYY to become a XXXXXX and we are pleased to announce that he has accepted.
+    The Project Management Committee(PMC) for Apache Linkis has invited ${Candidate Name} to become a ${Committer/PPMC} and we are pleased to announce that he has accepted.
 
-    YYYYY is being active in the Linkis community, and we are glad to see his more interactions with the community in the future.
+    ${Candidate Name} is being active in the Linkis community, and we are glad to see his more interactions with the community in the future.
 
-    Welcome YYYYY, and please enjoy your journey.:)
+    Welcome ${Candidate Name}, and please enjoy your journey.:)
 
 Thanks!
 The Apache Linkis(Incubating) PPMC
