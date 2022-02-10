@@ -20,7 +20,7 @@ sidebar_position: 2
 ![Open-Apache's-GitHub-warehouse1](https://user-images.githubusercontent.com/29391030/153324492-cc4e4348-5e4b-450f-a23f-6c208e1a26fb.png)
 
 ### 方式2 
-访问https://whimsy.apache.org/roster/committer/xxx(替换成你的apache id)  修改对应的数据，四小时内会收到邀请加入apache的github组织的邀约。
+访问https://whimsy.apache.org/roster/committer/xxx (替换成你的apache id)  修改对应的数据，四小时内会收到邀请加入apache的github组织的邀约。
 注意查收邀请加入apache的github组织的邀约邮件。邀约有效期是7天
 
 ![open-Apache's-GitHub-warehouse2](https://user-images.githubusercontent.com/29391030/153324641-351cf239-c0ff-4fa6-a9f9-46991d4b11fd.png)
@@ -31,7 +31,7 @@ sidebar_position: 2
 
 ## 2、github个人账号安全 开启2FA认证（登陆令牌）
 双因子验证（2FA）是指结合密码以及实物（信用卡、SMS手机、令牌或指纹等生物标志）两种条件对用户进行认证的方法。 为保证提交者账户的安全，我们需要您在GitHub上启用2FA来验证登录用户、并贡献代码。具体内容可参考2FA。
-需在手机端安装TOTP 软件，应用市场搜索TOTP(安卓可用Microsoft Authenticator)，ios苹果手机个人推荐下载authy令牌软件 绑定手机可云端备份。手机短信也支持 但是github配置页面默认没有中国地区手机号+86可以选择，需要修改配置时的前端代码绕过见https://www.programmerall.com/article/5457100195/）。
+需在手机端安装TOTP 软件，应用市场搜索TOTP(安卓可用Microsoft Authenticator)，ios苹果手机个人推荐下载authy令牌软件 绑定手机可云端备份。手机短信也支持 但是github配置页面默认没有中国地区手机号+86可以选择，需要修改配置时的前端代码绕过见https://www.programmerall.com/article/5457100195/ 。
 
 step1 访问个人账号安全设置页面 https://github.com/settings/security 选择第四项[Account security]
 
@@ -76,7 +76,11 @@ step3 mfa status校验
 
 ## 4、其他链接文档
 【github使用TOTP启用2FA认证】 https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
+
 【创建私有Token】   https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+
 【gitbox 介绍】          https://gitbox.apache.org
+
 【apache 和github】  https://infra.apache.org/apache-github.html
+
 【git github &gitbox 】https://cwiki.apache.org/confluence/display/INFRA/Git%2C+GitHub+and+Gitbox
