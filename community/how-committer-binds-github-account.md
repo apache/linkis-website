@@ -1,5 +1,5 @@
 ---
-Title: how can PPMC members open gitHub warehouse of apache
+Title: PPMC members binds github account
 sidebar_ position: 2
 ---
 
