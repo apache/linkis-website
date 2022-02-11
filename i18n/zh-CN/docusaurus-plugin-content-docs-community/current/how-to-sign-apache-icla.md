@@ -4,7 +4,7 @@ sidebar_position: 2
 ---
 
 ## Apache ICLA 签署流程指南
-注：本文参考 incubator-shenyu-website项目的9-icla.md Apache ICLA 签署流程指南文档 https://github.com/apache/incubator-shenyu-website/edit/main/i18n/zh/docusaurus-plugin-content-docs-community/current/9-icla.md
+注：本文参考 incubator-shenyu-website项目的Apache ICLA 签署流程指南文档 https://github.com/apache/incubator-shenyu-website/edit/main/i18n/zh/docusaurus-plugin-content-docs-community/current/9-icla.md
 
 Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是定义向ASF贡献的文档，保护知识产权，避免后续法律纠纷。ICLA在官方存档后生效，贡献者方可参与Apache项目。
 
