@@ -31,7 +31,7 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 
 **5.签署完之后将icla.pdf命令为 `姓名拼音-icla.pdf` 发送到导师提供的邮箱**
 
-**6.邮箱发送成功之后Apache  ShenYu 官方社区告知下**
+**6.邮箱发送成功之后Apache  linkis 官方社区告知下**
 
 ## 手动签名和PDF软件签名DEMO
 
