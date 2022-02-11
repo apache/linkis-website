@@ -45,7 +45,7 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Signature
 > - Save and download signed pdf fils
 > - Send to the specified mailbox
-> - [icla Sign status document](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla签署状态表》，可复制链接后用石墨文档 App 或小程序打开)
+> - Update graphite [icla signature status document]（ https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ Icla signing status table, which can be copied and opened with graphite document app or applet)
 
 > Handwritten signature
 > - Download the PDF source file
@@ -54,7 +54,7 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Handwritten signature
 > - Convert photos into **single pdf** file
 > - Send to the specified mailbox
-> - [icla Sign status document](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla签署状态表》，可复制链接后用石墨文档 App 或小程序打开)
+> - Update graphite [icla signature status document]（ https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ Icla signing status table, which can be copied and opened with graphite document app or applet)
 
 ![doc_example](https://user-images.githubusercontent.com/29391030/153530035-cf22ddd4-6327-4afd-92ae-d37a610ddbfc.png)
 
