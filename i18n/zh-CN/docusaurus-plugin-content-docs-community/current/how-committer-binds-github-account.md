@@ -1,5 +1,5 @@
 ---
-title: PPMC 成员如何开通Apache的github仓库权限
+title: PPMC成员开通Apache的github仓库权限
 sidebar_position: 2
 ---
 
