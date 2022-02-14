@@ -30,8 +30,8 @@ This article will explain the ASF-License and how to avoid the license risk when
 
 When the code you submit has the following scenarios:
 
-- Scenario 1. The source code uses third-party code or static resources. For example, the source code directly uses a code file of another project, and adds text, css, js, pictures, icons, audio and video files. , and modifications made on a third-party basis.
-- Scenario 2. The runtime dependencies of the project are added (that is, the final compilation and packaging will be packaged into the released installation package)
+- Scenario 1. The source code has added(removed) third-party code or static resources. For example, the source code directly uses a code file of another project, and adds text, css, js, pictures, icons, audio and video files. , and modifications made on a third-party basis.
+- Scenario 2. The runtime dependencies of the project are added(removed) (runtime dependencies:the final compilation and packaging will be packaged into the released installation package)
 
 - The imported file in Scenario 1 must be a Class A License of [ASF Third Party License Policy](https://apache.org/legal/resolved.html)
 - The dependencies introduced in Scenario 2 must be Class A/Class B licenses in [ASF Third Party License Policy](https://apache.org/legal/resolved.html), not Class C licenses
@@ -73,7 +73,15 @@ When we need to add new Jars or other external resources, we need to follow thes
 
 * Add the jar name + version you need in tool/dependencies/known-dependencies.txt.
 * Add relevant license information in LICENSE/LICENSE-binary/LICENSE-binary-ui (depending on the actual situation).
-* Append the relevant NOTICE file to NOTICE/NOTICE-binary/NOTIC-binary-ui (determined according to the actual situation). This file must be consistent with the NOTICE file in the code version repository of the dependencies.
+* Append the relevant NOTICE file to NOTICE/NOTICE-binary/NOTICE-binary-ui (determined according to the actual situation). This file must be consistent with the NOTICE file in the code version repository of the dependencies.
+
+:::caution Note
+If the scenario is to remove, then the corresponding reverse operation of the above steps needs to remove the corresponding LICENSE/NOTICE content in the corresponding file. In short, it is necessary to ensure that these files are consistent with the data of the actual source code/compiled package
+- known-dependencies.txt
+- LICENSE/LICENSE-binary/LICENSE-binary-ui
+- NOTICE/NOTICE-binary/NOTICE-binary-ui
+:::
+
 
 ** check dependency license fail**
 
@@ -97,15 +105,15 @@ Follow the steps to add jar to add it.
 ## Appendix
 Attachment: Mail format of new jar
 ````
-[VOTE][New Jar] jetcd-core(registry plugin support etcd3 )
+[VOTE][New/Remove Jar] jetcd-core(registry plugin support etcd3 )
 
 
-(state the purpose, and what the jar needs to be added) Hi, the registry SPI will provide the implementation of etcd3. Therefore, we need to introduce a new jar (jetcd-core, jetcd-launcher (test)), which complies with the Apache-2.0 License. I checked his related dependencies to make sure it complies with the license of the Apache project.
+(state the purpose, and what the jar needs to be added) 
+Hi, the registry SPI will provide the implementation of etcd3. Therefore, we need to introduce a new jar (jetcd-core, jetcd-launcher (test)), which complies with the Apache-2.0 License. I checked his related dependencies to make sure it complies with the license of the Apache project.
 
-new jar :
+new or remove jar :
 
 jetcd-core version -x.x.x license apache2.0
-
 jetcd-launcher (test) version -x.x.x license apache2.0
 
 Dependent jar (which jars it depends on, preferably the accompanying version, and the relevant license agreement):
@@ -117,23 +125,15 @@ grpc-grpclb version -x.x.x license XXX
 netty-all version -x.x.x license XXX
 failsafe version -x.x.x license XXX
 
+If it is a new addition, the email needs to attach the following content
 Related addresses: mainly github address, license file address, notice file address, maven central warehouse address
 
 github address: https://github.com/etcd-io/jetcd
-
-
 license: https://github.com/etcd-io/jetcd/blob/master/LICENSE
-
-
 notice: https://github.com/etcd-io/jetcd/blob/master/NOTICE
 
-
 Maven repository:
-
-
 https://mvnrepository.com/artifact/io.etcd/jetcd-core
-
-
 https://mvnrepository.com/artifact/io.etcd/jetcd-launcher
 ````
 
