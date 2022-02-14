@@ -30,8 +30,8 @@ ASF(Apache基金会)下的开源项目，对于License有着极其严苛的要�
 
 当你提交的代码有如下场景时：
 
-- 场景1. 源码中有新增使用第三方代码或则静态资源，如源码中直接使用了某个其他项目的代码文件文件，新增了文本、css、js、图片、图标、音视频等文件，以及在第三方基础上做的修改。
-- 场景2. 项目的运行态依赖有新增(即最后编译打包会被打包到发布的安装包中的)
+- 场景1. 源码中有新增(或移除)使用第三方代码或则静态资源，如源码中直接使用了某个其他项目的代码文件文件，新增了文本、css、js、图片、图标、音视频等文件，以及在第三方基础上做的修改。
+- 场景2. 项目的运行态依赖有新增(或移除)(运行态依赖:即最后编译打包会被打包到发布的安装包中的)
 
 - 场景1中的引入的文件必须是[ASF第三方许可证策](https://apache.org/legal/resolved.html)的A类License 
 - 场景2中的引入的依赖必须是[ASF第三方许可证策](https://apache.org/legal/resolved.html)中的A类/B类License，不能是C类License
@@ -73,7 +73,14 @@ copyright notice that is included in or attached to the work.
 
 * 在 tool/dependencies/known-dependencies.txt中添加你所需要的jar名称+版本。
 * 在 LICENSE/LICENSE-binary/LICENSE-binary-ui（根据实际情况决定）中添加相关的license信息。
-* 在 NOTICE/NOTICE-binary/NOTIC-binary-ui（根据实际情况决定）中追加相关的NOTICE文件，此文件请务必和依赖项的代码版本仓库中的NOTICE文件一致。
+* 在 NOTICE/NOTICE-binary/NOTICE-binary-ui（根据实际情况决定）中追加相关的NOTICE文件，此文件请务必和依赖项的代码版本仓库中的NOTICE文件一致。
+
+:::caution 注意
+如果是移除的场景，则对应的上述步骤的反向操作，需要在对应的文件中移除相应的LICENSE/NOTICE内容，总之需要保证这几个文件与实际源码/编译包的数据保持一致
+- known-dependencies.txt
+- LICENSE/LICENSE-binary/LICENSE-binary-ui
+- NOTICE/NOTICE-binary/NOTICE-binary-ui
+:::
 
 ** check dependency license fail**
 
@@ -97,15 +104,15 @@ Error: Process completed with exit code 1.
 ## 附件
 附件：新jar的邮件格式 
 ```
-[VOTE][New Jar] jetcd-core(registry plugin support etcd3 ) 
+[VOTE][New/Remove Jar] jetcd-core(registry plugin support etcd3 ) 
 
 
-（说明目的，以及需要添加的 jar 是什么）Hi, the registry SPI will provide the implementation of etcd3. Therefore, we need to introduce a new jar (jetcd-core, jetcd-launcher (test)), which complies with the Apache-2.0 License. I checked his related dependencies to make sure it complies with the license of the Apache project.
+（说明目的，以及需要添加/移除的 jar 是什么）
+Hi, the registry SPI will provide the implementation of etcd3. Therefore, we need to introduce a new jar (jetcd-core, jetcd-launcher (test)), which complies with the Apache-2.0 License. I checked his related dependencies to make sure it complies with the license of the Apache project.
 
-new jar : 
+new or remove jar : 
 
 jetcd-core             version -x.x.x   license apache2.0
-
 jetcd-launcher (test)  version -x.x.x   license apache2.0
 
 dependent jar（它依赖了哪些jar，最好附带版本,以及相关采用的license协议）:
@@ -117,23 +124,15 @@ grpc-grpclb   version -x.x.x  license XXX
 netty-all     version -x.x.x  license XXX
 failsafe      version -x.x.x  license XXX
 
+如果是新增，邮件需要附上如下内容
 相关地址：主要有github地址、license文件地址、notice 文件地址、maven中央仓库地址
 
 github address:https://github.com/etcd-io/jetcd
-
-
 license:https://github.com/etcd-io/jetcd/blob/master/LICENSE
-
-
 notice:https://github.com/etcd-io/jetcd/blob/master/NOTICE
 
-
 Maven repository:
-
-
 https://mvnrepository.com/artifact/io.etcd/jetcd-core
-
-
 https://mvnrepository.com/artifact/io.etcd/jetcd-launcher
 ```
 
