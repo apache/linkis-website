@@ -92,6 +92,11 @@ linkis_configuration_config_value： 插入引擎需要展示的配置
   "method": "/enginePlugin/engineConn/refreshAll"
 }
 ```
+- 示例
+
+```bash
+curl -d '{"method": "/enginePlugin/engineConn/refreshAll"}' -H 'Content-Type: application/json' http://localhost:9103/api/rest_j/v1/rpc/receiveAndReply
+```
 
 2. 重启刷新：通过重启也可以强制刷新引擎目录
 
