@@ -1,16 +1,18 @@
 ---
-title: PPMC开通Apache的github仓库权限
+title: PPMC/Committer 相关权限配置
 sidebar_position: 8
 ---
-> PPMC(Podling Project Management Committee)成员,绑定github账号流程
+> PPMC(Podling Project Management Committee)成员,绑定github账号流程/以及主要邮件订阅
 
-## 流程总览
+## 1. 绑定github账号流程
+
+### 1.1 流程总览
 1. 关联apache账号与github账号
 2. github个人账号安全开启2FA认证
 3. gitbox上开启权限申请
 
-## 1 关联apache Id与github账号
-### 方式1 
+### 1.2关联apache Id与github账号
+**方式1** 
 登陆  https://id.apache.org LDAP中的[Your GitHub Username]字段设置为自己的 GitHub ID。输入密码 点击submit changes 四小时内会收到邀请加入github 上apache organization 的组织的邀约。您的github 账号邮箱，应该会收到一封标题包含“asf-gitbox”的邮件。
 如邀约已过期（7天过期），可以尝试把方式1、方式2都再尝试一下。看看github 账号关联邮箱中，能否重新收到加入ASF org 的邀约邮件(搜索"asf-gitbox")。
 如还未收到邀约，可尝试如下：
@@ -20,7 +22,7 @@ sidebar_position: 8
 
 ![Open-Apache's-GitHub-warehouse1](https://user-images.githubusercontent.com/29391030/153324492-cc4e4348-5e4b-450f-a23f-6c208e1a26fb.png)
 
-### 方式2 
+**方式2** 
 访问https://whimsy.apache.org/roster/committer/xxx (替换成你的apache id)  修改对应的数据，四小时内会收到邀请加入apache的github组织的邀约。
 注意查收邀请加入apache的github组织的邀约邮件。邀约有效期是7天
 
@@ -30,7 +32,7 @@ sidebar_position: 8
 
 ![open-Apache's-GitHub-warehouse3](https://user-images.githubusercontent.com/29391030/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
 
-## 2 开启2FA认证（登陆令牌）
+### 1.3 开启2FA认证（登陆令牌）
 >github个人账号安全 开启2FA认证（登陆令牌）
 
 双因子验证（2FA）是指结合密码以及实物（信用卡、SMS手机、令牌或指纹等生物标志）两种条件对用户进行认证的方法。 为保证提交者账户的安全，我们需要您在GitHub上启用2FA来验证登录用户、并贡献代码。具体内容可参考2FA。
@@ -59,7 +61,7 @@ step4 下载recover codes ，然后进入成功页面 点击done 绑定成功
 
 若后续关闭2FA，将会从本项目中除名，并且无法访问我们的仓库以及来自我们私有仓库的fork仓库。
 
-## 3 gitbox上开启权限申请
+### 1.4 gitbox上开启权限申请
 step1 访问 https://gitbox.apache.org/setup/ 授权关联apache账号 
 
 ![open-Apache's-GitHub-warehouse8](https://user-images.githubusercontent.com/29391030/153325227-f917e9c3-16ea-42d4-8432-4b63fd5849da.png)
@@ -77,7 +79,7 @@ step3 mfa status校验
 
 ![open-Apache's-GitHub-warehouse11](https://user-images.githubusercontent.com/29391030/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
 
-## 4 相关链接文档
+### 1.5 相关链接文档
 【github使用TOTP启用2FA认证】https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
 
 【创建私有Token】   https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
@@ -87,3 +89,40 @@ step3 mfa status校验
 【apache 和github】  https://infra.apache.org/apache-github.html
 
 【git github &gitbox 】https://cwiki.apache.org/confluence/display/INFRA/Git%2C+GitHub+and+Gitbox
+
+## 2. 配置邮件与邮件订阅
+
+### 2.1 关联自己的邮箱
+>详细见 https://infra.apache.org/committer-email.html
+- 方式1：登陆https://id.apache.org/ ,在`Forwarding email address`栏中填写自己的邮件地址(通常是在您提供的独立贡献者许可协议 (ICLA)中提供的地址),保存修改
+- 方式2：登陆https://whimsy.apache.org/roster/committer/__self__ 双击`Email forwarded to` 进行编辑 
+
+### 2.2 配置转发地址
+您不能直接使用您的 Apache 电子邮件地址。您必须为此地址设置转发。当写信到您的 ASF 地址时，系统会将电子邮件转发到您的转发地址。当您回复时，消息会通过 ASF 系统返回，因此与您一起写信的人会看到它来自您的 ASF 地址
+。在您的电子邮件环境中进行配置
+```shell script
+Server: mail-relay.apache.org Port: 587 (STARTTLS), 465 (SSL) User/Pass: {Your LDAP credentials}
+```
+![image](/img/community/mail-relay.png)
+
+
+### 2.2 订阅相关邮件列表
+作为PPMC一员 需要积极参与到社区建设中，推动社区健康发展，承当项目的责任和治理工作,这部分工作很多时候是通过邮件方式进行（讨论/投票/答疑等）,
+每一位PPMC成员都需要订阅以下邮件列表:
+
+|名称|描述|订阅邮件|退订邮件|邮件归档|
+|:-----|:--------|:------|:-------|:-----|
+| [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | linkis的社区活动信息,项目的讨论公告等 | [订阅](mailto:dev-subscribe@linkis.apache.org)   | [退订](mailto:dev-unsubscribe@linkis.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/linkis-dev)   |
+| [private@linkis.apache.org](mailto:private@linkis.apache.org) |此邮件列表是不公开的，PPMC内部可见，主要用于内部讨论 | [订阅](mailto:private-subscribe@linkis.apache.org)   | [退订](mailto:private-unsubscribe@linkis.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/linkis-private)   |
+| [general@incubator.apache.org](mailto:general@incubator.apache.org) | 孵化社区的公开邮件，主要是孵化项目的相关动态 | [订阅](mailto:general-subscribe@incubator.apache.org)   | [退订](mailto:general-unsubscribe@incubator.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/incubator-general)   |
+
+订阅操作可以见指引[订阅邮件列表](how-to-subscribe.md)
+:::caution 注意
+注意:private@linkis.apache.org订阅需要邮件版主(shaofengshi@apache.org)审核，所以订阅时请在邮件内容中附上个人姓名信息，以便版主审核。
+:::
+如果上述订阅不成功可以尝试使用网页端工具:https://whimsy.apache.org/committers/subscribe.cgi
+
+![image](/img/community/subscribe.png)
+
+
+邮件列表订阅情况，PPMC成员可以在此查看:https://whimsy.apache.org/roster/ppmc/linkis
