@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import config from './config';
@@ -6,33 +6,6 @@ import systemConfiguration from '../../js/sysConfig'
 
 export default function() {
   const isBrowser = useIsBrowser();
-
-  const [p1Animation, setP1Animation] = useState(false);
-  const [p2Animation, setP2Animation] = useState(false);
-
-  // componentDidMount() {
-  //   window.addEventListener('scroll', () => {
-  //     const scrollTop = getScrollTop();
-  //     if (scrollTop > 350) {
-  //       this.setState({
-  //         p1Animation: true
-  //       });
-  //     } else {
-  //       this.setState({
-  //         p1Animation: false
-  //       });
-  //     }
-  //     if (scrollTop > 1150) {
-  //       this.setState({
-  //         p2Animation: true
-  //       });
-  //     } else {
-  //       this.setState({
-  //         p2Animation: false
-  //       });
-  //     }
-  //   }, true);
-  // }
 
   const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
   const dataSource = config?.[language];

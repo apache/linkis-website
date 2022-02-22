@@ -1,15 +1,11 @@
 import React, { useState }  from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import config from "../versions/config.json";
 import Layout from '@theme/Layout';
 import styls from './index.module.scss';
 
 export default function() {
     const isBrowser = useIsBrowser();
-
-    const [p1Animation, setP1Animation] = useState(false);
-    const [p2Animation, setP2Animation] = useState(false);
 
     const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
     const dataSource = config?.[language];
