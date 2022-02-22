@@ -95,32 +95,52 @@ public class $testClass {
 } 
 #end
 
-```    
+```   
+![test-0](https://user-images.githubusercontent.com/29391030/155080741-7e6b89db-0ee6-48e1-a858-4123d5bbf2f0.png) 
+
+1.配置配置测试类生成路径  
+原配置：${SOURCEPATH}/test/${PACKAGE}/${FILENAME}
+修改后配置：${SOURCEPATH}/../../test/java/${PACKAGE}/${FILENAME}
+如图：
+![test-1](https://user-images.githubusercontent.com/29391030/155080336-476feba6-2790-43b5-a572-ee0aa6a9586f.png)
+2.选择类——>右键——>Generate——>Junit Test，生成测试类  
+![test-2](https://user-images.githubusercontent.com/29391030/155080650-4fa68c66-5d7c-4e9f-ba63-0c7fc62d9df2.png)
+
 ## 1 单元测试准则
 ### 1.1 目录以及命名准则
 
 - 1.单元测试代码目录
-必须写在如下工程目录：src/test/java，不允许写在业务代码目录下。 说明：源码编译时会跳过此目录，而单元测试框架默认是扫描此目录，测试的配置文件必须放在:src/test/resources文件下
+    必须写在如下工程目录：src/test/java，不允许写在业务代码目录下。   
+    说明：源码编译时会跳过此目录，而单元测试框架默认是扫描此目录，测试的配置文件必须放在:src/test/resources文件下
 
-- 2.测试类所在的包名应该和被测试类所在的包名保持一致
-示例:
-业务类 src/main/java/org/apache/linkis/jobhistory/dao/JobDetailMapper.java
-对应的测试类 src/test/java/org/apache/linkis/jobhistory/dao/JobDetailMapperTest.java
+- 2.测试类所在的包名应该和被测试类所在的包名保持一致  
+    示例:  
+    业务类       src/main/java/org/apache/linkis/jobhistory/dao/JobDetailMapper.java  
+    对应的测试类 src/test/java/org/apache/linkis/jobhistory/dao/JobDetailMapperTest.java
 
-- 3.测试类的命名定义规范：使用Test作为类名的后缀
- 测试类的命名如下：被测试的业务+Test、被测试的接口+Test、被测试的类+Test
+- 3.测试类的命名定义规范：使用Test作为类名的后缀  
+    测试类的命名如下：  
+    被测试的业务+Test、被测试的接口+Test、被测试的类+Test
 
-- 4.测试用例的命名定义规范：使用test作为方法名的前缀
- 测试用例的命名规则是：test+方法名。避免使用test1、test2没有含义的名称，其次需要有必要的函数方法注释。
+- 4.测试用例的命名定义规范：使用test作为方法名的前缀    
+    测试用例的命名规则是：test+方法名。避免使用test1、test2没有含义的名称，其次需要有必要的函数方法注释。
 
 
 ### 1.2 编写准则
 - 1.单元测试中不准使用 System.out 来进行人肉验证，或则if判断来验证（可以使用log进行关键日志输出），必须使用断言 assert 来验证。
-- 2.保持单元测试的独立性。为了保证单元测试稳定可靠且便于维护，单元测试用例之间决不能互相调用，也不能依赖执行的先后次序。 反例：method2 需要依赖 method1 的执行，将执行结果作为 method2 的输入
+
+- 2.保持单元测试的独立性。为了保证单元测试稳定可靠且便于维护，单元测试用例之间决不能互相调用，也不能依赖执行的先后次序。   
+    反例：method2 需要依赖 method1 的执行，将执行结果作为 method2 的输入
+
 - 3.单元测试必须可以重复执行的，不能受到外界环境的影响。 
- 说明：单元测试通常会被放到持续集成中，每次有代码 check in 时单元测试都会被执行。如果单测对外部环境（网络、服务、中间件等）有依赖，容易导致持续集成机制的不可用。 正例：为了不受外界环境影响，要求设计代码时就把被测类的相关依赖改成注入，在测试时用 spring 这样的依赖注入框架注入一个本地（内存）实现或者 Mock 实现。
-- 4.增量代码确保单元测试通过。 说明：新增代码必须补充单元测试，如果新增代码影响了原有单元测试，请修正
-- 5.对于单元测试，要保证测试粒度足够小，有助于精确定位问题。单测粒度一般都是方法级别(工具类或则枚举类等极少场景可以是类级别)。 说明：只有测试粒度小才能在出错时尽快定位到出错位置。单测不负责检查跨类或者跨系统的交互逻辑，那是集成测试的领域。
+    说明：单元测试通常会被放到持续集成中，每次有代码 check in 时单元测试都会被执行。如果单测对外部环境（网络、服务、中间件等）有依赖，容易导致持续集成机制的不可用。   
+    正例：为了不受外界环境影响，要求设计代码时就把被测类的相关依赖改成注入，在测试时用 spring 这样的依赖注入框架注入一个本地（内存）实现或者 Mock 实现。
+ 
+- 4.增量代码确保单元测试通过。   
+    说明：新增代码必须补充单元测试，如果新增代码影响了原有单元测试，请修正
+
+- 5.对于单元测试，要保证测试粒度足够小，有助于精确定位问题。单测粒度一般都是方法级别(工具类或则枚举类等极少场景可以是类级别)。   
+    说明：只有测试粒度小才能在出错时尽快定位到出错位置。单测不负责检查跨类或者跨系统的交互逻辑，那是集成测试的领域。
  
 
  ## 2 断言的使用
@@ -167,36 +187,36 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
     }
 ```
 ### 2.3 断言使用准则
-**对象实例是否相等断言**
-是否是同一个对象实例
-```html
+**对象实例是否相等断言**  
+1.是否是同一个对象实例
+  ```html
     使用Junitd的Assertions.assertEquals
     Assertions.assertEquals(expectedJobDetail, actualJobDetail)
-```
+  ```
 
 
-不是同一个实例，但是比较实例的属性值是否完全相等
-AssertJ
-```html
+  不是同一个实例，但是比较实例的属性值是否完全相等
+  AssertJ
+  ```html
     常用场景 数据库更新操作前/后的对象比较
     使用AssertJ的assertThat断言usingRecursiveComparison模式
     Assertions.assertThat(actualObject).usingRecursiveComparison().isEqualTo(expectedObject);
-```
+  ```
 
 
-2 list等集合结果的断言 
-结果集集合的大小需要断言 
-范围或则具体大size 
+2.list等集合结果的断言 
+  结果集集合的大小需要断言 
+  范围或则具体大size 
 
-结果集集合中的每个对象需要断言,推荐结合stream模式的Predicate进行使用
-示例:
-```java
+  结果集集合中的每个对象需要断言,推荐结合stream模式的Predicate进行使用
+  示例:
+  ```java
     ArrayList<JobRespProtocol> jobRespProtocolArrayList=service.batchChange(jobDetailReqBatchUpdate);
     //list配和stream的predicate进行断言判断
     Predicate<JobRespProtocol> statusPrecate = e -> e.getStatus()==0;
     assertEquals(2, jobRespProtocolArrayList.size());
     assertTrue(jobRespProtocolArrayList.stream().anyMatch(statusPrecate));
-```
+  ```
 
 
 ## 3.单元测试的编写
