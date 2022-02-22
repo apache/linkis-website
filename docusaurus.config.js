@@ -292,7 +292,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           }
           return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
-        sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
     ],
     [
@@ -307,7 +306,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           }
           return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
-        sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
     ],
 
@@ -323,7 +321,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           }
           return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
-        sidebarPath: require.resolve('./sidebarsCommunity.js'),
       },
     ],
 //    [
@@ -338,7 +335,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 //          }
 //          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
 //        },
-//        sidebarPath: require.resolve('./sidebarsCommunity.js'),
 //      },
 //    ],
 
@@ -354,7 +350,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 //          }
 //          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
 //        },
-//        sidebarPath: require.resolve('./sidebarsCommunity.js'),
 //      },
 //    ],
   ]
