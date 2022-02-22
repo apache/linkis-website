@@ -189,10 +189,10 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
 ### 2.3 断言使用准则
 **对象实例是否相等断言**  
 1.是否是同一个对象实例
-```html
+  ```html
     使用Junitd的Assertions.assertEquals
     Assertions.assertEquals(expectedJobDetail, actualJobDetail)
-```
+  ```
 
 
   不是同一个实例，但是比较实例的属性值是否完全相等
