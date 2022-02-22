@@ -1,22 +1,14 @@
 ---
 title: Linkis 部署排障
 ---
-> linkis的部署说明和注意点 
+> linkis的单独部署说明和注意点
 
 ## 1 前置准备
-### 1.1 物料准备
 
-linkis安装包
-建议使用1.X及上版本
-0.X 和1.X的版本差异化比较大，
-1.0.3前是com.webank.wedatasphere.linkis的包名，linkis>=1.0.3为org.apache.linkis的包名
-
-[下载地址](https://github.com/apache/incubator-linkis/releases):https://github.com/apache/incubator-linkis/releases
-
-### linux服务器
+### 1.1 linux服务器
 
 **硬件要求**
-安装linkis 微服务近10个，每个微服务默认配置启动的jvm -Xmx 内存大小为 512M(内存不够的情况下，可以尝试调小至256M，内存足够情况下也可以调大)
+安装linkis 微服务近10个，每个微服务默认配置启动的jvm -Xmx 内存大小为 512M(内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大)
 
 **软件要求**
 基本的软件环境
@@ -41,7 +33,7 @@ command -v sed
 
 ```
 
-### 部署用户
+### 1.2 添加部署用户
 
 部署用户: linkis核心进程的启动用户，同时默认还是admin管理员用户，部署过程中会生成对应的管理员登录密码，位于conf/gateway/properties文件中
 
@@ -51,12 +43,11 @@ linkis支持指定提交、执行的用户。linkis的主要进程服务会通�
 
 先查看系统中是否已经有 hadoop 用户，若已经存在，则直接授权即可；若不存在，先创建用户，再授权。
 
-查看是否存在 hadoop 用户
+查看是否已存在 hadoop 用户
 ```shell script
 $ id hadoop
 uid=2001(hadoop) gid=2001(hadoop) groups=2001(hadoop)
 ```
-
 
 若不存在，则需要创建 hadoop 用户，并加入 hadoop 用户组
 ```shell script
@@ -65,7 +56,6 @@ $ vi /etc/sudoers
 #加上配置
 hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ```
-
 
 修改安装用户的环境变量,`vim /home/hadoop/.bash_rc`配置环境变量，环境变量如下：
 ```shell script
@@ -91,10 +81,18 @@ $ echo $JAVA_HOME
 $ echo $HADOOP_HOME
 ```
 
-<font color=red>以下操作都是在hadoop用户下进行</font>
+<font color='red'>以下操作都是在hadoop用户下进行</font>
+
+### 1.3 安装包准备
+
+linkis安装包，推荐使用1.X及上版本
+0.X 和1.X的版本差异化比较大，
+1.0.3前是com.webank.wedatasphere.linkis的包名，linkis>=1.0.3为org.apache.linkis的包名
+
+[下载地址](https://github.com/apache/incubator-linkis/releases):https://github.com/apache/incubator-linkis/releases
 
 
-### linkis底层依赖
+### 1.4 底层依赖检查
 
 可以执行相应的命令，查看是否支持
 ```shell script
@@ -106,7 +104,7 @@ $ hive --version
 
 ```
 
-### 资源依赖
+### 1.5 资源依赖
 可以访问的mysql数据库资源 用来存储linkis自身的业务元数据的数据库
 可以访问的yarn资源队列 spark/hive/flink引擎的执行都需要yarn队列资源
 可以访问的hive的matedata数据库资源(mysql为例) hive引擎执行时需要
@@ -115,7 +113,8 @@ $ hive --version
 注意hive spark的版本,如果和默认版本区别比较大，最好重新修改版本进行编译
 :::
 
-## 安裝
+## 2. 安裝
+### 2.1  安装包解压
 上传安装包`apache-linkis-1.0.3-incubating-bin.tar.gz`后，进行解压安装包 
 
 ```shell script
@@ -140,7 +139,7 @@ drwxrwxr-x 7 hadoop hadoop      4096 Feb 21 10:13 linkis-package // 实际的软
 ```
 
 
-配置linkis自身数据库信息
+### 2.2 配置linkis自身数据库信息
 ```shell script
 vim deploy-config/db.sh
 
@@ -153,10 +152,10 @@ MYSQL_PASSWORD=xxxxx
 
 ```
 
-配置基础环境变量linkis-env.sh
-文件位置 deploy-config/linkis-env.sh
+### 2.3 配置基础环境变量
+文件位置`deploy-config/linkis-env.sh`
 
-基础目录配置
+#### 基础目录配置
 >请确认部署用户deployUser，拥有这些配置目录的读写权限
 
 ```shell script
@@ -170,14 +169,18 @@ HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis   #  结果集日志等文件路径，用
 
 ENGINECONN_ROOT_PATH=/appcom/tmp #存放执行引擎的工作路径，需要部署用户有写权限的本地目录   wds.linkis.engineconn.root.dir(linkis-cg-engineconnmanager.properties)
 ```
-
-HIVE的MATA配置
+:::notice 注意 
+确认部署用户是否有对应文件目录的读写的权限
+ 
+:::
+#### HIVE的MATA配置
 ```shell script
 HIVE_META_URL=jdbc:mysql://10.10.10.10:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8 # HiveMeta元数据库的URL
 HIVE_META_USER=demo   # HiveMeta元数据库的用户
 HIVE_META_PASSWORD=demo123    # HiveMeta元数据库的密码
 ```
-Yarn的ResourceManager的地址
+
+#### Yarn的ResourceManager的地址
 
 ```shell script
 
@@ -186,7 +189,7 @@ YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088  #可以通过访问http://xx.xx.xx.xx:
 ```
 
 
-LDAP 登录验证
+#### LDAP 登录验证
 >linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于conf/gateway/properties(>=1.0.3版本)。
 ```shell script
 #LDAP配置，默认Linkis只支持部署用户登录，如果需要支持多用户登录可以使用LDAP，需要配置以下参数：
@@ -195,7 +198,8 @@ LDAP 登录验证
 ```
 
 
-基础组件环境信息 最好通过环境变量配置 deploy-config/linkis-env.sh配置文件中不进行配置 直接注释掉
+#### 基础组件环境信息 
+> 最好通过环境变量配置(1.2 添加部署用户中已说明), deploy-config/linkis-env.sh配置文件中可以不进行配置 直接注释掉
 ```shell script
 ###HADOOP CONF DIR
 #HADOOP_CONF_DIR=/appcom/config/hadoop-config
@@ -205,38 +209,40 @@ LDAP 登录验证
 #SPARK_CONF_DIR=/appcom/config/spark-config
 ```
 
-版本信息 
+#### 引擎版本信息 
 ```shell script
 ##如果spark不是2.4.3的版本(可以在linkis-package/lib/linkis-engineconn-plugins/hive/plugin中查看引擎版本)，需要修改参数：
 #SPARK_VERSION=3.1.1
 
 ##如果hive不是2.3.3的版本，需要修改参数：
 #HIVE_VERSION=2.3.4
-
 ```
-版本的具体配置是在 linkis.properties中
+如果配置了，执行安装部署后，实际会在`{linkisInstallPath}/conf/linkis.properties`中被更新，供程序使用
 ```shell script
 #wds.linkis.spark.engine.version=
 #wds.linkis.hive.engine.version=
-#wds.linkis.python.engine.version=
+#wds.
+# linkis.python.engine.version=
 ```
 
-
-微服务启动jvm内存配置
->可以根据机器实际情况进行调整，如果机器内存资源较少，可以尝试调小至256/128M
+#### jvm内存配置
+>微服务启动jvm内存配置，可以根据机器实际情况进行调整，如果机器内存资源较少，可以尝试调小至256/128M
 ```shell script
 ## java application default jvm memory
 export SERVER_HEAP_SIZE="512M"
 ```
 
-安装目录
->linkis最终会被安装到此目录下，不配置默认是与当前安装包统一级目录下
+#### 安装目录配置
+
+>linkis最终会被安装到此目录下，不配置默认是与当前安装包同一级目录下
+>
 ```shell script
 ##The decompression directory and the installation directory need to be inconsistent
 LINKIS_HOME=/appcom/Install/LinkisInstall
 ```
 
-## 执行部署
+## 部署流程
+执行部署脚本 
 sh bin/install.sh
 
 可能遇到的问题

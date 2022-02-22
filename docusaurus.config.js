@@ -48,9 +48,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                 path: '1.0.3',
                 //banner: 'none',
               },
+             '1.0.3': {
+                          //label: 'Next v1.0.3 (WIP)',
+                          path: 'latest',
+                          //banner: 'none',
+              },
               '1.0.2': {
                 //label: 'v1.0.2',
-                path: 'latest',
+                path: '1.0.2',
                 //banner: 'unmaintained',
               },
               '0.11.0': {

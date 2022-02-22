@@ -1,15 +1,14 @@
 ---
 title: 如何编写单元测试代码
-sidebar_position: 3
+sidebar_position: 10
 ---
-## 0 框架选型 
+## 框架选型 
 Junit5+Mockito+jacoco+h2本地数据库 
 Idea增强插件 
 - JUnitGenerator V2.​0  用于生成测试用例的标准模块
 - GenerateAllSet   用于快速new创建对象，并设置默认值
 - MybatisX  ado与mapper的关联映射 方便查看
 
-controller service  
 ### 配置IDEA的Junit的模板 
 ```properties
 ######################################################################################## 
@@ -106,8 +105,8 @@ public class $testClass {
 2.选择类——>右键——>Generate——>Junit Test，生成测试类  
 ![test-2](https://user-images.githubusercontent.com/29391030/155080650-4fa68c66-5d7c-4e9f-ba63-0c7fc62d9df2.png)
 
-## 1 单元测试准则
-### 1.1 目录以及命名准则
+## 单元测试准则
+### 目录以及命名准则
 
 - 1.单元测试代码目录
     必须写在如下工程目录：src/test/java，不允许写在业务代码目录下。   
@@ -126,7 +125,7 @@ public class $testClass {
     测试用例的命名规则是：test+方法名。避免使用test1、test2没有含义的名称，其次需要有必要的函数方法注释。
 
 
-### 1.2 编写准则
+### 编写准则
 - 1.单元测试中不准使用 System.out 来进行人肉验证，或则if判断来验证（可以使用log进行关键日志输出），必须使用断言 assert 来验证。
 
 - 2.保持单元测试的独立性。为了保证单元测试稳定可靠且便于维护，单元测试用例之间决不能互相调用，也不能依赖执行的先后次序。   
@@ -143,11 +142,11 @@ public class $testClass {
     说明：只有测试粒度小才能在出错时尽快定位到出错位置。单测不负责检查跨类或者跨系统的交互逻辑，那是集成测试的领域。
  
 
- ## 2 断言的使用
+ ## 断言的使用
 所有的测试用例的结果验证都必须使用断言模式
 优先使用Junit5的Assertions断言，极少数场景允许使用AssertJ的断言  
 
-### 2.1 Junit5常规断言
+### Junit5常规断言
 
 | 方法 | 说明    | 备注 |
 |--------|-------------|-------------|
@@ -158,7 +157,7 @@ public class $testClass {
 |assertNull| 判断给定的对象引用是否为 null|         | 
 |assertNotNull| 判断给定的对象引用是否不为 null |        | 
 |assertAll| 将多个判断逻辑放在一起处理，只要有一个报错就会导致整体测试不通过 |        | 
-### 2.2 Junit5组合断言和异常断言
+### Junit5组合断言和异常断言
 **组合断言**
 assertAll方法可以将多个判断逻辑放在一起处理，只要有一个报错就会导致整体测试不通过：
 ```java
@@ -186,7 +185,7 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
         log.info("assertThrows通过后，返回的异常实例：{}", exception.getMessage());
     }
 ```
-### 2.3 断言使用准则
+### 断言使用准则
 **对象实例是否相等断言**  
 1.是否是同一个对象实例
   ```html
@@ -219,7 +218,7 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
   ```
 
 
-## 3.单元测试的编写
+## 单元测试的编写
 ### 类的划分
 按类的大功能可以大体分类
 - Controller  提供http服务的controller 配合mockmvc做单元测试 
@@ -230,7 +229,7 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
 - enum类 枚举类   
 - entity类  用于DB交互以及方法处理的参数VO对象等实体类（若除了正常得get set外还有其他自定义函数的需要进行单元测试）
 
-### 3.1 Controller类的单元测试
+### Controller类的单元测试
 使用Mockmvc
 主要验证 接口请求RequestMethod方式，基本参数，以及返回结果预期。
 主要场景:带上非必要参数和不带非必要参数的场景 异常
@@ -264,9 +263,9 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
     }
 
 ``` 
-### 3.2 Server 类的单元测试
-
-### 3.3 Dao 类的单元测试
+### Server 类的单元测试
+    //todo
+### Dao 类的单元测试
 使用H2数据库，配置文件中application.properties中需要配置H2数据库的基本信息，以及mybatis的相关路径信息
 
 ```properties

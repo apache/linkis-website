@@ -26,7 +26,7 @@ sidebar_position: 6
    - 对项目有比较全面的了解
    - 能够把控项目进度和版本质量
    - 积极参与/主导社区建设，推动社区健康发展，主动承当项目的责任和治理工作
-   - 积极恢复 ASF 董事会提出的问题，并采取必要的行动
+   - 积极回复 ASF 董事会提出的问题，并采取必要的行动
    - 熟悉 ASF 的版本发布流程
 
 在大多数情况下，新的 PPMC 成员是从 Committer 团队中提名的。但也可以直接成为 PPMC 成员，只要 PPMC 同意提名，并确信候选人已经准备好。例如，这可以通过他/她曾是 Apache 成员、Apache 官员或另一个项目的 PPMC 成员这一事实来证明。
@@ -220,7 +220,6 @@ The Apache Linkis(Incubating) PPMC
 - `icla.pdf`（或`ccla.pdf`）填写正确信息后，打印，手写签名，扫描成PDF，作为附件发送至[secretary@apache.org ]（邮箱：secretary@apache.org）。 （如果首选电子签名，请按照[此页面]（http://www.apache.org/licenses/contributor-agreements.html#submitting）上的步骤操作）
 - PPMC 将等待Apache秘书确认ICLA（或CCLA）备案。新的提交者和 PPMC 将收到以下电子邮件：
 
-详细指引见[开通Apache的github仓库权限](https://docs.qq.com/doc/DVURNYkhMV3llWEhR)
 ```html
 Dear ${Candidate Name},
 
@@ -240,13 +239,15 @@ for more information about roles at Apache.
 PPMC 成员应通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 将新的提交者添加到官方提交者列表中。
 
 ### 2.7 设置 Apache ID 和开发环境
->需要候选人进行处理
+
 
 - 进入【Apache Account Utility Platform】（https://id.apache.org/），创建密码，设置个人邮箱（`转发邮箱地址`）和GitHub账号（`Your GitHub Username`）。此后不久（2 小时内）将通过电子邮件向您发送组织邀请。
 - 如果您想使用`xxx@apache.org`邮件服务，请参考[这里](https://infra.apache.org/committer-email.html)。推荐使用 Gmail，因为这种转发模式在大多数邮箱服务设置中都不容易找到。
 - 关注【授权GitHub 2FA wiki】(https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) 开启双因素授权（2FA ) 在 [Github](http://github.com/) 上。当您将 2FA 设置为“关闭”时，它将被相应的 Apache committer 写入权限组除名，直到您再次设置它。 （**注意：像对待密码一样注意恢复代码！**）
 - 使用【GitBox Account Linking Utility】（https://gitbox.apache.org/setup/）获取Linkis项目的写权限。
 - [linkis-website](https://linkis.apache.org/team)相关页面更新
+
+详细指引见[PPMC/Committer 相关权限配置](ppmc-related-permission-configuration.md)
 
 如果您想在 Apache GitHub 组织中公开露面，您需要前往 [Apache GitHub 人员页面](https://github.com/orgs/apache/people)，
 搜索自己，然后选择`Organization visibility`为`Public`。

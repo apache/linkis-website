@@ -1,9 +1,9 @@
 ---
-Title: how to write unit test code
-sidebar_ position: 3
+title: How to Write Unit Test Code
+sidebar_position: 10
 ---
 
-## 0 frame selection
+## Frame Selection
 
 Junit5 + mockito + Jacobo + H2 local database
 
@@ -13,9 +13,7 @@ Idea enhancement plugin
 - Create the allnewset object and set the default value for allnewset
 - The association mapping between mybatisx ADO and mapper is easy to view
 
-controller service
-
-### Configure the template of JUnit in idea
+### Configure the Template of JUnit in Idea
 
 ```properties
 
@@ -120,9 +118,9 @@ public class $testClass {
 
 
 
-## 1 unit test criteria
+## Unit Test Criteria
 
-### 1.1 catalogue and naming criteria
+### Catalogue And Naming Citeria
 
 - 1. Unit test code directory
      It must be written in the following project directory: src/test/java. It is not allowed to write in the business code directory.  
@@ -140,7 +138,7 @@ public class $testClass {
 - 4. Specification for naming and defining test cases: use test as the prefix of method names
      The naming rule of test cases is: test + method name. Avoid using names that have no meaning in test1 and test2. Secondly, necessary function and method annotations are required.
 
-### 1.2 preparation criteria
+### Unit Coding Specifications
 
 - 1. System is not allowed to be used in unit test Out for human flesh verification, or if judgment for verification (log can be used for Key log output). Assertion assert must be used for verification.
 
@@ -157,7 +155,7 @@ public class $testClass {
 - 5. For unit testing, it is necessary to ensure that the test granularity is small enough to help accurately locate the problem. Single test granularity is generally at the method level (very few scenarios such as tool classes or enumeration classes can be at the class level).  
      Note: only with small test granularity can we locate the error location as soon as possible. Single test is not responsible for checking cross class or cross system interaction logic, which is the field of integration testing.
 
-## 2 use of assertions    
+## Use of Assertions    
 
     The result verification of all test cases must use the assertion pattern     
         use Assertions.assertEquals
@@ -169,7 +167,7 @@ public class $testClass {
         Assertions.assertThat(actualObject).usingRecursiveComparison().isEqualTo(expectedObject);
 
 
-### 2.1 junit5 general assertion
+### Junit5 General Assertion
 
 | Method | description    | remarks |
 |--------|-------------|-------------|
@@ -181,7 +179,7 @@ public class $testClass {
 |AssertNotNull | judge whether the given object reference is not null|        | 
 |Assert all | multiple judgment logics are processed together. As long as one error is reported, the overall test will fail|        | 
 
-### 2.2 junit5 combined assertion and exception assertion
+### Junit5 Combined Assertion and Exception Assertion
 
 **Composite assertion**
 The assertall method can process multiple judgment logics together. As long as one error is reported, the overall test will fail:
@@ -214,7 +212,7 @@ Example:
     }
   ```
 
-### 2.3 assertion usage criteria
+### Assertion Usage Criteria
 
 **Object instance equality assertion**
 
@@ -248,9 +246,9 @@ assertEquals(2, jobRespProtocolArrayList.size());
 assertTrue(jobRespProtocolArrayList.stream(). anyMatch(statusPrecate));
 ```
 
-## 3. Compilation of unit test
+## Compilation of Unit Test
 
-### Class division
+### Class Division
 
 It can be roughly classified according to the major functions of the class
 
@@ -263,7 +261,7 @@ It can be roughly classified according to the major functions of the class
 -Entity class is used for DB interaction and parameter VO object and other entity classes processed by methods (if there are other user-defined functions besides normal get set, unit test is required)
 
 
-### 3.1 unit test of controller class
+### Unit Test of Controller class
 Using mockmvc
 
 It mainly verifies the requestmethod method of interface request, basic parameters and expected return results.  
@@ -299,16 +297,17 @@ Main scenarios: scenarios with and without unnecessary parameters are abnormal
 
 ``` 
 
-### 3.2 unit test of server class
-
-### 3.3 unit test of Dao class
+### Unit Test of Server class
+   //todo
+   
+### Unit Test of Dao class
 
 Use H2 database, application. In the configuration file In properties, you need to configure the basic information of H2 database and the relevant path information of mybatis  
 
 ```properties
-#h2数据库配置
+#h2 database configuration
 spring.datasource.driver-class-name=org.h2.Driver
-#连接以及初始化表的脚本
+# Script to connect and initialize the table
 spring.datasource.url=jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=true;INIT=runscript from 'classpath:create.sql'
 spring.datasource.username=sa
 spring.datasource.password=
