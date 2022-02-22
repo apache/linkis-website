@@ -76,7 +76,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
                   blogSidebarCount: 'ALL'
                 },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       }),
     ],
@@ -279,7 +279,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       },
     },
   plugins: [
-    'docusaurus-plugin-less',
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-content-docs',
       {

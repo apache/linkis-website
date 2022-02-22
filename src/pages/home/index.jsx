@@ -1,11 +1,8 @@
 import React, { useState }  from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Button from '../../components/Button';
 import config from './config';
-import './index.less';
 import systemConfiguration from '../../js/sysConfig'
-// import 'animate.css';
 
 export default function() {
   const isBrowser = useIsBrowser();

@@ -3,7 +3,7 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import config from "../versions/config.json";
 import Layout from '@theme/Layout';
-import './index.less';
+import styls from './index.module.scss';
 
 export default function() {
     const isBrowser = useIsBrowser();
@@ -16,7 +16,7 @@ export default function() {
 
     return (
         <Layout>
-            <div className="div-one"><br/>
+            <div className="styles.divone"><br/>
                 <h1>{dataSource.title}</h1>
                 <br/>
                 <h3>{dataSource.latestVersion}</h3>
