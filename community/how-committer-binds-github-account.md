@@ -1,7 +1,8 @@
 ---
-Title: PPMC members binds github account
-sidebar_ position: 2
+Title: PPMC Members Binds Github Account
+sidebar_ position: 8
 ---
+> PPMC (Podling Project Management Committee) member, bind github account process
 
 ## Process Overview
 1. Associate Apache account with GitHub account

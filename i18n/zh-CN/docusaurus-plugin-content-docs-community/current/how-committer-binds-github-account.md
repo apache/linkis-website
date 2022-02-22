@@ -1,14 +1,15 @@
 ---
-title: PPMC成员开通Apache的github仓库权限
-sidebar_position: 2
+title: PPMC开通Apache的github仓库权限
+sidebar_position: 8
 ---
+> PPMC(Podling Project Management Committee)成员,绑定github账号流程
 
 ## 流程总览
 1. 关联apache账号与github账号
 2. github个人账号安全开启2FA认证
 3. gitbox上开启权限申请
 
-## 1、关联apache Id与github账号
+## 1 关联apache Id与github账号
 ### 方式1 
 登陆  https://id.apache.org LDAP中的[Your GitHub Username]字段设置为自己的 GitHub ID。输入密码 点击submit changes 四小时内会收到邀请加入github 上apache organization 的组织的邀约。您的github 账号邮箱，应该会收到一封标题包含“asf-gitbox”的邮件。
 如邀约已过期（7天过期），可以尝试把方式1、方式2都再尝试一下。看看github 账号关联邮箱中，能否重新收到加入ASF org 的邀约邮件(搜索"asf-gitbox")。
@@ -29,7 +30,9 @@ sidebar_position: 2
 
 ![open-Apache's-GitHub-warehouse3](https://user-images.githubusercontent.com/29391030/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
 
-## 2、github个人账号安全 开启2FA认证（登陆令牌）
+## 2 开启2FA认证（登陆令牌）
+>github个人账号安全 开启2FA认证（登陆令牌）
+
 双因子验证（2FA）是指结合密码以及实物（信用卡、SMS手机、令牌或指纹等生物标志）两种条件对用户进行认证的方法。 为保证提交者账户的安全，我们需要您在GitHub上启用2FA来验证登录用户、并贡献代码。具体内容可参考2FA。
 需在手机端安装TOTP 软件，应用市场搜索TOTP(安卓可用Microsoft Authenticator)，ios苹果手机个人推荐下载authy令牌软件 绑定手机可云端备份。手机短信也支持 但是github配置页面默认没有中国地区手机号+86可以选择，需要修改配置时的前端代码绕过见https://www.programmerall.com/article/5457100195/ 。
 
@@ -56,7 +59,7 @@ step4 下载recover codes ，然后进入成功页面 点击done 绑定成功
 
 若后续关闭2FA，将会从本项目中除名，并且无法访问我们的仓库以及来自我们私有仓库的fork仓库。
 
-## 3、gitbox上开启权限申请
+## 3 gitbox上开启权限申请
 step1 访问 https://gitbox.apache.org/setup/ 授权关联apache账号 
 
 ![open-Apache's-GitHub-warehouse8](https://user-images.githubusercontent.com/29391030/153325227-f917e9c3-16ea-42d4-8432-4b63fd5849da.png)
@@ -74,12 +77,12 @@ step3 mfa status校验
 
 ![open-Apache's-GitHub-warehouse11](https://user-images.githubusercontent.com/29391030/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
 
-## 4、其他链接文档
-【github使用TOTP启用2FA认证】 https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
+## 4 相关链接文档
+【github使用TOTP启用2FA认证】https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
 
 【创建私有Token】   https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
-【gitbox 介绍】          https://gitbox.apache.org
+【gitbox 介绍】    https://gitbox.apache.org
 
 【apache 和github】  https://infra.apache.org/apache-github.html
 
