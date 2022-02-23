@@ -23,7 +23,7 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 
 ## 新特性
 
-* \[CGS&PES&MGS][[Linkis-1002]](https://github.com/apache/incubator-linkis/pull/1002) http restful api风格使用springmv模式替换jersey，使用spring的DispatcherServletweb，web接口注解方式统一
+* \[CGS&PES&MGS][[Linkis-1002]](https://github.com/apache/incubator-linkis/pull/1002) http restful api风格使用springmvc模式替换jersey，使用spring的DispatcherServlet，web接口注解方式统一
 * \[CGS&PES&MGS][[Linkis-1038]](https://github.com/apache/incubator-linkis/pull/1038) 升级codehaus json至稳定主流的fastxml json版本
 * \[CGS-Engineconn][[Linkis-1027]](https://github.com/apache/incubator-linkis/pull/1027) 支持使用Hadoop的proxyuser机制访问启用kerberos的Hadoop集群
 * \[CGS-EngineConnManager][[Linkis-1248]](https://github.com/apache/incubator-linkis/pull/1248) ECM获取EC日志的功能，可以在EC运行或停止时获取EC的所有日志
@@ -38,7 +38,7 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[Commons][[Linkis-1026]](https://github.com/apache/incubator-linkis/pull/1026) 数据导出到excel的优化，对数字类型的字段更好的支持
 * \[Commons][[Linkis-1036]](https://github.com/apache/incubator-linkis/pull/1036) 共享文件系统在LocalFileSystem模式下的文件权限优化
 * \[Commons][[Linkis-1185]](https://github.com/apache/incubator-linkis/pull/1185) 添加一些scala代码规范检查规则，自动检测scala代码格式
-* \[Orchestrator][[Linkis-1183]](https://github.com/apache/incubator-linkis/pull/1183) 优化计算编排器的循环复杂度较高的代码以及高并发下的Map问题
+* \[Orchestrator][[Linkis-1183]](https://github.com/apache/incubator-linkis/pull/1183) 优化Orchestrator模块中循环复杂度较高的代码以及高并发下的Map问题
 * \[MGS-LinkisServiceGateway][[Linkis-1064]](https://github.com/apache/incubator-linkis/pull/1064) 支持http api的白名单配置，无需用户登录验证即可调用
 * \[CGS-EngineConnManager][[Linkis-1030]](https://github.com/apache/incubator-linkis/pull/1030) 将自定义环境变量从ecm传输到引擎
 * \[CGS-EngineConnPlugin] [[Linkis-1083]](https://github.com/apache/incubator-linkis/pull/1083) 将engineConnPlugin异常类进行统一和优化
@@ -51,8 +51,8 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[CGS-Entrance][[Linkis-1206]](https://github.com/apache/incubator-linkis/pull/1206) 优化entrance逻辑，增加taskID区分任务
 * \[CGS-LinkisManager][[Linkis-1209]](https://github.com/apache/incubator-linkis/pull/1209) 优化manager常用的多项功能:给节点对象添加更新和启动时间属性/yarn资源获取的方法
 * \[CGS-LinkisManager][[Linkis-1213]](https://github.com/apache/incubator-linkis/pull/1213) 优化long-lived标签与不可删除节点的关系
-* \[PES-PublicService][[Linkis-1211]](https://github.com/apache/incubator-linkis/pull/1211) 优化jobhistory的数据库信息更新逻辑，移除实务，增加重试逻辑
-* \[PES-Metadata][[Linkis-1224]](https://github.com/apache/incubator-linkis/pull/1224) 优化datasource/dbs http接口查询结果与登录用户关联限制，可以通过配置文件进行开启与否
+* \[PES-PublicService][[Linkis-1211]](https://github.com/apache/incubator-linkis/pull/1211) 优化jobhistory的数据库信息更新逻辑，移除事务，增加重试逻辑
+* \[PES-Metadata][[Linkis-1224]](https://github.com/apache/incubator-linkis/pull/1224) 优化datasource/dbs http接口查询结果与登录用户关联限制，可以通过配置文件进行开启与关闭
 
 ---
 ## 修复功能
@@ -74,8 +74,8 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[MGS-LinkisServiceGateway][[Linkis-1234]](https://github.com/apache/incubator-linkis/pull/1234) 修复SSO登录内存泄露问题
 * \[CGS-Common][[Linkis-1199]](https://github.com/apache/incubator-linkis/pull/1199) 修复SqlCodeParser对分割符“;”转义成多个SQL
 * \[CGS-Entrance][[Linkis-1073]](https://github.com/apache/incubator-linkis/pull/1073) 修复http api 'entrance/{id}/killJobs' 未使用参数导致的异常{ID}
-* \[CGS-Entrance][[Linkis-1106]](https://github.com/apache/incubator-linkis/pull/1106) VarSubstitutionInterceptor 获取代码类型错误修复
-* \[CGS-Entrance][[Linkis-1149]](https://github.com/apache/incubator-linkis/pull/1149) 修复job任务完成后前台无法获取进度信息的问题数据
+* \[CGS-Entrance][[Linkis-1106]](https://github.com/apache/incubator-linkis/pull/1106) 修复VarSubstitutionInterceptor 获取代码类型错误
+* \[CGS-Entrance][[Linkis-1149]](https://github.com/apache/incubator-linkis/pull/1149) 修复job任务完成后前台无法获取进度信息数据的问题
 * \[CGS-Entrance][[Linkis-1205]](https://github.com/apache/incubator-linkis/pull/1205) 修复了LogWirter的oom错误
 * \[CGS-EngineConnPlugin][[Linkis-1113]](https://github.com/apache/incubator-linkis/pull/1113) 修复bml资源数据记录更新时sql语句错误
 * \[CGS-EngineConnPlugin-JDBC] [[Linkis-923]](https://github.com/apache/incubator-linkis/pull/923) 修复未配置JDBC引擎的连接url的bug
@@ -86,9 +86,9 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[CGS-EngineConnPlugins-Hive][[Linkis-1231]](https://github.com/apache/incubator-linkis/pull/1231) 修复引擎推送多个子任务的进度bug
 * \[PEC-BmlServer][[Linkis-1155]](https://github.com/apache/incubator-linkis/pull/1155) 修复sql语句中使用mysql保留字的问题
 * \[PEC-CSServer][[Linkis-1160]](https://github.com/apache/incubator-linkis/pull/1160) 修复 CsJobListener 中的NPE
-* \[Orchestrator][[Linkis-1179]](https://github.com/apache/incubator-linkis/pull/1179) 修复了orchestrator并发导致的bug
+* \[Orchestrator][[Linkis-1179]](https://github.com/apache/incubator-linkis/pull/1179) 修复了Orchestrator并发导致的bug
 * \[Orchestrator][[Linkis-1186]](https://github.com/apache/incubator-linkis/pull/1186) 修复Orchestrator排队的任务无法被kill的问题
-* \[Console][[Linkis-1121]](https://github.com/apache/incubator-linkis/pull/1121) 从当前请求中获取协议，删除'http'的硬代码
+* \[Console][[Linkis-1121]](https://github.com/apache/incubator-linkis/pull/1121) 从当前请求中获取协议，删除'http'的硬编码方式
 
 ## 其他
 *  ⚠ \[Commons&MGS-LinkisServiceGateway][[Linkis-1192]](https://github.com/apache/incubator-linkis/pull/1092) 第三方依赖mysql-connector-java违反了Apache 许可政策。所以从1.0.3开始移除了对 mysql-connector-java 的依赖，如果只为自己的项目使用，可以自行在项目中增加 mysql-connector-java 依赖。

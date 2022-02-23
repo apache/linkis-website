@@ -24,7 +24,7 @@ Abbreviations:
 
 ## New Feature
 
-* \[CGS&PES&MGS][[Linkis-1002]](https://github.com/apache/incubator-linkis/pull/1002) Deprecate Jersey and use Spring MVC to build HTTP RESTful APIs, use spring's DispatcherServletweb and unify the annotations of the web interface 
+* \[CGS&PES&MGS][[Linkis-1002]](https://github.com/apache/incubator-linkis/pull/1002) Deprecate Jersey and use Spring MVC to build HTTP RESTful APIs, use spring's DispatcherServlet and unify the annotations of the web interface 
 * \[CGS&PES&MGS][[Linkis-1038]](https://github.com/apache/incubator-linkis/pull/1038) Upgrade codehaus json to stable fastxml json
 * \[CGS-Engineconn][[Linkis-1027]](https://github.com/apache/incubator-linkis/pull/1027) Support for accessing kerberos-enabled Hadoop clusters using Hadoop's proxy-user mechanism
 * \[CGS-EngineConnManager][[Linkis-1248]](https://github.com/apache/incubator-linkis/pull/1248) Support ECM to obtain all logs of EC when EC is running or stopped
@@ -39,7 +39,7 @@ Abbreviations:
 * \[Commons][[Linkis-1026]](https://github.com/apache/incubator-linkis/pull/1026) Optimize the display of numeric type fields exported to Excel
 * \[Commons][[Linkis-1036]](https://github.com/apache/incubator-linkis/pull/1036) Optimize the file permissions of the shared file system in LocalFileSystem mode
 * \[Commons][[Linkis-1185]](https://github.com/apache/incubator-linkis/pull/1185) Add some scala code specification checking rules to automatically detect scala code format
-* \[Orchestrator][[Linkis-1183]](https://github.com/apache/incubator-linkis/pull/1183) Optimize the code with high cyclic complexity of the computation orchestrator and the Map problem under high concurrency ,
+* \[Orchestrator][[Linkis-1183]](https://github.com/apache/incubator-linkis/pull/1183) Optimize the code with high cyclic complexity of the Orchestrator module and the Map problem under high concurrency ,
 * \[MGS-LinkisServiceGateway][[Linkis-1064]](https://github.com/apache/incubator-linkis/pull/1064) Support the whitelist configuration of http api, which can be called without user login authentication
 * \[CGS-EngineConnManager][[Linkis-1030]](https://github.com/apache/incubator-linkis/pull/1030) Transfer custom environment variables from ecm to engine
 * \[CGS-EngineConnPlugin] [[Linkis-1083]](https://github.com/apache/incubator-linkis/pull/1083) Unify and optimize the engineConnPlugin exception class
