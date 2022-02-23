@@ -609,4 +609,9 @@ aside {
       }
     }
   }
+  .team-page{
+    .character-list{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
