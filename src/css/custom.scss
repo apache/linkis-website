@@ -230,6 +230,16 @@ aside {
       background: $active-color;
     }
 
+    .top-desc{
+      width: 660px;
+      padding-left: 60px;
+    }
+
+    .bottom-desc{
+      width: 570px;
+      margin: 0 auto;
+    }
+
     svg {
       height: 860px;
       width: 860px;
@@ -542,6 +552,60 @@ aside {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+/** In mobile view, reduce the padding */
+@media screen and (max-width: 1200px) {
+  .ctn-block {
+    width: auto !important;
+  }
+  .corner-botton{
+    white-space: nowrap;
+  }
+  .home-page {
+    &.introduce {
+      padding-bottom: 0;
+    }
+    .concept{
+      grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 20px;
+      .concept-item{
+        &.after{
+          position: static;
+        }
+        text-align: center;
+        .concept-title{
+          border-bottom-right-radius: 24px;
+        }
+      }
+    }
+    .features .feature-item{
+      width: 100%;
+      margin-right: 0;
+    }
+    .description {
+      .bold-dot{
+        display: none;
+      }
+      .description-image{
+        width: 100%;
+        min-height: 160px;
+      }
+      svg{
+        display: none;
+      }
+      .top-desc{
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .bottom-desc{
+        width: 100%;
+        text-align: center;
       }
     }
   }
