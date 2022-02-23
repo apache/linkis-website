@@ -474,30 +474,6 @@ aside {
       justify-content: center;
     }
   }
-  .show-case {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
-    margin-bottom: 20px;
-
-    .case-item {
-      display: flex;
-      min-width: 0;
-      padding: 5px;
-      height: 88px;
-      background: #FFFFFF;
-      box-shadow: 0 1px 20px 0 rgba(15, 18, 34, 0.10);
-      border-radius: 8px;
-      align-items: center;
-      justify-content: center;
-
-      >img {
-        max-width: 90%;
-        max-height: 90%;
-      }
-    }
-  }
 }
 
 .team-page{
@@ -607,6 +583,9 @@ aside {
         width: 100%;
         text-align: center;
       }
+    }
+    .show-case{
+      grid-template-columns: repeat(3, 1fr);
     }
   }
   .team-page{
