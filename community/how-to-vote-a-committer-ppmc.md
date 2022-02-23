@@ -26,7 +26,7 @@ Below are some points to consider when evaluating candidates for commitment elig
    - Have a more comprehensive understanding of the project
    - Ability to control project progress and version quality
    - Actively participate in/lead the construction of the community, promote the healthy development of the community, and take the initiative to undertake the responsibility and governance of the project
-   - Actively revive the issues raised by the ASF Board and take necessary action
+   - Respond proactively to questions raised by the ASF Board and take necessary action
    - Familiar with the release process of ASF
 
 In most cases, new PPMC members are nominated from the Committer team. But it is also possible to become a member of the PPMC directly, as long as the PPMC agrees to the nomination and is confident that the candidate is ready. This can be demonstrated, for example, by the fact that he/she was an Apache member, an Apache official, or a PPMC member of another project.
@@ -218,7 +218,6 @@ Once the invitation is accepted, new submitters must take the following steps:
 - After filling in the correct information in `icla.pdf` (or `ccla.pdf`), print it, sign it by hand, scan it into PDF, and send it as an attachment to [secretary@apache.org] (email: secretary@apache.org). (If electronic signatures are preferred, follow the steps on [this page](http://www.apache.org/licenses/contributor-agreements.html#submitting))
 - PPMC will wait for the Apache Secretary to confirm ICLA (or CCLA) filing. New submitters and PPMC will receive the following email:
 
-For detailed instructions, see [Opening Apache's github repository permissions](https://docs.qq.com/doc/DVURNYkhMV3llWEhR)
 
 ```html
 Dear ${Candidate Name},
@@ -246,6 +245,9 @@ PPMC members should add new committers to the official committer list via [Roste
 - Follow【Authorize GitHub 2FA wiki】(https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) to enable two-factor authorization (2FA) in [Github ](http://github.com/). When you set 2FA to "off", it will be delisted from the corresponding Apache committer write permission group until you set it again. (**Note: pay attention to recovery codes like passwords!**)
 - Use the [GitBox Account Linking Utility] (https://gitbox.apache.org/setup/) to obtain the write permission of the Linkis project.
 - [linkis-website](https://linkis.apache.org/team) related page update
+
+
+For detailed instructions, see [PPMC/Committer Related Permission Configuration](ppmc-related-permission-configuration.md)
 
 If you want to make a public appearance in the Apache GitHub organization, you need to go to the [Apache GitHub people page](https://github.com/orgs/apache/people),
 Search for yourself, then select `Organization visibility` for `Public`.

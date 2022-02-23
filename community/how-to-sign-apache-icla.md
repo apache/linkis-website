@@ -1,6 +1,6 @@
 ---
-title: Apache icla signing process
-sidebar_position: 2
+title: ICLA Signing Process
+sidebar_position: 7
 ---
 
 ## Apache Sign ICLA Guide {#apache-sign-icla-guide}
