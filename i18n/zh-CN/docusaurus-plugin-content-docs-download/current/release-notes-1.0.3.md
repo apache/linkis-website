@@ -61,7 +61,7 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[DB][[Linkis-1087]](https://github.com/apache/incubator-linkis/pull/1087) 删除重复的DDL语句
 * \[Commons][[Linkis-1058]](https://github.com/apache/incubator-linkis/pull/1058) 修复物料上传时，存在子目录时无法压缩导致上传失败的问题
 * \[Commons][[Linkis-1223]](https://github.com/apache/incubator-linkis/pull/1223) 升级 log4j 版本到 2.17.0
-* \[Commons][[Linkis-1052]](https://github.com/apache/incubator-linkis/pull/1052) 修复了当主机名以应用程序名称开头时无法获取路由实例的问题
+* \[Commons][[Linkis-1052]](https://github.com/apache/incubator-linkis/pull/1052) 修复了当主机名以微服务应用名字开头时，无法获取路由实例的问题
 * \[CGS-LinkisManager][[Linkis-1014]](https://github.com/apache/incubator-linkis/pull/1014) 修复object相等判断的错误用法
 * \[CGS-LinkisManager][[Linkis-1054]](https://github.com/apache/incubator-linkis/pull/1054) 修复了当主机名包含服务名时实例标签解析失败的问题。
 * \[CGS-LinkisManager][[Linkis-1074]](https://github.com/apache/incubator-linkis/pull/1074) 修复了http api 'rm/userresources' 的NPE问题
