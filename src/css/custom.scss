@@ -552,6 +552,15 @@ aside {
         &.after{
           position: static;
         }
+        &.before {
+          .concept-ctn{
+            padding: 40px 30px 30px 30px
+          }
+          .before-image{
+            margin: 0;
+            padding: 0;
+          }
+        }
         text-align: center;
         .concept-title{
           border-bottom-right-radius: 24px;
