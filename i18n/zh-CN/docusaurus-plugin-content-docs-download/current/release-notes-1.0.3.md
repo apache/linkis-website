@@ -40,7 +40,7 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[Commons][[Linkis-1185]](https://github.com/apache/incubator-linkis/pull/1185) 添加一些scala代码规范检查规则，自动检测scala代码格式
 * \[Orchestrator][[Linkis-1183]](https://github.com/apache/incubator-linkis/pull/1183) 优化Orchestrator模块中循环复杂度较高的代码以及高并发下的Map问题
 * \[MGS-LinkisServiceGateway][[Linkis-1064]](https://github.com/apache/incubator-linkis/pull/1064) 支持http api的白名单配置，无需用户登录验证即可调用
-* \[CGS-EngineConnManager][[Linkis-1030]](https://github.com/apache/incubator-linkis/pull/1030) 将自定义环境变量从ecm传输到引擎
+* \[CGS-EngineConnManager][[Linkis-1030]](https://github.com/apache/incubator-linkis/pull/1030) 支持将自定义环境变量从ECM传输到EC
 * \[CGS-EngineConnPlugin] [[Linkis-1083]](https://github.com/apache/incubator-linkis/pull/1083) 将engineConnPlugin异常类进行统一和优化
 * \[CGS-EngineConnPlugin][[Linkis-1203]](https://github.com/apache/incubator-linkis/pull/1203) 优化标签更新/删除逻辑
 * \[CGS-EngineConnPlugin-JDBC] [[Linkis-1117]](https://github.com/apache/incubator-linkis/pull/1117) 支持linkis jdbc的kerberos认证类型
@@ -50,7 +50,8 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[CGS-ComputationClient][[Linkis-1126]](https://github.com/apache/incubator-linkis/pull/1126) 支持python matplotlib显示图片
 * \[CGS-Entrance][[Linkis-1206]](https://github.com/apache/incubator-linkis/pull/1206) 优化entrance逻辑，增加taskID区分任务
 * \[CGS-LinkisManager][[Linkis-1209]](https://github.com/apache/incubator-linkis/pull/1209) 优化manager常用的多项功能:给节点对象添加更新和启动时间属性/yarn资源获取的方法
-* \[CGS-LinkisManager][[Linkis-1213]](https://github.com/apache/incubator-linkis/pull/1213) 优化long-lived标签与不可删除节点的关系
+* \[CGS-LinkisManager][[Linkis-1213]](https://github.com/apache/incubator-linkis/pull/1213) 优化保留long-lived标签与节点的关系
+* \[CGS-LinkisManager][[Linkis-1222]](https://github.com/apache/incubator-linkis/pull/1222) 支持ECM注册请求的响应结果返回
 * \[PES-PublicService][[Linkis-1211]](https://github.com/apache/incubator-linkis/pull/1211) 优化jobhistory的数据库信息更新逻辑，移除事务，增加重试逻辑
 * \[PES-Metadata][[Linkis-1224]](https://github.com/apache/incubator-linkis/pull/1224) 优化datasource/dbs http接口查询结果与登录用户关联限制，可以通过配置文件进行开启与关闭
 
@@ -64,11 +65,10 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[CGS-LinkisManager][[Linkis-1014]](https://github.com/apache/incubator-linkis/pull/1014) 修复object相等判断的错误用法
 * \[CGS-LinkisManager][[Linkis-1054]](https://github.com/apache/incubator-linkis/pull/1054) 修复了当主机名包含服务名时实例标签解析失败的问题。
 * \[CGS-LinkisManager][[Linkis-1074]](https://github.com/apache/incubator-linkis/pull/1074) 修复了http api 'rm/userresources' 的NPE问题
-* \[CGS-LinkisManager][[Linkis-1101]](https://github.com/apache/incubator-linkis/pull/1101) 修复引擎不存在时监视器停止引擎的问题
+* \[CGS-LinkisManager][[Linkis-1101]](https://github.com/apache/incubator-linkis/pull/1101) 修复监视器发送引擎心跳RPC请求失败，导致误杀引擎的问题
 * \[CGS-LinkisManager][[Linkis-1210]](https://github.com/apache/incubator-linkis/pull/1210) 修复实例检查和引擎标签排除的bug
 * \[CGS-LinkisManager][[Linkis-1214]](https://github.com/apache/incubator-linkis/pull/1214) 修复多个RM模块高并发bug
 * \[CGS-LinkisManager][[Linkis-1216]](https://github.com/apache/incubator-linkis/pull/1216) 从AM中删除节点监控模块
-* \[CGS-LinkisManager][[Linkis-1222]](https://github.com/apache/incubator-linkis/pull/1222) 添加成功和失败的ECM注册响应
 * \[MGS-LinkisServiceGateway][[Linkis-1093]](https://github.com/apache/incubator-linkis/pull/1093) 修复pass auth uri为空字符可能导致的权限绕过bug
 * \[MGS-LinkisServiceGateway][[Linkis-1105]](https://github.com/apache/incubator-linkis/pull/1105) 修改linkis默认测试账号弱密码问题
 * \[MGS-LinkisServiceGateway][[Linkis-1234]](https://github.com/apache/incubator-linkis/pull/1234) 修复SSO登录内存泄露问题
