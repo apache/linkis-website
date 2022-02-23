@@ -1,41 +1,11 @@
-import React, { useState }  from 'react';
+import React from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Button from '../../components/Button';
 import config from './config';
-import './index.less';
 import systemConfiguration from '../../js/sysConfig'
-// import 'animate.css';
 
 export default function() {
   const isBrowser = useIsBrowser();
-
-  const [p1Animation, setP1Animation] = useState(false);
-  const [p2Animation, setP2Animation] = useState(false);
-
-  // componentDidMount() {
-  //   window.addEventListener('scroll', () => {
-  //     const scrollTop = getScrollTop();
-  //     if (scrollTop > 350) {
-  //       this.setState({
-  //         p1Animation: true
-  //       });
-  //     } else {
-  //       this.setState({
-  //         p1Animation: false
-  //       });
-  //     }
-  //     if (scrollTop > 1150) {
-  //       this.setState({
-  //         p2Animation: true
-  //       });
-  //     } else {
-  //       this.setState({
-  //         p2Animation: false
-  //       });
-  //     }
-  //   }, true);
-  // }
 
   const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
   const dataSource = config?.[language];
@@ -90,56 +60,56 @@ export default function() {
        </div>
      </div>
      <div className="home-page">
-       <div className="ctn-block description">
-          <h1 className="home-block-title text-center">{dataSource.common.description}</h1>
-          <div className="home-block" style={{position:'relative'}}>
-              <div style={{width:'660px','paddingLeft':'60px'}}>
-                <h3 className="home-paragraph-title">{dataSource.home.description.standardizedInterfaces}</h3>
-                <p className="home-paragraph">{dataSource.home.description.paragraph1}</p>
-              </div>
-              <div className="bold-dot" style={{top: '64px', left:'416px'}}></div>
-              <div className="bold-dot" style={{top: '728px',left:'240px'}}></div>
-              <img src={useBaseUrl('/home/description.png')} alt="description" className="description-image"/>
-              <svg width="860" height="860" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="49.8" className="dotted" />
-              </svg>
-              <div style={{width:'570px',margin: '0 auto'}}>
-                <h3 className="home-paragraph-title">{dataSource.home.description.computationGovernance}</h3>
-                <p className="home-paragraph">{dataSource.home.description.paragraph2}</p>
-              </div>
-              <div className="botton-row center">
-                <a href="/#/docs/introduction/index" className="corner-botton blue-fill">{dataSource.common.learnMore}</a>
-              </div>
+      <div className="ctn-block description">
+        <h1 className="home-block-title text-center">{dataSource.common.description}</h1>
+        <div className="home-block" style={{position:'relative'}}>
+            <div className="top-desc">
+              <h3 className="home-paragraph-title">{dataSource.home.description.standardizedInterfaces}</h3>
+              <p className="home-paragraph">{dataSource.home.description.paragraph1}</p>
+            </div>
+            <div className="bold-dot" style={{top: '64px', left:'416px'}}></div>
+            <div className="bold-dot" style={{top: '728px',left:'240px'}}></div>
+            <img src={useBaseUrl('/home/description.png')} alt="description" className="description-image"/>
+            <svg width="860" height="860" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="49.8" className="dotted" />
+            </svg>
+            <div className="top-desc">
+              <h3 className="home-paragraph-title">{dataSource.home.description.computationGovernance}</h3>
+              <p className="home-paragraph">{dataSource.home.description.paragraph2}</p>
+            </div>
+            <div className="botton-row center">
+              <a href="/#/docs/introduction/index" className="corner-botton blue-fill">{dataSource.common.learnMore}</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div className="home-page feature">
+      <div className="ctn-block">
+        <h1 className="home-block-title text-center">{dataSource.common.coreFeatures}</h1>
+        <div className="features home-block text-center">
+          <div className="feature-item connectivity">
+            <h3 className="item-title">{dataSource.common.connectivity}</h3>
+            <p className="item-desc">{dataSource.home.core.connectivity}</p>
           </div>
-       </div>
-     </div>
-     <div className="home-page feature">
-       <div className="ctn-block">
-         <h1 className="home-block-title text-center">{dataSource.common.coreFeatures}</h1>
-         <div className="features home-block text-center">
-           <div className="feature-item connectivity">
-             <h3 className="item-title">{dataSource.common.connectivity}</h3>
-             <p className="item-desc">{dataSource.home.core.connectivity}</p>
-           </div>
-           <div className="feature-item scalability">
-             <h3 className="item-title">{dataSource.common.scalability}</h3>
-             <p className="item-desc">{dataSource.home.core.scalability}</p>
-           </div>
-           <div className="feature-item controllability">
-             <h3 className="item-title">{dataSource.common.controllability}</h3>
-             <p className="item-desc">{dataSource.home.core.controllability}</p>
-           </div>
-           <div className="feature-item orchestration">
-             <h3 className="item-title">{dataSource.common.orchestration}</h3>
-             <p className="item-desc">{dataSource.home.core.orchestration}</p>
-           </div>
-           <div className="feature-item reusability">
-             <h3 className="item-title">{dataSource.common.reusability}</h3>
-             <p className="item-desc">{dataSource.home.core.reusability}</p>
-           </div>
-         </div>
-       </div>
-     </div>
+          <div className="feature-item scalability">
+            <h3 className="item-title">{dataSource.common.scalability}</h3>
+            <p className="item-desc">{dataSource.home.core.scalability}</p>
+          </div>
+          <div className="feature-item controllability">
+            <h3 className="item-title">{dataSource.common.controllability}</h3>
+            <p className="item-desc">{dataSource.home.core.controllability}</p>
+          </div>
+          <div className="feature-item orchestration">
+            <h3 className="item-title">{dataSource.common.orchestration}</h3>
+            <p className="item-desc">{dataSource.home.core.orchestration}</p>
+          </div>
+          <div className="feature-item reusability">
+            <h3 className="item-title">{dataSource.common.reusability}</h3>
+            <p className="item-desc">{dataSource.home.core.reusability}</p>
+          </div>
+        </div>
+      </div>
+    </div>
    </div>
   );
 }
