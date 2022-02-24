@@ -2,7 +2,7 @@
 title: SpringMVC 替换 Jersey 分享
 sidebar_position: 5
 ---
-> 本文主要介绍 linkis-1.0.3 版本，如何使用Spring REST对jersey REST模式的替换，在1.0.3版本之前。linkis提供的REST Web服务是使用的jersey架构，考虑到Linkis本身是基于Spring开发的项目，能更轻松的集成Spring REST模式，同时也更符合linkis社区开发者使用的主流技术。
+> 本文主要介绍 linkis-1.0.3 版本，如何使用Spring REST对jersey REST模式的替换，在1.0.3版本之前。linkis提供的REST Web服务是使用的jersey架构，考虑到Linkis本身是基于Spring开发的项目，能更轻松的集成Spring REST模式，同时Spring REST方式的Lisence合规，与Feign结合度更友好。
 
 
 ## Servlet 的调整
