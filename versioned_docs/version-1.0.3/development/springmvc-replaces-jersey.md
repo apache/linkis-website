@@ -2,8 +2,7 @@
 title: SpringMVC Replaces Jersey 
 sidebar_position: 5
 ---
-> This article mainly introduces linkis-1.0.3 version, how to use Spring REST to replace jersey REST mode, before version 1.0.3. The REST Web service provided by linkis uses the Jersey Architecture. Considering that Linkis itself is a project developed based on Spring, it can integrate the Spring REST mode more easily, and it is also more in line with the mainstream technologies used by developers in the linkis community.
-
+> This article mainly introduces the linkis-1.0.3 version, how to use Spring REST to replace the jersey REST mode. Before version 1.0.3, the REST web services provided by linkis used the jersey architecture. The reason for the replacement is mainly to consider: 1. Lisence compliance issues (https://www.apache.org/legal/resolved.html#); 2. linkis itself is a project developed based on Spring, using Spring REST It is more friendly to combine with Feign.
 
 ## Servlet Adjustment
 
