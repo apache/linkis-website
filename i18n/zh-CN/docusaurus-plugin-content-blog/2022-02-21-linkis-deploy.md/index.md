@@ -221,8 +221,7 @@ YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088  #可以通过访问http://xx.xx.xx.xx:
 ```shell script
 #wds.linkis.spark.engine.version=
 #wds.linkis.hive.engine.version=
-#wds.
-# linkis.python.engine.version=
+#wds.linkis.python.engine.version=
 ```
 
 #### jvm内存配置
