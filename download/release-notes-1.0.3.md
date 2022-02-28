@@ -24,7 +24,7 @@ Abbreviations:
 
 ## New Feature
 
-* \[CGS&PES&MGS][[Linkis-1002]](https://github.com/apache/incubator-linkis/pull/1002) Deprecate Jersey and use Spring MVC to build HTTP RESTful APIs, use spring's DispatcherServletweb and unify the annotations of the web interface 
+* \[CGS&PES&MGS][[Linkis-1002]](https://github.com/apache/incubator-linkis/pull/1002) Deprecate Jersey and use Spring MVC to build HTTP RESTful APIs, use spring's DispatcherServlet and unify the annotations of the web interface 
 * \[CGS&PES&MGS][[Linkis-1038]](https://github.com/apache/incubator-linkis/pull/1038) Upgrade codehaus json to stable fastxml json
 * \[CGS-Engineconn][[Linkis-1027]](https://github.com/apache/incubator-linkis/pull/1027) Support for accessing kerberos-enabled Hadoop clusters using Hadoop's proxy-user mechanism
 * \[CGS-EngineConnManager][[Linkis-1248]](https://github.com/apache/incubator-linkis/pull/1248) Support ECM to obtain all logs of EC when EC is running or stopped
@@ -39,9 +39,9 @@ Abbreviations:
 * \[Commons][[Linkis-1026]](https://github.com/apache/incubator-linkis/pull/1026) Optimize the display of numeric type fields exported to Excel
 * \[Commons][[Linkis-1036]](https://github.com/apache/incubator-linkis/pull/1036) Optimize the file permissions of the shared file system in LocalFileSystem mode
 * \[Commons][[Linkis-1185]](https://github.com/apache/incubator-linkis/pull/1185) Add some scala code specification checking rules to automatically detect scala code format
-* \[Orchestrator][[Linkis-1183]](https://github.com/apache/incubator-linkis/pull/1183) Optimize the code with high cyclic complexity of the computation orchestrator and the Map problem under high concurrency ,
+* \[Orchestrator][[Linkis-1183]](https://github.com/apache/incubator-linkis/pull/1183) Optimize the code with high cyclic complexity of the Orchestrator module and the Map problem under high concurrency ,
 * \[MGS-LinkisServiceGateway][[Linkis-1064]](https://github.com/apache/incubator-linkis/pull/1064) Support the whitelist configuration of http api, which can be called without user login authentication
-* \[CGS-EngineConnManager][[Linkis-1030]](https://github.com/apache/incubator-linkis/pull/1030) Transfer custom environment variables from ecm to engine
+* \[CGS-EngineConnManager][[Linkis-1030]](https://github.com/apache/incubator-linkis/pull/1030) Support for transferring custom environment variables from ECM to EC
 * \[CGS-EngineConnPlugin] [[Linkis-1083]](https://github.com/apache/incubator-linkis/pull/1083) Unify and optimize the engineConnPlugin exception class
 * \[CGS-EngineConnPlugin][[Linkis-1203]](https://github.com/apache/incubator-linkis/pull/1203) Optimize tag update/delete logic
 * \[CGS-EngineConnPlugin-JDBC] [[Linkis-1117]](https://github.com/apache/incubator-linkis/pull/1117) Support kerberos authentication type for linkis jdbc 
@@ -51,7 +51,8 @@ Abbreviations:
 * \[CGS-ComputationClient][[Linkis-1126]](https://github.com/apache/incubator-linkis/pull/1126) Support python matplotlib to display images
 * \[CGS-Entrance][[Linkis-1206]](https://github.com/apache/incubator-linkis/pull/1206) Optimize the logic of Entrance and add taskID to distinguish tasks
 * \[CGS-LinkisManager][[Linkis-1209]](https://github.com/apache/incubator-linkis/pull/1209) Optimize multiple functions commonly used by manager: add update and startup time attributes to node objects /yarn resource acquisition method
-* \[CGS-LinkisManager][[Linkis-1213]](https://github.com/apache/incubator-linkis/pull/1213) Optimize the relationship between long-lived tags and undeletable nodes
+* \[CGS-LinkisManager][[Linkis-1213]](https://github.com/apache/incubator-linkis/pull/1213) Optimize the relationship between long-lived tags and nodes
+* \[CGS-LinkisManager][[Linkis-1222]](https://github.com/apache/incubator-linkis/pull/1222) The response result of the request to support ECM registration is returned
 * \[PES-PublicService][[Linkis-1211]](https://github.com/apache/incubator-linkis/pull/1211) Optimize the database information update logic of jobhistory, remove the transaction, and add retry logic
 * \[PES-Metadata][[Linkis-1224]](https://github.com/apache/incubator-linkis/pull/1224) Remove the association restriction between datasource/dbs http interface query results and logged-in users through parameter configuration
 
@@ -65,11 +66,10 @@ Abbreviations:
 * \[CGS-LinkisManager][[Linkis-1014]](https://github.com/apache/incubator-linkis/pull/1014) Fix the wrong usage of object equality judgment
 * \[CGS-LinkisManager][[Linkis-1054]](https://github.com/apache/incubator-linkis/pull/1054) Fix instance label parsing failure when hostname contains service name.
 * \[CGS-LinkisManager][[Linkis-1074]](https://github.com/apache/incubator-linkis/pull/1074) Fix NPE issue with http api 'rm/userresources'
-* \[CGS-LinkisManager][[Linkis-1101]](https://github.com/apache/incubator-linkis/pull/1101) Fix the problem that the monitor stops the engine when the engine does not exist
+* \[CGS-LinkisManager][[Linkis-1101]](https://github.com/apache/incubator-linkis/pull/1101) Fixed the issue that the monitor failed to send the engine heartbeat RPC request, causing the engine to be killed by mistake
 * \[CGS-LinkisManager][[Linkis-1210]](https://github.com/apache/incubator-linkis/pull/1210) Fix instance check and engine tag exclusion bug
 * \[CGS-LinkisManager][[Linkis-1214]](https://github.com/apache/incubator-linkis/pull/1214) Fix multiple Bugs with high concurrency in RM
 * \[CGS-LinkisManager][[Linkis-1216]](https://github.com/apache/incubator-linkis/pull/1216) Remove node monitor module from AM
-* \[CGS-LinkisManager][[Linkis-1222]](https://github.com/apache/incubator-linkis/pull/1222) Add successful and failed ECM registration responses
 * \[MGS-LinkisServiceGateway][[Linkis-1093]](https://github.com/apache/incubator-linkis/pull/1093) Fix permission bypass when the value of pass auth uri is empty
 * \[MGS-LinkisServiceGateway][[Linkis-1105]](https://github.com/apache/incubator-linkis/pull/1105) Fix linkis default test account weak password problem
 * \[MGS-LinkisServiceGateway][[Linkis-1234]](https://github.com/apache/incubator-linkis/pull/1234) Fix memory leak problem of SSO login
