@@ -3,7 +3,7 @@ title: Linkis 部署排障
 ---
 > linkis的部署说明和注意点
 
-## 1 前置准备注意事项
+## 1. 前置准备注意事项
 
 ### 1.1 linux服务器
 
@@ -113,7 +113,7 @@ $ hive --version
 
 
 ## 2. 安裝
-### 2.1  安装包解压
+### 2.1 安装包解压
 上传安装包`apache-linkis-1.0.3-incubating-bin.tar.gz`后，进行解压安装包 
 
 ```shell script
@@ -238,9 +238,9 @@ export SERVER_HEAP_SIZE="512M"
 LINKIS_HOME=/appcom/Install/LinkisInstall
 ```
 
-## 部署流程
+## 3. 部署流程
 
-### 执行部署脚本 
+### 3.1 执行部署脚本 
 ```shell script
 sh bin/install.sh
 ```
@@ -248,25 +248,25 @@ sh bin/install.sh
 tip：如果出现报错，又不清楚具体是执行什么命令报错，可以加 -v 参数`sh -v bin/install.sh`，将shell脚本执行过程日志打印出来，方便定位问题
 
 
-### 可能遇到的问题  
+### 3.2 可能遇到的问题  
 1.权限问题 mkdir: cannot create directory ‘xxxx’: Permission denied  
 执行成功提示如下  
 Congratulations! You have installed Linkis 1.0.3 successfully, please use sh /data/Install/linkis/sbin/linkis-start-all.sh to start it!  
 Your default account password is \[hadoop/5e8e312b4]  
 
-### 配置的修改
+### 3.3 配置的修改
 安装完成后，如果需要修改配置，可以重新执行安装，或则修改对应${InstallPath}/conf/*properties文件，重启对应的服务
 
-### 添加mysql驱动(>=1.0.3)版本 
+### 3.4 添加mysql驱动(>=1.0.3)版本 
 因为license原因，linkis自身的发布包中(dss集成的全家桶会包含，无需手动添加)移除了mysql-connector-java，需要手动添加  
 具体参见[ 添加mysql驱动包](docs/1.0.3/deployment/quick_deploy#-44-添加mysql驱动包)
 
-### 启动服务
+### 3.5 启动服务
 ```shell script
 sh sbin/linkis-start-all.sh
 ```
 
-### 检查服务是否正常启动 
+### 3.6 检查服务是否正常启动 
 访问eureka服务页面(http://eurekaip:20303)，1.0.x版本，以下服务是必须正常启动
 ```shell script
 LINKIS-CG-ENGINECONNMANAGER
@@ -281,7 +281,7 @@ LINKIS-PS-PUBLICSERVICE
 如果有服务未启动，可以在对应的log/${服务名}.log文件中查看详细异常日志。
 
 
-## 安装web前端
+## 4. 安装web前端
 >主要进行YARN的相关配置
 
 下载前端安装包并解压
@@ -365,7 +365,7 @@ wds.linkis.admin.password= #密码
 
 登录后查看能否正常显示yarn队列资源(如果要使用spark/hive/flink引擎)
 正常如下图所示:  
-![img](./img/yarn-normal.png)
+![yarn-normal](https://user-images.githubusercontent.com/29391030/156343194-f4489bbd-2de3-4aa7-a996-881f3f297849.png)
 
 如果无法显示：
 1 查看yarn地址是否配置正确   
@@ -401,14 +401,13 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 修改方式:linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue]  修改一个可以使用的yarn队列
 可以使用的yarn 队列可以在 rmWebAddress:http://xx.xx.xx.xx:8088 上查看到
 
-## 检查引擎物料资源是否上传成功
+## 5. 检查引擎物料资源是否上传成功
 ```sql
 #登陆到linkis的数据库 
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 正常如下  
-![img](./img/bml.png)
-
+![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。  
 如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](docs/latest/deployment/engine_conn_plugin_installation#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
@@ -464,24 +463,24 @@ linkis-package/lib/linkis-engineconn-plugins/
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 
-安装部署常见问题的排障
+## 6. 安装部署常见问题的排障
 
-1.版本兼容性问题   
+### 6.1 版本兼容性问题   
 
    linkis的引擎支持。默认支持的引擎，可以查看此文档  
    与dss兼容关系可以查看此文档  
    
-2.如何定位服务端异常日志 
+### 6.2 如何定位服务端异常日志 
 
     linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式  
     tail -f log/* |grep -5n exception(或则tail -f log/* |grep -5n ERROR)  
     less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)  
 
-3.执行引擎任务的异常排查 
+### 6.3 执行引擎任务的异常排查 
 
   step1:找到引擎的启动部署目录  
-    方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:      
-    ![img](./img/engine-log.png)  
+    方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
+    ![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
     方式2:如果方式1中没有找到，可以通过找到`conf/linkis-cg-engineconnmanager.properties`配置的`wds.linkis.engineconn.root.dir`的参数，该就是引擎启动部署的目录，下层按执行引擎的用     户进行了隔离(taskId)，如果不清楚taskid，可以按时间排序后进行选择 ll -rt /appcom/tmp/${执行的用户}/workDir   
     
     cd /appcom/tmp/${执行的用户}/workDir/${taskId}  
@@ -498,7 +497,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
    可以通过尝试手动执行脚本，进行调试  
    sh engineConnExec.sh  
 
-4.CDH适配版本的注意事项 
+### 6.4 CDH适配版本的注意事项 
 
   CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修改linkis的源码中的hive/spark版本的依赖，进行重新编译部署。  
   具体可以参考CDH适配博文    
@@ -507,7 +506,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
     [【DSS1.0.0与Linkis1.0.2——JDBC引擎相关问题汇总】](https://mp.weixin.qq.com/s/vcFge4BNiEuW-7OC3P-yaw)  
     [【DSS1.0.0与Linkis1.0.2——Flink引擎相关问题汇总】](https://mp.weixin.qq.com/s/VxZ16IPMd1CvcrvHFuU4RQ)  
 
-5.Http接口的调试  
+### 6.5 Http接口的调试  
 
   方式1 可以开启[免登陆模式指引](docs/latest/api/login_api#2免登录配置)  
   方式2 http请求头添加静态的Token令牌  
@@ -516,28 +515,26 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
   Token-Code:BML-AUTH
   ```
 
-6.异常问题的排查流程  
+### 6.6 异常问题的排查流程  
 
   首先要按上述步骤检查服务/环境等是否都正常启动  
   按上述罗列的一些场景的方式进行基础问题的排查  
   [QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)中查找是否有解决方案，链接：https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq  
   通过搜索issue中的内容,看是否能找到解决方案        
-  ![img](./img/issues.png)    
-  通过官网文档搜索，对于某些问题，可以通过官网搜索关键字进行查询，比如搜索"部署"相关。(如果出现404,请浏览器中刷新一下)        
-  ![img](./img/search.png)    
-   
+  ![issues](https://user-images.githubusercontent.com/29391030/156343419-81cc25e0-aa94-4c06-871c-bb036eb6d4ff.png)    
+  通过官网文档搜索，对于某些问题，可以通过官网搜索关键字进行查询，比如搜索"部署"相关。(如果出现404,请浏览器中刷新一下)          
+  ![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)  
 
-7.相关的资料如何获取 
 
-  linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索相关文档。  
-  
+## 7. 相关的资料如何获取 
 
+linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索相关文档。  
 
 相关博文链接  
-Linkis的技术博文集  https://github.com/apache/incubator-linkis/issues/1233  
-公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18  
-官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction  
-bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  
+- Linkis的技术博文集  https://github.com/apache/incubator-linkis/issues/1233  
+- 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18  
+- 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction  
+- bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  
 
 
 
