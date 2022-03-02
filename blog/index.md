@@ -362,7 +362,7 @@ wds.linkis.admin.password= #Password
 
 After logging in, check whether the yarn queue resources can be displayed normally (if you want to use the spark/hive/flink engine)
 Normally as shown below:    
-![img](./img/yarn-normal.png)  
+![yarn-normal](https://user-images.githubusercontent.com/29391030/156343194-f4489bbd-2de3-4aa7-a996-881f3f297849.png)
 
 If it cannot be displayed:
 1 Check whether the yarn address is configured correctly
@@ -405,7 +405,7 @@ Available yarn queues can be viewed at rmWebAddress:http://xx.xx.xx.xx:8088
 select * from linkis_cg_engine_conn_plugin_bml_resources
 ````
 normal as follows  
-![img](./img/bml.png)  
+![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
 
 
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).  
@@ -479,7 +479,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 
   step1: Find the startup deployment directory of the engine  
     Method 1: If it is displayed in the execution log, you can view it on the management console as shown below:     
-    ![img](./img/engine-log.png)      
+    ![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)    
     Method 2: If it is not found in method 1, you can find the parameter of `wds.linkis.engineconn.root.dir` configured in `conf/linkis-cg-engineconnmanager.properties`, which is the directory where the engine is started and deployed. The user of the execution engine is isolated (taskId). If you do not know the taskid, you can select it after sorting by time. ll -rt /appcom/tmp/${executing user}/workDir
     
     cd /appcom/tmp/${executing user}/workDir/${taskId}  
@@ -520,9 +520,9 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
   Troubleshoot basic problems according to some of the scenarios listed above  
   [QA documentation](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq) Find out if there is a solution, link: https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq  
   See if you can find a solution by searching the content in the issue    
-  ![img](./img/issues.png)    
-  Through the official website document search, for some problems, you can search for keywords through the official website, such as searching for "deployment". (If 404 appears, please refresh your browser)   
-  ![img](./img/search.png)    
+  ![issues](https://user-images.githubusercontent.com/29391030/156343419-81cc25e0-aa94-4c06-871c-bb036eb6d4ff.png)   
+  Through the official website document search, for some problems, you can search for keywords through the official website, such as searching for "deployment". (If 404 appears,   please refresh your browser)     
+  ![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)     
    
 
 ## 7. How to obtain relevant information
