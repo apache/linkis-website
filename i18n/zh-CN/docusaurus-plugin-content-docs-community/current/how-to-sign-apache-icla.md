@@ -43,7 +43,6 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 > - 进入签名
 > - 保存下载已签名pdf
 > - 发送到指定邮箱
-> - 更新石墨[icla 签署状态文档](https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ 《icla签署状态表》，可复制链接后用石墨文档 App 或小程序打开)
 
 
 > 手写签名
