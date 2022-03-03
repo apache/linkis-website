@@ -35,7 +35,7 @@ command -v sed
 
 ### 1.2 添加部署用户
 
-部署用户: linkis核心进程的启动用户，同时此用户会默认授予管理员权限，部署过程中会生成对应的管理员登录密码，位于conf/gateway/properties文件中
+部署用户: linkis核心进程的启动用户，同时此用户会默认授予管理员权限，部署过程中会生成对应的管理员登录密码，位于conf/linkis-mg-gateway.properties文件中
 
 linkis支持指定提交、执行的用户。linkis的主要进程服务会通过sudo -u  ${linkis-user} 切换到对应的执行用户，在执行对应的引擎启动命令，所以引擎进程linkis-engine的进程用户是归属于任务的执行所有者user
 
