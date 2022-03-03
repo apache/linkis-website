@@ -35,7 +35,7 @@ command -v sed
 
 ### 1.2 Add deployment user
 
-Deployment user: the startup user of the linkis core process, and this user will be granted administrator privileges by default, and the corresponding administrator login password will be generated during the deployment process, which is located in the conf/gateway/properties file
+Deployment user: the startup user of the linkis core process, and this user will be granted administrator privileges by default, and the corresponding administrator login password will be generated during the deployment process, which is located in the conf/linkis-mg-gateway.properties file
 
 linkis supports specifying the user who submits and executes. The main process service of linkis will switch to the corresponding execution user through sudo -u ${linkis-user}, and execute the corresponding engine startup command, so the process user of the engine process linkis-engine is the execution owner user belonging to the task
 
