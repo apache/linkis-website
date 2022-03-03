@@ -4,7 +4,7 @@ sidebar_position: 7
 ---
 
 ## Apache Sign ICLA Guide {#apache-sign-icla-guide}
-Note: This article refers to the Apache icla signing process guide document of the incubator-shenyu-website project https://github.com/apache/incubator-shenyu-website/edit/main/community/9-icla.md
+Note: This article refers to the Apache icla signing process guide document of the incubator-shenyu-website project https://shenyu.apache.org/community/icla
 
 Apache CLA short for Apache Contributor License Agreement, the purpose of this agreement is to clearly define the terms under which intellectual property has been contributed to the ASF and thereby allow us to defend the project should there be a legal dispute regarding the software at some future time.
 A signed ICLA is required to be on file before an individual is given commit rights to any ASF project.
@@ -45,7 +45,6 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Signature
 > - Save and download signed pdf fils
 > - Send to the specified mailbox
-> - Update graphite [icla signature status document]（ https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ Icla signing status table, which can be copied and opened with graphite document app or applet)
 
 > Handwritten signature
 > - Download the PDF source file
@@ -54,7 +53,6 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Handwritten signature
 > - Convert photos into **single pdf** file
 > - Send to the specified mailbox
-> - Update graphite [icla signature status document]（ https://shimo.im/sheets/rPqtJcWPDPV9wWPd/MODOC/ Icla signing status table, which can be copied and opened with graphite document app or applet)
 
 ![doc_example](https://user-images.githubusercontent.com/29391030/153530035-cf22ddd4-6327-4afd-92ae-d37a610ddbfc.png)
 
