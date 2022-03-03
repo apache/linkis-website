@@ -365,7 +365,7 @@ Normally as shown below:
 ![yarn-normal](https://user-images.githubusercontent.com/29391030/156343194-f4489bbd-2de3-4aa7-a996-881f3f297849.png)
 
 If it cannot be displayed:  
-### 4.1 Check whether the yarn address is configured correctly
+### 1 Check whether the yarn address is configured correctly
 Database table linkis_cg_rm_external_resource_provider
 Insert yarn data information
 ```sql
@@ -392,7 +392,7 @@ sh sbin/linkis-daemon.sh restart cg-linkismanager
 ````
 
 
-### 4.2 Check whether the yarn queue is correct  
+### 2 Check whether the yarn queue is correct  
 Exception message: desc: queue ide is not exists in YARN.  
 The configuration yarn queue does not exist and needs to be adjusted  
 
