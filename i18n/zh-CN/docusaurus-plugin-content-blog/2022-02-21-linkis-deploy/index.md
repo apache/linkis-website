@@ -35,7 +35,7 @@ command -v sed
 
 ### 1.2 添加部署用户
 
-部署用户: linkis核心进程的启动用户，同时此用户会默认授予管理员权限，部署过程中会生成对应的管理员登录密码，位于conf/gateway/properties文件中
+部署用户: linkis核心进程的启动用户，同时此用户会默认授予管理员权限，部署过程中会生成对应的管理员登录密码，位于conf/linkis-mg-gateway.properties文件中
 
 linkis支持指定提交、执行的用户。linkis的主要进程服务会通过sudo -u  ${linkis-user} 切换到对应的执行用户，在执行对应的引擎启动命令，所以引擎进程linkis-engine的进程用户是归属于任务的执行所有者user
 
@@ -368,7 +368,7 @@ wds.linkis.admin.password= #密码
 ![yarn-normal](https://user-images.githubusercontent.com/29391030/156343194-f4489bbd-2de3-4aa7-a996-881f3f297849.png)
 
 如果无法显示：
-1 查看yarn地址是否配置正确   
+#### 1 查看yarn地址是否配置正确   
 数据库表 linkis_cg_rm_external_resource_provider  
 插入yarn数据信息  
 ```sql
@@ -394,7 +394,7 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 ```
 
 
-2 查看yarn队列是否正确 
+#### 2 查看yarn队列是否正确 
 异常信息:desc: queue ide is not exists in YARN.
 配置yarn队列不存在，需要调整
 

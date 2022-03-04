@@ -35,7 +35,7 @@ command -v sed
 
 ### 1.2 Add deployment user
 
-Deployment user: the startup user of the linkis core process, and this user will be granted administrator privileges by default, and the corresponding administrator login password will be generated during the deployment process, which is located in the conf/gateway/properties file
+Deployment user: the startup user of the linkis core process, and this user will be granted administrator privileges by default, and the corresponding administrator login password will be generated during the deployment process, which is located in the conf/linkis-mg-gateway.properties file
 
 linkis supports specifying the user who submits and executes. The main process service of linkis will switch to the corresponding execution user through sudo -u ${linkis-user}, and execute the corresponding engine startup command, so the process user of the engine process linkis-engine is the execution owner user belonging to the task
 
@@ -364,8 +364,8 @@ After logging in, check whether the yarn queue resources can be displayed normal
 Normally as shown below:    
 ![yarn-normal](https://user-images.githubusercontent.com/29391030/156343194-f4489bbd-2de3-4aa7-a996-881f3f297849.png)
 
-If it cannot be displayed:
-1 Check whether the yarn address is configured correctly
+If it cannot be displayed:  
+#### 1 Check whether the yarn address is configured correctly
 Database table linkis_cg_rm_external_resource_provider
 Insert yarn data information
 ```sql
@@ -392,7 +392,7 @@ sh sbin/linkis-daemon.sh restart cg-linkismanager
 ````
 
 
-2 Check whether the yarn queue is correct  
+#### 2 Check whether the yarn queue is correct  
 Exception message: desc: queue ide is not exists in YARN.  
 The configuration yarn queue does not exist and needs to be adjusted  
 
