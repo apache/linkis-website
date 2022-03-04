@@ -4,15 +4,15 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.apache.org/zh-CN/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Thu, 03 Mar 2022 02:55:10 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Feb 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[Linkis Deployment Troubleshooting]]></title>
-            <link>https://linkis.apache.org/zh-CN/blog/index</link>
-            <guid>Linkis Deployment Troubleshooting</guid>
-            <pubDate>Thu, 03 Mar 2022 02:55:10 GMT</pubDate>
-            <description><![CDATA[Linkis deployment instructions and precautions]]></description>
+            <title><![CDATA[Linkis 部署排障]]></title>
+            <link>https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy</link>
+            <guid>Linkis 部署排障</guid>
+            <pubDate>Mon, 21 Feb 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[linkis的部署说明和注意点]]></description>
         </item>
         <item>
             <title><![CDATA[如何编写博客]]></title>
