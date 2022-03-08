@@ -188,7 +188,7 @@ YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088
 执行spark任务时，需要使用到yarn的ResourceManager，linkis默认它是未开启权限验证的，如果ResourceManager开启了密码权限验证，请安装部署后，修改`linkis_cg_engine_conn_plugin_bml_resources`表数据(或则参见(#todo))
 
 #### LDAP 登录验证
->linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于conf/gateway/properties(>=1.0.3版本)。
+>linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{InstallPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)。
 ```shell script
 #LDAP配置，默认Linkis只支持部署用户登录，如果需要支持多用户登录可以使用LDAP，需要配置以下参数：
 #LDAP_URL=ldap://localhost:1389/
@@ -467,8 +467,8 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 ### 6.1 版本兼容性问题   
 
-   linkis的引擎支持。默认支持的引擎，可以查看此文档  
-   与dss兼容关系可以查看此文档  
+   linkis默认支持的引擎，与dss兼容关系可以查看此文档 https://github.com/apache/incubator-linkis/blob/master/README.md   
+
    
 ### 6.2 如何定位服务端异常日志 
 

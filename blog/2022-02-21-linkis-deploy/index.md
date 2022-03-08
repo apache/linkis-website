@@ -186,7 +186,7 @@ YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088
 When executing spark tasks, you need to use the ResourceManager of yarn. Linkis does not enable permission verification by default. If password permission verification is enabled for ResourceManager, please modify the `linkis_cg_engine_conn_plugin_bml_resources` table data after installation and deployment (or see (#todo))
 
 #### LDAP login authentication
->Linkis uses static users and passwords by default. Static users are deployment users. Static passwords will randomly generate a password string during deployment and store them in conf/gateway/properties (>=1.0.3 version).
+>Linkis uses static users and passwords by default. Static users are deployment users. Static passwords will randomly generate a password string during deployment and store them in {InstallPath}/conf/linkis-mg-gateway.properties (>=1.0.3 version).
 ```shell script
 #LDAP configuration, Linkis only supports deployment user login by default, if you need to support multi-user login, you can use LDAP, you need to configure the following parameters
 number:
@@ -466,8 +466,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 
 ### 6.1 Version compatibility issues
 
-   linkis engine support. Engines supported by default, you can view this document  
-   For compatibility with dss, you can view this document  
+ The engine supported by linkis by default, for compatibility with dss, you can view this document https://github.com/apache/incubator-linkis/blob/master/README.md
    
 ### 6.2 How to locate the server exception log
 
