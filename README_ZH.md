@@ -30,12 +30,13 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 
 ## 2 目录结构
 ```html
+|-- blog      //博客
 |-- community //社区
-|-- docs     //文档  存方下一个即将发布的版本
-|-- download //下载
-|-- faq      //Q&A
+|-- docs      //文档  存放下一个即将发布的版本
+|-- download  //下载
+|-- faq       //Q&A
 |-- i18n    
-|   `-- zh-CN  //国际化中文
+|   `-- zh-CN //国际化中文
 |       |-- code.json
 |       |-- docusaurus-plugin-content-docs
 |       |-- docusaurus-plugin-content-docs-community
