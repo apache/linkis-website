@@ -36,8 +36,9 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 |-- download  //下载
 |-- faq       //Q&A
 |-- i18n    
-|   `-- zh-CN //国际化中文
+|   `-- zh-CN //对应的中文文档
 |       |-- code.json
+|       |-- docusaurus-plugin-content-blog
 |       |-- docusaurus-plugin-content-docs
 |       |-- docusaurus-plugin-content-docs-community
 |       |-- docusaurus-plugin-content-docs-download

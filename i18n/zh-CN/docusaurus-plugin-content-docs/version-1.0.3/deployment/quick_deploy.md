@@ -211,6 +211,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ```bash
     sh bin/install.sh
 ```
+>linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{installPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)
 
 ### 4.2 安装步骤
 
