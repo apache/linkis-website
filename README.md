@@ -30,6 +30,7 @@ This website is compiled using node, using Docusaurus framework components
 
 ## 2 Directory structure
 ```html
+|-- blog
 |-- community 
 |-- docs     //The next version of the document that will be released soon
 |-- download 
