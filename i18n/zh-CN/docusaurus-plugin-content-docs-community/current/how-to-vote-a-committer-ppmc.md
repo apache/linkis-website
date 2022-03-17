@@ -213,10 +213,10 @@ The Apache Linkis(Incubating) PPMC
 新的 Committer 应回复 `private@linkis.apache.org`（选择`reply all`），并表达他/她接受邀请。
 然后，该邀请将被项目的 PPMC 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
 
-一旦邀请被接受，新的提交者必须采取以下步骤：
+一旦邀请被接受，新的提交者需要完成以下事项：
 - 订阅`dev@linkis.apache.org`。通常这已经完成了。
 - 选择一个未被使用过 [apache committers list page](http://people.apache.org/committer-index.html) 的 Apache ID。
-- 下载 [ICLA](https://www.apache.org/licenses/icla.pdf) org/licenses/cla-corporate.pdf）是预期的）。
+- 下载 [ICLA](https://www.apache.org/licenses/icla.pdf)。
 - `icla.pdf`（或`ccla.pdf`）填写正确信息后，打印，手写签名，扫描成PDF，作为附件发送至[secretary@apache.org ]（邮箱：secretary@apache.org）。 （如果首选电子签名，请按照[此页面]（http://www.apache.org/licenses/contributor-agreements.html#submitting）上的步骤操作）
 - PPMC 将等待Apache秘书确认ICLA（或CCLA）备案。新的提交者和 PPMC 将收到以下电子邮件：
 
@@ -234,12 +234,12 @@ for more information about roles at Apache.
 
 万一该帐户未被处理，PPMC 成员应联系项目[Apache Incubator的VP](https://www.apache.org/foundation/), 可以通过 [Apache Account Submission Helper Form](https://whimsy.apache.org/officers/acreq) 请求。
 
-几天后，新的提交者将收到一封确认帐户创建的电子邮件，标题为`Welcome to the Apache Software Foundation (ASF)!`。
+几天后，新的提交者将收到一封来自root@apache.org帐户通知账号创建的电子邮件，标题为`Welcome to the Apache Software Foundation (ASF)!`。
 
-PPMC 成员应通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 将新的提交者添加到官方提交者列表中。
+收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知Linkis PPMC，你的Apache Id账号已经创建，请求将你的Apache Id添加到Linkis的官方提交者列表中。
+(请求Linkis导师通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中）
 
 ### 2.7 设置 Apache ID 和开发环境
-
 
 - 进入【Apache Account Utility Platform】（https://id.apache.org/），创建密码，设置个人邮箱（`转发邮箱地址`）和GitHub账号（`Your GitHub Username`）。此后不久（2 小时内）将通过电子邮件向您发送组织邀请。
 - 如果您想使用`xxx@apache.org`邮件服务，请参考[这里](https://infra.apache.org/committer-email.html)。推荐使用 Gmail，因为这种转发模式在大多数邮箱服务设置中都不容易找到。
