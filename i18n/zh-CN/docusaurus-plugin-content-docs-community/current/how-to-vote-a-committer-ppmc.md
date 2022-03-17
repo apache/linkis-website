@@ -258,7 +258,7 @@ for more information about roles at Apache.
 
 如下是通知邮件样例：
 ```html
-To: private@linkis.apache.org
+To: dev@linkis.apache.org
 Subject: [ANNOUNCE] New ${Committer/PPMC}: ${Candidate Name}
 Content: 
 Hi all:
