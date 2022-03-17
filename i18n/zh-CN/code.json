@@ -59,6 +59,13 @@
     "message": "最新博文导航",
     "description": "The ARIA label for recent posts in the blog sidebar"
   },
+
+  "theme.community.sidebar.Development Specification": {
+    "message": "最新博文导航",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+
+
   "theme.blog.post.plurals": {
     "message": "{count} 篇博文",
     "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
