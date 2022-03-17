@@ -257,7 +257,7 @@ Search for yourself, then select `Organization visibility` for `Public`.
 
 The following is a sample notification email:
 ```html
-To: private@linkis.apache.org
+To: dev@linkis.apache.org
 Subject: [ANNOUNCE] New ${Committer/PPMC}: ${Candidate Name}
 Content:
 Hi all:
