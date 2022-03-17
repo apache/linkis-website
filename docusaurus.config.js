@@ -45,12 +45,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             '1.0.3': {
               //label: 'Next v1.0.3 (WIP)',
-              path: '1.0.3',
+              path: 'latest',
               //banner: 'none',
             },
             '1.0.2': {
               //label: 'v1.0.2',
-              path: 'latest',
+              path: '1.0.2',
               //banner: 'unmaintained',
             },
             '0.11.0': {
@@ -79,6 +79,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           blogSidebarCount: 'ALL'
         },
+      community: {
+          // routeBasePath: '/',
+          path: 'community',
+          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarCollapsible: true,
+            },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
         },
@@ -187,18 +193,18 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: "1.0.3",
-              to: "/docs/1.0.3/introduction",
+              to: "/docs/latest/introduction",
             },
             {
               label: "1.0.2",
-              to: "/docs/latest/introduction",
+              to: "/docs/1.0.2/introduction",
             },
             {
               label: "0.11.0",
               to: "/docs/0.11.0/introduction",
             },
             {
-              label: "All versions",
+              label: "All Versions",
               to: "/versions/",
             },
           ],
@@ -282,6 +288,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         id: 'community',
         path: 'community',
         routeBasePath: 'community',
+        sidebarPath: require.resolve('./sidebars.js'),
+        sidebarCollapsible: true,
         editUrl: ({
           locale,
           versionDocsDirPath,

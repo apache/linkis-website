@@ -15,7 +15,7 @@
         {
           "versionLabel": "1.0.3",
           "downloadUrl": "/zh-CN/download/release-1.0.3",
-          "docUrl": "/zh-CN/docs/1.0.3/introduction",
+          "docUrl": "/zh-CN/docs/latest/introduction",
           "sourceTag":"1.0.3"
         }
       ],
@@ -29,7 +29,7 @@
         {
           "versionLabel": "1.0.2",
           "downloadUrl": "/zh-CN/download/release-1.0.2",
-          "docUrl": "/zh-CN/docs/latest/introduction",
+          "docUrl": "/zh-CN/docs/1.0.2/introduction",
           "sourceTag":"1.0.2"
         },
         {
@@ -58,7 +58,7 @@
           "versionLabel": "1.0.3",
           "docUrl": "/docs/1.0.3/introduction",
           "downloadUrl": "/download/release-1.0.3",
-          "sourceTag":"1.0.3"
+          "sourceTag":"latest"
         }
       ],
       "nextData": [
@@ -71,7 +71,7 @@
         {
           "versionLabel": "1.0.2",
           "downloadUrl": "/download/release-1.0.2",
-          "docUrl": "/docs/latest/introduction",
+          "docUrl": "/docs/1.0.2/introduction",
           "sourceTag":"1.0.2"
         },
         {
