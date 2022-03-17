@@ -12,7 +12,7 @@ Linkis 1.0 将所有微服务总体划分为三大类：公共增强服务、计
 
 1. 公共增强服务为 Linkis 0.X 已经提供的物料库服务、上下文服务、数据源服务和公共服务等；
     
-2. 微服务治理服务为 Linkis 0.X 已经提供的 Spring Cloud Gateway、Eureka 和 Open Feign，同时 Linkis1.0 还会提供对 Nacos 的支持；
+2. 微服务治理服务为 Linkis 0.X 已经提供的 Spring Cloud Gateway、Eureka 和 Open Feign，同时 Linkis1.X 后续会计划提供对 Nacos 的支持；
     
 3. 计算治理服务是 Linkis 1.0 的核心重点，从 提交 —> 准备 —> 执行三个阶段，来全面升级 Linkis 对 用户任务的执行管控能力。
 
