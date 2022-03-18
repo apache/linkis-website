@@ -43,7 +43,7 @@ object LinkisDataSourceClientTest {
 
   def main(args: Array[String]): Unit = {
     val clientConfig =DWSClientConfigBuilder.newBuilder
-      .addServerUrl("http://172.24.2.231:9001") //set linkis-mg-gateway url: http://{ip}:{port}
+      .addServerUrl("http://127.0.0.1:9001") //set linkis-mg-gateway url: http://{ip}:{port}
       .connectionTimeout(30000) //connection timtout
       .discoveryEnabled(false) //disable discovery
       .discoveryFrequency(1, TimeUnit.MINUTES)  // discovery frequency
