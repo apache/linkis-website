@@ -14,7 +14,7 @@ SkyWalking is an open source observability platform used to collect, analyze, ag
 
 The following figure is the overall architecture of SkyWalking.
 
-![](./Images/SkyWalking_Architecture.png)
+![](./images/SkyWalking_Architecture.png)
 
 SkyWalking is logically split into four parts: Probes, Platform backend, Storage and UI.
 - **Probe**s collect data and reformat them for SkyWalking requirements (different probes support different sources).
@@ -36,7 +36,7 @@ The SkyWalking backend is a prerequisite for enabling SkyWalk. The following is 
 
 First download SkyWalking APM from SkyWalking's [Downloads](https://skywalking.apache.org/downloads/) page.
 
-![](./Images/SkyWalking_APM_Download.png)
+![](./images/SkyWalking_APM_Download.png)
 
 After downloading, unzip it directly, and we get the following directory structure.
 ```bash
@@ -96,7 +96,7 @@ It is assumed here that the service deployment of Linkis is relatively clear. If
 
 To start SkyWalking in Linkis, you first need to download the Java agent of SkyWalking, we can download it from the [Downloads](https://skywalking.apache.org/downloads/) page.
 
-![](./Images/SkyWalking_Agent_Download.png)
+![](./images/SkyWalking_Agent_Download.png)
 
 After downloading, unzip it directly, the internal file structure is as follows:
 ```bash
@@ -143,8 +143,8 @@ $ bash linkis-start-all.sh
 
 The UI port of Linkis starts at port 8080 by default. After Linkis opens SkyWalking and opens the UI, if you can see the following picture, it means success.
 
-![](./Images/SkyWalking_UI_Dashboard.png)
+![](./images/SkyWalking_UI_Dashboard.png)
 
-![](./Images/SkyWalking_UI_Dashboard2.png)
+![](./images/SkyWalking_UI_Dashboard2.png)
 
-![](./Images/SkyWalking_Topology.png)
+![](./images/SkyWalking_Topology.png)
