@@ -32,8 +32,8 @@ sidebar_position: 3
 
 ### 核心流程
 
-1、 客户端输入指定的数据源ID，通过restful接口获取信息，如查询数据源ID为1的数据库列表，，则url为http://<meta-server-url>/metadatamanager/dbs/1，
+1、 客户端输入指定的数据源ID，通过restful接口获取信息，如查询数据源ID为1的数据库列表，，则url为`http://<meta-server-url>/metadatamanager/dbs/1`，
 
-2、 根据数据源ID，通过RPC访问数据源服务<data-source-manager>获取到数据源类型
+2、 根据数据源ID，通过RPC访问数据源服务`<data-source-manager>`获取到数据源类型
 
 3、 根据数据源类型，加载对应的Service服务[hive\es\kafka\mysql]，执行对应的操作，然后返回；

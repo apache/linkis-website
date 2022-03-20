@@ -1,19 +1,7 @@
-# Linkis Release-1.1.0
-<font color='red'> This is Non-ASF Version </font> 
-
-使用以下链接下载Linkis
-
-## Linkis
-| 日期 | 版本| 备注 | 下载 |
-|:-----|:--------|:------|:-------|
-| 2022-03-18 | 1.1.0 | 源码 | [[SRC](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.3.tar.gz)] |
-| |                 | 二进制包 | [[BIN](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.1.0/wedatasphere-linkis-1.1.0-combined-package-dist.tar.gz)] |
-
-
-### 发布完整性
-   您必须[验证](https://www.apache.org/info/verification.html) 下载文件的完整性。 我们为每个发布文件提供 OpenPGP 签名。 此签名应与包含 Linkis 发布经理的 OpenPGP 密钥的 [KEYS](https://downloads.apache.org/incubator/linkis/KEYS) 文件匹配。 我们还为每个发布文件提供 <code>SHA-512</code> 校验和。 下载文件后，您应该计算下载的校验和，并确保它与我们的相同。
-
-## 发行说明
+---
+title: Release Notes 1.0.1-RC1
+sidebar_position: 8
+--- 
 
 Linkis-1.1.0 包括所有 [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3)。
 
@@ -104,9 +92,3 @@ MDS: MetaData Manager Service
 ## 致谢 
 
 Linkis 1.1.0 的成功发布离不开 Linkis 社区的贡献者。感谢所有社区贡献者！
-
----
-## 编译版本
-
-**腾讯云**：
-[Linkis-1.1.0 Compiled (.tar.gz)](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.1.0-combined-package-dist.tar.gz)

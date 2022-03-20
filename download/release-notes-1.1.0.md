@@ -1,6 +1,6 @@
 ---
-title: Release Notes 1.1.0
-sidebar_position: 10
+title: Release Notes 1.1.0-RC1
+sidebar_position: 8
 ​--- 
 
 Apache Linkis(incubating) 1.1.0 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/14).
