@@ -20,7 +20,7 @@ sidebar_position: 3
 
 ## 架构图
 
-![BML架构图](../../images/architecture/meta-server.png)
+![BML架构图](/Images-zh/Architecture/datasource/meta-server.png)
 
 ## 架构说明
 
