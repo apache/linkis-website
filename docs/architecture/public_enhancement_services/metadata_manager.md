@@ -20,7 +20,7 @@ This article mainly involves the MetaData Manager Server data source management 
 
 ## Architecture Diagram
 
-![Data Source Architecture Diagram](../../images/architecture/meta-server.png)
+![Data Source Architecture Diagram](/Images-zh/Architecture/datasource/meta-server.png)
 
 ## Architecture Description
 
