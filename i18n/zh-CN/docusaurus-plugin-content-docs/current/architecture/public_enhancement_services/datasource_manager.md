@@ -22,7 +22,7 @@ sidebar_position: 3
 
 ## 架构图
 
-![BML架构图](../../images/architecture/linkis-datasource-server.PNG)
+![datasource结构图](/Images-zh/Architecture/datasource/linkis-datasource-server.png)
 
 ## 架构说明
 
@@ -57,7 +57,7 @@ sidebar_position: 3
 
 ##### 数据库关系图：
 
-![](../../images/architecture/dn-db.png)
+![](/Images-zh/Architecture/datasource/dn-db.png)
 
 ##### 数据表定义：
 

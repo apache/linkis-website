@@ -20,7 +20,7 @@ This article mainly involves the MetaData Manager Server data source management 
 
 ## Architecture Diagram
 
-![Data Source Architecture Diagram](../../images/architecture/meta-server.png)
+![Data Source Architecture Diagram](/Images-zh/Architecture/datasource/meta-server.png)
 
 ## Architecture Description
 
@@ -32,8 +32,8 @@ This article mainly involves the MetaData Manager Server data source management 
 
 ### Core Process
 
-1、 The client enters the specified data source ID and obtains information through the restful interface. For example, to query the database list with the data source ID of 1, the url is http://<meta-server-url>/metadatamanager/dbs/1，
+1、 The client enters the specified data source ID and obtains information through the restful interface. For example, to query the database list with the data source ID of 1, the url is `http://<meta-server-url>/metadatamanager/dbs/1`，
 
-2、 According to the data source ID, access the data source service <data-source-manager> through RPC to obtain the data source type;
+2、 According to the data source ID, access the data source service `<data-source-manager>` through RPC to obtain the data source type;
 
 3、 According to the data source type, load the corresponding Service service [hive\es\kafka\mysql], perform the corresponding operation, and then return;

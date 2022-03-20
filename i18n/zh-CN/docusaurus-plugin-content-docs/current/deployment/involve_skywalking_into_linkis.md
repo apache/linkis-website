@@ -16,7 +16,7 @@ SkyWalking 是开源的可视化平台，可以从多种数据源采集数据，
 
 下图是 SkyWalking 的整体架构图。
 
-![](./images/SkyWalking_Architecture.png)
+![](/Images-zh/deployment/skywalking/SkyWalking_Architecture.png)
 
 从逻辑上可以划分成 4 个部分：
 * **Probe**：可以理解为数据采集 agent，主要负责数据采集和格式化。
@@ -37,7 +37,7 @@ SkyWalking 后端是开启 SkyWalk 的前置条件，下面先简单演示下如
 
 首先从 SkyWalking 的 [Downloads](https://skywalking.apache.org/downloads/) 页面下载 SkyWalking APM。
 
-![](./images/SkyWalking_APM_Download.png)
+![](/Images-zh/deployment/skywalking/SkyWalking_APM_Download.png)
 
 下载完，直接解压得到如下的目录结构。
 
@@ -99,7 +99,7 @@ management:
 
 在 Linkis 中开启 SkyWalking 首先需要下载 SkyWalking 的 Java agent，我们可以在 [Downloads](https://skywalking.apache.org/downloads/) 页面进行下载。
 
-![](./images/SkyWalking_Agent_Download.png)
+![](/Images-zh/deployment/skywalking/SkyWalking_Agent_Download.png)
 
 下载之后解压，内部的文件结构如下：
 ```bash
@@ -142,9 +142,9 @@ $ bash linkis-start-all.sh
 
 ## 4. 结果展示
 Linkis 的 UI 端口默认启动在 8080 端口，Linkis 开启 SkyWalking 之后打开 UI 如果能看到如下的图就表示成功了。
-![](./images/SkyWalking_UI_Dashboard.png)
+![](/Images-zh/deployment/skywalking/SkyWalking_UI_Dashboard.png)
 
-![](./images/SkyWalking_UI_Dashboard2.png)
+![](/Images-zh/deployment/skywalking/SkyWalking_UI_Dashboard2.png)
 
-![](./images/SkyWalking_Topology.png)
+![](/Images-zh/deployment/skywalking/SkyWalking_Topology.png)
 

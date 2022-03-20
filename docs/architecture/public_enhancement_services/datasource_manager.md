@@ -2,7 +2,7 @@
 title: Data Source Management Service Architecture
 sidebar_position: 3
 ---
-## 背景
+## Background
 
 Exchangis0.x and Linkis0.x in earlier versions both have integrated data source modules. In order to manage the ability to reuse data sources, Linkis reconstructs the data source module based on linkis-datasource (refer to related documents), and converts the data source Management unpacks into data source management services and metadata management services。
 
@@ -22,7 +22,7 @@ This article mainly involves the DataSource Manager Server data source managemen
 
 ## Architecture Diagram
 
-![datasource Architecture diagram](../../images/architecture/linkis-datasource-server.PNG)
+![datasource Architecture diagram](/Images/Architecture/datasource/linkis-datasource-server.png)
 
 ## Architecture Description
 
@@ -42,7 +42,7 @@ This article mainly involves the DataSource Manager Server data source managemen
 
 3、 To update the data source parameters, firstly, the user of the new data source will be obtained from the request to determine whether the user is valid, and the detailed data source information will be obtained according to the passed parameter data source ID, and then it will be determined whether the user is the owner of the changed data source or not. For the administrator, if there is any, the modified parameters will be further verified, and the parameters will be updated after passing, and the versionId will be returned.
 
-## 实体对象
+## Entity Object
 
 | Class Name                   | Describe                                                     |
 | ---------------------------- | ------------------------------------------------------------ |
@@ -57,7 +57,7 @@ This article mainly involves the DataSource Manager Server data source managemen
 
 ##### Database Diagram：
 
-![](../../images/architecture/dn-db.png)
+![](/Images-zh/Architecture/datasource/dn-db.png)
 
 ##### Data Table Definition：
 
@@ -81,7 +81,7 @@ Table：linkis-ps-dm-datatsource <-->Object：DataSource
 | 14            | expire               | Whether the data source is out of date |
 | 15            | published_version_id | Data source release version number     |
 
-表名：linkis_ps_dm_datasource_type <-->Object：DataSourceType
+Table Name：linkis_ps_dm_datasource_type <-->Object：DataSourceType
 
 | Serial Number | Column      | Describe                       |
 | ------------- | ----------- | ------------------------------ |
