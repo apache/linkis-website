@@ -19,7 +19,7 @@ The first way depends on the JDBC module in the pom:
 1. Enter the ujes/jdbc directory in the Linkis project and enter the command in the terminal to package `mvn assembly:assembly -Dmaven.test.skip=true`
 The packaging instruction skips the running of the unit test and the compilation of the test code, and packages the dependencies required by the JDBC module into the Jar package.  
 2. After the packaging is complete, two Jar packages will be generated in the target directory of JDBC. The one with dependencies in the Jar package name is the Jar package we need.  
-### Second, create a test category:
+### 2. Create A Test Category
 Establish a Java test class LinkisClientImplTestJ, the specific interface meaning can be seen in the notes:  
 ```java
  public static void main(String[] args) throws SQLException, ClassNotFoundException {
