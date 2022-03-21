@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.1.0-RC1
-sidebar_position: 8
+sidebar_position: 0
 --- 
 
 Apache Linkis(incubating) 1.1.0 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/14).
@@ -75,7 +75,6 @@ Abbreviations:
 * \[ALL][[Linkis-1571]](https://github.com/apache/incubator-linkis/pull/1571) adjust distribution.xml:exclude unnecessary dependency
 * \[MDS&DMS][[Linkis-1599]](https://github.com/apache/incubator-linkis/pull/1599)  Add new 3rd party apps add license file   
 
----------
 
 ## Credits 
 
