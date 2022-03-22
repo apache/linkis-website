@@ -134,7 +134,7 @@ Decompress the installation package to the installation directory and modify the
 
     #SSH_PORT=22        #Specify SSH port. No need to configuer if the stand-alone version is installed
     deployUser=hadoop      #Specify deploy user
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # Specify installation directory.
+    LINKIS_HOME=/appcom/Install/Linkis    # Specify installation directory.
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # Specify user root directory. Generally used to store user's script and log files, it's user's workspace. 
     RESULT_SET_ROOT_PATH=file:///tmp/linkis   # The result set file path, used to store the result set files of the Job.
 	ENGINECONN_ROOT_PATH=/appcom/tmp #Store the installation path of ECP. A local directory where deploy user has write permission.

@@ -136,7 +136,7 @@ Linkis1.0 默认已适配的引擎列表如下：
 
     #SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
     deployUser=hadoop      #指定部署用户
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # 指定安装目录
+    LINKIS_HOME=/appcom/Install/Linkis    # 指定安装目录
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # 指定用户根目录，一般用于存储用户的脚本文件和日志文件等，是用户的工作空间。
     RESULT_SET_ROOT_PATH=file:///tmp/linkis   # 结果集文件路径，用于存储Job的结果集文件
     ENGINECONN_ROOT_PATH=/appcom/tmp #存放ECP的安装路径，需要部署用户有写权限的本地目录

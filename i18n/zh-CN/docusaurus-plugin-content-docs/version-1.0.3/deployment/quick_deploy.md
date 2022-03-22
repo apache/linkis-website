@@ -4,9 +4,15 @@ sidebar_position: 1
 ---
 
 ## 1. 注意事项
+
 <font color="red">
+
 因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包，安装部署时需要添加依赖到对应的lib包中。
+
+安装过程中遇到的问题，可以参考[排障指引](https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)  https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy
+
 </font>
+
 
 **如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
 
@@ -89,7 +95,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
    修改安装用户的.bash_rc，命令如下：
 
 ```bash     
-    vim /home/hadoop/.bash_rc ##以部署用户Hadoop为例
+    vim /home/hadoop/.bash_rc  ##以部署用户Hadoop为例
 ```
 
    下方为环境变量示例：
@@ -129,26 +135,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ```
 
 
-### 3.4 不依赖HDFS的基础配置修改
-
-```bash
-    vi deploy-config/linkis-env.sh
-```
-        
-```properties
-
-    #SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
-    deployUser=hadoop      #指定部署用户
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # 指定安装目录
-    WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # 指定用户根目录，一般用于存储用户的脚本文件和日志文件等，是用户的工作空间。
-    RESULT_SET_ROOT_PATH=file:///tmp/linkis   # 结果集文件路径，用于存储Job的结果集文件
-    ENGINECONN_ROOT_PATH=/appcom/tmp #存放ECP的安装路径，需要部署用户有写权限的本地目录
-    ENTRANCE_CONFIG_LOG_PATH=file:///tmp/linkis/  #ENTRANCE的日志路径
-    ## LDAP配置，默认Linkis只支持部署用户登录，如果需要支持多用户登录可以使用LDAP，需要配置以下参数：
-    #LDAP_URL=ldap://localhost:1389/ 
-    #LDAP_BASEDN=dc=webank,dc=com
-```
-### e. 依赖HDFS/Hive/Spark的基础配置修改
+### 3.4 依赖HDFS/Hive/Spark的基础配置修改
 
 ```bash
      vi deploy-config/linkis-env.sh
@@ -245,8 +232,8 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
 拷贝mysql 驱动包至lib包下 
 ```
-cp mysql-connector-java-5.1.49.jar  {LINKIS_INSTALL_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar  {LINKIS_INSTALL_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
 
 
