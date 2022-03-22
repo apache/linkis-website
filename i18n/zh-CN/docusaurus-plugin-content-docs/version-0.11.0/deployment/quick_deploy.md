@@ -91,7 +91,7 @@ sidebar_position: 1
 ```properties
     SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
     deployUser=hadoop      #指定部署用户
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # 指定安装目录
+    LINKIS_HOME=/appcom/Install/Linkis    # 指定安装目录
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # 指定用户根目录，一般用于存储用户的脚本文件和日志文件等，是用户的工作空间。
     RESULT_SET_ROOT_PATH=file:///tmp/linkis   # 结果集文件路径，用于存储Job的结果集文件
     #HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis   #精简版安装需要注释该参数
@@ -195,7 +195,7 @@ sidebar_position: 1
 ```properties
    
     deployUser=hadoop      #指定部署用户
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # 指定安装目录
+    LINKIS_HOME=/appcom/Install/Linkis    # 指定安装目录
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # 指定用户根目录，一般用于存储用户的脚本文件和日志文件等，是用户的工作空间。
     HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis   # 指定用户的HDFS根目录，一般用于存储Job的结果集文件
 
@@ -322,7 +322,7 @@ sidebar_position: 1
 ```properties
     SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
     deployUser=hadoop      #指定部署用户
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # 指定安装目录
+    LINKIS_HOME=/appcom/Install/Linkis    # 指定安装目录
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # 指定用户根目录，一般用于存储用户的脚本文件和日志文件等，是用户的工作空间。
     HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis   # 指定用户的HDFS根目录，一般用于存储Job的结果集文件
 

@@ -91,7 +91,7 @@ sidebar_position: 1
 ```properties
     SSH_PORT=22 #Specify the SSH port, if the stand-alone version is installed, it may not be configured
     deployUser=hadoop #Specify deployment user
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis # Specify the installation directory
+    LINKIS_HOME=/appcom/Install/Linkis # Specify the installation directory
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop # Specify the user root directory, which is generally used to store the user's script files and log files, etc. It is the user's workspace.
     RESULT_SET_ROOT_PATH=file:///tmp/linkis # The result set file path, used to store the result set file of the job
     #HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis #This parameter needs to be commented for the streamlined version installation
@@ -196,7 +196,7 @@ sidebar_position: 1
 erties
    
     deployUser=hadoop #Specify deployment user
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis # Specify the installation directory
+    LINKIS_HOME=/appcom/Install/Linkis # Specify the installation directory
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop # Specify the user root directory, which is generally used to store the user's script files and log files, etc. It is the user's workspace.
     HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis # Specify the user's HDFS root directory, which is generally used to store the result set files of the job
 
@@ -323,7 +323,7 @@ erties
 ```properties
     SSH_PORT=22 #Specify the SSH port, if the stand-alone version is installed, it may not be configured
     deployUser=hadoop #Specify deployment user
-    LINKIS_INSTALL_HOME=/appcom/Install/Linkis # Specify the installation directory
+    LINKIS_HOME=/appcom/Install/Linkis # Specify the installation directory
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop # Specify the user root directory, which is generally used to store the user's script files and log files, etc. It is the user's workspace.
     HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis # Specify the user's HDFS root directory, which is generally used to store the result set files of the job
 
