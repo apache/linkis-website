@@ -579,5 +579,16 @@
         "地点": "新加坡",
         "联系方式": "sunshun18@126.com",
         "业务场景": "调用大数据平台的中间件"
+    },
+    {
+        "auther": "bigdata@52tt.com",
+        "company": "Quwan Holding Limite",
+        "location": "Guangzhou, China",
+        "contact": "bigdata@52tt.com",
+        "business scenario": "Computational Governance Middleware as Data Services",
+        "公司": "趣丸集团",
+        "地点": "中国广州",
+        "联系方式": "bigdata@52tt.com",
+        "业务场景": "作为数据服务的计算治理中间件"
     }
 ]
