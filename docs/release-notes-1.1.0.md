@@ -1,7 +1,7 @@
 ---
-title: Release Notes 1.1.0-RC1
-sidebar_position: 0
---- 
+title: Release Notes 1.1.0
+sidebar_position: 10
+​--- 
 
 Apache Linkis(incubating) 1.1.0 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/14).
 
@@ -27,21 +27,21 @@ Abbreviations:
 
 ## New Feature
 
-* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) Add new module linkis-datasource-manager-common
-* \[Commons][[Linkis-1339]](https://github.com/apache/incubator-linkis/pull/1339)  Add knife4j to linkis so that user can use apiDoc during development and debugging code
-* \[DMS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352)  Add new module linkis-datasource-manager-server 
-* \[MDS-Common][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add new module linkis-metadata-manager-common
-* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add new module linkis-metadata-manager-server
-* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) Add new module linkis-metadata-manager-service-es
-* \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) Add new module linkis-metadata-manager-service-hive
-* \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) Add new module linkis-metadata-manager-service-kafka
-* \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) Add new module linkis-metadata-manager-service-mysql
-* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache/incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com/apache/incubator-linkis/pull/1441) Add new module linkis-datasource-client
-* \[DMS&MDS-Web][[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510]](https://github.com/apache/incubator-linkis/pull/1510)add linkis datasource web
+* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) Add new module linkis-datasource-manager-common,Define data source data structure, ERROR, tool class.
+* \[DMS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352)  Add new module linkis-datasource-manager-server，The data source management service is defined, and functions such as adding, deleting, checking, and modifying data sources, and connection testing are provided through the restful interface.
+* \[MDS-Common][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add new module linkis-metadata-manager-common，Defines the metadata data structure, ERROR, and tool classes.
+* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add new module linkis-metadata-manager-server，The metadata management service is defined, and the database, table, and column query of metadata is provided through the restful interface.
+* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) Add new module linkis-metadata-manager-service-es，Defines metadata management services for es.
+* \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) Add new module linkis-metadata-manager-service-hive，Defines a metadata management service for hive.
+* \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) Add new module linkis-metadata-manager-service-kafka，Defines metadata management services for kafka.
+* \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) Add new module linkis-metadata-manager-service-mysql，Defines metadata management services for mysql.
+* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache/incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com/apache/incubator-linkis/pull/1441) Add new module linkis-datasource-client，convenient to manage data sources through sdk. 
+* \[DMS&MDS-Web][[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510]](https://github.com/apache/incubator-linkis/pull/1510)add linkis datasource web，This page allows simple creation and searching of data sources. 
 
 ---
 
 ## Enhancement
+* \[Commons][[Linkis-1339]](https://github.com/apache/incubator-linkis/pull/1339)  Add knife4j to linkis so that user can use apiDoc during development and debugging code
 * \[MGS-LinkisServiceGateway][[Linkis-1377]](https://github.com/apache/incubator-linkis/pull/1377) involve skywalking agent for linkis services 
 * \[Commons][[Linkis-1378]](https://github.com/apache/incubator-linkis/pull/1378)[[Linkis-1389]](https://github.com/apache/incubator-linkis/pull/1389)  add spotless plugin to format code
 * \[CGS-EngineConnPlugin][[Linkis-1408]](https://github.com/apache/incubator-linkis/pull/1408) Reduce the maximum idle time of engine resources
@@ -75,6 +75,7 @@ Abbreviations:
 * \[ALL][[Linkis-1571]](https://github.com/apache/incubator-linkis/pull/1571) adjust distribution.xml:exclude unnecessary dependency
 * \[MDS&DMS][[Linkis-1599]](https://github.com/apache/incubator-linkis/pull/1599)  Add new 3rd party apps add license file   
 
+---------
 
 ## Credits 
 
