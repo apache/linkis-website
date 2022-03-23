@@ -1,4 +1,4 @@
-# metadata-core-restful
+# MetadataCoreRestful
 
 ## getColumns
 **接口地址**:`/api/rest_j/v1/metadatamanager/columns/{dataSourceId}/db/{database}/table/{table}`
