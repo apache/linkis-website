@@ -36,6 +36,7 @@ Abbreviations:
 ---
 
 ## Enhancement
+
 * \[Commons][[Linkis-1026]](https://github.com/apache/incubator-linkis/pull/1026) Optimize the display of numeric type fields exported to Excel
 * \[Commons][[Linkis-1036]](https://github.com/apache/incubator-linkis/pull/1036) Optimize the file permissions of the shared file system in LocalFileSystem mode
 * \[Commons][[Linkis-1185]](https://github.com/apache/incubator-linkis/pull/1185) Add some scala code specification checking rules to automatically detect scala code format
@@ -91,7 +92,7 @@ Abbreviations:
 * \[Orchestrator][[Linkis-1186]](https://github.com/apache/incubator-linkis/pull/1186) Fix the problem that the tasks queued by Orchestrator cannot be killed
 * \[Console][[Linkis-1121]](https://github.com/apache/incubator-linkis/pull/1121) Get the protocol from the current request, remove the hard code for 'http'
 
-## other
+## Other
 *  ⚠ \[Commons&MGS-LinkisServiceGateway][[Linkis-1192]](https://github.com/apache/incubator-linkis/pull/1092) The third-party reliance on mysql-connector-java violates the Apache License Policy. Therefore, the dependency on mysql-connector-java has been removed from 1.0.3. If you only use it for your own project, you can add mysql-connector-java dependency to your project.
 * \[Commons&MGS-LinkisEureka][[Linkis-1291]](https://github.com/apache/incubator-linkis/pull/1291) Exclude jar packages with unclear license attribution category io.github.x-stream:mxparser
 * \[Commons][[Linkis-1287]](https://github.com/apache/incubator-linkis/pull/1287) Split binary distribution package and source code LICENSE/NOTICE and other files
