@@ -1,13 +1,14 @@
 ---
 title: Release Notes 1.1.0
 sidebar_position: 10
-​--- 
+--- 
 
 Apache Linkis(incubating) 1.1.0 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/14).
 
 This version is the first version of Linkis entering Apache incubation. It mainly completes the ASF infrastructure construction, including license improvement/package name modification, etc. In addition, features such as EngineConn support for Operators are added, and bugs in version 1.0.3 reported by the community are fixed.
 
 The following key features are added: 
+
 * Provide data-source management service, support CURD operation and connectivity test of data source through RestFul API;
 * Provide metadata management service, support querying metadata through RestFul interface, components include [hive\kafka\mysql\es];
 * Provide data-source and metadata management client;

@@ -273,10 +273,12 @@
 **响应示例**:
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+    "method": "/api/data-source-manager/env/4",
+    "status": 0,
+    "message": "OK",
+    "data": {
+        "removeId": 4
+    }
 }
 ```
 ## updateJsonEnv

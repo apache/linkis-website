@@ -362,7 +362,7 @@ wds.linkis.admin.password= #Password
 
 After logging in, check whether the yarn queue resources can be displayed normally (if you want to use the spark/hive/flink engine)
 Normally as shown below:    
-![yarn-normal](https://user-images.githubusercontent.com/29391030/156343194-f4489bbd-2de3-4aa7-a996-881f3f297849.png)
+![yarn-normal](https://user-images.githubusercontent.com/7869972/159955494-2f305a38-a3d6-4798-83aa-58cde23bc436.png)
 
 If it cannot be displayed:  
 #### 1 Check whether the yarn address is configured correctly
