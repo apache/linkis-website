@@ -164,7 +164,7 @@ sidebar_position: 1
 | wds.linkis.bml.auth.token.key | Validation-Code | Password-free token-key for BML request |
 | wds.linkis.bml.auth.token.value | BML-AUTH | Password-free token-value requested by BML |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | The prefix file path of the BML file stored on hdfs |
- 
+
 #### 4.2 Metadata configuration parameters
 
 | Parameter name | Default value | Description |
@@ -220,3 +220,21 @@ sidebar_position: 1
 | wds.linkis.login_encrypt.enable | false | When the user logs in, does the password enable RSA encryption transmission |
 | wds.linkis.enable.gateway.auth | false | Whether to enable the Gateway IP whitelist mechanism |
 | wds.linkis.gateway.auth.file | auth.txt | IP whitelist storage file |
+
+### 6. DataSource and Metadata Service configuration parameters
+
+#### 6.1 MetaData Service configuration parameters
+
+| Parameter name                                           | Default value                                         | Description                                                  |
+| -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------ |
+| wds.linkis.server.mdm.service.lib.dir                    | /lib/linkis-pulicxxxx-/linkis-metdata-manager/service | Specify the relative path of the service to be loaded        |
+| wds.linkis.server.mdm.service.instance.expire-in-seconds | 60                                                    | Set the service loading timeout. If it exceeds the specified time, it will not be loaded |
+| wds.linkis.server.dsm.app.name                           | linkis-ps-data-source-manager                         | Set the service to get the data source                       |
+| wds.linkis.server.mdm.service.kerberos.principle         | hadoop/_HOST@EXAMPLE.COM                              | set kerberos principle for linkis-metadata hive service      |
+| wds.linkis.server.mdm.service.user                       | hadoop                                                | set user for linkis-metadata hive service                    |
+| wds.linkis.server.mdm.service.kerberos.krb5.path         | ""                                                    | set kerberos krb5 path for linkis-metadata hive service      |
+| wds.linkis.server.mdm.service.temp.location              | classpath:/tmp                                        | set tmp loc for linkis-metadata hive and kafka service       |
+| wds.linkis.server.mdm.service.sql.driver                 | com.mysql.jdbc.Driver                                 | set driver for hive-metadata mysql service                   |
+| wds.linkis.server.mdm.service.sql.url                    | jdbc:mysql://%s:%s/%s                                 | set url format for hive-metadata mysql service               |
+| wds.linkis.server.mdm.service.sql.connect.timeout        | 3000                                                  | set timeout for mysql connect for hive-metadata mysql service |
+| wds.linkis.server.mdm.service.sql.socket.timeout         | 6000                                                  | set timeout for socket open for hive-metadata mysql service  |
