@@ -371,10 +371,10 @@ wds.linkis.admin.password= #密码
 
 ```
 ## 5 Yarn队列检查
->如果需要使用到spark/hive/flink引擎
+>如果需要使用到spark/hive/flink引擎    
 
-登录后查看能否正常显示yarn队列资源
-正常如下图所示:  
+登录后查看能否正常显示yarn队列资源(图形显示点击首页右下角按钮)  
+正常如下图所示:    
 ![yarn-normal](https://user-images.githubusercontent.com/29391030/156343194-f4489bbd-2de3-4aa7-a996-881f3f297849.png)
 
 若如果无法显示：可以按以下指引调整 
@@ -407,7 +407,13 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 异常信息:`desc: queue ide is not exists in YARN.`
 标明配置的yarn队列不存在，需要进行调整
 
-修改方式:linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue],修改一个可以使用的yarn队列,可以使用的yarn 队列可以在 rmWebAddress:http://xx.xx.xx.xx:8088 上查看到
+修改方式:linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue],修改一个可以使用的yarn队列,可以使用的yarn 队列可以在 rmWebAddress:http://xx.xx.xx.xx:8088 上查看到  
+
+#### 5.3 查看yarn队列    
+查看hadoop集群地址    
+http://ip:8088/cluster  
+查看yarn队列地址  
+http://ip:8888/cluster/scheduler  
 
 ## 6 检查引擎物料资源是否上传成功
 
