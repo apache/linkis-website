@@ -1,5 +1,5 @@
 ---
-title: 启动 Linkis 开启 SkyWalking
+title: 开启 SkyWalking
 sidebar_position: 7
 ---
 这篇文章介绍一下如何在启动 Linkis 服务的时候开启 SkyWalking，以方便后续做分布式 trace 和 troubleshooting。
@@ -142,7 +142,8 @@ $ bash linkis-start-all.sh
 
 ## 4. 结果展示
 Linkis 的 UI 端口默认启动在 8080 端口，Linkis 开启 SkyWalking 之后打开 UI 如果能看到如下的图就表示成功了。  
-如果看不到展示效果,请更换浏览器查看。
+如果看不到展示效果,可能是浏览器兼容性问题，尝试切换浏览器试试。
+
 ![](/Images-zh/deployment/skywalking/SkyWalking_UI_Dashboard.png)
 
 ![](/Images-zh/deployment/skywalking/SkyWalking_UI_Dashboard2.png)

@@ -1,5 +1,6 @@
 
-# data-source-admin-restful-api
+# DataSourceAdminRestfulApi
+
 ## queryDataSourceEnv
 **接口地址**:`/api/rest_j/v1/data-source-manager/env`
 
@@ -9,7 +10,7 @@
 
 **响应数据类型**:`application/json`
 
-**接口描述**:
+**接口描述**: 查询数据源配置的集群环境信息列表
 
 **请求参数**:
 
@@ -37,20 +38,6 @@
     "message": "OK",
     "data": {
         "queryList": [
-            {
-                "id": 1,
-                "envName": "测试环境SIT",
-                "envDesc": "测试环境SIT",
-                "dataSourceTypeId": 4,
-                "connectParams": {
-                    "hadoopConf": {
-                        "hive.metastore.execute.setugi": "true"
-                    },
-                    "uris": "thrift://localhost:9083"
-                },
-                "createTime": 1647249913000,
-                "modifyTime": 1647249913000
-            },
             {
                 "id": 2,
                 "envName": "测试环境UAT",
@@ -91,7 +78,7 @@
 
 **响应数据类型**:`application/json`
 
-**接口描述**:
+**接口描述**: 查询某种数据源配置的集群信息列表
 
 **请求参数**:
 
@@ -217,7 +204,7 @@
 
 **响应数据类型**:`application/json`
 
-**接口描述**:
+**接口描述**:查询某环境详细信息
 
 **请求参数**:
 
@@ -286,10 +273,12 @@
 **响应示例**:
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+    "method": "/api/data-source-manager/env/4",
+    "status": 0,
+    "message": "OK",
+    "data": {
+        "removeId": 4
+    }
 }
 ```
 ## updateJsonEnv
@@ -369,7 +358,8 @@
 	"status": 0
 }
 ```
-# data-source-core-restful-api
+# DataSourceCoreRestfulApi
+
 ## queryDataSource
 **接口地址**:`/api/rest_j/v1/data-source-manager/info`
 
@@ -379,7 +369,7 @@
 
 **响应数据类型**:`application/json`
 
-**接口描述**:
+**接口描述**:查询数据源具体信息
 
 **请求参数**:
 
@@ -458,7 +448,7 @@
 
 **响应数据类型**:`application/json`
 
-**接口描述**:
+**接口描述**:删除某条数据源数据
 
 **请求参数**:
 
@@ -478,10 +468,12 @@
 **响应示例**:
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+    "method": "/api/data-source-manager/info/delete/1",
+    "status": 0,
+    "message": "OK",
+    "data": {
+        "removeId": 1
+    }
 }
 ```
 ## insertJsonInfo
@@ -640,7 +632,7 @@
 
 **响应数据类型**:`application/json`
 
-**接口描述**:
+**接口描述**:通过datsourceName查询数据源信息
 
 **请求参数**:
 
@@ -729,7 +721,7 @@
             "createSystem": "Linkis",
             "connectParams": {
                 "host": "127.0.0.1",
-                "password": "Abcd@2022",
+                "password": "xxxxx",
                 "port": "9600",
                 "username": "linkis"
             },
@@ -976,7 +968,7 @@
             "createSystem": "Linkis",
             "connectParams": {
                 "host": "127.0.0.1",
-                "password": "Abcd@2022",
+                "password": "xxxxx",
                 "port": "9600",
                 "username": "linkis"
             },
@@ -1087,7 +1079,7 @@
     "data": {
         "connectParams": {
             "host": "127.0.0.1",
-            "password": "Abcd@2022",
+            "password": "xxxxx",
             "port": "9600",
             "username": "linkis"
         }
@@ -1254,7 +1246,7 @@
     "data": {
         "connectParams": {
             "host": "127.0.0.1",
-            "password": "Abcd@2022",
+            "password": "xxxxx",
             "port": "9600",
             "username": "linkis"
         }
@@ -1300,7 +1292,7 @@
                 "datasourceId": 1,
                 "connectParams": {
                     "host": "127.0.0.1",
-                    "password": "Abcd@2022",
+                    "password": "xxxxx",
                     "port": "9600",
                     "username": "linkis"
                 },

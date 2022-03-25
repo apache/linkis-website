@@ -227,10 +227,10 @@ sidebar_position: 1
 
 | 参数名                                                   | 默认值                                                | 描述                                                    |
 | -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
-| wds.linkis.server.mdm.service.lib.dir                    | /lib/linkis-pulicxxxx-/linkis-metdata-manager/service | 设置需要加载子服务的相对路径。                          |
-| wds.linkis.server.mdm.service.instance.expire-in-seconds | 60                                                    | 设置加载子服务的过期时间，超过该时间将不加载该服务。    |
-| wds.linkis.server.dsm.app.name                           | linkis-ps-data-source-manager                         | 设置获取数据源信息的服务。                              |
-| wds.linkis.server.mdm.service.kerberos.principle         | hadoop/_[HOST@EXAMPLE.COM](mailto:HOST@EXAMPLE.COM)   | set kerberos principle for linkis-metadata hive service |
+| wds.linkis.server.mdm.service.lib.dir                    | /lib/linkis-public-enhancements/linkis-ps-metadatamanager/service | 设置需要加载数据源jar包的相对路径，会通过反射调用|
+| wds.linkis.server.mdm.service.instance.expire-in-seconds | 60                                                    | 设置加载子服务的过期时间，超过该时间将不加载该服务    |
+| wds.linkis.server.dsm.app.name                           | linkis-ps-data-source-manager                         | 设置获取数据源信息的服务                              |
+| wds.linkis.server.mdm.service.kerberos.principle         | hadoop/HOST@EXAMPLE.COM   | set kerberos principle for linkis-metadata hive service |
 | wds.linkis.server.mdm.service.user                       | hadoop                                                | 设置hive服务的访问用户                                  |
 | wds.linkis.server.mdm.service.kerberos.krb5.path         | ""                                                    | 设置hive服务使用的kerberos krb5 路径                    |
 | wds.linkis.server.mdm.service.temp.location              | classpath:/tmp                                        | 设置kafka与hive的临时路径                               |
@@ -238,3 +238,4 @@ sidebar_position: 1
 | wds.linkis.server.mdm.service.sql.url                    | jdbc:mysql://%s:%s/%s                                 | 设置mysql服务的url格式                                  |
 | wds.linkis.server.mdm.service.sql.connect.timeout        | 3000                                                  | 设置mysql服务连接mysql服务的连接超时时间                |
 | wds.linkis.server.mdm.service.sql.socket.timeout         | 6000                                                  | 设置mysql服务打开mysql服务的socket超时时间              |
+| wds.linkis.server.mdm.service.temp.location              | /tmp/keytab                                                | 设置服务的本地临时存储路径，主要是存储从bml物料服务下载的认证文件             |

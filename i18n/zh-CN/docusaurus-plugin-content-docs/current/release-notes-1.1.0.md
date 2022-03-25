@@ -1,19 +1,7 @@
-# Linkis Release-1.1.0
-<font color='red'> This is Non-ASF Version </font> 
-
-使用以下链接下载Linkis
-
-## Linkis
-| 日期 | 版本| 备注 | 下载 |
-|:-----|:--------|:------|:-------|
-| 2022-03-18 | 1.1.0 | 源码 | [[SRC](https://github.com/apache/incubator-linkis/archive/refs/tags/1.0.3.tar.gz)] |
-| |                 | 二进制包 | [[BIN](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.1.0/wedatasphere-linkis-1.1.0-combined-package-dist.tar.gz)] |
-
-
-### 发布完整性
-   您必须[验证](https://www.apache.org/info/verification.html) 下载文件的完整性。 我们为每个发布文件提供 OpenPGP 签名。 此签名应与包含 Linkis 发布经理的 OpenPGP 密钥的 [KEYS](https://downloads.apache.org/incubator/linkis/KEYS) 文件匹配。 我们还为每个发布文件提供 <code>SHA-512</code> 校验和。 下载文件后，您应该计算下载的校验和，并确保它与我们的相同。
-
-## 发行说明
+---
+title: Release Notes 1.0.1-RC1
+sidebar_position: 0
+--- 
 
 Linkis-1.1.0 包括所有 [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3)。
 
@@ -27,37 +15,30 @@ Linkis-1.1.0 包括所有 [Project Linkis-1.1.0](https://github.com/apache/incub
 
 缩写：
 
-CGS: Computation Governance Services
-
-PES: Public Enhancement Services
-
-MGS: Microservice Governance Services
-
-CGS: Computation Governance Services
-
-EC:  Engineconn
-
-ECM: EngineConnManager
-
-DMS: Data Source Manager Service
-
-MDS: MetaData Manager Service
+- CGS: Computation Governance Services
+- PES: Public Enhancement Services
+- MGS: Microservice Governance Services
+- CGS: Computation Governance Services
+- EC:  Engineconn
+- ECM: EngineConnManager
+- DMS: Data Source Manager Service
+- MDS: MetaData Manager Service
 
 ---
 
 ## 新功能
 
 #### Data Source Manager Service
-* [[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) 增加新的模块 linkis-datasource-manager-common，定义数据源数据结构、ERROR、工具类。
-* [[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352)  增加新的模块 linkis-datasource-manager-server ，定义了数据源管理服务，通过restful接口提供了数据源的增删查改、连接测试等功能。
+* [[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) 增加新的模块 linkis-datasource-manager-common，定义数据源数据结构、异常类、工具类。
+* [[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) 增加新的模块 linkis-datasource-manager-server，定义了数据源管理服务，通过restful接口提供了数据源的增删查改、连接测试等功能。
 
 #### MetaData Manager Service
-* [[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) 增加新的模块 linkis-metadata-manager-common，定义了元数据数据结构、ERROR、工具类。
+* [[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) 增加新的模块 linkis-metadata-manager-common，定义了元数据数据结构、异常类、工具类。
 * [[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) 增加新的模块 linkis-metadata-manager-server，定义了元数据管理服务，通过restful接口提供了元数据的数据库、表、列查询。
 * [[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) 增加新的模块 linkis-metadata-manager-service-es，定义了针对es的元数据管理服务。
 * [[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) 增加新的模块 linkis-metadata-manager-service-hive，定义了针对hive的元数据管理服务。
 * [[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) 增加新的模块 linkis-metadata-manager-service-kafka，定义了针对kafka的元数据管理服务。
-* [[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) 增加新的模块 linkis-metadata-manager-service-mysql，定义了针对kafka的元数据管理服。务。
+* [[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) 增加新的模块 linkis-metadata-manager-service-mysql，定义了针对mysql的元数据管理服务。
 
 #### Data Source Client
 
@@ -65,29 +46,43 @@ MDS: MetaData Manager Service
 
 #### Data Source Web
 
-- [[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510] 增加数据源前端管理页面，通过该页面可以对数据源进行简单的创建于搜索。
+- [[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510] 增加数据源前端管理页面，通过该页面可以对数据源进行简单的创建，测试。
 
 ---
 
 ## 增强点
-* [Linkis-1339](https://github.com/apache/incubator-linkis/pull/1339) \[Commons] 在linkis中添加knife4j，方便用户在开发调试代码时使用apiDoc
-* [Linkis-1377](https://github.com/apache/incubator-linkis/pull/1377) \[MGS-LinkisServiceGateway] 将Skywalking 代理引入linkis中 
-* [Linkis-1408](https://github.com/apache/incubator-linkis/pull/1408) \[CGS-EngineConnPlugin] 减少引擎资源的最大空闲时间
-* [Linkis-1535](https://github.com/apache/incubator-linkis/pull/1535) \[CGS-EngineConnPlugin] 设置 JAVA_ENGINE_REQUEST_INSTANCE 的值为常量 1
-* [Linkis-1554](https://github.com/apache/incubator-linkis/pull/1554) [Linkis-1651](https://github.com/apache/incubator-linkis/pull/1651) \[DB]  添加 DataSource DDL 和 DML SQL 
-* [Linkis-1583](https://github.com/apache/incubator-linkis/pull/1583) \[MDS] 添加功能以获取 Hive 数据源中分区的属性并修复连接问题 
-* [Linkis-1636](https://github.com/apache/incubator-linkis/pull/1636) \[MGS-LinkisServiceGateway] 使用正则表达式匹配网关 URL，如果匹配则正常通过
-* [Linkis-1637](https://github.com/apache/incubator-linkis/pull/1637) \[DMS&MDS] 为DataSource相关模块添加单元测试 
-* [Linkis-1643](https://github.com/apache/incubator-linkis/pull/1643) \[DMS&MDS-Client] 优化数据源客户端不必要的参数和统一的dataSourceId参数名称
-* [Linkis-1660](https://github.com/apache/incubator-linkis/pull/1660) \[DMS&MDS] 使用 spring-boot-starter-jetty(wip)
-* [Linkis-1717](https://github.com/apache/incubator-linkis/pull/1717) \[DMS&MDS] 调整模块顺序避免丢失server/* 数据源相关lib
-* [Linkis-1397](https://github.com/apache/incubator-linkis/pull/1397) [Commons] 添加maven wrapper
-* [Linkis-1425](https://github.com/apache/incubator-linkis/pull/1425) \[EC] 将ec的日志配置文件统一为log4j2.xml 
-* [Linkis-1571](https://github.com/apache/incubator-linkis/pull/1571) \[ALL] 调整distribution.xml:排除不必要的依赖 
-* [Linkis-1599](https://github.com/apache/incubator-linkis/pull/1599) \[MDS&DMS] 为新的第三方应用程序添加许可证文件 
-
+* \[MGS-LinkisServiceGateway][[Linkis-1377]](https://github.com/apache/incubator-linkis/pull/1377) 引入Skywalking组件, 提供分布式 trace 和 troubleshooting的基础能力
+* \[CGS-EngineConnPlugin][[Linkis-1408]](https://github.com/apache/incubator-linkis/pull/1408) 调整引擎资源的默认的最大空闲时间为0.5h，优化多用户场景下，资源竞争等待的时长问题
+* \[CGS-EngineConnPlugin][[Linkis-1535]](https://github.com/apache/incubator-linkis/pull/1535) 设置 JAVA_ENGINE_REQUEST_INSTANCE 的值为常量 1
+* \[DB][[Linkis-1554]](https://github.com/apache/incubator-linkis/pull/1554) 添加 DataSource DDL 和 DML SQL 
+* \[MDS][[Linkis-1583]](https://github.com/apache/incubator-linkis/pull/1583) 添加功能以获取 Hive 数据源中分区的属性并修复连接问题 
+* \[MGS-LinkisServiceGateway][[Linkis-1636]](https://github.com/apache/incubator-linkis/pull/1636)使用正则表达式匹配网关 URL，如果匹配则正常通过
+* \[Commons][[Linkis-1397]](https://github.com/apache/incubator-linkis/pull/1397) 添加maven wrapper，支持使用mvnw脚本进行编译打包
+* \[EC][[Linkis-1425]](https://github.com/apache/incubator-linkis/pull/1425)将ec的日志配置文件统一为log4j2.xml 
+* \[Install-Script][[Linkis-1563]](https://github.com/apache/incubator-linkis/pull/1563) 优化linkis-cli 客户端脚本，移除冗余的linkis-cli-start脚本文件
+* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) 优化安装部署脚本，安装部署时，添加数据库连接测试检查;进行数据库初始化之前，打印数据库的信息，以便人员再次确认
+* \[Install-Script][Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) 添加必要的部署日志信息以及关键信息的颜色标识，如执行步骤/创建目录的日志等。
+* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) 为spark/hadoop/hive 添加基本环境检查
+* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559)将hive元数据库HIVE_META 信息配置从linkis-env.sh迁移到 db.sh
+* \[Commons][[Linkis-1557]](https://github.com/apache/incubator-linkis/issues/1557)Spring-boot/Spring-cloud版本控制使用官方依赖管理器的pom文件方式，避免引入了太多的版本配置
+* \[Commons][[Linkis-1621]](https://github.com/apache/incubator-linkis/pull/1621) Spring升级，Spring-boot升级至2.3.12.RELEASE，Spring-cloud升级至Hoxton.SR12
+* \[Commons][[Linkis-1558]](https://github.com/apache/incubator-linkis/issues/1558) 单元测试JUnit 4 迁移升级至 JUnit 5
+* \[Commons&MGS-Eureka][[Linkis-1313]](https://github.com/apache/incubator-linkis/issues/1313)移除不必要的第三方依赖，一定程度减小打包后的物料包大小
+* \[Commons&MGS-LinkisServiceGateway][[Linkis-1660]](https://github.com/apache/incubator-linkis/pull/1660)使用spring-boot-starter-jetty替换直接引入jetty依赖方式，避免jetty版本冲突
 ---
+
 ## 修复功能
+* \[Deployment][[Linkis-1390]](https://github.com/apache/incubator-linkis/pull/1390)修复安装部署，创建的存储Job的结果集文件夹wds.linkis.resultSet.store.path，用户切换存在的权限不足的问题
+* \[Commons][[Linkis-1469]](https://github.com/apache/incubator-linkis/pull/1469)  修复sql脚本中包含 ';'字符时，无法正确切割SQL问题
+* \[CGS-EngineConnPlugin-JDBC][[Linkis-1529]](https://github.com/apache/incubator-linkis/pull/1529)  修复 JDBC 引擎认证类型参数存在的NullPointerException的异常问题
+* \[CGS-Entrance][[Linkis-1540]](https://github.com/apache/incubator-linkis/pull/1540)  修复 linkis-entrance 中“kill”方法参数long类型导致null值无法识别问题
+* \[Commons][[Linkis-1600]](https://github.com/apache/incubator-linkis/pull/1600)  修复低版本commons-compress，导致结果集下载为excel时出错
+* \[CGS-Client][[Linkis-1603]](https://github.com/apache/incubator-linkis/pull/1603)  修复客户端不支持 -runtimeMap 参数问题
+* \[CGS-EngineConnPlugin-JDBC][[Linkis-1610]](https://github.com/apache/incubator-linkis/pull/1610)  修复 jdbc引擎 对于postgresql 无法支持"show databases;"语句问题
+* \[Commons][[Linkis-1618]](https://github.com/apache/incubator-linkis/pull/1618)  修复 http response 返回结果为xml格式，而不是json格式问题
+* \[CGS-EngineConnPlugin-JDBC][[Linkis-1646]](https://github.com/apache/incubator-linkis/pull/1646)  修复 JDBC 引擎查询复杂类型字段时，值显示为对象地址。 
+* \[CGS-EngineConnPlugin-PYTHON][[Linkis-1731]](https://github.com/apache/incubator-linkis/pull/1731) 修复python引擎的showDF函数结果集字段行反转的问题
+* \[PES-BML][[Linkis-1556]](https://github.com/apache/incubator-linkis/issues/1556) 修复文件下载接口可能出现的HttpMessageNotWritableException异常
 
 * [Linkis-1390](https://github.com/apache/incubator-linkis/pull/1390) \[Deployment] 修复问题 1314 这是一个错误，在安装脚本中创建结果集路径以确保所有 dss 用户都可以访问此路径
 * [Linkis-1469](https://github.com/apache/incubator-linkis/pull/1469) [Commons] 修复 issue #1358，当 sql 包含 ';' 时，无法正确剪切 SQL
@@ -105,9 +100,3 @@ MDS: MetaData Manager Service
 ## 致谢 
 
 Linkis 1.1.0 的成功发布离不开 Linkis 社区的贡献者。感谢所有社区贡献者！
-
----
-## 编译版本
-
-**腾讯云**：
-[Linkis-1.1.0 Compiled (.tar.gz)](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/1.0.2/wedatasphere-linkis-1.1.0-combined-package-dist.tar.gz)
