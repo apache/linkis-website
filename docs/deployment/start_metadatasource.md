@@ -1,8 +1,8 @@
 ---
-title: 元数据功能使用
+title: 数据源功能使用
 sidebar_position: 7
 ---
-> 介绍一下如何使用1.1.0版本的元数据管理的新特性功能
+> 介绍一下如何使用1.1.0版本的新特性功能数据源
 
 ## 1.数据源功能介绍
 
@@ -28,6 +28,54 @@ sidebar_position: 7
 - [http接口文档](/api/http/metadatamanager-api.md)
 - http接口类 org.apache.linkis.datasourcemanager.core.restful
 - rpc接口类 org.apache.linkis.datasourcemanager.core.receivers
+
+
+### 1.3 处理逻辑
+#### 1.3.1 LinkisDataSourceRemoteClient
+功能结构图如下:
+![datasource](/Images-zh/deployment/datasource/datasource.png)
+
+- LinkisDataSourceRemoteClient客户端根据请求参数，组装http请求，
+- HTTP请求发送到linkis-ps-data-source-manager
+- linkis-ps-data-source-manager 会进行基本参数校验，部分接口只能管理员角色能操作 
+- linkis-ps-data-source-manager 与数据库进行基本的数据操作
+- linkis-ps-data-source-manager 提供的数据源测试连接的接口 内部通过rpc方式，调用ps-metadatamanager方法进行连接测试
+- http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化
+
+LinkisDataSourceRemoteClient接口 
+- GetAllDataSourceTypesResult getAllDataSourceTypes(GetAllDataSourceTypesAction) 查询所有数据源类型
+- QueryDataSourceEnvResult queryDataSourceEnv(QueryDataSourceEnvAction) 查询数据源可使用的集群配置信息
+- GetInfoByDataSourceIdResult getInfoByDataSourceId(GetInfoByDataSourceIdAction): 通过数据源id查询数据源信息
+- QueryDataSourceResult queryDataSource(QueryDataSourceAction)  查询数据源信息
+- GetConnectParamsByDataSourceIdResult getConnectParams(GetConnectParamsByDataSourceIdAction) 获取连接配置参数
+- CreateDataSourceResult createDataSource(CreateDataSourceAction) 创建数据源
+- DataSourceTestConnectResult getDataSourceTestConnect(DataSourceTestConnectAction)  测试数据源是否能正常建立连接
+- DeleteDataSourceResult deleteDataSource(DeleteDataSourceAction) 删除数据源
+- ExpireDataSourceResult expireDataSource(ExpireDataSourceAction) 设置数据源为过期状态
+- GetDataSourceVersionsResult getDataSourceVersions(GetDataSourceVersionsAction)  查询数据源配置的版本列表
+- PublishDataSourceVersionResult publishDataSourceVersion(PublishDataSourceVersionAction) 发布数据源配置版本 
+- UpdateDataSourceResult updateDataSource(UpdateDataSourceAction) 更新数据源 
+- UpdateDataSourceParameterResult updateDataSourceParameter(UpdateDataSourceParameterAction) 更新数据源配置参数
+- GetKeyTypeDatasourceResult getKeyDefinitionsByType(GetKeyTypeDatasourceAction) 查询某数据源类型需要的配置属性
+
+
+#### 1.3.2 LinkisMetaDataRemoteClient
+功能结构图如下:
+![metadata](/Images-zh/deployment/datasource/metadata.png)
+
+- LinkisMetaDataRemoteClient客户端，根据请求参数，组装http请求， 
+- HTTP请求发送到ps-metadatamanager
+- ps-metadatamanager 会进行基本参数校验，
+- 请求会根据参数 datasourceId，发送RPC请求到linkis-ps-data-source-manager，获取该数据源的类型，连接参数如用户名密码等信息
+- 拿到连接需要的信息后，根据数据源类型，加载对应目录下的lib包，通过反射机制调用对应的函数方法，从而查询到元数据信息
+- http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化 
+
+LinkisMetaDataRemoteClient接口 
+- MetadataGetDatabasesResult getDatabases(MetadataGetDatabasesAction) 查询数据库列表
+- MetadataGetTablesResult getTables(MetadataGetTablesAction) 查询table数据
+- MetadataGetTablePropsResult getTableProps(MetadataGetTablePropsAction)
+- MetadataGetPartitionsResult getPartitions(MetadataGetPartitionsAction) 查询分区表
+- MetadataGetColumnsResult getColumns(MetadataGetColumnsAction) 查询数据表字段
 
 ### 1.3 源码模块目录结构 
 ```shell script
@@ -120,7 +168,7 @@ linkis的启动脚本中默认不会启动数据源相关的服务两个服务�
 #### 3.1.2 使用客户端
 
 scala 代码示例:
-```
+```scala
 package org.apache.linkis.datasource.client
 import java.util
 import java.util.concurrent.TimeUnit
@@ -278,7 +326,7 @@ web端创建:
 ![create_hive](/Images-zh/deployment/datasource/create_hive.png)
 
 #### 3.2.2 使用客户端
-```
+```scala 
 package org.apache.linkis.datasource.client
 
 import java.util

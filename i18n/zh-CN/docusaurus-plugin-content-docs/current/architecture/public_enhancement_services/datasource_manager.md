@@ -1,5 +1,5 @@
 ---
-title: DataSource Manager Server 数据源管理服务架构
+title: DataSource Manager Server 架构
 sidebar_position: 3
 ---
 ## 背景
