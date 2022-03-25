@@ -6,13 +6,13 @@ sidebar_position: 7
 
 ## 1. SkyWalking 介绍
 
-### SkyWalking 是什么
+### 1.1 SkyWalking 是什么
 
 SkyWalking 是开源的可视化平台，可以从多种数据源采集数据，并提供分析、聚合以及可视化等功能。通过 SkyWalking，我们可以对分布式系统的拓扑结构，数据交互有一个更加清晰的视图。
 
 
 
-### SkyWalking 架构
+### 1.2 SkyWalking 架构
 
 下图是 SkyWalking 的整体架构图。
 
