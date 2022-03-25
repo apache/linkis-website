@@ -115,7 +115,7 @@ linkis-public-enhancements/linkis-datasource
 
 ### 1.5 配置参数 
 
-参见[调优排障>参数列表#datasource配置参数](/tuning_and_troubleshooting/configuration#5-microservice配置参数)
+参见[调优排障>参数列表#datasource配置参数](https://linkis.staged.apache.org/zh-CN/docs/1.1.0/tuning_and_troubleshooting/configuration/ )
 
 ## 2. 数据源功能的启用
 
@@ -316,11 +316,13 @@ VALUES
 ```
 主键id,作为envId，在建立连接时，需要通过此envId参数，获取集群配置相关信息。
 配置字段解释:
+```
 {
     "keytab": "bml resource id",//keytab 存储再物料库中的resourceId,目前需要通过http接口手动上传。
     "uris": "thrift://clustername:9083",
     "principle":"hadoop@WEBANK.COM" //认证的principle
 }
+```
 
 web端创建:
 

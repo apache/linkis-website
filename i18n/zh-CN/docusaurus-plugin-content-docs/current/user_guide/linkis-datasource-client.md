@@ -1,5 +1,5 @@
 ---
-title: Linkis DataSource Client SDK 方式使用
+title: Linkis DataSource Client SDK 的使用
 sidebar_position: 4
 ---
 

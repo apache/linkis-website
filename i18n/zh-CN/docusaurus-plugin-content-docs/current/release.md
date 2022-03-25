@@ -4,12 +4,12 @@ sidebar_position: 0.1
 --- 
 
 - [数据源管理服务架构文档](/architecture/public_enhancement_services/datasource_manager.md)
-- [数据元管理服务架构文档](/architecture/public_enhancement_services/metadata_manager.md)
+- [元数据管理服务架构文档](/architecture/public_enhancement_services/metadata_manager.md)
 - [数据源介绍&功能使用指引](/deployment/start_metadatasource.md)
 - [数据源客户端的使用指引](/user_guide/linkis-datasource-client.md)
 - [数据源http接口文档](/api/http/data-source-manager-api.md)
-- [数据元http接口文档](/api/http/metadatamanager-api.md)
-- [linkis开启SkyWalking功能](/deployment/involve_skywalking_into_linkis.md)
+- [元数据http接口文档](/api/http/metadatamanager-api.md)
+- [开启SkyWalking功能](/deployment/involve_skywalking_into_linkis.md)
 - [版本的release-notes](release-notes-1.1.0.md)
 
 ## 参数变化 
@@ -32,6 +32,6 @@ sidebar_position: 0.1
 |ps-data-source-manager| 新增  | wds.linkis.server.dsm.auth.admin                      | hadoop                                                | datasourcemanager 部分接口权限验证用户  |
 |cg-engineconnmanager| 修改  | wds.linkis.engineconn.max.free.time                     | 1h -> 0.5h                                           | EngineConn的最大空闲时间 从1h调至0.5h |
 
-### 数据库表变化 
+## 数据库表变化 
 
 详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.0_schema`文件
