@@ -1,5 +1,10 @@
+---
+title: 数据源接口
+sidebar_position: 1
+---
 
-# DataSourceAdminRestfulApi
+
+** DataSourceAdminRestfulApi 类 ** 
 
 ## queryDataSourceEnv
 **接口地址**:`/api/rest_j/v1/data-source-manager/env`
@@ -356,7 +361,9 @@
 	"status": 0
 }
 ```
-# DataSourceCoreRestfulApi
+
+------
+** DataSourceCoreRestfulApi类**
 
 ## queryDataSource
 **接口地址**:`/api/rest_j/v1/data-source-manager/info`
@@ -1340,7 +1347,10 @@
     }
 }
 ```
-# data-source-operate-restful-api
+
+-----
+** DataSourceOperateRestfulApi类 ** 
+
 ## connect
 **接口地址**:`/api/rest_j/v1/data-source-manager/op/connect/json`
 

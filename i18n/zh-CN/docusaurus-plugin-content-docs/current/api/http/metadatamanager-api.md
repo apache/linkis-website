@@ -1,4 +1,9 @@
-# MetadataCoreRestful
+---
+title: 数据元接口
+sidebar_position: 2
+---
+
+** MetadataCoreRestful 类 ** 
 
 ## getColumns
 **接口地址**:`/api/rest_j/v1/metadatamanager/columns/{dataSourceId}/db/{database}/table/{table}`
@@ -13,7 +18,7 @@
 
 **请求参数**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| 参数名称  | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|string||
 |database|database|path|true|string||
