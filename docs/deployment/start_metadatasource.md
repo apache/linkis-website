@@ -1,174 +1,174 @@
 ---
-title: 数据源功能使用
+title: DataSource 
 sidebar_position: 7
 ---
 
-> 介绍一下如何使用1.1.0版本的新特性功能数据源
+> Introduce how to use the new feature function data source of version 1.1.0
 
-## 1.数据源功能介绍
+## 1. Data source function introduction
 
-### 1.1 概念
+### 1.1 Concept
 
-- 数据源:我们将能提供数据存储的数据库服务称为数据库，如mysql/hive/kafka，数据源定义的是连接到实际数据库的配置信息，配置信息主要是是连接需要的地址，用户认证信息，连接参数等。存储与linkis的数据库的linkis_ps_dm_datasource_*相关的表中
-- 元数据:单指数据库的元数据，是指定义数据结构的数据，数据库各类对象结构的数据。 例如数据库中的数据库名，表名，列名，字段的长度、类型等信息数据。
+- Data source: We call database services that can provide data storage as databases, such as mysql/hive/kafka. The data source defines the configuration information for connecting to the actual database. The configuration information is mainly the address required for connection and user authentication information , connection parameters, etc. Stored in the linkis_ps_dm_datasource_* table related to the linkis database
+- Metadata: single refers to the metadata of the database, which refers to the data that defines the data structure and the data of various object structures of the database. For example, the database name, table name, column name, field length, type and other information data in the database.
 
-### 1.2 三个主要模块 
+### 1.2 Three main modules
 
-** linkis-datasource-client **
-客户端模块，用户数据源的基本管理的DataSourceRemoteClient，以及进行元数据的查询操作的MetaDataRemoteClient.
+**linkis-datasource-client**
+Client module, DataSourceRemoteClient for basic management of user data sources, and MetaDataRemoteClient for metadata query operations.
 
-** linkis-datasource-manager-server **
-数据源管理模块,服务名ps-data-source-manager。对数据源的进行基本的管理，对外提数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便数据元管理模块通过rpc调用，查询数据库建立连接需要的必要信息。
+**linkis-datasource-manager-server**
+Data source management module, service name ps-data-source-manager. Perform basic management of data sources, and provide http interfaces such as adding, querying, modifying, and connection testing of external data sources. The rpc service is provided internally, which is convenient for the data element management module to call through rpc to query the necessary information needed to establish a connection to the database.
 
-- [http接口文档](/api/http/data-source-manager-api.md)
-- http接口类 org.apache.linkis.metadatamanager.server.restful
-- rpc接口类 org.apache.linkis.metadatamanager.server.receiver
+- [http interface documentation](/api/http/data-source-manager-api.md)
+- http interface class org.apache.linkis.metadatamanager.server.restful
+- rpc interface class org.apache.linkis.metadatamanager.server.receiver
 
-** linkis-metedata-manager-server  **
-数据元管理模块,服务名ps-metadatamanager。提供数据库的数据元数据的基本查询功能,对外提供了http接口，对内提供了rpc服务，方便数据源管理模块，通过rpc调用，进行数据源的连接测试。
-- [http接口文档](/api/http/metadatamanager-api.md)
-- http接口类 org.apache.linkis.datasourcemanager.core.restful
-- rpc接口类 org.apache.linkis.datasourcemanager.core.receivers
+**linkis-metedata-manager-server**
+Data element management module, service name ps-metadatamanager. It provides the basic query function of the data metadata of the database, provides the http interface externally, and provides the rpc service internally, which is convenient for the data source management module to perform the connection test of the data source through the rpc call.
+- [http interface documentation](/api/http/metadatamanager-api.md)
+- http interface class org.apache.linkis.datasourcemanager.core.restful
+- rpc interface class org.apache.linkis.datasourcemanager.core.receivers
 
 
-### 1.3 处理逻辑
+### 1.3 Processing logic
 #### 1.3.1 LinkisDataSourceRemoteClient
-功能结构图如下:
-![datasource](/Images-zh/deployment/datasource/datasource.png)
+The functional structure diagram is as follows:
+![datasource](/Images/deployment/datasource/datasource.png)
 
-- LinkisDataSourceRemoteClient客户端根据请求参数，组装http请求，
-- HTTP请求发送到linkis-ps-data-source-manager
-- linkis-ps-data-source-manager 会进行基本参数校验，部分接口只能管理员角色能操作 
-- linkis-ps-data-source-manager 与数据库进行基本的数据操作
-- linkis-ps-data-source-manager 提供的数据源测试连接的接口 内部通过rpc方式，调用ps-metadatamanager方法进行连接测试
-- http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化
+- The LinkisDataSourceRemoteClient client assembles the http request according to the request parameters,
+- HTTP request sent to linkis-ps-data-source-manager
+- linkis-ps-data-source-manager will perform basic parameter verification, some interfaces can only be operated by the administrator role
+- linkis-ps-data-source-manager performs basic data operations with the database
+- The data source test connection interface provided by linkis-ps-data-source-manager internally uses rpc to call the ps-metadatamanager method for connection test
+- The data result after the http request is processed will be mapped and converted from the result set to the entity class by annotating the DWSHttpMessageResult function
 
-LinkisDataSourceRemoteClient接口 
-- GetAllDataSourceTypesResult getAllDataSourceTypes(GetAllDataSourceTypesAction) 查询所有数据源类型
-- QueryDataSourceEnvResult queryDataSourceEnv(QueryDataSourceEnvAction) 查询数据源可使用的集群配置信息
-- GetInfoByDataSourceIdResult getInfoByDataSourceId(GetInfoByDataSourceIdAction): 通过数据源id查询数据源信息
-- QueryDataSourceResult queryDataSource(QueryDataSourceAction)  查询数据源信息
-- GetConnectParamsByDataSourceIdResult getConnectParams(GetConnectParamsByDataSourceIdAction) 获取连接配置参数
-- CreateDataSourceResult createDataSource(CreateDataSourceAction) 创建数据源
-- DataSourceTestConnectResult getDataSourceTestConnect(DataSourceTestConnectAction)  测试数据源是否能正常建立连接
-- DeleteDataSourceResult deleteDataSource(DeleteDataSourceAction) 删除数据源
-- ExpireDataSourceResult expireDataSource(ExpireDataSourceAction) 设置数据源为过期状态
-- GetDataSourceVersionsResult getDataSourceVersions(GetDataSourceVersionsAction)  查询数据源配置的版本列表
-- PublishDataSourceVersionResult publishDataSourceVersion(PublishDataSourceVersionAction) 发布数据源配置版本 
-- UpdateDataSourceResult updateDataSource(UpdateDataSourceAction) 更新数据源 
-- UpdateDataSourceParameterResult updateDataSourceParameter(UpdateDataSourceParameterAction) 更新数据源配置参数
-- GetKeyTypeDatasourceResult getKeyDefinitionsByType(GetKeyTypeDatasourceAction) 查询某数据源类型需要的配置属性
+LinkisDataSourceRemoteClient interface
+- GetAllDataSourceTypesResult getAllDataSourceTypes(GetAllDataSourceTypesAction) Query all data source types
+- QueryDataSourceEnvResult queryDataSourceEnv(QueryDataSourceEnvAction) Query the cluster configuration information that can be used by the data source
+- GetInfoByDataSourceIdResult getInfoByDataSourceId(GetInfoByDataSourceIdAction): query data source information by data source id
+- QueryDataSourceResult queryDataSource(QueryDataSourceAction) query data source information
+- GetConnectParamsByDataSourceIdResult getConnectParams(GetConnectParamsByDataSourceIdAction) Get connection configuration parameters
+- CreateDataSourceResult createDataSource(CreateDataSourceAction) to create a data source
+- DataSourceTestConnectResult getDataSourceTestConnect(DataSourceTestConnectAction) to test whether the data source can be connected normally
+- DeleteDataSourceResult deleteDataSource(DeleteDataSourceAction) deletes the data source
+- ExpireDataSourceResult expireDataSource(ExpireDataSourceAction) sets the data source to expired state
+- GetDataSourceVersionsResult getDataSourceVersions(GetDataSourceVersionsAction) Query the version list of the data source configuration
+- PublishDataSourceVersionResult publishDataSourceVersion(PublishDataSourceVersionAction) publishes the data source configuration version
+- UpdateDataSourceResult updateDataSource(UpdateDataSourceAction) to update the data source
+- UpdateDataSourceParameterResult updateDataSourceParameter(UpdateDataSourceParameterAction) Update data source configuration parameters
+- GetKeyTypeDatasourceResult getKeyDefinitionsByType(GetKeyTypeDatasourceAction) Query the configuration properties required by a data source type
 
 
 #### 1.3.2 LinkisMetaDataRemoteClient
-功能结构图如下:
-![metadata](/Images-zh/deployment/datasource/metadata.png)
+The functional structure diagram is as follows:
+![metadata](/Images/deployment/datasource/metadata.png)
 
-- LinkisMetaDataRemoteClient客户端，根据请求参数，组装http请求， 
-- HTTP请求发送到ps-metadatamanager
-- ps-metadatamanager 会进行基本参数校验，
-- 请求会根据参数 datasourceId，发送RPC请求到linkis-ps-data-source-manager，获取该数据源的类型，连接参数如用户名密码等信息
-- 拿到连接需要的信息后，根据数据源类型，加载对应目录下的lib包，通过反射机制调用对应的函数方法，从而查询到元数据信息
-- http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化 
+- LinkisMetaDataRemoteClient client, according to the request parameters, assemble the http request,
+- HTTP request sent to ps-metadatamanager
+- ps-metadatamanager will perform basic parameter verification,
+- The request will send an RPC request to linkis-ps-data-source-manager based on the parameter datasourceId to obtain the type of the data source, connection parameters such as username and password, etc.
+- After getting the information required for the connection, load the lib package in the corresponding directory according to the data source type, and call the corresponding function method through the reflection mechanism to query the metadata information
+- The data result after the http request is processed will be mapped and converted from the result set to the entity class by annotating the DWSHttpMessageResult function
 
-LinkisMetaDataRemoteClient接口 
-- MetadataGetDatabasesResult getDatabases(MetadataGetDatabasesAction) 查询数据库列表
-- MetadataGetTablesResult getTables(MetadataGetTablesAction) 查询table数据
+LinkisMetaDataRemoteClient interface
+- MetadataGetDatabasesResult getDatabases(MetadataGetDatabasesAction) query database list
+- MetadataGetTablesResult getTables(MetadataGetTablesAction) query table data
 - MetadataGetTablePropsResult getTableProps(MetadataGetTablePropsAction)
-- MetadataGetPartitionsResult getPartitions(MetadataGetPartitionsAction) 查询分区表
-- MetadataGetColumnsResult getColumns(MetadataGetColumnsAction) 查询数据表字段
+- MetadataGetPartitionsResult getPartitions(MetadataGetPartitionsAction) query partition table
+- MetadataGetColumnsResult getColumns(MetadataGetColumnsAction) query data table fields
 
-### 1.3 源码模块目录结构 
+### 1.3 Source module directory structure
 ```shell script
 linkis-public-enhancements/linkis-datasource
 
-├── linkis-datasource-client //客户端代码
-├── linkis-datasource-manager //数据源管理模块
-│   ├── common  //数据源管理公共模块
-│   └── server  //数据源管理服务模块
-├── linkis-metadata //旧版本已有的模块，保留
-├── linkis-metadata-manager //数据元管理模块
-│   ├── common //数据元管理公共模块
-│   ├── server //数据元管理服务模块
-│   └── service //支持的数据源 
-│       ├── elasticsearch
-│       ├── hive 
-│       ├── kafka
-│       └── mysql
+├── linkis-datasource-client //client code
+├── linkis-datasource-manager //Datasource management module
+│ ├── common //Data source management common module
+│ └── server //Data source management service module
+├── linkis-metadata //Module existing in the old version, reserved
+├── linkis-metadata-manager //Data Metadata Management Module
+│ ├── common //Data element management common module
+│ ├── server //Data element management service module
+│ └── service //Supported data sources
+│ ├── elasticsearch
+│ ├── hive
+│ ├── kafka
+│ └── mysql
 
 
-```
-### 1.4 安装包目录结构
+````
+### 1.4 Installation package directory structure
 
 ```shell script
 /lib/linkis-public-enhancements/
 
 ├── linkis-ps-data-source-manager
 ├── linkis-ps-metadatamanager
-│   └── service
-│       ├── elasticsearch
-│       ├── hive
-│       ├── kafka
-│       └── mysql
-```
-`wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
+│ └── service
+│ ├── elasticsearch
+│ ├── hive
+│ ├── kafka
+│ └── mysql
+````
+`wds.linkis.server.mdm.service.lib.dir` controls the classpath loaded during reflection calls. The default value of the parameter is `/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
 
-### 1.5 配置参数 
+### 1.5 Configuration Parameters
 
-参见[调优排障>参数列表#datasource配置参数](https://linkis.staged.apache.org/docs/1.1.0/tuning_and_troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters )
+See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/tuning_and_troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
 
-## 2. 数据源功能的启用
+## 2. Enable data source function
 
-linkis的启动脚本中默认不会启动数据源相关的服务两个服务（ps-data-source-manager，ps-metadatamanager），
-如果想使用数据源服务，可以通过如下方式进行开启:
-修改`$LINKIS_CONF_DIR/linkis-env.sh`中的 `export ENABLE_METADATA_MANAGER=true`值为true。
-通过linkis-start-all.sh/linkis-stop-ll.sh 进行服务启停时，会进行数据源服务的启动与停止。
+In the startup script of linkis, the two services related to the data source (ps-data-source-manager, ps-metadatamanager) will not be started by default.
+If you want to use the data source service, you can enable it in the following ways:
+Modify `export ENABLE_METADATA_MANAGER=true` in `$LINKIS_CONF_DIR/linkis-env.sh` to true.
+When the service is started and stopped through linkis-start-all.sh/linkis-stop-ll.sh, the data source service will be started and stopped.
 
-通过eureka页面查看服务是否正常启动 
+Check whether the service starts normally through the eureka page
 
-![datasource eureka](/Images-zh/deployment/datasource/eureka.png)
+![datasource eureka](/Images/deployment/datasource/eureka.png)
 
-:::caution 注意
-- 1.linkis的管理台web版本需要配合升级至1.1.0版本才能在linkis管理台上使用数据源管理页面功能。
-- 2.目前数据源中已有mysql/hive/kafak/elasticsearch的jar包, 但是kafak/elasticsearch数据源未经过严格的测试，不保证功能的完整可用性。
+:::caution note
+- 1. Management of linkis The web version needs to be upgraded to version 1.1.0 to use the data source management page function on the linkis console.
+- 2. At present, there are jar packages of mysql/hive/kafak/elasticsearch in the data source, but the kafak/elasticsearch data source has not been strictly tested, and the complete availability of functions is not guaranteed.
 :::
 
-## 3.  数据源的使用
-数据源的使用分为三步:
-- step 1. 创建数据源/配置连接参数
-- step 2. 发布数据源,选择要使用的连接配置版本
-- step 3. 数据源使用，查询元数据信息
-,hive/kafka/elasticsearch配置是关联对应的集群环境配置.
+## 3. Use of data sources
+The use of data sources is divided into three steps:
+- step 1. Create data source/configure connection parameters
+- step 2. Publish the data source and select the connection configuration version to use
+- step 3. Data source usage, query metadata information
+, hive/kafka/elasticsearch configuration is associated with the corresponding cluster environment configuration.
 
-### 3.1  Mysql 数据源
-#### 3.1.1 通过管理台创建
->只能创建配置数据源，以及测试数据源是否能正常连接，无法进行直接进行元数据查询
+### 3.1 Mysql data source
+#### 3.1.1 Created through the management console
+> You can only create configuration data sources, and test whether the data sources can be connected normally, and cannot directly query metadata
 
-数据源管理>新增数据源>选择mysql类型
-
-
-输入相关的配置信息
-
-![create mysql](/Images-zh/deployment/datasource/create_mysql.png)
-
-录入成功后可以通过连接测试验证是否能够正常进行连接
+Data Source Management > New Data Source > Select MySQL Type
 
 
-:::caution 注意
-- 通过管理台创建的数据源归属的system是Linkis
-- 创建成功后，还需要进行发布(发布时进行配置参数版本的切换和选择)，才能被正常使用
+Enter relevant configuration information
+
+![create mysql](/Images/deployment/datasource/create_mysql.png)
+
+After the entry is successful, you can pass the connection test to verify whether the connection can be made normally
+
+
+:::caution note
+- The system to which the data source created through the management console belongs is Linkis
+- After the creation is successful, it needs to be published (switching and selecting the configuration parameter version when publishing) before it can be used normally
 :::
 
-配置的发布(使用那个配置进行数据源的建连):
+Publishing of the configuration (using that configuration for the connection to the data source):
 
-点击版本后再弹窗页面选择合适的配置进行发布
+Click on the version and then pop up the page to select the appropriate configuration to publish
 
-![publish](/Images-zh/deployment/datasource/publish_version.png)
+![publish](/Images/deployment/datasource/publish_version.png)
 
 
-#### 3.1.2 使用客户端
+#### 3.1.2 Using the client
 
-scala 代码示例:
+scala code example:
 ```scala
 package org.apache.linkis.datasource.client
 import java.util
@@ -224,7 +224,7 @@ object TestMysqlClient {
     val user = "hadoop"
     val system = "Linkis"
 
-    //创建数据源
+    //create data source
     val dataSource = new DataSource();
     dataSource.setDataSourceName("for-mysql-test")
     dataSource.setDataSourceDesc("this is for mysql test")
@@ -240,7 +240,7 @@ object TestMysqlClient {
     val dataSourceId = createDataSourceResult.getInsertId
 
 
-    //设置连接参数
+    // set connection parameters
     val params = new util.HashMap[String, Any]
 
     val connectParams = new util.HashMap[String, Any]
@@ -261,7 +261,7 @@ object TestMysqlClient {
 
     val version: Long = updateParameterResult.getVersion
 
-    //发布配置版本
+    //publish configuration version
     dataSourceclient.publishDataSourceVersion(
       PublishDataSourceVersionAction.builder()
         .setDataSourceId(dataSourceId)
@@ -269,7 +269,7 @@ object TestMysqlClient {
         .setVersion(version)
         .build())
 
-     //使用示例
+     // use example
     val metadataGetDatabasesAction: MetadataGetDatabasesAction = MetadataGetDatabasesAction.builder()
       .setUser(user)
       .setDataSourceId(dataSourceId)
@@ -297,39 +297,39 @@ object TestMysqlClient {
   }
 }
 
-```
+````
 
-### 3.2  Hive 数据源
+### 3.2 Hive data source
 
-#### 3.2.1 通过管理台创建
+#### 3.2.1 Created through the management console
 
->只能创建配置数据源，以及测试数据源是否能正常连接，无法进行直接进行元数据查询
+> You can only create configuration data sources, and test whether the data sources can be connected normally, and cannot directly query metadata
 
-先需要进行集群环境信息的配置
-表`linkis_ps_dm_datasource_env`
-```roomsql
+First need to configure the cluster environment information
+Table `linkis_ps_dm_datasource_env`
+````roomsql
 INSERT INTO `linkis_ps_dm_datasource_env`
 (`env_name`, `env_desc`, `datasource_type_id`, `parameter`, `create_user`, `modify_user`)
 VALUES
-('testEnv', '测试环境', 4, '{\r\n    "keytab": "4dd408ad-a2f9-4501-83b3-139290977ca2",\r\n    "uris": "thrift://clustername:9083",\r\n    "principle":"hadoop@WEBANK.COM"\r\n}',  'user','user');
+('testEnv', 'TestEnv', 4, '{\r\n "keytab": "4dd408ad-a2f9-4501-83b3-139290977ca2",\r\n "uris": "thrift://clustername:9083 ",\r\n "principle":"hadoop@WEBANK.COM"\r\n}', 'user','user');
 
-```
-主键id,作为envId，在建立连接时，需要通过此envId参数，获取集群配置相关信息。
-配置字段解释:
-```
+````
+The primary key id, used as the envId, needs to pass the envId parameter to obtain information about the cluster configuration when establishing a connection.
+Explanation of configuration fields:
+````
 {
-    "keytab": "bml resource id",//keytab 存储再物料库中的resourceId,目前需要通过http接口手动上传。
+    "keytab": "bml resource id", //keytab stores the resourceId in the material library, which currently needs to be manually uploaded through the http interface.
     "uris": "thrift://clustername:9083",
-    "principle":"hadoop@WEBANK.COM" //认证的principle
+    "principle":"hadoop@WEBANK.COM" //Authenticated principle
 }
-```
+````
 
-web端创建:
+Create on the web side:
 
-![create_hive](/Images-zh/deployment/datasource/create_hive.png)
+![create_hive](/Images/deployment/datasource/create_hive.png)
 
-#### 3.2.2 使用客户端
-```scala 
+#### 3.2.2 Using the client
+```scala
 package org.apache.linkis.datasource.client
 
 import java.util
@@ -385,7 +385,7 @@ object TestHiveClient {
     val user = "hadoop"
     val system = "Linkis"
 
-   //创建数据源
+   //create data source
     val dataSource = new DataSource();
     dataSource.setDataSourceName("for-hive-test")
     dataSource.setDataSourceDesc("this is for hive test")
@@ -400,7 +400,7 @@ object TestHiveClient {
     val createDataSourceResult: CreateDataSourceResult = dataSourceclient.createDataSource(createDataSourceAction)
     val dataSourceId = createDataSourceResult.getInsertId
 
-     //设置连接参数
+     // set connection parameters
     val params = new util.HashMap[String, Any]
     val connectParams = new util.HashMap[String, Any]
     connectParams.put("envId", "3")
@@ -416,7 +416,7 @@ object TestHiveClient {
 
     val version: Long = updateParameterResult.getVersion
 
-    //发布配置版本
+    //publish configuration version
     dataSourceclient.publishDataSourceVersion(
       PublishDataSourceVersionAction.builder()
         .setDataSourceId(dataSourceId)
@@ -424,7 +424,7 @@ object TestHiveClient {
         .setVersion(version)
         .build())
 
-    //使用示例
+    // use example
     val metadataGetDatabasesAction: MetadataGetDatabasesAction = MetadataGetDatabasesAction.builder()
       .setUser(user)
       .setDataSourceId(dataSourceId)
@@ -454,4 +454,3 @@ object TestHiveClient {
   }
 }
 ```
-
