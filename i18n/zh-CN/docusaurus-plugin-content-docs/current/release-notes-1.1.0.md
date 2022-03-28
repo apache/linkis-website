@@ -1,5 +1,5 @@
 ---
-title: Release Notes 1.0.1-RC1
+title: Release Notes 1.1.0-RC1
 sidebar_position: 0
 --- 
 
@@ -83,19 +83,6 @@ Linkis-1.1.0 包括所有 [Project Linkis-1.1.0](https://github.com/apache/incub
 * \[CGS-EngineConnPlugin-JDBC][[Linkis-1646]](https://github.com/apache/incubator-linkis/pull/1646)  修复 JDBC 引擎查询复杂类型字段时，值显示为对象地址。 
 * \[CGS-EngineConnPlugin-PYTHON][[Linkis-1731]](https://github.com/apache/incubator-linkis/pull/1731) 修复python引擎的showDF函数结果集字段行反转的问题
 * \[PES-BML][[Linkis-1556]](https://github.com/apache/incubator-linkis/issues/1556) 修复文件下载接口可能出现的HttpMessageNotWritableException异常
-
-* [Linkis-1390](https://github.com/apache/incubator-linkis/pull/1390) \[Deployment] 修复问题 1314 这是一个错误，在安装脚本中创建结果集路径以确保所有 dss 用户都可以访问此路径
-* [Linkis-1469](https://github.com/apache/incubator-linkis/pull/1469) [Commons] 修复 issue #1358，当 sql 包含 ';' 时，无法正确剪切 SQL
-* [Linkis-1508](https://github.com/apache/incubator-linkis/pull/1508) \[MGS-LinkisServiceGateway] 修复knife4j会导致网关启动异常的问题
-* [Linkis-1529](https://github.com/apache/incubator-linkis/pull/1529) \[CGS-EngineConnPlugin-JDBC] 修复 JDBC 引擎执行 error:21304, Task is Failed,errorMsg: NullPointerException: #1421 的问题
-* [Linkis-1530](https://github.com/apache/incubator-linkis/pull/1530) \[Commons] 修复 jetty 冲突问题，排除 spring-jetty 中的 jetty 导入 
-* [Linkis-1540](https://github.com/apache/incubator-linkis/pull/1540) \[CGS-Entrance] 修复 linkis-entrance 中“kill”方法的错误以支持空参数“taskID”，修复 #1538 
-* [Linkis-1600](https://github.com/apache/incubator-linkis/pull/1600) \[Commons] 修复commons-compress低版本导致的这个问题
-* [Linkis-1603](https://github.com/apache/incubator-linkis/pull/1603) \[CGS-Client] 修复客户端不支持 -runtimeMap 参数
-* [Linkis-1610](https://github.com/apache/incubator-linkis/pull/1610) \[CGS-EngineConnPlugin-JDBC] 修复 jdbc 引擎 postgresql 不支持 sql "show databases;"导致执行失败
-* [Linkis-1618](https://github.com/apache/incubator-linkis/pull/1618) \[Commons] 修复 [Bug] Message 对象的 xml 注解应该被移除 #1607
-* [Linkis-1646](https://github.com/apache/incubator-linkis/pull/1646) \[CGS-EngineConnPlugin-JDBC] 修复 JDBC 引擎查询复杂类型字段时，值显示为对象地址。 
-* [Linkis-1731](https://github.com/apache/incubator-linkis/pull/1731) \[CGS-EngineConnPlugin-PYTHON] 修复python引擎的showDF函数结果集字段行反转的问题
 
 ## 致谢 
 

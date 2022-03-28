@@ -1,5 +1,5 @@
 ---
-title: Release Notes 1.0.1-RC1
+title: Release Notes 1.1.0-RC1
 sidebar_position: 0
 --- 
 
