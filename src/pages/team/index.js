@@ -2,6 +2,7 @@ import React, { useState }  from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import config from "./config.json";
 import Layout from '@theme/Layout';
+import Contributors from '@site/src/components/Contributors';
 
 export default function() {
     const isBrowser = useIsBrowser();
@@ -32,6 +33,16 @@ export default function() {
               ))
           }
         </ul>
+        <h3 className="normal-title">
+          <a target="_blank" href="https://github.com/apache/incubator-linkis">Contributors of Apache Linkis</a>
+        </h3>
+        <Contributors repo="apache/incubator-linkis"/>
+
+        <h3 className="normal-title">
+         <a target="_blank" href="https://github.com/apache/incubator-linkis-website">Contributors of Apache Linkis WebSite</a>
+         </h3>
+        <Contributors repo="apache/incubator-linkis-website"/>
+
       </div>
       </Layout>
     );
