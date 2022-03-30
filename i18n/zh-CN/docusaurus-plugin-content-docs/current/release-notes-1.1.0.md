@@ -10,7 +10,7 @@ Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://gith
 添加了以下主要功能：
 * 提供Restful接口针对数据源进行增删查改，以及数据源的连接测试。
 * 提供Restful接口针对元数据进行数据库、表、分区、列属性查询。
-* 提供针对数据源及元数据服务管理的客户端。
+* 提供针对数据源及元数据服务管理的Java客户端。
 
 缩写：
 
@@ -35,7 +35,7 @@ Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://gith
 * \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) 增加新的模块 linkis-metadata-manager-service-hive，定义了针对hive的元数据管理服务。
 * \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) 增加新的模块 linkis-metadata-manager-service-kafka，定义了针对kafka的元数据管理服务。
 * \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) 增加新的模块 linkis-metadata-manager-service-mysql，定义了针对mysql的元数据管理服务。
-* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache/incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com/apache/incubator-linkis/pull/1441) 增加新的数据源管理客户端模块 linkis-datasource-client，方便通过sdk方式进行数据源管理。
+* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache/incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com/apache/incubator-linkis/pull/1441) 增加新的数据源管理Java客户端模块 linkis-datasource-client，方便通过sdk方式进行数据源管理。
 * \[DMS&MDS-Web][[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510] 增加数据源前端管理页面，通过该页面可以对数据源进行简单的创建，测试。
 
 ---
