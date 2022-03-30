@@ -10,7 +10,7 @@ This release mainly adds datasource and metadata source management services, sup
 The following key features have been added:
 * Provides Restful interface to add, delete, check, and modify data sources, as well as data source connection tests.
 * Provides Restful interface for database, table, partition, column attribute query for metadata.
-* Provides clients for data source and metadata service management.
+* Provides Java clients for data source and metadata service management.
 
 Abbreviations:
 - CGS: Computation Governance Services
@@ -35,7 +35,7 @@ Abbreviations:
 * \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) Add a new module linkis-metadata-manager-service-hive, which defines Metadata management service for hive.
 * \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) Add a new module linkis-metadata-manager-service-kafka, which defines Metadata management service for kafka.
 * \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) Add a new module linkis-metadata-manager-service-mysql, which defines Metadata management service for MySQL.
-* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache /incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com /apache/incubator-linkis/pull/1441) Add a new data source management client module linkis-datasource-client to facilitate data source management through sdk.
+* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache /incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com /apache/incubator-linkis/pull/1441) Add a new data source management java client module linkis-datasource-client to facilitate data source management through sdk.
 * \[DMS&MDS-Web][[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510] Added data source front-end management page, through which you can Simple creation and testing of the data source.
 
 ---
