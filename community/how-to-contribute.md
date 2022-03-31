@@ -52,8 +52,7 @@ Fork library: From https://github.com/apache/incubator-linkis fork to your own p
 
 ### Synchronize the latest code of the original warehouse branch to your own fork library
 1. Enter the user project page and select the branch to be updated
-2. Click Fetch upstream under the code download button, and select Fetch and merge (if the branch of your fork library is accidentally polluted, you can delete the branch and synchronize the new branch of the original warehouse to your own fork library. For instructions, 
-see [Synchronize the new branch of the original repository to your own fork repository](#Synchronize the new branch of the original repository to your own fork repository))  
+2. Click Fetch upstream under the code download button, and select Fetch and merge (if the branch of your fork library is accidentally polluted, you can delete the branch and synchronize the new branch of the original warehouse to your own fork library.)
 ![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
 
 ### Synchronize the new branch of the original repository to your own fork repository
