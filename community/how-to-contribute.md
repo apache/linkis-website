@@ -46,6 +46,13 @@ There are many branches,including temporary branches,in Linkis repository,but on
 - *dev-*: main development branch;
 - feature-*: Development branches for some larger new features that need to be jointly developed by the community
 
+pull new branch steps    
+2.1.1 Use git remote add upstream git@github.com:apache/incubator-linkis.git to get remote updated branch  
+2.1.2 Use git fetch upstream to add the branch to the local  
+2.1.3 Create a local branch based on the new branch (idea select the local branch and then checkout)  
+2.1.4 Push the local branch to your own warehouse (idea git-select your own warehouse branch)  
+2.1.5 Delete the upstream branch (idea select the branch, select the delete option)  
+
 Please note: The dev branch of major features will be named with corresponding naming instructions in addition to the version number, such as: dev-0.10.0-flink, which refers to the flink feature development branch of 0.10.0.
 
 ### 2.2 Development Guidelines
