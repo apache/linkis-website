@@ -45,6 +45,13 @@ Linkis 源码可能会产生一些临时分支，但真正有明确意义的只�
 - dev-*: 主要开发分支；
 - feature-*: 针对某些较大、需要社区联合开发的新特性的开发分支
 
+拉取新分支步骤  
+2.1.1 使用git remote add upstream git@github.com:apache/incubator-linkis.git 获取远端更新的分支  
+2.1.2 使用git fetch upstream 将分支加到本地  
+2.1.3 根据新增分支创建本地分支(idea选中本地分支然后checkout)  
+2.1.4 把本地分支push到自己的仓库(idea git-选择自己仓库分支)  
+2.1.5 删除upstream的分支(idea 选择分支,选择delete选项)  
+
 请注意：大特性的dev分支，在命名时除了版本号，还会加上相应的命名说明，如：dev-0.10.0-flink，指0.10.0的flink特性开发分支。
 
 ### 2.2 开发指引
