@@ -46,12 +46,70 @@ There are many branches,including temporary branches,in Linkis repository,but on
 - *dev-*: main development branch;
 - feature-*: Development branches for some larger new features that need to be jointly developed by the community
 
-pull new branch steps    
-2.1.1 Use git remote add upstream git@github.com:apache/incubator-linkis.git to get remote updated branch  
-2.1.2 Use git fetch upstream to add the branch to the local  
-2.1.3 Create a local branch based on the new branch (idea select the local branch and then checkout)  
-2.1.4 Push the local branch to your own warehouse (idea git-select your own warehouse branch)  
-2.1.5 Delete the upstream branch (idea select the branch, select the delete option)  
+### concept 
+Original warehouse: https://github.com/apache/incubator-linkis The apache warehouse of linkis is called the original warehouse in the text  
+Fork library: From https://github.com/apache/incubator-linkis fork to your own personal repository to become a fork library
+
+### Synchronize the latest code of the original warehouse branch to your own fork library
+1. Enter the user project page and select the branch to be updated
+2. Click Fetch upstream under the code download button, and select Fetch and merge (if the branch of your fork library is accidentally polluted, you can delete the branch and synchronize the new branch of the original warehouse to your own fork library. For instructions, 
+see [Synchronize the new branch of the original repository to your own fork repository](#Synchronize the new branch of the original repository to your own fork repository))  
+![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
+
+### Synchronize the new branch of the original repository to your own fork repository
+
+Scene: There is a new branch in the original warehouse, but the forked library does not have this branch (you can choose to delete and re-fork, but the changes that have not been merged to the original warehouse will be lost)
+
+Operate in your own clone's local project
+
+1. Add the original apache warehouse image to the local
+
+````
+git remote add apache git@github.com:apache/incubator-linkis.git
+````
+2. Pull the apache image information to the local
+
+````
+git fetch apache
+````
+3. Create a local branch based on the new branch that needs to be synced
+
+````
+git checkout -b dev-1.1.4 apache/dev-1.1.4
+````
+4. Push the local branch to your own warehouse, if your own warehouse does not have a dev-1.1.4 branch, it will create a dev-1.1.4 branch
+````
+git push origin dev-1.1.4:dev-1.1.4
+````
+5. Delete the upstream branch
+````
+git remote remove apache
+````
+6. Update the branch
+````
+git pull
+````
+
+### A pr process
+
+1. Confirm the base branch of the current development (usually the current version in progress, such as version 1.1.0 currently under development by the community, then the branch is dev-1.1.0, if you are not sure, you can ask in the community group or in @relevant classmates in the issue)
+
+2. Synchronize the latest code of the original warehouse branch to your own fork warehouse branch
+    See the guide [synchronize the latest code of the original warehouse branch to your own fork library] (#synchronize the new branch of the original warehouse to your own fork library))
+
+3. Based on the development branch, pull the new fix/future branch (do not modify it directly on the original branch, if the subsequent PR is merged in the squash method, the submitted commit records will be merged into one)
+````
+git checkout -b dev-1.1.4-fix dev-1.1.4
+git push origin dev-1.1.4-fix:dev-1.1.4-fix
+````
+4. Develop
+5. Submit pr (if it is in progress and the development has not been completely completed, please add the WIP logo to the pr title, such as `[WIP] Dev 1.1.1 Add junit test code for [linkis-common] `; associate the corresponding issue, etc.)
+6. Waiting to be merged
+7. Delete the fix/future branch (you can do this on the github page)
+````
+git branch -d dev-1.1.4-fix
+git push
+```` 
 
 Please note: The dev branch of major features will be named with corresponding naming instructions in addition to the version number, such as: dev-0.10.0-flink, which refers to the flink feature development branch of 0.10.0.
 
