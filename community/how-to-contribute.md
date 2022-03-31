@@ -52,7 +52,7 @@ Fork library: From https://github.com/apache/incubator-linkis fork to your own p
 
 ### Synchronize the latest code of the original warehouse branch to your own fork library
 1. Enter the user project page and select the branch to be updated
-2. Click Fetch upstream under the code download button, and select Fetch and merge (if the branch of your fork library is accidentally polluted, you can delete the branch and synchronize the new branch of the original warehouse to your own fork library.)
+2. Click Fetch upstream under the code download button, and select Fetch and merge (if the branch of your fork library is accidentally polluted, you can delete the branch and synchronize the new branch of the original warehouse to your own fork library(see the next node).)
 ![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
 
 ### Synchronize the new branch of the original repository to your own fork repository
@@ -93,8 +93,7 @@ git pull
 
 1. Confirm the base branch of the current development (usually the current version in progress, such as version 1.1.0 currently under development by the community, then the branch is dev-1.1.0, if you are not sure, you can ask in the community group or in @relevant classmates in the issue)
 
-2. Synchronize the latest code of the original warehouse branch to your own fork warehouse branch
-    See the guide [synchronize the latest code of the original warehouse branch to your own fork library] (#synchronize the new branch of the original warehouse to your own fork library))
+2. Synchronize the latest code of the original warehouse branch to your own fork warehouse branch(see the previous node)
 
 3. Based on the development branch, pull the new fix/future branch (do not modify it directly on the original branch, if the subsequent PR is merged in the squash method, the submitted commit records will be merged into one)
 ````
