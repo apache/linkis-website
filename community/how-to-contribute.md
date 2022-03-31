@@ -46,16 +46,16 @@ There are many branches,including temporary branches,in Linkis repository,but on
 - *dev-*: main development branch;
 - feature-*: Development branches for some larger new features that need to be jointly developed by the community
 
-### concept 
+#### 2.1.1 concept 
 Original warehouse: https://github.com/apache/incubator-linkis The apache warehouse of linkis is called the original warehouse in the text  
 Fork library: From https://github.com/apache/incubator-linkis fork to your own personal repository to become a fork library
 
-### Synchronize the latest code of the original warehouse branch to your own fork library
+#### 2.1.2 Synchronize the latest code of the original warehouse branch to your own fork library
 1. Enter the user project page and select the branch to be updated
 2. Click Fetch upstream under the code download button, and select Fetch and merge (if the branch of your fork library is accidentally polluted, you can delete the branch and synchronize the new branch of the original warehouse to your own fork library(see the next node).)
 ![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
 
-### Synchronize the new branch of the original repository to your own fork repository
+#### 2.1.3 Synchronize the new branch of the original repository to your own fork repository
 
 Scene: There is a new branch in the original warehouse, but the forked library does not have this branch (you can choose to delete and re-fork, but the changes that have not been merged to the original warehouse will be lost)
 
@@ -89,7 +89,7 @@ git remote remove apache
 git pull
 ````
 
-### A pr process
+#### 2.1.4 A pr process
 
 1. Confirm the base branch of the current development (usually the current version in progress, such as version 1.1.0 currently under development by the community, then the branch is dev-1.1.0, if you are not sure, you can ask in the community group or in @relevant classmates in the issue)
 
