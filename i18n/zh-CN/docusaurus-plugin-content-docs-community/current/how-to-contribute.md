@@ -45,16 +45,16 @@ Linkis 源码可能会产生一些临时分支，但真正有明确意义的只�
 - dev-*: 主要开发分支；
 - feature-*: 针对某些较大、需要社区联合开发的新特性的开发分支
 
-### 概念 
+#### 2.1.1 概念 
 原仓库:https://github.com/apache/incubator-linkis linkis的apache仓库文中称为原仓库   
 fork库: 从https://github.com/apache/incubator-linkis fork到自己个人仓库 成为fork库  
 
-### 同步原仓库分支最新代码到自己的fork库   
+#### 2.1.2 同步原仓库分支最新代码到自己的fork库   
 1.进入用户项目页面,选中要更新的分支  
 2.点击code下载按钮下方的Fetch upstream,选择Fetch and merge (如自己的fork库该分支不小心污染了，可以删除该分支后，同步原仓库新分支到自己的fork库，指引参见[同步原仓库新分支到自己的fork库](#同步原仓库新分支到自己的fork库))  
 ![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
 
-### 同步原仓库新分支到自己的fork库
+#### 2.1.3 同步原仓库新分支到自己的fork库
 
 场景：原仓库有新增分支，但是fork的库没有该分支(可以选择删除后，重新fork，但是会丢失未merge到原始仓库的变更)
 
@@ -88,7 +88,7 @@ git remote remove apache
 git pull
 ```
 
-### 一个pr的流程 
+#### 2.1.4 一个pr的流程 
 
 1. 确认当前开发的基础分支（一般是当前进行的中版本，如当前社区开发中的版本1.1.0，那么分支就是dev-1.1.0，不确定的话可以在社区群里问下或则在issue中@相关同学）
 
