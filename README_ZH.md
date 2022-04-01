@@ -7,4 +7,4 @@
 本指南将指导您如何为Linkis的网站做出贡献。
 
 
-详情请参考[linkis官网](https://linkis.apache.org/zh-CN/)
+请参阅[如何参与官网贡献](https://linkis.apache.org/zh-CN/community/how-to-contribute-to-website)
