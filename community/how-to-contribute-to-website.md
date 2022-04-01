@@ -1,5 +1,5 @@
 ---
-title: How to Contribute to Website
+title: How to participate in the official website contribution
 sidebar_position: 2.1
 ---
 
