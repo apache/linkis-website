@@ -3,12 +3,6 @@ title: How to Contribute to Website
 sidebar_position: 2.1
 ---
 
-# Apache Linkis Website
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-
-This is the repository containing all the source code of `https://linkis.apache.org`.
-This guide will guide you how to contribute to the Linkis website.
-
 
 ## Branch
 dev is the development branch. For all modifications, please fork first, and then proceed on the dev branch.
