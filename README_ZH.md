@@ -7,4 +7,4 @@
 本指南将指导您如何为Linkis的网站做出贡献。
 
 
-[详情请参考](http://localhost:3000/zh-CN/community/how-to-contribute-to-website)
+[详情请参考](community/how-to-contribute-to-website.md)
