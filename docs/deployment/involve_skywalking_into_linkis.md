@@ -6,11 +6,11 @@ This article describes how to enable SkyWalking when starting the Linkis service
 
 ## 1. Introduction to SkyWalking
 
-### What is SkyWalking
+### 1.1 What is SkyWalking
 
 SkyWalking is an open source observability platform used to collect, analyze, aggregate and visualize data from services and cloud native infrastructures. SkyWalking provides an easy way to maintain a clear view of your distributed systems, even across Clouds. It is a modern APM, specially designed for cloud native, container based distributed systems.
 
-### SkyWalking Architecture
+### 1.2 SkyWalking Architecture
 
 The following figure is the overall architecture of SkyWalking.
 
