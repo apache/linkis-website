@@ -177,7 +177,7 @@ After the verification is correct, the asf-staging branch can be merged to the a
 ## 6 Points for attention
 - When adding Chinese documents, you need to add English documents at the same time, otherwise the added page cannot be displayed  
 - When adding a document, pay attention to the document node name and node sorting fields, as shown in the following figure  
-![pg-eng](https://user-images.githubusercontent.com/29391030/161207674-2b6068a3-7c93-46db-863b-bf1ca84debcd.png)
+![nodeOrder-eng](https://user-images.githubusercontent.com/29391030/161042941-c5f4eab5-3705-4d5e-8975-733abf96f565.png)
 
 ## 7 Other
 The naming convention refers to "Alibaba Front-end Development Specification"
