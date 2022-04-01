@@ -171,7 +171,7 @@ Apache内部机制会将asf-staging分支内容部署至测试环境，所以当
 ## 6 注意点
 - 添加中文文档的同时需要加上英文文档,否则无法展示添加的页面  
 - 添加文档的时候注意文档侧边栏节点展示的名称字段(title)和侧边栏节点展示的顺序字段(sidebar_position),如下图   
-![nameOrder](https://user-images.githubusercontent.com/29391030/161041462-66809756-db40-4041-99aa-dc63d3a6a504.png)
+![pg-ch](https://user-images.githubusercontent.com/29391030/161209898-847d0d43-8721-41a0-a30b-25896aabe56c.png)
 
 ## 7 其他
 命名规范参考《阿里前端开发规范》
