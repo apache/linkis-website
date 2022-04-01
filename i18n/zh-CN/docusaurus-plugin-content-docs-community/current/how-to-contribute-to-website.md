@@ -1,14 +1,7 @@
 ---
-title: 如何参与贡献官网
+title: 如何参与官网贡献
 sidebar_position: 2.1
 ---
-
-# Apache Linkis Website
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-
-这是包含 `https://linkis.apache.org` 的所有源代码的存储库。
-本指南将指导您如何为Linkis的网站做出贡献。
-
 
 ## 分支
 dev为开发分支，修改请先fork到自己的仓库，然后在dev分支上进行开发修改。
@@ -25,7 +18,7 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 本网站是使用node编译的，使用的是Docusaurus框架组件
 
 1. 下载并安装 nodejs(version>12.5.0)
-2. 克隆代码到本地 `git clone  git@github.com:{user}/incubator-linkis-website.git`
+2. 克隆代码到本地 `git clone  git@github.com:{githubid}/incubator-linkis-website.git`
 2. 运行 `npm install` 来安装所需的依赖库。
 3. 在根目录运行`npm run start`，可以访问http://localhost:3000查看站点英文模式预览
 4. 在根目录运行`npm run start-zh`，可以访问http://localhost:3000查看站点的中文模式预览
@@ -177,7 +170,7 @@ Apache内部机制会将asf-staging分支内容部署至测试环境，所以当
 
 ## 6 注意点
 - 添加中文文档的同时需要加上英文文档,否则无法展示添加的页面  
-- 添加文档的时候注意文档节点名称和节点排序字段,如下图   
+- 添加文档的时候注意文档侧边栏节点展示的名称字段(title)和侧边栏节点展示的顺序字段(sidebar_position),如下图   
 ![nameOrder](https://user-images.githubusercontent.com/29391030/161041462-66809756-db40-4041-99aa-dc63d3a6a504.png)
 
 ## 7 其他

@@ -1,14 +1,7 @@
 ---
-title: How to Contribute to Website
+title: How to Participate in Official Website Contribution
 sidebar_position: 2.1
 ---
-
-# Apache Linkis Website
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-
-This is the repository containing all the source code of `https://linkis.apache.org`.
-This guide will guide you how to contribute to the Linkis website.
-
 
 ## Branch
 dev is the development branch. For all modifications, please fork first, and then proceed on the dev branch.
@@ -25,7 +18,7 @@ asf-staging #The asf-staging official website test environment is accessed throu
 This website is compiled using node, using Docusaurus framework components
 
 1. Download and install nodejs (version>12.5.0)
-2. Clone the code to the local `git clone git@github.com:{user}/incubator-linkis-website.git`
+2. Clone the code to the local `git clone git@github.com:{githubid}/incubator-linkis-website.git`
 2. Run `npm install` to install the required dependent libraries.
 3. Run `npm run start` in the root directory, you can visit http://localhost:3000 to view the English mode preview of the site
 4. Run `npm run start-zh` in the root directory, you can visit http://localhost:3000 to view the Chinese mode preview of the site
@@ -176,7 +169,7 @@ After the verification is correct, the asf-staging branch can be merged to the a
 
 ## 6 Points for attention
 - When adding Chinese documents, you need to add English documents at the same time, otherwise the added page cannot be displayed  
-- When adding a document, pay attention to the document node name and node sorting fields, as shown in the following figure  
+- When adding a document, pay attention to the name field (title) displayed by the document sidebar node and the order field (sidebar_position) displayed by the sidebar node, as shown below
 ![nodeOrder-eng](https://user-images.githubusercontent.com/29391030/161042941-c5f4eab5-3705-4d5e-8975-733abf96f565.png)
 
 ## 7 Other

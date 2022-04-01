@@ -1,5 +1,5 @@
 ---
-title: How to Contribute
+title: How to Participate in Project Contribution
 sidebar_position: 2
 ---
 # Contributing
@@ -115,11 +115,16 @@ Please note: The dev branch of major features will be named with corresponding n
 
 Linkis front-end and back-end code share the same code base, but they are separated in development. Before starting the development, please fork the Linkis project to your Github Repositories. When developing, please develop based on the Linkis code base in your Github Repositories.
 
-We recommend cloning the dev-* branch for development, so that the possibility of merge conflicts when submitting a PR to the main Linkis project will be much smaller
+We recommend to clone the dev branch and name it dev-fix for development. At the same time, create a new dev-fix branch in your own warehouse and modify it directly on the original branch. If the subsequent PR is merged in the squash method, the submitted commit records will be merged into one
 
 ```bash
-git clone https://github.com/yourname/incubator-linkis.git --branch dev-*
-```
+//pull the branch
+git clone https://github.com/{githubid}/incubator-linkis.git --branch dev
+//Generate local dev-fix branch according to dev
+git checkout -b dev-fix dev
+//Push the local dev-fix branch to your own repository
+git push origin dev-fix dev-fix
+````
 
 #### 2.2.1 Backend
 

@@ -1,5 +1,5 @@
 ---
-title: 如何参与贡献
+title: 如何参与项目贡献
 sidebar_position: 2
 ---
 # Contributing
@@ -115,10 +115,15 @@ git push
 
 Linkis 前后端代码共用同一个代码库，但在开发上是分离的。在着手开发之前，请先将 Linkis 项目 fork 一份到自己的 Github Repositories 中， 开发时请基于自己 Github Repositories 中的 Linkis 代码库进行开发。
 
-我们建议克隆 dev-* 分支来开发，这样在向 Linkis 主项目提交 PR 时合并冲突的可能性会小很多
+我们建议克隆dev分支命名为dev-fix来开发,同时在自己仓库新建dev-fix分支，直接在原分支上修改，如果后续pr以squash方式merge后，提交的commit记录会被合并成一个
 
 ```bash
-git clone https://github.com/yourname/incubator-linkis.git --branch dev-*
+//拉取分支
+git clone https://github.com/{githubid}/incubator-linkis.git --branch dev
+//根据dev生成本地dev-fix分支
+git checkout -b dev-fix dev
+//把本地dev-fix分支推到自己的仓库
+git push origin dev-fix dev-fix
 ```
 
 #### 2.2.1 后端
