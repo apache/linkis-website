@@ -1,5 +1,5 @@
 ---
-title: how to contribute to website
+title: How to Contribute to Website
 sidebar_position: 2.1
 ---
 
@@ -174,7 +174,7 @@ When the dev branch code is updated, git action will automatically execute the s
 The internal mechanism of Apache will deploy the content of the asf-staging branch to the test environment, so when the git action is successfully executed, it can be verified by visiting https://linkis.staged.apache.org.
 After the verification is correct, the asf-staging branch can be merged to the asf-site branch. The internal mechanism of Apache will deploy the content of the asf-site branch to the formal environment. After the merge, the formal environment is considered to be updated successfully.
 
-## 6 points for attention
+## 6 Points for attention
 - When adding Chinese documents, you need to add English documents at the same time, otherwise the added page cannot be displayed  
 - When adding a document, pay attention to the document node name and node sorting fields, as shown in the following figure  
 ![nodeOrder-eng](https://user-images.githubusercontent.com/29391030/161042941-c5f4eab5-3705-4d5e-8975-733abf96f565.png)

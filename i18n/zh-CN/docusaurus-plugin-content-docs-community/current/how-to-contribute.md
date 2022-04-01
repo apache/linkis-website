@@ -51,7 +51,7 @@ fork库: 从https://github.com/apache/incubator-linkis fork到自己个人仓库
 
 #### 2.1.2 同步原仓库分支最新代码到自己的fork库   
 1.进入用户项目页面,选中要更新的分支  
-2.点击code下载按钮下方的Fetch upstream,选择Fetch and merge (如自己的fork库该分支不小心污染了，可以删除该分支后，同步原仓库新分支到自己的fork库，指引参见[同步原仓库新分支到自己的fork库](#同步原仓库新分支到自己的fork库))  
+2.点击code下载按钮下方的Fetch upstream,选择Fetch and merge (如自己的fork库该分支不小心污染了，可以删除该分支后，同步原仓库新分支到自己的fork库，参见指引[同步原仓库分支最新代码到自己的fork库](#213-同步原仓库新分支到自己的fork库))
 ![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
 
 #### 2.1.3 同步原仓库新分支到自己的fork库
@@ -92,8 +92,7 @@ git pull
 
 1. 确认当前开发的基础分支（一般是当前进行的中版本，如当前社区开发中的版本1.1.0，那么分支就是dev-1.1.0，不确定的话可以在社区群里问下或则在issue中@相关同学）
 
-2. 同步原仓库分支最新代码到自己的fork仓库分支   
-    参见指引[同步原仓库分支最新代码到自己的fork库 ](#同步原仓库新分支到自己的fork库))
+2. 同步原仓库分支最新代码到自己的fork仓库分支,参见指引[同步原仓库分支最新代码到自己的fork库](#213-同步原仓库新分支到自己的fork库)
 
 3. 基于开发分支，拉取新fix/future分支(不要直接在原分支上修改，如果后续pr以squash方式merge后，提交的commit记录会被合并成一个)
 ```
