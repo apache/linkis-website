@@ -27,11 +27,11 @@ Abbreviations:
 
 ## New Feature
 
-* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) Add a new module linkis-datasource-manager-common, add data source data Structure, exception class, tool class.
-* \[DMS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) Add a new module linkis-metadata-manager-common, add metadata data Structure, exception class, tool class.
-* \[MDS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) Add a new module linkis-datasource-manager-server to provide data source management services , provides functions such as adding, deleting, checking, and modifying data sources through the restful interface.
-* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add a new module linkis-metadata-manager-server to provide metadata management services , which provides database, table, and column queries of metadata through the restful interface.
-* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) Add a new module linkis-metadata-manager-service-es to provide Elasticsearch metadata management service.
+* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) Add a new module linkis-datasource-manager-common, add datasource data structure/exception class/util class.
+* \[DMS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) Add a new module linkis-metadata-manager-common, add metadata data structure/exception class/util class.
+* \[MDS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) Add a new module linkis-datasource-manager-server to provide data source management services, provides functions such as adding, deleting, checking, and modifying data sources through the restful interface.
+* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add a new module linkis-metadata-manager-server to provide metadata management services, which provides database, table, and column queries of metadata through the restful interface.
+* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) Add a new module linkis-metadata-manager-service-es to provide elasticsearch metadata management service.
 * \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) Add a new module linkis-metadata-manager-service-hive, providing for hive Metadata management service.
 * \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) Add a new module linkis-metadata-manager-service-kafka, providing for kafka Metadata management service.
 * \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) Add a new module linkis-metadata-manager-service-mysql, provide for mysql Metadata management service.
