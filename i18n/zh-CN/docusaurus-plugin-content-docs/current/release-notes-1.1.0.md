@@ -27,14 +27,14 @@ Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://gith
 
 ## 新功能
 
-* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) 增加新的模块 linkis-datasource-manager-common，定义数据源数据结构、异常类、工具类。
-* \[DMS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) 增加新的模块 linkis-metadata-manager-common，定义了元数据数据结构、异常类、工具类。
-* \[MDS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) 增加新的模块 linkis-datasource-manager-server，定义了数据源管理服务，通过restful接口提供了数据源的增删查改、连接测试等功能。
-* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) 增加新的模块 linkis-metadata-manager-server，定义了元数据管理服务，通过restful接口提供了元数据的数据库、表、列查询。
-* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) 增加新的模块 linkis-metadata-manager-service-es，定义了针对的elasticsearch元数据管理服务。
-* \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) 增加新的模块 linkis-metadata-manager-service-hive，定义了针对hive的元数据管理服务。
-* \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) 增加新的模块 linkis-metadata-manager-service-kafka，定义了针对kafka的元数据管理服务。
-* \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) 增加新的模块 linkis-metadata-manager-service-mysql，定义了针对mysql的元数据管理服务。
+* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) 增加新的模块 linkis-datasource-manager-common，新增数据源数据结构、异常类、工具类。
+* \[DMS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) 增加新的模块 linkis-metadata-manager-common，新增元数据数据结构、异常类、工具类。
+* \[MDS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) 增加新的模块 linkis-datasource-manager-server，提供数据源管理服务，通过restful接口提供了数据源的增删查改、连接测试等功能。
+* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) 增加新的模块 linkis-metadata-manager-server，提供元数据管理服务，通过restful接口提供了元数据的数据库、表、列查询。
+* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) 增加新的模块 linkis-metadata-manager-service-es，提供针对的elasticsearch元数据管理服务。
+* \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) 增加新的模块 linkis-metadata-manager-service-hive，提供针对hive的元数据管理服务。
+* \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) 增加新的模块 linkis-metadata-manager-service-kafka，提供针对kafka的元数据管理服务。
+* \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) 增加新的模块 linkis-metadata-manager-service-mysql，提供针对mysql的元数据管理服务。
 * \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache/incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com/apache/incubator-linkis/pull/1441) 增加新的数据源管理Java客户端模块 linkis-datasource-client，方便通过sdk方式进行数据源管理。
 * \[DMS&MDS-Web][[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510] 增加数据源前端管理页面，通过该页面可以对数据源进行简单的创建，测试。
 
@@ -62,7 +62,7 @@ Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://gith
 ---
 
 ## 修复功能
-* \[Deployment][[Linkis-1390]](https://github.com/apache/incubator-linkis/pull/1390)修复安装部署，创建的存储Job的结果集文件夹wds.linkis.resultSet.store.path，用户切换存在的权限不足的问题
+* \[Deployment][[Linkis-1390]](https://github.com/apache/incubator-linkis/pull/1390) 修复安装部署时创建的存储Job结果集文件目录 `wds.linkis.resultSet.store.path`，使用过程中切换用户后存在的权限不足的问题 
 * \[Commons][[Linkis-1469]](https://github.com/apache/incubator-linkis/pull/1469)  修复sql脚本中包含 ';'字符时，无法正确切割SQL问题
 * \[CGS-EngineConnPlugin-JDBC][[Linkis-1529]](https://github.com/apache/incubator-linkis/pull/1529)  修复 JDBC 引擎认证类型参数存在的NullPointerException的异常问题
 * \[CGS-Entrance][[Linkis-1540]](https://github.com/apache/incubator-linkis/pull/1540)  修复 linkis-entrance 中“kill”方法参数long类型导致null值无法识别问题

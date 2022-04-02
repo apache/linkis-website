@@ -27,17 +27,16 @@ Abbreviations:
 
 ## New Feature
 
-* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) Add a new module linkis-datasource-manager-common to define the data source data structure , exception class, tool class.
-* \[DMS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) Add a new module linkis-metadata-manager-common, which defines metadata data Structure, exception class, tool class.
-* \[MDS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) Add a new module linkis-datasource-manager-server, which defines data source management The service provides functions such as adding, deleting, checking, and modifying data sources through the restful interface.
-* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add a new module linkis-metadata-manager-server, which defines metadata management Service, which provides database, table, and column query of metadata through restful interface.
-* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) Add a new module linkis-metadata-manager-service-es, which defines The elasticsearch metadata management service.
-* \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) Add a new module linkis-metadata-manager-service-hive, which defines Metadata management service for hive.
-* \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) Add a new module linkis-metadata-manager-service-kafka, which defines Metadata management service for kafka.
-* \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) Add a new module linkis-metadata-manager-service-mysql, which defines Metadata management service for MySQL.
-* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache /incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com /apache/incubator-linkis/pull/1441) Add a new data source management java client module linkis-datasource-client to facilitate data source management through sdk.
+* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) Add a new module linkis-datasource-manager-common, add data source data Structure, exception class, tool class.
+* \[DMS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) Add a new module linkis-metadata-manager-common, add metadata data Structure, exception class, tool class.
+* \[MDS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) Add a new module linkis-datasource-manager-server to provide data source management services , provides functions such as adding, deleting, checking, and modifying data sources through the restful interface.
+* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add a new module linkis-metadata-manager-server to provide metadata management services , which provides database, table, and column queries of metadata through the restful interface.
+* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) Add a new module linkis-metadata-manager-service-es to provide Elasticsearch metadata management service.
+* \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) Add a new module linkis-metadata-manager-service-hive, providing for hive Metadata management service.
+* \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) Add a new module linkis-metadata-manager-service-kafka, providing for kafka Metadata management service.
+* \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) Add a new module linkis-metadata-manager-service-mysql, provide for mysql Metadata management service.
+* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache /incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com /apache/incubator-linkis/pull/1441) Add a new data source management Java client module linkis-datasource-client to facilitate data source management through sdk.
 * \[DMS&MDS-Web][[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510] Added data source front-end management page, through which you can Simple creation and testing of the data source.
-
 ---
 
 ## Enhancement
@@ -62,7 +61,7 @@ Abbreviations:
 ---
 
 ## Bugs Fix
-* \[Deployment][[Linkis-1390]](https://github.com/apache/incubator-linkis/pull/1390) Fix the installation and deployment, and create the result set folder wds.linkis.resultSet to store the Job. store.path, the problem of insufficient permissions in user switching
+* \[Deployment][[Linkis-1390]](https://github.com/apache/incubator-linkis/pull/1390) Fix the directory `wds.linkis.resultSet for storing Job result set files created during installation and deployment. store.path`, the problem of insufficient permissions after switching users during use
 * \[Commons][[Linkis-1469]](https://github.com/apache/incubator-linkis/pull/1469) Fix the problem that SQL cannot be cut correctly when the ';' character is included in the sql script
 * \[CGS-EngineConnPlugin-JDBC][[Linkis-1529]](https://github.com/apache/incubator-linkis/pull/1529) Fix the abnormal problem of NullPointerException in JDBC engine authentication type parameter
 * \[CGS-Entrance][[Linkis-1540]](https://github.com/apache/incubator-linkis/pull/1540) Fix the "kill" method parameter long type in linkis-entrance, which causes the null value to be unrecognized question
