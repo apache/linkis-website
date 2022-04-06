@@ -190,8 +190,25 @@ $ cd apache-linkis-${release_version}-incubating-bin
 <font color="red">
 回复的邮件一定要带上自己检查了那些项信息，仅仅回复`+1 approve`，是无效的。
 
-PPMC/IPMC成员，投票时请带上 binding后缀，表示具有约束性投票，方便统计投票结果
+PPMC在dev@linkis.apache.org linkis的社区投票时，请带上 binding后缀，表示对linkis社区中的投票具有约束性投票，方便统计投票结果。
+
+IPMC在general@incubator.apache.org incubator社区投票，请带上 binding后缀，表示表示对incubator社区中的投票具有约束性投票，方便统计投票结果。
+
 </font>
+
+:::caution 注意
+如果在dev@linkis.apache.org已经投过票，在incubator社区进行投票回复时，可以直接带过去 如:
+
+```html
+//incubator社区 投票时，只有IPMC成员才具有约束性 binding
+Forward my +1 from dev@linkis (non-binding)
+Copy my +1 from linkis DEV ML (non-binding)
+```
+:::
+
+
+
+
 
 非PPMC/IPMC成员
 ```html
@@ -206,6 +223,7 @@ I  checked:
 
 PPMC/IPMC成员
 ```html
+//incubator社区 投票时，只有IPMC成员才具有约束性 binding
 +1 (binding)
 I  checked:
     1. All download links are valid

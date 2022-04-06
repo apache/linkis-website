@@ -4,7 +4,7 @@ sidebar_position: 2.1
 ---
 
 ## 分支
-dev为开发分支，修改请先fork到自己的仓库，然后在dev分支上进行开发修改。
+dev为开发分支，请先fork到自己的仓库，基于dev分支创建fix/feature分支，然后在该分支上进行开发修改。
 ```
 master  主分支
 dev     开发分支
