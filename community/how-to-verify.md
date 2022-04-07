@@ -189,8 +189,21 @@ If you initiate a posting vote, you can refer to this response example to reply 
 <font color="red">
 When replying to the email, you must bring the information that you have checked by yourself. Simply replying to `+1 approve` is invalid.
 
-PPMC/IPMC member voting is best with the binding suffix, indicating a binding vote, which is convenient for counting voting results
+When PPMC votes in the dev@linkis.apache.org linkis community, Please bring the binding suffix to indicate that it has a binding vote for the vote in the linkis community, and it is convenient to count the voting results.
+
+When IPMC votes in the general@incubator.apache.org incubator community. Please bring the binding suffix to indicate that the voting in the incubator community has a binding vote, which is convenient for counting the voting results.
 </font>
+
+:::caution note
+If you have already voted on dev@linkis.apache.org, you can take it directly to the incubator community when you reply to the vote, such as:
+
+```html
+//Incubator community voting, only IPMC members have binding binding
+Forward my +1 from dev@linkis (non-binding)
+Copy my +1 from linkis DEV ML (non-binding)
+````
+:::
+
 
 Non-PPMC/Non-IPMC member
 ```html
@@ -205,6 +218,7 @@ I checked:
 
 PPMC/IPMC member
 ```html
+//Incubator community voting, only IPMC members have binding binding
 +1 (binding)
 I checked:
      1. All download links are valid

@@ -5,7 +5,7 @@ sidebar_position: 2.1
 
 
 ## Branch
-dev is the development branch. For all modifications, please fork first, and then proceed on the dev branch.
+dev is the development branch, please fork to your own repository, create a fix/feature branch based on the dev branch, and then perform development and modification on this branch.
 ```
 master 
 dev #development branch
