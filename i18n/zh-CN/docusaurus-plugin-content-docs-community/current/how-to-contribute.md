@@ -94,7 +94,7 @@ git pull
 
 2. 同步原仓库分支最新代码到自己的fork仓库分支,参见指引[同步原仓库分支最新代码到自己的fork库](#213-同步原仓库新分支到自己的fork库)
 
-3. 基于开发分支，拉取新fix/future分支(不要直接在原分支上修改，如果后续pr以squash方式merge后，提交的commit记录会被合并成一个)
+3. 基于开发分支，拉取新fix/feature分支(不要直接在原分支上修改，如果后续pr以squash方式merge后，提交的commit记录会被合并成一个)
 ```
 git checkout -b dev-1.1.4-fix  dev-1.1.4
 git push origin dev-1.1.4-fix:dev-1.1.4-fix
