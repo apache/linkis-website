@@ -326,7 +326,11 @@ Use H2 database, application. In the configuration file In properties, you need 
 #h2 database configuration
 spring.datasource.driver-class-name=org.h2.Driver
 # Script to connect and initialize the table
-spring.datasource.url=jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=true;INIT=runscript from 'classpath:create.sql'
+spring.datasource.url=jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=true
+#init database
+spring.datasource.schema=classpath:create.sql
+#init data in database
+spring.datasource.data=classpath:data.sql
 spring.datasource.username=sa
 spring.datasource.password=
 spring.datasource.hikari.connection-test-query=select 1
