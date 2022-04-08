@@ -325,11 +325,11 @@ Use H2 database, application. In the configuration file In properties, you need 
 ```properties
 #h2 database configuration
 spring.datasource.driver-class-name=org.h2.Driver
-# Script to connect and initialize the table
+# Script to connect database
 spring.datasource.url=jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=true
-#init database
+#Script to initialize database tables
 spring.datasource.schema=classpath:create.sql
-#init data in database
+#Script to initialize data for database tables
 spring.datasource.data=classpath:data.sql
 spring.datasource.username=sa
 spring.datasource.password=
