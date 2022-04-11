@@ -1,6 +1,6 @@
 ---
 title: Linkis 配置参数介绍
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 ## 1. 参数分类
@@ -61,7 +61,7 @@ spring.server.port=9102
                                 "special":{ //特殊配置参数 如日志路径，结果集路径等
                                         "k2":"v2"
                                 },
-                                "runtime":{ //引擎，执行配置参数，如JDBC引擎的的数据库连接参数，presto引擎的数据源参数
+                                "runtime":{ //运行时参数，执行配置参数，如JDBC引擎的的数据库连接参数，presto引擎的数据源参数
                                         "k3":"v3"
                                 },
                                 "startup":{ //启动参数,如启动EC的内存参数，spark引擎参数、hive引擎参数等
@@ -108,7 +108,7 @@ linkis-cli -runtieMap key1=value -runtieMap key2=value
      labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // 指定运行的脚本类型：spark支持：sql、scala、py；Hive：hql；shell：sh；python：python；presto：psql
      labels.put(LabelKeyConstant.JOB_RUNNING_TIMEOUT_KEY, "10000");//job运行10s没完成自动发起Kill，单位为ms
      labels.put(LabelKeyConstant.JOB_QUEUING_TIMEOUT_KEY, "10000");//job排队超过10s没完成自动发起Kill，单位为ms
-     labels.put(LabelKeyConstant.RETRY_TIMEOUT_KEY, "10000");//job因为资源等原因失败重试的等待时间，单位为ms，如果因为队列资源不足的失败，会默认按间隔发起10次重试
+     labels.put(LabelKeyConstant.RETRY_TIMEOUT_KEY, "10000");//job因为资源等原因失败重试的等待时间，单位为ms，如因为队列资源不足的失败，会默认按间隔发起10次重试
      labels.put(LabelKeyConstant.TENANT_KEY,"hduser02");//租户标签，任务如果指定了租户参数则任务会被路由到单独的ECM机器
      labels.put(LabelKeyConstant.EXECUTE_ONCE_KEY,"");//执行一次标签，该参数不建议设置，设置后引擎不会复用任务运行完就会结束引擎，只有某个任务参数有特殊化的可以进行设置
 ```
