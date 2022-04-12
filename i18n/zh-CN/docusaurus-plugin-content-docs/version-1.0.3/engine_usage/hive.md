@@ -93,7 +93,6 @@ hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来
 
 图4-1 hive的用户自定义配置管理台
 
-
 ## 5.Hive修改日志展示
 默认的日志界面是不显示application_id以及task完成数量的,用户可以根据需要输出该日志
 引擎内的log4j2-engineconn.xml/log4j2.xml配置文件中需要修改的代码块如下
