@@ -1,5 +1,5 @@
 ---
-title: Release Notes 1.1.0-RC2
+title: Release Notes 1.1.0
 sidebar_position: 0
 --- 
 
@@ -16,7 +16,6 @@ Abbreviations:
 - CGS: Computation Governance Services
 - PES: Public Enhancement Services
 - MGS: Microservice Governance Services
-- CGS: Computation Governance Services
 - EC: Engineconn
 - ECM: EngineConnManager
 - DMS: Data Source Manager Service

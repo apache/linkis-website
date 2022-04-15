@@ -1,6 +1,6 @@
 ---
-title: Release Notes 1.1.0-RC2
-sidebar_position: 0
+title: Release Notes 1.1.0
+sidebar_position: 8
 --- 
 
 Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3)。
@@ -13,11 +13,9 @@ Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://gith
 * 提供针对数据源及元数据服务管理的Java客户端。
 
 缩写：
-
 - CGS: Computation Governance Services
 - PES: Public Enhancement Services
 - MGS: Microservice Governance Services
-- CGS: Computation Governance Services
 - EC:  Engineconn
 - ECM: EngineConnManager
 - DMS: Data Source Manager Service
