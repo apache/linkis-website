@@ -289,8 +289,12 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
 ```properties
 #h2数据库配置
 spring.datasource.driver-class-name=org.h2.Driver
-#连接以及初始化表的脚本
-spring.datasource.url=jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=true;INIT=runscript from 'classpath:create.sql'
+#连接数据库
+spring.datasource.url=jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=true
+#初始化数据库表的脚本
+spring.datasource.schema=classpath:create.sql
+#初始化数据库表中的数据的脚本
+spring.datasource.data=classpath:data.sql
 spring.datasource.username=sa
 spring.datasource.password=
 spring.datasource.hikari.connection-test-query=select 1

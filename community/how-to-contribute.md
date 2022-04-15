@@ -95,7 +95,7 @@ git pull
 
 2. Synchronize the latest code of the original warehouse branch to its own fork warehouse branch , See the guideline [Synchronize the new branch of the original repository to your own fork repository](#213-synchronize-the-new-branch-of-the-original-repository-to-your-own-fork-repository)
 
-3. Based on the development branch, pull the new fix/future branch (do not modify it directly on the original branch, if the subsequent PR is merged in the squash method, the submitted commit records will be merged into one)
+3. Based on the development branch, pull the new fix/feature branch (do not modify it directly on the original branch, if the subsequent PR is merged in the squash method, the submitted commit records will be merged into one)
 ````
 git checkout -b dev-1.1.4-fix dev-1.1.4
 git push origin dev-1.1.4-fix:dev-1.1.4-fix
