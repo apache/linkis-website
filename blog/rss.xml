@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.apache.org/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Mon, 21 Feb 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 15 Apr 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[How to Download Engine Plugins Not Included in the Installation Package By Default]]></title>
+            <link>https://linkis.apache.org/blog/2022/04/15/how-to-download-engineconn-plugin</link>
+            <guid>How to Download Engine Plugins Not Included in the Installation Package By Default</guid>
+            <pubDate>Fri, 15 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[This article mainly guides you how to download the non-default engine installation plug-in package corresponding to each version.]]></description>
+        </item>
         <item>
             <title><![CDATA[Linkis Deployment Troubleshooting]]></title>
             <link>https://linkis.apache.org/blog/2022/02/21/linkis-deploy</link>

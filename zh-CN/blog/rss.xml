@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.apache.org/zh-CN/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Mon, 21 Feb 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 15 Apr 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[如何下载安装包中默认没有的引擎插件]]></title>
+            <link>https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin</link>
+            <guid>如何下载安装包中默认没有的引擎插件</guid>
+            <pubDate>Fri, 15 Apr 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[本文主要指引大家如何下载每个版本对应的非默认引擎安装插件包。]]></description>
+        </item>
         <item>
             <title><![CDATA[Linkis 部署排障]]></title>
             <link>https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy</link>

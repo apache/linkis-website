@@ -2,11 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://linkis.apache.org/blog</id>
     <title>Apache Linkis Blog</title>
-    <updated>2022-02-21T00:00:00.000Z</updated>
+    <updated>2022-04-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://linkis.apache.org/blog"/>
     <subtitle>Apache Linkis Blog</subtitle>
     <icon>https://linkis.apache.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[How to Download Engine Plugins Not Included in the Installation Package By Default]]></title>
+        <id>How to Download Engine Plugins Not Included in the Installation Package By Default</id>
+        <link href="https://linkis.apache.org/blog/2022/04/15/how-to-download-engineconn-plugin"/>
+        <updated>2022-04-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This article mainly guides you how to download the non-default engine installation plug-in package corresponding to each version.]]></summary>
+        <author>
+            <name>Casion</name>
+            <uri>https://github.com/casionone/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linkis Deployment Troubleshooting]]></title>
         <id>Linkis Deployment Troubleshooting</id>
