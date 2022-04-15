@@ -204,4 +204,28 @@ nohup java -DserviceName=linkis-cg-engineplugin -Xmx512M -XX:+UseG1GC -Xloggc:/d
 
 ## Remote debugging service steps
 
-todo
+### 1. Open remote debugging port
+
+#### 1.1 specify the service of the package to be debugged  
+
+For example: view the services using the linkis configuration module  
+```
+//Query command
+find lib/ -name *linkis-configuration\*. jar*
+```
+If the returned result is empty, the calling service is the current service  
+If the returned result is not empty, call the service, as shown in the figure:  
+![screenshot of enterprise wechat _16500112961131](https://user-images.githubusercontent.com/29391030/163560068-0284b298-a22a-4045-ab29-12e7b6200364.png)
+
+#### 1.2 enter {linkis_home} / SBIN / ext, modify the module configuration file, and open the remote call port
+![screenshot of enterprise wechat _16500097274713](https://user-images.githubusercontent.com/29391030/163560141-30005390-ba88-4264-b770-3e1edb6feedf.png)
+
+### 2. Restart the service to be debugged
+sh linkis-daemon.sh restart ps-configuration (if you are not sure about the service name, query in {links_home}/sbin/links-start-all.sh)
+
+### 3. Compiler configuration remote debugging  
+As shown in the figure below, open the window and configure the port, service and module of remote debugging  
+![screenshot of enterprise wechat _16500165234656](https://user-images.githubusercontent.com/29391030/163559974-e0109c41-d77b-4683-b788-3bfe59e395c5.png)
+
+### 4. Start debugging, click the debugging button, and the following information appears, which means you can start debugging
+![screenshot of enterprise wechat _16500167527083](https://user-images.githubusercontent.com/29391030/163559920-05aba3c3-b146-4f62-8e20-93f94a65158d.png)
