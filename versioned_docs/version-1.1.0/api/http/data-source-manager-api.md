@@ -1,37 +1,36 @@
-
 # DataSourceAdminRestfulApi
 
 ## queryDataSourceEnv
-**接口地址**:`/api/rest_j/v1/data-source-manager/env`
+**Interface address**: `/api/rest_j/v1/data-source-manager/env`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**: 查询数据源配置的集群环境信息列表
+**Interface description**: Query the list of cluster environment information configured by the data source
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |currentPage|currentPage|query|false|integer(int32)||
 |name|name|query|false|string||
 |pageSize|pageSize|query|false|integer(int32)||
 |typeId|typeId|query|false|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/env",
     "status": 0,
@@ -40,8 +39,8 @@
         "queryList": [
             {
                 "id": 2,
-                "envName": "测试环境UAT",
-                "envDesc": "测试环境UAT",
+                "envName": "Test Environment UAT",
+                "envDesc": "Test Environment UAT",
                 "dataSourceTypeId": 4,
                 "connectParams": {
                     "hadoopConf": {
@@ -54,8 +53,8 @@
             },
             {
                 "id": 3,
-                "envName": "开源测试环境",
-                "envDesc": "开源测试环境",
+                "envName": "Open Source Test Environment",
+                "envDesc": "Open Source Test Environment",
                 "dataSourceTypeId": 4,
                 "connectParams": {
                     "keytab": "4dd408ad-a2f9-4501-83b3-139290977ca2",
@@ -68,35 +67,35 @@
         ]
     }
 }
-```
+````
 ## getAllEnvListByDataSourceType
-**接口地址**:`/api/rest_j/v1/data-source-manager/env-list/all/type/{typeId}`
+**Interface address**: `/api/rest_j/v1/data-source-manager/env-list/all/type/{typeId}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**: 查询某种数据源配置的集群信息列表
+**Interface description**: Query a list of cluster information configured by a data source
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |typeId|typeId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/env-list/all/type/4",
     "status": 0,
@@ -105,33 +104,33 @@
         "envList": [
             {
                 "id": 1,
-                "envName": "测试环境SIT"
+                "envName": "Test Environment SIT"
             },
             {
                 "id": 2,
-                "envName": "测试环境UAT"
+                "envName": "Test Environment UAT"
             },
             {
                 "id": 3,
-                "envName": "开源测试环境"
+                "envName": "Open Source Test Environment"
             }
         ]
     }
 }
-```
+````
 ## insertJsonEnv
-**接口地址**:`/api/rest_j/v1/data-source-manager/env/json`
+**Interface address**: `/api/rest_j/v1/data-source-manager/env/json`
 
-**请求方式**:`POST`
+**Request method**: `POST`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求示例**:
-```javascript
+**Request example**:
+````javascript
 {
   "connectParams": {},
   "createTime": "",
@@ -152,11 +151,11 @@
   "modifyTime": "",
   "modifyUser": ""
 }
-```
+````
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceEnv|dataSourceEnv|body|true|DataSourceEnv|DataSourceEnv|
 |&emsp;&emsp;connectParams|||false|object||
@@ -177,52 +176,52 @@
 |&emsp;&emsp;modifyTime|||false|string(date-time)||
 |&emsp;&emsp;modifyUser|||false|string||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+"data": {},
+"message": "",
+"method": "",
+"status": 0
 }
-```
+````
 ## getEnvEntityById
-**接口地址**:`/api/rest_j/v1/data-source-manager/env/{envId}`
+**Interface address**:`/api/rest_j/v1/data-source-manager/env/{envId}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:查询某环境详细信息
+**Interface description**: Query the detailed information of an environment
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |envId|envId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/env/1",
     "status": 0,
@@ -230,8 +229,8 @@
     "data": {
         "env": {
             "id": 1,
-            "envName": "测试环境SIT",
-            "envDesc": "测试环境SIT",
+            "envName": "Test Environment SIT",
+            "envDesc": "Test Environment SIT",
             "connectParams": {
                 "hadoopConf": {
                     "hive.metastore.execute.setugi": "true"
@@ -243,35 +242,35 @@
         }
     }
 }
-```
+````
 ## removeEnvEntity
-**接口地址**:`/api/rest_j/v1/data-source-manager/env/{envId}`
+**Interface address**:`/api/rest_j/v1/data-source-manager/env/{envId}`
 
-**请求方式**:`DELETE`
+**Request method**: `DELETE`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |envId|envId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/env/4",
     "status": 0,
@@ -280,20 +279,20 @@
         "removeId": 4
     }
 }
-```
-## updateJsonEnv
-**接口地址**:`/api/rest_j/v1/data-source-manager/env/{envId}/json`
+````
+##updateJsonEnv
+**Interface address**: `/api/rest_j/v1/data-source-manager/env/{envId}/json`
 
-**请求方式**:`PUT`
+**Request method**: `PUT`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求示例**:
-```javascript
+**Request example**:
+````javascript
 {
   "connectParams": {},
   "createTime": "",
@@ -314,11 +313,11 @@
   "modifyTime": "",
   "modifyUser": ""
 }
-```
+````
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceEnv|dataSourceEnv|body|true|DataSourceEnv|DataSourceEnv|
 |&emsp;&emsp;connectParams|||false|object||
@@ -340,40 +339,40 @@
 |&emsp;&emsp;modifyUser|||false|string||
 |envId|envId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+"data": {},
+"message": "",
+"method": "",
+"status": 0
 }
-```
+````
 # DataSourceCoreRestfulApi
 
 ## queryDataSource
-**接口地址**:`/api/rest_j/v1/data-source-manager/info`
+**Interface address**:`/api/rest_j/v1/data-source-manager/info`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:查询数据源具体信息
+**Interface description**: Query the specific information of the data source
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |currentPage|currentPage|query|false|integer(int32)||
 |identifies|identifies|query|false|string||
@@ -382,17 +381,17 @@
 |system|system|query|false|string||
 |typeId|typeId|query|false|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/info",
     "status": 0,
@@ -438,35 +437,35 @@
         ]
     }
 }
-```
+````
 ## removeDataSource
-**接口地址**:`/api/rest_j/v1/data-source-manager/info/delete/{dataSourceId}`
+**Interface address**:`/api/rest_j/v1/data-source-manager/info/delete/{dataSourceId}`
 
-**请求方式**:`DELETE`
+**Request method**: `DELETE`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:删除某条数据源数据
+**Interface description**: delete a data source data
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/info/delete/1",
     "status": 0,
@@ -475,20 +474,20 @@
         "removeId": 1
     }
 }
-```
+````
 ## insertJsonInfo
-**接口地址**:`/api/rest_j/v1/data-source-manager/info/json`
+**Interface address**:`/api/rest_j/v1/data-source-manager/info/json`
 
-**请求方式**:`POST`
+**Request method**: `POST`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求示例**:
-```javascript
+**Request example**:
+````javascript
 {
   "connectParams": {},
   "createIdentify": "",
@@ -547,11 +546,11 @@
     }
   ]
 }
-```
+````
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSource|dataSource|body|true|DataSource|DataSource|
 |&emsp;&emsp;connectParams|||false|object||
@@ -605,52 +604,52 @@
 |&emsp;&emsp;&emsp;&emsp;parameter|||false|string||
 |&emsp;&emsp;&emsp;&emsp;versionId|||false|integer||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+"data": {},
+"message": "",
+"method": "",
+"status": 0
 }
-```
+````
 ## getInfoByDataSourceName
-**接口地址**:`/api/rest_j/v1/data-source-manager/info/name/{dataSourceName}`
+**Interface address**: `/api/rest_j/v1/data-source-manager/info/name/{dataSourceName}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:通过datsourceName查询数据源信息
+**Interface description**: Query data source information through datsourceName
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceName|dataSourceName|path|true|string||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/info/name/hive-test",
     "status": 0,
@@ -679,35 +678,35 @@
         }
     }
 }
-```
+````
 ## getInfoByDataSourceId
-**接口地址**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}`
+**Interface address**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/info/1",
     "status": 0,
@@ -715,7 +714,7 @@
     "data": {
         "info": {
             "id": 1,
-            "dataSourceName": "开源共建环境",
+            "dataSourceName": "Open source co-construction environment",
             "dataSourceDesc": "123",
             "dataSourceTypeId": 1,
             "createSystem": "Linkis",
@@ -740,35 +739,35 @@
         }
     }
 }
-```
+````
 ## expireDataSource
-**接口地址**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}/expire`
+**Interface address**: `/api/rest_j/v1/data-source-manager/info/{dataSourceId}/expire`
 
-**请求方式**:`PUT`
+**Request method**: `PUT`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/info/1/expire",
     "status": 0,
@@ -777,20 +776,20 @@
         "expireId": 1
     }
 }
-```
-## updateDataSourceInJson
-**接口地址**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}/json`
+````
+##updateDataSourceInJson
+**Interface address**: `/api/rest_j/v1/data-source-manager/info/{dataSourceId}/json`
 
-**请求方式**:`PUT`
+**Request method**: `PUT`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求示例**:
-```javascript
+**Request example**:
+````javascript
 {
   "connectParams": {},
   "createIdentify": "",
@@ -849,11 +848,11 @@
     }
   ]
 }
-```
+````
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSource|dataSource|body|true|DataSource|DataSource|
 |&emsp;&emsp;connectParams|||false|object||
@@ -908,53 +907,53 @@
 |&emsp;&emsp;&emsp;&emsp;versionId|||false|integer||
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+"data": {},
+"message": "",
+"method": "",
+"status": 0
 }
-```
+````
 ## getInfoByDataSourceIdAndVersion
-**接口地址**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}/{version}`
+**Interface address**: `/api/rest_j/v1/data-source-manager/info/{dataSourceId}/{version}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 |version|version|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/info/1/1",
     "status": 0,
@@ -962,7 +961,7 @@
     "data": {
         "info": {
             "id": 1,
-            "dataSourceName": "开源共建环境",
+            "dataSourceName": "Open source co-construction environment",
             "dataSourceDesc": "123",
             "dataSourceTypeId": 1,
             "createSystem": "Linkis",
@@ -987,35 +986,35 @@
         }
     }
 }
-```
+````
 ## getKeyDefinitionsByType
-**接口地址**:`/api/rest_j/v1/data-source-manager/key-define/type/{typeId}`
+**Interface address**:`/api/rest_j/v1/data-source-manager/key-define/type/{typeId}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |typeId|typeId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/key-define/type/4",
     "status": 0,
@@ -1025,8 +1024,8 @@
             {
                 "id": 6,
                 "key": "envId",
-                "description": "集群环境",
-                "name": "集群环境",
+                "description": "Cluster Environment",
+                "name": "Cluster Environment",
                 "valueType": "SELECT",
                 "require": true,
                 "dataSource": "/data-source-manager/env-list/all/type/4"
@@ -1034,8 +1033,8 @@
             {
                 "id": 7,
                 "key": "keyTabFile",
-                "description": "KeyTab文件",
-                "name": "keyTab文件",
+                "description": "KeyTab file",
+                "name": "keyTab file",
                 "valueType": "FILE",
                 "require": false,
                 "dataSource": "http://172.22.32.6:9001/api/rest_j/v1/bml/upload"
@@ -1043,35 +1042,35 @@
         ]
     }
 }
-```
+````
 ## getConnectParams
-**接口地址**:`/api/rest_j/v1/data-source-manager/name/{dataSourceName}/connect-params`
+**Interface address**: `/api/rest_j/v1/data-source-manager/name/{dataSourceName}/connect-params`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceName|dataSourceName|path|true|string||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/name/linkis_test256/connect-params",
     "status": 0,
@@ -1085,103 +1084,103 @@
         }
     }
 }
-```
+````
 ## insertJsonParameter
-**接口地址**:`/api/rest_j/v1/data-source-manager/parameter/{dataSourceId}/json`
+**Interface address**:`/api/rest_j/v1/data-source-manager/parameter/{dataSourceId}/json`
 
-**请求方式**:`POST`
+**Request method**: `POST`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 |params|params|body|true|object||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+"data": {},
+"message": "",
+"method": "",
+"status": 0
 }
-```
+````
 ## publishByDataSourceId
-**接口地址**:`/api/rest_j/v1/data-source-manager/publish/{dataSourceId}/{versionId}`
+**Interface address**: `/api/rest_j/v1/data-source-manager/publish/{dataSourceId}/{versionId}`
 
-**请求方式**:`POST`
+**Request method**: `POST`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 |versionId|versionId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/publish/3/2",
     "status": 0,
     "message": "OK",
     "data": {}
 }
-```
+````
 ## getAllDataSourceTypes
-**接口地址**:`/api/rest_j/v1/data-source-manager/type/all`
+**Interface address**:`/api/rest_j/v1/data-source-manager/type/all`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
-暂无
-**响应参数**:
+**Request Parameters**:
+No
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/type/all",
     "status": 0,
@@ -1191,9 +1190,9 @@
             {
                 "id": "1",
                 "name": "mysql",
-                "description": "mysql数据库",
-                "option": "mysql数据库",
-                "classifier": "关系型数据库",
+                "description": "mysql database",
+                "option": "mysql database",
+                "classifier": "Relational Database",
                 "icon": "https://uat.dongcha.weoa.com/static/img/logo.770c1525.png",
                 "layers": 3
             },
@@ -1201,44 +1200,43 @@
             {
                 "id": "4",
                 "name": "hive",
-                "description": "hive数据库",
+                "description": "hive database",
                 "option": "hive",
-                "classifier": "大数据存储",
+                "classifier": "Big Data Storage",
                 "layers": 3
             }
             
         ]
     }
 }
-```
+````
 ## getConnectParams
-**接口地址**:`/api/rest_j/v1/data-source-manager/{dataSourceId}/connect-params`
+**Interface address**:`/api/rest_j/v1/data-source-manager/{dataSourceId}/connect-params`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
+**Request Parameters**:
 
-**请求参数**:
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/3/connect-params",
     "status": 0,
@@ -1252,35 +1250,35 @@
         }
     }
 }
-```
+````
 ## getVersionList
-**接口地址**:`/api/rest_j/v1/data-source-manager/{dataSourceId}/versions`
+**Interface address**: `/api/rest_j/v1/data-source-manager/{dataSourceId}/versions`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/1/versions",
     "status": 0,
@@ -1296,43 +1294,43 @@
                     "port": "9600",
                     "username": "linkis"
                 },
-                "parameter": "{\"host\":\"127.0.0.1\",\"port\":\"9600\",\"username\":\"linkis\",\"password\":\"rO0ABXQACUFiY2RAMjAyMg==\"}",
-                "comment": "初始化版本",
+                "parameter": "{\"host\":\"127.0.0.1\",\"port\":\"9600\",\"username\":\"linkis\",\"password\": \"rO0ABXQACUFiY2RAMjAyMg==\"}",
+                "comment": "Initialization Version",
                 "createUser": "hadoop"
             }
         ]
     }
 }
-```
+````
 ## connectDataSource
-**接口地址**:`/api/rest_j/v1/data-source-manager/{dataSourceId}/{version}/op/connect`
+**Interface address**: `/api/rest_j/v1/data-source-manager/{dataSourceId}/{version}/op/connect`
 
-**请求方式**:`PUT`
+**Request method**: `PUT`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|integer(int64)||
 |version|version|path|true|integer(int64)||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": "/api/data-source-manager/1/1/op/connect",
     "status": 0,
@@ -1341,21 +1339,21 @@
         "ok": true
     }
 }
-```
+````
 # data-source-operate-restful-api
 ## connect
-**接口地址**:`/api/rest_j/v1/data-source-manager/op/connect/json`
+**Interface address**:`/api/rest_j/v1/data-source-manager/op/connect/json`
 
-**请求方式**:`POST`
+**Request method**: `POST`
 
-**请求数据类型**:`application/json`
+**Request data type**: `application/json`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求示例**:
-```javascript
+**Request example**:
+````javascript
 {
   "connectParams": {},
   "createIdentify": "",
@@ -1414,11 +1412,11 @@
     }
   ]
 }
-```
+````
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSource|dataSource|body|true|DataSource|DataSource|
 |&emsp;&emsp;connectParams|||false|object||
@@ -1472,21 +1470,21 @@
 |&emsp;&emsp;&emsp;&emsp;parameter|||false|string||
 |&emsp;&emsp;&emsp;&emsp;versionId|||false|integer||
 
-**响应参数**:
+**Response parameters**:
 
-| 参数名称 | 参数说明 | 类型 | schema |
+| parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+"data": {},
+"message": "",
+"method": "",
+"status": 0
 }
-```
+````

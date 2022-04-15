@@ -1,28 +1,29 @@
+
 # MetadataCoreRestful
 
 ## getColumns
-**接口地址**:`/api/rest_j/v1/metadatamanager/columns/{dataSourceId}/db/{database}/table/{table}`
+**Interface address**: `/api/rest_j/v1/metadatamanager/columns/{dataSourceId}/db/{database}/table/{table}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**: 获取数据表的column信息
+**Interface description**: Get the column information of the data table
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 |table|table|path|true|string||
 
-**响应示例**:
+**Sample Response**:
 
-```javascript
+````javascript
 {
     "method": null,
     "status": 0,
@@ -122,29 +123,29 @@
         ]
     }
 }
-```
+````
 
 
 ## getDatabases
-**接口地址**:`/api/rest_j/v1/metadatamanager/dbs/{dataSourceId}`
+**Interface address**:`/api/rest_j/v1/metadatamanager/dbs/{dataSourceId}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:获取数据源的数据库名称列表
+**Interface description**: Get the list of database names of the data source
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|string||
 |system|system|query|true|string||
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": null,
     "status": 0,
@@ -157,23 +158,23 @@
         ]
     }
 }
-```
+````
 
 
 ## getPartitions
-**接口地址**:`/api/rest_j/v1/metadatamanager/partitions/{dataSourceId}/db/{database}/table/{table}`
+**Interface address**:`/api/rest_j/v1/metadatamanager/partitions/{dataSourceId}/db/{database}/table/{table}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|string||
 |database|database|path|true|string||
@@ -181,8 +182,8 @@
 |table|table|path|true|string||
 |traverse|traverse|query|false|boolean||
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": null,
     "status": 0,
@@ -196,31 +197,31 @@
         }
     }
 }
-```
+````
 
 ## getTableProps
-**接口地址**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}`
+**Interface address**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}`
 
-**请求方式**:`GET`
+**Request method**: `GET`
 
-**请求数据类型**:`application/x-www-form-urlencoded`
+**Request data type**: `application/x-www-form-urlencoded`
 
-**响应数据类型**:`application/json`
+**Response data type**: `application/json`
 
-**接口描述**:
+**Interface description**:
 
 
-**请求参数**:
+**Request Parameters**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceId|dataSourceId|path|true|string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 |table|table|path|true|string||
 
-**响应示例**:
-```javascript
+**Sample Response**:
+````javascript
 {
     "method": null,
     "status": 0,
@@ -228,7 +229,7 @@
     "data": {
         "props": {
             "skip.header.line.count": "1",
-            "columns.types": "int:int:string:string:string:string:string:string:string:string:string:string:string:string:string:string:string:string",
+            "columns.types": "int:int:string:string:string:string:string:string:string:string:string:string:string:string:string:string:string:string:string:string",
             "columns": "id,age,job,marital,education,default,balance,housing,loan,contact,day,month,duration,campaign,pdays,previous,poutcome,y",
             "field.delim": ",",
             "transient_lastDdlTime": "1646732554",
@@ -249,77 +250,4 @@
         }
     }
 }
-```
-
-
-## getPartitionProps
-**接口地址**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}/partition/{partition}`
-
-**请求方式**:`GET`
-
-**请求数据类型**:`application/x-www-form-urlencoded`
-
-**响应数据类型**:`application/json`
-
-**接口描述**:
-
-**请求参数**:
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
-|database|database|path|true|string||
-|partition|partition|path|true|string||
-|system|system|query|true|string||
-|table|table|path|true|string||
-
-
-**响应示例**:
-```javascript
-{
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
-}
-```
-
-
-## getTables
-**接口地址**:`/api/rest_j/v1/metadatamanager/tables/{dataSourceId}/db/{database}`
-
-**请求方式**:`GET`
-
-**请求数据类型**:`application/x-www-form-urlencoded`
-
-**响应数据类型**:`application/json`
-
-**接口描述**: 获取数据源的某个数据库的数据表列表
-
-**请求参数**:
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
-|database|database|path|true|string||
-|system|system|query|true|string||
-
-**响应示例**:
-```javascript
-{
-    "method": null,
-    "status": 0,
-    "message": "OK",
-    "data": {
-        "tables": [
-            "test",
-            "test_0317a",
-            "test_import_sqoop_1",
-            "test_linkis_sqoop_1",
-            "test_linkis_sqoop_2",
-            "test_linkis_sqoop_3",
-            "upload_test"
-        ]
-    }
-}
-```
+````
