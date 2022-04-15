@@ -137,7 +137,7 @@ vi deploy-config/linkis-env.sh
 ```properties
  #SSH_PORT=22        #Specify SSH port. No need to configuer if the stand-alone version is installed
  deployUser=hadoop      #Specify deploy user
- LINKIS_INSTALL_HOME=/appcom/Install/Linkis    # Specify installation directory.
+ LINKIS_HOME=/appcom/Install/Linkis    # Specify installation directory.
  WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # Specify user root directory. Generally used to store user's script and log files, it's user's workspace. 
  RESULT_SET_ROOT_PATH=file:///tmp/linkis   # The result set file path, used to store the result set files of the Job.
  ENGINECONN_ROOT_PATH=/appcom/tmp #Store the installation path of ECP. A local directory where deploy user has write permission.
@@ -237,8 +237,8 @@ To download the mysql driver, take version 5.1.49 as an example: [download link]
 
 Copy the mysql driver package to the lib package path
 ```
-cp mysql-connector-java-5.1.49.jar {LINKIS_INSTALL_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar {LINKIS_INSTALL_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
 
 ### 5. Linkis quick startup

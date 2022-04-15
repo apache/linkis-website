@@ -1,15 +1,11 @@
 import React, { useState }  from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import config from "./config.json";
 import Layout from '@theme/Layout';
-import './index.less';
+import Contributors from '@site/src/components/Contributors';
 
 export default function() {
     const isBrowser = useIsBrowser();
-
-    const [p1Animation, setP1Animation] = useState(false);
-    const [p2Animation, setP2Animation] = useState(false);
 
     const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
     const dataSource = config?.[language];
@@ -37,6 +33,16 @@ export default function() {
               ))
           }
         </ul>
+        <h3 className="normal-title">
+          <a target="_blank" href="https://github.com/apache/incubator-linkis">Contributors of Apache Linkis</a>
+        </h3>
+        <Contributors repo="apache/incubator-linkis"/>
+
+        <h3 className="normal-title">
+         <a target="_blank" href="https://github.com/apache/incubator-linkis-website">Contributors of Apache Linkis WebSite</a>
+         </h3>
+        <Contributors repo="apache/incubator-linkis-website"/>
+
       </div>
       </Layout>
     );

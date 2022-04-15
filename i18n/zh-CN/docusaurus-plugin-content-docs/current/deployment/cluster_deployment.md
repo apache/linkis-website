@@ -16,7 +16,7 @@ Linkis1.0仍然保持着基于SpringCloud的微服务架构，其中每个微服
 **EngineConnManager**使用总资源 = 总内存 + 总核数 =
 
 **同时在线人数 \* (所有类型的引擎占用内存) \*单用户最高并发数+ 同时在线人数 \*
-(所有类型的引擎占用内存) \*单用户最高并发数**
+(所有类型的引擎占用核数) \*单用户最高并发数**
 
 例如：
 只使用spark、hive、python引擎且单用户最高并发数为1的情况下，同时使用人数50人，Spark的Driver内存1G，Hive
@@ -103,4 +103,4 @@ EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server1:port/eur
 修改完之后启动微服务，从web端进入eureka注册界面，可以看到已经成功注册到eureka的微服务，并且DS
 Replicas也会显示集群相邻的副本节点。
 
-![](images/分布式部署微服务.png)
+![](/Images-zh/deployment/Linkis1.0_combined_eureka.png)

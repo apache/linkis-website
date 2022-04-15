@@ -27,7 +27,7 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 - 开发者/社区用户/PPMC成员针对以上场景的内容，发起邮件讨论/需求帮助/通知事宜等，请发送至dev@linkis.apache.org邮箱
 - 邮件标题前请带上对应的类型前缀：如`[HELP] XXXXXXX`,`[DISCUSS] XXXXXXX`
 
-更多可以参阅官方[邮件礼仪](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips
+更多可以参阅官方[邮件规范](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips
 :::
 
 ** \[DISCUSS/Proposal] 邮件 **

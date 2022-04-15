@@ -3,8 +3,6 @@ title: Overview
 sidebar_position: 0
 ---
 
-## 1. Document Structure
-
 Linkis 1.0 divides all microservices into three categories: public enhancement services, computing governance services, and microservice governance services. The following figure shows the architecture of Linkis 1.0.
 
 ![Linkis1.0 Architecture Figure](/Images/Architecture/Linkis1.0-architecture.png)

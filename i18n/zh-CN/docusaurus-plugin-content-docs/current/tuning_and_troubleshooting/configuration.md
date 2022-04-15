@@ -34,7 +34,7 @@ sidebar_position: 1
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
-| wds.linkis.hadoop.root.user | hadoop | HDFS super 用户 | 
+| wds.linkis.hadoop.root.user | hadoop | HDFS super 用户 |
 | wds.linkis.filesystem.hdfs.root.path | 无 | 用户的HDFS默认根路径 |
 | wds.linkis.keytab.enable | false | 是否打开kerberos |
 | wds.linkis.keytab.file | /appcom/keytab | kerberos的keytab路径，仅wds.linkis.keytab.enable=true时生效 |
@@ -55,7 +55,7 @@ sidebar_position: 1
 | wds.linkis.rpc.receiver.asyn.consumer.freeTime.max | 2m | Receiver Consumer最大空闲时间 |
 | wds.linkis.rpc.receiver.asyn.queue.size.max | 1000 | Receiver 消费队列最大缓存数（**如果在线用户多，建议适当调大该参数**） |
 | wds.linkis.rpc.sender.asyn.consumer.thread.max", 5 | Sender Consumer最大线程数量 |
-| wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer最大空闲时间 | 
+| wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer最大空闲时间 |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Sender 消费队列最大缓存数 |
 
 ### 2. 计算治理配置参数
@@ -152,7 +152,7 @@ sidebar_position: 1
 | wds.linkis.engine.spark.language-repl.init.time | 30s | Scala和Python命令解释器的最大初始化时间 |
 | PYSPARK_DRIVER_PYTHON | python | Python命令路径 |
 | wds.linkis.server.spark-submit | spark-submit | spark-submit命令路径 |
- 
+
 
 ### 4. PublicEnhancements配置参数
 
@@ -164,7 +164,7 @@ sidebar_position: 1
 | wds.linkis.bml.auth.token.key | Validation-Code | BML请求的免密token-key |
 | wds.linkis.bml.auth.token.value | BML-AUTH | BML请求的免密token-value |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | BML文件存储在hdfs上的前缀文件路径 |
- 
+
 #### 4.2 Metadata配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -189,9 +189,9 @@ sidebar_position: 1
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.filesystem.root.path | file:///tmp/linkis/ | 用户的Linux本地根目录 |
 | wds.linkis.filesystem.hdfs.root.path | hdfs:///tmp/ | 用户的HDFS根目录 |
-| wds.linkis.workspace.filesystem.hdfsuserrootpath.suffix | /linkis/ | 用户的HDFS根目录后的一级前缀，用户实际根目录为：${hdfs.root.path}\${user}\${hdfsuserrootpath.suffix} | 
-| wds.linkis.workspace.resultset.download.is.limit | true | Client下载结果集时，是否限制下载条数 | 
-| wds.linkis.workspace.resultset.download.maxsize.csv | 5000 | 当结果集下载为CSV文件时，限制的下载条数 | 
+| wds.linkis.workspace.filesystem.hdfsuserrootpath.suffix | /linkis/ | 用户的HDFS根目录后的一级前缀，用户实际根目录为：${hdfs.root.path}\${user}\${hdfsuserrootpath.suffix} |
+| wds.linkis.workspace.resultset.download.is.limit | true | Client下载结果集时，是否限制下载条数 |
+| wds.linkis.workspace.resultset.download.maxsize.csv | 5000 | 当结果集下载为CSV文件时，限制的下载条数 |
 | wds.linkis.workspace.resultset.download.maxsize.excel | 5000 | 当结果集下载为Excel文件时，限制的下载条数 |
 | wds.linkis.workspace.filesystem.get.timeout | 2000L | 请求底层文件系统的最大超时时间。（**如果您的HDFS或Linux机器性能较低，建议适当调大该查数**） |
 
@@ -207,17 +207,35 @@ sidebar_position: 1
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
-| wds.linkis.gateway.conf.enable.proxy.user | false | 是否开启代理用户模式，如果开启，则登录用户的请求都会代理到代理用户去执行 | 
+| wds.linkis.gateway.conf.enable.proxy.user | false | 是否开启代理用户模式，如果开启，则登录用户的请求都会代理到代理用户去执行 |
 | wds.linkis.gateway.conf.proxy.user.config | proxy.properties | 代理规则的存储文件 |
 | wds.linkis.gateway.conf.proxy.user.scan.interval | 600000 | 代理文件的刷新间隔 |
-| wds.linkis.gateway.conf.enable.token.auth | false | 是否开启Token登录模式，如果开启，则允许以token的方式访问Linkis | 
-| wds.linkis.gateway.conf.token.auth.config | token.properties | Token规则的存储文件 | 
-| wds.linkis.gateway.conf.token.auth.scan.interval | 600000 | Token文件的刷新间隔 | 
-| wds.linkis.gateway.conf.url.pass.auth | /dws/ | 默认放行、不作登录校验的请求 | 
-| wds.linkis.gateway.conf.enable.sso | false | 是否开启SSO用户登录模式 | 
+| wds.linkis.gateway.conf.enable.token.auth | false | 是否开启Token登录模式，如果开启，则允许以token的方式访问Linkis |
+| wds.linkis.gateway.conf.token.auth.config | token.properties | Token规则的存储文件 |
+| wds.linkis.gateway.conf.token.auth.scan.interval | 600000 | Token文件的刷新间隔 |
+| wds.linkis.gateway.conf.url.pass.auth | /dws/ | 默认放行、不作登录校验的请求 |
+| wds.linkis.gateway.conf.enable.sso | false | 是否开启SSO用户登录模式 |
 | wds.linkis.gateway.conf.sso.interceptor | 无 | 如果开启了SSO登录模式，则需要用户实现SSOInterceptor，用于跳转SSO登录页面 |
 | wds.linkis.admin.user | hadoop | 管理员用户列表 |
-| wds.linkis.login_encrypt.enable | false | 用户登录时，密码是否开启RSA加密传输 | 
-| wds.linkis.enable.gateway.auth | false | 是否开启Gateway IP白名单机制 | 
-| wds.linkis.gateway.auth.file | auth.txt | IP白名单存储文件 | 
+| wds.linkis.login_encrypt.enable | false | 用户登录时，密码是否开启RSA加密传输 |
+| wds.linkis.enable.gateway.auth | false | 是否开启Gateway IP白名单机制 |
+| wds.linkis.gateway.auth.file | auth.txt | IP白名单存储文件 |
 
+### 6. 数据源及元数据服务配置参数
+
+#### 6.1 元数据服务配置参数
+
+|引入版本| 参数名                                                   | 默认值                                                   | 描述                                                    |
+|-------| -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
+|v1.1.0 | wds.linkis.server.mdm.service.lib.dir                    | /lib/linkis-public-enhancements/linkis-ps-metadatamanager/service | 设置需要加载数据源jar包的相对路径，会通过反射调用|
+|v1.1.0 | wds.linkis.server.mdm.service.instance.expire-in-seconds | 60                                                    | 设置加载子服务的过期时间，超过该时间将不加载该服务    |
+|v1.1.0 | wds.linkis.server.dsm.app.name                           | linkis-ps-data-source-manager                         | 设置获取数据源信息的服务                              |
+|v1.1.0 | wds.linkis.server.mdm.service.kerberos.principle         | hadoop/HOST@EXAMPLE.COM   | set kerberos principle for linkis-metadata hive service |
+|v1.1.0 | wds.linkis.server.mdm.service.user                       | hadoop                                                | 设置hive服务的访问用户                                  |
+|v1.1.0 | wds.linkis.server.mdm.service.kerberos.krb5.path         | ""                                                    | 设置hive服务使用的kerberos krb5 路径                    |
+|v1.1.0 | wds.linkis.server.mdm.service.temp.location              | classpath:/tmp                                        | 设置kafka与hive的临时路径                               |
+|v1.1.0 | wds.linkis.server.mdm.service.sql.driver                 | com.mysql.jdbc.Driver                                 | 设置mysql服务的驱动                                     |
+|v1.1.0 | wds.linkis.server.mdm.service.sql.url                    | jdbc:mysql://%s:%s/%s                                 | 设置mysql服务的url格式                                  |
+|v1.1.0 | wds.linkis.server.mdm.service.sql.connect.timeout        | 3000                                                  | 设置mysql服务连接mysql服务的连接超时时间                |
+|v1.1.0 | wds.linkis.server.mdm.service.sql.socket.timeout         | 6000                                                  | 设置mysql服务打开mysql服务的socket超时时间              |
+|v1.1.0 | wds.linkis.server.mdm.service.temp.location              | /tmp/keytab                                           | 设置服务的本地临时存储路径，主要是存储从bml物料服务下载的认证文件|
