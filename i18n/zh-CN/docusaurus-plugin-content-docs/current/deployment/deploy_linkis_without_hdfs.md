@@ -15,6 +15,8 @@ export ENABLE_HIVE=false
 export ENABLE_SPARK=false
 ```
 
+将上述的配置修改为 false 之后，就不需要再单独配置 HDFS/HIVE/SPARK 等环境了。
+
 ## 2. 拷贝 jar 包
 因为 mysql-connector-java 驱动是 GPL2.0 协议，不满足Apache开源协议关于license的政策，所以需要我们手动将其拷贝到如下两个目录下
 ```bash

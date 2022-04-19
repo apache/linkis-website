@@ -15,6 +15,8 @@ export ENABLE_HIVE=false
 export ENABLE_SPARK=false
 ```
 
+After changing the above configuration to false, there is no need to configure HDFS/HIVE/SPARK environments separately.
+
 ## 2. Copy mysql jar file
 Because the mysql-connector-java driver follows the GPL2.0 protocol and does not meet the license policy of the Apache open source protocol, we need to manually copy it to the following two directories.
 ```bash
