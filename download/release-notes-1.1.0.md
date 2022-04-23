@@ -76,4 +76,4 @@ Abbreviations:
 
 ## Credits 
 
-The release of Apache Linkis(incubating) 1.1.0 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors! 
+The release of Apache Linkis(incubating) 1.0.1 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following contributors for this version: Alexkun, CCweixiao, Celebrate-future, Davidhua1996, FireFoxAhri, WenxiangFan , Zosimer, aleneZeng, casionone, dddyszy, det101, ganlangjie, huapan123456, huiyuanjjjjuice, husofskyzy, iture123, jianwei2, legendtkl, peacewong, pjfanning, silent-carbon, xiaojie19852006
