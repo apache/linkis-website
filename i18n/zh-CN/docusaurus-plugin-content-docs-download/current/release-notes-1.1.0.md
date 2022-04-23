@@ -23,7 +23,7 @@ Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://gith
 
 ---
 
-## 新功能
+## 新特性
 
 * \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) 增加新的模块 linkis-datasource-manager-common，新增数据源数据结构、异常类、工具类。
 * \[DMS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) 增加新的模块 linkis-metadata-manager-common，新增元数据数据结构、异常类、工具类。
@@ -74,4 +74,4 @@ Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://gith
 
 ## 致谢 
 
-Linkis 1.1.0 的成功发布离不开 Linkis 社区的贡献者。感谢所有社区贡献者！
+Apache Linkis(incubating) 1.0.1的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下本次版本的Contributors: Alexkun、CCweixiao、Celebrate-future、Davidhua1996、FireFoxAhri、WenxiangFan、Zosimer、aleneZeng、casionone、dddyszy、det101、ganlangjie、huapan123456、huiyuanjjjjuice、husofskyzy、iture123、jianwei2、legendtkl、peacewong、pjfanning、silly-carbon、xiaojie19852006

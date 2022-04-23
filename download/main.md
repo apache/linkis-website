@@ -3,7 +3,6 @@ title: Release List
 sidebar_position: 0
 --- 
 ## Download
-> For detailed specification requirements of download pages, see: https://infra.apache.org/release-download-pages.html#closer
 
 Use the links below to download the Apache Linkis Releases, the latest release is 1.1.0
 

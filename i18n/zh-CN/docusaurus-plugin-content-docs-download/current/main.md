@@ -3,7 +3,6 @@ title: 版本列表
 sidebar_position: 0
 --- 
 ## 下载链接
->下载页面的详细规范要求见:https://infra.apache.org/release-download-pages.html#closer
 
 使用以下链接，下载Linkis，最新版本为1.1.0
 
