@@ -3,7 +3,7 @@ title: Linkis 简述
 sidebar_position: 0
 ---
 ## 简述
-Linkis 在上层应用程序和底层引擎之间构建了一层计算中间件。通过使用Linkis 提供的REST/WebSocket/JDBC 等标准接口，上层应用可以方便地连接访问MySQL/Spark/Hive/Presto/Flink 等底层引擎，同时实现变量、脚本、函数和资源文件等用户资源的跨上层应用互通，以及通过REST标准接口提供了数据源与元数据管理服务。
+Linkis 在上层应用程序和底层引擎之间构建了一层计算中间件。通过使用Linkis 提供的REST/WebSocket/JDBC 等标准接口，上层应用可以方便地连接访问MySQL/Spark/Hive/Presto/Flink 等底层引擎，同时实现变量、脚本、函数和资源文件等用户资源的跨上层应用互通，以及通过REST标准接口提供了数据源管理和数据源对应的元数据查询服务。
 作为计算中间件，Linkis 提供了强大的连通、复用、编排、扩展和治理管控能力。通过计算中间件将应用层和引擎层解耦，简化了复杂的网络调用关系，降低了整体复杂度，同时节约了整体开发和维护成本。  
 Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和1000+沙盒试验用户，涉及金融、电信、制造、互联网等多个行业。许多公司已经将Linkis 作为大数据平台底层计算存储引擎的统一入口，和计算请求/任务的治理管控利器。
 
@@ -22,7 +22,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 - **统一上下文服务**。为每个计算任务生成context id，跨用户、系统、计算引擎的关联管理用户和系统资源文件（JAR、ZIP、Properties等），结果集，参数变量，函数等，一处设置，处处自动引用；
 - **统一物料**。系统和用户级物料管理，可分享和流转，跨用户、系统共享物料。
 - **统一数据源管理。**提供了hive、es、mysql、kafka类型数据源的增删查改、版本控制、连接测试等功能。
-- **统一元数据管理。**提供了hive、es、mysql、kafka元数据的数据库、表、分区查询。
+- **数据源对应的元数据查询。**提供了hive、es、mysql、kafka元数据的数据库、表、分区查询。
 
 ## 支持的引擎类型
 | **引擎** | **引擎版本** | **Linkis 0.X 版本要求**| **Linkis 1.X 版本要求** | **说明** |
@@ -71,7 +71,7 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 - [**Scriptis** - 数据研发IDE工具](https://github.com/WeBankFinTech/Scriptis)
 
 - [**Visualis** - 数据可视化工具](https://github.com/WeBankFinTech/Visualis)
-Scriptis
+
 - [**Schedulis** - 工作流调度工具](https://github.com/WeBankFinTech/Schedulis)
 
 - [**Qualitis** - 数据质量工具](https://github.com/WeBankFinTech/Qualitis)

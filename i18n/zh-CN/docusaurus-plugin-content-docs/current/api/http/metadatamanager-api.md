@@ -1,5 +1,5 @@
 ---
-title: 元数据接口
+title: 元数据查询接口
 sidebar_position: 2
 ---
 

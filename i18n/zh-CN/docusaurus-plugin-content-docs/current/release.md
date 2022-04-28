@@ -17,7 +17,7 @@ sidebar_position: 0.1
 |ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.lib.dir                    | /lib/linkis-public-enhancements/linkis-ps-metadatamanager/service | 设置需要加载数据源jar包的相对路径，会通过反射调用|
 |ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.instance.expire-in-seconds | 60                                                    | 设置加载子服务的过期时间，超过该时间将不加载该服务           |
 |ps-metadatamanager | 新增  | wds.linkis.server.dsm.app.name                           | linkis-ps-data-source-manager                         | 设置获取数据源信息的名称                                 |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.app.name                   | linkis-ps-metadatamanager                             | 设置数据元信息的服务名称                                  |
+|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.app.name                   | linkis-ps-metadatamanager                             | 设置元数据查询服务的服务名称                                  |
 |ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.kerberos.principle         | hadoop/HOST@EXAMPLE.COM                               | set kerberos principle for linkis-metadata hive service |
 |ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.user                       | hadoop                                                | 设置hive服务的访问用户                                    |
 |ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.kerberos.krb5.path         | ""                                                    | 设置hive服务使用的kerberos krb5 路径                     |

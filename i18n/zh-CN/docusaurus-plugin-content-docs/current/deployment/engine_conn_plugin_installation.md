@@ -107,7 +107,6 @@ sh linkis-daemon.sh restart cg-engineplugin
 ```
 
 3. 检查引擎是否刷新成功：如果在刷新过程中遇到问题，需要确认是否刷新成功，则可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。
-
 ```sql
 #登陆到linkis的数据库 
 select *  from linkis_cg_engine_conn_plugin_bml_resources

@@ -4,7 +4,7 @@ sidebar_position: 3
 ---
 ## 背景
 
-早期版本中的Exchangis0.x和Linkis0.x都有整合数据源模块，为复用数据源的管理能力，Linkis以linkis-datasource为蓝本(可以参阅相关的文档)重构数据源模块，将数据源管理拆封成数据源管理服务与元数据管理服务。
+早期版本中的Exchangis0.x和Linkis0.x都有整合数据源模块，为复用数据源的管理能力，Linkis以linkis-datasource为蓝本(可以参阅相关的文档)重构数据源模块，将数据源管理拆封成数据源管理服务与元数据查询服务。
 
 本文主要涉及MetaData Manager Server数据源管理服务，提供如下功能：
 
