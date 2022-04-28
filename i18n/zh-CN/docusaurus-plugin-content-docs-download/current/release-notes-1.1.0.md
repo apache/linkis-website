@@ -74,4 +74,4 @@ Apache Linkis(incubating) 1.1.0 包括所有 [Project Linkis-1.1.0](https://gith
 
 ## 致谢 
 
-Apache Linkis(incubating) 1.0.1的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下本次版本的Contributors: Alexkun、CCweixiao、Celebrate-future、Davidhua1996、FireFoxAhri、WenxiangFan、Zosimer、aleneZeng、casionone、dddyszy、det101、ganlangjie、huapan123456、huiyuanjjjjuice、husofskyzy、iture123、jianwei2、legendtkl、peacewong、pjfanning、silly-carbon、xiaojie19852006
+Apache Linkis(incubating) 1.1.0的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors: Alexkun、CCweixiao、Celebrate-future、Davidhua1996、FireFoxAhri、WenxiangFan、Zosimer、aleneZeng、casionone、dddyszy、det101、ganlangjie、huapan123456、huiyuanjjjjuice、husofskyzy、iture123、jianwei2、legendtkl、peacewong、pjfanning、silly-carbon、xiaojie19852006

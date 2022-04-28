@@ -71,7 +71,7 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 - [**Scriptis** - 数据研发IDE工具](https://github.com/WeBankFinTech/Scriptis)
 
 - [**Visualis** - 数据可视化工具](https://github.com/WeBankFinTech/Visualis)
-
+Scriptis
 - [**Schedulis** - 工作流调度工具](https://github.com/WeBankFinTech/Schedulis)
 
 - [**Qualitis** - 数据质量工具](https://github.com/WeBankFinTech/Qualitis)

@@ -18,7 +18,7 @@ sidebar_position: 7
 客户端模块，用户数据源的基本管理的DataSourceRemoteClient，以及进行元数据的查询操作的MetaDataRemoteClient.
 
 ** linkis-datasource-manager-server **
-数据源管理模块,服务名ps-data-source-manager。对数据源的进行基本的管理，对外提数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便数据元管理模块通过rpc调用，查询数据库建立连接需要的必要信息。
+数据源管理模块,服务名ps-data-source-manager。对数据源的进行基本的管理，对外提供数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便数据元管理模块通过rpc调用，查询数据库建立连接需要的必要信息。
 
 - [http接口文档](/api/http/data-source-manager-api.md)
 - http接口类 org.apache.linkis.metadatamanager.server.restful

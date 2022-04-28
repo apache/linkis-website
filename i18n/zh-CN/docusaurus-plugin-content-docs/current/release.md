@@ -3,14 +3,12 @@ title: 版本总览
 sidebar_position: 0.1
 --- 
 
-- [数据源管理服务架构文档](/architecture/public_enhancement_services/datasource_manager.md)
-- [元数据管理服务架构文档](/architecture/public_enhancement_services/metadata_manager.md)
-- [数据源介绍&功能使用指引](/deployment/start_metadatasource.md)
-- [数据源客户端的使用指引](/user_guide/linkis-datasource-client.md)
-- [数据源http接口文档](/api/http/data-source-manager-api.md)
-- [元数据http接口文档](/api/http/metadatamanager-api.md)
-- [开启SkyWalking功能](/deployment/involve_skywalking_into_linkis.md)
-- [版本的release-notes](release-notes-1.1.0.md)
+- [代理用户模式的使用](/architecture/public_enhancement_services/datasource_manager.md)
+- [UDF函数介绍和功能使用指引](/architecture/public_enhancement_services/metadata_manager.md)
+- [引擎物料刷新HTTP接口](/api/http/data-source-manager-api.md)
+- [UDF相关的HTTP接口](/api/http/metadatamanager-api.md)
+- [OpenLookEng的介绍和使用](/deployment/involve_skywalking_into_linkis.md)
+- [版本的Release-Notes](release-notes-1.1.1.md)
 
 ## 参数变化 
 
@@ -34,4 +32,7 @@ sidebar_position: 0.1
 
 ## 数据库表变化 
 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.0_schema`文件
+详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.1_schema`文件
+
+## 功能变化详细介绍
+ 
