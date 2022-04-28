@@ -3,7 +3,7 @@ title: JDBC 引擎
 sidebar_position: 7
 ---
 
-本文主要介绍在Linkis1.0中，JDBC引擎的配置、部署和使用。
+本文主要介绍在Linkis1.中，JDBC引擎的配置、部署和使用。
 
 ## 1.JDBC引擎使用前的环境配置
 

@@ -18,14 +18,14 @@ sidebar_position: 7
 客户端模块，用户数据源的基本管理的DataSourceRemoteClient，以及进行元数据的查询操作的MetaDataRemoteClient.
 
 ** linkis-datasource-manager-server **
-数据源管理模块,服务名ps-data-source-manager。对数据源的进行基本的管理，对外提数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便数据元管理模块通过rpc调用，查询数据库建立连接需要的必要信息。
+数据源管理模块,服务名ps-data-source-manager。对数据源的进行基本的管理，对外提供数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便元数据查询模块通过rpc调用，查询数据库建立连接需要的必要信息。
 
 - [http接口文档](/api/http/data-source-manager-api.md)
 - http接口类 org.apache.linkis.metadatamanager.server.restful
 - rpc接口类 org.apache.linkis.metadatamanager.server.receiver
 
 ** linkis-metedata-manager-server  **
-数据元管理模块,服务名ps-metadatamanager。提供数据库的数据元数据的基本查询功能,对外提供了http接口，对内提供了rpc服务，方便数据源管理模块，通过rpc调用，进行数据源的连接测试。
+元数据查询模块,服务名ps-metadatamanager。提供对数据库元数据的基本查询功能,对外提供了http接口，对内提供了rpc服务，方便数据源管理模块，通过rpc调用，进行该数据源的连通性测试。
 - [http接口文档](/api/http/metadatamanager-api.md)
 - http接口类 org.apache.linkis.datasourcemanager.core.restful
 - rpc接口类 org.apache.linkis.datasourcemanager.core.receivers
@@ -87,10 +87,10 @@ linkis-public-enhancements/linkis-datasource
 │   ├── common  //数据源管理公共模块
 │   └── server  //数据源管理服务模块
 ├── linkis-metadata //旧版本已有的模块，保留
-├── linkis-metadata-manager //数据元管理模块
-│   ├── common //数据元管理公共模块
-│   ├── server //数据元管理服务模块
-│   └── service //支持的数据源 
+├── linkis-metadata-manager //元数据查询模块
+│   ├── common //元数据查询公共模块
+│   ├── server //元数据查询服务模块
+│   └── service //支持的数据源类型 
 │       ├── elasticsearch
 │       ├── hive 
 │       ├── kafka
