@@ -101,8 +101,8 @@ wds.linkis.eureka.defaultZone=http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port
 比如启动linkis-ps-cs服务 sh linkis-daemon.sh restart ps-cs,具体服务名可以再linkis-start-all.sh文件中查找  
 
 #### 2.4 在部署的前端项目上测试  
-##### 2.4.1 测试服务器A上服务的接口  
-##### 2.4.2 测试服务器B上服务的接口  
+测试服务器A上服务的接口    
+测试服务器B上服务的接口    
 
 ### 3. 分布式部署服务的启停  
 Linux端口占用 netstat -tunlp | grep 端口号  
