@@ -77,7 +77,7 @@ Client内存1G，python client 1G，每个引擎都使用1个核，那么就是 
 
 在linkis1.0中，我们对启动参数进行了优化和整合，各个微服务的部分重要的启动参数都通过conf/linkis-env.sh文件加载，例如微服务IP、端口、注册中心地址等，因此修改参数的方式发生了一点变化，以机器server1，server2双活部署为例，为了让eureka之间相互注册。
 
-在server1的机器上，需要将**conf/linkis-env.sh**中的
+在server1的机器上，需要将**bin/install.sh**中的
 ``
 EUREKA\_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
 ``
@@ -88,7 +88,7 @@ EUREKA\_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
 EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server2:port/eureka/
 ``
 
-同理，在server2的机器上，需要将**conf/linkis-env.sh**中的
+同理，在server2的机器上，需要将**bin/install.sh**中的
 
 ``
 EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
@@ -100,7 +100,9 @@ EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
 EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server1:port/eureka/
 ``
 
-修改完之后启动微服务，从web端进入eureka注册界面，可以看到已经成功注册到eureka的微服务，并且DS
+修改后，可以执行安装命令**sh bin/install.sh** 安装linkis，然后将任意节点上安装的包分发到其他节点。
+
+在每个节点上按需启动微服务，从web端进入eureka注册界面，可以看到已经成功注册到eureka的微服务，并且DS
 Replicas也会显示集群相邻的副本节点。
 
 ![](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
