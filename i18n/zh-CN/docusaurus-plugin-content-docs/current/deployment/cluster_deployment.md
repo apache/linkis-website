@@ -74,26 +74,41 @@ Client内存1G，python client 1G，每个引擎都使用1个核，那么就是 
 
 2、Linkis微服务分布式部署配置参数
 ---------------------------------
-2.1 Eureka的分部署部署
-可以根据实际情况 决定是否Eureka服务多活部署
-以机器server1，server2双活部署为例，为了让eureka之间相互注册。
-server1/server2进行如下配置修改
+### 1.分布式部署的准备  
+下载需要部署的jar包,准备好开发需要的环境(mysql,hadoop,hive等开发环境)  
+
+### 2.分布式部署的流程  
+#### 2.1 修改eureka配置文件,把两台eureka的配置地址都加上  
+可以根据实际情况 决定是否Eureka服务多活部署  
+以机器server1，server2双活部署为例，为了让eureka之间相互注册。  
+server1/server2进行如下配置修改  
 
 ```
 $LINKIS_HOME/conf/application-eureka.yml
 $LINKIS_HOME/conf/application-linkis.yml
-
 eureka:
   client:
     serviceUrl:
       defaultZone: http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port2/eureka/
 
-
-$LINKIS_HOME/conf/linkis.properties 配置修改
-wds.linkis.eureka.defaultZone=http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port2/eureka/
+$LINKIS_HOME/conf/linkis.properties 配置修改  
+wds.linkis.eureka.defaultZone=http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port2/eureka/  
 ```
 
-修改完之后启动微服务，从web端进入eureka注册界面，可以看到已经成功注册到eureka的微服务，并且DS
-Replicas也会显示集群相邻的副本节点。
+#### 2.2 在服务器A上部署所有服务并且使用sbin/linkis-start-all.sh命令启动  
 
-![987](https://user-images.githubusercontent.com/29391030/165934148-9a8d2bf6-fc8b-4f4c-ae8a-254836d3b3e9.png)
+#### 2.3 将服务器A上部署的内容拷贝到服务器B上,根据需要启动的服务使用sh linkis-daemon.sh restart (服务名) 命令启动需要在服务器B上启动的命令  
+比如启动linkis-ps-cs服务 sh linkis-daemon.sh restart ps-cs,具体服务名可以再linkis-start-all.sh文件中查找  
+
+#### 2.4 在部署的前端项目上测试  
+##### 2.4.1 测试服务器A上服务的接口  
+##### 2.4.2 测试服务器B上服务的接口  
+
+### 3. 分布式部署服务的启停  
+Linux端口占用 netstat -tunlp | grep 端口号  
+Linux清除进程 sudo kill -9 进程号  
+
+### 4. 注意事项
+#### 4.1 最好在一开始启动所有服务,因为服务之间存在依赖,如果有的服务不存在也不能通过eureka找到对应备份会出现服务启动失败,  
+服务启动失败之后不会自动重启,等到替代服务加入之后再关闭相关服务  
+
