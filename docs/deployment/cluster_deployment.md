@@ -74,7 +74,7 @@ The following configuration assumes that **each user starts two engines at the s
 
 In linkis1.0, we have optimized and integrated the startup parameters. Some important startup parameters of each microservice are loaded through the conf/linkis-env.sh file, such as the microservice IP, port, registry address, etc. The way to modify the parameters has changed a little. Take the active-active deployment of the machines **server1 and server2** as an example, in order to allow eureka to register with each other.
 
-On the server1 machine, you need to change the value in **conf/linkis-env.sh**
+On the server1 machine, you need to change the value in **bin/install.sh**
 
 ``
 EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
@@ -86,7 +86,7 @@ change into:
 EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server2:port/eureka/
 ``
 
-In the same way, on the server2 machine, you need to change the value in **conf/linkis-env.sh**
+In the same way, on the server2 machine, you need to change the value in **bin/install.sh**
 
 ``
 EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
@@ -98,6 +98,8 @@ change into:
 EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server1:port/eureka/
 ``
 
-After the modification, start the microservice, enter the eureka registration interface from the web side, you can see that the microservice has been successfully registered to eureka, and the DS
+After the modification, You can execute the installation command **sh bin/install.sh** to install linkis, then Distribute packages installed on any node to other nodes
+
+start microservices on demand on each node, enter the eureka registration interface from the web side, you can see that the microservice has been successfully registered to eureka, and the DS
 Replicas will also display the replica nodes adjacent to the cluster.
 
