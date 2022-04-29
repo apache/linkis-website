@@ -72,32 +72,41 @@ The following configuration assumes that **each user starts two engines at the s
 2.Linkis microservices distributed deployment configuration parameters
 ---------------------------------
 
-In linkis1.0, we have optimized and integrated the startup parameters. Some important startup parameters of each microservice are loaded through the conf/linkis-env.sh file, such as the microservice IP, port, registry address, etc. The way to modify the parameters has changed a little. Take the active-active deployment of the machines **server1 and server2** as an example, in order to allow eureka to register with each other.
+### 1. Preparation for distributed deployment
+Download the jar package to be deployed and prepare the development environment (mysql, Hadoop, hive and other development environments)  
 
-On the server1 machine, you need to change the value in **conf/linkis-env.sh**
+### 2. Distributed deployment process
+#### 2.1 modify the Eureka configuration file and add the configuration addresses of both Eureka  
+You can decide whether to deploy Eureka service according to the actual situation  
+Take the dual active deployment of machine Server1 and server2 as an example, in order to make Eureka register with each other.  
+Make the following configuration changes for Server1/server2  
 
-``
-EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
-``
+```
+$LINKIS_ HOME/conf/application-eureka. yml
+$LINKIS_ HOME/conf/application-linkis. yml
+eureka:
+client:
+serviceUrl:
+defaultZone: http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port2/eureka/
 
-change into:
+$LINKIS_ HOME/conf/linkis  Properties configuration modification
+wds. linkis. eureka. defaultZone=http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port2/eureka/
 
-``
-EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server2:port/eureka/
-``
+```
 
-In the same way, on the server2 machine, you need to change the value in **conf/linkis-env.sh**
+#### 2.2 deploy all services on server a and use SBIN / links start all The SH command starts  
+#### 2.3 copy the content deployed on server a to server B, and use sh links daemon for the services that need to be started The SH restart command starts the command that needs to be started on server B  
+For example, start the linkis PS CS service sh linkis daemon SH restart PS CS, and the specific service name can be linkis start all Find in SH file  
 
-``
-EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
-``
+#### 2.4 testing on deployed front-end projects    
+Test the interface of the service on server A  
+Test the interface of the service on server B   
 
-change into:
+### 3. Start and stop of distributed deployment services  
+Linux port occupies netstat - tunlp | grep port number  
+Linux clear process sudo kill - 9 process number  
 
-``
-EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server1:port/eureka/
-``
 
-After the modification, start the microservice, enter the eureka registration interface from the web side, you can see that the microservice has been successfully registered to eureka, and the DS
-Replicas will also display the replica nodes adjacent to the cluster.
 
+### 4. matters needing attention
+#### 4.1 It is best to start all services at the beginning, because there are dependencies between services. If some services do not exist and the corresponding backup cannot be found through Eureka, the service will fail to start. After the service fails to start, it will not restart automatically. Wait until the alternative service is added, and then close the relevant services
