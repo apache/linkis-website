@@ -74,33 +74,26 @@ Client内存1G，python client 1G，每个引擎都使用1个核，那么就是 
 
 2、Linkis微服务分布式部署配置参数
 ---------------------------------
+2.1 Eureka的分部署部署
+可以根据实际情况 决定是否Eureka服务多活部署
+以机器server1，server2双活部署为例，为了让eureka之间相互注册。
+server1/server2进行如下配置修改
 
-在linkis1.0中，我们对启动参数进行了优化和整合，各个微服务的部分重要的启动参数都通过conf/linkis-env.sh文件加载，例如微服务IP、端口、注册中心地址等，因此修改参数的方式发生了一点变化，以机器server1，server2双活部署为例，为了让eureka之间相互注册。
+```
+$LINKIS_HOME/conf/application-eureka.yml
+$LINKIS_HOME/conf/application-linkis.yml
 
-在server1的机器上，需要将**conf/linkis-env.sh**中的
-``
-EUREKA\_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
-``
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port2/eureka/
 
-修改为：
 
-``
-EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server2:port/eureka/
-``
-
-同理，在server2的机器上，需要将**conf/linkis-env.sh**中的
-
-``
-EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/
-``
-
-修改为：
-
-``
-EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server1:port/eureka/
-``
+$LINKIS_HOME/conf/linkis.properties 配置修改
+wds.linkis.eureka.defaultZone=http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port2/eureka/
+```
 
 修改完之后启动微服务，从web端进入eureka注册界面，可以看到已经成功注册到eureka的微服务，并且DS
 Replicas也会显示集群相邻的副本节点。
 
-![](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
+![987](https://user-images.githubusercontent.com/29391030/165934148-9a8d2bf6-fc8b-4f4c-ae8a-254836d3b3e9.png)
