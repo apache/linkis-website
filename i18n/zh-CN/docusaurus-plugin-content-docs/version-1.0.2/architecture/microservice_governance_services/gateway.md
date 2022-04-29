@@ -16,7 +16,7 @@ Gateway网关是Linkis接受客户端以及外部请求的首要入口，例如�
 - gateway-core: Gateway的核心接口定义模块，主要定义了GatewayParser和GatewayRouter接口，分别对应请求的解析和根据请求进行路由选择；同时还提供了SecurityFilter的权限校验工具类。
 - spring-cloud-gateway: 该模块集成了所有与SpringCloudGateway相关的依赖，对HTTP和WebSocket两种协议类型的请求分别进行了处理转发。
 - gateway-server-support: Gateway的服务驱动模块，依赖spring-cloud-gateway模块，对GatewayParser、GatewayRouter分别做了实现，其中DefaultLabelGatewayRouter提供了请求标签路由的功能。
-- gateway-httpclient-support: 提供了Http访问Gateway服务的客户端通用类，z可以基于做多实现。
+- gateway-httpclient-support: 提供了Http访问Gateway服务的客户端通用类。
 - instance-label: 外联的实例标签模块，提供InsLabelService服务接口，用于路由标签的创建以及与应用实例关联。
 
 涉及的详细设计如下：

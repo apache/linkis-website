@@ -3,7 +3,7 @@ title: Hive 引擎
 sidebar_position: 2
 ---
 
-本文主要介绍在Linkis1.0中，Hive引擎的配置、部署和使用。
+本文主要介绍在Linkis1.中，Hive引擎的配置、部署和使用。
 
 ## 1.Hive引擎使用前的环境配置
 
@@ -39,7 +39,7 @@ on Tez，需要您按照此pr进行一下修改。
 
 ### 2.3 hive引擎的标签
 
-Linkis1.0是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
+Linkis1.是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
 [EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](deployment/engine_conn_plugin_installation.md) 
 

@@ -6,7 +6,7 @@ sidebar_position: 0
 PublicEnhencementService（PS）架构设计
 ======================================
 
-PublicEnhancementService（PS）：公共增强服务，为其他微服务模块提供统一配置管理、上下文服务、物理库、数据源管理、微服务管理和历史任务查询等功能的模块。
+PublicEnhancementService（PS）：公共增强服务，为其他微服务模块提供统一配置管理、上下文服务、物料库、数据源管理、微服务管理和历史任务查询等功能的模块。
 
 ![](/Images-zh/Architecture/PublicEnhencement架构图.png)
 
