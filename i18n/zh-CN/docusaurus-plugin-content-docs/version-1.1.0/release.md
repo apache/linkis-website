@@ -10,7 +10,7 @@ sidebar_position: 0.1
 - [数据源http接口文档](/api/http/data-source-manager-api.md)
 - [元数据查询服务http接口文档](/api/http/metadatamanager-api.md)
 - [开启SkyWalking功能](/deployment/involve_skywalking_into_linkis.md)
-- [版本的release-notes](release-notes-1.1.0.md)
+- [版本的release-notes](/download/release-notes-1.1.0)
 
 ## 参数变化 
 

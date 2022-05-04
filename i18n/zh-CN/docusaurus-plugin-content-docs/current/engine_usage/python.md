@@ -3,7 +3,7 @@ title: Python 引擎
 sidebar_position: 5
 ---
 
-本文主要介绍在Linkis1.中，Python引擎的配置、部署和使用。
+本文主要介绍在Linkis1.X中，Python引擎的配置、部署和使用。
 
 ## 1.Spark引擎使用前的环境配置
 

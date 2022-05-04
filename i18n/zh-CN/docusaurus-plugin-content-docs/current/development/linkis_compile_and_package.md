@@ -35,7 +35,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 ### step1 首次编译(非首次可跳过此步)
 
-**如果您是本地第一次编译使用，必须在 Linkis 源码包根目录先执行以下命令**：
+**如果您是本地第一次编译使用，必须在 Linkis 源码工程的根目录先执行以下命令**：
 ```bash
     cd incubator-linkis-x.x.x
     mvn -N  install
@@ -60,14 +60,9 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 ## 3. 编译单个模块
 
-### step1 首次编译(非首次可跳过此步)
-**如果您是本地第一次编译使用，必须在 Linkis 源码包根目录先执行以下命令**：
+> 如有没有执行过全量编译，先要进行一次全量编译
 
-```bash
-    cd incubator-linkis-x.x.x
-    mvn -N  install
-``` 
-### step2 进入到对应模块进行编译     
+### step1 进入到对应模块进行编译     
 进入到对应模块进行编译，比如想重新编译 Entrance，命令如下：
    
 ```bash   
@@ -75,7 +70,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
     mvn clean install
 ```
 
-### step3 获取安装包 
+### step2 获取安装包 
 获取安装包，在对应模块的->target目录下会有编译好的包：
    
 ```
@@ -84,27 +79,23 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 ## 4. 编译某个引擎
 
-这里以编译 Linkis 的 Spark 引擎为例：
+> 如有没有执行过全量编译，先要进行一次全量编译
 
-### step1 首次编译(非首次可跳过此步)
-**如果您是本地第一次使用，必须在 Linkis 源码包根目录先执行以下命令**：
-   
-```bash
-    cd incubator-linkis-x.x.x
-    mvn -N  install
-```
-### step2 进入到对应模块进行编译           
+这里以编译Spark 引擎为例：
+
+### step1 进入到对应模块进行编译           
 进入到 Spark 引擎所在的目录进行编译打包，命令如下：
    
 ```bash   
     cd incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
     mvn clean install
 ```
-### step3 获取安装包       
-获取安装包，在对应模块的->target目录下会有编译好的包：
-   
+### step2 获取引擎的物料包       
+在对应模块的target目录下：
+
 ```
-   incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.jar
+   #spark文件下就是编译好的引擎物料
+   incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/out/spark
 ```
 
 如何单独安装 Spark 引擎？请参考 [Linkis 引擎插件安装文档](deployment/engine_conn_plugin_installation.md)

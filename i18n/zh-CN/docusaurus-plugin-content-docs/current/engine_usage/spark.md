@@ -3,7 +3,7 @@ title: Spark 引擎
 sidebar_position: 1
 ---
 
-本文主要介绍在Linkis1.中，spark引擎的配置、部署和使用。
+本文主要介绍在Linkis1.X中，spark引擎的配置、部署和使用。
 
 ## 1.Spark引擎使用前的环境配置
 
@@ -27,7 +27,7 @@ sidebar_position: 1
 
 ### 2.1 spark版本的选择和编译
 
-理论上Linkis1.支持的spark2.x以上的所有版本。默认支持的版本Spark2.4.3。如果您想使用您的spark版本，如spark2.1.0，则您仅仅需要将插件spark的版本进行修改，然后进行编译即可。具体的，您可以找到linkis-engineplugin-spark模块，将\<spark.version\>标签进行改成2.1.0，然后单独编译此模块即可。
+理论上Linkis1.X支持的spark2.x以上的所有版本。默认支持的版本Spark2.4.3。如果您想使用您的spark版本，如spark2.1.0，则您仅仅需要将插件spark的版本进行修改，然后进行编译即可。具体的，您可以找到linkis-engineplugin-spark模块，将\<spark.version\>标签进行改成2.1.0，然后单独编译此模块即可。
 
 ### 2.2 spark engineConn部署和加载
 
@@ -37,7 +37,7 @@ sidebar_position: 1
 
 ### 2.3 spark引擎的标签
 
-Linkis1.是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
+Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
 [EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](deployment/engine_conn_plugin_installation.md) 
 

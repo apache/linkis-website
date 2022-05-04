@@ -10,7 +10,7 @@ sidebar_position: 0.1
 - [Data source http interface documentation](/api/http/data-source-manager-api.md)
 - [Metadata http interface documentation](/api/http/metadatamanager-api.md)
 - [Start SkyWalking](/deployment/involve_skywalking_into_linkis.md)
-- [Release-notes](release-notes-1.1.0.md)
+- [Release-notes](/download/release-notes-1.1.0)
 
 ## Parameter Changes
 

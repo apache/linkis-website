@@ -3,25 +3,49 @@ title: JDBC 引擎
 sidebar_position: 7
 ---
 
-本文主要介绍在Linkis1.中，JDBC引擎的配置、部署和使用。
+本文主要介绍在Linkis1.X中，JDBC引擎的配置、部署和使用。
 
-## 1.JDBC引擎使用前的环境配置
+## 1. 环境准备
 
 如果您希望在您的服务器上使用JDBC引擎，您需要准备JDBC连接信息，如MySQL数据库的连接地址、用户名和密码等
 
-## 2.JDBC引擎的配置和部署
+## 2. 部署和配置
 
-### 2.1 JDBC版本的选择和编译
+### 2.1 版本的选择和编译
 
-JDBC引擎不需要用户自行编译，直接使用编译好的JDBC引擎插件包即可。已经提供的Driver包括有MySQL，PostgreSQL等
+发布的安装部署包中默认不包含此引擎插件，
+你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin，
+或者按以下流程，手动编译部署
 
-### 2.2 JDBC engineConn部署和加载
 
-此处可以使用默认的加载方式即可正常使用，按照标准版本安装即可。
+单独编译jdbc引擎 
 
-### 2.3 JDBC引擎的标签
+```
+${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/jdbc/
+mvn clean install
+```
 
-此处可以使用默认的dml.sql进行插入即可正常使用。
+### 2.2 物料的部署和加载
+
+将 2.1 步编译出来的引擎包,位于
+```bash
+${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/jdbc
+```
+上传到服务器的引擎目录下
+```bash 
+${LINKIS_HOME}/lib/linkis-engineplugins
+```
+并重启linkis-engineplugin（或则通过引擎接口进行刷新）
+```bash
+cd ${LINKIS_HOME}/sbin
+sh linkis-daemon restart cg-engineplugin
+```
+### 2.3 引擎的标签
+
+Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
+
+[EngineConnPlugin引擎插件安装](deployment/engine_conn_plugin_installation.md) 
+
 
 ## 3.JDBC引擎的使用
 
