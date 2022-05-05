@@ -14,7 +14,7 @@ sidebar_position: 1
 </font>
 
 
-**如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
+**如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
 
 请注意：除了 Linkis1.0 安装包默认已经包含的：Python/Shell/Hive/Spark四个EngineConnPlugin以外，如果大家有需要，可以手动安装如 JDBC 引擎等类型的其他引擎，具体请参考 [EngineConnPlugin引擎插件安装文档](deployment/engine_conn_plugin_installation.md)。
 
@@ -142,7 +142,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ```
         
 ```properties
-    SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
+   
     deployUser=hadoop      #指定部署用户
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # 指定用户根目录，一般用于存储用户的脚本文件和日志文件等，是用户的工作空间。
     RESULT_SET_ROOT_PATH=hdfs:///tmp/linkis   # 结果集文件路径，用于存储Job的结果集文件
@@ -152,11 +152,6 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     #因为1.0支持多Yarn集群，使用到Yarn队列资源的一定需要配置YARN_RESTFUL_URL
     YARN_RESTFUL_URL=http://127.0.0.1:8088  #Yarn的ResourceManager的地址
 
-    # 如果您想配合Scriptis一起使用，CDH版的Hive，还需要配置如下参数（社区版Hive可忽略该配置）
-    HIVE_META_URL=jdbc://...   # HiveMeta元数据库的URL
-    HIVE_META_USER=   # HiveMeta元数据库的用户
-    HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
-    
     # 配置hadoop/hive/spark的配置目录 
     HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop的conf目录
     HIVE_CONF_DIR=/appcom/config/hive-config   #hive的conf目录
@@ -189,6 +184,11 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     MYSQL_DB=
     MYSQL_USER=
     MYSQL_PASSWORD=
+
+    #主要是配合scriptis一起使用，如果不配置，会默认尝试通过$HIVE_CONF_DIR 中的配置文件获取
+    HIVE_META_URL=    # HiveMeta元数据库的URL
+    HIVE_META_USER=   # HiveMeta元数据库的用户
+    HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
  ```
  
 ## 4. 安装和启动
@@ -198,29 +198,29 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ```bash
     sh bin/install.sh
 ```
->linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{installPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)
+>linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{installPath}/conf/linkis-mg-gateway.propertie`(>=1.0.3版本)
 
 ### 4.2 安装步骤
 
-- install.sh脚本会询问您是否需要初始化数据库并导入元数据。
+install.sh脚本会询问您是否需要初始化数据库并导入元数据。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为担心用户重复执行install.sh脚本，把数据库中的用户数据清空，所以在install.sh执行时，会询问用户是否需要初始化数据库并导入元数据。
+因为担心用户重复执行install.sh脚本，把数据库中的用户数据清空，所以在install.sh执行时，会询问用户是否需要初始化数据库并导入元数据。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**第一次安装**必须选是。
+**第一次安装**必须选是。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
+**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
+**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
+**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
 ### 4.3 是否安装成功：
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过查看控制台打印的日志信息查看是否安装成功。
+通过查看控制台打印的日志信息查看是否安装成功。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果有错误信息，可以查看具体报错原因。
+如果有错误信息，可以查看具体报错原因。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您也可以通过查看我们的[常见问题](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)，获取问题的解答。
+您也可以通过查看我们的[常见问题](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)，获取问题的解答。
 
 ### <font color="red"> 4.4 添加mysql驱动包</font>
 

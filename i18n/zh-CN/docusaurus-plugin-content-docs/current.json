@@ -23,6 +23,11 @@
     "message": "API文档",
     "description": "The label for category API Docs in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Table Structure": {
+    "message": "表结构",
+    "description": "The label for category   Table Structure in sidebar tutorialSidebar"
+  },
+
   "sidebar.tutorialSidebar.category.Architecture": {
     "message": "架构分析",
     "description": "The label for category Architecture in sidebar tutorialSidebar"

@@ -39,9 +39,10 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 |Hadoop|Apache >=2.6.0, CDH >=5.4.0|\>=0.5.0|ongoing|Hadoop EngineConn. 支持Hadoop MR/YARN application.|
 |Python|\>=2.6|\>=0.5.0|\>=1.0.0_rc1|Python EngineConn. 支持python 代码.|
 |TiSpark|1.1|\>=0.5.0|ongoing|TiSpark EngineConn. 支持用SparkSQL 查询TiDB.|
+|OpenLookEng|1.5.0|不支持|>=1.1.1|LooKengEng EngineConn. 支持用Sql查询数据虚拟化引擎LooKengEng|
 
 ## 下载
-请前往[Linkis releases 页面](https://github.com/apache/incubator-linkis/releases) 下载Linkis 的已编译版本或源码包。
+请前往[Linkis releases 页面](https://linkis.apache.org/zh-CN/download/main) 下载Linkis 的已编译版本或源码包。
 
 ## 编译和安装部署
 请参照[编译指引](development/linkis_compile_and_package.md) 来编译Linkis 源码。  

@@ -62,7 +62,7 @@ https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%
 
 ### 2.3 Flink引擎的标签
 
-Linkis1.是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
+Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
 [EngineConnPlugin引擎插件安装](deployment/engine_conn_plugin_installation.md) 
 
@@ -70,7 +70,7 @@ Linkis1.是通过标签来进行的，所以需要在我们数据库中插入数
 
 ### 准备操作，队列设置
 
-Linkis1.的Flink引擎是通过flink on yarn的方式进行启动的,所以需要指定用户使用的队列。指定队列的方式如图3-1所示。
+Linkis1.X的Flink引擎是通过flink on yarn的方式进行启动的,所以需要指定用户使用的队列。指定队列的方式如图3-1所示。
 
 ![](/Images/EngineUsage/queue-set.png)
 

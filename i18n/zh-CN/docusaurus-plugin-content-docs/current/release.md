@@ -3,11 +3,12 @@ title: 版本总览
 sidebar_position: 0.1
 --- 
 
-- [代理用户模式的使用](/architecture/public_enhancement_services/datasource_manager.md)
-- [UDF函数介绍和功能使用指引](/architecture/public_enhancement_services/metadata_manager.md)
-- [引擎物料刷新HTTP接口](/api/http/data-source-manager-api.md)
-- [UDF相关的HTTP接口](/api/http/metadatamanager-api.md)
-- [OpenLookEng的介绍和使用](/deployment/involve_skywalking_into_linkis.md)
+- [UDF函数介绍和使用指引](/user_guide/udf.md)
+- [引擎物料刷新HTTP接口](/api/http/engineconn-plugin-refesh.md)
+- [UDF相关的HTTP接口](/api/http/udf-api.md)
+- [UDF相关的表结构](/table/udf-table.md)
+- [OpenLookEng的引擎的实现](/blog/2022/03/20/openlookeng)
+- [OpenLookEng的使用](/engine_usage/openlookeng.md)
 - [版本的Release-Notes](release-notes-1.1.1.md)
 
 ## 参数变化 
@@ -33,6 +34,3 @@ sidebar_position: 0.1
 ## 数据库表变化 
 
 详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.1_schema`文件
-
-## 功能变化详细介绍
- 

@@ -1,5 +1,5 @@
 ---
-title: 安装 EngineConnPlugin 引擎
+title: 引擎的安装
 sidebar_position: 3
 ---
 
@@ -7,7 +7,7 @@ sidebar_position: 3
 
 ## 1. 引擎插件的编译打包
 
-&nbsp;&nbsp;&nbsp;&nbsp;在linkis1.0以后，引擎是由EngineConnManager进行管理的，引擎插件（EngineConnPlugin）支持实时生效。
+linkis的引擎是由EngineConnManager进行管理的，引擎插件（EngineConnPlugin）支持实时生效。
 
 为了方便 EngineConnManager 能够通过标签加载到对应的引擎插件，需要按照如下目录结构进行打包(以hive为例)：
 
@@ -28,12 +28,8 @@ hive:引擎主目录，必须为引擎的名字
 ## 2. 引擎安装
 
 ### 2.1 插件包安装
-
-1. 首先，确认引擎的dist目录：wds.linkis.engineconn.home（从${LINKIS_HOME}/conf/linkis.properties中获取该参数的值），该参数为 EngineConnPluginServer 用于读取引擎启动所依赖的配置文件和第三方Jar包。如果设置了参数（wds.linkis.engineconn.dist.load.enable=true），会自动读取并加载该目录下的引擎到Linkis BML（物料库）中。
-
-2. 其次，确认引擎Jar包目录：wds.linkis.engineconn.plugin.loader.store.path，该目录用于 EngineConnPluginServer 读取该引擎的实际实现Jar。
-
-3. **强烈推荐 wds.linkis.engineconn.home 和 wds.linkis.engineconn.plugin.loader.store.path 指定为同一个目录**，这样就可以直接将maven打出来的引擎ZIP包，解压到该目录下，如：放置到${LINKIS_HOME}/lib/linkis-engineconn-plugins目录下。
+1. 引擎的资源目录（默认是`${LINKIS_HOME}/lib/linkis-engineconn-plugins`），linkis-cg-engineconnplugin服务启动时，
+会自动检测物料(引擎的配置文件和第三方Jar包)是否需要更新BML（物料库）中。
 
 ```
 ${LINKIS_HOME}/lib/linkis-engineconn-plugins:
@@ -45,43 +41,58 @@ ${LINKIS_HOME}/lib/linkis-engineconn-plugins:
    └── plugin
 ```
 
-4. 如果两个参数不是指向同一个目录，则需要分开放置dist和plugin目录，如下示例：
-
-```
-## dist 目录
-${LINKIS_HOME}/lib/linkis-engineconn-plugins/dist:
-└── hive
-   └── dist
-└── spark
-   └── dist
- 
-## plugin 目录
-${LINKIS_HOME}/lib/linkis-engineconn-plugins/plugin:
-└── hive
-   └── plugin
-└── spark
-   └── plugin
-```
-
 5. 并配置默认的引擎版本，方便没有带版本的任务进行提交
-`wds.linkis.hive.engine.version=2.3.3`
+修改`$LINKIS_HOME/conf/linkis.properties` 配置文件
+```html
+wds.linkis.hive.engine.version=2.3.3
+```
+
 
 ### 2.2 管理台Configuration配置修改（可选）
 
-&nbsp;&nbsp;&nbsp;&nbsp;Linkis1.0 管理台的配置是按照引擎标签来进行管理的，如果新增的引擎有配置参数需要在Configuration插入相应的配置参数，需要在三个表中插入参数：
+管理台的配置是按照引擎标签来进行管理的，如果新增的引擎，有配置参数需要配置的话，需要修改对应的表的元数据
 
 ```
-linkis_configuration_config_key:  插入引擎的配置参数的key和默认values
-linkis_manager_label：插入引擎label如：hive-2.3.3
-linkis_configuration_category： 插入引擎的目录关联关系
-linkis_configuration_config_value： 插入引擎需要展示的配置
+linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
+linkis_cg_manager_label：插入引擎label如：hive-2.3.3
+linkis_ps_configuration_category： 插入引擎的目录关联关系
+linkis_ps_configuration_config_value： 插入引擎需要展示的配置
+linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
 ```
+以openlookeng引擎 1.5.0版本 为例 
+```html
 
-如果是已经存在的引擎，新增版本，则可以修改linkis_configuration_dml.sql文件下的对应引擎的版本进行执行
+SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
+SET @OPENLOOKENG_ALL=CONCAT('*-*,',@OPENLOOKENG_LABEL);
+SET @OPENLOOKENG_IDE=CONCAT('*-IDE,',@OPENLOOKENG_LABEL);
+
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@OPENLOOKENG_ALL, 'OPTIONAL', 2, now(), now());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@OPENLOOKENG_IDE, 'OPTIONAL', 2, now(), now());
+
+select @label_id := id from linkis_cg_manager_label where `label_value` = @OPENLOOKENG_IDE;
+insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
+
+
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.url', '例如:http://127.0.0.1:8080', '连接地址', 'http://127.0.0.1:8080', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', 'openlookeng', 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.catalog', 'catalog', 'catalog', 'system', 'None', '', 'openlookeng', 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.source', 'source', 'source', 'global', 'None', '', 'openlookeng', 0, 0, 1, '数据源配置');
+
+
+-- openlookeng-*
+insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
+(select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
+INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'openlookeng' and label_value = @OPENLOOKENG_ALL);
+
+-- openlookeng default configuration
+insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
+(select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
+INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @OPENLOOKENG_ALL);
+
+```
 
 ### 2.3 引擎刷新
 
-1. 引擎支持实时刷新，引擎放置到对应目录后，Linkis1.0提供了不停服务，热加载引擎的方法，通过restful接口向linkis-engineconn-plugin-server服务发送请求即可。
+1. 引擎支持实时刷新，引擎放置到对应目录后，通过http接口向linkis-cg-engineconnplugin 服务发送刷新请求即可。
 
 - 接口 `http://${engineconn-plugin-server-IP}:${port}/api/rest_j/v1/rpc/receiveAndReply`
 
@@ -96,7 +107,7 @@ linkis_configuration_config_value： 插入引擎需要展示的配置
 2. 重启刷新：通过重启也可以强制刷新引擎目录
 
 ```bash
-### cd到sbin目录下，重启linkis-engineconn-plugin-server
+### cd到sbin目录下，重启linkis-cg-engineconnplugin服务
 
 cd ${LINKIS_HOME}/sbin
 
