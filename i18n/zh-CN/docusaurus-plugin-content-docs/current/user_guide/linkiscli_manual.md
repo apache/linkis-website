@@ -156,7 +156,7 @@ Linkis-cli的变量替换通过`${}`符号和`-varMap`共同实现
 
 ### 5.5 使用用户的配置文件
 
-1. linkis-cli支持加载用户自定义配置文件，配置文件路径通过`--userConf`参数指定，配置文件需要是`.properties`文件格式
+1. linkis-cli支持加载用户自定义配置文件，配置文件路径通过`--userConf`参数指定，配置文件需要是`.properties`文件格式,默认是使用 `conf/linkis-cli/linkis-cli.properties` 配置文件
 
 ```bash
    ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  --userConf [配置文件路径]
