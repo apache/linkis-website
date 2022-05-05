@@ -29,7 +29,7 @@
   },
 
   "sidebar.tutorialSidebar.category.Architecture": {
-    "message": "架构分析",
+    "message": "技术架构",
     "description": "The label for category Architecture in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Commons": {
