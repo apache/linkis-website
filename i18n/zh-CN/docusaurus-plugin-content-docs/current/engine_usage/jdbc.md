@@ -57,12 +57,37 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 
 图3-1 JDBC配置信息
 
-您也可以才提交任务接口中的RuntimeMap进行修改即可
+您也可以再提交任务接口中的params.configuration.runtime进行修改即可
 ```shell
-wds.linkis.jdbc.connect.url 
-wds.linkis.jdbc.username
-wds.linkis.jdbc.password
+jdbc.url 
+jdbc.username
+jdbc.password
 ```
+
+您也可以在提交任务接口，通过参数进行配置
+
+```shell
+http 请求参数示例 
+{
+    "executionContent": {"code": "show databases;", "runType":  "jdbc"},
+    "params": {
+                    "variable": {},
+                    "configuration": {
+                            "runtime": {
+                                    "jdbc.url":"jdbc:mysql://127.0.0.1:3306/test",  
+                                    "jdbc.username":"test",
+                                    "jdbc.password":"test23"
+                                }
+                            }
+                    },
+    "source":  {"scriptPath": "file:///mnt/bdp/hadoop/1.sql"},
+    "labels": {
+        "engineType": "jdbc-4",
+        "userCreator": "hadoop-IDE"
+    }
+}
+```
+
 
 ### 3.1 通过Linkis SDK进行使用
 

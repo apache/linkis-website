@@ -60,12 +60,12 @@ openlookeng的服务连接信息，默认使用地址是`http://127.0.0.1:8080`
 
 图3-1 openlookeng配置信息
 
-您也可以在提交任务接口，通过参数进行配置
+您也可以在提交任务接口，通过参数params.configuration.runtime进行配置
 
 ```shell
 http 请求参数示例 
 {
-    "executionContent": {"code": "'show databases;", "runType":  "sql"},
+    "executionContent": {"code": "show databases;", "runType":  "sql"},
     "params": {
                     "variable": {},
                     "configuration": {
