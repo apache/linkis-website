@@ -274,7 +274,7 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 ## 5 Yarn队列检查
 >如果需要使用到spark/hive/flink引擎
 
-登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)  
+登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)(需要先安装前端)  
 正常如下图所示:    
 ![yarn-normal](https://user-images.githubusercontent.com/7869972/159955494-2f305a38-a3d6-4798-83aa-58cde23bc436.png)
 
@@ -304,13 +304,13 @@ config字段属性
 sh sbin/linkis-daemon.sh  restart cg-linkismanager
 ```
 
-#### 5.2 查看yarn队列是否正确
+### 5.2 查看yarn队列是否正确
 异常信息:`desc: queue ide is not exists in YARN.`
 标明配置的yarn队列不存在，需要进行调整
 
 修改方式:linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue],修改一个可以使用的yarn队列,可以使用的yarn 队列可以在 rmWebAddress:http://xx.xx.xx.xx:8088/cluster/scheduler 上查看到
 
-#### 5.3 查看yarn队列
+### 5.3 查看yarn队列
 - 查看hadoop集群地址: http://ip:8088/cluster
 - 查看yarn队列地址：http://ip:8888/cluster/scheduler
 
