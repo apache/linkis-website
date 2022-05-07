@@ -15,11 +15,11 @@
             <description><![CDATA[This article mainly guides you how to download the non-default engine installation plug-in package corresponding to each version.]]></description>
         </item>
         <item>
-            <title><![CDATA[OpenLookEng的引擎的实现]]></title>
+            <title><![CDATA[Implementation of OpenLookEng Engine]]></title>
             <link>https://linkis.apache.org/blog/2022/03/20/openlookeng</link>
-            <guid>OpenLookEng的引擎的实现</guid>
+            <guid>Implementation of OpenLookEng Engine</guid>
             <pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[概述]]></description>
+            <description><![CDATA[Overview]]></description>
         </item>
         <item>
             <title><![CDATA[Linkis Deployment Troubleshooting]]></title>

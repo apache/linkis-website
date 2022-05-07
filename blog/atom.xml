@@ -19,11 +19,11 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[OpenLookEng的引擎的实现]]></title>
-        <id>OpenLookEng的引擎的实现</id>
+        <title type="html"><![CDATA[Implementation of OpenLookEng Engine]]></title>
+        <id>Implementation of OpenLookEng Engine</id>
         <link href="https://linkis.apache.org/blog/2022/03/20/openlookeng"/>
         <updated>2022-03-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[概述]]></summary>
+        <summary type="html"><![CDATA[Overview]]></summary>
         <author>
             <name>Peacewong</name>
             <uri>https://github.com/peacewong/</uri>
