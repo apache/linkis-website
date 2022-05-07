@@ -5,7 +5,7 @@ sidebar_position: 4
 
 
 ## 1. 安装Node.js
-将Node.js下载到电脑本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node14版本）
+将Node.js下载到电脑本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node v14版本）
 **该步骤仅第一次使用时需要执行。**
 
 ## 2. 安装项目
@@ -48,6 +48,33 @@ npm run build
 
 ```
 npm run serve
+```
+
+## 6. 注意事项
+1.Windows下npm install 步骤报错
+```shell
+Error: Can't find Python executable "python", you can set the PYTHON env variable
+安装windows-build-tools （管理员权限）
+$ npm install --global --production windows-build-tools
+安装node-gyp
+$ npm install --global node-gyp
+
+2.如果编译失败 请按如下步骤清理后重新执行
+#进入项目工作目录，删除 node_modules
+$ rm -rf node_modules
+#删除 package-lock.json
+$ rm -rf package-lock.json
+#清除 npm 缓存
+$ npm cache clear --force
+#重新下载依赖
+$ npm install
+
+```
+2.如果出现兼容问题,建议重新安装node,[node下载地址](https://nodejs.org/zh-cn/download/)
+```shell
+1.查看node版本(推荐使用node v14版本)
+$ node -v
+2.下载node v14版本并且重新安装node 
 ```
 
 在浏览器中（建议Chrome浏览器）通过链接访问应用：[http://localhost:8080/](http://localhost:8080/) .

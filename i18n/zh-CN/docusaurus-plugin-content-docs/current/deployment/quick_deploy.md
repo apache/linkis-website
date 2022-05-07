@@ -123,6 +123,19 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     python -m pip install matplotlib
 ```
 
+5. 底层依赖检查
+
+执行相应的命令，查看是否支持相关依赖
+```shell script
+spark/hive/hdfs/python/
+$ spark-submit --version //spark 任务会通过这个命令提交到YARN上执行
+$ python --version
+$ hdfs  version
+$ hive --version
+
+```
+
+
 ### 3.3 安装包准备
 
 从Linkis已发布的release中（[点击这里进入下载页面](https://linkis.apache.org/zh-CN/download/main)），下载最新的安装包。
@@ -269,7 +282,7 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 
 #### (3)、查看服务是否正常
 1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web_install.md)
-2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](user_guide/overview.md)
+2. 您也可以通过Linkis用户手册来测试Linkis是否能正常运行任务，[点击跳转用户手册](user_guide/overview.md)
 
 ## 5 Yarn队列检查
 >如果需要使用到spark/hive/flink引擎
@@ -346,14 +359,14 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -c
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
 ```
 
-## 8 修改网关端口
-1.执行安装之前修改网关端口  
+## 8 修改注册中心eureka的端口(非必须)
+1.执行安装之前修改注册中心eureka端口
 ```
 i. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
 ii. 执行 vi deploy-config/linkis-env.sh
 iii. 修改EUREKA_PORT=20303为EUREKA_PORT=端口号
 ```
-2.执行安装之后修改网关端口  
+2.执行安装之后修改注册中心eureka端口  
 ```
 i. 进入${linkis_home}/conf目录
 ii. 执行grep -r 20303 ./* ,查询结果如下所示:
@@ -365,4 +378,94 @@ ii. 执行grep -r 20303 ./* ,查询结果如下所示:
 iii. 将对应位置的端口修改为新的端口,并且重启所有服务sh restart sbin/linkis-start-all.sh
 ```
 
-## 9 查询引擎报错
+## <font color="red">9. 安装部署常见问题的排障</font>
+
+### 9.0 登陆密码问题
+
+      linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{InstallPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)
+
+### 9.1 版本兼容性问题
+
+linkis默认支持的引擎，与dss兼容关系可以查看此文档 https://github.com/apache/incubator-linkis/blob/master/README.md
+
+### 9.2 如何定位服务端异常日志
+
+linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式
+```shell script
+tail -f log/* |grep -5n exception(或则tail -f log/* |grep -5n ERROR)  
+less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)  
+```
+
+
+### 9.3 执行引擎任务的异常排查
+
+** step1:找到引擎的启动部署目录 **  
+方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
+![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
+方式2:如果方式1中没有找到，可以通过找到`conf/linkis-cg-engineconnmanager.properties`配置的`wds.linkis.engineconn.root.dir`的参数，该值就是引擎启动部署的目录，子目录按执行引擎的用户进行了隔离。
+```shell script
+如果不清楚taskid，可以按时间排序后进行选择 ll -rt /appcom/tmp/${执行的用户}/workDir   
+cd /appcom/tmp/${执行的用户}/workDir/${taskId}  
+目录大体如下  
+conf -> /appcom/tmp/engineConnPublickDir/6a09d5fb-81dd-41af-a58b-9cb5d5d81b5a/v000002/conf #引擎的配置文件  
+engineConnExec.sh #生成的引擎的启动脚本  
+lib -> /appcom/tmp/engineConnPublickDir/45bf0e6b-0fa5-47da-9532-c2a9f3ec764d/v000003/lib #引擎依赖的包  
+logs #引擎启动执行的相关日志  
+```
+** step2：查看引擎的日志 **
+```shell script
+less logs/stdout  
+```
+
+** step3：尝试手动执行脚本(如果需要) **  
+可以通过尝试手动执行脚本，进行调试
+``` 
+sh -v engineConnExec.sh  
+```
+
+### 9.4 CDH适配版本的注意事项
+
+CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修改linkis的源码中的hive/spark版本的依赖，进行重新编译部署。  
+具体可以参考CDH适配博文    
+[【Linkis1.0——CDH5环境中的安装与踩坑】](https://mp.weixin.qq.com/s/__QxC1NoLQFwme1yljy-Nw)  
+[【DSS1.0.0+Linkis1.0.2——CDH5环境中的试用记录】](https://mp.weixin.qq.com/s/9Pl9P0hizDWbbTBf1yzGJA)  
+[【DSS1.0.0与Linkis1.0.2——JDBC引擎相关问题汇总】](https://mp.weixin.qq.com/s/vcFge4BNiEuW-7OC3P-yaw)  
+[【DSS1.0.0与Linkis1.0.2——Flink引擎相关问题汇总】](https://mp.weixin.qq.com/s/VxZ16IPMd1CvcrvHFuU4RQ)
+
+### 9.5 Http接口的调试
+
+- 方式1 可以开启[免登陆模式指引](/docs/latest/api/login_api/#2免登录配置)
+- 方式2 postman中的，请求头带上登陆成功的cookie值
+  cookie值可以在浏览器端登陆成功后，获取
+  ![bml](https://user-images.githubusercontent.com/7869972/157619718-3afb480f-6087-4d5c-9a77-5e75c8cb4a3c.png)
+
+```shell script
+Cookie: bdp-user-ticket-id=xxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+- 方式3 http请求头添加静态的Token令牌  
+  Token在conf/token.properties进行配置
+  如:TEST-AUTH=hadoop,root,user01
+```shell script
+Token-Code:TEST-AUTH
+Token-User:hadoop
+```
+
+### 9.6 异常问题的排查流程
+首先要按上述步骤检查服务/环境等是否都正常启动  
+按上述罗列的一些场景的方式进行基础问题的排查  
+[QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)中查找是否有解决方案，链接：https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq  
+通过搜索issue中的内容,看是否能找到解决方案        
+![issues](https://user-images.githubusercontent.com/29391030/156343419-81cc25e0-aa94-4c06-871c-bb036eb6d4ff.png)    
+通过官网文档搜索，对于某些问题，可以通过官网搜索关键字进行查询，比如搜索"部署"相关。(如果出现404,请浏览器中刷新一下)          
+![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)
+
+
+## 10. 相关的资料如何获取
+linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索相关文档。  
+相关博文链接
+- Linkis的技术博文集  https://github.com/apache/incubator-linkis/issues/1233
+- 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
+- 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction
+- bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  
+
+
