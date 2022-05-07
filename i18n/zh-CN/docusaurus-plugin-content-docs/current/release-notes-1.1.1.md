@@ -36,6 +36,7 @@ Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://gith
 
 ## 增强点
 
+* \[Gateway][[Linkis-1430]](https://github.com/apache/incubator-linkis/issues/1430) 针对Token认证方式，Token的获取由配置文件调整为数据库表
 * \[Entrance][[Linkis-1642]](https://github.com/apache/incubator-linkis/pull/1642) 优化excel导出接口resultsetToExcel:支持传递下载数据的行数
 * \[Entrance][[Linkis-1733]](https://github.com/apache/incubator-linkis/pull/1733) 添加支持更多与run_date相关的默认时间变量
 * \[Entrance][[Linkis-1794]](https://github.com/apache/incubator-linkis/pull/1794) 添加写入限制结果集单行的数据大小，优化大结果集会导致的OOM问题
