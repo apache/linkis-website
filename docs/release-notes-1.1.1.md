@@ -20,7 +20,6 @@ abbreviation:
 - ECP: EngineConnPlugin
 - DMS: Data Source Manager Service
 - MDS: MetaData Manager Service
-- PES: Public Enhancement Services
 - LM: Linkis Manager
 
 ---
@@ -30,7 +29,7 @@ abbreviation:
 * \[Gateway&Entrance][[Linkis-1608]](https://github.com/apache/incubator-linkis/pull/1608) Support proxy user mode, user A can perform tasks on behalf of user B, query user B's Related data, a proxy user can proxy multiple users
 * \[LM-ResourceManager][[Linkis-1616]](https://github.com/apache/incubator-linkis/pull/1616) The resource address configuration of YARN ResourceManager supports high-availability multi-address configuration, the current YARN ResourceManager conversion When the status or stop, the master node will be resolved from the high-availability address list to continue to provide services
 * \[EC-OpenLooKeng][[Linkis-1639]](https://github.com/apache/incubator-linkis/issues/1639) Added support for data virtualization engine OpenLooKeng
-* \[PES-Udf][[Linkis-1534]](https://github.com/apache/incubator-linkis/pull/1534) Support UDF multi-version control and UDF storage to BML, submit tasks support Yarn queue resources Use statistics collection and management console page visualization
+* \[UDF][[Linkis-1534]](https://github.com/apache/incubator-linkis/pull/1534) Support UDF multi-version control and UDF storage to BML, submit tasks support Yarn queue resources Use statistics collection and management console page visualization
 * \[Client][[Linkis-1718]](https://github.com/apache/incubator-linkis/issues/1718) The Linkis-cli client supports submitting Once type tasks, which will only run once after the engine process is started Task, automatically destroyed after the task is over
 * \[ECP][[Linkis-1758]](https://github.com/apache/incubator-linkis/issues/1758) Add engine material refresh interface, support to refresh engine material resources through http interface call
 
@@ -59,8 +58,8 @@ abbreviation:
 * \[ECM][[Linkis-1714]](https://github.com/apache/incubator-linkis/pull/1714) Optimize EC by reducing EC Java default memory size and adding retry log for EC application The abnormal problem of "Cannot allocate memory" appears
 * \[ECM][[Linkis-1806]](https://github.com/apache/incubator-linkis/pull/1806) Optimize the life cycle processing logic of EC, when ECM starts EC due to insufficient queue resources and timeout When the status is Failed, kill the EC process
 * \[Common][[Linkis-1721]](https://github.com/apache/incubator-linkis/pull/1721) Fixed the issue that hdfsFileSystem was not refreshed when Kerberos authentication failed
-* \[PES-UDF][[Linkis-1728]](https://github.com/apache/incubator-linkis/pull/1728) Optimize /api/rest_j/v1/udf/all API interface for occasional queries time consuming problem
-* \[PES-Config][[Linkis-1859]](https://github.com/apache/incubator-linkis/issues/1859) Fix the problem of abnormal primary key duplication in the console parameter configuration saveFullTree interface
+* \[UDF][[Linkis-1728]](https://github.com/apache/incubator-linkis/pull/1728) Optimize /api/rest_j/v1/udf/all API interface for occasional queries time consuming problem
+* \[Config][[Linkis-1859]](https://github.com/apache/incubator-linkis/issues/1859) Fix the problem of abnormal primary key duplication in the console parameter configuration saveFullTree interface
 * \[Clinet][[Linkis-1739]](https://github.com/apache/incubator-linkis/pull/1739) Fix the ujes-client request, the parameter spelling error caused the parameter transmission to fail
 * \[Client][[Linkis-1783]](https://github.com/apache/incubator-linkis/pull/1783) Fix the problem that the default configuration of the task creator creator parameter does not take effect
 * \[Client][[Linkis-1821]](https://github.com/apache/incubator-linkis/pull/1821) Fix ujes-client request entity class GetTableStatisticInfoAction parameter is missing

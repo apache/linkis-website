@@ -20,7 +20,6 @@ Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://gith
 - ECP: EngineConnPlugin
 - DMS: Data Source Manager Service
 - MDS: MetaData Manager Service
-- PES:Public Enhancement Services
 - LM:  Linkis Manager
 
 ---
@@ -30,7 +29,7 @@ Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://gith
 * \[Gateway&Entrance][[Linkis-1608]](https://github.com/apache/incubator-linkis/pull/1608) 支持代理用户模式，A用户可以代理给B用户执行任务，查询B用户的相关数据，一个代理用户可以代理多个用户
 * \[LM-ResourceManager][[Linkis-1616]](https://github.com/apache/incubator-linkis/pull/1616) YARN ResourceManager的资源地址配置支持高可用多地址配置，当前YARN ResourceManager转换状态或者停止时，将会从高可用地址列表中解析出主节点继续提供服务
 * \[EC-OpenLooKeng][[Linkis-1639]](https://github.com/apache/incubator-linkis/issues/1639) 新增对数据虚拟化引擎OpenLooKeng的支持
-* \[PES-Udf][[Linkis-1534]](https://github.com/apache/incubator-linkis/pull/1534) 支持UDF多版本控制和UDF存储到BML，提交任务支持Yarn队列资源使用统计数据的采集和管理台页面可视化查看
+* \[UDF][[Linkis-1534]](https://github.com/apache/incubator-linkis/pull/1534) 支持UDF多版本控制和UDF存储到BML，提交任务支持Yarn队列资源使用统计数据的采集和管理台页面可视化查看
 * \[Client][[Linkis-1718]](https://github.com/apache/incubator-linkis/issues/1718) Linkis-cli客户端支持提交Once类型的任务，引擎进程启动后只运行一次任务，任务结束后自动销毁
 * \[ECP][[Linkis-1758]](https://github.com/apache/incubator-linkis/issues/1758) 新增引擎物料刷新接口，支持通过http接口调用方式刷新引擎物料资源
 
@@ -59,8 +58,8 @@ Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://gith
 * \[ECM][[Linkis-1714]](https://github.com/apache/incubator-linkis/pull/1714) 通过减少EC Java默认内存大小以及添加EC应用程序的重试日志，优化EC出现的"Cannot allocate memory"的异常问题 
 * \[ECM][[Linkis-1806]](https://github.com/apache/incubator-linkis/pull/1806) 优化EC的生命周期处理逻辑，当ECM 启动EC因为队列资源不足超时等原因导致状态为Failed时候，将EC进程kill掉
 * \[Common][[Linkis-1721]](https://github.com/apache/incubator-linkis/pull/1721)   修复Kerberos认证失败时, hdfsFileSystem未进行刷新的问题
-* \[PES-UDF][[Linkis-1728]](https://github.com/apache/incubator-linkis/pull/1728)  优化/api/rest_j/v1/udf/all的API接口偶发的查询耗时高的问题
-* \[PES-Config][[Linkis-1859]](https://github.com/apache/incubator-linkis/issues/1859) 修复管理台参数配置saveFullTree接口，主键重复异常问题
+* \[UDF][[Linkis-1728]](https://github.com/apache/incubator-linkis/pull/1728)  优化/api/rest_j/v1/udf/all的API接口偶发的查询耗时高的问题
+* \[Config][[Linkis-1859]](https://github.com/apache/incubator-linkis/issues/1859) 修复管理台参数配置saveFullTree接口，主键重复异常问题
 * \[Clinet][[Linkis-1739]](https://github.com/apache/incubator-linkis/pull/1739) 修复ujes-client的请求中，存在的参数拼写错误导致参数传递失败问题
 * \[Client][[Linkis-1783]](https://github.com/apache/incubator-linkis/pull/1783) 修复任务创建人creator参数默认配置不生效的问题 
 * \[Client][[Linkis-1821]](https://github.com/apache/incubator-linkis/pull/1821)  修复ujes-client 请求实体类GetTableStatisticInfoAction参数缺失问题
