@@ -124,7 +124,7 @@ linkis-cli目前仅支持同步提交，即向linkis提交任务后，不断询�
 例如：以下示例设置了jdbc引擎运行是需要的连接地址/用户名/密码 等参数
 
 ```bash
- sh ./bin/linkis-cli -submitUser hadoop   -engineType jdbc-4 -codeType jdbc  -code "show tables" -runtimeMap jdbc.connect.url=jdbc:mysql://127.0.0.1:36000/hive_meta  -runtimeMap jdbc.username=test -runtimeMap  jdbc.password=test@123
+ sh ./bin/linkis-cli -submitUser hadoop   -engineType jdbc-4 -codeType jdbc  -code "show tables" -runtimeMap jdbc.url=jdbc:mysql://127.0.0.1:36000/hive_meta  -runtimeMap jdbc.username=test -runtimeMap  jdbc.password=test@123
 ```
         
 当然，这些参数也支持以配置文件的方式读取，见【5.5 使用用户的配置文件】

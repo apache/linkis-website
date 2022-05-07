@@ -1,98 +1,103 @@
 ---
-title: OpenLookEng 引擎
+title: OpenLookEng Engine
 sidebar_position: 8
 ---
 
-本文主要介绍openlookeng(>=1.1.1版本支持)引擎的配置、部署和使用，发布的安装部署包中默认不包含此引擎插件。
-如需使用，请按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+This article mainly introduces the configuration, deployment and use of the openlookeng (>=1.1.1 version support) engine.
+
+## 1 Environmental Requirements
+
+If you want to deploy the openlookeng engine, you need to prepare an available openlookeng environment.
 
 
-## 1. openlookeng 引擎使用前的环境配置
+## 2 Configuration and Deployment
 
-如果您希望部署使用openlookeng引擎，您需要准备一套可用的openlookeng环境。
+### 2.1 version selection and compilation
 
-## 2. openlookeng引擎的配置和部署
+Currently the openlookeng engine, the default version used by the client is `io.hetu.core:presto-client:1.5.0`
 
-### 2.1 openlookeng版本的选择和编译
+This engine plug-in is not included in the released installation deployment package by default.
+You can follow this guide to deploy and install https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin,
+Or follow the process below to manually compile and deploy
 
-目前openlookeng引擎，客户端默认使用的版本为 io.hetu.core:presto-client:1.5.0
 
-该引擎默认不在发布的安装包中，需要您手动进行编译并进行安装。
+Compile openlookeng separately
 
-单独编译openlookeng 
-```
+````
 ${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/openlookeng/
 mvn clean install
-```
+````
 
-### 2.2 openlookeng部署和加载
+### 2.2 Deployment and loading of materials
 
-将 2.1 步编译出来的引擎包,位于
+The engine package compiled in step 2.1 is located in
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/openlookeng/target/out/openlookeng
-```
-上传到服务器的引擎目录下
-```bash 
+````
+Upload to the engine directory of the server
+```bash
 ${LINKIS_HOME}/lib/linkis-engineplugins
-```
-并重启linkis-engineplugin（或则通过引擎接口进行刷新）
+````
+And restart linkis-engineplugin (or refresh through the engine interface)
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon restart cg-engineplugin
-```
+````
+### 2.3 Engine tags
 
+Linkis1.X is done through tags, so we need to insert data into our database, and the insertion method is as follows.
 
-### 2.3 openlookeng引擎的标签
+[EngineConnPlugin engine plugin installation](deployment/engine_conn_plugin_installation.md)
 
-此处可以使用默认的dml.sql进行插入即可正常使用。
+## 3 The use of the engine
 
-## 3.openlookeng引擎的使用
+### Prepare for operation
 
-### 准备操作
+If the default parameters are not satisfied, you can configure some basic parameters through the parameter configuration page of the management console
+The service connection information of openlookeng, the default address is `http://127.0.0.1:8080`
 
-您需要配置openlookeng的连接信息，包括连接地址信息和用户名以及密码。
+![](/Images-zh/EngineUsage/openlookeng-config.png)
 
-![](/Images-zh/EngineUsage/jdbc-conf.png)
+Figure 3-1 openlookeng configuration information
 
-图3-1 openlookeng配置信息
+You can also configure it through the parameter params.configuration.runtime in the submit task interface
 
-您也可以才提交任务接口中的RuntimeMap进行修改即可
 ```shell
-wds.linkis.jdbc.connect.url 
-wds.linkis.jdbc.username
-wds.linkis.jdbc.password
-```
+Example of http request parameters
+{
+    "executionContent": {"code": "show databases;", "runType": "sql"},
+    "params": {
+                    "variable": {},
+                    "configuration": {
+                            "runtime": {
+                                "linkis.openlookeng.url":"http://127.0.0.1:9090"
+                                }
+                            }
+                    },
+    "source": {"scriptPath": "file:///mnt/bdp/hadoop/1.sql"},
+    "labels": {
+        "engineType": "openlookeng-1.5.0",
+        "userCreator": "hadoop-IDE"
+    }
+}
+````
 
-### 3.1 通过Linkis SDK进行使用
+### 3.1 Using Linkis SDK
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
-对于openlookeng任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
+Linkis provides Java and Scala SDKs to submit tasks to the Linkis server. For details, please refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
+For the openlookeng task, you only need to modify the EngineConnType and CodeType parameters in the Demo:
 
-```java
+````java
         Map<String, Object> labels = new HashMap<String, Object>();
-        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "jdbc-4"); // required engineType Label
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "openlookeng-1.5.0"); // required engineType Label
         labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
-        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
-```
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType
+````
 
-### 3.2 通过Linkis-cli进行任务提交
+### 3.2 Task submission via Linkis-cli
 
-Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，openlookeng的使用如下：
+After Linkis 1.0, the cli method is provided to submit tasks. We only need to specify the corresponding EngineConn and CodeType tag types. The use of openlookeng is as follows:
 ```shell
-sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
-```
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
-
-### 3.3 Scriptis的使用方式
-
-Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建openlookeng脚本并编写openlookeng代码并点击执行。
-
-openlookeng的执行原理是通过加载openlookeng的Driver然后提交sql到SQL的server去执行并获取到结果集并返回。
-
-![](/Images-zh/EngineUsage/jdbc-run.png)
-
-图3-2 openlookeng的执行效果截图
-
-## 4.openlookeng引擎的用户设置
-
-openlookeng的用户设置是主要是的openlookeng的连接信息，但是建议用户将此密码等信息进行加密管理。
+sh ./bin/linkis-cli -engineType openlookeng-1.5.0 -codeType sql -code 'show databases;' -submitUser hadoop -proxyUser hadoop
+````
+For specific usage, please refer to: [Linkis CLI Manual](user_guide/linkiscli_manual.md).
