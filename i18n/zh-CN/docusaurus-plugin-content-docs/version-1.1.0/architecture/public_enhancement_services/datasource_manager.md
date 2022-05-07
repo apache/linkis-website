@@ -61,7 +61,7 @@ sidebar_position: 3
 
 ##### 数据表定义：
 
-表名：linkis-ps-dm-datatsource <-->实体：DataSource
+表名：linkis_ps_dm_datatsource <-->实体：DataSource
 
 | 序号 | 字段                 | 字段描述         |
 | ---- | -------------------- | ---------------- |
@@ -71,7 +71,7 @@ sidebar_position: 3
 | 4    | datasource_type_id   | 数据源类型ID     |
 | 5    | create_identify      | 标识             |
 | 6    | create_system        | 创建数据源的系统 |
-| 7    | parameter            | 数据源参数       |
+| 7    | parameter            | 数据源参数,注意 不做存储，实体类parameter字段通过linkis_ps_dm_datasource_version的parameter获取       |
 | 8    | create_time          | 数据源创建时间   |
 | 9    | modify_time          | 数据源修改时间   |
 | 10   | create_user          | 数据源创建用户   |
