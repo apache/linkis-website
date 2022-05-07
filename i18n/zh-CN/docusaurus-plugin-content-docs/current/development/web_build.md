@@ -5,7 +5,7 @@ sidebar_position: 4
 
 
 ## 1. 安装Node.js
-将Node.js下载到电脑本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用最新的稳定版本）
+将Node.js下载到电脑本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node14版本）
 **该步骤仅第一次使用时需要执行。**
 
 ## 2. 安装项目
