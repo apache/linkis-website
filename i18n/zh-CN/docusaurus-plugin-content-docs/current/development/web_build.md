@@ -68,7 +68,7 @@ open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-
 ```
 
 
-##6 常见问题
+## 6. 常见问题
 
 ### 6.1 npm install无法成功
 如果遇到该情况，可以使用国内的淘宝npm镜像：

@@ -50,12 +50,12 @@ bin  config  config-examples  LICENSE  licenses  logs  NOTICE  oap-libs  README.
 
 启动 Backend
 ```bash
-$ bash bin/startup.sh
+$ sh bin/startup.sh
 ```
 
 启动 WebApp
 ```bash
-$ bash bin/webappService.sh
+$ sh bin/webappService.sh
 ```
 
 UI 默认启动在 8080 端口，也可以通过修改 webapp 目录下的 webapp.yml 文件修改监听端口。
@@ -137,7 +137,7 @@ SKYWALKING_AGENT_PATH=/path/to/skywalking-agent.jar
 
 然后启动 Linkis 即可。
 ```bash
-$ bash linkis-start-all.sh
+$ sh linkis-start-all.sh
 ```
 
 ## 4. 结果展示

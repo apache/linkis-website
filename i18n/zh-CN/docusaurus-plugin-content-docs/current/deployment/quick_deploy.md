@@ -14,7 +14,7 @@ sidebar_position: 1
 </font>
 
 
-**如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
+**如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
 
 请注意：除了 Linkis1.0 安装包默认已经包含的：Python/Shell/Hive/Spark四个EngineConnPlugin以外，如果大家有需要，可以手动安装如 JDBC 引擎等类型的其他引擎，具体请参考 [EngineConnPlugin引擎插件安装文档](deployment/engine_conn_plugin_installation.md)。
 
@@ -67,7 +67,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
 下面的软件必装：
 
-- MySQL (5.5+)，[如何安装MySQL](https://www.runoob.com/mysql/mysql-install.html)
+- MySQL (5.5+)，本地安装或者使用远程数据库都可以。[如何安装MySQL](https://www.runoob.com/mysql/mysql-install.html)
 - JDK (1.8.0_141以上)，[如何安装JDK](https://www.runoob.com/java/java-environment-setup.html)
 
  
@@ -142,7 +142,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ```
         
 ```properties
-   
+    SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
     deployUser=hadoop      #指定部署用户
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # 指定用户根目录，一般用于存储用户的脚本文件和日志文件等，是用户的工作空间。
     RESULT_SET_ROOT_PATH=hdfs:///tmp/linkis   # 结果集文件路径，用于存储Job的结果集文件
@@ -151,7 +151,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
     #因为1.0支持多Yarn集群，使用到Yarn队列资源的一定需要配置YARN_RESTFUL_URL
     YARN_RESTFUL_URL=http://127.0.0.1:8088  #Yarn的ResourceManager的地址
-
+    
     # 配置hadoop/hive/spark的配置目录 
     HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop的conf目录
     HIVE_CONF_DIR=/appcom/config/hive-config   #hive的conf目录
@@ -184,13 +184,19 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     MYSQL_DB=
     MYSQL_USER=
     MYSQL_PASSWORD=
-
-    #主要是配合scriptis一起使用，如果不配置，会默认尝试通过$HIVE_CONF_DIR 中的配置文件获取
-    HIVE_META_URL=    # HiveMeta元数据库的URL
-    HIVE_META_USER=   # HiveMeta元数据库的用户
-    HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
+    
+    # HiveMeta元数据库的URL,用户以及密码
+    HIVE_META_URL=jdbc:mysql://10.10.10.10:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8 
+    HIVE_META_USER=demo   
+    HIVE_META_PASSWORD=demo123    
  ```
- 
+
+### 3.6 检查需要的软件环境
+
+```bash   
+    sh bin/checkEnv.sh 
+```
+
 ## 4. 安装和启动
 
 ### 4.1 执行安装脚本：
@@ -198,29 +204,29 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ```bash
     sh bin/install.sh
 ```
->linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{installPath}/conf/linkis-mg-gateway.propertie`(>=1.0.3版本)
+>linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{installPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)
 
 ### 4.2 安装步骤
 
-install.sh脚本会询问您是否需要初始化数据库并导入元数据。
+- install.sh脚本会询问您是否需要初始化数据库并导入元数据。
 
-因为担心用户重复执行install.sh脚本，把数据库中的用户数据清空，所以在install.sh执行时，会询问用户是否需要初始化数据库并导入元数据。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为担心用户重复执行install.sh脚本，把数据库中的用户数据清空，所以在install.sh执行时，会询问用户是否需要初始化数据库并导入元数据。
 
-**第一次安装**必须选是。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**第一次安装**必须选是。
 
-**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
-**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
-**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade_from_0.X_to_1.0_guide.md)**。
 
 ### 4.3 是否安装成功：
 
-通过查看控制台打印的日志信息查看是否安装成功。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过查看控制台打印的日志信息查看是否安装成功。
 
-如果有错误信息，可以查看具体报错原因。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果有错误信息，可以查看具体报错原因。
 
-您也可以通过查看我们的[常见问题](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)，获取问题的解答。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您也可以通过查看我们的[常见问题](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)，获取问题的解答。
 
 ### <font color="red"> 4.4 添加mysql驱动包</font>
 
@@ -264,3 +270,99 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 #### (3)、查看服务是否正常
 1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web_install.md) 
 2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](user_guide/overview.md)
+
+## 5 Yarn队列检查
+>如果需要使用到spark/hive/flink引擎
+
+登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)  
+正常如下图所示:    
+![yarn-normal](https://user-images.githubusercontent.com/7869972/159955494-2f305a38-a3d6-4798-83aa-58cde23bc436.png)
+
+若如果无法显示：可以按以下指引调整
+
+### 5.1 查看yarn地址是否配置正确
+数据库表 linkis_cg_rm_external_resource_provider  
+插入yarn数据信息
+```sql
+INSERT INTO `linkis_cg_rm_external_resource_provider`
+(`resource_type`, `name`, `labels`, `config`) VALUES
+('Yarn', 'sit', NULL,
+'{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "2.7.2",\r\n"authorEnable":false,\r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
+);
+
+config字段属性
+
+"rmWebAddress": "http://xx.xx.xx.xx:8088",  #需要带上http以及端口
+"hadoopVersion": "2.7.2",
+"authorEnable":true, //是否需要认证 可以在浏览器中通过访问http://xx.xx.xx.xx:8088验证用户名和密码
+"user":"user",//用户名
+"pwd":"pwd"//密码
+
+```
+更新后，因为程序中有使用到缓存，想要立即生效，需要重启linkis-cg-linkismanager服务
+```shell script
+sh sbin/linkis-daemon.sh  restart cg-linkismanager
+```
+
+#### 5.2 查看yarn队列是否正确
+异常信息:`desc: queue ide is not exists in YARN.`
+标明配置的yarn队列不存在，需要进行调整
+
+修改方式:linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue],修改一个可以使用的yarn队列,可以使用的yarn 队列可以在 rmWebAddress:http://xx.xx.xx.xx:8088/cluster/scheduler 上查看到
+
+#### 5.3 查看yarn队列
+- 查看hadoop集群地址: http://ip:8088/cluster
+- 查看yarn队列地址：http://ip:8888/cluster/scheduler
+
+## 6 检查引擎物料资源是否上传成功
+
+```sql
+#登陆到linkis的数据库 
+select *  from linkis_cg_engine_conn_plugin_bml_resources
+```
+
+正常如下：
+![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
+
+查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
+
+如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](docs/latest/deployment/engine_conn_plugin_installation#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`
+
+引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`
+```shell script
+hdfs dfs -ls /apps-data/hadoop/bml
+#如果没有该目录 请手动创建目录并授予${deployUser}读写权限
+hdfs dfs -mkdir  /apps-data
+hdfs dfs -chown hadoop:hadoop   /apps-data
+```
+
+## 7 验证基础功能
+```
+#引擎的engineType 拼接的版本号，一定要与实际的相匹配
+
+sh bin/linkis-cli -submitUser  hadoop  -engineType shell-1 -codeType shell  -code "whoami"
+sh bin/linkis-cli -submitUser  hadoop  -engineType hive-2.3.3  -codeType hql  -code "show tables"
+sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -code "show tables"
+sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
+```
+
+## 8 修改网关端口
+1.执行安装之前修改网关端口  
+```
+i. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
+ii. 执行 vi deploy-config/linkis-env.sh
+iii. 修改EUREKA_PORT=20303为EUREKA_PORT=端口号
+```
+2.执行安装之后修改网关端口  
+```
+i. 进入${linkis_home}/conf目录
+ii. 执行grep -r 20303 ./* ,查询结果如下所示:
+./application-eureka.yml:  port: 20303
+./application-eureka.yml:      defaultZone: http://ip:20303/eureka/
+./application-linkis.yml:      defaultZone: http://ip:20303/eureka/
+./linkis-env.sh:EUREKA_PORT=20303
+./linkis.properties:wds.linkis.eureka.defaultZone=http://ip:20303/eureka/
+iii. 将对应位置的端口修改为新的端口,并且重启所有服务sh restart sbin/linkis-start-all.sh
+```
+
+## 9 查询引擎报错
