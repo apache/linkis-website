@@ -123,7 +123,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     python -m pip install matplotlib
 ```
 
-5. 底层依赖检查
+5. **底层依赖检查**
 
 执行相应的命令，查看是否支持相关依赖
 ```shell script

@@ -77,6 +77,18 @@ $ node -v
 2.下载node v14版本并且重新安装node 
 ```
 
+3.npm install下载前端依赖无法成功    
+如果遇到该情况，可以使用国内的淘宝npm镜像：    
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+接着，通过执行以下指令代替npm install指令
+```
+cnpm install
+```
+注意，项目启动和打包时，仍然可以使用npm run build和npm run serve指令
+
+
 在浏览器中（建议Chrome浏览器）通过链接访问应用：[http://localhost:8080/](http://localhost:8080/) .
 当您使用该方式运行项目时，您对代码的改动产生的效果，会动态体现在浏览器上。
 
@@ -93,21 +105,3 @@ mac系统下的配置方式：
 ```
 open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/yourname/MyChromeDevUserData/
 ```
-
-
-## 6. 常见问题
-
-### 6.1 npm install无法成功
-如果遇到该情况，可以使用国内的淘宝npm镜像：
-
-```
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-```
-
-接着，通过执行以下指令代替npm install指令
-
-```
-cnpm install
-```
-
-注意，项目启动和打包时，仍然可以使用npm run build和npm run serve指令
