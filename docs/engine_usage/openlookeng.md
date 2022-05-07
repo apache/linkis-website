@@ -56,7 +56,7 @@ Linkis1.X is done through tags, so we need to insert data into our database, and
 If the default parameters are not satisfied, you can configure some basic parameters through the parameter configuration page of the management console
 The service connection information of openlookeng, the default address is `http://127.0.0.1:8080`
 
-![](/Images-en/EngineUsage/openlookeng-config.png)
+![](/Images-zh/EngineUsage/openlookeng-config.png)
 
 Figure 3-1 openlookeng configuration information
 

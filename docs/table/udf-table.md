@@ -96,4 +96,4 @@ udf version information table
 
 ##ER diagram
 
-![image](/Images-en/table/udf.png)
+![image](/Images-zh/table/udf.png)
