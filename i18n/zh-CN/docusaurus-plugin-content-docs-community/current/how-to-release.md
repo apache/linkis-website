@@ -520,7 +520,7 @@ Hello Linkis Community,
 	[ ] Source code distributions have correct names matching the current release.
 	[ ] LICENSE and NOTICE files are correct for each Linkis repo.
 	[ ] All files have license headers if necessary.
-	[ ] No compiled archives bundled in source archive.
+	[ ] No unlicensed compiled archives bundled in source archive.
 
 	More detail checklist  please refer:
         https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
