@@ -36,7 +36,7 @@ First import the publisher's public key. Import KEYS from the svn repository to 
 
 #### 2.2.1 Import public key
 ```shell
-$ curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS> KEYS # Download KEYS
+$ curl  https://downloads.apache.org/incubator/linkis/KEYS > KEYS # Download KEYS
 $ gpg --import KEYS # Import KEYS to local
 ```
 #### 2.2.2 Trust the public key

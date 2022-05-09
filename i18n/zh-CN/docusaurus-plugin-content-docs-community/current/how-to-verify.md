@@ -34,7 +34,7 @@ wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-
 #### 2.2.1 导入公钥
 
 ```shell
-$ curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS > KEYS # 下载KEYS
+$ curl  https://downloads.apache.org/incubator/linkis/KEYS > KEYS # 下载KEYS
 $ gpg --import KEYS # 导入KEYS到本地
 ```
 #### 2.2.2 信任公钥
