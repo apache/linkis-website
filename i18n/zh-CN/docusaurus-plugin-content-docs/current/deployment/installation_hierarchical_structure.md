@@ -151,7 +151,7 @@ Linkis1.0简化后的目录结构如下，其中加`**`标注的文件，为用�
 ├── linkis-mg-eureka 微服务注册中心服务  
 ├── linkis-mg-gateway Linkis网关服务  
 ├── linkis-ps-cs 上下文服务 
-├── linkis-ps-publicservice 物料库服务 
+├── linkis-ps-publicservice 公共服务 
 ├── linkis-ps-data-source-manager 数据源管理服务 
 ├── linkis-ps-metadatamanager  元数据查询服务
  ```
