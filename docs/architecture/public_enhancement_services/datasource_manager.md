@@ -61,7 +61,7 @@ This article mainly involves the DataSource Manager Server data source managemen
 
 ##### Data Table Definition：
 
-Table：linkis-ps-dm-datatsource <-->Object：DataSource
+Table：linkis_ps_dm_datatsource <-->Object：DataSource
 
 | Serial Number | Column               | Describe                               |
 | ------------- | -------------------- | -------------------------------------- |

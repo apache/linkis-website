@@ -23,22 +23,10 @@ sidebar_position: 0.1
 
 **请求参数**:
 
-
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |ecType|引擎类型|query|true|string||
 |version|版本 可以为空或则*|query|false|string||
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
 
 
 **响应参数**:
@@ -84,21 +72,7 @@ sidebar_position: 0.1
 
 
 **请求参数**:
-
-
-暂无
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
-
+无
 
 **响应参数**:
 
