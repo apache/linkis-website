@@ -204,14 +204,14 @@ nohup java  -DserviceName=linkis-cg-engineplugin -Xmx512M -XX:+UseG1GC -Xloggc:/
 根据需要调试的代码位置,确定其所属的服务
 
 #### 1.2 进入{linkis_home}/sbin/ext,修改模块配置文件开启远程调用端口
-![企业微信截图_16500097274713](https://user-images.githubusercontent.com/29391030/163560141-30005390-ba88-4264-b770-3e1edb6feedf.png)
+![c-port](https://user-images.githubusercontent.com/29391030/167364775-4f5d2774-b6b9-4a65-b69c-69319db870c4.png)  
 
 ### 2. 重启需要调试的服务
-sh linkis-daemon.sh restart ps-configuration(如果不确定服务名称,在 {linkis_home}/sbin/linkis-start-all.sh 内查询)
+sh linkis-daemon.sh restart ps-publicservice(如果不确定服务名称,在 {linkis_home}/sbin/linkis-start-all.sh 内查询)
 
 ### 3. 编译器配置远程调试
 如下图所示打开窗口并配置远程调试的端口,服务,以及模块  
-![企业微信截图_16500165234656](https://user-images.githubusercontent.com/29391030/163559974-e0109c41-d77b-4683-b788-3bfe59e395c5.png)
+![c-debug](https://user-images.githubusercontent.com/29391030/167364896-29805938-157f-47a2-baf4-f52cb63c64d1.png)  
 
 ### 4. 开始调试
 点击调试按钮,出现如下信息代表可以开始调试  
