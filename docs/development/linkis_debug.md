@@ -206,26 +206,19 @@ nohup java -DserviceName=linkis-cg-engineplugin -Xmx512M -XX:+UseG1GC -Xloggc:/d
 
 ### 1. Open remote debugging port
 
-#### 1.1 specify the service of the package to be debugged  
-
-For example: view the services using the linkis configuration module  
-```
-//Query command
-find lib/ -name *linkis-configuration\*. jar*
-```
-If the returned result is empty, the calling service is the current service  
-If the returned result is not empty, call the service, as shown in the figure:  
-![screenshot of enterprise wechat _16500112961131](https://user-images.githubusercontent.com/29391030/163560068-0284b298-a22a-4045-ab29-12e7b6200364.png)
+#### 1.1 specify the service of the package to be debugged    
+Determine the service it belongs to according to the location of the code to be debugged  
 
 #### 1.2 enter {linkis_home}/sbin/ext, modify the module configuration file, and open the remote call port
-![19928486](https://user-images.githubusercontent.com/29391030/163562830-aa39c29f-5216-4eaa-ac0c-fbd96a0dffd5.png)
+![e-port](https://user-images.githubusercontent.com/29391030/167366305-207da78b-48da-4eee-af40-947bd43050b9.png)  
 
 ### 2. Restart the service to be debugged
 sh linkis-daemon.sh restart ps-configuration (if you are not sure about the service name, query in {links_home}/sbin/links-start-all.sh)
 
 ### 3. Compiler configuration remote debugging  
 As shown in the figure below, open the window and configure the port, service and module of remote debugging  
-![remote-debug-config](https://user-images.githubusercontent.com/29391030/163562214-0a65c689-426b-4f09-ad0f-68407cac2ce1.png)
+![e-debug](https://user-images.githubusercontent.com/29391030/167366539-a8dabf7d-90fe-4c80-a1c6-61d2de98afc8.png)  
 
-### 4. Start debugging, click the debugging button, and the following information appears, which means you can start debugging
+### 4. Start debugging
+click the debugging button, and the following information appears, which means you can start debugging  
 ![screenshot of enterprise wechat _16500167527083](https://user-images.githubusercontent.com/29391030/163559920-05aba3c3-b146-4f62-8e20-93f94a65158d.png)
