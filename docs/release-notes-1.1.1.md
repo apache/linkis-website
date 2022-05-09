@@ -24,7 +24,7 @@ abbreviation:
 
 ---
 
-## new features
+## New Feature
 
 * \[Gateway&Entrance][[Linkis-1608]](https://github.com/apache/incubator-linkis/pull/1608) Support proxy user mode, user A can perform tasks on behalf of user B, query user B's Related data, a proxy user can proxy multiple users
 * \[LM-ResourceManager][[Linkis-1616]](https://github.com/apache/incubator-linkis/pull/1616) The resource address configuration of YARN ResourceManager supports high-availability multi-address configuration, the current YARN ResourceManager conversion When the status or stop, the master node will be resolved from the high-availability address list to continue to provide services
@@ -33,7 +33,7 @@ abbreviation:
 * \[Client][[Linkis-1718]](https://github.com/apache/incubator-linkis/issues/1718) The Linkis-cli client supports submitting Once type tasks, which will only run once after the engine process is started Task, automatically destroyed after the task is over
 * \[ECP][[Linkis-1758]](https://github.com/apache/incubator-linkis/issues/1758) Add engine material refresh interface, support to refresh engine material resources through http interface call
 
-## Enhancement points
+## Enhancement
 
 * \[Gateway][[Linkis-1430]](https://github.com/apache/incubator-linkis/issues/1430) For the Token authentication method, the Token acquisition is adjusted from the configuration file to the database table
 * \[Entrance][[Linkis-1642]](https://github.com/apache/incubator-linkis/pull/1642) Optimize the excel export interface resultsetToExcel: support passing the number of rows of downloaded data
@@ -48,7 +48,7 @@ abbreviation:
 * \[Web][[Linkis-1650]](https://github.com/apache/incubator-linkis/issues/1650) linkis console - global history page, support to filter historical task data by creator information search
 
 
-## Repair function
+## Bugs Fix
 
 * \[Entrance][[Linkis-1623]](https://github.com/apache/incubator-linkis/issues/1623) Fix LogPath and ResultSetPath incorrectly use submitUser as executeUser
 * \[Entrance][[Linkis-1640]](https://github.com/apache/incubator-linkis/issues/1640) Fix LogReader using singleton InputStream, there is log loss, unable to read the latest persistent log The problem
@@ -71,6 +71,6 @@ abbreviation:
 * \[EC-JDBC][[Linkis-1961]](https://github.com/apache/incubator-linkis/issues/1851) Fix the problem that the log cannot be printed normally due to the SLF4J dependency problem when the jdbc engine starts
 * \[Gateway][[Linkis-1898]](https://github.com/apache/incubator-linkis/pull/1898) Fix the problem that the initial domain name cannot be set when the GatewaySSOUtils user successfully logs in to generate a cookie
   
-## Thanks
+## Credits 
 
 The release of Apache Linkis(incubating) 1.1.1 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors: AbnerHung, Alexkun, barry8023, CCweixiao, Davidhua1996, Fuu3214, Liveipool, casinoone, demonray , husofskyzy, jackxu2011, legendtkl, lizheng920625, maidangdang44, peacewong, seedscoder

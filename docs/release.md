@@ -2,7 +2,7 @@
 title: Version overview
 sidebar_position: 0.1
 ---
-- [Introduction to Proxy User Mode](/architecture/proxy_user.md)
+- [Introduction of Proxy User Mode](/architecture/proxy_user.md)
 - [UDF function introduction and usage guide](/user_guide/udf.md)
 - [Engine material refresh HTTP interface](/api/http/engineconn-plugin-refesh.md)
 - [UDF related HTTP interface](/api/http/udf-api.md)
