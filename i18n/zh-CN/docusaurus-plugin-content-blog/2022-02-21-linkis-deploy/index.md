@@ -89,7 +89,7 @@ $ echo $HADOOP_HOME
 linkis安装包，推荐使用1.X及上版本
 0.X 和1.X的版本差异化比较大，1.0.3前是`com.webank.wedatasphere.linkis`的包名，linkis>=1.0.3为`org.apache.linkis`的包名
 
-[下载地址](https://linkis.staged.apache.org/zh-CN/download/main/):https://linkis.staged.apache.org/zh-CN/download/main/
+[下载地址](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main
 
 
 ### 1.4 底层依赖检查
