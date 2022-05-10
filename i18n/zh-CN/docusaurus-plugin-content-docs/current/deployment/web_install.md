@@ -1,5 +1,5 @@
 ---
-title: 前端管理台部署
+title: 管理台部署
 sidebar_position: 6
 ---
 
