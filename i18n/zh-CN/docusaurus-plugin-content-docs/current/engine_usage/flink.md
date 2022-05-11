@@ -55,7 +55,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 并重启linkis-engineplugin
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon restart cg-engineplugin
+sh linkis-daemon.sh restart cg-engineplugin
 ```
 engineplugin更详细的介绍可以参看下面的文章。
 https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3
