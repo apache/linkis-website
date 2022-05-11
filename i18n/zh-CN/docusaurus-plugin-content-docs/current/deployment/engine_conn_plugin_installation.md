@@ -41,8 +41,8 @@ ${LINKIS_HOME}/lib/linkis-engineconn-plugins:
    └── plugin
 ```
 
-5. 并配置默认的引擎版本，方便没有带版本的任务进行提交
-修改`$LINKIS_HOME/conf/linkis.properties` 配置文件
+2. 并配置默认的引擎版本，方便没有带版本的任务进行提交  
+修改`$LINKIS_HOME/conf/linkis.properties` 配置文件  
 ```html
 wds.linkis.hive.engine.version=2.3.3
 ```
