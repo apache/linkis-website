@@ -38,7 +38,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 并重启linkis-engineplugin（或则通过引擎接口进行刷新）
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon restart cg-engineplugin
+sh linkis-daemon.sh restart cg-engineplugin
 ```
 ### 2.3 引擎的标签
 
