@@ -36,7 +36,7 @@ echo ${FLINK_HOME}
 Linkis 1.0.2及以上支持的Flink版本是Flink1.12.2,理论上Linkis 1.0.2+可以支持各个版本的Flink,但是Flink各个版本之前的API变化太大,可能需要您按照API的变化修改Linkis中flink引擎的代码并重新编译。
 
 ### 2.2 Flink engineConn部署和加载
-
+注意: 编译flink引擎之前需要进行linkis项目全量编译  
 Linkis Flink引擎默认在Linkis1.0.2+不会安装，需要您手动进行编译并进行安装。
 
 ```
@@ -57,9 +57,8 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
-engineplugin更详细的介绍可以参看下面的文章。
-https://github.com/WeBankFinTech/Linkis/wiki/EngineConnPlugin%E5%BC%95%E6%93%8E%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3
-
+engineplugin更详细的介绍可以参看下面的文章。  
+https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine_conn_plugin_installation
 ### 2.3 Flink引擎的标签
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。

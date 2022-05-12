@@ -1,5 +1,5 @@
 ---
-title: OpenLookEng 引擎
+title: OpenLooKeng 引擎
 sidebar_position: 8
 ---
 
@@ -13,7 +13,7 @@ sidebar_position: 8
 ## 2 配置和部署
 
 ### 2.1 版本的选择和编译
-
+注意: 编译openlookeng引擎之前需要进行linkis项目全量编译  
 目前openlookeng引擎，客户端默认使用的版本为 `io.hetu.core:presto-client:1.5.0`
 
 发布的安装部署包中默认不包含此引擎插件，

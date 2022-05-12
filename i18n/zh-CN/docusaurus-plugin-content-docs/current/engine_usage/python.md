@@ -26,15 +26,11 @@ python3的，您可以简单更改配置就可以完成Python版本的切换，�
 
 此处可以使用默认的加载方式即可正常使用。
 
-### 2.3 python引擎的标签
-
-此处可以使用默认的dml.sql进行插入即可正常使用。
-
 ## 3.Python引擎的使用
 
 ### 准备操作
 
-在linkis上提交python之前，您只需要保证您的用户的\$PATH中有python的路径即可。
+在linkis上提交python之前，您只需要保证您的用户的$PATH中有python的路径即可。
 
 ### 3.1 通过Linkis SDK进行使用
 
