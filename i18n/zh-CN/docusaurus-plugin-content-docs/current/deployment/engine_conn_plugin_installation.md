@@ -28,8 +28,23 @@ hive:引擎主目录，必须为引擎的名字
 ## 2. 引擎安装
 
 ### 2.1 插件包安装
-1. 引擎的资源目录（默认是`${LINKIS_HOME}/lib/linkis-engineconn-plugins`），linkis-cg-engineconnplugin服务启动时，
-会自动检测物料(引擎的配置文件和第三方Jar包)是否需要更新BML（物料库）中。
+```
+${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/{插件模块名}/
+mvn clean install
+```
+
+### 2.2 物料的部署和加载
+
+将 2.1 步编译出来的引擎包,位于
+```bash
+${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/{插件模块名}/target/out/{插件模块名}
+```
+上传到服务器的引擎目录下
+```bash 
+${LINKIS_HOME}/lib/linkis-engineplugins
+```
+### 2.3 引擎的资源目录
+（默认是`${LINKIS_HOME}/lib/linkis-engineconn-plugins`），linkis-cg-engineconnplugin服务启动时，会自动检测物料(引擎的配置文件和第三方Jar包)是否需要更新BML（物料库）中,引擎的目录结构如下所示。    
 
 ```
 ${LINKIS_HOME}/lib/linkis-engineconn-plugins:
@@ -41,16 +56,14 @@ ${LINKIS_HOME}/lib/linkis-engineconn-plugins:
    └── plugin
 ```
 
-5. 并配置默认的引擎版本，方便没有带版本的任务进行提交
-修改`$LINKIS_HOME/conf/linkis.properties` 配置文件
+### 2.4 并配置默认的引擎版本，方便没有带版本的任务进行提交(可选)  
+修改`$LINKIS_HOME/conf/linkis.properties` 配置文件  
 ```html
 wds.linkis.hive.engine.version=2.3.3
 ```
 
-
-### 2.2 管理台Configuration配置修改（可选）
-
-管理台的配置是按照引擎标签来进行管理的，如果新增的引擎，有配置参数需要配置的话，需要修改对应的表的元数据
+### 2.5 管理台Configuration配置修改（可选）
+管理台的配置是按照引擎标签来进行管理的，如果新增的引擎，有配置参数需要配置的话，需要修改对应的表的元数据  
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
@@ -90,7 +103,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 
 ```
 
-### 2.3 引擎刷新
+### 2.6 引擎刷新
 
 1. 引擎支持实时刷新，引擎放置到对应目录后，通过http接口向linkis-cg-engineconnplugin 服务发送刷新请求即可。
 
