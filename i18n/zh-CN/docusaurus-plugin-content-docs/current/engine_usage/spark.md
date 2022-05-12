@@ -16,18 +16,18 @@ sidebar_position: 1
 | JAVA_HOME       | JDK安装路径    | 必须                                   |
 | HADOOP_HOME     | Hadoop安装路径 | 必须                                   |
 | HADOOP_CONF_DIR | Hadoop配置路径 | 必须                                   |
-| HIVE\_CONF_DIR  | Hive配置路径   | 必须                                   |
+| HIVE_CONF_DIR   | Hive配置路径   | 必须                                   |
 | SPARK_HOME      | Spark安装路径  | 必须                                   |
 | SPARK_CONF_DIR  | Spark配置路径  | 必须                                   |
-| python          | python         | 建议使用anaconda的python作为默认python |
+| python          | python        | 建议使用anaconda的python作为默认python   |
 
 表1-1 环境配置清单
 
 ## 2.Spark引擎的配置和部署
 
 ### 2.1 spark版本的选择和编译
-
-理论上Linkis1.X支持的spark2.x以上的所有版本。默认支持的版本为Spark2.4.3。如果您想使用其他的spark版本，如spark2.1.0，则您仅仅需要将插件spark的版本进行修改，然后进行编译即可。具体的，您可以找到linkis-engineplugin-spark模块，将<spark.version>2.4.3</spark.version>标签改成<spark.version>2.1.0</spark.version>，然后单独编译此模块即可。
+注意: 编译spark引擎之前需要进行linkis项目全量编译
+理论上Linkis1.X支持的spark2.x以上的所有版本。默认支持的版本为Spark2.4.3。如果您想使用其他的spark版本，如spark2.1.0，则您仅仅需要将插件spark的版本进行修改，然后进行编译即可。具体的，您可以找到linkis-engineplugin-spark模块，将<spark.version>标签的值改成2.1.0，然后单独编译此模块即可。
 
 ### 2.2 spark engineConn部署和加载
 
@@ -68,8 +68,8 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Spark的使用如下：
 ```shell
-You can also add the queue value in the StartUpMap of the submission parameter: `startupMap.put("wds.linkis.rm.yarnqueue", "dws")`
-
+#You can also add the queue value in the StartUpMap of the submission parameter: 
+startupMap.put("wds.linkis.rm.yarnqueue", "dws")
 ```
 具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
 
