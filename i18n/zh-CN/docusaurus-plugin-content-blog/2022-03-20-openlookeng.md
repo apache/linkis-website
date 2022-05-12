@@ -8,7 +8,7 @@ tags: [engine]
 openLooKeng是一种"开箱即用"的引擎，支持在任何地点（包括地理上的远程数据源）对任何数据进行原位分析。它通过SQL 2003接口提供了所有数据的全局视图。openLooKeng具有高可用性、自动伸缩、内置缓存和索引支持，为企业工作负载提供了所需的可靠性。
 
 openLooKeng用于支持数据探索、即席查询和批处理，具有100+毫秒至分钟级的近实时时延，而无需移动数据。openLooKeng还支持层次化部署，使地理上远程的openLooKeng集群能够参与相同的查询。利用其跨区域查询计划优化能力，涉及远程数据的查询可以达到接近“本地”的性能。
-Linkis实现OpenLooKeng引擎可以让Linkis拥有数据虚拟化的能力，支持提交跨源异构查询、跨域跨DC查询型任务。Linkis作为计算中间件通过利用OpenLooKeng的连接器基于Linkis的EngineConn的联通能力可以做到连接更多的底层计算存储组件。
+Linkis实现OpenLooKeng引擎可以让Linkis拥有数据虚拟化的能力，支持提交跨源异构查询、跨域跨DC查询型任务。Linkis作为计算中间件通过利用OpenLooKeng的连接器基于Linkis的EngineConn的连通通能力可以做到连接更多的底层计算存储组件。
 
 ## 开发实现方式
 OpenLooKeng ec的实现基于Linkis的EngineConn Plugin（ECP）进行扩展，因为OpengLooKeng服务支持多用户通过Client进行查询，所以实现模式为采用多用户并发引擎的实现模式。
