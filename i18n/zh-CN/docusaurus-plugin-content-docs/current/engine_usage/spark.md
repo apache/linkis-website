@@ -27,7 +27,7 @@ sidebar_position: 1
 
 ### 2.1 spark版本的选择和编译
 注意: 编译spark引擎之前需要进行linkis项目全量编译
-理论上Linkis1.X支持的spark2.x以上的所有版本。默认支持的版本为Spark2.4.3。如果您想使用其他的spark版本，如spark2.1.0，则您仅仅需要将插件spark的版本进行修改，然后进行编译即可。具体的，您可以找到linkis-engineplugin-spark模块，将<spark.version>标签的值改成2.1.0，然后单独编译此模块即可。
+理论上Linkis1.X支持的spark2.x以上的所有版本。默认支持的版本为Spark2.4.3。如果您想使用其他的spark版本，如spark2.1.0，则您仅仅需要将插件spark的版本进行修改，然后进行编译即可。具体的，您可以找到linkis-engineplugin-spark模块，将maven依赖中"spark.version"标签的值改成2.1.0，然后单独编译此模块即可。
 
 ### 2.2 spark engineConn部署和加载
 
