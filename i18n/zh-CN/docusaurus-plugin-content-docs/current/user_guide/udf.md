@@ -20,22 +20,6 @@ public class HelloUDF extends UDF{
                 }
         }
 ```
-Scala和Python函数写法：  
-
-PythonUDF建立方式，只需要定义一个方法即可，对应的脚本只能与该方法有关的内容：  
-
-```
-def hello(id):
-    return str(id)  +  ":hello"
-```
-
-ScalaUDF 建立方式和Python类似，定义一个方法即可：
-
-```
-def helloWorld(str:  String):  String  =  "hello, "  + str
-```
-
-注意：PythonUDF和ScalaUDF只能在Spark引擎对应的脚本中使用
 
 **UDF函数**
 >需要注册后才能使用
