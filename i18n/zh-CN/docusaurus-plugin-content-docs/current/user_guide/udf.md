@@ -6,11 +6,10 @@ sidebar_position: 2
 ## 1 UDF简介
 UDF：User Defined Function，用户自定义函数。某些场景我们需要使用hive的函数来处理一些数据，像count()，sum()这些函数都是内置的。如果我们想要使用一些没有自带的函数功能，则需要自定义功能函数，就可以通过写UDF来完成。
 
-实现一个UDF的方式较为简单：只需要继承UDF类，并重写evaluate方法。
+实现一个UDF的方式较为简单：只需要继承UDF类，并重写evaluate方法。  
 
-
+```
 public class HelloUDF extends UDF{
-
         public String evaluate(String str){
                 try {
                         return "Hello " + str;
@@ -20,8 +19,23 @@ public class HelloUDF extends UDF{
                         return "ERROR";
                 }
         }
+```
+Scala和Python函数写法：  
 
-UDF的几种类型
+PythonUDF建立方式，只需要定义一个方法即可，对应的脚本只能与该方法有关的内容：  
+
+```
+def hello(id):
+    return str(id)  +  ":hello"
+```
+
+ScalaUDF 建立方式和Python类似，定义一个方法即可：
+
+```
+def helloWorld(str:  String):  String  =  "hello, "  + str
+```
+
+注意：PythonUDF和ScalaUDF只能在Spark引擎对应的脚本中使用
 
 **UDF函数**
 >需要注册后才能使用
