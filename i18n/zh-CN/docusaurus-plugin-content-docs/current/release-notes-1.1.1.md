@@ -1,7 +1,14 @@
 ---
-title: Release Notes 1.1.1-RC1
+title: Release Notes 1.1.1-RC2
 sidebar_position: 0.2
 --- 
+
+在1.1.1-RC1基础上，1.1.1-RC2修复如下问题:
+- 移除了源码中的二进制文件.mvn/wrapper/maven-wrapper.jar，调整.mvn/*相关的LICENSE说明
+- 升级 py4j-0.10.7-src.zip 至 py4j-0.10.9.5-src.zip，更新py4j-*.src的license文件并调整其位置，从linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10.7-src.txt 移动至 licenses/LICENSE-py4j-0.10.9.5-src.txt，方便查看 
+- 修复发布源码中，shell脚本:mvnw，使用Window的换行符CTRL问题
+
+-------
 
 Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18)。
 
