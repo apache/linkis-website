@@ -1,27 +1,27 @@
 ---
-title: OpenLooKeng 引擎
+title: openLooKeng 引擎
 sidebar_position: 8
 ---
 
-本文主要介绍openlookeng(>=1.1.1版本支持)引擎的配置、部署和使用。
+本文主要介绍openLooKeng(>=1.1.1版本支持)引擎的配置、部署和使用。
 
 ## 1 环境要求
 
-如果您希望部署使用openlookeng引擎，您需要准备一套可用的openlookeng环境。
+如果您希望部署使用openLooKeng引擎，您需要准备一套可用的openLooKeng环境。
 
 
 ## 2 配置和部署
 
 ### 2.1 版本的选择和编译
-注意: 编译openlookeng引擎之前需要进行linkis项目全量编译  
-目前openlookeng引擎，客户端默认使用的版本为 `io.hetu.core:presto-client:1.5.0`
+注意: 编译openLooKeng引擎之前需要进行linkis项目全量编译  
+目前openLooKeng引擎，客户端默认使用的版本为 `io.hetu.core:presto-client:1.5.0`
 
 发布的安装部署包中默认不包含此引擎插件，
 你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin，
 或者按以下流程，手动编译部署
 
 
-单独编译openlookeng 
+单独编译openLooKeng 
 
 ```
 ${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/openlookeng/
