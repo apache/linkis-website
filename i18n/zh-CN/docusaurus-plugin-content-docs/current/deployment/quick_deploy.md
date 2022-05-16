@@ -373,7 +373,7 @@ nginx的日志文件在 /var/log/nginx/access.log 和/var/log/nginx/error.log
 - 检查nginx的配置是否正确 sudo nginx -T
 - 如果端口被占用，可以修改nginx启动的服务端口`/etc/nginx/conf.d/linkis.conf`listen端口值，保存后重新启动
 - 如果访问管理台出现接口502，或则`Unexpected token < in JSON at position 0`异常，请确认linkis-mg-gateway是否正常启动，如果正常启动，查看nginx配置文件中配置的linkis-mg-gateway服务地址是否正确
-  :::
+:::
 
 #### 4.5.4 登录web端查看信息
 http://xx.xx.xx.xx:8188/#/login
@@ -385,7 +385,7 @@ wds.linkis.admin.password= #密码
 
 ```
 
-## 5 Yarn队列检查
+## 5. Yarn队列检查
 >如果需要使用到spark/hive/flink引擎
 
 登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)(需要先安装前端)  
@@ -428,7 +428,7 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 - 查看hadoop集群地址: http://ip:8088/cluster
 - 查看yarn队列地址：http://ip:8888/cluster/scheduler
 
-## 6 检查引擎物料资源是否上传成功
+## 6. 检查引擎物料资源是否上传成功
 
 ```sql
 #登陆到linkis的数据库 
@@ -450,7 +450,7 @@ hdfs dfs -mkdir  /apps-data
 hdfs dfs -chown hadoop:hadoop   /apps-data
 ```
 
-## 7 验证基础功能
+## 7. 验证基础功能
 ```
 #引擎的engineType 拼接的版本号，一定要与实际的相匹配
 
@@ -460,7 +460,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -c
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
 ```
 
-## 8 修改注册中心eureka的端口
+## 8. 修改注册中心eureka的端口
 有时候当eureka的端口被其他服务占用,无法使用默认的eureka端口的时候,需要对eureka端口进行修改,这里把对eureka端口的修改分为执行安装之前和执行安装之后两种情况。
 1.执行安装之前修改注册中心eureka端口
 ```
@@ -482,15 +482,15 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 
 ## <font color="red">9. 安装部署常见问题的排障</font>
 
-### 9.0 登陆密码问题
+### 9.1 登陆密码问题
 
       linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{InstallPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)
 
-### 9.1 版本兼容性问题
+### 9.2 版本兼容性问题
 
 linkis默认支持的引擎，与dss兼容关系可以查看此文档 https://github.com/apache/incubator-linkis/blob/master/README.md
 
-### 9.2 如何定位服务端异常日志
+### 9.3 如何定位服务端异常日志
 
 linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式
 ```shell script
@@ -499,7 +499,7 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 ```
 
 
-### 9.3 执行引擎任务的异常排查
+### 9.4 执行引擎任务的异常排查
 
 ** step1:找到引擎的启动部署目录 **  
 方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
@@ -525,7 +525,7 @@ less logs/stdout
 sh -v engineConnExec.sh  
 ```
 
-### 9.4 CDH适配版本的注意事项
+### 9.5 CDH适配版本的注意事项
 
 CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修改linkis的源码中的hive/spark版本的依赖，进行重新编译部署。  
 具体可以参考CDH适配博文    
@@ -534,7 +534,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 [【DSS1.0.0与Linkis1.0.2——JDBC引擎相关问题汇总】](https://mp.weixin.qq.com/s/vcFge4BNiEuW-7OC3P-yaw)  
 [【DSS1.0.0与Linkis1.0.2——Flink引擎相关问题汇总】](https://mp.weixin.qq.com/s/VxZ16IPMd1CvcrvHFuU4RQ)
 
-### 9.5 Http接口的调试
+### 9.6 Http接口的调试
 
 - 方式1 可以开启[免登陆模式指引](/docs/latest/api/login_api/#2免登录配置)
 - 方式2 postman中的，请求头带上登陆成功的cookie值
@@ -552,7 +552,7 @@ Token-Code:TEST-AUTH
 Token-User:hadoop
 ```
 
-### 9.6 异常问题的排查流程
+### 9.7 异常问题的排查流程
 首先要按上述步骤检查服务/环境等是否都正常启动  
 按上述罗列的一些场景的方式进行基础问题的排查  
 [QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)中查找是否有解决方案，链接：https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq  
