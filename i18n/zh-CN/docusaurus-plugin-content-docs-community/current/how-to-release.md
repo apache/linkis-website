@@ -532,6 +532,7 @@ ${Linkis Release Manager}
 
 #### 5.1.2 宣布投票结果模板
 参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.0.3-RC2](https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3) https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3
+备注：该邮件thread地址，可以通过访问`https://lists.apache.org/list?dev@linkis.apache.org `这个页面查到（注意加载时间可能会比较长），然后选择相应邮件，点击进去后即可生成thread链接;
 ```html
 标题：
 [RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
@@ -618,6 +619,15 @@ Thanks,
 On behalf of Apache Linkis(Incubating) community
 
 ```
+在投票满足条件，并已结束后，需要简单回复之前投票邮件，表示投票已结束，举例：
+``` html
+
+Hi all：
+
+With a total of 3 +1 binding votes, 2 +1 non-binding votes, no 0 or -1 votes, I will close the voting email.
+
+Thanks!
+```
 
 #### 5.2.2 宣布投票结果模板
 
@@ -671,7 +681,7 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://di
 
 ### 6.2 确认dev和release下的包是否正确
 
-- 确认[dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/)下的`${release_version}-${rc_version}`已被删除
+- 确认[dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/)下的`${release_version}-${rc_version}`已被删除, 如果在正式发布前有多个RC版本，多个RC版本均需要删除
 - 删除[release](https://dist.apache.org/repos/dist/release/incubator/linkis/)目录下 上一个版本的发布包，这些包会被自动保存在[这里](https://downloads.apache.org/incubator/linkis/)
 
 ```shell
