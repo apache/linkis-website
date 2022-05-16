@@ -26,15 +26,11 @@ python3的，您可以简单更改配置就可以完成Python版本的切换，�
 
 此处可以使用默认的加载方式即可正常使用。
 
-### 2.3 python引擎的标签
-
-此处可以使用默认的dml.sql进行插入即可正常使用。
-
 ## 3.Python引擎的使用
 
 ### 准备操作
 
-在linkis上提交python之前，您只需要保证您的用户的\$PATH中有python的路径即可。
+在linkis上提交python之前，您只需要保证您的用户的$PATH中有python的路径即可。
 
 ### 3.1 通过Linkis SDK进行使用
 
@@ -71,6 +67,6 @@ python的执行逻辑是通过 Py4j的方式，启动一个的python
 
 除了以上引擎配置，用户还可以进行自定义的设置，比如python的版本和以及python需要加载的一些module等。
 
-![](/Images-zh/EngineUsage/python-config.png)
+![python](https://user-images.githubusercontent.com/29391030/168045185-f25c61b6-8727-434e-8150-e13cc4a04ade.png)  
 
 图4-1 python的用户自定义配置管理台

@@ -12,7 +12,7 @@ sidebar_position: 7
 ## 2. 部署和配置
 
 ### 2.1 版本的选择和编译
-
+注意: 编译jdbc引擎之前需要进行linkis项目全量编译  
 发布的安装部署包中默认不包含此引擎插件，
 你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin，
 或者按以下流程，手动编译部署
@@ -53,7 +53,7 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 
 您需要配置JDBC的连接信息，包括连接地址信息和用户名以及密码。
 
-![](/Images-zh/EngineUsage/jdbc-conf.png)
+![jdbc](https://user-images.githubusercontent.com/29391030/168045539-9cea6c44-56a9-4b14-86fb-1e65f937ae54.png)  
 
 图3-1 JDBC配置信息
 

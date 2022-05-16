@@ -72,7 +72,7 @@ linkis_ps_configuration_category： 插入引擎的目录关联关系
 linkis_ps_configuration_config_value： 插入引擎需要展示的配置
 linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
 ```
-以openlookeng引擎 1.5.0版本 为例 
+以openLooKeng引擎 1.5.0版本 为例 
 ```html
 
 SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";

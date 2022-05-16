@@ -20,20 +20,21 @@ sidebar_position: 1
 
 Linkis1.0.3 默认已适配的引擎列表如下：
 
-| 引擎类型 | 适配情况 | 官方安装包是否包含 |
-|---|---|---|
-| Python | 1.0已适配 | 包含 |
-| JDBC | 1.0已适配 | **不包含** |
-| Flink | 1.0已适配 | **不包含** |
-| Shell | 1.0已适配 | 包含 |
-| Hive | 1.0已适配 | 包含 |
-| Spark | 1.0已适配 | 包含 |
-| Pipeline | 1.0已适配 | **不包含** |
-| Presto | **1.0未适配** | **不包含** |
+| 引擎类型          | 适配情况       | 官方安装包是否包含 |
+|---------------|------------|---|
+| Python        | 1.0已适配     | 包含 |
+| JDBC          | 1.0已适配     | **不包含** |
+| Flink         | 1.0已适配     | **不包含** |
+| OpenLooKeng   | 1.1.1已适配   | **不包含** |
+| Shell         | 1.0已适配     | 包含 |
+| Hive          | 1.0已适配     | 包含 |
+| Spark         | 1.0已适配     | 包含 |
+| Pipeline      | 1.0已适配     | **不包含** |
+| Presto        | **1.0未适配** | **不包含** |
 | ElasticSearch | **1.0未适配** | **不包含** |
-| Impala | **1.0未适配** | **不包含** |
-| MLSQL | **1.0未适配** | **不包含** |
-| TiSpark | **1.0未适配** | **不包含** |
+| Impala        | **1.0未适配** | **不包含** |
+| MLSQL         | **1.0未适配** | **不包含** |
+| TiSpark       | **1.0未适配** | **不包含** |
 
 ## 2. 确定您的安装环境
 这里给出每个引擎的依赖信息列表：
@@ -127,8 +128,8 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
 执行相应的命令，查看是否支持相关依赖
 ```shell script
-spark/hive/hdfs/python/
-$ spark-submit --version //spark 任务会通过这个命令提交到YARN上执行
+#spark/hive/hdfs/python/的校验
+$ spark-submit --version 
 $ python --version
 $ hdfs  version
 $ hive --version
@@ -258,7 +259,7 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 
 ### 4.5 快速启动Linkis
 
-#### (1)、启动服务：
+#### 4.5.1 启动服务：
 
 在安装目录执行以下命令，启动所有服务：
 
@@ -266,7 +267,7 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
   sh sbin/linkis-start-all.sh
 ```
 
-#### (2)、查看是否启动成功
+#### 4.5.2 查看是否启动成功
 
 可以在Eureka界面查看服务启动成功情况，查看方法：
 
@@ -280,11 +281,111 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 
 ![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
 
-#### (3)、查看服务是否正常
+默认启动的微服务名称如下：
+ ```
+├── linkis-cg-engineconnmanager 引擎管理服务  
+├── linkis-cg-engineplugin 引擎插件管理服务  
+├── linkis-cg-entrance 计算治理入口服务  
+├── linkis-cg-linkismanager 计算治理管理服务  
+├── linkis-mg-eureka 微服务注册中心服务  
+├── linkis-mg-gateway Linkis网关服务  
+├── linkis-ps-cs 上下文服务 
+├── linkis-ps-publicservice 公共服务 
+ ```
+#### 4.5.3 查看服务是否正常
 1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web_install.md)
 2. 您也可以通过Linkis用户手册来测试Linkis是否能正常运行任务，[点击跳转用户手册](user_guide/overview.md)
 
-## 5 Yarn队列检查
+### 4.5 安装web前端
+web端是使用nginx作为静态资源服务器的，访问请求流程是:
+linkis管理台请求->nginx ip:port->linkis-gateway ip:port-> 其他服务
+
+#### 4.5.1 下载前端安装包并解压
+tar -xvf apache-linkis-1.0.x-incubating-web-bin.tar.gz
+
+#### 4.5.2 修改配置config.sh
+```shell script
+#管理台访问的端口 http://localhost:8088
+linkis_port="8088"
+
+#linkis-mg-gateway服务地址
+linkis_url="http://localhost:9020"
+```
+
+#### 4.5.3 执行前端部署
+
+```shell script
+sudo sh install
+```
+安装后，linkis的nginx配置文件默认是 在/etc/nginx/conf.d/linkis.conf
+nginx的日志文件在 /var/log/nginx/access.log 和/var/log/nginx/error.log
+```nginx
+
+        server {
+            listen       8188;# 访问端口 如果端口被占用，则需要修改
+            server_name  localhost;
+            #charset koi8-r;
+            #access_log  /var/log/nginx/host.access.log  main;
+            location /linkis/visualis {
+            root   /appcom/Install/linkis-web/linkis/visualis; # 静态文件目录 
+            autoindex on;
+            }
+            location / {
+            root   /appcom/Install/linkis-web/dist; # 静态文件目录 
+            index  index.html index.html;
+            }
+            location /ws {
+            proxy_pass http://localhost:9020;#后端Linkis的地址
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection upgrade;
+            }
+
+            location /api {
+            proxy_pass http://localhost:9020; #后端Linkis的地址
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header x_real_ipP $remote_addr;
+            proxy_set_header remote_addr $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_http_version 1.1;
+            proxy_connect_timeout 4s;
+            proxy_read_timeout 600s;
+            proxy_send_timeout 12s;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection upgrade;
+            }
+
+            #error_page  404              /404.html;
+            # redirect server error pages to the static page /50x.html
+            #
+            error_page   500 502 503 504  /50x.html;
+            location = /50x.html {
+            root   /usr/share/nginx/html;
+            }
+        }
+```
+
+如果需要修改端口或则静态资源目录等，请修改/etc/nginx/conf.d/linkis.conf 文件后执行 `sudo nginx -s reload` 命令
+:::caution 注意
+- 目前暂未集成visualis功能，安装过程中如果提示安装linkis/visualis失败，可以忽略
+- 查看nginx是否正常启动：检查nginx进程是否存在 ps -ef |grep nginx
+- 检查nginx的配置是否正确 sudo nginx -T
+- 如果端口被占用，可以修改nginx启动的服务端口`/etc/nginx/conf.d/linkis.conf`listen端口值，保存后重新启动
+- 如果访问管理台出现接口502，或则`Unexpected token < in JSON at position 0`异常，请确认linkis-mg-gateway是否正常启动，如果正常启动，查看nginx配置文件中配置的linkis-mg-gateway服务地址是否正确
+:::
+
+#### 4.5.4 登录web端查看信息
+http://xx.xx.xx.xx:8188/#/login
+用户名/密码在{InstallPath}/conf/linkis-mg-gateway.properties中查看
+```shell script
+#未使用LDAP配置时
+wds.linkis.admin.user= #用户
+wds.linkis.admin.password= #密码
+
+```
+
+## 5. Yarn队列检查
 >如果需要使用到spark/hive/flink引擎
 
 登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)(需要先安装前端)  
@@ -327,7 +428,7 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 - 查看hadoop集群地址: http://ip:8088/cluster
 - 查看yarn队列地址：http://ip:8888/cluster/scheduler
 
-## 6 检查引擎物料资源是否上传成功
+## 6. 检查引擎物料资源是否上传成功
 
 ```sql
 #登陆到linkis的数据库 
@@ -349,7 +450,7 @@ hdfs dfs -mkdir  /apps-data
 hdfs dfs -chown hadoop:hadoop   /apps-data
 ```
 
-## 7 验证基础功能
+## 7. 验证基础功能
 ```
 #引擎的engineType 拼接的版本号，一定要与实际的相匹配
 
@@ -359,36 +460,37 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -c
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
 ```
 
-## 8 修改注册中心eureka的端口(非必须)
+## 8. 修改注册中心eureka的端口
+有时候当eureka的端口被其他服务占用,无法使用默认的eureka端口的时候,需要对eureka端口进行修改,这里把对eureka端口的修改分为执行安装之前和执行安装之后两种情况。
 1.执行安装之前修改注册中心eureka端口
 ```
-i. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
-ii. 执行 vi deploy-config/linkis-env.sh
-iii. 修改EUREKA_PORT=20303为EUREKA_PORT=端口号
+1. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
+2. 执行 vi deploy-config/linkis-env.sh
+3. 修改EUREKA_PORT=20303为EUREKA_PORT=端口号
 ```
 2.执行安装之后修改注册中心eureka端口  
 ```
-i. 进入${linkis_home}/conf目录
-ii. 执行grep -r 20303 ./* ,查询结果如下所示:
-./application-eureka.yml:  port: 20303
-./application-eureka.yml:      defaultZone: http://ip:20303/eureka/
-./application-linkis.yml:      defaultZone: http://ip:20303/eureka/
-./linkis-env.sh:EUREKA_PORT=20303
-./linkis.properties:wds.linkis.eureka.defaultZone=http://ip:20303/eureka/
-iii. 将对应位置的端口修改为新的端口,并且重启所有服务sh restart sbin/linkis-start-all.sh
+1. 进入${linkis_home}/conf目录
+2. 执行grep -r 20303 ./* ,查询结果如下所示:
+      ./application-eureka.yml:  port: 20303
+      ./application-eureka.yml:      defaultZone: http://ip:20303/eureka/
+      ./application-linkis.yml:      defaultZone: http://ip:20303/eureka/
+      ./linkis-env.sh:EUREKA_PORT=20303
+      ./linkis.properties:wds.linkis.eureka.defaultZone=http://ip:20303/eureka/
+3. 将对应位置的端口修改为新的端口,并且重启所有服务sh restart sbin/linkis-start-all.sh
 ```
 
 ## <font color="red">9. 安装部署常见问题的排障</font>
 
-### 9.0 登陆密码问题
+### 9.1 登陆密码问题
 
       linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{InstallPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)
 
-### 9.1 版本兼容性问题
+### 9.2 版本兼容性问题
 
 linkis默认支持的引擎，与dss兼容关系可以查看此文档 https://github.com/apache/incubator-linkis/blob/master/README.md
 
-### 9.2 如何定位服务端异常日志
+### 9.3 如何定位服务端异常日志
 
 linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式
 ```shell script
@@ -397,15 +499,15 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 ```
 
 
-### 9.3 执行引擎任务的异常排查
+### 9.4 执行引擎任务的异常排查
 
 ** step1:找到引擎的启动部署目录 **  
 方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
 ![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
 方式2:如果方式1中没有找到，可以通过找到`conf/linkis-cg-engineconnmanager.properties`配置的`wds.linkis.engineconn.root.dir`的参数，该值就是引擎启动部署的目录，子目录按执行引擎的用户进行了隔离。
 ```shell script
-如果不清楚taskid，可以按时间排序后进行选择 ll -rt /appcom/tmp/${执行的用户}/workDir   
-cd /appcom/tmp/${执行的用户}/workDir/${taskId}  
+如果不清楚taskid，可以按时间排序后进行选择 ll -rt /appcom/tmp/${执行的用户}/${日期}/${引擎}/  
+cd /appcom/tmp/${执行的用户}/${日期}/${引擎}/${taskId}  
 目录大体如下  
 conf -> /appcom/tmp/engineConnPublickDir/6a09d5fb-81dd-41af-a58b-9cb5d5d81b5a/v000002/conf #引擎的配置文件  
 engineConnExec.sh #生成的引擎的启动脚本  
@@ -423,7 +525,7 @@ less logs/stdout
 sh -v engineConnExec.sh  
 ```
 
-### 9.4 CDH适配版本的注意事项
+### 9.5 CDH适配版本的注意事项
 
 CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修改linkis的源码中的hive/spark版本的依赖，进行重新编译部署。  
 具体可以参考CDH适配博文    
@@ -432,7 +534,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 [【DSS1.0.0与Linkis1.0.2——JDBC引擎相关问题汇总】](https://mp.weixin.qq.com/s/vcFge4BNiEuW-7OC3P-yaw)  
 [【DSS1.0.0与Linkis1.0.2——Flink引擎相关问题汇总】](https://mp.weixin.qq.com/s/VxZ16IPMd1CvcrvHFuU4RQ)
 
-### 9.5 Http接口的调试
+### 9.6 Http接口的调试
 
 - 方式1 可以开启[免登陆模式指引](/docs/latest/api/login_api/#2免登录配置)
 - 方式2 postman中的，请求头带上登陆成功的cookie值
@@ -450,7 +552,7 @@ Token-Code:TEST-AUTH
 Token-User:hadoop
 ```
 
-### 9.6 异常问题的排查流程
+### 9.7 异常问题的排查流程
 首先要按上述步骤检查服务/环境等是否都正常启动  
 按上述罗列的一些场景的方式进行基础问题的排查  
 [QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)中查找是否有解决方案，链接：https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq  

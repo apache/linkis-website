@@ -1,12 +1,11 @@
 ---
-title: 安装包目录结构
+title: installation package directory structure
 sidebar_position: 4.5
 ---
 
-## Linkis安装包解压的目录结构
+## Linkis installation package decompressed directory structure
 
-
-下载官方发布的[编译完整包](https://linkis.apache.org/zh-CN/download/main)，解压后的目录结构如下:
+Download the officially released [Compilation Complete Package](https://linkis.apache.org/zh-CN/download/main), and the decompressed directory structure is as follows:
 
 ```html
 

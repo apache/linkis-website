@@ -7,8 +7,8 @@ sidebar_position: 0.1
 - [引擎物料刷新HTTP接口](/api/http/engineconn-plugin-refesh.md)
 - [UDF相关的HTTP接口](/api/http/udf-api.md)
 - [UDF相关的表结构](/table/udf-table.md)
-- [OpenLookEng的引擎的实现](/blog/2022/03/20/openlookeng)
-- [OpenLookEng的使用](/engine_usage/openlookeng.md)
+- [openLooKeng的引擎的实现](/blog/2022/03/20/openlookeng)
+- [openLooKeng的使用](/engine_usage/openlookeng.md)
 - [版本的Release-Notes](release-notes-1.1.1.md)
 
 ## 参数变化 

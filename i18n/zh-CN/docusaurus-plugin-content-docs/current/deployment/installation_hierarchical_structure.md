@@ -1,131 +1,105 @@
 ---
-title: 安装包目录结构
+title: 安装后的程序目录结构
 sidebar_position: 4
 ---
 
-## 1.Linkis1.0的目录调整和优化
-
-Linkis1.0的目录结构与0.X版本相差巨大，0.X的每个微服务都时独立存在的一个根目录，这种目录结构带来的主要的好处是易于区分微服务，便于单个的微服务进行管理，但也存在着一些很明显的问题：
-- 1.微服务目录过于繁杂，切换目录管理不够方便
-- 2.没有统一的启动脚本，导致微服务启停比较麻烦
-- 3.存在大量重复的服务配置，同一个配置经常需要修改多处
-- 4.存在大量重复的Lib依赖，增大了安装包的体积和依赖冲突的风险
-
-因此Linkis1.0中，我们对安装目录结构做了极大程度的优化和调整，减少了微服务目录的数量，降低了重复依赖的jar包，尽可能复用了配置文件和微服务管理脚本，主要体现在以下几个方面：
-
-1. 不再为每个微服务提供bin文件夹，修改为所有微服务共用。
-
->   Bin文件夹修改为安装目录，主要用于安装Linkis1.0和检查环境状态，新增sbin目录，为Linkis提供一键启停，依靠变更参数的方式为所有微服务提供单独启停。
-
-2. 不再为每个微服务单独提供conf目录，修改为所有微服务共用。
-
->   Conf文件夹包含两个方面的内容，一方面是所有微服务共用的配置信息，这类配置信息里面包含了用户根据自身环境自定义配置的信息；另一方面是各个微服务的各自的特殊配置，一般情况下用户不需要自行更改。
-
-3. 不再为每个微服务提供lib文件夹，修改为所有微服务共用
-
->   Lib文件夹中同样包含了两个方面的内容，一方面是所有微服务都需要的公共依赖；另一方面是各个微服务各自需要的特殊依赖。
-
-4. 不再为每个微服务提供log目录，修改为所有微服务共用
-
->   Log目录中包含了所有微服务的日志文件。
-
-## 2. 目录结构
+## 1. 目录结构
 Linkis1.0简化后的目录结构如下，其中加`**`标注的文件，为用户安装使用时必定会使用的目录项，其他目录项初次使用无特殊情况无需关心：
 ```
 ├── bin 
-│   ├── linkis-cli   
-│   ├── linkis-cli-hive
-│   ├── linkis-cli-pre
-│   ├── linkis-cli-spark-sql
-│   ├── linkis-cli-spark-submit
-│   └── linkis-cli-sqoop
+│   ├── linkis-cli   
+│   ├── linkis-cli-hive
+│   ├── linkis-cli-pre
+│   ├── linkis-cli-spark-sql
+│   ├── linkis-cli-spark-submit
+│   └── linkis-cli-sqoop
 ├── conf 配置目录
-│   ├── application-eureka.yml 
-│   ├── application-linkis.yml ──微服务通用yml  
-│   ├── linkis-cg-engineconnmanager.properties
-│   ├── linkis-cg-engineplugin.properties
-│   ├── linkis-cg-entrance.properties
-│   ├── linkis-cg-linkismanager.properties
-│   ├── linkis-cli
-│   │   ├── linkis-cli.properties
-│   │   └── log4j2.xml
-│   ├── linkis-env.sh
-│   ├── linkis-mg-gateway.properties
-│   ├── linkis.properties
-│   ├── linkis-ps-cs.properties
-│   ├── linkis-ps-data-source-manager.properties
-│   ├── linkis-ps-metadatamanager.properties
-│   ├── linkis-ps-publicservice.properties
-│   ├── log4j2-console.xml
-│   ├── log4j2.xml
-│   └── token.properties(可选) 
+│   ├── application-eureka.yml 
+│   ├── application-linkis.yml ──微服务通用yml  
+│   ├── linkis-cg-engineconnmanager.properties
+│   ├── linkis-cg-engineplugin.properties
+│   ├── linkis-cg-entrance.properties
+│   ├── linkis-cg-linkismanager.properties
+│   ├── linkis-cli
+│   │   ├── linkis-cli.properties
+│   │   └── log4j2.xml
+│   ├── linkis-env.sh
+│   ├── linkis-mg-gateway.properties
+│   ├── linkis.properties
+│   ├── linkis-ps-cs.properties
+│   ├── linkis-ps-data-source-manager.properties
+│   ├── linkis-ps-metadatamanager.properties
+│   ├── linkis-ps-publicservice.properties
+│   ├── log4j2-console.xml
+│   ├── log4j2.xml
+│   └── token.properties(可选) 
 ├── db
-│   ├── linkis_ddl.sql ──数据库表定义SQL  
-│   ├── linkis_dml.sql ──数据库表初始化SQL    
-│   ├── module ──包含各个微服务的DML和DDL文件 
+│   ├── linkis_ddl.sql ──数据库表定义SQL  
+│   ├── linkis_dml.sql ──数据库表初始化SQL    
+│   ├── module ──包含各个微服务的DML和DDL文件 
 ├── lib lib目录   
-│   ├── linkis-commons  ──公共依赖包 
-│   ├── linkis-computation-governance ──计算治理模块的lib目录       
-│   ├── linkis-engineconn-plugins  ──所有引擎插件的lib目录     
-│   ├── linkis-public-enhancements ──公共增强服务的lib目录     
-│   └── linkis-spring-cloud-services ──SpringCloud的lib目录         
+│   ├── linkis-commons  ──公共依赖包 
+│   ├── linkis-computation-governance ──计算治理模块的lib目录       
+│   ├── linkis-engineconn-plugins  ──所有引擎插件的lib目录     
+│   ├── linkis-public-enhancements ──公共增强服务的lib目录     
+│   └── linkis-spring-cloud-services ──SpringCloud的lib目录         
 ├── logs logs 日志目录
-│   ├── 2022-05
-│   │   ├── linkis-cg-engineconnmanager
-│   │   ├── linkis-cg-engineplugin
-│   │   ├── linkis-cg-entrance
-│   │   ├── linkis-cg-linkismanager
-│   │   ├── linkis-mg-eureka
-│   │   ├── linkis-mg-gateway
-│   │   ├── linkis-ps-cs
-│   │   └── linkis-ps-publicservice
-│   ├── linkis-cg-engineconnmanager-gc.log
-│   ├── linkis-cg-engineconnmanager.log
-│   ├── linkis-cg-engineconnmanager.out
-│   ├── linkis-cg-engineplugin-gc.log
-│   ├── linkis-cg-engineplugin.log
-│   ├── linkis-cg-engineplugin.out
-│   ├── linkis-cg-entrance-gc.log
-│   ├── linkis-cg-entrance.log
-│   ├── linkis-cg-entrance.out
-│   ├── linkis-cg-linkismanager-gc.log
-│   ├── linkis-cg-linkismanager.log
-│   ├── linkis-cg-linkismanager.out
-│   ├── linkis-cli
-│   │   ├── linkis-client.hadoop.log.20220506173421867398281
-│   │   ├── linkis-client.hadoop.log.20220506174717309123214
-│   │   ├── linkis-client.hadoop.log.20220506181154093620777
-│   │   ├── linkis-client.hadoop.log.20220506222334715024110
-│   │   └── linkis-client.hadoop.log.20220507100654982808251
-│   ├── linkis-mg-eureka-gc.log
-│   ├── linkis-mg-eureka.log
-│   ├── linkis-mg-eureka.out
-│   ├── linkis-mg-gateway-gc.log
-│   ├── linkis-mg-gateway.log
-│   ├── linkis-mg-gateway.out
-│   ├── linkis-ps-cs-gc.log
-│   ├── linkis-ps-cs.log
-│   ├── linkis-ps-cs.out
-│   ├── linkis-ps-data-source-manager-gc.log
-│   ├── linkis-ps-data-source-manager.log
-│   ├── linkis-ps-data-source-manager.out
-│   ├── linkis-ps-metadatamanager-gc.log
-│   ├── linkis-ps-metadatamanager.log
-│   ├── linkis-ps-metadatamanager.out
-│   ├── linkis-ps-publicservice-gc.log
-│   ├── linkis-ps-publicservice.log
-│   └── linkis-ps-publicservice.out
+│   ├── 2022-05
+│   │   ├── linkis-cg-engineconnmanager
+│   │   ├── linkis-cg-engineplugin
+│   │   ├── linkis-cg-entrance
+│   │   ├── linkis-cg-linkismanager
+│   │   ├── linkis-mg-eureka
+│   │   ├── linkis-mg-gateway
+│   │   ├── linkis-ps-cs
+│   │   └── linkis-ps-publicservice
+│   ├── linkis-cg-engineconnmanager-gc.log
+│   ├── linkis-cg-engineconnmanager.log
+│   ├── linkis-cg-engineconnmanager.out
+│   ├── linkis-cg-engineplugin-gc.log
+│   ├── linkis-cg-engineplugin.log
+│   ├── linkis-cg-engineplugin.out
+│   ├── linkis-cg-entrance-gc.log
+│   ├── linkis-cg-entrance.log
+│   ├── linkis-cg-entrance.out
+│   ├── linkis-cg-linkismanager-gc.log
+│   ├── linkis-cg-linkismanager.log
+│   ├── linkis-cg-linkismanager.out
+│   ├── linkis-cli
+│   │   ├── linkis-client.hadoop.log.20220506173421867398281
+│   │   ├── linkis-client.hadoop.log.20220506174717309123214
+│   │   ├── linkis-client.hadoop.log.20220506181154093620777
+│   │   ├── linkis-client.hadoop.log.20220506222334715024110
+│   │   └── linkis-client.hadoop.log.20220507100654982808251
+│   ├── linkis-mg-eureka-gc.log
+│   ├── linkis-mg-eureka.log
+│   ├── linkis-mg-eureka.out
+│   ├── linkis-mg-gateway-gc.log
+│   ├── linkis-mg-gateway.log
+│   ├── linkis-mg-gateway.out
+│   ├── linkis-ps-cs-gc.log
+│   ├── linkis-ps-cs.log
+│   ├── linkis-ps-cs.out
+│   ├── linkis-ps-data-source-manager-gc.log
+│   ├── linkis-ps-data-source-manager.log
+│   ├── linkis-ps-data-source-manager.out
+│   ├── linkis-ps-metadatamanager-gc.log
+│   ├── linkis-ps-metadatamanager.log
+│   ├── linkis-ps-metadatamanager.out
+│   ├── linkis-ps-publicservice-gc.log
+│   ├── linkis-ps-publicservice.log
+│   └── linkis-ps-publicservice.out
 ├── pid 所有微服务的进程ID  
-│   ├── linkis_cg-engineconnmanager.pid ──引擎管理器微服务
-│   ├── linkis_cg-engineplugin.pid ──引擎插件微服务
-│   ├── linkis_cg-entrance.pid ──引擎入口微服务
-│   ├── linkis_cg-linkismanager.pid ──linkis管理器微服务
-│   ├── linkis_mg-eureka.pid ──eureka微服务
-│   ├── linkis_mg-gateway.pid ──gateway微服务  
-│   ├── linkis_ps-cs.pid ──上下文微服务 
-│   ├── linkis_ps-data-source-manager.pid ──数据源管理微服务 
-│   ├── linkis_ps-metadatamanager.pid ──元数据查询微服务
-│   └── linkis_ps-publicservice.pid ──公共微服务
+│   ├── linkis_cg-engineconnmanager.pid ──引擎管理器微服务
+│   ├── linkis_cg-engineplugin.pid ──引擎插件微服务
+│   ├── linkis_cg-entrance.pid ──引擎入口微服务
+│   ├── linkis_cg-linkismanager.pid ──linkis管理器微服务
+│   ├── linkis_mg-eureka.pid ──eureka微服务
+│   ├── linkis_mg-gateway.pid ──gateway微服务  
+│   ├── linkis_ps-cs.pid ──上下文微服务 
+│   ├── linkis_ps-data-source-manager.pid ──数据源管理微服务 
+│   ├── linkis_ps-metadatamanager.pid ──元数据查询微服务
+│   └── linkis_ps-publicservice.pid ──公共微服务
 └── sbin
     ├── common.sh
     ├── ext ──各个微服务的启停脚本目录
