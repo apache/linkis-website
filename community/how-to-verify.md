@@ -66,7 +66,7 @@ Do you really want to set this key to ultimate trust? (y/N) y  #choose y
 gpg>
          
 ```
-#### 2.2.3 Use the following command to check the signature
+#### 2.2.3 Check the gpg signature
 
 ```shell
 $ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done

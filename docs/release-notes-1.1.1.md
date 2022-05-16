@@ -1,7 +1,14 @@
 ---
-title: Release Notes 1.1.1-RC1
+title: Release Notes 1.1.1-RC2
 sidebar_position: 0.2
 ---
+
+Based on 1.1.1-RC1, 1.1.1-RC2 fixes the following problems:
+- Removed the binary file .mvn/wrapper/maven-wrapper.jar in the source code, and adjusted the LICENSE content related to .mvn/*
+- Upgrade py4j-0.10.7-src.zip to py4j-0.10.9.5-src.zip, update the license files of py4j-*.src and adjust it location, from linkis-engineconn-plugins/engineconn-plugins/python /src/main/py4j/LICENSE-py4j-0.10.7-src.txt moved to licenses/LICENSE-py4j-0.10.9.5-src.txt for easy viewing
+- Fixed the issue of using Window's line endings format CTRL in the release source code of shell script:mvnw
+
+-------
 
 Apache Linkis(incubating) 1.1.1 includes all of [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18).
 
