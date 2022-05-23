@@ -112,15 +112,23 @@ $ cd apache-linkis-${release_version}-incubating-src
 ```
 
 #### 2.4.1 ASF许可证RAT检查
-
+Mac OS/Linux
 ```shell
 #正常5分钟内可以执行完
-$ mvn -N install 
-$ mvn apache-rat:check
+$ ./mvnw -N install  
+$ ./mvnw apache-rat:check
 
 #无异常后 检查所有的rat文件 
 $ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
+
+Window 
+```shell
+#正常5分钟内可以执行完
+$ mvnw.cmd -N install  
+$ mvnw.cmd apache-rat:check
+```
+
 rat check的白名单文件配置在外层pom.xml中的apache-rat-plugin插件配置中。
 检查merged-rat.txt中所有license信息，注意Binaries 和Archives文件是否为0。
 ```text
@@ -135,10 +143,18 @@ Archives: 0
 
 
 #### 2.4.2 源码编译验证
+Mac OS/Linux
 ```shell
-$ mvn -N install  
+$ ./mvnw -N install  
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
-$ mvn  clean install -Dmaven.javadoc.skip=true
+$ ./mvnw  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+```
+
+Window 
+```shell
+$ mvnw.cmd -N install  
+#如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
+$ mvnw.cmd  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ```
 #### 2.4.3 相关合规项检查 
 
@@ -232,3 +248,13 @@ I  checked:
     4. Build successfully on macOS(Big Sur) 
     5. ....
 ```
+
+
+## 4. 注意事项 
+<font color="red">
+如果你有安装maven工具，你可以使用自己的mvn命令替换 ./mvnw或则mvnw.cmd
+
+mvnw是Maven Wrapper的缩写。它可以支持运行 Maven 项目，而无需安装 Maven 并配置环境变量。如果找不到它，它会根据配置文件，下载对应的 Maven 版本
+
+
+</font>

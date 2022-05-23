@@ -114,15 +114,21 @@ $ tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
 $ cd apache-linkis-${release_version}-incubating-src
 ```
 #### 2.4.1 ASF License RAT Check
-
+Mac OS/Linux
 ```shell
 #normally can be executed within 5 minutes
-$ mvn -N install 
-$ mvn apache-rat:check
+$ ./mvnw -N install  
+$ ./mvnw apache-rat:check
 
 #Check all rat files after no exception
 $ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
+Window
+```shell
+#normally can be executed within 5 minutes
+$ mvnw.cmd -N install
+$ mvnw.cmd apache-rat:check
+````
 
 The whitelist file of rat check is configured in the apache-rat-plugin plugin configuration in the outer pom.xml.
 Check all the license information in merged-rat.txt, and notice if the Binaries and Archives files are 0.
@@ -138,10 +144,17 @@ If it is not 0, you need to confirm whether the source code has the license for 
 
 
 #### 2.4.2 Source code compilation verification
+Mac OS/Linux
 ```shell
-$ mvn -N install
+$ ./mvnw -N install
 #If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
-$ mvn clean install -Dmaven.javadoc.skip=true
+$  ./mvnw clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+````
+Window 
+```shell
+$ mvnw.cmd -N install
+#If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
+$ mvnw.cmd clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ````
 #### 2.4.3 Check related compliance items
 
@@ -227,3 +240,13 @@ I checked:
      4. Build successfully on macOS(Big Sur)
      5.  
 ````
+
+
+## 4. Precautions
+<font color="red">
+If you have maven tools installed, you can replace ./mvnw or mvnw.cmd with your own mvn command
+
+mvnw is short for Maven Wrapper. It can support running Maven projects without installing Maven and configuring environment variables. If it can't find it, it will download the corresponding Maven version according to the configuration file
+
+
+</font>
