@@ -3,7 +3,7 @@ title: Release Notes 1.1.1
 sidebar_position: 7
 --- 
 
-Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3)。
+Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/3)。
 
 本次发布主要新增数据源及元数据源管理服务，支持对hive/mysql/kafka/elasticsearch的元数据信息查询，修复社区反馈的1.0.3版本中的bug。
 
