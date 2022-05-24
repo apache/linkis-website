@@ -1,9 +1,9 @@
 ---
-title: Release Notes 1.1.0
-sidebar_position: 8
+title: Release Notes 1.1.1
+sidebar_position: 7
 --- 
 
-Apache Linkis(incubating) 1.1.0 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3).
+Apache Linkis(incubating) 1.1.1 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3).
 
 This release mainly adds datasource and metadata source management services, supports metadata information query for hive/mysql/kafka/elasticsearch, and fixes bugs in version 1.0.3 reported by the community.
 
