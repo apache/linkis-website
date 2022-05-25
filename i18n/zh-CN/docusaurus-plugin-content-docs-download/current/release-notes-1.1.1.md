@@ -3,74 +3,80 @@ title: Release Notes 1.1.1
 sidebar_position: 7
 --- 
 
-Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/3)。
+Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18)。
 
-本次发布主要新增数据源及元数据源管理服务，支持对hive/mysql/kafka/elasticsearch的元数据信息查询，修复社区反馈的1.0.3版本中的bug。
+
+本次发布主要支持UDF多版本控制、UDF存储到BML的功能特性；提交任务支持Yarn队列资源使用统计采集和查看；新增对数据虚拟化引擎OpenLooKeng的支持；修复社区反馈的已知bug。
 
 添加了以下主要功能：
-* 提供Restful接口针对数据源进行增删查改，以及数据源的连接测试。
-* 提供Restful接口针对元数据进行数据库、表、分区、列属性查询。
-* 提供针对数据源及元数据服务管理的Java客户端。
+* 支持代理用户模式，A用户可以代理给B用户执行任务,一个代理用户可以代理多个用户
+* 支持UDF多版本控制和UDF存储到BML的功能特性
+* 提交任务支持Yarn队列资源使用统计数据的采集和管理台页面可视化查看
+* 新增对数据虚拟化引擎OpenLooKeng的支持
 
 缩写：
-
 - EC: Engineconn
 - ECM: EngineConnManager
 - ECP: EngineConnPlugin
 - DMS: Data Source Manager Service
 - MDS: MetaData Manager Service
+- LM:  Linkis Manager
 
 ---
 
 ## 新特性
 
-* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) 增加新的模块 linkis-datasource-manager-common，新增数据源数据结构、异常类、工具类。
-* \[MDS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) 增加新的模块 linkis-metadata-manager-common，新增元数据数据结构、异常类、工具类。
-* \[DMS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) 增加新的模块 linkis-datasource-manager-server，提供数据源管理服务，通过restful接口提供了数据源的增删查改、连接测试等功能。
-* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) 增加新的模块 linkis-metadata-manager-server，提供元数据管理服务，通过restful接口提供了元数据的数据库、表、列查询。
-* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) 增加新的模块 linkis-metadata-manager-service-es，提供针对的elasticsearch元数据管理服务。
-* \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) 增加新的模块 linkis-metadata-manager-service-hive，提供针对hive的元数据管理服务。
-* \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) 增加新的模块 linkis-metadata-manager-service-kafka，提供针对kafka的元数据管理服务。
-* \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) 增加新的模块 linkis-metadata-manager-service-mysql，提供针对mysql的元数据管理服务。
-* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache/incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com/apache/incubator-linkis/pull/1441) 增加新的数据源管理Java客户端模块 linkis-datasource-client，方便通过sdk方式进行数据源管理。
-* \[DMS&MDS-Web][[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510] 增加数据源前端管理页面，通过该页面可以对数据源进行简单的创建，测试。
-
----
+* \[Gateway&Entrance][[Linkis-1608]](https://github.com/apache/incubator-linkis/pull/1608) 支持代理用户模式，A用户可以代理给B用户执行任务，查询B用户的相关数据，一个代理用户可以代理多个用户
+* \[LM-ResourceManager][[Linkis-1616]](https://github.com/apache/incubator-linkis/pull/1616) YARN ResourceManager的资源地址配置支持高可用多地址配置，当前YARN ResourceManager转换状态或者停止时，将会从高可用地址列表中解析出主节点继续提供服务
+* \[EC-OpenLooKeng][[Linkis-1639]](https://github.com/apache/incubator-linkis/issues/1639) 新增对数据虚拟化引擎OpenLooKeng的支持
+* \[UDF][[Linkis-1534]](https://github.com/apache/incubator-linkis/pull/1534) 支持UDF多版本控制和UDF存储到BML，提交任务支持Yarn队列资源使用统计数据的采集和管理台页面可视化查看
+* \[Client][[Linkis-1718]](https://github.com/apache/incubator-linkis/issues/1718) Linkis-cli客户端支持提交Once类型的任务，引擎进程启动后只运行一次任务，任务结束后自动销毁
+* \[ECP][[Linkis-1758]](https://github.com/apache/incubator-linkis/issues/1758) 新增引擎物料刷新接口，支持通过http接口调用方式刷新引擎物料资源
 
 ## 增强点
-* \[Install-Script][[Linkis-1377]](https://github.com/apache/incubator-linkis/pull/1377) 引入Skywalking组件, 提供分布式 trace 和 troubleshooting的基础能力
-* \[ECP][[Linkis-1408]](https://github.com/apache/incubator-linkis/pull/1408) 调整引擎资源的默认的最大空闲时间为0.5h，优化多用户场景下，资源竞争等待的时长问题
-* \[ECP][[Linkis-1535]](https://github.com/apache/incubator-linkis/pull/1535) 设置 JAVA_ENGINE_REQUEST_INSTANCE 的值为常量 1
-* \[DB][[Linkis-1554]](https://github.com/apache/incubator-linkis/pull/1554) 添加 DataSource DDL 和 DML SQL 
-* \[MDS][[Linkis-1583]](https://github.com/apache/incubator-linkis/pull/1583) 添加功能以获取 Hive 数据源中分区的属性并修复连接问题 
-* \[Gateway][[Linkis-1636]](https://github.com/apache/incubator-linkis/pull/1636)使用正则表达式匹配网关 URL，如果匹配则正常通过
-* \[Commons][[Linkis-1397]](https://github.com/apache/incubator-linkis/pull/1397) 添加maven wrapper，支持使用mvnw脚本进行编译打包
-* \[EC][[Linkis-1425]](https://github.com/apache/incubator-linkis/pull/1425)将ec的日志配置文件统一为log4j2.xml 
-* \[Install-Script][[Linkis-1563]](https://github.com/apache/incubator-linkis/pull/1563) 优化linkis-cli 客户端脚本，移除冗余的linkis-cli-start脚本文件
-* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) 优化安装部署脚本，安装部署时，添加数据库连接测试检查;进行数据库初始化之前，打印数据库的信息，以便人员再次确认
-* \[Install-Script][Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) 添加必要的部署日志信息以及关键信息的颜色标识，如执行步骤/创建目录的日志等。
-* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) 为spark/hadoop/hive 添加基本环境检查
-* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559)将hive元数据库HIVE_META 信息配置从linkis-env.sh迁移到 db.sh
-* \[Commons][[Linkis-1557]](https://github.com/apache/incubator-linkis/issues/1557)Spring-boot/Spring-cloud版本控制使用官方依赖管理器的pom文件方式，避免引入了太多的版本配置
-* \[Commons][[Linkis-1621]](https://github.com/apache/incubator-linkis/pull/1621) Spring升级，Spring-boot升级至2.3.12.RELEASE，Spring-cloud升级至Hoxton.SR12
-* \[Commons][[Linkis-1558]](https://github.com/apache/incubator-linkis/issues/1558) 单元测试JUnit 4 迁移升级至 JUnit 5
-* \[Commons&Eureka][[Linkis-1313]](https://github.com/apache/incubator-linkis/issues/1313)移除不必要的第三方依赖，一定程度减小打包后的物料包大小
-* \[Commons&Gateway][[Linkis-1660]](https://github.com/apache/incubator-linkis/pull/1660)使用spring-boot-starter-jetty替换直接引入jetty依赖方式，避免jetty版本冲突
----
+
+* \[Gateway][[Linkis-1430]](https://github.com/apache/incubator-linkis/issues/1430) 针对Token认证方式，Token的获取由配置文件调整为数据库表
+* \[Entrance][[Linkis-1642]](https://github.com/apache/incubator-linkis/pull/1642) 优化excel导出接口resultsetToExcel:支持传递下载数据的行数
+* \[Entrance][[Linkis-1733]](https://github.com/apache/incubator-linkis/pull/1733) 添加支持更多与run_date相关的默认时间变量
+* \[Entrance][[Linkis-1794]](https://github.com/apache/incubator-linkis/pull/1794) 添加写入限制结果集单行的数据大小，优化大结果集会导致的OOM问题
+* \[DMS-Common][[Linkis-1757]](https://github.com/apache/incubator-linkis/issues/1757) 支持配置Hive的元数据管理员，管理员通过接口可以获取hive的所有库表的元数据信息
+* \[Common][[Linkis-1799]](https://github.com/apache/incubator-linkis/pull/1799) 优化服务日志的分割:将日志历史切分时间从一天调整为一小时
+* \[Common][[Linkis-1921]](https://github.com/apache/incubator-linkis/pull/1921)  优化Jackson的依赖管理方式:通过jackson-bom统一管理jackson依赖，并升级至2.11.4版本
+* \[ECM][[Linkis-1779]](https://github.com/apache/incubator-linkis/issues/1779) 优化ECM实例的状态监控逻辑，增加心跳上报时间的判断，修复可能因为Eureka的性能问题导致错误判断问题
+* \[ECM][[Linkis-1930]](https://github.com/apache/incubator-linkis/pull/1930) 优化资源检查时未检查ECM资源的问题
+* \[Web][[Linkis-1596]](https://github.com/apache/incubator-linkis/issues/1596) 优化管理台任务日志查看的接口使用，修复对于运行中的job，日志无法及时刷新显示的问题
+* \[Web][[Linkis-1650]](https://github.com/apache/incubator-linkis/issues/1650) linkis管理台-全局历史页面,支持通过创建者信息搜索过滤历史任务数据
+
 
 ## 修复功能
-* \[Install-Script][[Linkis-1390]](https://github.com/apache/incubator-linkis/pull/1390) 修复安装部署时创建的存储Job结果集文件目录 `wds.linkis.resultSet.store.path`，使用过程中切换用户后存在的权限不足的问题 
-* \[Commons][[Linkis-1469]](https://github.com/apache/incubator-linkis/pull/1469)  修复sql脚本中包含 ';'字符时，无法正确切割SQL问题
-* \[EC-JDBC]][[Linkis-1529]](https://github.com/apache/incubator-linkis/pull/1529)  修复 JDBC 引擎认证类型参数存在的NullPointerException的异常问题
-* \[Entrance][[Linkis-1540]](https://github.com/apache/incubator-linkis/pull/1540)  修复 linkis-entrance 中“kill”方法参数long类型导致null值无法识别问题
-* \[Commons][[Linkis-1600]](https://github.com/apache/incubator-linkis/pull/1600)  修复低版本commons-compress，导致结果集下载为excel时出错
-* \[Client][[Linkis-1603]](https://github.com/apache/incubator-linkis/pull/1603)  修复客户端不支持 -runtimeMap 参数问题
-* \[EC-JDBC][[Linkis-1610]](https://github.com/apache/incubator-linkis/pull/1610)  修复 jdbc引擎 对于postgresql 无法支持"show databases;"语句问题
-* \[Commons][[Linkis-1618]](https://github.com/apache/incubator-linkis/pull/1618)  修复 http response 返回结果为xml格式，而不是json格式问题
-* \[EC-JDBC][[Linkis-1646]](https://github.com/apache/incubator-linkis/pull/1646)  修复 JDBC 引擎查询复杂类型字段时，值显示为对象地址。 
-* \[EC-Python][[Linkis-1731]](https://github.com/apache/incubator-linkis/pull/1731) 修复python引擎的showDF函数结果集字段行反转的问题
-* \[PES-BML][[Linkis-1556]](https://github.com/apache/incubator-linkis/issues/1556) 修复文件下载接口可能出现的HttpMessageNotWritableException异常
+
+* \[Entrance][[Linkis-1623]](https://github.com/apache/incubator-linkis/issues/1623)  修复LogPath和ResultSetPath错误的将submitUser使用为executeUser
+* \[Entrance][[Linkis-1640]](https://github.com/apache/incubator-linkis/issues/1640)  修复LogReader使用单例InputStream，存在日志丢失，无法读取最新的持久化日志的问题
+* \[Entrance][[Linkis-2009]](https://github.com/apache/incubator-linkis/issues/2009) 修复Entrance 服务存在的线程资源未关闭导致的内存泄漏的问题
+* \[Entrance][[Linkis-1901]](https://github.com/apache/incubator-linkis/issues/1901) 将EntranceFactory中的缓存替换为Guava Cache，修复用户修改了并发参数后无法生效的问题
+* \[Entrance][[Linkis-1986]](https://github.com/apache/incubator-linkis/issues/1986) 修复Entrance实时日志获取行数异常，导致获取的日志重复问题
+* \[ECM][[Linkis-1714]](https://github.com/apache/incubator-linkis/pull/1714) 通过减少EC Java默认内存大小以及添加EC应用程序的重试日志，优化EC出现的"Cannot allocate memory"的异常问题 
+* \[ECM][[Linkis-1806]](https://github.com/apache/incubator-linkis/pull/1806) 优化EC的生命周期处理逻辑，当ECM 启动EC因为队列资源不足超时等原因导致状态为Failed时候，将EC进程kill掉
+* \[Common][[Linkis-1721]](https://github.com/apache/incubator-linkis/pull/1721)   修复Kerberos认证失败时, hdfsFileSystem未进行刷新的问题
+* \[UDF][[Linkis-1728]](https://github.com/apache/incubator-linkis/pull/1728)  优化/api/rest_j/v1/udf/all的API接口偶发的查询耗时高的问题
+* \[Config][[Linkis-1859]](https://github.com/apache/incubator-linkis/issues/1859) 修复管理台参数配置saveFullTree接口，主键重复异常问题
+* \[Clinet][[Linkis-1739]](https://github.com/apache/incubator-linkis/pull/1739) 修复ujes-client的请求中，存在的参数拼写错误导致参数传递失败问题
+* \[Client][[Linkis-1783]](https://github.com/apache/incubator-linkis/pull/1783) 修复任务创建人creator参数默认配置不生效的问题 
+* \[Client][[Linkis-1821]](https://github.com/apache/incubator-linkis/pull/1821)  修复ujes-client 请求实体类GetTableStatisticInfoAction参数缺失问题
+* \[EC][[Linkis-1765]](https://github.com/apache/incubator-linkis/issues/1765) 修复EC 在任务运行时触发tryShutdown存在的阻塞卡住问题
+* \[LM-AppManager][[Linkis-1814]](https://github.com/apache/incubator-linkis/pull/1814) 修复EngineRestfulApi的createEngineConn接口返回response信息有误，导致客户端调用出现NPE的问题。
+* \[Web][[Linkis-1972]](https://github.com/apache/incubator-linkis/pull/1972) 移除管理台历史原因遗留但未使用的dss相关接口代码
+* \[EC-Spark][[Linkis-1729]](https://github.com/apache/incubator-linkis/pull/1729) 添加SparkPreExecutionHook函数，兼容Linkis之前的老包名（com.webank.wedatasphere.linkis）
+* \[EC-JDBC][[Linkis-1851]](https://github.com/apache/incubator-linkis/issues/1851) 修复jdbc引擎，一次任务执行中存在多条sql语句时无法正常执行的问题
+* \[EC-JDBC][[Linkis-1961]](https://github.com/apache/incubator-linkis/issues/1851) 修复jdbc引擎启动因SLF4J依赖问题导致日志无法正常打印的问题
+* \[Gateway][[Linkis-1898]](https://github.com/apache/incubator-linkis/pull/1898)  修复GatewaySSOUtils用户成功登录生成cookie时，无法设置初始域名的问题
+
+## 其他
+
+* \[License][[Linkis-2110]](https://github.com/apache/incubator-linkis/issues/2110) 移除了源码中的二进制文件.mvn/wrapper/maven-wrapper.jar，调整.mvn/*相关的LICENSE说明
+* \[License][[Linkis-2113]](https://github.com/apache/incubator-linkis/pull/2113) 升级 py4j-0.10.7-src.zip 至 py4j-0.10.9.5-src.zip，更新py4j-*.src的license文件并调整其位置，从linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10.7-src.txt 移动至 licenses/LICENSE-py4j-0.10.9.5-src.txt，方便查看 
+* 修复发布源码中，shell脚本:mvnw，使用Window的换行符CTRL问题
 
 ## 致谢 
 
-Apache Linkis(incubating) 1.1.0的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors: Alexkun、CCweixiao、Celebrate-future、Davidhua1996、FireFoxAhri、WenxiangFan、Zosimer、aleneZeng、casionone、dddyszy、det101、ganlangjie、huapan123456、huiyuanjjjjuice、husofskyzy、iture123、jianwei2、legendtkl、peacewong、pjfanning、silly-carbon、xiaojie19852006
+Apache Linkis(incubating) 1.1.1的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors: AbnerHung、Alexkun、barry8023、CCweixiao 、Davidhua1996、Fuu3214、Liveipool、casionone、demonray、husofskyzy、jackxu2011 、legendtkl、lizheng920625、maidangdang44、peacewong、seedscoder

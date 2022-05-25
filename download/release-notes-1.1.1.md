@@ -1,79 +1,82 @@
 ---
 title: Release Notes 1.1.1
 sidebar_position: 7
---- 
-
-Apache Linkis(incubating) 1.1.1 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3).
-
-This release mainly adds datasource and metadata source management services, supports metadata information query for hive/mysql/kafka/elasticsearch, and fixes bugs in version 1.0.3 reported by the community.
-
-The following key features have been added:
-* Provides Restful interface to add, delete, check, and modify data sources, as well as data source connection tests.
-* Provides Restful interface for database, table, partition, column attribute query for metadata.
-* Provides Java clients for data source and metadata service management.
-
-Abbreviations:
-- CGS: Computation Governance Services
-- PES: Public Enhancement Services
-- MGS: Microservice Governance Services
-- EC: Engineconn
-- ECM: EngineConnManager
-- DMS: Data Source Manager Service
-- MDS: MetaData Manager Service
-
 ---
 
+Apache Linkis(incubating) 1.1.1 includes all of [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18).
+
+
+This release mainly supports the functions of UDF multi-version control and UDF storage to BML; the submission task supports the collection and viewing of Yarn queue resource usage statistics; new support for the data virtualization engine OpenLooKeng; and known bugs reported by the community are fixed.
+
+The following key features have been added:
+* Support proxy user mode, user A can perform tasks on behalf of user B, one proxy user can proxy multiple users
+* Support UDF multi-version control and UDF storage to BML features
+* Submission of tasks supports the collection of Yarn queue resource usage statistics and the visual view of the management console page
+* Added support for data virtualization engine OpenLooKeng
+
+abbreviation:
+- EC: Engineconn
+- ECM: EngineConnManager
+- ECP: EngineConnPlugin
+- DMS: Data Source Manager Service
+- MDS: MetaData Manager Service
+- LM: Linkis Manager
+
+---
 
 ## New Feature
 
-* \[DMS-Common][[Linkis-1335]](https://github.com/apache/incubator-linkis/pull/1335) Add a new module linkis-datasource-manager-common, add datasource data structure/exception class/util class.
-* \[DMS-Common][[Linkis-1340]](https://github.com/apache/incubator-linkis/pull/1340) Add a new module linkis-metadata-manager-common, add metadata data structure/exception class/util class.
-* \[MDS-Server][[Linkis-1352]](https://github.com/apache/incubator-linkis/pull/1352) Add a new module linkis-datasource-manager-server to provide data source management services, provides functions such as adding, deleting, checking, and modifying data sources through the restful interface.
-* \[MDS-Server][[Linkis-1356]](https://github.com/apache/incubator-linkis/pull/1356) Add a new module linkis-metadata-manager-server to provide metadata management services, which provides database, table, and column queries of metadata through the restful interface.
-* \[MDS-Services][[Linkis-1366]](https://github.com/apache/incubator-linkis/pull/1366) Add a new module linkis-metadata-manager-service-es to provide elasticsearch metadata management service.
-* \[MDS-Services][[Linkis-1368]](https://github.com/apache/incubator-linkis/pull/1368) Add a new module linkis-metadata-manager-service-hive, providing for hive Metadata management service.
-* \[MDS-Services][[Linkis-1371]](https://github.com/apache/incubator-linkis/pull/1371) Add a new module linkis-metadata-manager-service-kafka, providing for kafka Metadata management service.
-* \[MDS-Services][[Linkis-1373]](https://github.com/apache/incubator-linkis/pull/1373) Add a new module linkis-metadata-manager-service-mysql, provide for mysql Metadata management service.
-* \[DMS&MDS-Client][[Linkis-1418]](https://github.com/apache/incubator-linkis/pull/1418) [[Linkis-1434]](https://github.com/apache /incubator-linkis/pull/1434)[[Linkis-1438]](https://github.com/apache/incubator-linkis/pull/1438)[[Linkis-1441]](https://github.com /apache/incubator-linkis/pull/1441) Add a new data source management Java client module linkis-datasource-client to facilitate data source management through sdk.
-* \[DMS&MDS-Web][[Linkis-1456]](https://github.com/apache/incubator-linkis/pull/1456) [[Linkis-1510] Added data source front-end management page, through which you can Simple creation and testing of the data source.
----
+* \[Gateway&Entrance][[Linkis-1608]](https://github.com/apache/incubator-linkis/pull/1608) Support proxy user mode, user A can perform tasks on behalf of user B, query user B's Related data, a proxy user can proxy multiple users
+* \[LM-ResourceManager][[Linkis-1616]](https://github.com/apache/incubator-linkis/pull/1616) The resource address configuration of YARN ResourceManager supports high-availability multi-address configuration, the current YARN ResourceManager conversion When the status or stop, the master node will be resolved from the high-availability address list to continue to provide services
+* \[EC-OpenLooKeng][[Linkis-1639]](https://github.com/apache/incubator-linkis/issues/1639) Added support for data virtualization engine OpenLooKeng
+* \[UDF][[Linkis-1534]](https://github.com/apache/incubator-linkis/pull/1534) Support UDF multi-version control and UDF storage to BML, submit tasks support Yarn queue resources Use statistics collection and management console page visualization
+* \[Client][[Linkis-1718]](https://github.com/apache/incubator-linkis/issues/1718) The Linkis-cli client supports submitting Once type tasks, which will only run once after the engine process is started Task, automatically destroyed after the task is over
+* \[ECP][[Linkis-1758]](https://github.com/apache/incubator-linkis/issues/1758) Add engine material refresh interface, support to refresh engine material resources through http interface call
 
 ## Enhancement
-* \[MGS-LinkisServiceGateway][[Linkis-1377]](https://github.com/apache/incubator-linkis/pull/1377) Introduce the Skywalking component to provide basic capabilities of distributed trace and troubleshooting
-* \[CGS-EngineConnPlugin][[Linkis-1408]](https://github.com/apache/incubator-linkis/pull/1408) Adjust the default maximum idle time of engine resources to 0.5h to optimize multi-user scenarios Next, the problem of waiting time for resource competition
-* \[CGS-EngineConnPlugin][[Linkis-1535]](https://github.com/apache/incubator-linkis/pull/1535) set JAVA_ENGINE_REQUEST_INSTANCE to constant 1
-* \[DB][[Linkis-1554]](https://github.com/apache/incubator-linkis/pull/1554) Add DataSource DDL and DML SQL
-* \[MDS][[Linkis-1583]](https://github.com/apache/incubator-linkis/pull/1583) Add functionality to get attributes of partitions in Hive datasources and fix connection issues
-* \[MGS-LinkisServiceGateway][[Linkis-1636]](https://github.com/apache/incubator-linkis/pull/1636) use regular expression to match gateway URL, if it matches, it will pass normally
-* \[Commons][[Linkis-1397]](https://github.com/apache/incubator-linkis/pull/1397) Add maven wrapper to support compiling and packaging using mvnw script
-* \[EC][[Linkis-1425]](https://github.com/apache/incubator-linkis/pull/1425) Unify ec's log configuration file as log4j2.xml
-* \[Install-Script][[Linkis-1563]](https://github.com/apache/incubator-linkis/pull/1563) Optimize linkis-cli client script, remove redundant linkis-cli- start script file
-* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) Optimize the installation and deployment script, add a database connection test check when installing and deploying; Before initialization, print the information of the database so that the personnel can confirm again
-* \[Install-Script][Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) Add necessary deployment log information and color identification of key information, such as execution steps/create directory log, etc.
-* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) add basic environment check for spark/hadoop/hive
-* \[Install-Script][[Linkis-1559]](https://github.com/apache/incubator-linkis/issues/1559) Migrate hive metabase HIVE_META information configuration from linkis-env.sh to db. sh
-* \[Commons][[Linkis-1557]](https://github.com/apache/incubator-linkis/issues/1557) Spring-boot/Spring-cloud version control uses the pom file method of the official dependency manager, Avoid introducing too many version configurations
-* \[Commons][[Linkis-1621]](https://github.com/apache/incubator-linkis/pull/1621) Spring upgrade, Spring-boot upgrade to 2.3.12.RELEASE, Spring-cloud upgrade to Hoxton.SR12
-* \[Commons][[Linkis-1558]](https://github.com/apache/incubator-linkis/issues/1558) Unit test JUnit 4 migration upgrade to JUnit 5
-* \[Commons&MGS-Eureka][[Linkis-1313]](https://github.com/apache/incubator-linkis/issues/1313) Remove unnecessary third-party dependencies and reduce packaged materials to a certain extent package size
-* \[Commons&MGS-LinkisServiceGateway][[Linkis-1660]](https://github.com/apache/incubator-linkis/pull/1660) Use spring-boot-starter-jetty to replace the direct introduction of jetty dependencies to avoid jetty version conflict
----
+
+* \[Gateway][[Linkis-1430]](https://github.com/apache/incubator-linkis/issues/1430) For the Token authentication method, the Token acquisition is adjusted from the configuration file to the database table
+* \[Entrance][[Linkis-1642]](https://github.com/apache/incubator-linkis/pull/1642) Optimize the excel export interface resultsetToExcel: support passing the number of rows of downloaded data
+* \[Entrance][[Linkis-1733]](https://github.com/apache/incubator-linkis/pull/1733) Add support for more default time variables related to run_date
+* \[Entrance][[Linkis-1794]](https://github.com/apache/incubator-linkis/pull/1794) Add to limit the data size of a single row in the result set, and optimize the OOM problem caused by large result sets
+* \[DMS-Common][[Linkis-1757]](https://github.com/apache/incubator-linkis/issues/1757) Support to configure Hive metadata administrator, administrators can obtain hive's metadata through the interface Metadata information for all library tables
+* \[Common][[Linkis-1799]](https://github.com/apache/incubator-linkis/pull/1799) Optimize the segmentation of service logs: adjust the log history segmentation time from one day to one hour
+* \[Common][[Linkis-1921]](https://github.com/apache/incubator-linkis/pull/1921) Optimize Jackson's dependency management: manage jackson dependencies uniformly through jackson-bom, and upgrade to Version 2.11.4
+* \[ECM][[Linkis-1779]](https://github.com/apache/incubator-linkis/issues/1779) Optimize the status monitoring logic of ECM instances, and increase the judgment of heartbeat reporting time. The fix may be due to Eureka performance issues leading to misjudgment issues
+* \[ECM][[Linkis-1930]](https://github.com/apache/incubator-linkis/pull/1930) ECM resource is not checked when optimizing resource check
+* \[Web][[Linkis-1596]](https://github.com/apache/incubator-linkis/issues/1596) Optimize the use of the interface for viewing the task log of the management console, and fix the log cannot be used for the running job Timely refresh display issues
+* \[Web][[Linkis-1650]](https://github.com/apache/incubator-linkis/issues/1650) linkis console - global history page, support to filter historical task data by creator information search
+
 
 ## Bugs Fix
-* \[Deployment][[Linkis-1390]](https://github.com/apache/incubator-linkis/pull/1390) Fix the directory `wds.linkis.resultSet for storing Job result set files created during installation and deployment. store.path`, the problem of insufficient permissions after switching users during use
-* \[Commons][[Linkis-1469]](https://github.com/apache/incubator-linkis/pull/1469) Fix the problem that SQL cannot be cut correctly when the ';' character is included in the sql script
-* \[CGS-EngineConnPlugin-JDBC][[Linkis-1529]](https://github.com/apache/incubator-linkis/pull/1529) Fix the abnormal problem of NullPointerException in JDBC engine authentication type parameter
-* \[CGS-Entrance][[Linkis-1540]](https://github.com/apache/incubator-linkis/pull/1540) Fix the "kill" method parameter long type in linkis-entrance, which causes the null value to be unrecognized question
-* \[Commons][[Linkis-1600]](https://github.com/apache/incubator-linkis/pull/1600) Fix the lower version of commons-compress, resulting in an error when the result set is downloaded as excel
-* \[CGS-Client][[Linkis-1603]](https://github.com/apache/incubator-linkis/pull/1603) Fix the problem that the client does not support the -runtimeMap parameter
-* \[CGS-EngineConnPlugin-JDBC][[Linkis-1610]](https://github.com/apache/incubator-linkis/pull/1610) Fix jdbc engine cannot support "show databases;" statement problem for postgresql
-* \[Commons][[Linkis-1618]](https://github.com/apache/incubator-linkis/pull/1618) Fix http response return result in xml format instead of json format
-* \[CGS-EngineConnPlugin-JDBC][[Linkis-1646]](https://github.com/apache/incubator-linkis/pull/1646) When JDBC engine queries complex type fields, the value is displayed as object address.
-* \[CGS-EngineConnPlugin-PYTHON][[Linkis-1731]](https://github.com/apache/incubator-linkis/pull/1731) Fix the problem of row inversion of the result set field of the python engine's showDF function
-* \[PES-BML][[Linkis-1556]](https://github.com/apache/incubator-linkis/issues/1556) Fix the HttpMessageNotWritableException that may occur in the file download interface
 
----------
+* \[Entrance][[Linkis-1623]](https://github.com/apache/incubator-linkis/issues/1623) Fix LogPath and ResultSetPath incorrectly use submitUser as executeUser
+* \[Entrance][[Linkis-1640]](https://github.com/apache/incubator-linkis/issues/1640) Fix LogReader using singleton InputStream, there is log loss, unable to read the latest persistent log The problem
+* \[Entrance][[Linkis-2009]](https://github.com/apache/incubator-linkis/issues/2009) Fix the problem of memory leak caused by not closing thread resources in Entrance service
+* \[Entrance][[Linkis-1901]](https://github.com/apache/incubator-linkis/issues/1901) Replaced the cache in EntranceFactory with Guava Cache, fixed that the user modified the concurrency parameter and it could not take effect The problem
+* \[Entrance][[Linkis-1986]](https://github.com/apache/incubator-linkis/issues/1986) Fix the abnormal number of lines obtained in the Entrance real-time log, resulting in the duplicated log obtained
+* \[ECM][[Linkis-1714]](https://github.com/apache/incubator-linkis/pull/1714) Optimize EC by reducing EC Java default memory size and adding retry log for EC application The abnormal problem of "Cannot allocate memory" appears
+* \[ECM][[Linkis-1806]](https://github.com/apache/incubator-linkis/pull/1806) Optimize the life cycle processing logic of EC, when ECM starts EC due to insufficient queue resources and timeout When the status is Failed, kill the EC process
+* \[Common][[Linkis-1721]](https://github.com/apache/incubator-linkis/pull/1721) Fixed the issue that hdfsFileSystem was not refreshed when Kerberos authentication failed
+* \[UDF][[Linkis-1728]](https://github.com/apache/incubator-linkis/pull/1728) Optimize /api/rest_j/v1/udf/all API interface for occasional queries time consuming problem
+* \[Config][[Linkis-1859]](https://github.com/apache/incubator-linkis/issues/1859) Fix the problem of abnormal primary key duplication in the console parameter configuration saveFullTree interface
+* \[Clinet][[Linkis-1739]](https://github.com/apache/incubator-linkis/pull/1739) Fix the ujes-client request, the parameter spelling error caused the parameter transmission to fail
+* \[Client][[Linkis-1783]](https://github.com/apache/incubator-linkis/pull/1783) Fix the problem that the default configuration of the task creator creator parameter does not take effect
+* \[Client][[Linkis-1821]](https://github.com/apache/incubator-linkis/pull/1821) Fix ujes-client request entity class GetTableStatisticInfoAction parameter is missing
+* \[EC][[Linkis-1765]](https://github.com/apache/incubator-linkis/issues/1765) Fix the blocking problem that EC triggers tryShutdown when the task is running
+* \[LM-AppManager][[Linkis-1814]](https://github.com/apache/incubator-linkis/pull/1814) Fix the response information returned by the createEngineConn interface of EngineRestfulApi is incorrect, resulting in NPE in client calls The problem.
+* \[Web][[Linkis-1972]](https://github.com/apache/incubator-linkis/pull/1972) Remove the dss related interface code left but not used by the management console for historical reasons
+* \[EC-Spark][[Linkis-1729]](https://github.com/apache/incubator-linkis/pull/1729) Add SparkPreExecutionHook function, compatible with the old package name before Linkis (com.webank.wedatasphere .linkis)
+* \[EC-JDBC][[Linkis-1851]](https://github.com/apache/incubator-linkis/issues/1851) Fix the jdbc engine, the problem that there are multiple sql statements in one task execution cannot be executed normally
+* \[EC-JDBC][[Linkis-1961]](https://github.com/apache/incubator-linkis/issues/1851) Fix the problem that the log cannot be printed normally due to the SLF4J dependency problem when the jdbc engine starts
+* \[Gateway][[Linkis-1898]](https://github.com/apache/incubator-linkis/pull/1898) Fix the problem that the initial domain name cannot be set when the GatewaySSOUtils user successfully logs in to generate a cookie
+
+## Others 
+* \[License][[Linkis-2110]](https://github.com/apache/incubator-linkis/issues/2110) Removed the binary file .mvn/wrapper/maven-wrapper.jar in the source code, and adjusted the LICENSE content related to .mvn/*
+* \[License][[Linkis-2113]](https://github.com/apache/incubator-linkis/pull/2113) Upgrade py4j-0.10.7-src.zip to py4j-0.10.9.5-src.zip, update the license files of py4j-*.src and adjust it location, from linkis-engineconn-plugins/engineconn-plugins/python /src/main/py4j/LICENSE-py4j-0.10.7-src.txt moved to licenses/LICENSE-py4j-0.10.9.5-src.txt for easy viewing
+* Fixed the issue of using Window's line endings format CTRL in the release source code of shell script:mvnw
+
 
 ## Credits 
 
-The release of Apache Linkis(incubating) 1.1.0 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following contributors for this version: Alexkun, CCweixiao, Celebrate-future, Davidhua1996, FireFoxAhri, WenxiangFan , Zosimer, aleneZeng, casionone, dddyszy, det101, ganlangjie, huapan123456, huiyuanjjjjuice, husofskyzy, iture123, jianwei2, legendtkl, peacewong, pjfanning, silent-carbon, xiaojie19852006
+The release of Apache Linkis(incubating) 1.1.1 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors: AbnerHung, Alexkun, barry8023, CCweixiao, Davidhua1996, Fuu3214, Liveipool, casinoone, demonray , husofskyzy, jackxu2011, legendtkl, lizheng920625, maidangdang44, peacewong, seedscoder
