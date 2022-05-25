@@ -57,7 +57,7 @@ public class LinkisClientTest {
             .readTimeout(30000)  //set read timeout
             .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis authen suppory static and Token
             .setAuthTokenKey("hadoop")  // set submit user
-            .setAuthTokenValue("hadoop")))  // set passwd or token (setAuthTokenValue("BML-AUTH"))
+            .setAuthTokenValue("hadoop")))  // set passwd or token (setAuthTokenValue("test"))
             .setDWSVersion("v1") //linkis rest version v1
             .build();
 
@@ -72,9 +72,9 @@ public class LinkisClientTest {
         try {
 
             System.out.println("user : " + user + ", code : [" + executeCode + "]");
-            // 3. build job and execute
+            // 3.推荐用submit的方式，可以指定任务相关的label支持更多特性
             JobExecuteResult jobExecuteResult = toSubmit(user, executeCode);
-            //0.x:JobExecuteResult jobExecuteResult = toExecute(user, executeCode);
+            //0.x兼容的方式，不推荐使用:JobExecuteResult jobExecuteResult = toExecute(user, executeCode);
             System.out.println("execId: " + jobExecuteResult.getExecID() + ", taskId: " + jobExecuteResult.taskID());
             // 4. get job jonfo
             JobInfoResult jobInfoResult = client.getJobInfo(jobExecuteResult);
@@ -115,8 +115,8 @@ public class LinkisClientTest {
         // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
         Map<String, Object> labels = new HashMap<String, Object>();
         labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
-        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-IDE");// required execute user and creator
-        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // required codeType
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-APPName");// 请求的用户和应用名，两个参数都不能少，其中APPName不能带有"-"建议替换为"_"
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // 指定脚本类型
         // set start up map :engineConn start params
         Map<String, Object> startupMap = new HashMap<String, Object>(16);
         // Support setting engine native parameters,For example: parameters of engines such as spark/hive
@@ -153,7 +153,7 @@ public class LinkisClientTest {
 
         // 2. build JobExecuteAction (0.X old way of using)
         JobExecuteAction executionAction = JobExecuteAction.builder()
-                .setCreator("IDE")  //creator, the system name of the client requesting linkis, used for system-level isolation
+                .setCreator("AppName")  //creator, the system name of the client requesting linkis, used for system-level isolation
                 .addExecuteCode(code)   //Execution Code
                 .setEngineTypeStr("spark") // engineConn type
                 .setRunTypeStr("py") // code type
@@ -217,6 +217,7 @@ object LinkisClientTest {
     try {
       // 3. build job and execute
       println("user : " + user + ", code : [" + executeCode + "]")
+      //推荐使用submit，支持传递任务label
       val jobExecuteResult = toSubmit(user, executeCode)
       //0.X: val jobExecuteResult = toExecute(user, executeCode)
       println("execId: " + jobExecuteResult.getExecID + ", taskId: " + jobExecuteResult.taskID)
@@ -271,14 +272,14 @@ object LinkisClientTest {
     // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
     val labels: util.Map[String, Any] = new util.HashMap[String, Any]
     labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
-    labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-IDE");// required execute user and creator
-    labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // required codeType
+    labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-APPName");// 请求的用户和应用名，两个参数都不能少，其中APPName不能带有"-"建议替换为"_"
+    labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // 指定脚本类型
 
     val startupMap = new java.util.HashMap[String, Any]()
     // Support setting engine native parameters,For example: parameters of engines such as spark/hive
     startupMap.put("spark.executor.instances", 2);
     // setting linkis params
-    startupMap.put("wds.linkis.rm.yarnqueue", "dws");
+    startupMap.put("wds.linkis.rm.yarnqueue", "default");
     // 2. build jobSubmitAction
     val jobSubmitAction = JobSubmitAction.builder
       .addExecuteCode(code)
@@ -305,10 +306,10 @@ object LinkisClientTest {
     // Support setting engine native parameters,For example: parameters of engines such as spark/hive
     startupMap.put("spark.executor.instances", 2)
     // setting linkis params
-    startupMap.put("wds.linkis.rm.yarnqueue", "dws")
+    startupMap.put("wds.linkis.rm.yarnqueue", "default")
     // 2. build JobExecuteAction (0.X old way of using)
     val  executionAction = JobExecuteAction.builder()
-      .setCreator("IDE")  //creator, the system name of the client requesting linkis, used for system-level isolation
+      .setCreator("APPName")  //creator, the system name of the client requesting linkis, used for system-level isolation
       .addExecuteCode(code)   //Execution Code
       .setEngineTypeStr("spark") // engineConn type
       .setRunTypeStr("py") // code type
