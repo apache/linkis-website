@@ -73,9 +73,9 @@ Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://gith
 
 ## 其他
 
-- 移除了源码中的二进制文件.mvn/wrapper/maven-wrapper.jar，调整.mvn/*相关的LICENSE说明
-- 升级 py4j-0.10.7-src.zip 至 py4j-0.10.9.5-src.zip，更新py4j-*.src的license文件并调整其位置，从linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10.7-src.txt 移动至 licenses/LICENSE-py4j-0.10.9.5-src.txt，方便查看 
-- 修复发布源码中，shell脚本:mvnw，使用Window的换行符CTRL问题
+* \[License][[Linkis-2110]](https://github.com/apache/incubator-linkis/issues/2110) 移除了源码中的二进制文件.mvn/wrapper/maven-wrapper.jar，调整.mvn/*相关的LICENSE说明
+* \[License][[Linkis-2113]](https://github.com/apache/incubator-linkis/pull/2113) 升级 py4j-0.10.7-src.zip 至 py4j-0.10.9.5-src.zip，更新py4j-*.src的license文件并调整其位置，从linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10.7-src.txt 移动至 licenses/LICENSE-py4j-0.10.9.5-src.txt，方便查看 
+* 修复发布源码中，shell脚本:mvnw，使用Window的换行符CTRL问题
 
 ## 致谢 
 

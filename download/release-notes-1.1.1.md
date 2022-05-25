@@ -72,9 +72,9 @@ abbreviation:
 * \[Gateway][[Linkis-1898]](https://github.com/apache/incubator-linkis/pull/1898) Fix the problem that the initial domain name cannot be set when the GatewaySSOUtils user successfully logs in to generate a cookie
 
 ## Others 
-- Removed the binary file .mvn/wrapper/maven-wrapper.jar in the source code, and adjusted the LICENSE content related to .mvn/*
-- Upgrade py4j-0.10.7-src.zip to py4j-0.10.9.5-src.zip, update the license files of py4j-*.src and adjust it location, from linkis-engineconn-plugins/engineconn-plugins/python /src/main/py4j/LICENSE-py4j-0.10.7-src.txt moved to licenses/LICENSE-py4j-0.10.9.5-src.txt for easy viewing
-- Fixed the issue of using Window's line endings format CTRL in the release source code of shell script:mvnw
+* \[License][[Linkis-2110]](https://github.com/apache/incubator-linkis/issues/2110) Removed the binary file .mvn/wrapper/maven-wrapper.jar in the source code, and adjusted the LICENSE content related to .mvn/*
+* \[License][[Linkis-2113]](https://github.com/apache/incubator-linkis/pull/2113) Upgrade py4j-0.10.7-src.zip to py4j-0.10.9.5-src.zip, update the license files of py4j-*.src and adjust it location, from linkis-engineconn-plugins/engineconn-plugins/python /src/main/py4j/LICENSE-py4j-0.10.7-src.txt moved to licenses/LICENSE-py4j-0.10.9.5-src.txt for easy viewing
+* Fixed the issue of using Window's line endings format CTRL in the release source code of shell script:mvnw
 
 
 ## Credits 
