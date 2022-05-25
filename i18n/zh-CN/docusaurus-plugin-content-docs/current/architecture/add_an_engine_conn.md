@@ -6,7 +6,7 @@ EngineConn的新增，是Linkis计算治理的计算任务准备阶段的核心�
 
 ![EngineConn新增流程](/Images-zh/Architecture/EngineConn新增流程/EngineConn新增流程.png)
 
-## 一、LinkisManager接收客户端请求
+## 1. LinkisManager接收客户端请求
 
 **名词解释**：
 
@@ -21,15 +21,15 @@ EngineConn的新增，是Linkis计算治理的计算任务准备阶段的核心�
 
 下面将对四个步骤进行详细说明。
 
-### 1. 请求参数校验
+### 1.1 请求参数校验
 
 &nbsp;&nbsp;&nbsp;&nbsp;AM模块在接受到引擎创建请求后首先会做参数判断，首先会做请求用户和创建用户的权限判断，接着会对请求带上的Label进行检查。因为在AM后续的创建流程当中，Label会用来查找ECM和进行资源信息记录等，所以需要保证拥有必须的Label，现阶段一定需要带上的Label有UserCreatorLabel(例：hadoop-IDE)和EngineTypeLabel(例：spark-2.4.3）。
 
-### 2. EngineConnManager（ECM）选择
+### 1.2 EngineConnManager（ECM）选择
 
 &nbsp;&nbsp;&nbsp;&nbsp;ECM选择主要是完成通过客户端传递过来的Label去选择一个合适的ECM服务去启动EngineConn。这一步中首先会通过LabelManager去通过客户端传递过来的Label去注册的ECM中进行查找，通过按照标签匹配度进行顺序返回。在获取到注册的ECM列表后，会对这些ECM进行规则选择，现阶段已经实现有可用性检查、资源剩余、机器负载等规则。通过规则选择后，会将标签最匹配、资源最空闲、负载低的ECM进行返回。
 
-### 3. EngineConn资源申请
+### 1.3 EngineConn资源申请
 
 1. 在获取到分配的ECM后，AM接着会通过调用EngineConnPluginServer服务请求本次客户端的引擎创建请求会使用多少的资源，这里会通过封装资源请求，主要包含Label、Client传递过来的EngineConn的启动参数、以及从Configuration模块获取到用户配置参数，通过RPC调用ECP服务去获取本次的资源信息。
 
@@ -45,12 +45,12 @@ EngineConn的新增，是Linkis计算治理的计算任务准备阶段的核心�
 - EngineConn启动命令生成器（EngineConnLaunchBuilder）：通过传入的参数，生成该EngineConn的启动命令，以提供给ECM去启动引擎。
 3. AM在获取到引擎资源后，会接着调用RM服务去申请资源，RM服务会通过传入的Label、ECM、本次申请的资源，去进行资源判断。首先会判断客户端对应Label的资源是否足够，然后再会判断ECM服务的资源是否足够,如果资源足够，则本次资源申请通过，并对对应的Label进行资源的加减。
 
-### 4. 请求ECM创建引擎
+### 1.4 请求ECM创建引擎
 
 1. 在完成引擎的资源申请后，AM会封装引擎启动的请求，通过RPC发送给对应的ECM进行服务启动，并获取到EngineConn的实例对象；
 2. AM接着会去通过EngineConn的上报信息判断EngineConn是否启动成功变成可用状态，如果是就会将结果进行返回，本次新增引擎的流程也就结束。
 
-## 二、 ECM启动EngineConn
+## 2. ECM启动EngineConn
 
 名词解释：
 
@@ -78,7 +78,7 @@ ECM获取到EngineConnLaunchRequest之后，将EngineConnLaunchRequest中的BML�
 
 执行该启动脚本后，ECM会实时监听脚本的执行状态和执行日志，一旦执行状态返回非0，则立马向LinkisManager汇报EngineConn启动失败，整个流程完成；否则则一直监听启动脚本的日志和状态，直到该脚本执行完成。
 
-## 三、EngineConn初始化
+## 3. EngineConn初始化
 
 ECM执行了EngineConn的启动脚本后，EngineConn微服务正式启动。
 
