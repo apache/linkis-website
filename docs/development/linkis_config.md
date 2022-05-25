@@ -106,8 +106,8 @@ Note: When submitting client parameters, only engine-related parameters, tag par
      labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // Specify engine type and version
      labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-IDE");// Specify the running user and your APPName
      labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // Specify the type of script to run: spark supports: sql, scala, py; Hive: hql; shell: sh; python: python; presto: psql
-     labels.put(LabelKeyConstant.JOB_RUNNING_TIMEOUT_KEY, "10000");//The job runs for 10s and automatically initiates Kill, the unit is ms
-     labels.put(LabelKeyConstant.JOB_QUEUING_TIMEOUT_KEY, "10000");//The job is queued for more than 10s and automatically initiates Kill, the unit is ms
+     labels.put(LabelKeyConstant.JOB_RUNNING_TIMEOUT_KEY, "10000");//The job runs for 10s and automatically initiates Kill, the unit is s
+     labels.put(LabelKeyConstant.JOB_QUEUING_TIMEOUT_KEY, "10000");//The job is queued for more than 10s and automatically initiates Kill, the unit is s
      labels.put(LabelKeyConstant.RETRY_TIMEOUT_KEY, "10000");//The waiting time for the job to retry due to resources and other reasons, the unit is ms. If it fails due to insufficient queue resources, it will initiate 10 retries at intervals by default
      labels.put(LabelKeyConstant.TENANT_KEY,"hduser02");//Tenant label, if the tenant parameter is specified for the task, the task will be routed to a separate ECM machine
      labels.put(LabelKeyConstant.EXECUTE_ONCE_KEY,"");//Execute the label once, this parameter is not recommended to be set. After setting, the engine will not reuse the task and the engine will end after running. Only a certain task parameter can be specialized. set up
