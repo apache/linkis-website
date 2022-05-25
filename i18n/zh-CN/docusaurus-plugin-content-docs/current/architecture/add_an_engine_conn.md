@@ -50,7 +50,7 @@ EngineConn的新增，是Linkis计算治理的计算任务准备阶段的核心�
 1. 在完成引擎的资源申请后，AM会封装引擎启动的请求，通过RPC发送给对应的ECM进行服务启动，并获取到EngineConn的实例对象；
 2. AM接着会去通过EngineConn的上报信息判断EngineConn是否启动成功变成可用状态，如果是就会将结果进行返回，本次新增引擎的流程也就结束。
 
-## 二、 ECM启动EngineConn
+## 2. ECM启动EngineConn
 
 名词解释：
 
@@ -78,7 +78,7 @@ ECM获取到EngineConnLaunchRequest之后，将EngineConnLaunchRequest中的BML�
 
 执行该启动脚本后，ECM会实时监听脚本的执行状态和执行日志，一旦执行状态返回非0，则立马向LinkisManager汇报EngineConn启动失败，整个流程完成；否则则一直监听启动脚本的日志和状态，直到该脚本执行完成。
 
-## 三、EngineConn初始化
+## 3. EngineConn初始化
 
 ECM执行了EngineConn的启动脚本后，EngineConn微服务正式启动。
 
