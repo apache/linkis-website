@@ -9,7 +9,7 @@ sidebar_position: 0.1
 - [UDF相关的表结构](/table/udf-table.md)
 - [openLooKeng的引擎的实现](/blog/2022/03/20/openlookeng)
 - [openLooKeng的使用](/engine_usage/openlookeng.md)
-- [版本的Release-Notes](release-notes-1.1.1.md)
+- [版本的release-notes](/download/release-notes-1.1.1)
 
 ## 参数变化 
 

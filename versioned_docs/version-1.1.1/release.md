@@ -9,7 +9,7 @@ sidebar_position: 0.1
 - [UDF related table structure](/table/udf-table.md)
 - [Implementation of OpenLookEng Engine](/blog/2022/03/20/openlookeng)
 - [Use of OpenLookEng](/engine_usage/openlookeng.md)
-- [release-notes](release-notes-1.1.1.md)
+- [release-notes](/download/release-notes-1.1.1)
 
 ## Parameter Changes
 
