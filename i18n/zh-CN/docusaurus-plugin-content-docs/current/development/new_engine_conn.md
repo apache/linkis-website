@@ -9,7 +9,7 @@ sidebar_position: 3
 
 ### 1.1 新建一个maven模块，并引入ECP的maven依赖
 
-![maven依赖](/images-zh/EngineConnNew/engine_jdbc_dependency.png)
+![maven依赖](/Images-zh/EngineConnNew/engine_jdbc_dependency.png)
 
 ```xml
 <dependency>
