@@ -1,35 +1,7 @@
 RewriteEngine On
 RewriteBase /
 
-
-RewriteCond %{HTTP_HOST} ^(www\.)?ignite.incubator.apache.org$
-RewriteRule ^/?(.*)$ https://ignite.apache.org/$1 [L,R=301]
-
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://%{SERVER_NAME}/$1 [R=301,L]
-
-RewriteRule ^releases/latest/(.*)$ /releases/2.13.0/$1 [L]
-RewriteRule ^releases/mobile/(.*)$ /releases/latest/javadoc/$1 [R=301,L]
-#redirects all 404 pages under api doc path, to it corresponding index
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^releases/(.*)/(javadoc|scaladoc|cppdoc|dotnetdoc)/(.*)$ /releases/latest/$2/ [R=301,L]
-
-#rewrite for user docs .html files
-
-
-RewriteRule ^docs/?$ /docs/latest/ [R=301,L]
-RewriteRule ^docs/latest$ /docs/latest/ [R=301,L]
-RewriteRule ^docs/latest/(.*)$ /docs/2.13.0/$1 [L]
-
-#removes trailing slash under docs
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^docs/(.*)/$ /docs/$1 [L,R=301] 
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^docs/(.*)$ /docs/$1.html [NC]
-
-
+RewriteRule   ^older/(.*)$ 1.1.0/$1 [L]
+RewriteRule ^/docs/older/(.*) https://linkis.apache.org/docs/1.0.3/$1  [R=301,L,NE]
 
 ErrorDocument 404 /404.html
