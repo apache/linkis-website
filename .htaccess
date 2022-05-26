@@ -1,5 +1,9 @@
+Options +FollowSymLinks
 RewriteEngine On
 
-RewriteRule   ^older/(.*)$ 1.1.0/$1 [L]
+# Redirect to the latest release
+RewriteRule ^latest$ https://nightlies.apache.org/directory/apacheds/2.0.0.AM26/ [QSA,L]
+RewriteRule ^latest/(.*)$ https://nightlies.apache.org/directory/apacheds/2.0.0.AM26/$1 [QSA,L]
 
-RewriteRule ^/docs/older/(.*) https://linkis.apache.org/docs/1.0.3/$1  [R=301,L,NE]
+# Redirect everything else
+RewriteRule ^(.*)$ https://nightlies.apache.org/directory/apacheds/$1 [QSA,L]
