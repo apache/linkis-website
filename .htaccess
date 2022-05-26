@@ -1,1 +1,3 @@
+RewriteEngine On
 
+RewriteRule   ^older/(.*)$ 1.1.0/$1 [L]
