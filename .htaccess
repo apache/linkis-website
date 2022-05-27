@@ -1,6 +1,1 @@
-RewriteEngine On
-RewriteBase /
 
-RewriteRule ^/docs/older/(.*) https://linkis.apache.org/docs/1.0.3/$1  [R=301]
-
-ErrorDocument 404 /404.html
