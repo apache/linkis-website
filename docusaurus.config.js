@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   // omit unrelated docusaurus options
   title: 'Apache Linkis',
   tagline: 'Apache Linkis',
-  url: 'https://linkis.incubator.apache.org',
+  url: 'https://linkis.apache.org',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
@@ -41,14 +41,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.1.2',
-            },
-            '1.1.1': {
-              path: 'latest',
+              path: '1.1.1',
             },
            '1.1.0': {
                       //label: 'Next v1.0.3 (WIP)',
-                      path: '1.1.0',
+                      path: 'latest',
                       //banner: 'none',
                     },
             '1.0.3': {
