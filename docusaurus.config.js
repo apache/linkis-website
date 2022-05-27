@@ -43,8 +43,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             current: {
               path: '1.1.2',
             },
-            '1.1.1':{
-              path: 'latest'
+            '1.1.1': {
+              path: 'latest',
             },
            '1.1.0': {
                       //label: 'Next v1.0.3 (WIP)',
