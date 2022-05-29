@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   // omit unrelated docusaurus options
   title: 'Apache Linkis',
   tagline: 'Apache Linkis',
-  url: 'https://linkis.apache.org',
+  url: 'https://linkis.incubator.apache.org',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
