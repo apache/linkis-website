@@ -34,5 +34,5 @@ export default (props) => {
         });
     }
     html += '</table>';
-    return <div dangerouslySetInnerHTML={{ __html: html }}/>;
+    return <div style={{width:'1300px'}} dangerouslySetInnerHTML={{ __html: html }}/>;
 }
