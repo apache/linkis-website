@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://linkis.apache.org/zh-CN/blog</id>
+    <id>https://linkis.incubator.apache.org/zh-CN/blog</id>
     <title>Apache Linkis Blog</title>
     <updated>2022-04-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://linkis.apache.org/zh-CN/blog"/>
+    <link rel="alternate" href="https://linkis.incubator.apache.org/zh-CN/blog"/>
     <subtitle>Apache Linkis Blog</subtitle>
-    <icon>https://linkis.apache.org/zh-CN/img/favicon.ico</icon>
+    <icon>https://linkis.incubator.apache.org/zh-CN/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[如何下载安装包中默认没有的引擎插件]]></title>
         <id>如何下载安装包中默认没有的引擎插件</id>
-        <link href="https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin"/>
+        <link href="https://linkis.incubator.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin"/>
         <updated>2022-04-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[本文主要指引大家如何下载每个版本对应的非默认引擎安装插件包。]]></summary>
         <author>
@@ -21,7 +21,7 @@
     <entry>
         <title type="html"><![CDATA[OpenLookEng的引擎的实现]]></title>
         <id>OpenLookEng的引擎的实现</id>
-        <link href="https://linkis.apache.org/zh-CN/blog/2022/03/20/openlookeng"/>
+        <link href="https://linkis.incubator.apache.org/zh-CN/blog/2022/03/20/openlookeng"/>
         <updated>2022-03-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[概述]]></summary>
         <author>
@@ -32,14 +32,14 @@
     <entry>
         <title type="html"><![CDATA[Linkis 部署排障]]></title>
         <id>Linkis 部署排障</id>
-        <link href="https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy"/>
+        <link href="https://linkis.incubator.apache.org/zh-CN/blog/2022/02/21/linkis-deploy"/>
         <updated>2022-02-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[linkis的部署说明和注意点]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[如何编写博客]]></title>
         <id>如何编写博客</id>
-        <link href="https://linkis.apache.org/zh-CN/blog/2022/02/08/how-to-user-blog"/>
+        <link href="https://linkis.incubator.apache.org/zh-CN/blog/2022/02/08/how-to-user-blog"/>
         <updated>2022-02-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[本文主要指引大家如何在 Linkis 官网发布博文，欢迎大家提交关于Apache Linkis的博文文档，包括但不仅限于Linkis的安装/源码解析/架构/经验分享等。]]></summary>
         <author>
