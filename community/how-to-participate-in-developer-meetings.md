@@ -27,7 +27,7 @@ It is strongly recommended to subscribe to the Apache mail to keep abreast of th
 
 ## Regular meetings held
 - [Meeting 1: 2022-01-19](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810585)
-- [Meeting 2: 2022-02-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810803)
+- [Meeting 2: 2022-02-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810803) 
 - [Meeting 3: 2022-02-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810948)
 - [Meeting 4: 2022-03-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812549)
 - [Meeting 5: 2022-03-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812700)
