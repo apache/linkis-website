@@ -98,6 +98,7 @@ Client内存1G，python client 1G，每个引擎都使用1个核，那么就是 
 ### 2.2 Eureka多活配置调整 
 注册中心Eureka服务，需要部署在服务器A和服务器B上，
 
+
 修改Eureka配置文件,把两台Eureka的配置地址都加上，让Eureka服务之间相互注册。  
 在服务器A上，进行如下配置修改  
 
@@ -108,6 +109,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port2/eureka/
+
 
 修改 $LINKIS_HOME/conf/linkis.properties 配置
   
@@ -136,6 +138,7 @@ sbin/linkis-stop-all.sh
 #stopApp
 
 ```
+
 
 ## 3 注意事项
 - 分部署部署时，linkis的安装目录建议保持一致，方便统一管控，相关的配置文件最好也保持一致 
