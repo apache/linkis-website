@@ -1,36 +1,38 @@
 ---
-title: 如何参与开发者例会 
+title: How to participate in developer meetings
 sidebar_position: 2.2
 ---
 
-# 如何参与开发者例会
+# How to participate in developer meetings
 
-## 开发者例会介绍
-随着Linkis的开发者越来越多，需要建立起一个沟通机制；因此2022年开始，我们就建立起Linkis开发者双周例会的形式。
+## Introduction to developer meetings
 
-例会的简要说明：
-- 周期：每两周举办一次，在周三晚上19:30开始，具体时间留意群通知；
-- 参与者：社区用户、开发者，只要您感兴趣，都可以参加；
-- 参与方式：使用腾讯会议参与，链接：https://meeting.tencent.com/dm/cE6SdQIoSDEJ
-- 例会内容：Linkis版本规划和开发进展、新特性新功能讨论、架构设计、社区运营进展、问题答疑等；
-- 问题收集：如有任何疑问，可以提前录入需要寻求解答的问题到表格中，例会上项目组为大家解答，问题搜集链接：[https://docs.qq.com/sheet/DUlJIREJKaHlVVUVU?u=444994d9ce1841d3af5bb0d65efbe4a9&tab=ggfj6i](https://docs.qq.com/sheet/DUlJIREJKaHlVVUVU?u=444994d9ce1841d3af5bb0d65efbe4a9&tab=ggfj6i)
+As there are more and more developers of Linkis, a communication mechanism needs to be established; therefore, starting from 2022, we will establish a bi-weekly regular meeting for Linkis developers.
 
-每一期的例会，都会通过WDS小助手和Apache邮件进行通知。
-强烈建议订阅Apache邮件，及时了解社区最新进展。订阅攻略：https://linkis.apache.org/zh-CN/community/how-to-subscribe
+A brief description of the regular meeting:
+- Period: Held every two weeks, starting at 19:30 on Wednesday evening, pay attention to the group notification for the specific time;
+- Participants: community users, developers, as long as you are interested, you can participate;
+- Participation method: use Tencent conference to participate, link: https://meeting.tencent.com/dm/cE6SdQIoSDEJ
+- Regular meeting content: Linkis version planning and development progress, discussion of new features and functions, architecture design, community operation progress, Q&A, etc.;
+- Question collection: If you have any questions, you can enter the questions that need to be answered in the form in advance, and the project team will answer them at the regular meeting. Question collection link: [https://docs.qq.com/sheet/DUlJIREJKaHlVVUVU?u= 444994d9ce1841d3af5bb0d65efbe4a9&tab=ggfj6i](https://docs.qq.com/sheet/DUlJIREJKaHlVVUVU?u=444994d9ce1841d3af5bb0d65efbe4a9&tab=ggfj6i)
 
-## 例会文档记录
-1、[《周例会议题文档》](https://docs.qq.com/doc/DZkFFbHVWc3F2V3N3?u=444994d9ce1841d3af5bb0d65efbe4a9)：记录周例会时间、主持人、议题等信息；  
-2、[《Linkis孵化进展》](https://docs.qq.com/sheet/DSFJyTld3Y0JGeU54?u=444994d9ce1841d3af5bb0d65efbe4a9&tab=uf5xax)：记录Linkis的版本进度、开发规范、社区管理等信息  
-3、[《问题收集》](https://docs.qq.com/sheet/DUlJIREJKaHlVVUVU?u=444994d9ce1841d3af5bb0d65efbe4a9&tab=ggfj6i)：记录社区开发者提问、答疑等信息
+Every regular meeting will be notified through WDS assistant and Apache email.
+It is strongly recommended to subscribe to the Apache mail to keep abreast of the latest developments in the community. Subscription strategy: https://linkis.apache.org/zh-CN/community/how-to-subscribe
 
-## 已举办的例会
--   [第1期：2022-01-19](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810585)
--   [第2期：2022-02-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810803)
--   [第3期：2022-02-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810948)
--   [第4期：2022-03-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812549)
--   [第5期：2022-03-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812700)
--   [第6期：2022-04-06](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813196)
--   [第7期：2022-04-20](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813537)
--   [第8期：2022-05-11](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813976)
--   [第9期：2022-05-25](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1139226462)
+## Regular meeting documentation
+1. ["Documents on Weekly Meeting Issues"](https://docs.qq.com/doc/DZkFFbHVWc3F2V3N3?u=444994d9ce1841d3af5bb0d65efbe4a9): Record the weekly meeting time, host, issues and other information;
+2. ["Linkis Incubation Progress"](https://docs.qq.com/sheet/DSFJyTld3Y0JGeU54?u=444994d9ce1841d3af5bb0d65efbe4a9&tab=uf5xax): record information such as Linkis version progress, development specifications, community management, etc.
+3. ["Question Collection"](https://docs.qq.com/sheet/DUlJIREJKaHlVVUVU?u=444994d9ce1841d3af5bb0d65efbe4a9&tab=ggfj6i): Record community developers' questions, answers and other information
+
+
+## Regular meetings held
+- [Meeting 1: 2022-01-19](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810585)
+- [Meeting 2: 2022-02-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810803) 
+- [Meeting 3: 2022-02-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810948)
+- [Meeting 4: 2022-03-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812549)
+- [Meeting 5: 2022-03-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812700)
+- [Meeting 6: 2022-04-06](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813196)
+- [Meeting 7: 2022-04-20](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813537)
+- [Meeting 8: 2022-05-11](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813976)
+- [Meeting 9: 2022-05-25](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1139226462)
 
