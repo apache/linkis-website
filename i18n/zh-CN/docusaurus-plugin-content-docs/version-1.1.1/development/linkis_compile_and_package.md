@@ -160,6 +160,22 @@ pom:Linkis/linkis-commons/linkis-hadoop-common/pom.xml
     </properties>
 ```
 
+```bash
+    cd incubator-linkis-x.x.x
+    vim pom.xml
+```
+
+```xml
+    <properties>
+      
+
+        <scala.version>2.11.12</scala.version> <!--> 在这里修改spark对应的scala版本号，如果是spark3.2.1需要修改成2.12.15 <-->
+        ...
+        <scala.binary.version>2.11</scala.binary.version><!--> 在这里修改spark对应的scala版本号，如果是spark3.2.1需要修改成2.12<-->
+              
+    </properties>
+```
+
 修改其他引擎的版本与修改 Spark 版本类似，先进入相关引擎所在的目录，手动修改 pom.xml 文件的引擎版本信息即可。
 
 然后请参考 [编译某个引擎](#4-编译某个引擎)
