@@ -2,7 +2,7 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-- [无HDFS模式的精简化部署](/deployment/deploy_linkis_without_hdfs.md)
+- [无HDFS模式的精简化部署指引](/deployment/deploy_linkis_without_hdfs.md)
 - [Sqoop引擎的使用](/engine_usage/sqoop.md)
 - [历史任务查询HTTP接口](/api/http/jobhistory-api.md)
 - [版本的Release-Notes](release-notes-1.1.2.md)
@@ -28,7 +28,7 @@ sidebar_position: 0.1
 |ec-sqoop | 新增  | sqoop.params.name.mode                         | sqoop.mode|                        |
 |ec-sqoop | 新增  | sqoop.params.name.prefix                        | sqoop.args.|                     |
 |ec-sqoop | 新增  | sqoop.params.name.env.prefix                    |sqoop.env.|                     |             
-|ec-sqoop | 新增  | linkis.hadoop.site.xml                     |\/etc\/hadoop/\conf\/core-site.xml;<br/>\/etc\/hadoop\/conf\/hdfs-site.xml;<br/>\/etc\/hadoop\/conf\/yarn-site.xml;<br/>\/etc\/hadoop\/conf\/mapred-site.xml|  设置sqoop加载hadoop参数文件位置                   |          
+|ec-sqoop | 新增  | linkis.hadoop.site.xml                     |/etc/hadoop/conf/core-site.xml;<br/>/etc/hadoop/conf/hdfs-site.xml;<br/>/etc/hadoop/conf/yarn-site.xml;<br/>/etc/hadoop/conf/mapred-site.xml|  设置sqoop加载hadoop参数文件位置                   |          
 |ec-sqoop | 新增  | sqoop.fetch.status.interval                    |5s|            设置获取sqoop执行状态的间隔时间         |                       
 
 ## 数据库表变化 
