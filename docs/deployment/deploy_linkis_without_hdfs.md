@@ -10,6 +10,11 @@ For the overall deployment process, please refer to "Quick Deployment", and you 
 ## 1. Configuration modification
 Modify the `linkis-env.sh` file to modify the following:
 ```bash
+#Use path mode [file://path]  instead of [hdfs://] 
+WORKSPACE_USER_ROOT_PATH=file:///tmp/linkis/
+HDFS_USER_ROOT_PATH=file:///tmp/linkis
+RESULT_SET_ROOT_PATH=file:///tmp/linkis
+
 export ENABLE_HDFS=false
 export ENABLE_HIVE=false
 export ENABLE_SPARK=false
