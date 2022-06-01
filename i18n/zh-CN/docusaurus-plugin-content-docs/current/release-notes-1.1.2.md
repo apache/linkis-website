@@ -6,11 +6,11 @@ sidebar_position: 0.4
 Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20)。
 
 
-本次发布主要支持 Linkis 部署解耦 HDFS；添加 Sqoop 引擎；修复社区已知 bug；修复安全漏洞等；
+本次发布主要 支持在无HDFS的环境下进行精简化部署（支持部分引擎），方便更轻量化的学习使用和调试；新增对数据迁移工具 Sqoop 引擎的支持；异常处理日志优化；部分安全漏洞组件升级等；修复社区反馈的已知 bug
 
 主要功能如下：
-* 支持 Linkis 部署接口 HDFS [文档](/deployment/deploy_linkis_without_hdfs.md)
-* Linkis 增加 Sqoop 引擎 [文档](/engine_usage/sqoop.md)
+* 支持在无HDFS的环境下进行精简化部署（支持部分引擎），方便更轻量化的学习使用和调试
+* 新增对数据迁移工具 Sqoop 引擎的支持
 * 优化日志等，提高问题排查效率
 * 修复用户越权等接口的安全问题
 * 部分依赖包的升级和社区已知问题修复
@@ -37,7 +37,7 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * \[Common][[Linkis-1887]](https://github.com/apache/incubator-linkis/pull/1887) RPC模块Sender支持修改负载均衡 Ribbon 等参数
 * \[Common][[Linkis-2059]](https://github.com/apache/incubator-linkis/issues/2059)  使用任务task id 作为日志中的 trace id
 * \[EC][[Linkis-1971]](https://github.com/apache/incubator-linkis/pull/1971) EC AsyncExecutor 支持设置并行 Job Group 的个数
-* \[Engine][[Linkis-2109]](https://github.com/apache/incubator-linkis/pull/2109) 增加对 Sqoop 引擎的支持
+* \[Engine][[Linkis-2109]](https://github.com/apache/incubator-linkis/pull/2109) 新增对数据迁移工具 Sqoop 引擎的支持
 
 ## 增强点
 * \[ECP][[Linkis-2074]](https://github.com/apache/incubator-linkis/issues/2074) Flink 引擎支持自定义配置
@@ -83,14 +83,11 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * \[PS][[Linkis-2086]](https://github.com/apache/incubator-linkis/pull/2086) 方法 /updateCategoryInfo 增加权限校验
 
 ## 依赖变更
-* \[COMMON][[Linkis-1808]](https://github.com/apache/incubator-linkis/pull/1808) commons-lang 升级到 commons-lang3
 * \[MDS][[Linkis-1947]](https://github.com/apache/incubator-linkis/pull/1947) mysql-connector-java 从 5.1.34 升级到 8.0.16
-* \[ECP][[Linkis-1950]](https://github.com/apache/incubator-linkis/pull/1950) hive-exec 从 2.3.3 升级至 2.3.4
-* \[ECP][[Linkis-1951]](https://github.com/apache/incubator-linkis/pull/1951) hive-jdbc 从 1.2.1 升级至 2.3.4
-* \[ECP][[Linkis-1968]](https://github.com/apache/incubator-linkis/pull/1968) 去除有安全问题的 log4j-1.2.17
-* \[ECP][[Linkis-1974]](https://github.com/apache/incubator-linkis/pull/1974) protobuf-java 版本升级至 3.15.8
-* \[ECP][[Linkis-2021]](https://github.com/apache/incubator-linkis/pull/2021) 移除 Flink 模块的一些依赖包
+* \[ECP][[Linkis-1951]](https://github.com/apache/incubator-linkis/pull/1951) hive-jdbc 从 1.2.1 升级至 2.3.3
+* \[ECP][[Linkis-1968]](https://github.com/apache/incubator-linkis/pull/1974) protobuf-java 版本升级至 3.15.8
+* \[ECP][[Linkis-2021]](https://github.com/apache/incubator-linkis/pull/2021) 移除 Flink 模块的一些冗余依赖包
 * \[RPC][[Linkis-2018]](https://github.com/apache/incubator-linkis/pull/2018) 统一 json4s 的版本
 
 ## 致谢
-Apache Linkis(incubating) 1.1.1的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexyang, Casion, David hua, GodfreyGuo, Jack Xu, Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, 李为
+Apache Linkis(incubating) 1.1.2的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexyang, Casion, David hua, GodfreyGuo, Jack Xu, Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, 李为
