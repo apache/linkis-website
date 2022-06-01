@@ -14,7 +14,7 @@ sidebar_position: 0.1
 
 ## Configuration Item 
 
-| module name (service name) | type | parameter name | default value | description |
+| Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
 | ----------- | ----- | ------------------------------- | ------------------------- | ------------------------ |
 |ps-metadatamanager | New | wds.linkis.server.mdm.service.lib.dir | /lib/linkis-public-enhancements/linkis-ps-metadatamanager/service | Set the relative path to load the data source jar package, will be called by reflection|
 |ps-metadatamanager | New | wds.linkis.server.mdm.service.instance.expire-in-seconds | 60 | Set the expiration time for loading sub-services, after which the service will not be loaded |

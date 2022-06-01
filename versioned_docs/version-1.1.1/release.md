@@ -14,7 +14,7 @@ sidebar_position: 0.1
 ## Configuration Item 
 
 
-| module name (service name) | type | parameter name | default value | description |
+| Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
 |ec-openlookeng | New | linkis.openlookeng.engineconn.concurrent.limit | 100|Concurrency Limit |
 |ec-openlookeng | New | linkis.openlookeng.http.connectTimeout | 60L | Client request timeout time http request based on OKhttp |
