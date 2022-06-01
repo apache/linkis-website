@@ -12,7 +12,7 @@ sidebar_position: 0.1
 - [Start SkyWalking](/deployment/involve_skywalking_into_linkis.md)
 - [Release-notes](/download/release-notes-1.1.0)
 
-## Parameter Changes
+## Configuration Item 
 
 | module name (service name) | type | parameter name | default value | description |
 | ----------- | ----- | ------------------------------- | ------------------------- | ------------------------ |

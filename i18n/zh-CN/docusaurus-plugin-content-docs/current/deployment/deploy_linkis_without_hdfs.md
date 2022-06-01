@@ -12,7 +12,7 @@ sidebar_position: 8
 ## 1. 配置修改
 修改 `linkis-env.sh` 文件，修改以下内容：
 ```bash
-#使用file://路径模式代替hdfs://模式 
+#使用[file://]路径模式代替[hdfs://]模式 
 WORKSPACE_USER_ROOT_PATH=file:///tmp/linkis/ 
 HDFS_USER_ROOT_PATH=file:///tmp/linkis 
 RESULT_SET_ROOT_PATH=file:///tmp/linkis 
