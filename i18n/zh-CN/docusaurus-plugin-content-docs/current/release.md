@@ -2,28 +2,35 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-- [代理用户模式介绍](/architecture/proxy_user.md)
-- [UDF函数介绍和使用指引](/user_guide/udf.md)
-- [引擎物料刷新HTTP接口](/api/http/engineconn-plugin-refesh.md)
-- [UDF相关的HTTP接口](/api/http/udf-api.md)
-- [UDF相关的表结构](/table/udf-table.md)
-- [openLooKeng的引擎的实现](/blog/2022/03/20/openlookeng)
-- [openLooKeng的使用](/engine_usage/openlookeng.md)
-- [版本的Release-Notes](release-notes-1.1.1.md)
+- [无HDFS模式的精简化部署](/deployment/deploy_linkis_without_hdfs.md)
+- [Sqoop引擎的使用](/engine_usage/sqoop.md)
+- [历史任务查询HTTP接口](/api/http/jobhistory-api.md)
+- [版本的Release-Notes](release-notes-1.1.2.md)
 
 ## 参数变化 
 
 
 | 模块名(服务名)| 类型  |     参数名                                                | 默认值             | 描述                                                    |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
-|ec-openlookeng | 新增  | linkis.openlookeng.engineconn.concurrent.limit        | 100|并发限制 |
-|ec-openlookeng | 新增  | linkis.openlookeng.http.connectTimeout        | 60L   | 客户端请求的超时时间 基于OKhttp构建的http请求          |
-|ec-openlookeng | 新增  | linkis.openlookeng.http.readTimeout          |60L |    客户端读取超时 基于OKhttp构建的http请求                             |
-|ec-openlookeng | 新增  | linkis.openlookeng.url                       | http://127.0.0.1:8080| openlookeng服务                                  |
-|ec-openlookeng | 新增  | linkis.openlookeng.catalog                  | system| catalog|
-|ec-openlookeng | 新增  | linkis.openlookeng.schema                  |         | schema    |
-|ec-openlookeng | 新增  | linkis.openlookeng.source                 |global| source  |                            |              
+|common   | 新增   |linkis.codeType.runType.relation             | sql=>sql\|hql\|jdbc\|hive\|psql\|fql,<br/>python=>python\|py\|pyspark,<br/>java=>java,scala=>scala,<br/>shell=>sh\|shell |codeType和runType的映射关系|
+|rpc      | 新增  | linkis.rpc.spring.params.enable             | false   | 控制RPC模块的ribbon模式参数开关|
+|ec       | 新增  | linkis.engineconn.max.parallelism           |300 |    异步执行支持设置并发作业组数     |
+|ec       | 新增  | linkis.engineconn.async.group.max.running   | 10|                                   |
+|ec-flink | 新增  | linkis.flink.execution.attached                 | true|                                 |
+|ec-flink | 新增  | linkis.flink.kerberos.enable                    | false|                                |
+|ec-flink | 新增  | linkis.flink.kerberos.login.contexts            | Client,KafkaClient|                  |
+|ec-flink | 新增  | linkis.flink.kerberos.login.keytab              | |                                   |
+|ec-flink | 新增  | linkis.flink.kerberos.login.principal           | |                                   |
+|ec-flink | 新增  | linkis.flink.kerberos.krb5-conf.path            | |                                   |
+|ec-flink | 新增  | linkis.flink.params.placeholder.blank           | \\0x001|                            |
+|ec-sqoop | 新增  | sqoop.task.map.memory                           | 2|                                 |
+|ec-sqoop | 新增  | sqoop.task.map.cpu.cores                        | 1|                                 |
+|ec-sqoop | 新增  | sqoop.params.name.mode                         | sqoop.mode|                        |
+|ec-sqoop | 新增  | sqoop.params.name.prefix                        | sqoop.args.|                     |
+|ec-sqoop | 新增  | sqoop.params.name.env.prefix                    |sqoop.env.|                     |             
+|ec-sqoop | 新增  | linkis.hadoop.site.xml                     |\/etc\/hadoop/\conf\/core-site.xml;<br/>\/etc\/hadoop\/conf\/hdfs-site.xml;<br/>\/etc\/hadoop\/conf\/yarn-site.xml;<br/>\/etc\/hadoop\/conf\/mapred-site.xml|  设置sqoop加载hadoop参数文件位置                   |          
+|ec-sqoop | 新增  | sqoop.fetch.status.interval                    |5s|            设置获取sqoop执行状态的间隔时间         |                       
 
 ## 数据库表变化 
 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.1_schema`文件
+无变化
