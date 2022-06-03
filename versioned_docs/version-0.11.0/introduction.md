@@ -219,7 +219,7 @@ Linkis, as a data intermediary, has made many attempts and efforts to block deta
 
 Like：Linkis, how to implement the Unified Storage Service?How can Linkis unify UDF, function and user variables?
 
-Due to space limitations, this paper is no longer discussed in detail, and you are welcome to visit our[official network](https://linkis.apache.org/)：https://linkis.apache.org
+Due to space limitations, this paper is no longer discussed in detail, and you are welcome to visit our[official network](https://linkis.incubator.apache.org/)：https://linkis.incubator.apache.org
 
 Is there a set of truly open-source, self-developed and well-developed financial production environments and scenes that can be returned to the middle of data in the open source communities so that people can be relatively comfortable taking services for production, supporting financial-grade operations, and securing business-class characteristics?
 

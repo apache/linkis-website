@@ -30,8 +30,8 @@
     <shortdesc>Apache Linkis builds a layer of computation middleware between upper applications and underlying engines.</shortdesc>
     <description>Apache Linkis is a computation middleware project, which decouples the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.).</description>
     <bug-database rdf:resource="https://github.com/apache/incubator-linkis/issues" />
-    <mailing-list rdf:resource="https://linkis.apache.org/community/how-to-subscribe" />
-    <download-page rdf:resource="https://linkis.apache.org/download/main" />
+    <mailing-list rdf:resource="https://linkis.incubator.apache.org/community/how-to-subscribe" />
+    <download-page rdf:resource="https://linkis.incubator.apache.org/download/main" />
 	<repository>
       <GitRepository>
         <location rdf:resource="https://github.com/apache/incubator-linkis.git"/>

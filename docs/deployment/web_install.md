@@ -7,7 +7,7 @@ Linkis 1.0 provides a Linkis Console, which provides functions such as displayin
 
 ## 1. Preparation
 
-1. Download the web installation package from the release page of Linkis ([click here to enter the download page](https://linkis.apache.org/download/main/)), apache-linkis-xxx-incubating-web-bin. tar.gz
+1. Download the web installation package from the release page of Linkis ([click here to enter the download page](https://linkis.incubator.apache.org/download/main/)), apache-linkis-xxx-incubating-web-bin. tar.gz
 Manually decompress: tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz, the decompressed directory is:
 ```
 config.sh

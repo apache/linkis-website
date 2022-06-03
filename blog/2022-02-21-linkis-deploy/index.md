@@ -88,7 +88,7 @@ $ echo $HADOOP_HOME
 linkis installation package, it is recommended to use version 1.X and above
 The versions of 0.X and 1.X are quite different. Before 1.0.3, it was the package name of com.webank.wedatasphere.linkis, and linkis>=1.0.3 was the package name of org.apache.linkis.
 
-[Download address](https://linkis.apache.org/download/main/): https://linkis.apache.org/download/main/
+[Download address](https://linkis.incubator.apache.org/download/main/): https://linkis.incubator.apache.org/download/main/
 
 
 ### 1.4 Low-level dependency checking

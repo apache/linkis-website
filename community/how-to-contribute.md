@@ -28,7 +28,7 @@ Helping answering the questions in the Linkis community is a very valuable way t
 
 ### 1.4 Documentation Refinements
 
-You can find linkis documentations at [linkis-Website](https://linkis.apache.org/docs/latest/introduction), and the supplement of the document is also crucial to the development of Linkis.
+You can find linkis documentations at [linkis-Website](https://linkis.incubator.apache.org/docs/latest/introduction), and the supplement of the document is also crucial to the development of Linkis.
 
 ### 1.5 Other
 Including participating in and helping to organize community exchanges, community operation activities, etc., and other activities that can help the Linkis project and the community.
@@ -151,7 +151,7 @@ The user configuration is in the project root directory /config/, the project st
 
 3. Code directory structure
 
-   For details, see [Linkis Code Directory Structure](https://linkis.apache.org/docs/latest/deployment/sourcecode_hierarchical_structure)
+   For details, see [Linkis Code Directory Structure](https://linkis.incubator.apache.org/docs/latest/deployment/sourcecode_hierarchical_structure)
 
 4. Log directory
 

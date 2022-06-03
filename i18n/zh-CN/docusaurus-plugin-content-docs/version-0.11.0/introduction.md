@@ -218,7 +218,7 @@ Linkis作为数据中间件，为实现对下层调用细节的屏蔽，做了�
 
 比如：Linkis如何实现统一存储服务？Linkis如何统一UDF、函数和用户变量？
 
-由于篇幅所限，本文不再详细论述，如您感兴趣，欢迎您访问我们的[官网](https://linkis.apache.org/)：https://linkis.apache.org
+由于篇幅所限，本文不再详细论述，如您感兴趣，欢迎您访问我们的[官网](https://linkis.incubator.apache.org/)：https://linkis.incubator.apache.org
 
 有没有一套真正基于开源，经过金融级生产环境和场景的自研打磨完善，再回到开源社区的数据中间件，让人能相对放心的拿去服务于生产，支持金融级业务，具备企业级特性保障？
 

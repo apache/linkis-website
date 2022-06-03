@@ -6,7 +6,7 @@ sidebar_position: 4.5
 ## Linkis安装包解压的目录结构
 
 
-下载官方发布的[编译完整包](https://linkis.apache.org/zh-CN/download/main)，解压后的目录结构如下:
+下载官方发布的[编译完整包](https://linkis.incubator.apache.org/zh-CN/download/main)，解压后的目录结构如下:
 
 ```html
 

@@ -21,5 +21,5 @@ When you add new features, you need to follow the steps below:
 2. [Mandatory] New features need to be added to the version corresponding to GitHub [Project](https://github.com/apache/incubator-linkis/projects)
 3. [Mandatory] The mailing list needs to be sent to installation, database, configuration modification
 4. [Mandatory] New features must add new documents
-5. [Mandatory] New features need to add corresponding unit tests, [Unit Test Specification](https://linkis.apache.org/community/development_specification/unit_test)
+5. [Mandatory] New features need to add corresponding unit tests, [Unit Test Specification](https://linkis.incubator.apache.org/community/development_specification/unit_test)
 6. [Recommended] One feature corresponds to one issue corresponds to one PR

@@ -244,7 +244,7 @@ PPMC members should add new committers to the official committer list via [Roste
 - If you want to use `xxx@apache.org` mail service, please refer to [here](https://infra.apache.org/committer-email.html). Gmail is recommended as this forwarding mode is not easily found in most email service setups.
 - Follow【Authorize GitHub 2FA wiki】(https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) to enable two-factor authorization (2FA) in [Github ](http://github.com/). When you set 2FA to "off", it will be delisted from the corresponding Apache committer write permission group until you set it again. (**Note: pay attention to recovery codes like passwords!**)
 - Use the [GitBox Account Linking Utility] (https://gitbox.apache.org/setup/) to obtain the write permission of the Linkis project.
-- [linkis-website](https://linkis.apache.org/team) related page update
+- [linkis-website](https://linkis.incubator.apache.org/team) related page update
 
 
 For detailed instructions, see [PPMC/Committer Related Permission Configuration](ppmc-related-permission-configuration.md)

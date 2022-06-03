@@ -119,7 +119,7 @@ python -m pip install matplotlib
 
 ### c. Preparing installation package
 
-Download the latest installation package from the Linkis release. ([Click here to enter the download page](https://linkis.apache.org/download/main))
+Download the latest installation package from the Linkis release. ([Click here to enter the download page](https://linkis.incubator.apache.org/download/main))
 
 Decompress the installation package to the installation directory and modify the configuration of the decompressed file.
 

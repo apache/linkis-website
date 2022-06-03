@@ -11,7 +11,7 @@ After obtaining the project code from [github repository](https://github.com/apa
 ### 1.1 Source code acquisition
 
 - Method 1: Obtain the source code of the project from [github repository](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis.
-- Method 2: Download the source code package of the required version from the [linkis official download page](https://linkis.apache.org/download/main) https://linkis.apache.org/download/main.
+- Method 2: Download the source code package of the required version from the [linkis official download page](https://linkis.incubator.apache.org/download/main) https://linkis.incubator.apache.org/download/main.
 
 **Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.12.
 

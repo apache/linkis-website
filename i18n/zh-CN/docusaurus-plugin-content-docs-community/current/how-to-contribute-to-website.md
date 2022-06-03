@@ -79,8 +79,8 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 
 | 版本                               | 访问路径        | 英文文档路径        | 中文文档路径               |
 | ---------------------------------------| -------------- | -------------- | ----------------- |
-| 1.0.2|https://linkis.apache.org/docs/latest/xxx(https://linkis.apache.org/zh-CN/docs/latest/xxx)| versioned_docs/version-1.0.2/  |  i18n/zh-CN/docusaurus-plugin-content-docs/version-1.0.2 |
-|1.0.3|https://linkis.apache.org/docs/1.0.3/xxx(https://linkis.apache.org/zh-CN/docs/1.0.3/xxx) |  /docs  |i18n/zh-CN/docusaurus-plugin-content-docs/current|
+| 1.0.2|https://linkis.incubator.apache.org/docs/latest/xxx(https://linkis.incubator.apache.org/zh-CN/docs/latest/xxx)| versioned_docs/version-1.0.2/  |  i18n/zh-CN/docusaurus-plugin-content-docs/version-1.0.2 |
+|1.0.3|https://linkis.incubator.apache.org/docs/1.0.3/xxx(https://linkis.incubator.apache.org/zh-CN/docs/1.0.3/xxx) |  /docs  |i18n/zh-CN/docusaurus-plugin-content-docs/current|
 
 
 

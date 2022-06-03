@@ -7,4 +7,4 @@ This is the repository containing all the source code of `https://linkis.apache.
 This guide will guide you how to contribute to the Linkis website.
 
 
-Please refer to [How to contribute to the official website](https://linkis.apache.org/community/how-to-contribute-to-website)
+Please refer to [How to contribute to the official website](https://linkis.incubator.apache.org/community/how-to-contribute-to-website)

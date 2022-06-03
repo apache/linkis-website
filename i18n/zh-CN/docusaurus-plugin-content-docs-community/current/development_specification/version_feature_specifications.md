@@ -21,6 +21,6 @@ sidebar_position: 8
 2. 【强制】需要在GitHub对应的版本中新添加特性[Project](https://github.com/apache/incubator-linkis/projects)
 3. 【强制】涉及到安装、数据库、配置修改的也需要发送邮件列表
 4. 【强制】新的特性一定要新增文档
-5. 【强制】新加特性需要新增对应的单元测试，[单元测试规范](https://linkis.apache.org/community/development_specification/unit_test)
+5. 【强制】新加特性需要新增对应的单元测试，[单元测试规范](https://linkis.incubator.apache.org/community/development_specification/unit_test)
 6. 【推荐】一个特性对应一个issue对应一个PR
 

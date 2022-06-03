@@ -9,7 +9,7 @@ sidebar_position: 1
 
 因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包，安装部署时需要添加依赖到对应的lib包中。
 
-安装过程中遇到的问题，可以参考[排障指引](https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)  https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy
+安装过程中遇到的问题，可以参考[排障指引](https://linkis.incubator.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)  https://linkis.incubator.apache.org/zh-CN/blog/2022/02/21/linkis-deploy
 
 </font>
 
@@ -139,7 +139,7 @@ $ hive --version
 
 ### 3.3 安装包准备
 
-从Linkis已发布的release中（[点击这里进入下载页面](https://linkis.apache.org/zh-CN/download/main)），下载最新的安装包。
+从Linkis已发布的release中（[点击这里进入下载页面](https://linkis.incubator.apache.org/zh-CN/download/main)），下载最新的安装包。
 
 先解压安装包到安装目录，并对解压后的文件进行配置修改。
 
