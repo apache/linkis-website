@@ -7,15 +7,22 @@ sidebar_position: 8
 
 部署整体流程参考 "快速部署"，需要修改如下少许内容。
 
+去HDFS模式部署不支持hive/spark/flink引擎等任务
+
 ## 1. 配置修改
 修改 `linkis-env.sh` 文件，修改以下内容：
 ```bash
+#使用[file://]路径模式代替[hdfs://]模式 
+WORKSPACE_USER_ROOT_PATH=file:///tmp/linkis/ 
+HDFS_USER_ROOT_PATH=file:///tmp/linkis 
+RESULT_SET_ROOT_PATH=file:///tmp/linkis 
+
 export ENABLE_HDFS=false
 export ENABLE_HIVE=false
 export ENABLE_SPARK=false
 ```
 
-将上述的配置修改为 false 之后，就不需要再单独配置 HDFS/HIVE/SPARK 等环境了。
+将上述的配置修改为 false 之后，就不需要再单独配置 HDFS/HIVE/SPARK 等环境了, 安装部署时也会跳过这些基础环境的检查。
 
 ## 2. 拷贝 jar 包
 因为 mysql-connector-java 驱动是 GPL2.0 协议，不满足Apache开源协议关于license的政策，所以需要我们手动将其拷贝到如下两个目录下
