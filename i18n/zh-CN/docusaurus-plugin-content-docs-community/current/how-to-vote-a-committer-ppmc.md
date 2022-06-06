@@ -213,11 +213,25 @@ The Apache Linkis(Incubating) PPMC
 新的 Committer 应回复 `private@linkis.apache.org`（选择`reply all`），并表达他/她接受邀请。
 然后，该邀请将被项目的 PPMC 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
 
+接受邀请，回复邮件示例 
+```
+Hello Apache Linkis PPMC,
+
+I accept the invitation.
+Thanks to the  Apache Linkis(Incubating) Community PPMC for
+recognizing my work, I will continue to actively participate in the
+work of the  Apache Linkis(Incubating). Next, I will follow the
+instructions to complete the next steps: Signing and submitting iCLA
+and registering Apache ID.
+
+XXXX 
+```
+
 一旦邀请被接受，新的提交者需要完成以下事项：
 - 订阅`dev@linkis.apache.org`。通常这已经完成了。
 - 选择一个未被使用过 [apache committers list page](http://people.apache.org/committer-index.html) 的 Apache ID。
-- 下载 [ICLA](https://www.apache.org/licenses/icla.pdf)。
-- `icla.pdf`（或`ccla.pdf`）填写正确信息后，打印，手写签名，扫描成PDF，作为附件发送至[secretary@apache.org ]（邮箱：secretary@apache.org）。 （如果首选电子签名，请按照[此页面]（http://www.apache.org/licenses/contributor-agreements.html#submitting）上的步骤操作）
+- 下载 ICLA 并签署 指引见[ICLA 签署流程](how-to-sign-apache-icla)。
+
 - PPMC 将等待Apache秘书确认ICLA（或CCLA）备案。新的提交者和 PPMC 将收到以下电子邮件：
 
 ```html
@@ -237,7 +251,7 @@ for more information about roles at Apache.
 几天后，新的提交者将收到一封来自root@apache.org帐户通知账号创建的电子邮件，标题为`Welcome to the Apache Software Foundation (ASF)!`。
 
 收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知Linkis PPMC，你的Apache Id账号已经创建，请求将你的Apache Id添加到Linkis的官方提交者列表中。
-(请求Linkis导师通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中）
+(请求Linkis导师通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中，目前Linkis导师中史少锋老师有权添加（shaofengshi@apache.org））
 
 ### 2.7 设置 Apache ID 和开发环境
 
@@ -275,3 +289,28 @@ The Apache Linkis(Incubating) PPMC
 ```
    
 到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PPMC。
+
+## 4 更新 Clutch Status信息
+step1 克隆状态记录的文件 
+```shell script
+svn co https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/
+```
+
+step2 修改 linkis.xml 中的new信息
+增加committer信息记录 
+```shell script
+<section id="News">
+      <title>News</title>
+      <ul>
+<!--    <li>YYYY-MM-DD New committer: Fred Hampton</li>    -->
+        <li>2021-08-02 Project enters incubation.</li>
+        <li>2022-02-19 First Apache Linkis release v1.0.3</li>
+        <li>2022-02-24 New Committer: Chen Xia</li>
+        <li>2022-04-15 Apache Linkis release v1.1.0</li>
+
+      </ul>
+    </section>
+```
+step3 更新提交后，信息会在这里呈现 
+https://incubator.apache.org/clutch/linkis.html
+
