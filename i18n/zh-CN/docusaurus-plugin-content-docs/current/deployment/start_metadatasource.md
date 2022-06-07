@@ -122,7 +122,7 @@ linkis-public-enhancements/linkis-datasource
 linkis的启动脚本中默认不会启动数据源相关的服务两个服务（ps-data-source-manager，ps-metadatamanager），
 如果想使用数据源服务，可以通过如下方式进行开启:
 修改`$LINKIS_CONF_DIR/linkis-env.sh`中的 `export ENABLE_METADATA_MANAGER=true`值为true。
-通过linkis-start-all.sh/linkis-stop-ll.sh 进行服务启停时，会进行数据源服务的启动与停止。
+通过linkis-start-all.sh/linkis-stop-all.sh 进行服务启停时，会进行数据源服务的启动与停止。
 
 通过eureka页面查看服务是否正常启动 
 
