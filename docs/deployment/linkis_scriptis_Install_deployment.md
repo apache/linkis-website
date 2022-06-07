@@ -42,8 +42,6 @@ Dependencies required for installation project：lerna bootstrap （This step is
 If you start the service locally, you need to make some configuration in the code, such as in the root directory env. Development file:
 // Back end interface address
 VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath （gatway server）
-// VUE_APP_HOST=
-VUE_APP_HOST=/yourSocketPath
 ````
 ##### Note: only the local startup needs to be configured. The startup on the server does not need to be added, such as Vue_ APP_ MN_ CONFIG_ Prefix is empty by default.
 #### （四）：Local operation project
