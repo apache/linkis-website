@@ -43,7 +43,7 @@ sidebar_position: 10
 // 后端接口地址
 VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath （linkis服务）
 // VUE_APP_HOST=
-VUE_APP_HOST=T=/yourSocketPath
+VUE_APP_HOST=/yourSocketPath
 ````
 ##### 注意：本地启动才需要配置服务器上启动不用添加，如VUE_APP_MN_CONFIG_PREFIX默认为空即可。
 #### （四）：本地运行项目
