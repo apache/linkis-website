@@ -1,122 +1,120 @@
-
 ---
-title: linkis+scriptis安装搭建
+title: linkis+scriptis Installation and erection
 sidebar_position: 8
 ---
 
-# 介绍
+# introduce
 
 ---
 
-### 在Linkis1.0和DSS 1.1.X之后，支持将Scritpis单独部署来集成Linkis，使用Scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行具，且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍从Scriptis源码编译到部署集成Linkis的整个流程
+### On linkis1.0 and DSS 1.1 After X, scriptpis can be deployed separately to integrate linkis. Using the interactive analysis function of scriptis, you can write SQL, pyspark, hiveql and other scripts online on the web page and submit them to the linkis executor. It also supports UDF, functions, resource control, user-defined variables and other features. This article will introduce the whole process from the compilation of scriptis source code to the deployment of integrated linkis
+### 一：Local start process
 
-### 一：本地启动流程
-
-#### （一）：安装Node.js
+#### （一）：Install node js
 ````bash
-     将Node.js下载到电脑本地，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
+     Set node JS can be downloaded to the local computer and installed. Download address: http://nodejs.cn/download/ (it is recommended to use the latest stable version) this step is only required for the first use
 ````
-####（二）：本地安装项目
+#### （二）：Local installation project
 ````bash
-    1， 在下载路径打开终端命令行执行以下指令：
-         git clone https://github.com/WeDataSphere/DataSphereStudio/tree/dev-1.1.x(dss1.1.0版本发布前建议先使用这个分支)
-    （注意：为保证源码的可读性，部分开源项目编码规范要求类、方法和变量的命名要做到望文生义，避免使用缩写，因此可能导致部分源码文件命名较长。由于Windows版本的Git是使用msys编译的，它使用了旧版本的Windows Api，限制文件名不能超过260个字符。
-    解决方案如下：
-        打开cmd.exe（你需要将git添加到环境变量中）并执行下面的命令：
+    1， Open the terminal command line in the download path and execute the following commands:
+         git clone https://github.com/WeDataSphere/DataSphereStudio/tree/dev-1.1.x(It is recommended to use this branch before dss1.1.0 release)
+    Note: in order to ensure the readability of the source code, the coding specifications of some open source projects require that the naming of classes, methods and variables should be literal and avoid abbreviations. Therefore, some source code files may be named longer. Because the Windows version of Git is compiled with msys, it uses the old version of Windows API, and the file name is limited to 260 characters.
+    The solution is as follows:
+        Open cmd Exe (you need to add git to the environment variable) and execute the following command:
         git config --global core.longpaths true
 
-    2，cd DataSphereStudio/web (进入web目录)
+    2，cd DataSphereStudio/web (Enter web directory)
 
-    lerna bootstrap （添加依赖） (注意：这里不是通过npm install 而是lerna bootstrap  需先安装 learn )
-    注意：下载linkis服务时及DSS版本时建议在这个区间下载 Linkis > 1.0.3 DSS > 1.1.x （版本配置下载）
-    原因：因为DSS暂时还未发布版本，dss1.1.0版本发布前建议先使用这个区间的分支
+    lerna bootstrap （Add dependency） Note: learn should be installed in lerna bootstrap instead of NPM install 
+    Note: it is recommended to download linkis > 1.0.3 DSS > 1.1 X (version configuration download)
+    Reason: because DSS has not yet released its version, it is recommended to use the branch of this interval before the release of dss1.1.0
 
 ````
-#### 指令简介：
+#### Instruction introduction：
 
-将项目包从远程仓库拉取到电脑本地：git clone ${ipAddress}
-进入项目包根目录：cd DataSphereStudio/web
-安装项目所需依赖：npm install （该步骤仅第一次使用时需要执行）
+Pull project package from remote warehouse to local computer：git clone ${ipAddress}
+Enter the project package root directory：cd DataSphereStudio/web
+Dependencies required for installation project：lerna bootstrap （This step is only required for the first use）
 
-####（三）：配置
+#### （三）：to configure
 
 ````bash
-如果您是在本地启动服务的话需要在代码中进行一些配置，如根目录下的.env.development文件：
-// 后端接口地址
-VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath （linkis服务）
+If you start the service locally, you need to make some configuration in the code, such as in the root directory env. Development file:
+// Back end interface address
+VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath （gatway server）
 // VUE_APP_HOST=
-VUE_APP_HOST=T=/yourSocketPath
+VUE_APP_HOST=/yourSocketPath
 ````
-##### 注意：本地启动才需要配置服务器上启动不用添加，如VUE_APP_MN_CONFIG_PREFIX默认为空即可。
-####（四）：本地运行项目
+##### Note: only the local startup needs to be configured. The startup on the server does not need to be added, such as Vue_ APP_ MN_ CONFIG_ Prefix is empty by default.
+#### （四）：Local operation project
 
 ````bash
-如果您想在本地浏览器上运行该项目并且改动代码查看效果，需要在该项目路径下打开终端命令窗口在命令中执行以下指令：
-# 开发启动DSS
+If you want to run the project on the local browser and change the code to view the effect, you need to open the terminal command window under the project path and execute the following commands in the command:
+# Develop and start DSS
 npm run serve
-# 运行部分模块子应用，支持通过module组合。如scriptis版本：
+# Run some module sub applications, and support combination through modules. For example, scripts version:
 npm run serve --module=scriptis
 ````
-####（五）：打包项目（线上服务器使用）
+#### （五）：Package project (for online server)
 ````bash
-  您可以通过在该项目路径下打开终端命令窗口在命令中对项目进行打包，生成编译后的代码
+ You can open the terminal command window under the project path to package the project in the command and generate compiled code
   
-  1，打包DSS应用
+  1，Package DSS application
     npm run build
-  2，打包子应用，支持通过module组合
+  2，The Baoding sub application supports combination through module
     npm run build --module=scriptis
     npm run build --module=apiServices,workspace --micro_module=apiServices
 ````
-该指令成功执行后，项目根目录下会出现一个名叫 “dist” 的文件夹，该文件夹即为打包好的代码。您可以直接将该文件夹放进您的静态服务器中。
-在浏览器中（建议Chrome浏览器）通过链接访问应用：http://localhost:port/ . 当您使用该方式运行项目时，您对代码的改动产生的效果，会动态体现在浏览器上。
+After the command is successfully executed, a folder named "dist" will appear under the project root directory, which is the packaged code. You can put this folder directly into your static server.
+Access the app through a link in the browser (Chrome browser is recommended): http://localhost:port/  .  When you use this method to run a project, the effect of your code changes will be dynamically reflected in the browser.
 
-##### 注意：因为项目采用前后端分离开发，所以在本地浏览器上运行时，需要对浏览器进行设置跨域才能访问后端接口
+##### Note: because the project adopts front-end and back-end separate development, when running on the local browser, you need to set the browser to access the back-end interface across domains
 
-##### 如chrome浏览器： windows系统下的配置方式：
+##### For example, Chrome browser: the configuration mode under Windows system:
 
-关闭所有的chrome浏览器。
-新建一个chrome快捷方式，右键“属性”，“快捷方式”选项卡里选择“目标”，添加 --args --disable-web-security --user-data-dir=C:\MyChromeDevUserData
-通过快捷方式打开chrome浏览器 mac系统下的配置方式： 在终端命令行执行以下命令(需要替换路径中的yourname，若还不生效请检查您机器上MyChromeDevUserData文件夹的位置并将路径复制到下面指令的“--user-data-dir=”后面)
+Close all chrome browsers.
+Create a new chrome shortcut, right-click properties, select target in the Shortcut tab, and add --args --disable web security --user data dir=c:\mychromedevuserdata
+Open the configuration method under the Chrome browser MAC system through a shortcut: execute the following command on the terminal command line (you need to replace the yourname in the path. If it does not take effect, please check the location of the mychromedevuserdata folder on your machine and copy the path to the "--user-data-dir=" of the following command)
 
 open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/yourname/MyChromeDevUserData/
 
-### 二：Scriptis单独安装步骤
+### 二：Scriptis separate installation steps
 
-####（一）：scriptis打包
+#### （一）：scriptis pack
 ````bash
-	npm run serve --module=scriptis #指定模块 
+	npm run serve --module=scriptis #Specify module
 ````
-####（二）：手动部署
+#### （二）：Manual deployment
 ````bash
  location /scriptistest { 
              alias      /data/Install/scriptisInstall/dist/dist/ ;
              index     index.html ;
             }
 server {
-            listen       port;# 访问端口
+            listen       port;# Access port
             server_name  localhost;
             #charset koi8-r;
             #access_log  /var/log/nginx/host.access.log  main;
             location /linkis/visualis {
-            root   /data/Install/LinkisWeb/linkis/visualis; # 静态文件目录
+            root   /data/Install/LinkisWeb/linkis/visualis; # Static file directory
             autoindex on;
             }
             location / {
-             root    /appcom/Install/linkis-web/dist/; # 静态文件目录
+             root    /appcom/Install/linkis-web/dist/; # Static file directory
              index   index.html;
             }
             location /scriptistest {
-             alias      /data/Install/scriptisInstall/dist/dist/ ;  #nginx scriptis静态文件存放路径(可自定义)
+             alias      /data/Install/scriptisInstall/dist/dist/ ;  #nginx scriptis Static file storage path (customizable)
              index     index.html ;
             }~~~~
             location /ws {
-            proxy_pass http://yourIP:port;#gatway的地址
+            proxy_pass http://yourIP:port;#Address of gatway
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection upgrade;
             }
  location /api {
-            proxy_pass http://yourIP:port; #gatway的地址
+            proxy_pass http://yourIP:port; #Address of gatway
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -139,25 +137,24 @@ server {
             }
         }
 ````
-##### 注意：root和alias区别：
-root的处理结果是：root路径＋location路径
-alias的处理结果是：使用alias路径替换location路径
+##### Note: the difference between root and alias:
+The result of root processing is: root path + location path
+The result of alias processing is to replace the location path with the alias path
 
-### 三：scriptis 使用步骤：
+### 三：scriptis Use steps:
 
-####（一）正常登录linkis管理台
+#### （一）Log in to the linkis management console normally
 ````bash
 http://yourIP:port/#/
 ````
-因scriptis需要进行登录验证所以需要先进行登录。
-####（二）登录成功后 访问 scriptis 页面
+Because scripts requires login verification, you need to log in first.
+#### （二）Visit the scripts page after successful login
 ````bash
 http://yourIP:port/scriptistest/#/home
 ````
-yourIP:个人电脑IP，port:端口号（自行定义），scriptistest为请求scriptis项目静态文件前缀（可自定义设置）
+Yourip: personal computer IP, port: port number (self-defined), scriptest is the static file prefix of the requested scripts project (customizable)
+#### design sketch
 
-#### 效果图
-
-![效果图](/Images-zh/deployment/skywalking/linkis-scriptis.png)
+![design sketch](/Images-zh/deployment/skywalking/linkis-scriptis.png)
 
 
