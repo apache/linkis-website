@@ -1,7 +1,6 @@
-
 ---
-title: linkis+scriptis安装搭建
-sidebar_position: 8
+title: linkis+scriptis 安装部署
+sidebar_position: 10
 ---
 
 # 介绍
