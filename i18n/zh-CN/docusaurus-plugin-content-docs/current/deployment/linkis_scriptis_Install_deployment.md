@@ -41,7 +41,7 @@ sidebar_position: 10
 ````bash
 如果您是在本地启动服务的话需要在代码中进行一些配置，如根目录下的.env.development文件：
 // 后端接口地址
-VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath （linkis服务）
+VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath （gatway服务）
 
 ````
 ##### 注意：本地启动才需要配置服务器上启动不用添加，如VUE_APP_MN_CONFIG_PREFIX默认为空即可。
