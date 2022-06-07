@@ -24,9 +24,9 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 > - 姓名需要填写拼音，姓与名之间空一格，首字母均为大写，名在前姓氏在后。
 > - Committer相关的签署，则preferred Apache id(s)是必填项。
 
-![information](https://user-images.githubusercontent.com/29391030/153529823-791977ec-6f8a-42fb-80e6-73c60ab58191.png)
+![information](https://user-images.githubusercontent.com/7869972/172194397-deca4649-32c1-4584-8525-2a387ca80ac6.png)
 
-**4.文件最下方的署名。** 官网支持手写或者[PDF签名软件](https://pdf.yozocloud.cn/p/pdfaddsign)
+**4.文件最下方的署名。** 官网支持手写或者[PDF签名软件](https://smallpdf.com/cn/sign-pdf)
 
 ![sign](https://user-images.githubusercontent.com/29391030/153529853-e6869cd4-7193-4403-8ebe-3d5b65e1d310.png)
 
@@ -39,7 +39,7 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 > PDF在线签名
 > - 下载PDF源文件
 > - 填写项目与个人信息
-> - 打开PDF在线签署网址
+> - 打开PDF在线签署网址 如 https://smallpdf.com/cn/sign-pdf
 > - 进入签名
 > - 保存下载已签名pdf
 > - 发送到指定邮箱
@@ -53,6 +53,4 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 > - 拍照转成**单个pdf** 文件
 > - 发送到指定邮箱
 
-![doc_example](https://user-images.githubusercontent.com/29391030/153530035-cf22ddd4-6327-4afd-92ae-d37a610ddbfc.png)
-
-![doc_content](https://user-images.githubusercontent.com/29391030/153530048-ab95f6be-4e05-4600-b656-74efa2fa332e.png)
+示例文件可以参考 https://github.com/casionone/incubator-linkis-website/tree/dev/resource/wangming-icla.pdf

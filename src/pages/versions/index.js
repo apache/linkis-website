@@ -2,7 +2,7 @@ import React, { useState }  from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import config from "../versions/config.json";
 import Layout from '@theme/Layout';
-import styls from './index.module.scss';
+import styles from './index.module.scss';
 
 export default function() {
     const isBrowser = useIsBrowser();
@@ -12,7 +12,7 @@ export default function() {
 
     return (
         <Layout>
-            <div className="styles.divone"><br/>
+            <div className={styles['divone']}><br/>
                 <h1>{dataSource.title}</h1>
                 <br/>
                 <h3>{dataSource.latestVersion}</h3>

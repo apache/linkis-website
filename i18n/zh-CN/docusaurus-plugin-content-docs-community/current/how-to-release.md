@@ -747,6 +747,31 @@ Linkis Resources:
 
 ```
 
+## 8 更新 Clutch Status 的信息
+
+step1 克隆状态记录的文件 
+```shell script
+svn co https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/
+```
+
+step2 修改 linkis.xml 中的new信息
+增加发布记录信息 
+```shell script
+<section id="News">
+      <title>News</title>
+      <ul>
+<!--    <li>YYYY-MM-DD New committer: Fred Hampton</li>    -->
+        <li>2021-08-02 Project enters incubation.</li>
+        <li>2022-02-19 First Apache Linkis release v1.0.3</li>
+        <li>2022-02-24 New Committer: Chen Xia</li>
+        <li>2022-04-15 Apache Linkis release v1.1.0</li>
+
+      </ul>
+    </section>
+```
+step3 更新提交后，信息会在这里呈现 
+https://incubator.apache.org/clutch/linkis.html
+
 
 ## 附录 
 ### 附件1 release.sh
