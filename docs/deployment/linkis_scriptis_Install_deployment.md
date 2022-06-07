@@ -78,7 +78,7 @@ Open the configuration method under the Chrome browser MAC system through a shor
 
 open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/yourname/MyChromeDevUserData/
 
-### 3.Scriptis separate installation steps
+### 3.scriptis separate installation steps
 
 ### 3.1 scriptis pack
 ````bash
