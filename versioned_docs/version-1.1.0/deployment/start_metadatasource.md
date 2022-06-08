@@ -122,7 +122,7 @@ See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameter
 In the startup script of linkis, the two services related to the data source (ps-data-source-manager, ps-metadatamanager) will not be started by default.
 If you want to use the data source service, you can enable it in the following ways:
 Modify `export ENABLE_METADATA_MANAGER=true` in `$LINKIS_CONF_DIR/linkis-env.sh` to true.
-When the service is started and stopped through linkis-start-all.sh/linkis-stop-ll.sh, the data source service will be started and stopped.
+When the service is started and stopped through linkis-start-all.sh/linkis-stop-all.sh, the data source service will be started and stopped.
 
 Check whether the service starts normally through the eureka page
 
