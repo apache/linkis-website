@@ -158,26 +158,25 @@ Because scripts requires login verification, you need to log in first to get the
 http://nginxIp:port/scriptis/
 ```
 Nginxip:nginx server IP, port:linkis management console nginx configuration start port number, `scripts` is the location address configured for the static file nginx of the requested scripts project (customizable)
-### 4.3 使用 scriptis
+### 4.3 use scriptis
 Take creating an SQL query task as an example.
 
-(todo, the following describes the use process of scripts and the supplementary pictures)
 
 step1 New script
 
-![design sketch](/Images-zh/deployment/scriptis/New_script.png)
+![design sketch](/Images-zh/deployment/scriptis/new_script.png)
 
 step2 Enter the statement to query
 
-![design sketch](/Images-zh/deployment/scriptis/Test_statement.png)
+![design sketch](/Images-zh/deployment/scriptis/test_statement.png)
 
 step3 function
 
-![design sketch](/Images-zh/deployment/scriptis/Running_results.png)
+![design sketch](/Images-zh/deployment/scriptis/running_results.png)
 
 
 shep4 View results
 
-![design sketch](/Images-zh/deployment/scriptis/Design_sketch.png)
+![design sketch](/Images-zh/deployment/scriptis/design_sketch.png)
 
 

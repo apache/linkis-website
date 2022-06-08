@@ -24,7 +24,7 @@ sidebar_position: 8
 单独编译openLooKeng 
 
 ```
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/openlookeng/
+${linkis_code_dir}/linkis-enginepconn-pugins/engineconn-plugins/openlookeng/
 mvn clean install
 ```
 

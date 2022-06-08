@@ -165,23 +165,22 @@ nginxIp:nginx服务器ip，port:linkis管理台nginx配置启动的端口号，`
 ### 4.3 使用 scriptis 
 以新建一个sql查询任务为例。
 
-(todo下面介绍scriptis的使用流程 补充图片)
 
-step1 新建脚本
+step1 新建脚本 选择脚本类型为sel类型
 
-![效果图](/Images-zh/deployment/scriptis/New_script.png)
+![效果图](/Images-zh/deployment/scriptis/new_script.png)
 
 step2 输入要查询的语句
 
-![效果图](/Images-zh/deployment/scriptis/Test_statement.png)
+![效果图](/Images-zh/deployment/scriptis/test_statement.png)
 
 step3 运行
 
-![效果图](/Images-zh/deployment/scriptis/Running_results.png)
+![效果图](/Images-zh/deployment/scriptis/running_results.png)
 
 
 shep4 查看结果 
 
-![效果图](/Images-zh/deployment/scriptis/Design_sketch.png)
+![效果图](/Images-zh/deployment/scriptis/design_sketch.png)
 
 
