@@ -48,7 +48,7 @@ lerna bootstrap
 > 如果不想本地运行查看，可以跳过此步 
 
 #### 2.3.1 配置linkis-gateway服务地址配置
-如果是在本地启动服务，需要在代码中配置后端linkis-gateway服务地址，在web/目录下的`.env.development`文件，
+如果是在本地启动服务，需要在代码中配置后端linkis-gateway服务地址，在web/packages/dss/目录下的`.env`文件，
 打包部署时不需要进行配置
 ```shell script
 // 后端linkis-gatway服务地址
@@ -63,15 +63,8 @@ cd DataSphereStudio/web
 npm run serve --module=scriptis
 ```
 
-打开浏览器，通过链接`http://localhost:3000/`访问应用scriptis ，因为会请求到远端的linkis-gatway服务接口，这会存在跨域问题，chrome浏览器解决跨域问题可参考[解决Chrome跨域问题](https://www.jianshu.com/p/56b1e01e6b6a)
+打开浏览器，通过链接`http://localhost:8080`(本地请求默认端口是8080)访问应用scriptis ，因为会请求到远端的linkis-gatway服务接口，这会存在跨域问题，chrome浏览器解决跨域问题可参考[解决Chrome跨域问题](https://www.jianshu.com/p/56b1e01e6b6a)
 
-
-
-### 2.4 打包部署 scritpis 组件
-
-```shell script
-    npm run build --module=scriptis
-```
 
 ## 3. 打包&部署 scriptis
 
@@ -174,14 +167,21 @@ nginxIp:nginx服务器ip，port:linkis管理台nginx配置启动的端口号，`
 
 (todo下面介绍scriptis的使用流程 补充图片)
 
-step1 新建脚本 
+step1 新建脚本
+
+![效果图](/Images-zh/deployment/scriptis/New_script.png)
 
 step2 输入要查询的语句
 
+![效果图](/Images-zh/deployment/scriptis/Test_statement.png)
+
 step3 运行
+
+![效果图](/Images-zh/deployment/scriptis/Running_results.png)
+
 
 shep4 查看结果 
 
-![效果图](/Images-zh/deployment/skywalking/linkis-scriptis.png)
+![效果图](/Images-zh/deployment/scriptis/Design_sketch.png)
 
 
