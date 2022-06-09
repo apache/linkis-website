@@ -5,13 +5,10 @@ sidebar_position: 10
 
 本文主要介绍`pipeline`(>=1.1.0版本支持)引擎的配置、部署和使用。
 
-## 1 环境要求
 
-如果您希望部署使用`pipeline`引擎，您需要准备一套可用的`pipeline`环境。
+## 1 配置和部署
 
-## 2 配置和部署
-
-### 2.1 版本的选择和编译
+### 1.1 版本的选择和编译
 注意: 编译`pipeline`引擎之前需要进行linkis项目全量编译  
 目前`pipeline`引擎，需自行安装部署
 
@@ -26,9 +23,9 @@ ${linkis_code_dir}/linkis-enginepconn-pugins/engineconn-plugins/pipeline/
 mvn clean install
 ```
 
-### 2.2 物料的部署和加载
+### 1.2 物料的部署和加载
 
-将 2.1 步编译出来的引擎包,位于
+将 1.1 步编译出来的引擎包,位于
 
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/pipeline/target/out/pipeline
@@ -62,16 +59,16 @@ sh linkis-daemon.sh restart cg-engineplugin
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 
-### 2.3 引擎的标签
+### 1.3 引擎的标签
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
 [EngineConnPlugin引擎插件安装](deployment/engine_conn_plugin_installation.md) 
 
 
-## 3 引擎的使用
+## 2 引擎的使用
 
-### 3.1 通过Linkis-cli进行任务提交
+### 2.1 通过Linkis-cli进行任务提交
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，pipeline的使用如下：
 - 注意 `engineType pipeline-1` 引擎版本设置是有前缀的  如 `pipeline` 版本为`v1` 则设置为 `pipeline-1`
@@ -85,12 +82,27 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipelin
 
 因为`pipeline`引擎主要用来导入导出文件为主，现在我们假设从A向B导入文件最为介绍案例
 
-### 3.2 新建脚本 
+### 2.2 新建脚本 
 工作空间模块右键选择新建一个类型为`storage`的脚本
 
 ![](/Images-zh/EngineConnNew/new_pipeline_script.png)
 
-### 3.3 编写脚本
+### 2.3 编写脚本
+
+##### 语法为：from path to path 
+
+文件拷贝规则：`dolphin`后缀类型文件属于结果集文件可转换成`.csv`类型及`.xlsx`类型文件,其他类型只能从A地址拷贝到B地址，简称搬运
+
+```bash
+#dolphin 类型
+from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv
+from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.xlsx
+
+#其他类型
+from hdfs:///000/000/000/A.txt to file:///000/000/000/B.txt
+```
+
+
 A文件向B文件夹导入脚本 
 ```bash
 from hdfs:///000/000/000/A.csv to file:///000/000/000/B.csv
@@ -110,7 +122,7 @@ from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 
 注意：语法末端不能带分号；否则语法错误。
 
-### 3.4 结果
+### 2.4 结果
 进度 
 
 ![](/Images-zh/EngineConnNew/job_state.png)

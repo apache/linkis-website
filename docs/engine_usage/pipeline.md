@@ -5,13 +5,10 @@ sidebar_position: 10
 
 This article mainly introduces the configuration, deployment and use of pipeline (>=1.1.0 version support) engine.
 
-## 1 Environmental requirements
 
-If you want to deploy the ‘pipeline’ engine, you need to prepare a set of available pipeline environments.
+## 1 Configuration and deployment
 
-## 2 Configuration and deployment
-
-### 2.1 Version selection and compilation
+### 1.1 Version selection and compilation
 Note: before compiling the `pipeline`engine, you need to compile the linkis project in full
 Currently, the `pipeline` engine needs to be installed and deployed by itself
 
@@ -26,9 +23,9 @@ ${linkis_code_dir}/linkis-enginepconn-pugins/engineconn-plugins/pipeline/
 mvn clean install
 ```
 
-### 2.2 Material deployment and loading
+### 1.2 Material deployment and loading
 
-将 2.1 The engine package compiled in step, located in
+将 1.1 The engine package compiled in step, located in
 
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/pipeline/target/out/pipeline
@@ -61,16 +58,16 @@ Check whether the engine is refreshed successfully: if you encounter problems du
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 
-### 2.3 Engine label
+### 1.3 Engine label
 
 Linkis1.XIt is carried out through labels, so it is necessary to insert data into our database. The insertion method is shown below.
 
 [EngineConnPlugin Engine plug-in installation](deployment/engine_conn_plugin_installation.md) 
 
 
-## 3 Use of engine
+## 2 Use of engine
 
-### 3.1 Task submission via linkis cli
+### 2.1 Task submission via linkis cli
 
 Link 1.0 provides cli to submit tasks. We only need to specify the corresponding enginecon and codetype tag types. The use of pipeline is as follows:
 - Note that the enginetype pipeline-1 engine version setting is prefixed. If the pipeline version is V1 , it is set to pipeline-1 
@@ -83,12 +80,27 @@ For specific use, please refer to： [Linkis CLI Manual](user_guide/linkiscli_ma
 
 because`pipeline`The engine is mainly used to import and export files. Now let's assume that importing files from a to B is the most introduced case
 
-### 3.2 New script
+### 2.2 New script
 Right click the workspace module and select Create a new workspace of type`storage`Script for
 
 ![](/Images-zh/EngineConnNew/new_pipeline_script.png)
 
-### 3.3 Script
+### 2.3 Script
+
+##### Syntax is：from path to path
+
+The syntax is file copy rule:`dolphin`Suffix type files are result set files that can be converted to`.csv`Type and`.xlsx`Type file, other types can only be copied from address a to address B, referred to as handling
+
+```bash
+#dolphin type
+from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv
+from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.xlsx
+
+#Other types
+from hdfs:///000/000/000/A.txt to file:///000/000/000/B.txt
+```
+
+
 A file importing script to B folder
 ```bash
 from hdfs:///000/000/000/A.csv to file:///000/000/B/
@@ -108,7 +120,7 @@ from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 
 Note: no semicolon is allowed at the end of the syntax; Otherwise, the syntax is incorrect.
 
-### 3.4 result
+### 2.4 result
 speed of progress
 
 ![](/Images-zh/EngineConnNew/job_state.png)
