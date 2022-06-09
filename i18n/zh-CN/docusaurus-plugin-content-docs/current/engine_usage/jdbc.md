@@ -14,8 +14,8 @@ sidebar_position: 7
 ### 2.1 版本的选择和编译
 注意: 编译jdbc引擎之前需要进行linkis项目全量编译  
 发布的安装部署包中默认不包含此引擎插件，
-你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin，
-或者按以下流程，手动编译部署
+你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+，或者按以下流程，手动编译部署
 
 
 单独编译jdbc引擎 
