@@ -207,19 +207,18 @@ number:
 ````
 
 #### Engine version information
+:::caution
+If the official release package used does not need to be modified, if it is compiled by modifying the Spark/Hive engine version, it needs to be modified.
+:::
 If spark is not version 2.4.3, you need to modify the parameters:
 ```shell script
 ## Engine version conf
 #SPARK_VERSION, If the installed Spark version is not 2.4.3, it needs to be modified to the corresponding version, such as 3.1.1
 SPARK_VERSION=3.1.1
-##HIVE_VERSION
-#HIVE_VERSION=2.3.3
 ```
 If hive is not version 2.3.3, you need to modify the parameters:
 ```shell script
 ## Engine version conf
-#SPARK_VERSION
-#SPARK_VERSION=2.4.3
 ##HIVE_VERSION, If the installed Hive version is not 2.3.3, it needs to be modified to the corresponding version, such as 2.3.4
 HIVE_VERSION=2.3.4
 ```
