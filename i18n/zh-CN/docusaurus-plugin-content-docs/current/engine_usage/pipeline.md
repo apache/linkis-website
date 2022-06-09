@@ -71,14 +71,26 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 
 ## 3 引擎的使用
 
+### 3.1 通过Linkis-cli进行任务提交
+
+Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，pipeline的使用如下：
+- 注意 `engineType pipeline-1` 引擎版本设置是有前缀的  如 `pipeline` 版本为`v1` 则设置为 `pipeline-1`
+```shell
+sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipeline  -code "from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv"
+```
+`from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv` 该内容 3.3有解释
+
+具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
+
 因为`pipeline`引擎主要用来导入导出文件为主，现在我们假设从A向B导入文件最为介绍案例
 
-### 3.1 新建脚本 
+### 3.2 新建脚本 
 工作空间模块右键选择新建一个类型为`storage`的脚本
 
 ![](/Images-zh/EngineConnNew/new_pipeline_script.png)
 
-### 3.2 编写脚本
+### 3.3 编写脚本
 A文件向B文件夹导入脚本 
 ```bash
 from hdfs:///000/000/000/A.csv to file:///000/000/000/B.csv
@@ -98,7 +110,7 @@ from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 
 注意：语法末端不能带分号；否则语法错误。
 
-### 3.2 结果
+### 3.4 结果
 进度 
 
 ![](/Images-zh/EngineConnNew/job_state.png)

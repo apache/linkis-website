@@ -70,14 +70,25 @@ Linkis1.XIt is carried out through labels, so it is necessary to insert data int
 
 ## 3 Use of engine
 
+### 3.1 Task submission via linkis cli
+
+Link 1.0 provides cli to submit tasks. We only need to specify the corresponding enginecon and codetype tag types. The use of pipeline is as follows:
+- Note that the enginetype pipeline-1 engine version setting is prefixed. If the pipeline version is V1 , it is set to pipeline-1 
+```shell
+sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipeline  -code "from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv"
+```
+from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv 3.3 Explained
+
+For specific use, please refer to： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+
 because`pipeline`The engine is mainly used to import and export files. Now let's assume that importing files from a to B is the most introduced case
 
-### 3.1 New script
+### 3.2 New script
 Right click the workspace module and select Create a new workspace of type`storage`Script for
 
 ![](/Images-zh/EngineConnNew/new_pipeline_script.png)
 
-### 3.2 Script
+### 3.3 Script
 A file importing script to B folder
 ```bash
 from hdfs:///000/000/000/A.csv to file:///000/000/B/
@@ -97,7 +108,7 @@ from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 
 Note: no semicolon is allowed at the end of the syntax; Otherwise, the syntax is incorrect.
 
-### 3.2 result
+### 3.4 result
 speed of progress
 
 ![](/Images-zh/EngineConnNew/job_state.png)
