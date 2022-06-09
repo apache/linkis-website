@@ -208,12 +208,21 @@ YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088
 ```
 
 #### 引擎版本信息 
+如果spark不是2.4.3的版本，需要修改参数：
 ```shell script
-##如果spark不是2.4.3的版本(可以在linkis-package/lib/linkis-engineconn-plugins/hive/plugin中查看引擎版本)，需要修改参数：
-#SPARK_VERSION=3.1.1
-
-##如果hive不是2.3.3的版本，需要修改参数：
-#HIVE_VERSION=2.3.4
+## Engine version conf
+#SPARK_VERSION，如果安装的Spark版本不是2.4.3，则需要修改为相应的版本，如3.1.1
+SPARK_VERSION=3.1.1
+##HIVE_VERSION
+#HIVE_VERSION=2.3.3
+```
+如果hive不是2.3.3的版本，需要修改参数：
+```shell script
+## Engine version conf
+#SPARK_VERSION
+#SPARK_VERSION=2.4.3
+##HIVE_VERSION，如果安装的Hive版本不是2.3.3，则需要修改为相应的版本，如2.3.4
+HIVE_VERSION=2.3.4
 ```
 如果配置了，执行安装部署后，实际会在`{linkisInstallPath}/conf/linkis.properties`文件中被更新
 ```shell script
