@@ -166,7 +166,7 @@ nginxIp:nginx服务器ip，port:linkis管理台nginx配置启动的端口号，`
 以新建一个sql查询任务为例。
 
 
-step1 新建脚本 选择脚本类型为sel类型
+step1 新建脚本 选择脚本类型为sql类型
 
 ![效果图](/Images-zh/deployment/scriptis/new_script.png)
 
