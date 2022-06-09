@@ -2,6 +2,7 @@
 title: Download Logo
 sidebar_position: 11
 ---
+
 |  Logo Name |Image|  Download Address | Date|
 |:------------|:----:|:----:|:----:|
 |Linkis Anti White Transparent| <img src={require('./../static/logo/linkis-anti-white-transparent.png').default} width="200" style={{ backgroundColor:'hsl(0, 0%, 90%)'}} />|[Download](../static/logo/linkis-anti-white-transparent.png)|2022-06-01|
