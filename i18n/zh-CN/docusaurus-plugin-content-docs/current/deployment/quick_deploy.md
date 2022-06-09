@@ -259,7 +259,7 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 
 ### 4.5 快速启动Linkis
 
-**注意** 如果您用的DSS或者其他项目依赖的Linkis版本<1.1.1，还需要修改位于`./assembly-combined-package/assembly-combined/conf/linkis.properties`文件：
+**注意** 如果您用的DSS或者其他项目依赖的Linkis版本<1.1.1，还需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件：
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```
