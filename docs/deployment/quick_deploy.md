@@ -243,7 +243,7 @@ cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-commons/public-modul
 
 ### 5. Linkis quick startup
 
-**Notice** that if you use dss or other projects that rely on linkis version < 1.1.1, you also need to modify the linkis.properties file:
+**Notice** that if you use DSS or other projects that rely on Linkis version < 1.1.1, you also need to modify the `${LINKIS_HOME}/conf/linkis.properties` file:
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```

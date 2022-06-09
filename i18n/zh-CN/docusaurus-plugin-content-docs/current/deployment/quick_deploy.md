@@ -259,7 +259,7 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 
 ### 4.5 快速启动Linkis
 
-**注意** 如果您用的dss或者其他项目依赖的linkis版本<1.1.1，还需要修改linkis.properties文件：
+**注意** 如果您用的DSS或者其他项目依赖的Linkis版本<1.1.1，还需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件：
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```
@@ -278,7 +278,7 @@ echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 
 使用http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, 在浏览器中打开，查看服务是否注册成功。
 
-如果您没有在config.sh指定EUREKA_INSTALL_IP和EUREKA_INSTALL_IP，则HTTP地址为：http://127.0.0.1:20303
+如果您没有在linkis-env.sh指定EUREKA_INSTALL_IP和EUREKA_INSTALL_IP，则HTTP地址为：http://127.0.0.1:20303
 
 如下图，如您的Eureka主页出现以下微服务，则表示服务都启动成功，可以正常对外提供服务了：
 
