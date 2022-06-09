@@ -92,7 +92,7 @@ B文件向A文件夹导入脚本
 from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 ```
 - `hdfs:///000/000/000/B.csv`： 输出文件路径及文件
-- `file:///000/000/000/A.CSV`： 输入文件路径及文件
+- `file:///000/000/000/B.csv`： 输入文件路径及文件
 
 ![](/Images-zh/EngineConnNew/to_write.png)
 
