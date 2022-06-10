@@ -8,4 +8,4 @@ jobs:
     steps:
     - uses: untitaker/hyperlink@0.1.21
       with:
-        args: public/ --sources faq/
+        args: / --sources faq/
