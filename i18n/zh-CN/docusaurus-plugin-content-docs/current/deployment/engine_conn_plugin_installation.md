@@ -29,7 +29,7 @@ hive:引擎主目录，必须为引擎的名字
 
 ### 2.1 插件包安装
 ```
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/{插件模块名}/
+${linkis_code_dir}/linkis-enginepconn-pugins/engineconn-plugins/{插件模块名}/
 mvn clean install
 ```
 

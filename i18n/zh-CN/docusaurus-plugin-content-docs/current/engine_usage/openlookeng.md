@@ -17,14 +17,14 @@ sidebar_position: 8
 目前openLooKeng引擎，客户端默认使用的版本为 `io.hetu.core:presto-client:1.5.0`
 
 发布的安装部署包中默认不包含此引擎插件，
-你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin，
-或者按以下流程，手动编译部署
+你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+，或者按以下流程，手动编译部署
 
 
 单独编译openLooKeng 
 
 ```
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/openlookeng/
+${linkis_code_dir}/linkis-enginepconn-pugins/engineconn-plugins/openlookeng/
 mvn clean install
 ```
 

@@ -30,7 +30,23 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 
 ![sign](https://user-images.githubusercontent.com/29391030/153529853-e6869cd4-7193-4403-8ebe-3d5b65e1d310.png)
 
-**5.签署完之后将icla.pdf命令为 `姓名拼音-icla.pdf` 发送到导师提供的邮箱**
+**5.签署完之后将icla.pdf命令为 `姓名拼音-icla.pdf` 发送到导师提供的邮箱（邮箱地址为`secretary@apache.org`），下面是邮件模板：**
+
+```html
+To: secretary@apache.org
+Subject: Accept to become a linkis committer
+Content:
+
+Hello Apache Incubator:
+    I have accepted the Apache Linkis(Incubator) PPMC 
+invitation to become linkis committer, the attachment 
+is my ICLA information.
+Thanks!
+```
+
+下面是一个具体样例：
+
+![example](../../../../static/img/community/email-example.png)
 
 **6.邮箱发送成功之后Apache  linkis 官方社区告知下**
 
