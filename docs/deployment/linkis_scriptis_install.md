@@ -24,6 +24,14 @@ Example description:
      Set node JS download and install. Download address: http://nodejs.cn/download/ (it is recommended to use the latest stable version) this step is only required for the first use
 ```
 
+### 2.1 install learn
+```shell script
+   #The computer opens the CMD terminal tool and enters the command for global installation
+   npm install lerna -g
+```
+Wait until the installation is completed. The installation of liarn only needs to be performed when it is used for the first time
+
+
 ### 2.2 Get scripts code
 > Scriptis is a pure front-end project, which is integrated into the DSS web code component as a component. We only need to compile the DSS web project with a separate scripts module
 

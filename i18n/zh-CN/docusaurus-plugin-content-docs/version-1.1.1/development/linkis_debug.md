@@ -88,7 +88,10 @@ linkis-eureka
 server:
   port: 8080 ##启动的端口
 ```
-具体配置如下
+#####具体配置如下：
+老版idea配置
+![](/Images/development/old_debug_application.png)
+新版idea配置
 ![](/Images/development/debug_application.png)
 
 启动后可以通过[http://localhost:20303/](http://localhost:20303/) 查看eureka服务列表

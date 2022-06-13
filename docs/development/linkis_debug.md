@@ -91,7 +91,11 @@ Modify the port:
 server:
   port: 8080 ##Started port
 ```
-The specific configuration is as follows
+#####The specific configuration is as follows
+
+Old version idea configuration
+![](/Images/development/old_debug_application.png)
+New version of idea configuration
 ![](/Images/development/debug_application.png)
 
 After startup, you can view the list of eureka services through [http://localhost:20303/](http://localhost:20303/)
