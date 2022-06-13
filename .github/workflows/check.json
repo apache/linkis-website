@@ -19,7 +19,7 @@
       "pattern": "^architecture"
     },
     {
-      "pattern": "^architecture"
+      "pattern": "^upgrade"
     },
     {
       "pattern": "^deployment"
@@ -38,6 +38,24 @@
     },
     {
       "pattern": "^/faq"
+    },
+    {
+      "pattern": "^/api"
+    },
+    {
+      "pattern": "^development"
+    },
+    {
+      "pattern": "^/architecture"
+    },
+    {
+      "pattern": "^/deployment"
+    },
+    {
+      "pattern": "^/user_guide"
+    },
+    {
+      "pattern": "^/download"
     }
   ]
 }
