@@ -65,6 +65,9 @@
     },
     {
       "pattern": "^/engine_usage"
+    },
+    {
+      "pattern": "^/"
     }
   ]
 }
