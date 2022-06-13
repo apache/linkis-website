@@ -6,6 +6,12 @@ jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
     steps:
-    - uses: untitaker/hyperlink@0.1.21
+    - name: dev
+      run: |
+        npm install
+    - name: server
+      run: |
+        npm start
+    - uses: filiph/linkcheck@v2.0.15+1
       with:
-        args: home/ --sources /
+        arguments: http://localhost:3000
