@@ -62,7 +62,7 @@ Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eu
 
 可以通过 “-Xbootclasspath/a:配置文件路径“命令。将配置文件，追加到引导程序类的搜索路劲末尾，即将依赖的配置文件加到classpath中
 
-通过勾选Include dependencies with “Provided” scope ，这样可以在调试时，引入provided级别的依赖包。
+<font color="red"> 通过勾选Include dependencies with “Provided” scope ，这样可以在调试时，引入provided级别的依赖包。</font>
 
 **Microservice Governance Services组件**
 

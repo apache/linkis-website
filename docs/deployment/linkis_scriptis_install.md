@@ -5,7 +5,7 @@ sidebar_position: 10
 
 ## 1. introduce
 
-> On linkis1.0 and DSS 1.1 After X, scriptpis can be deployed separately to integrate with linkis. Using the interactive analysis function of scriptis, scripts such as SQL, pyspark and hiveql can be written online on the web page and submitted to the linkis executor. It also supports UDF, functions, resource control, custom variables and other features. This article will introduce how to deploy the web component scriptis separately and use linkis through such a web page as scriptis.
+> On linkis1.0 and DSS 1.1 After X, scriptpis can be deployed separately to integrate with linkis. Using the interactive analysis function of scriptis, you can write SQL, pyspark, hiveql and other scripts online on the web page, submit them to linkis for execution, and support UDF, functions, resource control, user-defined variables and other features. This article will introduce how to deploy the web component scriptis separately, and use linkis through such a web page as scriptis.
 :::caution be careful
 Premise: the linkis service (back-end and management console services) has been successfully installed and can be used normally. See [rapid deployment of linkis] (deployment/quick_deploy) for the deployment process of linkis
 Example description:
