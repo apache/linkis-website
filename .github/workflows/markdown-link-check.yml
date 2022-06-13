@@ -14,4 +14,4 @@ jobs:
     - name: Validate links
       uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
-        args: --config-file /home/runner/work/incubator-linkis-website/incubator-linkis-website/.github/workflows/check.json
+        config-file: /home/runner/work/incubator-linkis-website/incubator-linkis-website/.github/workflows/check.json
