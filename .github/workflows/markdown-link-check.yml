@@ -13,3 +13,5 @@ jobs:
 
     - name: Validate links
       uses: Youssef1313/markdown-links-verifier@v0.1.3
+      with:
+        args: --config-file /home/runner/work/incubator-linkis-website/incubator-linkis-website/.github/workflows/check.json
