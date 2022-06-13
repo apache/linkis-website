@@ -10,4 +10,4 @@ jobs:
     - uses: actions/setup-node@v2.2.0
     - uses: untitaker/hyperlink@0.1.21
       with:
-        args: /home/runner/work/incubator-linkis-website/incubator-linkis-website/ --sources /home/runner/work/incubator-linkis-website/incubator-linkis-website/blog
+        args: --sources /home/runner/work/incubator-linkis-website/incubator-linkis-website/blog
