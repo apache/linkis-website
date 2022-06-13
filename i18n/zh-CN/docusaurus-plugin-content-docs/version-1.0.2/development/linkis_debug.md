@@ -114,13 +114,13 @@ linkis-gateway-server-support
 
 ```plain
 [main Class]
-org.apache.linkis.filesystem.LinkisPublicServiceApp
+org.apache.linkis.jobhistory.LinkisPublicServiceApp
 
 [VM Opitons]
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
-linkis-filesystem
+linkis-jobhistory
 ```
 
 ### linkis-ps-cs的启动配置
