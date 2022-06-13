@@ -98,7 +98,7 @@ public and secret key created and signed.
 
 pub   rsa4096 2021-11-10 [SC]
       E7A9B12D1AC2D8CF857AF5851AE82584584EE68E
-uid                      mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>
+uid                      mingXiao (for apache release create at 20211110) <xiaoming@apache.org>
 sub   rsa4096 2021-11-10 [E]
 ```
 
@@ -119,7 +119,8 @@ $ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
 验证是否同步到公网，大概需要一分钟才能查到,未成功可以进行上传重试几次 
 ```shell
 方式一
-$ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E是对应的key id
+#584EE68E是对应的key id
+$ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E 
 
 #结果如下
 gpg: key 1AE82584584EE68E: "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>" not changed
@@ -151,6 +152,7 @@ $ cd linkis_svn/dev/linkis
 
 # 追加你生成的KEY到文件KEYS中, 追加后最好检查一下是否正确
 $ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS 
+
 # 如果之前存在KEYS文件，则不需要
 $ svn add KEYS	
 #提交到SVN
@@ -180,8 +182,33 @@ $ svn ci -m "add gpg key for YOUR_NAME"
 
 ### 1.6 配置apache maven地址和用户密码设置
 
+mvn密码机制加密后的密码获取步骤 
+ 
+- step1 生成master密码
+```shell script
+$ mvn --encrypt-master-password <apache password>
+
+```
+
+- step2 配置master密码
+新增文件 ${user.home}/.m2/settings-security.xml
+配置step1创建的密码 
+```shell script
+<settingsSecurity>
+  <master>{jSMOWnoPFgsHVpMvz5VrIt5kRbzGpI8u+9EF1iFQyJQ=}</master>
+</settingsSecurity>
+```
+
+- step3 生成最终加密密码 
+```shell script
+mvn --encrypt-password <apache password>
+```
+- step4 将step3生成的最终密码填写到下面的`$encryptPassword`中
+
+**详细的加密设置可参考[这里](http://maven.apache.org/guides/mini/guide-encryption.html)**
+
+
 在maven的配置文件~/.m2/settings.xml中，则添加下面的`<server>`项 
-加密设置可参考[这里](http://maven.apache.org/guides/mini/guide-encryption.html)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -192,30 +219,37 @@ $ svn ci -m "add gpg key for YOUR_NAME"
     <server>
         <id>apache.snapshots.https</id>
          <!-- APACHE LDAP 用户名 --> 
-        <username>{user-id}</username>
-         <!--APACHE LDAP 密码（使用经过mvn密机机制加密后的密码）-->
-        <password>{user-pass}</password>
+        <username>$ApacheId</username>
+         <!--APACHE LDAP 密码（使用经过mvn密码机制加密后的密码）-->
+        <password>$encryptPassword</password>
     </server>
     <server>
         <id>apache.releases.https</id>
-        <username>{user-id}</username>
-        <password>{user-pass}</password>
+        <username>$ApacheId</username>
+        <password>$encryptPassword</password>
     </server>
   </servers>
-<profiles>
-    <profile>
-      <id>apache-release</id>
-      <properties>
-        <!-- Your GPG Keyname here -->
-        <gpg.keyname>你的KEYID</gpg.keyname>
-        <!-- Use an agent: Prevents being asked for the password during the build -->
-        <gpg.useagent>true</gpg.useagent>
-        <gpg.passphrase>你的私钥的密码</gpg.passphrase>
-      </properties>
-    </profile>
-</profiles>
+
+  <profiles>
+        <profile>
+          <id>apache-release</id>
+          <properties>
+            <!-- Your GPG Keyname here -->
+            <gpg.keyname>你的KEYID</gpg.keyname>
+            <!-- Use an agent: Prevents being asked for the password during the build -->
+            <gpg.useagent>true</gpg.useagent>
+            <gpg.passphrase>你的私钥的密码</gpg.passphrase>
+          </properties>
+        </profile>
+  </profiles>
 </settings>
 ```
+:::caution 注意
+如果后续执行2.3步进行deploy时，报401，可以运行`mvn help:effective-settings` 检查下生效的maven `settings.xml`配置，
+可以尝试将上述的账户密码配置再自己maven环境的conf配置中，如：`D:\apache-maven-3.3.9\conf\setting.xml`
+ 
+:::
+
 
 
 ## 2 准备物料包&Apache Nexus发布
@@ -240,15 +274,22 @@ step3 检查
 
 ![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
 
+
+step4 clone对应的release分支到本地 
+```shell script
+#-b release-1.12-rc1 指定clone分支  -c(config) 指定使用的配置  core.autocrlf=fals 关闭自动换行符的转换 
+git clone -b release-1.1.2-rc1  -c core.autocrlf=false  git@github.com:apache/incubator-linkis.git 
+
+```
+
 :::caution 注意
 
 - Window下，安装git客户端，默认情况下，git clone 项目到Windows本地，git会强制将文件的换行符转成CTRL，而不是LF。
-这会导致window下打的发布包 ，对于shell脚本在linux下直接运行，会出现换行符问题 
-需要设置git config  core.autocrlf false 临时关闭自动转换，再进行clone操作
-- 主仓库apache/incubator-linkis准备好发布分支/tag/release notes后，请克隆源码到你本地，并切换到release-1.1.2-rc1分支，进行下列步骤
+这会导致window下打的发布包 ，对于shell脚本在linux下直接运行，会出现换行符问题 ，clone时通过 `-c core.autocrlf=false` 关闭自动转换
+
+- 主仓库apache/incubator-linkis准备好发布分支/tag/release notes后，请克隆源码对应的发布分支release-1.1.2-rc1，进行下列步骤
 
 :::
-
 
 ### 2.2 版本号确认
 
@@ -288,8 +329,8 @@ Archives: 0
 
 ### 2.3 发布jar包到Apache Nexus仓库
 ```shell
-# 开始编译并上传 耗时大概在1h40min左右
-$ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  
+# 开始编译并上传 耗时大概在1h40min左右 -DretryFailedDeploymentCount 失败自动重试此时
+$ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  -DretryFailedDeploymentCount=10
 ```
 :::caution 注意
 出现下列情况，请先登陆https://repository.apache.org/#stagingRepositories
@@ -298,6 +339,7 @@ $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 - 若使用网络代理或则请求方ip变化，可能会导致apache maven 拆分为了多次上传记录,最好关闭网络代理
 - 若出现超时，需要重新deploy
 :::
+
 上述命令执行成功后，待发布版本包会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。 点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的。 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
 同时也生成了二进制文件 assembly-combined-package/target/apache-linkis-1.1.2-incubating-bin.tar.gz
 
@@ -382,6 +424,8 @@ $ cp  web/apache-linkis-1.1.2-incubating-web-bin.tar.gz   dist/apache-linkis
 ### 2.7 对源码包/二进制包进行签名/sha512
 ```shell
 $ cd  dist/apache-linkis
+
+# 如果是window cmd 命令无法识别时，可以单独计算签名 如:gpg --armor --output apache-linkis-1.1.2-incubating-src.tar.gz.asc --detach-sig apache-linkis-1.1.2-incubating-src.tar.gz
 $ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # 计算签名
 
 $ for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # 计算SHA512
