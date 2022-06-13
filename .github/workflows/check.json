@@ -14,6 +14,27 @@
     },
     {
       "pattern": "^/Images"
+    },
+    {
+      "pattern": "^architecture"
+    },
+    {
+      "pattern": "^architecture"
+    },
+    {
+      "pattern": "^deployment"
+    },
+    {
+      "pattern": "^api"
+    },
+    {
+      "pattern": "^user_guide"
+    },
+    {
+      "pattern": "^dapi"
+    },
+    {
+      "pattern": "^/community"
     }
   ]
 }
