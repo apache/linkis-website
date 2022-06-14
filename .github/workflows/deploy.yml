@@ -33,7 +33,8 @@ jobs:
           cp .asf.yaml build
           cp .htaccess build
           cp doap.rdf build
-      - uses: untitaker/hyperlink@0.1.21
+      - name: Link checker
+        uses: untitaker/hyperlink@0.1.21
         with:
           args: /home/runner/work/incubator-linkis-website/incubator-linkis-website/build
       - name: Deploy
