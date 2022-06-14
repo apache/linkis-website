@@ -33,6 +33,7 @@ jobs:
           cp .asf.yaml build
           cp .htaccess build
           cp doap.rdf build
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it   
       - name: Link checker
         uses: untitaker/hyperlink@0.1.21
         with:
