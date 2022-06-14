@@ -22,6 +22,6 @@ jobs:
         cp .asf.yaml build
         cp .htaccess build
         cp doap.rdf build
-    - uses: modernweb-dev/check-html-links-action@v1
+    - uses: untitaker/hyperlink@0.1.21
       with:
-        doc-folder: 'build'
+        args: /home/runner/work/incubator-linkis-website/incubator-linkis-website/build
