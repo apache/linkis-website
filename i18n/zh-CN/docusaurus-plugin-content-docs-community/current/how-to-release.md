@@ -266,7 +266,7 @@ step1 基于待发布的开发分支，创建release-${release_version}-rc分支
 step2 创建新的github release
 
 进入到创建页面 https://github.com/apache/incubator-linkis/releases/new 
-基于之前release-1.1.2-rc1的tag，创建一个release，并勾选`This is a pre-release`，将该版本的release notes链接写入
+基于之前release-1.1.2-rc1分支创建同名tag，填写标题`Apache Linkis(incubating) Release-1.1.2-Incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
 
 ![image](https://user-images.githubusercontent.com/7869972/172565676-b04a99b9-ced8-4aaf-a479-1b33979d742a.png)
 
@@ -340,8 +340,10 @@ $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  -DretryFailedDeplo
 - 若出现超时，需要重新deploy
 :::
 
-上述命令执行成功后，待发布版本包会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。 点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的。 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
-同时也生成了二进制文件 assembly-combined-package/target/apache-linkis-1.1.2-incubating-bin.tar.gz
+
+上述命令执行成功后，待发布版本包会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。 **点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的**。 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
+同时也生成了二进制文件 `assembly-combined-package/target/apache-linkis-1.1.2-incubating-bin.tar.gz`
+
 
 步骤2.4-3.3执行命令，合并在release.sh脚本中，也可以通过release.sh脚本(见文末附录)来执行 
 
@@ -416,7 +418,7 @@ $ npm install
 
 #### 2.6.4 拷贝前端管理台安装包
 
-步骤2.6.3执行后，前端管理台安装包已经生成，位于 web/apache-linkis-1.1.2-incubating-web-bin.tar.gz
+步骤2.6.3执行后，前端管理台安装包已经生成，位于 `web/apache-linkis-1.1.2-incubating-web-bin.tar.gz`
 ```shell
 $ cp  web/apache-linkis-1.1.2-incubating-web-bin.tar.gz   dist/apache-linkis
 ```
@@ -525,7 +527,7 @@ $ svn commit -m "prepare for 1.1.2-RC1"
 
 - Linkis 社区投票，发送邮件至：`dev@linkis.apache.org`
 - incubator 社区投票，发送邮件至：`general@incubator.apache.org` Linkis毕业后，只需要在Linkis社区投票
-
+- 在社区投票的邮件正文中的${Linkis Release Manager}，填写负责本次发布的人员，一般是邮件发送人，如`Shuai Di`
 ### 5.1 Linkis 社区投票阶段
 
 1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1` PMC member票后，才可进入下一阶段的投票。
@@ -536,10 +538,10 @@ $ svn commit -m "prepare for 1.1.2-RC1"
 #### 5.1.1 Linkis 社区投票模板
 参考示例:[\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/8j8f8vqotpg4f2kjwq3gg436vtx40p20)  https://lists.apache.org/thread/8j8f8vqotpg4f2kjwq3gg436vtx40p20
 ```html
-标题：
+邮件标题：
 [VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
 
-内容：
+邮件正文：
 
 Hello Linkis Community,
 
@@ -562,8 +564,6 @@ Hello Linkis Community,
 
 	GPG user ID:
 	${YOUR.GPG.USER.ID}
-
-    As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
 
 	The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -594,10 +594,10 @@ ${Linkis Release Manager}
 参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3) https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3
 备注：该邮件thread地址，可以通过访问`https://lists.apache.org/list?dev@linkis.apache.org `这个页面查到（注意加载时间可能会比较长），然后选择相应邮件，点击进去后即可生成thread链接;
 ```html
-标题：
+邮件标题：
 [RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
 
-内容：
+邮件正文：
 Hello Apache Linkis PPMC and Community,
 
     The vote closes now as 72hr have passed. The vote PASSES with
@@ -626,9 +626,9 @@ ${Linkis Release Manager}
 参考示例:[\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/9jr6hsf53jmwvnkh8nkt6spwcwc1q42j) https://lists.apache.org/thread/9jr6hsf53jmwvnkh8nkt6spwcwc1q42j
 
 ```html
-标题：[VOTE] Release Apache Linkis(Incubating) ${release_version} ${rc_version}
+邮件标题：[VOTE] Release Apache Linkis(Incubating) ${release_version} ${rc_version}
 
-内容：
+邮件正文：
 
 Hello Incubator Community,
 
@@ -658,8 +658,6 @@ Hello Incubator Community,
 
     The artifacts signed with PGP key [填写你个人的KEY], corresponding to [填写你个人的邮箱], that can be found in keys file:
         • https://downloads.apache.org/incubator/linkis/KEYS
-
-    As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
 
     The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -693,9 +691,9 @@ Thanks!
 
 参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63) https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63
 ```html
-标题：[RESULT][VOTE] Release Apache Linkis ${release_version} {rc_version}
+邮件标题：[RESULT][VOTE] Release Apache Linkis ${release_version} {rc_version}
 
-内容：
+邮件正文：
 Hi all
 
 Thanks for reviewing and voting for Apache Linkis(Incubating) ${release_version} {rc_version}
@@ -783,10 +781,10 @@ linkis的官网下载地址应该指向apache的官方地址
 
 发邮件到 `dev@linkis.apache.org` 、 `announce@apache.org`和`general@incubator.apache.org`
 ```html
-标题：
+邮件标题：
 [ANNOUNCE] Apache Linkis (Incubating) ${release_version} available
 
-内容：
+邮件正文：
 Hi all,
 
 Apache Linkis (Incubating) Team is glad to announce the new release of Apache Linkis (Incubating) ${release_version}.
