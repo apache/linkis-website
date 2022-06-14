@@ -340,8 +340,10 @@ $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  -DretryFailedDeplo
 - 若出现超时，需要重新deploy
 :::
 
+
 上述命令执行成功后，待发布版本包会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。 **点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的**。 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
 同时也生成了二进制文件 `assembly-combined-package/target/apache-linkis-1.1.2-incubating-bin.tar.gz`
+
 
 步骤2.4-3.3执行命令，合并在release.sh脚本中，也可以通过release.sh脚本(见文末附录)来执行 
 

@@ -5,7 +5,7 @@ sidebar_position: 10
 
 ## 1. introduce
 
-> On linkis1.0 and DSS 1.1 After X, scriptpis can be deployed separately to integrate with linkis. Using the interactive analysis function of scriptis, scripts such as SQL, pyspark and hiveql can be written online on the web page and submitted to the linkis executor. It also supports UDF, functions, resource control, custom variables and other features. This article will introduce how to deploy the web component scriptis separately and use linkis through such a web page as scriptis.
+> On linkis1.0 and DSS 1.1 After X, scriptpis can be deployed separately to integrate with linkis. Using the interactive analysis function of scriptis, you can write SQL, pyspark, hiveql and other scripts online on the web page, submit them to linkis for execution, and support UDF, functions, resource control, user-defined variables and other features. This article will introduce how to deploy the web component scriptis separately, and use linkis through such a web page as scriptis.
 :::caution be careful
 Premise: the linkis service (back-end and management console services) has been successfully installed and can be used normally. See [rapid deployment of linkis] (deployment/quick_deploy) for the deployment process of linkis
 Example description:
@@ -23,6 +23,14 @@ Example description:
 ```shell script
      Set node JS download and install. Download address: http://nodejs.cn/download/ (it is recommended to use the latest stable version) this step is only required for the first use
 ```
+
+### 2.1 install learn
+```shell script
+   #The computer opens the CMD terminal tool and enters the command for global installation
+   npm install lerna -g
+```
+Wait until the installation is completed. The installation of liarn only needs to be performed when it is used for the first time
+
 
 ### 2.2 Get scripts code
 > Scriptis is a pure front-end project, which is integrated into the DSS web code component as a component. We only need to compile the DSS web project with a separate scripts module
