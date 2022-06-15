@@ -32,7 +32,11 @@ jobs:
           npm run build
           cp .asf.yaml build
           cp .htaccess build
-          cp doap.rdf build
+          cp doap.rdf build   
+      - name: Link checker
+        uses: untitaker/hyperlink@0.1.21
+        with:
+          args: /home/runner/work/incubator-linkis-website/incubator-linkis-website/build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.8.0
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/dev')
