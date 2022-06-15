@@ -214,7 +214,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         },
         {
           href: 'https://github.com/apache/incubator-linkis',
-          label: 'GitHub',
+          'aria-label': 'GitHub',
+          className: 'header-github-link',
           position: 'right',
         },
         {
