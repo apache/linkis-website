@@ -5,15 +5,15 @@ sidebar_position: 10
 
 ## 1. 介绍
 
-> 在Linkis1.0和DSS 1.1.X之后，支持将Scritpis单独部署来集成Linkis，使用Scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行具，且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署Web组件-Scriptis，并通过Scriptis这种Web页面来使用Linkis。
+> 在Linkis1.0和DSS 1.1.X之后，支持将Scritpis单独部署来集成Linkis，使用Scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署Web组件-Scriptis，并通过Scriptis这种Web页面来使用Linkis。
 
-:::caution 注意
+
 前提:已经成功安装并可以正常使用了linkis服务（后端和管理台服务），linkis的部署流程可以见[Linkis的快速部署](deployment/quick_deploy)
 
 示例说明:
 - linkis-gateway服务的地址为10.10.10.10 端口为9001 
 - linkis的管理台nginx部署在10.10.10.10 端口为8080
-:::
+
 
  
 
@@ -25,6 +25,14 @@ sidebar_position: 10
 ```shell script
      将node.js下载，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
 ```
+### 2.1 安装learn
+```shell script
+   #电脑打开CMD终端工具，输入命令全局安装
+   npm install lerna -g
+```
+等待安装完即可，安装liarn仅第一次使用时需要执行
+
+
     
 ### 2.2 获取scriptis代码
 > Scriptis是一个纯前端的项目，作为一个组件集成在DSS的web代码组件中，我们只需要将DSS web项目进行单独的scriptis模块编译
@@ -48,7 +56,7 @@ lerna bootstrap
 > 如果不想本地运行查看，可以跳过此步 
 
 #### 2.3.1 配置linkis-gateway服务地址配置
-如果是在本地启动服务，需要在代码中配置后端linkis-gateway服务地址，在web/目录下的`.env.development`文件，
+如果是在本地启动服务，需要在代码中配置后端linkis-gateway服务地址，在web/packages/dss/目录下的`.env`文件，
 打包部署时不需要进行配置
 ```shell script
 // 后端linkis-gatway服务地址
@@ -63,15 +71,8 @@ cd DataSphereStudio/web
 npm run serve --module=scriptis
 ```
 
-打开浏览器，通过链接`http://localhost:3000/`访问应用scriptis ，因为会请求到远端的linkis-gatway服务接口，这会存在跨域问题，chrome浏览器解决跨域问题可参考[解决Chrome跨域问题](https://www.jianshu.com/p/56b1e01e6b6a)
+打开浏览器，通过链接`http://localhost:8080`(本地请求默认端口是8080)访问应用scriptis ，因为会请求到远端的linkis-gatway服务接口，这会存在跨域问题，chrome浏览器解决跨域问题可参考[解决Chrome跨域问题](https://www.jianshu.com/p/56b1e01e6b6a)
 
-
-
-### 2.4 打包部署 scritpis 组件
-
-```shell script
-    npm run build --module=scriptis
-```
 
 ## 3. 打包&部署 scriptis
 
@@ -172,16 +173,22 @@ nginxIp:nginx服务器ip，port:linkis管理台nginx配置启动的端口号，`
 ### 4.3 使用 scriptis 
 以新建一个sql查询任务为例。
 
-(todo下面介绍scriptis的使用流程 补充图片)
 
-step1 新建脚本 
+step1 新建脚本 选择脚本类型为sql类型
+
+![效果图](/Images-zh/deployment/scriptis/new_script.png)
 
 step2 输入要查询的语句
 
+![效果图](/Images-zh/deployment/scriptis/test_statement.png)
+
 step3 运行
+
+![效果图](/Images-zh/deployment/scriptis/running_results.png)
+
 
 shep4 查看结果 
 
-![效果图](/Images-zh/deployment/skywalking/linkis-scriptis.png)
+![效果图](/Images-zh/deployment/scriptis/design_sketch.png)
 
 
