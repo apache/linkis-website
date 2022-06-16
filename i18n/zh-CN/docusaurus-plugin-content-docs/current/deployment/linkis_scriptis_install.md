@@ -39,7 +39,7 @@ sidebar_position: 10
 
 ```shell script
 #通过git下载 dss 1.1.0官方版本发布前，建议先使用这个分支dev-1.1.4分支，来编译scriptis组件
-git clone https://github.com/WeDataSphere/DataSphereStudio/tree/dev-1.1.4
+git clone  -b dev-1.1.4 https://github.com/WeDataSphere/DataSphereStudio
 # 或则直接下载zip包 后解压
 https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.4
 
