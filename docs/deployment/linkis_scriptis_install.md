@@ -1,30 +1,31 @@
 ---
-title: Installation and deployment of tool scriptis
+title: Installation And Deployment Of Tool Scriptis
 sidebar_position: 10
 ---
 
-## 1. introduce
+## 1. Introduce
 
 > On linkis1.0 and DSS 1.1 After X, scriptpis can be deployed separately to integrate with linkis. Using the interactive analysis function of scriptis, you can write SQL, pyspark, hiveql and other scripts online on the web page, submit them to linkis for execution, and support UDF, functions, resource control, user-defined variables and other features. This article will introduce how to deploy the web component scriptis separately, and use linkis through such a web page as scriptis.
+
 :::caution be careful
 Premise: the linkis service (back-end and management console services) has been successfully installed and can be used normally. See [rapid deployment of linkis] (deployment/quick_deploy) for the deployment process of linkis
 Example description:
 - The address of the linkis gateway service is 10.10.10.10 and the port is 9001
 - The management console nginx of linkis is deployed on port 8080 of 10.10.10.10
-  :::
+:::
 
 
 
 
 
-## 2. Compilation process
+## 2. Compilation Process
 
 ### 2.1 Install node js
 ```shell script
      Set node JS download and install. Download address: http://nodejs.cn/download/ (it is recommended to use the latest stable version) this step is only required for the first use
 ```
 
-### 2.1 install learn
+### 2.1 Install learn
 ```shell script
    #The computer opens the CMD terminal tool and enters the command for global installation
    npm install lerna -g
