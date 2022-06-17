@@ -25,6 +25,8 @@ command -v mysql
 
 command -v telnet
 
+#Before installing, check whether the port is occupied
+command -v lsof
 #Related installation packages for decompressing linkis
 command -v tar
 

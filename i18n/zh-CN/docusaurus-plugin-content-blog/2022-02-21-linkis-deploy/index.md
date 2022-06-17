@@ -25,6 +25,8 @@ command -v mysql
 
 command -v  telnet
 
+#执行install之前,检测端口是否被占用
+command -v lsof
 #用于解压linkis的相关安装包
 command -v  tar
 
