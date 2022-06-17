@@ -12,7 +12,7 @@ sidebar_position: 2
  "method": "",
  "status": 0,
  "message": "",
- "data": {}
+ "data": { }
 }
 ```
 
