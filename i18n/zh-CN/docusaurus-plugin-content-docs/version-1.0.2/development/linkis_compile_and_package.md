@@ -94,7 +94,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
     wedatasphere-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.jar
 ```
 
-如何单独安装 Spark 引擎？ 请参考 [Linkis 引擎插件安装文档](deployment/engine_conn_plugin_installation.md)
+如何单独安装 Spark 引擎？ 请参考 [Linkis 引擎插件安装文档](../deployment/engine_conn_plugin_installation)
 
 ## 5. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本
 
