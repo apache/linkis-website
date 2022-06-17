@@ -9,7 +9,7 @@ sidebar_position: 2
 
 Linkis在前后端进行交互的时候，定义了一套自己的接口规范。
 
-如果您对接口规范感兴趣，请点击这里[查看接口规范](community/development_specification/api.md)
+如果您对接口规范感兴趣，请点击这里[查看接口规范](../../../docusaurus-plugin-content-docs-community/current/development_specification/api)
 
 ## 2 HTTP接口汇总
 
