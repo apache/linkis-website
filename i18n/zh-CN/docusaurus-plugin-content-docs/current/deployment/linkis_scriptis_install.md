@@ -8,7 +8,7 @@ sidebar_position: 10
 > 在Linkis1.0和DSS 1.1.X之后，支持将Scritpis单独部署来集成Linkis，使用Scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署Web组件-Scriptis，并通过Scriptis这种Web页面来使用Linkis。
 
 
-前提:已经成功安装并可以正常使用了linkis服务（后端和管理台服务），linkis的部署流程可以见[Linkis的快速部署](deployment/quick_deploy)
+前提:已经成功安装并可以正常使用了linkis服务（后端和管理台服务），linkis的部署流程可以见[Linkis的快速部署](/docs/1.1.2/deployment/quick_deploy)
 
 示例说明:
 - linkis-gateway服务的地址为10.10.10.10 端口为9001 
