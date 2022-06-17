@@ -9,7 +9,7 @@ sidebar_position: 1
 
 Linkis在前后端进行交互的时候，定义了一套自己的接口规范。
 
-如果您对接口规范感兴趣，请点击这里[查看接口规范](../../../../../community/development_specification/api.md)
+如果您对接口规范感兴趣，请点击这里[查看接口规范](community/development_specification/api.md)
 
 ## 2 如何实现免登录
 
