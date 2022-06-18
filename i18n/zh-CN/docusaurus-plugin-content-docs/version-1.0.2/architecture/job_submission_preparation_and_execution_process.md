@@ -118,7 +118,7 @@ Linkis Orchestrator的编排流程与很多SQL解析引擎（如Spark、Hive的S
 
 <!--
 #todo  Orchestrator文档还没准备好！！
-关于Orchestrator的编排详细介绍，请参考：[Orchestrator架构设计](architecture/orchestrator/orchestrator_architecture_doc.md)
+关于Orchestrator的编排详细介绍，请参考：[Orchestrator架构设计]()
 -->
 
 经过了Linkis Orchestrator的解析编排后，用户的计算任务已经转换成了一颗可被执行的Physical树。Orchestrator会将该Physical树提交给Orchestrator的Execution模块，进入最后的执行阶段。

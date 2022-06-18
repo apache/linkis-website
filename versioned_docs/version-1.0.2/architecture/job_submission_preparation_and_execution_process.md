@@ -102,7 +102,7 @@ The orchestration process of Linkis Orchestrator is similar to many SQL parsing 
 
 <!--
 #todo  Orchestrator documentation is not ready yet 
-Please refer to [Orchestrator Architecture Design](architecture/orchestrator/orchestrator_architecture_doc.md) for more details. 
+Please refer to [Orchestrator Architecture Design]() for more details. 
 -->
 
 After the analysis and arrangement of Linkis Orchestrator, the  computing task has been transformed into a executable physical tree. Orchestrator will submit the Physical tree to Orchestrator's Execution module and enter the final execution stage.

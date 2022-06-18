@@ -2,8 +2,47 @@
   "zh-CN": {
     "info": {
       "desc": "您可以通过上报bug/提交新功能或改进建议/提交补丁/文档编写/社区答疑/组织社区活动等方式参与到Apache Linkis的贡献中，详细指引参见<a class=\"link\" href=\"community/how-to-contribute\" rel=\"noopener noreferrer\">贡献者指南</a>。",
-      "tip": "(排名不分先后)"
+      "tip": "(排名不分先后)",
+      "committerTip": "(按英文首字母排序)"
     },
+    "committer":[
+      {
+        "apacheId": "casion",
+        "githubId": "casionone",
+        "name": "夏晨",
+        "email": "casion@apache.org"
+      },
+      {
+        "apacheId": "zhanghuajin",
+        "githubId": "utopianet",
+        "name": "张华金",
+        "email": "zhanghuajin@apache.org"
+      },
+      {
+        "apacheId": "xujie",
+        "githubId": "xiaojie19852006",
+        "name": "徐杰",
+        "email": "xujie@apache.org"
+      },
+      {
+        "apacheId": "legendtkl",
+        "githubId": "legendtkl",
+        "name": "陶克路",
+        "email": "legendtkl@apache.org"
+      },
+      {
+        "apacheId": "leojie",
+        "githubId": "CCweixiaoLongping",
+        "name": "介龙平",
+        "email": "leojie@apache.org"
+      },
+      {
+        "apacheId": "luxiaolongdet101",
+        "githubId": "Xiaolong",
+        "name": "陆小龙",
+        "email": "luxiaolong@apache.org"
+      }
+    ],
     "list": [
       {
         "apacheId": "",
@@ -18,7 +57,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": " zhangduo@apache.org",
         "gitUrl": "https://github.com/DuoZhang",
-        "githubId": "DuoZhang",
+        "githubId": "Apache9",
         "name": "张铎"
       },
       {
@@ -26,7 +65,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "jshao@apache.org",
         "gitUrl": "https://github.com/jshao",
-        "githubId": "jshao",
+        "githubId": "jerryshao",
         "name": "邵赛赛"
       },
       {
@@ -34,7 +73,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "lidongdai@apache.org",
         "gitUrl": "https://github.com/dailidong",
-        "githubId": "dailidong",
+        "githubId": "davidzollo",
         "name": "代立冬"
       },
       {
@@ -114,7 +153,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "Jackyxxie@gmail.com",
         "gitUrl": "https://github.com/Jackyxxie",
-        "githubId": "Jackyxxie",
+        "githubId": "xj2jx",
         "name": "谢建"
       },
       {
@@ -138,7 +177,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "huashuizhuhui@gmail.com",
         "gitUrl": "https://github.com/huashuizhuhui",
-        "githubId": "huashuizhuhui",
+        "githubId": "liangqilang",
         "name": "朱辉"
       },
       {
@@ -162,7 +201,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "yixiaohuamax@gmail.com",
         "gitUrl": "https://github.com/yixiaohuamax",
-        "githubId": "yixiaohuamax",
+        "githubId": "seayi",
         "name": "易小华"
       }
     ]
@@ -170,8 +209,47 @@
   "en": {
     "info": {
       "desc": "You can participate in the contribution of Apache Linkis by reporting bugs/submitting new features or improvement suggestions/submitting patches/ writing or refining documents/attending community Q&A/organizing community activities, etc. For detailed instructions, please refer to <a class=\"link\" href=\"community/how-to-contribute\" rel=\"noopener noreferrer\">Contributor's Guide</a>.",
-      "tip": "(In no particular order)"
+      "tip": "(In no particular order)",
+      "committerTip": "(Sort by English initials)"
     },
+    "committer":[
+      {
+        "apacheId": "casion",
+        "githubId": "casionone",
+        "name": "Chen Xia",
+        "email": "casion@apache.org"
+      },
+      {
+        "apacheId": "zhanghuajin",
+        "githubId": "utopianet",
+        "name": "HuaJin Zhang",
+        "email": "zhanghuajin@apache.org"
+      },
+      {
+        "apacheId": "xujie",
+        "githubId": "xiaojie19852006",
+        "name": "Jie Xu",
+        "email": "xujie@apache.org"
+      },
+      {
+        "apacheId": "legendtkl",
+        "githubId": "legendtkl",
+        "name": "Kelu Tao",
+        "email": "legendtkl@apache.org"
+      },
+      {
+        "apacheId": "leojie",
+        "githubId": "CCweixiaoLongping",
+        "name": "LongPing Jie",
+        "email": "leojie@apache.org"
+      },
+      {
+        "apacheId": "luxiaolongdet101",
+        "githubId": "Xiaolong",
+        "name": "XiaoLong  Lu", 
+        "email": "luxiaolong@apache.org"
+      }
+    ],
     "list": [
       {
         "apacheId": "",
@@ -186,7 +264,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": " zhangduo@apache.org",
         "gitUrl": "https://github.com/DuoZhang",
-        "githubId": "DuoZhang",
+        "githubId": "Apache9",
         "name": "Duo Zhang"
       },
       {
@@ -194,7 +272,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "jshao@apache.org",
         "gitUrl": "https://github.com/jshao",
-        "githubId": "jshao",
+        "githubId": "jerryshao",
         "name": "Jerry Shao"
       },
       {
@@ -202,7 +280,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "lidongdai@apache.org",
         "gitUrl": "https://github.com/dailidong",
-        "githubId": "dailidong",
+        "githubId": "davidzollo",
         "name": "Lidong Dai"
       },
       {
@@ -282,7 +360,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "Jackyxxie@gmail.com",
         "gitUrl": "https://github.com/Jackyxxie",
-        "githubId": "Jackyxxie",
+        "githubId": "xj2jx",
         "name": "Jian Xie"
       },
       {
@@ -306,7 +384,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "huashuizhuhui@gmail.com",
         "gitUrl": "https://github.com/huashuizhuhui",
-        "githubId": "huashuizhuhui",
+        "githubId": "liangqilang",
         "name": "Hui Zhu"
       },
       {
@@ -330,7 +408,7 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/11204595?s=60&v=4",
         "email": "yixiaohuamax@gmail.com",
         "gitUrl": "https://github.com/yixiaohuamax",
-        "githubId": "yixiaohuamax",
+        "githubId": "seayi",
         "name": "Xiaohua Yi"
       }
     ]

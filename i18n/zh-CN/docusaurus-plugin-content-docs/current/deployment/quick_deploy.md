@@ -78,7 +78,7 @@ MYSQL_DB=linkis_test
 MYSQL_USER=test
 MYSQL_PASSWORD=xxxxx
 
-# 提供 Hive 元数据数据库的 DB 信息，如果不涉及hive引擎，可以不配置 
+# 提供 Hive 元数据数据库的 DB 信息，如果不涉及hive引擎（或则只是简单试用），可以不配置 
 #主要是配合scriptis一起使用，如果不配置，会默认尝试通过$HIVE_CONF_DIR 中的配置文件获取
 HIVE_META_URL="jdbc:mysql://10.10.10.10:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8" 
 HIVE_META_USER=demo   # HiveMeta元数据库的用户
@@ -97,7 +97,7 @@ deployUser=hadoop #执行部署的用户，为 1.2 步骤给中创建的用户
 
 #### 基础目录配置(可选)
 :::caution 注意
-根据实际情况确定是否需要调整，可以使用默认值
+根据实际情况确定是否需要调整，可以选择使用默认值
 :::
 
 
@@ -127,7 +127,8 @@ ENGINECONN_ROOT_PATH=/appcom/tmp
 #可以通过访问http://xx.xx.xx.xx:8088/ws/v1/cluster/scheduler 接口确认是否可以正常访问
 YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 
 ```
-执行spark任务时，需要使用到yarn的ResourceManager，linkis默认它是未开启权限验证的，如果ResourceManager开启了密码权限验证，请安装部署后，修改`linkis_cg_engine_conn_plugin_bml_resources`表数据(或则参见[检查引擎物料资源是否上传成功](#6-检查引擎物料资源是否上传成功))
+执行spark任务时，需要使用到yarn的ResourceManager，linkis默认它是未开启权限验证的，如果ResourceManager开启了密码权限验证，请安装部署后，
+修改数据库表 `linkis_cg_rm_external_resource_provider` 插入yarn数据信息,详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)
 
 #### 基础组件环境信息 
 
@@ -155,7 +156,7 @@ SPARK_CONF_DIR=/appcom/config/spark-config
 #### LDAP 登录配置(可选)
 
 :::caution 注意
-默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{InstallPath}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
+默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
 :::
 
 
@@ -230,7 +231,7 @@ Your default account password is [hadoop/5e8e312b4]`
 ### <font color="red"> 3.2 添加mysql驱动包</font>
 
 :::caution 注意
-因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包（DSS集成的全家桶会包含，无需手动添加），安装部署时需要自行添加依赖到对应的lib包中。 可以在对应的目录下查看是否存在，如果不存在则需要添加
+因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包（**若是通过集成的全家桶物料包安装，则无需手动添加**），安装部署时需要自行添加依赖到对应的lib包中。 可以在对应的目录下查看是否存在，如果不存在则需要添加
 
 :::
 
@@ -243,26 +244,36 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 ```
 
 ### 3.3 配置调整（可选）
-> 根据实际情况 
+> 以下操作，跟依赖的环境有关，根据实际情况，确定是否需要操作 
 
-如果使用的hive集群开启了，kerberos认证，修改配置`${LINKIS_HOME}/conf/linkis.properties`（<=1.1.3）文件
+#### 3.3.1 kerberos认证 
+如果使用的hive集群开启了kerberos模式认证，修改配置`${LINKIS_HOME}/conf/linkis.properties`（<=1.1.3）文件
 ```shell script
 #追加以下配置 
 echo "wds.linkis.keytab.enable=true" >> linkis.properties
 ```
+#### 3.3.2 Yarn的认证 
 
+执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
+执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
+如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
+详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)
+
+
+
+#### 3.3.2 session 
 如果您是对Linkis的升级。同时部署DSS或者其他项目，但他们服务lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1，则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```
 
-### 3.3 启动服务
+### 3.4 启动服务
 ```shell script
 sh sbin/linkis-start-all.sh
 ```
 
-### 3.4 安装后配置的修改
-安装完成后，如果需要修改配置（因端口冲突或则某些配置有问题需要调整配置），可以重新执行安装，或则修改对应服务的配置`${InstallPath}/conf/*properties`文件后，重启对应的服务，如：`sh sbin/linkis-daemon.sh start ps-publicservice`
+### 3.5 安装后配置的修改
+安装完成后，如果需要修改配置（因端口冲突或则某些配置有问题需要调整配置），可以重新执行安装，或则修改对应服务的配置`${LINKIS_HOME}/conf/*properties`文件后，重启对应的服务，如：`sh sbin/linkis-daemon.sh start ps-publicservice`
 
 
 ### 3.6 检查服务是否正常启动 
@@ -368,10 +379,10 @@ nginx的日志文件在 `/var/log/nginx/access.log` 和`/var/log/nginx/error.log
 - 如果访问管理台出现接口502，或则`Unexpected token < in JSON at position 0`异常，请确认linkis-mg-gateway是否正常启动，如果正常启动，查看nginx配置文件中配置的linkis-mg-gateway服务地址是否正确
 :::
 
-### 4.4 登录管理台查看信息
+### 4.4 登录管理台
 
 浏览器登陆 `http://xx.xx.xx.xx:8188/#/login`
-用户名/密码在`{InstallPath}/conf/linkis-mg-gateway.properties`中查看
+用户名/密码在`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看
 ```shell script
 wds.linkis.admin.user= #用户
 wds.linkis.admin.password= #密码
@@ -398,14 +409,37 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 ```
 如果验证失败，请参考【步骤6】进行排查
 
-## 6 开发工具IDE的安装(可选)
->可以在web页面在线写SQL、Pyspark、HiveQL等脚本
+## 6 开发工具IDE（Scriptis）的安装(可选)
+>安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本
 
 详细指引见[工具Scriptis的安装部署](/deployment/linkis_scriptis_install.md)
 
-## 7 查看支持的各个引擎的版本
+## 7 支持的引擎 
 
-### 7.1 方式1:查看引擎打包的目录
+### 7.1 引擎适配列表
+
+请注意：Linkis的单独安装包默认只包含的：Python/Shell/Hive/Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](deployment/engine_conn_plugin_installation.md)。
+
+本版本已适配的支持引擎列表如下：
+
+| 引擎类型       | 适配情况       | 官方安装包是否包含 |
+|---------------|-------------------|------|
+| Python        | >=1.0.0 已适配   | 包含   |
+| Shell         | >=1.0.0 已适配   | 包含   |
+| Hive          | >=1.0.0 已适配   | 包含   |
+| Spark         | >=1.0.0 已适配   | 包含   |
+| Pipeline      | >=1.0.0 已适配   | **不包含** |
+| JDBC          | >=1.0.0 已适配   | **不包含** |
+| Flink         | >=1.0.0 已适配   | **不包含** |
+| OpenLooKeng   | >=1.1.1 已适配   | **不包含** |
+| Sqoop         | >=1.1.2 已适配  | **不包含** |
+
+
+
+### 7.2  查看部署的引擎
+
+#### 方式1: 查看引擎lib包目录
+
 ```
 $ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
 linkis-package/lib/linkis-engineconn-plugins/
@@ -431,7 +465,7 @@ linkis-package/lib/linkis-engineconn-plugins/
         └── 2.4.3
 ```
 
-### 7.2 方式2:查看linkis的数据库表
+#### 方式2: 查看linkis的数据库表
 ```shell script
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
@@ -508,7 +542,7 @@ hdfs dfs -chown hadoop:hadoop   /apps-data
 ### 8.3 登陆密码问题
 
 linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于
-`{InstallPath}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
+`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
 
 ### 8.4 版本兼容性问题
 

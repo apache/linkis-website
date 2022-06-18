@@ -108,7 +108,7 @@ Get the installation package, there will be a compiled package in the ->target d
    incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.jar
 ```
 
-How to install Spark engine separately? Please refer to [Linkis Engine Plugin Installation Document](deployment/engine_conn_plugin_installation.md)
+How to install Spark engine separately? Please refer to [Linkis Engine Plugin Installation Document](../deployment/engine_conn_plugin_installation)
 
 ## 5. How to modify the Hadoop, Hive, and Spark versions that Linkis depends on
 
