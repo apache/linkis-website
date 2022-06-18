@@ -33,7 +33,7 @@ Perform three stages to fully upgrade Linkis's Job execution architecture, as sh
 
 <!--
 #todo  Orchestrator documentation is not ready yet 
-[Enter Orchestrator Architecture Design](orchestrator/overview.md) 
+[Enter Orchestrator Architecture Design]() 
 -->
  
 ### 3. LinkisManager

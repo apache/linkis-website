@@ -37,7 +37,7 @@ Wait until the installation is completed. The installation of liarn only needs t
 
 ```shell script
 #Before downloading the official version of DSS 1.1.0 through GIT and releasing it, it is recommended to use the dev-1.1.4 branch of this branch to compile the scripts component
-git clone https://github.com/WeDataSphere/DataSphereStudio/tree/dev-1.1.4
+git clone  -b dev-1.1.4 https://github.com/WeDataSphere/DataSphereStudio
 # Or download the zip package directly and unzip it
 https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.4
 
