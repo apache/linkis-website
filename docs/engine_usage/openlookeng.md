@@ -47,7 +47,7 @@ sh linkis-daemon restart cg-engineplugin
 
 Linkis1.X is done through tags, so we need to insert data into our database, and the insertion method is as follows.
 
-[EngineConnPlugin engine plugin installation](deployment/engine_conn_plugin_installation.md)
+[EngineConnPlugin engine plugin installation](../deployment/engine_conn_plugin_installation)
 
 ## 3 The use of the engine
 
