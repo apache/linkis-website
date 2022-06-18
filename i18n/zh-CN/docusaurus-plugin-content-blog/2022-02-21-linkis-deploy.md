@@ -269,7 +269,7 @@ Your default account password is [hadoop/5e8e312b4]`
 
 ### 3.4 添加mysql驱动(>=1.0.3)版本 
 因为license原因，linkis官方发布包中(dss集成的全家桶会包含，无需手动添加)移除了mysql-connector-java，需要手动添加  
-具体参见[ 添加mysql驱动包](/docs/latest/deployment/quick_deploy#-44-添加mysql驱动包)
+具体参见[ 添加mysql驱动包](docs/latest/deployment/quick_deploy#-44-添加mysql驱动包)
 
 ### 3.5 启动服务
 ```shell script
@@ -435,7 +435,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
   
-如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](/docs/latest/deployment/engine_conn_plugin_installation#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
+如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](docs/latest/deployment/engine_conn_plugin_installation#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
 
 引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`  
 ```shell script
@@ -455,6 +455,38 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -c
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
 ```
 
+## 8 查看支持的各个引擎的版本
+
+### 8.1 方式1:查看引擎打包的目录
+```
+$ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
+linkis-package/lib/linkis-engineconn-plugins/
+├── hive
+│   ├── dist
+│   │   └── v2.3.3  #版本为2.3.3  engineType 为hive-2.3.3
+│   └── plugin
+│       └── 2.3.3
+├── python
+│   ├── dist
+│   │   └── vpython2
+│   └── plugin
+│       └── python2 #版本为python2 engineType 为python-python2
+├── shell
+│   ├── dist
+│   │   └── v1
+│   └── plugin
+│       └── 1
+└── spark
+    ├── dist
+    │   └── v2.4.3
+    └── plugin
+        └── 2.4.3
+```
+
+### 8.2 方式2:查看linkis的数据库表
+```shell script
+select *  from linkis_cg_engine_conn_plugin_bml_resources
+```
 
 
 

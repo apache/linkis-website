@@ -49,6 +49,7 @@ lerna bootstrap
 > 如果不想本地运行查看，可以跳过此步 
 
 #### 3.2.1 配置linkis-gateway服务地址配置
+
 如果是在本地启动服务，需要在代码中配置后端linkis-gateway服务地址，在`web/packages/dss/`目录下的`.env`文件，
 打包部署时不需要进行配置
 ```shell script

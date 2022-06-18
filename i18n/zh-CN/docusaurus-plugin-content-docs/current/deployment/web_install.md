@@ -3,12 +3,13 @@ title: 管理台部署
 sidebar_position: 6
 ---
 
-Linkis在1.0提供了单独的前端管理台功能，提供了展示Linis的全局历史、修改用户参数、管理ECM和微服务等功能，部署前端管理台前需要先将Linkis后端进行部署，Linkis的部署手册见：[Linkis部署手册](deployment/quick_deploy.md)
+Linkis 提供了单独的前端管理台功能，提供了展示历史任务的全局历史、修改用户参数、管理ECM和微服务等功能，部署前端管理台前需要先将Linkis后端进行部署，Linkis的部署手册见：[Linkis部署手册](deployment/quick_deploy.md)
 
-## 1、准备工作
+## 1 准备工作
 
 1. 从linkis的release页面（[点击这里进入下载页面](https://linkis.apache.org/zh-CN/download/main)）下载web安装包，apache-linkis-x.x.x-incubating-web-bin.tar.gz
-手动解压：tar -xvf  apache-linkis-x.x.x-incubating-web-bin.tar.gz，解压后目录为：
+手动解压：`tar -xvf  apache-linkis-x.x.x-incubating-web-bin.tar.gz`，
+解压后目录为：
 ```
 ├── config.sh
 ├── DISCLAIMER

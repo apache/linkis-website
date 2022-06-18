@@ -43,7 +43,7 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ### 2.1 安装包准备
 
 - 方式1：从官网[下载地址](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main，下载对应的安装包(项目安装包和管理台安装包)
-- 方式2：根据[Linkis 编译打包](.development/linkis_compile_and_package)和[前端管理台编译](development/web_build) 自行编译出项目安装包和管理台安装包
+- 方式2：根据[Linkis 编译打包](../development/linkis_compile_and_package)和[前端管理台编译](../development/web_build) 自行编译出项目安装包和管理台安装包
 
 上传安装包`apache-linkis-x.x.x-incubating-bin.tar.gz`后，进行解压安装包 
 
@@ -418,7 +418,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 
 ### 7.1 引擎适配列表
 
-请注意：Linkis的单独安装包默认只包含的：Python/Shell/Hive/Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](deployment/engine_conn_plugin_installation.md)。
+请注意：Linkis的单独安装包默认只包含的：Python/Shell/Hive/Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](./deployment/engine_conn_plugin_installation)。
 
 本版本已适配的支持引擎列表如下：
 
