@@ -156,7 +156,45 @@ $ mvnw.cmd -N install
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
 $ mvnw.cmd  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ```
-#### 2.4.3 相关合规项检查 
+
+#### 2.4.3 管理台代码编译验证
+首先检查web/package.json，web/.env文件，检查前端管理台版本号是否正确
+随后执行如下代码安装依赖：
+```shell
+npm install
+```
+接下来项目进行打包：
+```shell
+npm run build
+```
+上述命令执行成功后，会生成前端管理台安装包: `apache-linkis-${version}-incubating-web-bin.tar.gz`
+
+:::caution 注意：
+1.Windows下`npm install`步骤报错：
+`Error: Can't find Python executable "python", you can set the PYTHON env variable`
+
+安装windows-build-tools （管理员权限）:
+```shell
+$ npm install --global --production windows-build-tools
+```
+安装node-gyp:
+```
+$ npm install --global node-gyp
+```
+2.如果编译失败 请按如下步骤清理后重新执行
+```shell
+#进入项目工作目录，删除 node_modules
+$ rm -rf node_modules
+#删除 package-lock.json
+$ rm -rf package-lock.json
+#清除 npm 缓存
+$ npm cache clear --force
+#重新下载依赖
+$ npm install
+
+```
+:::
+#### 2.4.4 相关合规项检查 
 
 进行如下检查:
 
