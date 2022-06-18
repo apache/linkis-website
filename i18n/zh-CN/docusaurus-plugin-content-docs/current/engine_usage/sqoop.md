@@ -5,20 +5,33 @@ sidebar_position: 9
 
 # Sqoop 引擎使用文档
 
-本文主要介绍在Linkis1.X中，Sqoop引擎的配置、部署和使用。
+本文主要介绍Sqoop(>=1.1.2 版本支持)引擎的配置、部署和使用。
 
 ## 1.Sqoop引擎Linkis系统参数配置
 
 Sqoop引擎主要依赖Hadoop基础环境，如果该节点需要部署Sqoop引擎，需要部署Hadoop客户端环境。
 
 强烈建议您在执行Sqoop任务之前，先在该节点使用原生的Sqoop执行测试任务，以检测该节点环境是否正常。
+```shell script
+#验证sqoop环境是否可用 参考示例：将hdfs的/user/hive/warehouse/hadoop/test_linkis_sqoop文件数据导入到mysql表 test_sqoop中
+
+sqoop export \
+--connect  jdbc:mysql://10.10.10.10/test \
+--username test \
+--password test123\
+--table test_sqoop \
+--columns user_id,user_code,user_name,email,status \
+--export-dir /user/hive/warehouse/hadoop/test_linkis_sqoop  \
+--update-mode allowinsert  \
+--verbose ;
+```
 
 | 环境变量名      | 环境变量内容   | 备注                                   |
 |-----------------|----------------|----------------------------------------|
 | JAVA_HOME       | JDK安装路径    | 必须                                   |
 | HADOOP_HOME     | Hadoop安装路径 | 必须                                   |
 | HADOOP_CONF_DIR | Hadoop配置路径 | 必须                                |
-| SQOOP_HOME | Sqoop安装路径 | 非必须                             |
+| SQOOP_HOME | Sqoop安装路径 | 必须                             |
 | SQOOP_CONF_DIR | Sqoop配置路径 | 非必须                                |
 | HCAT_HOME | HCAT配置路径 | 非必须                                |
 | HBASE_HOME | HBASE配置路径 | 非必须 |
@@ -27,8 +40,8 @@ Sqoop引擎主要依赖Hadoop基础环境，如果该节点需要部署Sqoop引�
 
 | Linkis系统参数              | 参数                            | 备注                                                         |
 | --------------------------- | ------------------------------- | ------------------------------------------------------------ |
-| wds.linkis.hadoop.site.xml  | 设置sqoop加载hadoop参数文件位置 | 必须，参考示例："/etc/hadoop/conf/core-site.xml;/etc/hadoop/conf/hdfs-site.xml;/etc/hadoop/conf/yarn-site.xml;/etc/hadoop/conf/mapred-site.xml" |
-| sqoop.fetch.status.interval | 设置获取sqoop执行状态的间隔时间 | 非必须，默认值为5s                                           |
+| wds.linkis.hadoop.site.xml  | 设置sqoop加载hadoop参数文件位置 | 一般不需要单独配置，默认值"core-site.xml;hdfs-site.xml;yarn-site.xml;mapred-site.xml" |
+| sqoop.fetch.status.interval | 设置获取sqoop执行状态的间隔时间 | 一般不需要单独配置，默认值为5s                                           |
 
 
 
@@ -43,14 +56,14 @@ Linkis 1.1.2及以上支持的主流Sqoop版本1.4.6与1.4.7，更高版本可�
 
 ```
 单独编译sqoop的方式
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/sqoop/
+${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/sqoop/
 mvn clean install
 ```
 安装方式是将编译出来的引擎包,位置在
 ```bash
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/sqoop/target/sqoop-engineconn.zip
+${linkis_code_dir}/linkis-enginepconn-plugins/engineconn-plugins/sqoop/target/sqoop-engineconn.zip
 ```
-然后部署到
+然后上传部署到linkis服务器
 ```bash 
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
@@ -59,10 +72,67 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
-engineplugin更详细的介绍可以参看下面的文章。  
-https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine_conn_plugin_installation
+engineplugin更详细的介绍可以参看下面的文章。
+  
+https://linkis.apache.org/zh-CN/docs/latest/deployment/engine_conn_plugin_installation
 
 ## 3.Sqoop引擎的使用
+
+### 3.1 通过Linkis-cli进行任务提交
+hdfs文件导出到mysql
+```shell script
+sh linkis-cli-sqoop export \
+-D mapreduce.job.queuename=ide \
+--connect jdbc:mysql://10.10.10.10:9600/testdb \
+--username password@123 \
+--password password@123  \
+--table test_sqoop_01_copy \
+--columns user_id,user_code,user_name,email,status \
+--export-dir /user/hive/warehouse/hadoop/test_linkis_sqoop_2 \
+--update-mode allowinsert --verbose ;  
+```
+
+mysql数据导入到hive库
+```shell script
+mysql导入到hive 库linkis_test_ind.test_import_sqoop_1,表test_import_sqoop_1不存在 需要添加参数 --create-hive-table 
+
+sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
+--connect jdbc:mysql://10.10.10.10:3306/casion_test \
+--username hadoop \
+--password password@123 \
+--table test_sqoop_01 \
+--columns user_id,user_code,user_name,email,status \
+--fields-terminated-by ',' \
+--hive-import --create-hive-table \
+--hive-database casionxia_ind \
+--hive-table test_import_sqoop_1 \
+--hive-drop-import-delims \
+--delete-target-dir \
+--input-null-non-string '\\N' \
+--input-null-string '\\N' \
+--verbose ;
+
+
+mysql导入到hive 库linkis_test_ind.test_import_sqoop_1,表test_import_sqoop_1存在 移除参数--create-hive-table \
+sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
+--connect jdbc:mysql://10.10.10.10:9600/testdb \
+--username testdb \
+--password password@123 \
+--table test_sqoop_01 \
+--columns user_id,user_code,user_name,email,status \
+--fields-terminated-by ',' \
+--hive-import \
+--hive-database linkis_test_ind \
+--hive-table test_import_sqoop_1 \
+--hive-overwrite \
+--hive-drop-import-delims \
+--delete-target-dir \
+--input-null-non-string '\\N' \
+--input-null-string '\\N' \
+--verbose ;
+
+```
+
 
 
 ### 3.1 OnceEngineConn方式
@@ -78,8 +148,6 @@ OnceEngineConn的使用方式是通过LinkisManagerClient调用LinkisManager的c
 **测试用例：**
 
 ```scala
-
-package com.webank.wedatasphere.exchangis.job.server.log.client
 
 import java.util.concurrent.TimeUnit
 
@@ -108,6 +176,7 @@ object SqoopOnceJobTest extends App {
   val onceJob = importJob(builder)
   val time = System.currentTimeMillis()
   onceJob.submit()
+
   println(onceJob.getId)
   val logOperator = onceJob.getOperator(EngineConnLogOperator.OPERATOR_NAME).asInstanceOf[EngineConnLogOperator]
   println(onceJob.getECMServiceInstance)
@@ -180,119 +249,212 @@ object SqoopOnceJobTest extends App {
    }
 ```
 
-**参数对照表（与原生参数）：**
 
-```
-sqoop.env.mapreduce.job.queuename<=>-Dmapreduce.job.queuename
-sqoop.args.connection.manager<===>--connection-manager
-sqoop.args.connection.param.file<===>--connection-param-file
-sqoop.args.driver<===>--driver
-sqoop.args.hadoop.home<===>--hadoop-home
-sqoop.args.hadoop.mapred.home<===>--hadoop-mapred-home
-sqoop.args.help<===>help
-sqoop.args.password<===>--password
-sqoop.args.password.alias<===>--password-alias
-sqoop.args.password.file<===>--password-file
-sqoop.args.relaxed.isolation<===>--relaxed-isolation
-sqoop.args.skip.dist.cache<===>--skip-dist-cache
-sqoop.args.username<===>--username
-sqoop.args.verbose<===>--verbose
-sqoop.args.append<===>--append
-sqoop.args.as.avrodatafile<===>--as-avrodatafile
-sqoop.args.as.parquetfile<===>--as-parquetfile
-sqoop.args.as.sequencefile<===>--as-sequencefile
-sqoop.args.as.textfile<===>--as-textfile
-sqoop.args.autoreset.to.one.mapper<===>--autoreset-to-one-mapper
-sqoop.args.boundary.query<===>--boundary-query
-sqoop.args.case.insensitive<===>--case-insensitive
-sqoop.args.columns<===>--columns
-sqoop.args.compression.codec<===>--compression-codec
-sqoop.args.delete.target.dir<===>--delete-target-dir
-sqoop.args.direct<===>--direct
-sqoop.args.direct.split.size<===>--direct-split-size
-sqoop.args.query<===>--query
-sqoop.args.fetch.size<===>--fetch-size
-sqoop.args.inline.lob.limit<===>--inline-lob-limit
-sqoop.args.num.mappers<===>--num-mappers
-sqoop.args.mapreduce.job.name<===>--mapreduce-job-name
-sqoop.args.merge.key<===>--merge-key
-sqoop.args.split.by<===>--split-by
-sqoop.args.table<===>--table
-sqoop.args.target.dir<===>--target-dir
-sqoop.args.validate<===>--validate
-sqoop.args.validation.failurehandler<===>--validation-failurehandler
-sqoop.args.validation.threshold<===> --validation-threshold
-sqoop.args.validator<===>--validator
-sqoop.args.warehouse.dir<===>--warehouse-dir
-sqoop.args.where<===>--where
-sqoop.args.compress<===>--compress
-sqoop.args.check.column<===>--check-column
-sqoop.args.incremental<===>--incremental
-sqoop.args.last.value<===>--last-value
-sqoop.args.enclosed.by<===>--enclosed-by
-sqoop.args.escaped.by<===>--escaped-by
-sqoop.args.fields.terminated.by<===>--fields-terminated-by
-sqoop.args.lines.terminated.by<===>--lines-terminated-by
-sqoop.args.mysql.delimiters<===>--mysql-delimiters
-sqoop.args.optionally.enclosed.by<===>--optionally-enclosed-by
-sqoop.args.input.enclosed.by<===>--input-enclosed-by
-sqoop.args.input.escaped.by<===>--input-escaped-by
-sqoop.args.input.fields.terminated.by<===>--input-fields-terminated-by
-sqoop.args.input.lines.terminated.by<===>--input-lines-terminated-by
-sqoop.args.input.optionally.enclosed.by<===>--input-optionally-enclosed-by
-sqoop.args.create.hive.table<===>--create-hive-table
-sqoop.args.hive.delims.replacement<===>--hive-delims-replacement
-sqoop.args.hive.database<===>--hive-database
-sqoop.args.hive.drop.import.delims<===>--hive-drop-import-delims
-sqoop.args.hive.home<===>--hive-home
-sqoop.args.hive.import<===>--hive-import
-sqoop.args.hive.overwrite<===>--hive-overwrite
-sqoop.args.hive.partition.value<===>--hive-partition-value
-sqoop.args.hive.table<===>--hive-table
-sqoop.args.column.family<===>--column-family
-sqoop.args.hbase.bulkload<===>--hbase-bulkload
-sqoop.args.hbase.create.table<===>--hbase-create-table
-sqoop.args.hbase.row.key<===>--hbase-row-key
-sqoop.args.hbase.table<===>--hbase-table
-sqoop.args.hcatalog.database<===>--hcatalog-database
-sqoop.args.hcatalog.home<===>--hcatalog-home
-sqoop.args.hcatalog.partition.keys<===>--hcatalog-partition-keys
-sqoop.args.hcatalog.partition.values<===>--hcatalog-partition-values
-sqoop.args.hcatalog.table<===>--hcatalog-table
-sqoop.args.hive.partition.key<===>--hive-partition-key
-sqoop.args.map.column.hive<===>--map-column-hive
-sqoop.args.create.hcatalog.table<===>--create-hcatalog-table
-sqoop.args.hcatalog.storage.stanza<===>--hcatalog-storage-stanza
-sqoop.args.accumulo.batch.size<===>--accumulo-batch-size
-sqoop.args.accumulo.column.family<===>--accumulo-column-family
-sqoop.args.accumulo.create.table<===>--accumulo-create-table
-sqoop.args.accumulo.instance<===>--accumulo-instance
-sqoop.args.accumulo.max.latency<===>--accumulo-max-latency
-sqoop.args.accumulo.password<===>--accumulo-password
-sqoop.args.accumulo.row.key<===>--accumulo-row-key
-sqoop.args.accumulo.table<===>--accumulo-table
-sqoop.args.accumulo.user<===>--accumulo-user
-sqoop.args.accumulo.visibility<===>--accumulo-visibility
-sqoop.args.accumulo.zookeepers<===>--accumulo-zookeepers
-sqoop.args.bindir<===>--bindir
-sqoop.args.class.name<===>--class-name
-sqoop.args.input.null.non.string<===>--input-null-non-string
-sqoop.args.input.null.string<===>--input-null-string
-sqoop.args.jar.file<===>--jar-file
-sqoop.args.map.column.java<===>--map-column-java
-sqoop.args.null.non.string<===>--null-non-string
-sqoop.args.null.string<===>--null-string
-sqoop.args.outdir<===>--outdir
-sqoop.args.package.name<===>--package-name
-sqoop.args.conf<===>-conf
-sqoop.args.D<===>-D
-sqoop.args.fs<===>-fs
-sqoop.args.jt<===>-jt
-sqoop.args.files<===>-files
-sqoop.args.libjars<===>-libjars
-sqoop.args.archives<===>-archives
-sqoop.args.update.key<===>--update-key
-sqoop.args.update.mode<===>--update-mode
-sqoop.args.export.dir<===>--export-dir
-```
+## 参数
+### Common arguments
 
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                       | sqoop.mode                              | import/export/…                                                                                                    |
+| -Dmapreduce.job.queuename                                                                                             | sqoop.env.mapreduce.job.queuename       |                                                                                         |
+| \--connect <jdbc-uri\>                                                                                                | sqoop.args.connect                      | Specify JDBC connect string                                                                                        |
+| \--connection-manager <class-name\>                                                                                   | sqoop.args.connection.manager           | Specify connection manager class name                                                                              |
+| \--connection-param-file <properties-file\>                                                                           | sqoop.args.connection.param.file        | Specify connection parameters file                                                                                 |
+| \--driver <class-name\>                                                                                               | sqoop.args.driver                       | Manually specify JDBC driver class to use                                                                          |
+| \--hadoop-home <hdir\>                                                                                                | sqoop.args.hadoop.home                  | Override $HADOOP\_MAPRED\_HOME\_ARG                                                                                |
+| \--hadoop-mapred-home <dir\>                                                                                          | sqoop.args.hadoop.mapred.home           | Override $HADOOP\_MAPRED\_HOME\_ARG                                                                                |
+| \--help                                                                                                               | sqoop.args.help                         | Print usage instructions                                                                                           |
+| \-P                                                                                                                   |                                         | Read password from console                                                                                         |
+| \--password <password\>                                                                                               | sqoop.args.password                     | Set authentication password                                                                                        |
+| \--password-alias <password-alias\>                                                                                   | sqoop.args.password.alias               | Credential provider password alias                                                                                 |
+| \--password-file <password-file\>                                                                                     | sqoop.args.password.file                | Set authentication password file path                                                                              |
+| \--relaxed-isolation                                                                                                  | sqoop.args.relaxed.isolation            | Use read-uncommitted isolation for imports                                                                         |
+| \--skip-dist-cache                                                                                                    | sqoop.args.skip.dist.cache              | Skip copying jars to distributed cache                                                                             |
+| \--username <username\>                                                                                               | sqoop.args.username                     | Set authentication username                                                                                        |
+| \--verbose                                                                                                            | sqoop.args.verbose                      | Print more information while working                                                                               |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+
+### Export import arguments
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--batch                                                                                                              | sqoop.args.batch                        |  Indicates underlying statements to be executed in batch mode                                                      |
+| \--call <arg\>                                                                                                        | sqoop.args.call                         | Populate the table using this stored procedure (one call  per row)                                                 |
+| \--clear-staging-table                                                                                                | sqoop.args.clear.staging.table          | Indicates that any data in staging table can be deleted                                                            |
+| \--columns <col,col,col...\>                                                                                          | sqoop.args.columns                      | Columns to export to table                                                                                         |
+| \--direct                                                                                                             | sqoop.args.direct                       | Use direct export fast path                                                                                        |
+| \--export-dir <dir\>                                                                                                  | sqoop.args.export.dir                   | HDFS source path for the export                                                                                    |
+| \-m,--num-mappers <n\>                                                                                                | sqoop.args.num.mappers                  | Use 'n' map tasks to export in parallel                                                                            |
+| \--mapreduce-job-name <name\>                                                                                         | sqoop.args.mapreduce.job.name           | Set name for generated mapreduce job                                                                               |
+| \--staging-table <table-name\>                                                                                        | sqoop.args.staging.table                | Intermediate staging  table                                                                                        |
+| \--table <table-name\>                                                                                                | sqoop.args.table                        | Table to populate                                                                                                  |
+| \--update-key <key\>                                                                                                  | sqoop.args.update.key                   | Update records by specified key column                                                                             |
+| \--update-mode <mode\>                                                                                                | sqoop.args.update.mode                  | Specifies how updates are  performed  when new   rows are  found with non-matching keys in database                |
+| \--validate                                                                                                           | sqoop.args.validate                     | Validate the copy using the configured validator                                                                   |
+| \--validation-failurehandler <validation-failurehandler\>                                                             | sqoop.args.validation.failurehandler    | Validate the  copy using the configured validator                                                                  |
+| \--validation-threshold <validation-threshold\>                                                                       | sqoop.args.validation.threshold         |  Fully qualified class name for ValidationThreshold                                                                |
+| \--validator <validator\>                                                                                             | sqoop.args.validator                    | Fully qualified class name for the Validator                                                                       |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+###  Import control arguments
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--append                                                                                                             | sqoop.args.append                       | Imports data in append mode                                                                                        |
+| \--as-avrodatafile                                                                                                    | sqoop.args.as.avrodatafile              | Imports data to Avro data files                                                                                    |
+| \--as-parquetfile                                                                                                     | sqoop.args.as.parquetfile               | Imports data to Parquet files                                                                                      |
+| \--as-sequencefile                                                                                                    | sqoop.args.as.sequencefile              | Imports data to SequenceFiles                                                                                      |
+| \--as-textfile                                                                                                        | sqoop.args.as.textfile                  | Imports data as plain text (default)                                                                               |
+| \--autoreset-to-one-mapper                                                                                            | sqoop.args.autoreset.to.one.mapper      | Reset the number of mappers to one mapper if no split key available                                                |
+| \--boundary-query <statement\>                                                                                        | sqoop.args.boundary.query               | Set boundary query for retrieving max and min value of the primary key                                             |
+| \--case-insensitive                                                                                                   | sqoop.args.case.insensitive             | Data Base is case insensitive, split where condition transfrom to lower case!                                      |
+| \--columns <col,col,col...\>                                                                                          | sqoop.args.columns                      | Columns to import from table                                                                                       |
+| \--compression-codec <codec\>                                                                                         | sqoop.args.compression.codec            | Compression codec to use for import                                                                                |
+| \--delete-target-dir                                                                                                  | sqoop.args.delete.target.dir            | Imports data in delete mode                                                                                        |
+| \--direct                                                                                                             | sqoop.args.direct                       | Use direct import fast path                                                                                        |
+| \--direct-split-size <n\>                                                                                             | sqoop.args.direct.split.size            | Split the input stream every 'n' bytes when importing in direct mode                                               |
+| \-e,--query <statement\>                                                                                              | sqoop.args.query                        | Import results of SQL 'statement'                                                                                  |
+| \--fetch-size <n\>                                                                                                    | sqoop.args.fetch.size                   | Set number 'n' of rows to fetch from the database when more rows are needed                                        |
+| \--inline-lob-limit <n\>                                                                                              | sqoop.args.inline.lob.limit             | Set the maximum size for an inline LOB                                                                             |
+| \-m,--num-mappers <n\>                                                                                                | sqoop.args.num.mappers                  | Use 'n' map tasks to import in parallel                                                                            |
+| \--mapreduce-job-name <name\>                                                                                         | sqoop.args.mapreduce.job.name           | Set name for generated mapreduce job                                                                               |
+| \--merge-key <column\>                                                                                                | sqoop.args.merge.key                    | Key column to use to join results                                                                                  |
+| \--split-by <column-name\>                                                                                            | sqoop.args.split.by                     | Column of the table used to split work units                                                                       |
+| \--table <table-name\>                                                                                                | sqoop.args.table                        | Table to read                                                                                                      |
+| \--target-dir <dir\>                                                                                                  | sqoop.args.target.dir                   | HDFS plain table destination                                                                                       |
+| \--validate                                                                                                           | sqoop.args.validate                     | Validate the copy using the configured validator                                                                   |
+| \--validation-failurehandler <validation-failurehandler\>                                                             | sqoop.args.validation.failurehandler    | Fully qualified class name for ValidationFa ilureHandler                                                           |
+| \--validation-threshold <validation-threshold\>                                                                       | sqoop.args.validation.threshold         | Fully qualified class name for ValidationTh reshold                                                                |
+| \--validator <validator\>                                                                                             | sqoop.args.validator                    | Fully qualified class name for the Validator                                                                       |
+| \--warehouse-dir <dir\>                                                                                               | sqoop.args.warehouse.dir                | HDFS parent for table destination                                                                                  |
+| \--where <where clause\>                                                                                              | sqoop.args.where                        | WHERE clause to use during import                                                                                  |
+| \-z,--compress                                                                                                        | sqoop.args.compress                     | Enable compression                                                                                                 |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+###  Incremental import argument
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--check-column <column\>                                                                                             | sqoop.args.check.column                 | Source column to check for incremental change                                                                      |
+| \--incremental <import-type\>                                                                                         | sqoop.args.incremental                  | Define an incremental import of type 'append' or 'lastmodified'                                                    |
+| \--last-value <value\>                                                                                                | sqoop.args.last.value                   | Last imported value in the incremental check column                                                                |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+
+###  Output line formatting arguments
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--enclosed-by <char\>                                                                                                | sqoop.args.enclosed.by                  | Sets a required field enclosing character                                                                          |
+| \--escaped-by <char\>                                                                                                 | sqoop.args.escaped.by                   | Sets the escape character                                                                                          |
+| \--fields-terminated-by <char\>                                                                                       | sqoop.args.fields.terminated.by         | Sets the field separator character                                                                                 |
+| \--lines-terminated-by <char\>                                                                                        | sqoop.args.lines.terminated.by          | Sets the end-of-line character                                                                                     |
+| \--mysql-delimiters                                                                                                   | sqoop.args.mysql.delimiters             | Uses MySQL's default delimiter set: fields: , lines: \\n escaped-by: \\ optionally-enclosed-by: '                  |
+| \--optionally-enclosed-by <char\>                                                                                     | sqoop.args.optionally.enclosed.by       | Sets a field enclosing character                                                                                   |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+### Input parsing arguments
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--input-enclosed-by <char\>                                                                                          | sqoop.args.input.enclosed.by            | Sets a required field encloser                                                                                     |
+| \--input-escaped-by <char\>                                                                                           | sqoop.args.input.escaped.by             | Sets the input escape character                                                                                    |
+| \--input-fields-terminated-by <char\>                                                                                 | sqoop.args.input.fields.terminated.by   | Sets the input field separator                                                                                     |
+| \--input-lines-terminated-by <char\>                                                                                  | sqoop.args.input.lines.terminated.by    | Sets the input end-of-line char                                                                                    |
+| \--input-optionally-enclosed-by <char\>                                                                               | sqoop.args.input.optionally.enclosed.by | Sets a field enclosing character                                                                                   |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+
+ ### Hive arguments
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--create-hive-table                                                                                                  | sqoop.args.create.hive.table            | Fail if the target hive table exists                                                                               |
+| \--hive-database <database-name\>                                                                                     | sqoop.args.hive.database                | Sets the database name to use when importing to hive                                                               |
+| \--hive-delims-replacement <arg\>                                                                                     | sqoop.args.hive.delims.replacement      | Replace Hive record \\0x01 and row delimiters (\\n\\r) from imported string fields with user-defined string        |
+| \--hive-drop-import-delims                                                                                            | sqoop.args.hive.drop.import.delims      | Drop Hive record \\0x01 and row delimiters (\\n\\r) from imported string fields                                    |
+| \--hive-home <dir\>                                                                                                   | sqoop.args.hive.home                    | Override $HIVE\_HOME                                                                                               |
+| \--hive-import                                                                                                        | sqoop.args.hive.import                  | Import tables into Hive (Uses Hive's default delimiters if none are set.)                                          |
+| \--hive-overwrite                                                                                                     | sqoop.args.hive.overwrite               | Overwrite existing data in the Hive table                                                                          |
+| \--hive-partition-key <partition-key\>                                                                                | sqoop.args.hive.partition.key           | Sets the partition key to use when importing to hive                                                               |
+| \--hive-partition-value <partition-value\>                                                                            | sqoop.args.hive.partition.value         | Sets the partition value to use when importing to hive                                                             |
+| \--hive-table <table-name\>                                                                                           | sqoop.args.hive.table                   | Sets the table name to use when importing to hive                                                                  |
+| \--map-column-hive <arg\>                                                                                             | sqoop.args.map.column.hive              | Override mapping for specific column to hive types.                                                                |
+
+
+### HBase arguments
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--column-family <family\>                                                                                            | sqoop.args.column.family                | Sets the target column family for the import                                                                       |
+| \--hbase-bulkload                                                                                                     | sqoop.args.hbase.bulkload               | Enables HBase bulk loading                                                                                         |
+| \--hbase-create-table                                                                                                 | sqoop.args.hbase.create.table           | If specified, create missing HBase tables                                                                          |
+| \--hbase-row-key <col\>                                                                                               | sqoop.args.hbase.row.key                | Specifies which input column to use as the row key                                                                 |
+| \--hbase-table <table\>                                                                                               | sqoop.args.hbase.table                  | Import to <table\>in HBase                                                                                         |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+
+###  HCatalog arguments 
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--hcatalog-database <arg\>                                                                                           | sqoop.args.hcatalog.database            | HCatalog database name                                                                                             |
+| \--hcatalog-home <hdir\>                                                                                              | sqoop.args.hcatalog.home                | Override $HCAT\_HOME                                                                                               |
+| \--hcatalog-partition-keys <partition-key\>                                                                           | sqoop.args.hcatalog.partition.keys      | Sets the partition keys to use when importing to hive                                                              |
+| \--hcatalog-partition-values <partition-value\>                                                                       | sqoop.args.hcatalog.partition.values    | Sets the partition values to use when importing to hive                                                            |
+| \--hcatalog-table <arg\>                                                                                              | sqoop.args.hcatalog.table               | HCatalog table name                                                                                                |
+| \--hive-home <dir\>                                                                                                   | sqoop.args.hive.home                    | Override $HIVE\_HOME                                                                                               |
+| \--hive-partition-key <partition-key\>                                                                                | sqoop.args.hive.partition.key           | Sets the partition key to use when importing to hive                                                               |
+| \--hive-partition-value <partition-value\>                                                                            | sqoop.args.hive.partition.value         | Sets the partition value to use when importing to hive                                                             |
+| \--map-column-hive <arg\>                                                                                             | sqoop.args.map.column.hive              | Override mapping for specific column to hive types.                                                                |
+|                                                                                                                       |                                         |                                                                                                                    |
+| HCatalog import specific options:                                                                                     |                                         |                                                                                                                    |
+| \--create-hcatalog-table                                                                                              | sqoop.args.create.hcatalog.table        | Create HCatalog before import                                                                                      |
+| \--hcatalog-storage-stanza <arg\>                                                                                     | sqoop.args.hcatalog.storage.stanza      | HCatalog storage stanza for table creation                                                                         |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+
+### Accumulo arguments
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--accumulo-batch-size <size\>                                                                                        | sqoop.args.accumulo.batch.size          | Batch size in bytes                                                                                                |
+| \--accumulo-column-family <family\>                                                                                   | sqoop.args.accumulo.column.family       | Sets the target column family for the import                                                                       |
+| \--accumulo-create-table                                                                                              | sqoop.args.accumulo.create.table        | If specified, create missing Accumulo tables                                                                       |
+| \--accumulo-instance <instance\>                                                                                      | sqoop.args.accumulo.instance            | Accumulo instance name.                                                                                            |
+| \--accumulo-max-latency <latency\>                                                                                    | sqoop.args.accumulo.max.latency         | Max write latency in milliseconds                                                                                  |
+| \--accumulo-password <password\>                                                                                      | sqoop.args.accumulo.password            | Accumulo password.                                                                                                 |
+| \--accumulo-row-key <col\>                                                                                            | sqoop.args.accumulo.row.key             | Specifies which input column to use as the row key                                                                 |
+| \--accumulo-table <table\>                                                                                            | sqoop.args.accumulo.table               | Import to <table\>in Accumulo                                                                                      |
+| \--accumulo-user <user\>                                                                                              | sqoop.args.accumulo.user                | Accumulo user name.                                                                                                |
+| \--accumulo-visibility <vis\>                                                                                         | sqoop.args.accumulo.visibility          | Visibility token to be applied to all rows imported                                                                |
+| \--accumulo-zookeepers <zookeepers\>                                                                                  | sqoop.args.accumulo.zookeepers          | Comma-separated list of zookeepers (host:port)                                                                     |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+### Code generation arguments
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \--bindir <dir\>                                                                                                      | sqoop.args.bindir                       | Output directory for compiled objects                                                                              |
+| \--class-name <name\>                                                                                                 | sqoop.args.class.name                   | Sets the generated class name. This overrides --package-name. When combined with --jar-file, sets the input class. |
+| \--input-null-non-string <null-str\>                                                                                  | sqoop.args.input.null.non.string        | Input null non-string representation                                                                               |
+| \--input-null-string <null-str\>                                                                                      | sqoop.args.input.null.string            | Input null string representation                                                                                   |
+| \--jar-file <file\>                                                                                                   | sqoop.args.jar.file                     | Disable code generation; use specified jar                                                                         |
+| \--map-column-java <arg\>                                                                                             | sqoop.args.map.column.java              | Override mapping for specific columns to java types                                                                |
+| \--null-non-string <null-str\>                                                                                        | sqoop.args.null.non.string              | Null non-string representation                                                                                     |
+| \--null-string <null-str\>                                                                                            | sqoop.args.null.string                  | Null string representation                                                                                         |
+| \--outdir <dir\>                                                                                                      | sqoop.args.outdir                       | Output directory for generated code                                                                                |
+| \--package-name <name\>                                                                                               | sqoop.args.package.name                 | Put auto-generated classes in this package                                                                         |
+|                                                                                                                       |                                         |                                                                                                                    |
+
+###  Generic Hadoop command-line arguments
+>must preceed any tool-specific arguments,Generic options supported are 
+
+| 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| \-conf <configuration file\>                                                                                          | sqoop.args.conf                         | specify an application configuration file                                                                          |
+| \-D <property=value\>                                                                                                 | sqoop.args.D                            | use value for given property                                                                                       |
+| \-fs <local|namenode:port\>                                                                                           | sqoop.args.fs                           | specify a namenode                                                                                                 |
+| \-jt <local|resourcemanager:port\>                                                                                    | sqoop.args.jt                           | specify a ResourceManager                                                                                          |
+| \-files <comma separated list of files\>                                                                              | sqoop.args.files                        | specify comma separated files to be copied to the map reduce cluster                                               |
+| \-libjars <comma separated list of jars\>                                                                             | sqoop.args.libjars                      | specify comma separated jar files to include in the classpath.                                                     |
+| \-archives <comma separated list of archives\>                                                                        | sqoop.args.archives                     | specify comma separated archives to be unarchived on the compute machines.                                         |

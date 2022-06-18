@@ -104,7 +104,7 @@ Spark execution engine now supports three types of spark jobs, sparksql, scala a
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you encounter problems starting up and running, you can join a group to consult us.
 
-![WeChat and QQ group](../images/ch6/group.png)<br/>
+![WeChat group](../images/ch6/group.png)<br/>
 
 ## 4 Future goals
 

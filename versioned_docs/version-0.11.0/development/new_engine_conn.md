@@ -178,4 +178,4 @@ Configuration, inject two beans, resources and hooks, UJES framework itself will
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to add group questions.
  
-![WeChat and QQ group](../images/ch6/group.png)<br/>
+![WeChat group](../images/ch6/group.png)<br/>

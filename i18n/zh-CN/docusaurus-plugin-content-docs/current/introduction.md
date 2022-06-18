@@ -13,43 +13,49 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 
 ## 核心特点
 - **丰富的底层计算存储引擎支持**。  
-    **目前支持的计算存储引擎**：Spark、Hive、Python、Presto、ElasticSearch、MLSQL、TiSpark、JDBC和Shell等。  
-    **正在支持中的计算存储引擎**：Flink(>=1.0.2版本已支持)、Impala等。  
+    **目前支持的计算存储引擎**：Spark、Hive、Flink、Python、Pipeline、Sqoop、OpenLookEng、JDBC和Shell等。  
+    **正在支持中的计算存储引擎**：Presto(计划1.2.0)、ElasticSearch(计划1.2.0)等。  
     **支持的脚本语言**：SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala 和JDBC 等。    
 - **强大的计算治理能力**。基于Orchestrator、Label Manager和定制的Spring Cloud Gateway等服务，Linkis能够提供基于多级标签的跨集群/跨IDC 细粒度路由、负载均衡、多租户、流量控制、资源控制和编排策略(如双活、主备等)支持能力。  
 - **全栈计算存储引擎架构支持**。能够接收、执行和管理针对各种计算存储引擎的任务和请求，包括离线批量任务、交互式查询任务、实时流式任务和存储型任务；
-- **资源管理能力**。 ResourceManager 不仅具备 Linkis0.X 对 Yarn 和 Linkis EngineManager 的资源管理能力，还将提供基于标签的多级资源分配和回收能力，让 ResourceManager 具备跨集群、跨计算资源类型的强大资源管理能力。
+- **资源管理能力**。 ResourceManager 不仅具备对 Yarn 和 Linkis EngineManager 的资源管理能力，还将提供基于标签的多级资源分配和回收能力，让 ResourceManager 具备跨集群、跨计算资源类型的强大资源管理能力。
 - **统一上下文服务**。为每个计算任务生成context id，跨用户、系统、计算引擎的关联管理用户和系统资源文件（JAR、ZIP、Properties等），结果集，参数变量，函数等，一处设置，处处自动引用；
 - **统一物料**。系统和用户级物料管理，可分享和流转，跨用户、系统共享物料。
-- **统一数据源管理。**提供了hive、es、mysql、kafka类型数据源的增删查改、版本控制、连接测试等功能。
-- **数据源对应的元数据查询。**提供了hive、es、mysql、kafka元数据的数据库、表、分区查询。
+- **统一数据源管理**。提供了hive、es、mysql、kafka类型数据源的增删查改、版本控制、连接测试等功能。
+- **数据源对应的元数据查询**。提供了hive、es、mysql、kafka元数据的数据库、表、分区查询。
 
 ## 支持的引擎类型
-| **引擎** | **引擎版本** | **Linkis 0.X 版本要求**| **Linkis 1.X 版本要求** | **说明** |
+| **引擎名** | **支持底层组件版本<br/>(默认依赖版本)** | **Linkis 1.X 版本要求** | **是否默认包含在<br/>发布包中** | **说明** |
 |:---- |:---- |:---- |:---- |:---- |
-|Flink |1.12.2|\>=dev-0.12.0, PR #703 尚未合并|>=1.0.2|	Flink EngineConn。支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序。|
-|Impala|\>=3.2.0, CDH >=6.3.0"|\>=dev-0.12.0, PR #703 尚未合并|ongoing|Impala EngineConn. 支持Impala SQL 代码.|
-|Presto|\>= 0.180|\>=0.11.0|ongoing|Presto EngineConn. 支持Presto SQL 代码.|
-|ElasticSearch|\>=6.0|\>=0.11.0|ongoing|ElasticSearch EngineConn. 支持SQL 和DSL 代码.|
-|Shell|Bash >=2.0|\>=0.9.3|\>=1.0.0_rc1|Shell EngineConn. 支持Bash shell 代码.|
-|MLSQL|\>=1.1.0|\>=0.9.1|ongoing|MLSQL EngineConn. 支持MLSQL 代码.|
-|JDBC|MySQL >=5.0, Hive >=1.2.1|\>=0.9.0|\>=1.0.0_rc1|JDBC EngineConn. 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle.
-|Spark|Apache 2.0.0~2.4.7, CDH >=5.4.0|\>=0.5.0|\>=1.0.0_rc1|Spark EngineConn. 支持SQL, Scala, Pyspark 和R 代码.|
-|Hive|Apache >=1.0.0, CDH >=5.4.0|\>=0.5.0|\>=1.0.0_rc1|Hive EngineConn. 支持HiveQL 代码.|
-|Hadoop|Apache >=2.6.0, CDH >=5.4.0|\>=0.5.0|ongoing|Hadoop EngineConn. 支持Hadoop MR/YARN application.|
-|Python|\>=2.6|\>=0.5.0|\>=1.0.0_rc1|Python EngineConn. 支持python 代码.|
-|TiSpark|1.1|\>=0.5.0|ongoing|TiSpark EngineConn. 支持用SparkSQL 查询TiDB.|
-|OpenLookEng|1.5.0|不支持|>=1.1.1|LooKengEng EngineConn. 支持用Sql查询数据虚拟化引擎LooKengEng|
+|Spark|Apache 2.0.0~2.4.7, <br/>CDH >= 5.4.0, <br/>（默认Apache Spark 2.4.3）|\>=1.0.0_rc1|是|Spark EngineConn， 支持SQL, Scala, Pyspark 和R 代码|
+|Hive|Apache >= 1.0.0, <br/>CDH >= 5.4.0, <br/>（默认Apache Hive 2.3.3）|\>=1.0.0_rc1|是|Hive EngineConn， 支持HiveQL 代码|
+|Python|Python >= 2.6, <br/>（默认Python2*）|\>=1.0.0_rc1|是|Python EngineConn， 支持python 代码|
+|Shell|Bash >= 2.0|\>=1.0.0_rc1|是|Shell EngineConn， 支持Bash shell 代码|
+|JDBC|MySQL >= 5.0, Hive >=1.2.1, <br/>(默认Hive-jdbc 2.3.4)|\>=1.0.0_rc1|否|JDBC EngineConn， 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle|
+|Flink |Flink >= 1.12.2, <br/>(默认Apache Flink 1.12.2)|\>=1.0.2|否|Flink EngineConn， 支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序|
+|Pipeline|-|\>=1.0.2|否|Pipeline EngineConn， 支持文件的导入和导出|
+|OpenLookEng|OpenLookEng >= 1.5.0, <br/>(默认OpenLookEng 1.5.0)|\>=1.1.1|否|LooKengEng EngineConn， 支持用Sql查询数据虚拟化引擎LooKengEng|
+|Sqoop| Sqoop >= 1.4.6, <br/>(默认Apache Sqoop 1.4.6)|\>=1.1.2|否|Sqoop EngineConn， 支持 数据迁移工具 Sqoop 引擎|
+|Impala|Impala >= 3.2.0, CDH >=6.3.0|ongoing|-|Impala EngineConn，支持Impala SQL 代码|
+|Presto|Presto >= 0.180|ongoing|-|Presto EngineConn， 支持Presto SQL 代码|
+|ElasticSearch|ElasticSearch >=6.0||ongoing|-|ElasticSearch EngineConn， 支持SQL 和DSL 代码|
+|MLSQL| MLSQL >=1.1.0|ongoing|-|MLSQL EngineConn， 支持MLSQL 代码.|
+|Hadoop|Apache >=2.6.0, <br/>CDH >=5.4.0|ongoing|-|Hadoop EngineConn， 支持Hadoop MR/YARN application|
+|TiSpark|1.1|ongoing|-|TiSpark EngineConn， 支持用SparkSQL 查询TiDB|
+
+
 
 ## 下载
-请前往[Linkis releases 页面](https://linkis.apache.org/zh-CN/download/main) 下载Linkis 的已编译版本或源码包。
+请前往[Linkis releases 页面](https://linkis.apache.org/zh-CN/download/main) 下载Linkis 已编译的部署安装包或源码包。
 
 ## 编译和安装部署
 请参照[编译指引](development/linkis_compile_and_package.md) 来编译Linkis 源码。  
 请参考[安装部署文档](deployment/quick_deploy.md) 来部署Linkis。
 
 ## 示例和使用指引
-请到[用户手册](user_guide/overview.md), [各引擎使用指引](engine_usage/overview.md) 和[API 文档](api/overview.md) 中，查看如何使用和管理Linkis 的示例和指引。
+- [用户手册](user_guide/overview.md)
+- [各引擎使用指引](engine_usage/overview.md) 
+- [API 文档](api/overview.md)
 
 ## 文档
 完整的Linkis文档代码存放在[linkis-website仓库中](https://github.com/apache/incubator-linkis-website) 
@@ -63,7 +69,7 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 下面是Linkis 的架构概要图. 更多详细架构文档请见 [Linkis/Architecture](architecture/overview.md).
 ![architecture](/Images/Linkis_1.0_architecture.png)
 
-基于Linkis 计算中间件，我们在大数据平台套件[WeDataSphere](https://github.com/WeBankFinTech/WeDataSphere) 中构建了许多应用和工具系统。下面是目前可用的开源项目。
+基于Linkis 计算中间件，我们在大数据平台套件[WeDataSphere](https://github.com/WeBankFinTech/WeDataSphere) 中构建了许多应用和工具系统，下面是目前可用的开源项目。
 
 ![wedatasphere_stack_Linkis](/Images/wedatasphere_stack_Linkis.png)
 
@@ -83,15 +89,17 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 
 ## 贡献
 我们非常欢迎和期待更多的贡献者参与共建Linkis, 不论是代码、文档，或是其他能够帮助到社区的贡献形式。  
-代码和文档相关的贡献请参照[贡献指引](/community/how-to-contribute).
+
+代码和文档相关的贡献请参照[贡献指引](/community/how-to-contribute)。
+
 
 ## 联系我们
 对Linkis 的任何问题和建议，敬请提交issue，以便跟踪处理和经验沉淀共享。  
-您也可以扫描下面的二维码，加入我们的微信/QQ群，以获得更快速的响应。
+您也可以扫描下面的二维码，加入我们的微信群，以获得更快速的响应。
 ![introduction05](/Images/wedatasphere_contact_01.png)
 
-Meetup 视频 [Bilibili](https://space.bilibili.com/598542776?from=search&seid=14344213924133040656).
+Meetup 视频 [Bilibili](https://space.bilibili.com/598542776?from=search&seid=14344213924133040656)。
 
 ## 谁在使用Linkis
-我们创建了[一个 issue](https://github.com/apache/incubator-linkis/issues/23) 以便用户反馈和记录谁在使用Linkis.  
+我们创建了[一个 issue](https://github.com/apache/incubator-linkis/issues/23) 以便用户反馈和记录谁在使用Linkis。  
 Linkis 自2019年开源发布以来，累计已有700多家试验企业和1000+沙盒试验用户，涉及金融、电信、制造、互联网等多个行业。
