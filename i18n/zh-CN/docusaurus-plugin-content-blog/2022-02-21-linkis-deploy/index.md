@@ -310,7 +310,8 @@ linkis_url="http://localhost:9020"
 ### 4.3 执行前端部署
 
 ```shell script
-sudo sh install
+#nginx 需要sudo权限进行安装
+sudo sh install.sh
 ```
 安装后，linkis的nginx配置文件默认是 在/etc/nginx/conf.d/linkis.conf
 nginx的日志文件在 /var/log/nginx/access.log 和/var/log/nginx/error.log
@@ -414,7 +415,7 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 
 #### 5.2 查看yarn队列是否正确 
 异常信息:`desc: queue ide is not exists in YARN.`
-标明配置的yarn队列不存在，需要进行调整
+表明配置的yarn队列不存在，需要进行调整
 
 修改方式:linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue],修改一个可以使用的yarn队列,可以使用的yarn 队列可以在 rmWebAddress:http://xx.xx.xx.xx:8088/cluster/scheduler 上查看到  
 
@@ -454,38 +455,6 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -c
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
 ```
 
-## 8 查看支持的各个引擎的版本
-
-### 8.1 方式1:查看引擎打包的目录
-```
-$ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
-linkis-package/lib/linkis-engineconn-plugins/
-├── hive
-│   ├── dist
-│   │   └── v2.3.3  #版本为2.3.3  engineType 为hive-2.3.3
-│   └── plugin
-│       └── 2.3.3
-├── python
-│   ├── dist
-│   │   └── vpython2
-│   └── plugin
-│       └── python2 #版本为python2 engineType 为python-python2
-├── shell
-│   ├── dist
-│   │   └── v1
-│   └── plugin
-│       └── 1
-└── spark
-    ├── dist
-    │   └── v2.4.3
-    └── plugin
-        └── 2.4.3
-```
-
-### 8.2 方式2:查看linkis的数据库表
-```shell script
-select *  from linkis_cg_engine_conn_plugin_bml_resources
-```
 
 
 

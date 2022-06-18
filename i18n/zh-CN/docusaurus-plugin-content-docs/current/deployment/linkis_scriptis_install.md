@@ -14,27 +14,21 @@ sidebar_position: 10
 - linkis-gateway服务的地址为10.10.10.10 端口为9001 
 - linkis的管理台nginx部署在10.10.10.10 端口为8080
 
-
- 
-
-
-
-## 2. 编译流程
+## 2.环境准备
+>首次使用需要
 
 ### 2.1 安装node.js
 ```shell script
      将node.js下载，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
 ```
-### 2.1 安装learn
+### 2.2 安装learn
 ```shell script
-   #电脑打开CMD终端工具，输入命令全局安装
+   #等待安装完即可，安装liarn仅第一次使用时需要执行
    npm install lerna -g
 ```
-等待安装完即可，安装liarn仅第一次使用时需要执行
 
-
-    
-### 2.2 获取scriptis代码
+## 3 编译部署 
+### 3.1 获取scriptis代码
 > Scriptis是一个纯前端的项目，作为一个组件集成在DSS的web代码组件中，我们只需要将DSS web项目进行单独的scriptis模块编译
 
 ```shell script
@@ -50,20 +44,19 @@ cd DataSphereStudio/web
 lerna bootstrap
 ```
 
+### 3.2 本地运行项目（可选）
 
-
-### 2.3 本地运行项目
 > 如果不想本地运行查看，可以跳过此步 
 
-#### 2.3.1 配置linkis-gateway服务地址配置
-如果是在本地启动服务，需要在代码中配置后端linkis-gateway服务地址，在web/packages/dss/目录下的`.env`文件，
+#### 3.2.1 配置linkis-gateway服务地址配置
+如果是在本地启动服务，需要在代码中配置后端linkis-gateway服务地址，在`web/packages/dss/`目录下的`.env`文件，
 打包部署时不需要进行配置
 ```shell script
 // 后端linkis-gatway服务地址
 VUE_APP_HOST=http://10.10.10.10:9001
 VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
 ```
-#### 2.3.2 运行scriptis模块 
+#### 3.2.2 运行scriptis模块 
 
 ```shell script
 cd DataSphereStudio/web 
@@ -74,9 +67,9 @@ npm run serve --module=scriptis
 打开浏览器，通过链接`http://localhost:8080`(本地请求默认端口是8080)访问应用scriptis ，因为会请求到远端的linkis-gatway服务接口，这会存在跨域问题，chrome浏览器解决跨域问题可参考[解决Chrome跨域问题](https://www.jianshu.com/p/56b1e01e6b6a)
 
 
-## 3. 打包&部署 scriptis
+## 4 打包&部署 scriptis
 
-### 3.1  打包
+### 4.1  打包
 ```shell script
 #指定scriptis模块 
 cd DataSphereStudio/web 
@@ -85,7 +78,7 @@ cd DataSphereStudio/web
 npm run build --module=scriptis 
 ```
 
-### 3.2 部署
+### 4.2 部署
 
 将 3.1编译出来的静态资源 上传至 linkis 管理台所在的服务器上，存放于`/data/Install/scriptis-web/dist/`，
 在安装 linkis 管理台的nginx服务器配置中，添加 scriptis 的静态资源访问规则，linkis 管理台部署的 nginx 配置一般位于 `/etc/nginx/conf.d/linkis.conf`
@@ -153,20 +146,20 @@ sudo nginx -s reload
 - alias的处理结果是：使用alias路径替换location路径.
 - alias是一个目录别名的定义，root则是最上层目录的定义
 
-## 4. scriptis 使用步骤
+## 5 scriptis 使用步骤
 
-### 4.1 正常登录linkis管理台
+### 5.1 正常登录linkis管理台
 ```shell script
 #http://10.10.10.10:8080/#/
 http://nginxIp:port/#/
 ```
 因scriptis需要进行登录验证所以需要先进行登录，拿到cookie。
 
-### 4.2 登录成功后 访问 scriptis 页面
+### 5.2 登录成功后 访问 scriptis 页面
 
 ```shell script
-#http://10.10.10.10:8080/scriptis/
-http://nginxIp:port/scriptis/
+#http://10.10.10.10:8080/scriptis/#/home
+http://nginxIp:port/scriptis/#/home
 ```
 nginxIp:nginx服务器ip，port:linkis管理台nginx配置启动的端口号，`scriptis`为请求scriptis项目静态文件nginx配置的location 地址（可自定义设置）
 

@@ -320,7 +320,7 @@ linkis_url="http://localhost:9020"
 #### 4.5.3 执行前端部署
 
 ```shell script
-sudo sh install
+sudo sh install.sh
 ```
 安装后，linkis的nginx配置文件默认是 在/etc/nginx/conf.d/linkis.conf
 nginx的日志文件在 /var/log/nginx/access.log 和/var/log/nginx/error.log
@@ -425,7 +425,7 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 
 ### 5.2 查看yarn队列是否正确
 异常信息:`desc: queue ide is not exists in YARN.`
-标明配置的yarn队列不存在，需要进行调整
+表明配置的yarn队列不存在，需要进行调整
 
 修改方式:linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue],修改一个可以使用的yarn队列,可以使用的yarn 队列可以在 rmWebAddress:http://xx.xx.xx.xx:8088/cluster/scheduler 上查看到
 

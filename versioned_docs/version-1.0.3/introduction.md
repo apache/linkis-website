@@ -99,7 +99,7 @@ For code and documentation contributions, please follow the [contribution guide]
 ## Contact Us
 
 Any questions or suggestions please kindly submit an issue.  
-You can scan the QR code below to join our WeChat and QQ group to get more immediate response.
+You can scan the QR code below to join our WeChat group to get more immediate response.
 
 ![introduction05](/Images/wedatasphere_contact_01.png)
 
