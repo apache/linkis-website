@@ -186,7 +186,7 @@ YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088
 When executing spark tasks, you need to use the ResourceManager of yarn. Linkis does not enable permission verification by default. If password permission verification is enabled for ResourceManager, please modify the `linkis_cg_engine_conn_plugin_bml_resources` table data after installation and deployment (or see (#todo))
 
 #### LDAP login authentication
->Linkis uses static users and passwords by default. Static users are deployment users. Static passwords will randomly generate a password string during deployment and store them in {InstallPath}/conf/linkis-mg-gateway.properties (>=1.0.3 version).
+>Linkis uses static users and passwords by default. Static users are deployment users. Static passwords will randomly generate a password string during deployment and store them in {LINKIS_HOME}/conf/linkis-mg-gateway.properties (>=1.0.3 version).
 ```shell script
 #LDAP configuration, Linkis only supports deployment user login by default, if you need to support multi-user login, you can use LDAP, you need to configure the following parameters
 number:
@@ -222,7 +222,7 @@ If hive is not version 2.3.3, you need to modify the parameters:
 ##HIVE_VERSION, If the installed Hive version is not 2.3.3, it needs to be modified to the corresponding version, such as 2.3.4
 HIVE_VERSION=2.3.4
 ```
-If configured, it will actually be updated in the `{linkisInstallPath}/conf/linkis.properties` file after the installation and deployment are performed
+If configured, it will actually be updated in the `{LINKIS_HOME}/conf/linkis.properties` file after the installation and deployment are performed
 ```shell script
 #wds.linkis.spark.engine.version=
 #wds.linkis.hive.engine.version=
@@ -262,7 +262,7 @@ Congratulations! You have installed Linkis 1.0.3 successfully, please use sh /da
 Your default account password is \[hadoop/5e8e312b4]    
 
 ### 3.3 Configuration modification
-After the installation is complete, if you need to modify the configuration, you can re-execute the installation, or modify the corresponding ${InstallPath}/conf/*properties file and restart the corresponding service
+After the installation is complete, if you need to modify the configuration, you can re-execute the installation, or modify the corresponding ${LINKIS_HOME}/conf/*properties file and restart the corresponding service
 
 ### 3.4 Add mysql driver (>=1.0.3) version
 Because of the license, mysql-connector-java is removed from the release package of linkis itself (the family bucket integrated by dss will be included, no need to manually add it), which needs to be added manually.  
@@ -360,7 +360,7 @@ If you need to modify the port or static resource directory, etc., please modify
 
 Log in to the web terminal to view information
 http://xx.xx.xx.xx:8188/#/login
-Username/Password (check in {InstallPath}/conf/linkis-mg-gateway.properties)
+Username/Password (check in {LINKIS_HOME}/conf/linkis-mg-gateway.properties)
 
 ```shell script
 #When not using LDAP configuration

@@ -599,7 +599,7 @@ sh -x engineConnExec.sh
 ```
 2.执行安装之后修改注册中心eureka端口  
 ```
-1. 进入${linkis_home}/conf目录
+1. 进入${LINKIS_HOME}/conf目录
 
 2. 执行grep -r 20303 ./* ,查询结果如下所示:
       ./application-eureka.yml:  port: 20303
