@@ -188,7 +188,7 @@ LINKIS_HOME=/appcom/Install/LinkisInstall
 #If you want to start metadata related microservices, you can set this export ENABLE_METADATA_MANAGE=true
 export ENABLE_METADATA_QUERY=true
 ```
-#### 无HDFS模式部署(可选) 
+#### 无HDFS模式部署(可选 >1.1.2版本支持) 
 
 > 在没有HDFS 的环境中部署 Linkis 服务，以方便更轻量化的学习使用和调试。去HDFS模式部署不支持hive/spark/flink引擎等任务
 
@@ -204,13 +204,12 @@ export ENABLE_HIVE=false
 export ENABLE_SPARK=false
 ```
 
-将上述的配置修改为 false 之后，就不需要再单独配置 HDFS/HIVE/SPARK 等环境了, 安装部署时也会跳过这些基础环境的检查。
+## 4. 安装和启动
 
-## 3. 部署流程
+### 4.1 执行安装脚本：
 
-### 3.1 执行部署脚本 
-```shell script
-sh bin/install.sh
+```bash
+    sh bin/install.sh
 ```
 
 install.sh脚本会询问您是否需要初始化数据库并导入元数据。如果选择初始化，会把数据库中的表数据清空重新初始化。
