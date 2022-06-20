@@ -262,7 +262,7 @@ echo "wds.linkis.keytab.enable=true" >> linkis.properties
 
 
 #### 3.3.2 session 
-如果您是对Linkis的升级。同时部署DSS或者其他项目，但他们服务lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1，则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件
+如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```
