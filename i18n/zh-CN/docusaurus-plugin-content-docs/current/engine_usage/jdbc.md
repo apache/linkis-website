@@ -14,8 +14,8 @@ sidebar_position: 7
 ### 2.1 版本的选择和编译
 注意: 编译jdbc引擎之前需要进行linkis项目全量编译  
 发布的安装部署包中默认不包含此引擎插件，
-你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin，
-或者按以下流程，手动编译部署
+你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+，或者按以下流程，手动编译部署
 
 
 单独编译jdbc引擎 
@@ -44,7 +44,7 @@ sh linkis-daemon.sh restart cg-engineplugin
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装](deployment/engine_conn_plugin_installation.md) 
+[EngineConnPlugin引擎插件安装](../deployment/engine_conn_plugin_installation) 
 
 
 ## 3.JDBC引擎的使用

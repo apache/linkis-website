@@ -6,7 +6,7 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference_between_1.0_and_0.x.md)**。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意：除了 Linkis1.0 安装包默认已经包含的：Python/Shell/Hive/Spark四个EngineConnPlugin以外，如果大家有需要，可以手动安装如 JDBC 引擎等类型的其他引擎，具体请参考 [EngineConnPlugin引擎插件安装文档](deployment/engine_conn_plugin_installation.md)。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意：除了 Linkis1.0 安装包默认已经包含的：Python/Shell/Hive/Spark四个EngineConnPlugin以外，如果大家有需要，可以手动安装如 JDBC 引擎等类型的其他引擎，具体请参考 [EngineConnPlugin引擎插件安装文档](../deployment/engine_conn_plugin_installation)。
 
 **Linkis Docker镜像**  
 [Linkis 0.10.0 Docker](https://hub.docker.com/repository/docker/wedatasphere/linkis)
@@ -256,5 +256,5 @@ Linkis1.0 默认已适配的引擎列表如下：
 ![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
 
 #### (3)、查看服务是否正常
-1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](deployment/web_install.md)
+1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web_install.md)
 2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](user_guide/overview.md)

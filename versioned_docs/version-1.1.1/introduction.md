@@ -55,7 +55,7 @@ Please follow [Compile Guide](development/linkis_compile_and_package.md) to comp
 Please refer to [Deployment_Documents](deployment/quick_deploy.md) to do the deployment. 
 
 ## Examples and Guidance
-You can find examples and guidance for how to use and manage Linkis in [User_Manual](user_guide/overview.md), [Engine_Usage_Documents](engine_usage/overview.md) and [API_Documents](dapi/overview.md).
+You can find examples and guidance for how to use and manage Linkis in [User_Manual](user_guide/overview.md), [Engine_Usage_Documents](engine_usage/overview.md) and [API_Documents](api/overview.md).
 
 ## Documentation
 
@@ -96,7 +96,7 @@ For code and documentation contributions, please follow the [contribution guide]
 ## Contact Us
 
 Any questions or suggestions please kindly submit an issue.  
-You can scan the QR code below to join our WeChat and QQ group to get more immediate response.
+You can scan the QR code below to join our WeChat group to get more immediate response.
 
 ![introduction05](/Images/wedatasphere_contact_01.png)
 

@@ -15,7 +15,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 **请注意**：官方推荐使用 Hadoop-2.7.2、Hive-1.2.1、Spark-2.4.3 和 Scala-2.11.12 对 Linkis 进行编译。
 
-如果您想使用 Hadoop、Hive、Spark 的其他版本对 Linkis 进行编译，请参考：[如何修改Linkis的依赖的Hadoop、Hive、Spark版本](5-如何修改linkis的依赖的hadoophivespark版本)
+如果您想使用 Hadoop、Hive、Spark 的其他版本对 Linkis 进行编译，请参考：[如何修改Linkis的依赖的Hadoop、Hive、Spark版本](#5-如何修改linkis的依赖的hadoophivespark版本)
 
 
 ## 2. 全量编译 Linkis
@@ -94,7 +94,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
     wedatasphere-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.jar
 ```
 
-如何单独安装 Spark 引擎？ 请参考 [Linkis 引擎插件安装文档](deployment/engine_conn_plugin_installation.md)
+如何单独安装 Spark 引擎？ 请参考 [Linkis 引擎插件安装文档](../deployment/engine_conn_plugin_installation)
 
 ## 5. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本
 

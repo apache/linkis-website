@@ -208,12 +208,20 @@ YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088
 ```
 
 #### 引擎版本信息 
+:::caution 注意
+如果使用的官方发布包 无需修改，如果是有自行修改Hive/Spark引擎版本编译的，需要修改。
+:::
+如果spark不是2.4.3的版本，需要修改参数：
 ```shell script
-##如果spark不是2.4.3的版本(可以在linkis-package/lib/linkis-engineconn-plugins/hive/plugin中查看引擎版本)，需要修改参数：
-#SPARK_VERSION=3.1.1
-
-##如果hive不是2.3.3的版本，需要修改参数：
-#HIVE_VERSION=2.3.4
+## Engine version conf
+#SPARK_VERSION，如果安装的Spark版本不是2.4.3，则需要修改为相应的版本，如3.1.1
+SPARK_VERSION=3.1.1
+```
+如果hive不是2.3.3的版本，需要修改参数：
+```shell script
+## Engine version conf
+##HIVE_VERSION，如果安装的Hive版本不是2.3.3，则需要修改为相应的版本，如2.3.4
+HIVE_VERSION=2.3.4
 ```
 如果配置了，执行安装部署后，实际会在`{linkisInstallPath}/conf/linkis.properties`文件中被更新
 ```shell script
@@ -261,7 +269,7 @@ Your default account password is [hadoop/5e8e312b4]`
 
 ### 3.4 添加mysql驱动(>=1.0.3)版本 
 因为license原因，linkis官方发布包中(dss集成的全家桶会包含，无需手动添加)移除了mysql-connector-java，需要手动添加  
-具体参见[ 添加mysql驱动包](docs/latest/deployment/quick_deploy#-44-添加mysql驱动包)
+具体参见[ 添加mysql驱动包](/docs/latest/deployment/quick_deploy#-44-添加mysql驱动包)
 
 ### 3.5 启动服务
 ```shell script
@@ -302,7 +310,8 @@ linkis_url="http://localhost:9020"
 ### 4.3 执行前端部署
 
 ```shell script
-sudo sh install
+#nginx 需要sudo权限进行安装
+sudo sh install.sh
 ```
 安装后，linkis的nginx配置文件默认是 在/etc/nginx/conf.d/linkis.conf
 nginx的日志文件在 /var/log/nginx/access.log 和/var/log/nginx/error.log
@@ -406,7 +415,7 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 
 #### 5.2 查看yarn队列是否正确 
 异常信息:`desc: queue ide is not exists in YARN.`
-标明配置的yarn队列不存在，需要进行调整
+表明配置的yarn队列不存在，需要进行调整
 
 修改方式:linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue],修改一个可以使用的yarn队列,可以使用的yarn 队列可以在 rmWebAddress:http://xx.xx.xx.xx:8088/cluster/scheduler 上查看到  
 
@@ -426,7 +435,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
   
-如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](docs/latest/deployment/engine_conn_plugin_installation#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
+如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](/docs/latest/deployment/engine_conn_plugin_installation#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
 
 引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`  
 ```shell script

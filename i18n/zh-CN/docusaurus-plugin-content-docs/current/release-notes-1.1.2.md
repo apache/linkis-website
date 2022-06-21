@@ -83,7 +83,7 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * \[PS][[Linkis-2086]](https://github.com/apache/incubator-linkis/pull/2086) 方法 /updateCategoryInfo 增加权限校验
 
 ## 依赖变更
-* \[MDS][[Linkis-1947]](https://github.com/apache/incubator-linkis/pull/1947) mysql-connector-java 从 5.1.34 升级到 8.0.16
+* \[MDS][[Linkis-1947]](https://github.com/apache/incubator-linkis/pull/1947) mys2168ql-connector-java 从 5.1.34 升级到 8.0.16
 * \[ECP][[Linkis-1951]](https://github.com/apache/incubator-linkis/pull/1951) hive-jdbc 从 1.2.1 升级至 2.3.3
 * \[ECP][[Linkis-1968]](https://github.com/apache/incubator-linkis/pull/1974) protobuf-java 版本升级至 3.15.8
 * \[ECP][[Linkis-2021]](https://github.com/apache/incubator-linkis/pull/2021) 移除 Flink 模块的一些冗余依赖包

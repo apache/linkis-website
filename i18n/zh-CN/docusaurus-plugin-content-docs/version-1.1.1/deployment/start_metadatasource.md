@@ -122,7 +122,7 @@ linkis-public-enhancements/linkis-datasource
 linkis的启动脚本中默认不会启动数据源相关的服务两个服务（ps-data-source-manager，ps-metadatamanager），
 如果想使用数据源服务，可以通过如下方式进行开启:
 修改`$LINKIS_CONF_DIR/linkis-env.sh`中的 `export ENABLE_METADATA_MANAGER=true`值为true。
-通过linkis-start-all.sh/linkis-stop-ll.sh 进行服务启停时，会进行数据源服务的启动与停止。
+通过linkis-start-all.sh/linkis-stop-all.sh 进行服务启停时，会进行数据源服务的启动与停止。
 
 通过eureka页面查看服务是否正常启动 
 
@@ -306,23 +306,47 @@ object TestMysqlClient {
 >只能创建配置数据源，以及测试数据源是否能正常连接，无法进行直接进行元数据查询
 
 先需要进行集群环境信息的配置
+
 表`linkis_ps_dm_datasource_env`
 ```roomsql
-INSERT INTO `linkis_ps_dm_datasource_env`
-(`env_name`, `env_desc`, `datasource_type_id`, `parameter`, `create_user`, `modify_user`)
-VALUES
-('testEnv', '测试环境', 4, '{\r\n    "keytab": "4dd408ad-a2f9-4501-83b3-139290977ca2",\r\n    "uris": "thrift://clustername:9083",\r\n    "principle":"hadoop@WEBANK.COM"\r\n}',  'user','user');
-
+INSERT INTO `linkis_ps_dm_datasource_env` 
+(`env_name`, `env_desc`, `datasource_type_id`, `parameter`,`create_user`,`modify_user`) 
+VALUES 
+('testEnv', '测试环境', 4, 
+'{\r\n    "uris": "thrift://clustername:9083",\r\n    "keytab": "4dd408ad-a2f9-4501-83b3-139290977ca2",\r\n    "principle":"hadoop@WEBANK.COM",\r\n    "hadoopConf":{"hive.metastore.execute.setugi":"true"}\r\n}',
+'user','user');
 ```
-主键id,作为envId，在建立连接时，需要通过此envId参数，获取集群配置相关信息。
+主键id作为envId，在建立连接时，需要通过此envId参数，获取集群配置相关信息。
 配置字段解释:
 ```
 {
+    "uris": "thrift://clustername:9083", # 必选 如果未开启kerberos认证 下列[keytab][principle]参数可以为空
     "keytab": "bml resource id",//keytab 存储再物料库中的resourceId,目前需要通过http接口手动上传。
-    "uris": "thrift://clustername:9083",
     "principle":"hadoop@WEBANK.COM" //认证的principle
+    "hadoopConf":{} //额外的连接参数 可选
 }
 ```
+
+keytab的resourceId获取方式，目前基础数据管理功能还在规划中，可以通过http接口请求获取到 
+参考示例 
+```shell script
+curl --form "file=@文件路径"  \
+--form system=子系统名   \
+-H "Token-Code:认证token" \
+-H "Token-User:认证用户名"  \
+http://linkis-gatewayip:port/api/rest_j/v1/bml/upload
+
+示例:
+curl --form "file=@/appcom/keytab/hadoop.keytab"  \
+--form system=ABCD   \
+-H "Token-Code:QML-AUTH" \
+-H "Token-User:hadoop"  \
+http://127.0.0.1:9001/api/rest_j/v1/bml/upload
+
+请求结果中的resourceId 即为对应的`bml resource id`值 
+{"method":"/bml/upload","status":0,"message":"The task of submitting and uploading resources was successful(提交上传资源任务成功)","data":{"resourceId":"6e4e54fc-cc97-4d0d-8d5e-a311129ec84e","version":"v000001","taskId":35}}
+```
+
 
 web端创建:
 

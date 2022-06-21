@@ -10,6 +10,22 @@ export default function() {
     const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
     const dataSource = config?.[language];
 
+    const sortToShowCommitter = () =>{
+      dataSource.committer.sort((a, b) =>{
+        return a.name.localeCompare(b.name)
+      })
+
+      return dataSource.committer.map((item, i) => (
+        <a href={'https://github.com/'+ item.githubId} key={i} target="_blank">
+            <li className="character-item text-center" style={{'listStyle':'none', lineHeight: '42px', padding: 0}}>
+              <div className="character-desc">
+                <h3 className="character-name" style={{margin: 0, padding: '20px'}}>{item.name}</h3>
+              </div>
+            </li>
+        </a>
+      ))
+    }
+
     return (
      <Layout>
         <div className="ctn-block normal-page team-page">
@@ -31,6 +47,13 @@ export default function() {
                     </li>
                 </a>
               ))
+          }
+        </ul>
+        <h3 className="normal-title">Committer</h3>
+        <p className="normal-desc">{dataSource.info.committerTip}</p>
+        <ul  className="character-list">
+          {
+              sortToShowCommitter()
           }
         </ul>
         <h3 className="normal-title">

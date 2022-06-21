@@ -84,7 +84,7 @@ Figure 2 Hive running effect Figure 2
 
 When we were adapting, we also found that there was a conflict in the jar package. This requires the user to check the log to eliminate it. If the cause is still unclear, welcome to join the group for consultation.
 
-![WeChat and QQ group](../images/ch6/group.png)<br/>
+![WeChat group](../images/ch6/group.png)<br/>
 
 ## 4 Future goals
 
