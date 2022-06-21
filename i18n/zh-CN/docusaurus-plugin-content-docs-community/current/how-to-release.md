@@ -615,6 +615,9 @@ Hello Apache Linkis PPMC and Community,
 Thank you for your support.
 ${Linkis Release Manager}
 ```
+注: 
+- PPMC:podling Project Management Committee (PPMC) linkis的ppmc 
+- IPMC: Incubator Project Management Committee (IPMC)  一般是孵化社区的PMC，linkis的导师都是这个角色 
 
 ### 5.2 Incubator 社区投票阶段
 
