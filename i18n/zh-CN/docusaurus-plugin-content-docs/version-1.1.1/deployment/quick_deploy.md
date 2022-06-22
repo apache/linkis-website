@@ -211,7 +211,6 @@ export ENABLE_SPARK=false
 ```bash
     sh bin/install.sh
 ```
-
 install.sh脚本会询问您是否需要初始化数据库并导入元数据。如果选择初始化，会把数据库中的表数据清空重新初始化。
 
 <font color="red"> ** 第一次安装 **必须选清空数据库</font>
@@ -252,13 +251,10 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 echo "wds.linkis.keytab.enable=true" >> linkis.properties
 ```
 #### 3.3.2 Yarn的认证 
-
 执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
 执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
 如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
 详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)
-
-
 
 #### 3.3.2 session 
 如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件
@@ -539,14 +535,12 @@ hdfs dfs -chown hadoop:hadoop   /apps-data
 ```
 
 ### 8.3 登陆密码问题
-
 linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于
 `{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
 
 ### 8.4 版本兼容性问题
 
 linkis默认支持的引擎，与dss兼容关系可以查看[此文档](https://github.com/apache/incubator-linkis/blob/master/README.md)
-
 
 ### 8.5 如何定位服务端异常日志
 
@@ -586,6 +580,7 @@ less logs/stdout
 可以通过尝试手动执行脚本，进行调试
 ``` 
 sh -x engineConnExec.sh  
+
 ```
 
 ### 8.7 如何修改注册中心eureka的端口
@@ -609,7 +604,6 @@ sh -x engineConnExec.sh
 
 3. 将对应位置的端口修改为新的端口,并且重启所有服务sh restart sbin/linkis-start-all.sh
 ```
-
 
 ### 8.8 CDH适配版本的注意事项
 
@@ -656,5 +650,3 @@ linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索
 - 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
 - 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction
 - bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  
-
-

@@ -213,7 +213,7 @@ nohup java -DserviceName=linkis-cg-engineplugin -Xmx512M -XX:+UseG1GC -Xloggc:/d
 #### 1.1 specify the service of the package to be debugged    
 Determine the service it belongs to according to the location of the code to be debugged  
 
-#### 1.2 enter {linkis_home}/sbin/ext, modify the module configuration file, and open the remote call port
+#### 1.2 enter {LINKIS_HOME}/sbin/ext, modify the module configuration file, and open the remote call port
 ![e-port](https://user-images.githubusercontent.com/29391030/167366305-207da78b-48da-4eee-af40-947bd43050b9.png)  
 
 ### 2. Restart the service to be debugged
