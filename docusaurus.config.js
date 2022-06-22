@@ -109,6 +109,17 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           activeBaseRegex: `^/$`,
         },
         {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+          dropdownItemsAfter: [
+            {
+              to: '/versions',
+              label: 'All versions',
+            },
+          ],
+        },
+        {
           to: '/faq/main',
           position: 'left',
           label: 'FAQ',
@@ -143,17 +154,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Users',
           position: 'left',
           activeBaseRegex: `/user`,
-        },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-          dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
-            {
-              to: '/versions',
-              label: 'All versions',
-            },
-          ],
         },
         {
           label: 'ASF',
