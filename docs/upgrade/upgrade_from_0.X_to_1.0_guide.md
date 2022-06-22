@@ -1,6 +1,6 @@
 ---
 title: Upgrade From 0.X To 1.0 Guide
-sidebar_position: 3
+sidebar_position: 1
 ---
 
  > This article briefly introduces the precautions for upgrading Linkis from 0.X to 1.0. Linkis 1.0 has adjusted several Linkis services with major changes. This article will introduce the precautions for upgrading from 0.X to 1.X.

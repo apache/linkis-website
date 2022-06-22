@@ -256,5 +256,5 @@ Linkis1.0 默认已适配的引擎列表如下：
 ![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
 
 #### (3)、查看服务是否正常
-1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](deployment/web_install.md)
+1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web_install.md)
 2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](user_guide/overview.md)
