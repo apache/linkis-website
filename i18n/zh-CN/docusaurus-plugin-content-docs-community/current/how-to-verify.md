@@ -142,14 +142,13 @@ Archives: 0
 </font>
 
 
-#### 2.4.2 源码编译验证
+#### 2.4.2 项目源码编译验证
 Mac OS/Linux
 ```shell
 $ ./mvnw -N install  
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
 $ ./mvnw  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ```
-
 Window 
 ```shell
 $ mvnw.cmd -N install  
@@ -157,9 +156,11 @@ $ mvnw.cmd -N install
 $ mvnw.cmd  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ```
 
-#### 2.4.3 管理台代码编译验证
-首先检查web/package.json，web/.env文件，检查前端管理台版本号是否正确
-随后执行如下代码安装依赖：
+#### 2.4.3 web源码编译验证
+
+>需要依赖node.js环境，建议使用node v14版本
+
+安装依赖：
 ```shell
 npm install
 ```
@@ -167,12 +168,10 @@ npm install
 ```shell
 npm run build
 ```
-上述命令执行成功后，会生成前端管理台安装包: `apache-linkis-${version}-incubating-web-bin.tar.gz`
 
 :::caution 注意：
 1.Windows下`npm install`步骤报错：
 `Error: Can't find Python executable "python", you can set the PYTHON env variable`
-
 安装windows-build-tools （管理员权限）:
 ```shell
 $ npm install --global --production windows-build-tools
@@ -191,9 +190,8 @@ $ rm -rf package-lock.json
 $ npm cache clear --force
 #重新下载依赖
 $ npm install
-
 ```
-:::
+::: 
 #### 2.4.4 相关合规项检查 
 
 进行如下检查:
