@@ -455,6 +455,38 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -c
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
 ```
 
+## 8 查看支持的各个引擎的版本
+
+### 8.1 方式1:查看引擎打包的目录
+```
+$ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
+linkis-package/lib/linkis-engineconn-plugins/
+├── hive
+│   ├── dist
+│   │   └── v2.3.3  #版本为2.3.3  engineType 为hive-2.3.3
+│   └── plugin
+│       └── 2.3.3
+├── python
+│   ├── dist
+│   │   └── vpython2
+│   └── plugin
+│       └── python2 #版本为python2 engineType 为python-python2
+├── shell
+│   ├── dist
+│   │   └── v1
+│   └── plugin
+│       └── 1
+└── spark
+    ├── dist
+    │   └── v2.4.3
+    └── plugin
+        └── 2.4.3
+```
+
+### 8.2 方式2:查看linkis的数据库表
+```shell script
+select *  from linkis_cg_engine_conn_plugin_bml_resources
+```
 
 
 
