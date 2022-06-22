@@ -8,6 +8,12 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 export default function() {
   const isBrowser = useIsBrowser();
   const {siteConfig} = useDocusaurusContext();
+  const {globalData} = useDocusaurusContext();
+
+  globalData['docusaurus-plugin-content-docs'].default.versions[1].label = '1.1.1';
+  globalData['docusaurus-plugin-content-docs'].default.versions[1].isLast = false;
+  globalData['docusaurus-plugin-content-docs'].default.versions[0].isLast = true;
+
 
   const pathname = isBrowser && location.pathname
 
