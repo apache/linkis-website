@@ -32,7 +32,7 @@ Please input the choice: ## choice 1
 
 ## 3. 数据库表升级
 >服务安装完成后，需要对数据库进行结构修改，包括进行表结构变更和表数据变更 
- 
+ 3
 
 找到对应的版本`db/upgrade/x.x.x-schema/` sql变动文件
  

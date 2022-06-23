@@ -127,7 +127,7 @@ tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz
 
 ### 5.2 升级 
 >管理台升级方式比较多，因为只是资源的更新，可以通过管理台安装脚本来进行，也可以直接覆盖掉原有的资源，
->推荐使用软链方式来进行，只需呀修改软链的目标地址即可，下面以新建版本资源路径方式为例
+>推荐使用软链方式来进行，只需要修改软链的目标地址即可，下面以新建版本资源路径方式为例
 
 nginx配置文件默认是 在`/etc/nginx/conf.d/*`
 nginx的日志文件在 `/var/log/nginx/access.log` 和`/var/log/nginx/error.log`
