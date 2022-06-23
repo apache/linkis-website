@@ -143,7 +143,7 @@ If it is not 0, you need to confirm whether the source code has the license for 
 </font>
 
 
-#### 2.4.2 Source code compilation verification
+#### 2.4.2 Project source code compilation verification
 Mac OS/Linux
 ```shell
 $ ./mvnw -N install
@@ -156,9 +156,10 @@ $ mvnw.cmd -N install
 #If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
 $ mvnw.cmd clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ````
-#### 2.4.3 Console code compilation verification
-First check the files: web/package.json，web/.env, check whether the console version is correct
-The execute the following command to install package
+#### 2.4.3 Web source code compilation verification
+> This will require node.js environment. It is recommended to use node v14 version.
+
+First, install the packages:
 ```shell
 npm install
 ```
@@ -168,7 +169,7 @@ npm run build
 ```
 The console installation package `apache-linkis-${version}-incubating-web-bin.tar.gz` will be generated after the above command is successfully executed
 
-:::caution：
+:::caution
 1.An error occured when running `npm install`:
 
 `Error: Can't find Python executable "python", you can set the PYTHON env variable`
@@ -189,7 +190,7 @@ $ rm -rf node_modules
 $ rm -rf package-lock.json
 #Clean npm cache
 $ npm cache clear --force
-#Download package again
+#Download packages again
 $ npm install
 
 ```
