@@ -142,21 +142,57 @@ Archives: 0
 </font>
 
 
-#### 2.4.2 源码编译验证
+#### 2.4.2 项目源码编译验证
 Mac OS/Linux
 ```shell
 $ ./mvnw -N install  
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
 $ ./mvnw  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ```
-
 Window 
 ```shell
 $ mvnw.cmd -N install  
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
 $ mvnw.cmd  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ```
-#### 2.4.3 相关合规项检查 
+
+#### 2.4.3 web源码编译验证
+
+>需要依赖node.js环境，建议使用node v14版本
+
+安装依赖：
+```shell
+npm install
+```
+接下来项目进行打包：
+```shell
+npm run build
+```
+
+:::caution 注意：
+1.Windows下`npm install`步骤报错：
+`Error: Can't find Python executable "python", you can set the PYTHON env variable`
+安装windows-build-tools （管理员权限）:
+```shell
+$ npm install --global --production windows-build-tools
+```
+安装node-gyp:
+```
+$ npm install --global node-gyp
+```
+2.如果编译失败 请按如下步骤清理后重新执行
+```shell
+#进入项目工作目录，删除 node_modules
+$ rm -rf node_modules
+#删除 package-lock.json
+$ rm -rf package-lock.json
+#清除 npm 缓存
+$ npm cache clear --force
+#重新下载依赖
+$ npm install
+```
+::: 
+#### 2.4.4 相关合规项检查 
 
 进行如下检查:
 

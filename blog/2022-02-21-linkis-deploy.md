@@ -222,6 +222,7 @@ If hive is not version 2.3.3, you need to modify the parameters:
 ##HIVE_VERSION, If the installed Hive version is not 2.3.3, it needs to be modified to the corresponding version, such as 2.3.4
 HIVE_VERSION=2.3.4
 ```
+
 If configured, it will actually be updated in the `{linkisInstallPath}/conf/linkis.properties` file after the installation and deployment are performed
 ```shell script
 #wds.linkis.spark.engine.version=
@@ -263,6 +264,7 @@ Your default account password is \[hadoop/5e8e312b4]
 
 ### 3.3 Configuration modification
 After the installation is complete, if you need to modify the configuration, you can re-execute the installation, or modify the corresponding ${InstallPath}/conf/*properties file and restart the corresponding service
+
 
 ### 3.4 Add mysql driver (>=1.0.3) version
 Because of the license, mysql-connector-java is removed from the release package of linkis itself (the family bucket integrated by dss will be included, no need to manually add it), which needs to be added manually.  
@@ -361,6 +363,7 @@ If you need to modify the port or static resource directory, etc., please modify
 Log in to the web terminal to view information
 http://xx.xx.xx.xx:8188/#/login
 Username/Password (check in {InstallPath}/conf/linkis-mg-gateway.properties)
+
 
 ```shell script
 #When not using LDAP configuration

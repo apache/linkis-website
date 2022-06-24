@@ -109,6 +109,17 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           activeBaseRegex: `^/$`,
         },
         {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+          dropdownItemsAfter: [
+            {
+              to: '/versions',
+              label: 'All versions',
+            },
+          ],
+        },
+        {
           to: '/faq/main',
           position: 'left',
           label: 'FAQ',
@@ -137,6 +148,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Team',
           position: 'left',
           activeBaseRegex: `/team`,
+        },
+        {
+          to: '/blessing_wall',
+          label: 'Blessing',
+          position: 'left',
+          activeBaseRegex: `/blessing_wall`,
         },
         {
           to: '/user',
@@ -177,7 +194,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
           ],
         },
-        {
+        /*{
           position: 'right',
           label: 'Doc',
           //            to: "/docs/user_guide/overview",
@@ -211,7 +228,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               to: "/versions/",
             },
           ],
-        },
+        },*/
         {
           href: 'https://github.com/apache/incubator-linkis',
           'aria-label': 'GitHub',
