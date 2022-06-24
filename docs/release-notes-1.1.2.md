@@ -1,7 +1,11 @@
 ---
-title: Release Notes 1.1.2-RC1
+title: Release Notes 1.1.2-RC2
 sidebar_position: 0.4
 ---
+Based on 1.1.2-RC1, 1.1.2-RC2 fixes the following problems:
+- Removed the web/src/common/util/ras.js, web/src/common/util/ras.js files in the source code, and adjusted the function used for user password encryption on the login page
+
+-------
 
 Apache Linkis(incubating) 1.1.2 includes all of [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20).
 
@@ -88,6 +92,7 @@ abbreviation:
 * \[ECP][[Linkis-1968]](https://github.com/apache/incubator-linkis/pull/1974) protobuf-java version upgrade to 3.15.8
 * \[ECP][[Linkis-2021]](https://github.com/apache/incubator-linkis/pull/2021) remove some redundant dependencies of Flink module
 * \[RPC][[Linkis-2018]](https://github.com/apache/incubator-linkis/pull/2018) unified version of json4s
+* \[Web][[Linkis-2336]](https://github.com/apache/incubator-linkis/pull/2336) Introduce the dependency of the web component jsencrypt-3.2.1 as a login password encryption and decryption tool
 
 ## Thanks
 The release of Apache Linkis(incubating) 1.1.2 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order): Alexyang, Casion, David hua, GodfreyGuo, Jack Xu , Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, Li Wei
