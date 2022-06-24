@@ -150,6 +150,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           activeBaseRegex: `/team`,
         },
         {
+          to: '/blessing_wall',
+          label: 'Blessing',
+          position: 'left',
+          activeBaseRegex: `/blessing_wall`,
+        },
+        {
           to: '/user',
           label: 'Users',
           position: 'left',
