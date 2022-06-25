@@ -214,7 +214,7 @@ export ENABLE_SPARK=false
 
 install.sh脚本会询问您是否需要初始化数据库并导入元数据。如果选择初始化，会把数据库中的表数据清空重新初始化。
 
-<font size="5" color="red">第一次安装</font><font color="red">必须选清空数据库</font>
+<font size="6" color="red">第一次安装</font><font color="red">必须选清空数据库</font>
 
 :::tip 注意
 - 如果出现报错，又不清楚具体是执行什么命令报错，可以加 -x 参数`sh -x bin/install.sh`，将shell脚本执行过程日志打印出来，方便定位问题
