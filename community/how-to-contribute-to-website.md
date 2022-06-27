@@ -151,6 +151,10 @@ Located in `src/pages/versions`
         index.jsorchestrator/overview.md
         index.less
 ```
+
+### 3.9 Path specification
+In the markdown document, if you want to jump to another document such as `/community/how-to-email.md`, you need to remove the suffix `.md`(written as `/community/how-to-email`) from the path.
+
 ## 4 New documents
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The md document is recommended to be viewed by visiting the official website and viewing the md document through github. There is a problem that static resources such as pictures cannot be displayed correctly
