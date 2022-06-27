@@ -1,7 +1,12 @@
 ---
-title: Release Notes 1.1.2-RC1
+title: Release Notes 1.1.2-RC2
 sidebar_position: 0.4
 --- 
+
+在1.1.2-RC1基础上，1.1.2-RC2修复如下问题:
+- 移除了源码中的web/src/common/util/ras.js,web/src/common/util/ras.js文件，调整登陆页面用户密码加密使用的函数
+
+-------
 
 Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20)。
 
@@ -88,6 +93,8 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * \[ECP][[Linkis-1968]](https://github.com/apache/incubator-linkis/pull/1974) protobuf-java 版本升级至 3.15.8
 * \[ECP][[Linkis-2021]](https://github.com/apache/incubator-linkis/pull/2021) 移除 Flink 模块的一些冗余依赖包
 * \[RPC][[Linkis-2018]](https://github.com/apache/incubator-linkis/pull/2018) 统一 json4s 的版本
+* \[Web][[Linkis-2336]](https://github.com/apache/incubator-linkis/pull/2336) 引入web组件jsencrypt-3.2.1的依赖，作为登陆密码加解密工具
+
 
 ## 致谢
 Apache Linkis(incubating) 1.1.2的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexyang, Casion, David hua, GodfreyGuo, Jack Xu, Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, 李为

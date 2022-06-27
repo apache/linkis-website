@@ -13,7 +13,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 
 ## 核心特点
 - **丰富的底层计算存储引擎支持**。  
-    **目前支持的计算存储引擎**：Spark、Hive、Flink、Python、Pipeline、Sqoop、openLookEng、JDBC和Shell等。  
+    **目前支持的计算存储引擎**：Spark、Hive、Flink、Python、Pipeline、Sqoop、openLooKeng、JDBC和Shell等。  
     **正在支持中的计算存储引擎**：Presto(计划1.2.0)、ElasticSearch(计划1.2.0)等。  
     **支持的脚本语言**：SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala 和JDBC 等。    
 - **强大的计算治理能力**。基于Orchestrator、Label Manager和定制的Spring Cloud Gateway等服务，Linkis能够提供基于多级标签的跨集群/跨IDC 细粒度路由、负载均衡、多租户、流量控制、资源控制和编排策略(如双活、主备等)支持能力。  
@@ -34,7 +34,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 |JDBC|MySQL >= 5.0, Hive >=1.2.1, <br/>(默认Hive-jdbc 2.3.4)|\>=1.0.0_rc1|否|JDBC EngineConn， 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle|
 |Flink |Flink >= 1.12.2, <br/>(默认Apache Flink 1.12.2)|\>=1.0.2|否|Flink EngineConn， 支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序|
 |Pipeline|-|\>=1.0.2|否|Pipeline EngineConn， 支持文件的导入和导出|
-|openLookEng|openLookEng >= 1.5.0, <br/>(默认openLookEng 1.5.0)|\>=1.1.1|否|openLooKeng EngineConn， 支持用Sql查询数据虚拟化引擎openLooKeng|
+|openLooKeng|openLooKeng >= 1.5.0, <br/>(默认openLookEng 1.5.0)|\>=1.1.1|否|openLooKeng EngineConn， 支持用Sql查询数据虚拟化引擎openLooKeng|
 |Sqoop| Sqoop >= 1.4.6, <br/>(默认Apache Sqoop 1.4.6)|\>=1.1.2|否|Sqoop EngineConn， 支持 数据迁移工具 Sqoop 引擎|
 |Impala|Impala >= 3.2.0, CDH >=6.3.0|ongoing|-|Impala EngineConn，支持Impala SQL 代码|
 |Presto|Presto >= 0.180|ongoing|-|Presto EngineConn， 支持Presto SQL 代码|

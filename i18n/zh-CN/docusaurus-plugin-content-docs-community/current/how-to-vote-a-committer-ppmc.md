@@ -251,7 +251,7 @@ for more information about roles at Apache.
 几天后，新的提交者将收到一封来自root@apache.org帐户通知账号创建的电子邮件，标题为`Welcome to the Apache Software Foundation (ASF)!`。
 
 收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知Linkis PPMC，你的Apache Id账号已经创建，请求将你的Apache Id添加到Linkis的官方提交者列表中。
-(请求Linkis导师通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中，目前Linkis导师中史少锋老师有权添加（shaofengshi@apache.org））
+(告知负责提名你的PPMC通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中）
 
 ### 2.7 设置 Apache ID 和开发环境
 

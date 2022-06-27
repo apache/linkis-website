@@ -235,7 +235,8 @@ In the unlikely event that the account has not been processed, PPMC members shou
 
 In a few days, new committers will receive an email confirming account creation with the title `Welcome to the Apache Software Foundation (ASF)!`.
 
-PPMC members should add new committers to the official committer list via [Roster](https://whismy.apache.org/roster/committee/linkis).
+After receiving the notification email that the account was created successfully, you can reply to the previous invitation email again to inform Linkis PPMC that your Apache Id account has been created, and request that your Apache Id be added to Linkis' official submitter list.
+(Inform the PPMC responsible for nominating you to add the new committer to the official committer list via the [Roster](https://whismy.apache.org/roster/committee/linkis) page)
 
 ### 2.7 Setting up Apache ID and development environment
 >Requires candidates for processing
