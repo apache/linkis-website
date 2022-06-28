@@ -7,8 +7,10 @@ sidebar_position: 4
 
 For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
-## 1. Download the candidate version 
+## 1. Download the candidate version
+ 
 > Download the candidate version to be released to the local environment
+> Need to rely on gpg tool, if not, it is recommended to install gpg2
 
 :::caution Note
 If the network is poor, downloading may be time-consuming. The download is completed normally in about 20 minutes, please wait patiently.
@@ -93,6 +95,11 @@ gpg: Good signature from "xxx @apache.org>"
 
 ```shell
 $ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
+
+#or
+$ sha512sum --check apache-linkis-${release_version}-src.tar.gz.sha512
+# If you upload a binary package, you also need to check whether the signature of the binary package is correct
+$ sha512sum --check apache-linkis-${release_version}-bin.tar.gz.sha512
 
 ```
 
@@ -250,7 +257,7 @@ When IPMC votes in the general@incubator.apache.org incubator community. Please 
 If you have already voted on dev@linkis.apache.org, you can take it directly to the incubator community when you reply to the vote, such as:
 
 ```html
-//Incubator community voting, only IPMC members have binding binding
+//Incubator community voting, only IPMC members have binding binding，PPMC needs to be aware of binding changes
 Forward my +1 from dev@linkis (non-binding)
 Copy my +1 from linkis DEV ML (non-binding)
 ````
