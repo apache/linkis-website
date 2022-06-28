@@ -183,7 +183,7 @@ The queue CPU resource is insufficient, exceeding the limit you set
 **Solution 1**
 
 - Open the DSS platform and click management console -- parameter configuration -- ide -- spark -- display advanced settings -- Walker engine resource settings (2) -- adjust the number of concurrent executors [spark.executor.instances]
-  ![](image/sparkSetting.png)
+- ![](image/sparkSetting.png)
 
 - Or adjust the upper limit of queue resource usage on the management console -- parameter configuration -- global settings
 ---------------------------------
@@ -201,7 +201,7 @@ The queue memory resource is insufficient, which exceeds the queue memory resour
 
 **Solution 1**
 - Open the DSS platform and click management console -- parameter configuration -- ide -- spark -- display advanced settings -- Walker engine resource settings (2) -- adjust the number of concurrent executors [spark.executor.instances]
-  ![](image/sparkSetting.png)
+- ![](image/sparkSetting.png)
 
 - Or adjust the upper limit of queue resource usage on the management console - parameter configuration - global settings
 ---------------------------------
@@ -242,7 +242,7 @@ Global drive memory exceeds maximum
 
 **Solution 1**
 - Open the DSS platform and click management console - parameter configuration - global settings - queue resources - maximum number of yarn queue instances [wds.links.rm.yarnqueue.instance.max]
-  ![](image/queueInstanceMax.png)
+- ![](image/queueInstanceMax.png)
 
 **Solution 2**
 
@@ -269,7 +269,7 @@ The number of global drive CPUs exceeds the maximum
 **Solution 1**
 
 - Open the DSS platform and click management console - parameter configuration - global settings - queue resources - upper limit of queue CPU [wds.links.rm.yarnqueue.cores.max]
-  ![](image/queueCodesMax.png)
+- ![](image/queueCodesMax.png)
 
 **Solution 2**
 
@@ -296,15 +296,15 @@ Maximum engine concurrency exceeded
 **Solution 1**
 
 - Modify the configuration and global configuration: open the DSS platform and click management console - parameter configuration - global settings - queue resources - global maximum concurrency of each engine [wds.links.rm.instance]
-  ![](image/MaxInstance.png)
+- ![](image/MaxInstance.png)
 - spark engine
-  ![](image/sparkMaxInstance.png)
+- ![](image/sparkMaxInstance.png)
 - hive engine
-  ![](image/hiveMaxInstance.png)
+- ![](image/hiveMaxInstance.png)
 - python engine
-  ![](image/pythonMaxInstance.png)
+- ![](image/pythonMaxInstance.png)
 - pipeline engine
-  ![](image/pipelineMaxInstance.png)
+- ![](image/pipelineMaxInstance.png)
 
 **Remarks**
 
@@ -328,7 +328,7 @@ Exception in getting Yan queue information
 
 - If the cluster is normal and the user queue is configured incorrectly:
 - Linkis management console / parameter configuration > global settings >yarn queue name [wds.linkis.rm.yarnqueue]
-   ![](image/yarnQueue.png)
+- ![](image/yarnQueue.png)
 
 **Solution 2**
 
@@ -357,8 +357,8 @@ The queue does not exist. Please check whether the queue settings are correct
 
 **Solution 1**
 
-The user contacts the administrator to confirm whether the queue is correct
-![](image/yarnQueue.png)
+- The user contacts the administrator to confirm whether the queue is correct
+- ![](image/yarnQueue.png)
 ---------------------------------
 
 #### Error code 12010
@@ -374,8 +374,8 @@ Insufficient cluster queue memory resources
 
 **Solution 1**
 
-Check whether the resource memory is full. The user contacts the personnel in the group to release the resource, or applies for queue expansion
-![](image/queueRamResource.png)
+- Check whether the resource memory is full. The user contacts the personnel in the group to release the resource, or applies for queue expansion
+- ![](image/queueRamResource.png)
 ---------------------------------
 
 #### Error code 12011
@@ -391,8 +391,8 @@ Insufficient cluster queue CPU resources
 
 **Solution 1**
 
-Check whether the resource CPU is full. The user contacts the personnel in the group to release the resource, or applies for queue expansion
-![](image/queueCPUResource.png)
+- Check whether the resource CPU is full. The user contacts the personnel in the group to release the resource, or applies for queue expansion
+- ![](image/queueCPUResource.png)
 ---------------------------------
 
 #### Error code 12013
@@ -1443,73 +1443,3 @@ The system does not have a %s module
 **Solution 1**
 
 - Contact the operation and maintenance personnel for troubleshooting
-
-
----------------------------------
-
-#### Error code 91002
-
-**error description**
-
-An error occurs during task execution:error code : 91002，error msg : The proxy user does not exist. Please check whether you have applied for a platform layer (BDP or bdap) user
-
->failed to change current working directory ownership
-
-**Reason 1**
-
-user does not exist
-
-**Solution 1**
-
-- The user can apply for bill of lading after checking whether it has been applied
-
----------------------------------
-
-#### Error code 91003
-
-**error description**
-
-An error occurs during task execution:error code : 91003，error msg : Please check whether the submitting user has the authority of the proxy user in wtss, whether there are special characters in the proxy user, whether the proxy user is used incorrectly, whether the user exists at the OS level, and whether the user is set as the proxy user in the system settings
-
->没有权限执行当前任务
-
-**Reason 1**
-
-User does not have permission
-
-**Solution 1**
-
-- The user can apply for bill of lading after checking whether it has been applied
-
-
----------------------------------
-
-
-
-#### Error code 91006
-
-**error description**
-
-An error occurs during task execution:error code : 91006，error msg : There is a problem with your user initialization. Please contact the administrator
-
->java: No such file or directory
-
-**Reason 1**
-
-User initialization failed
-
-**Solution 1**
-
-- If the bill of lading has been issued, contact the operation and maintenance personnel for handling; otherwise, the bill of lading DM - big data service - user bill of landing application authority
-
-
-
-
-
-
-
-
-
-
-
-
