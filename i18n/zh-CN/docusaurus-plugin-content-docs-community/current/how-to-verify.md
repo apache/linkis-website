@@ -7,6 +7,9 @@ sidebar_position: 4
 详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
 ## 1. 下载要发布的候选版本到本地环境
+
+>需要依赖gpg工具，如果没有，建议安装gpg2
+
 :::caution 注意
 如果网络较差，下载可能会比较耗时。正常完成下载大约20分钟左右，请耐心等待。
 :::
@@ -69,7 +72,8 @@ gpg>
 
 ```shell
 $ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
-  #或者
+
+ #或者
 $ gpg --verify apache-linkis-${release_version}-src.tar.gz.asc apache-linkis-${release_version}-src.tar.gz
   # 如果上传二进制包，则同样需要检查二进制包的签名是否正确
 $ gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
@@ -92,7 +96,13 @@ gpg: Good signature from "xxx @apache.org>"
 ```shell
 $ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
+ #或者
+$ sha512sum --check apache-linkis-${release_version}-src.tar.gz.sha512 
+  # 如果上传二进制包，则同样需要检查二进制包的签名是否正确
+$ sha512sum --check apache-linkis-${release_version}-bin.tar.gz.sha512 
+
 ```
+
 
 > Windows
 
@@ -249,10 +259,10 @@ IPMC在general@incubator.apache.org incubator社区投票，请带上 binding后
 </font>
 
 :::caution 注意
-如果在dev@linkis.apache.org已经投过票，在incubator社区进行投票回复时，可以直接带过去 如:
+如果在dev@linkis.apache.org已经投过票，在incubator社区进行投票回复时，可以直接带过去,<font color="red">需要注意约束性</font>  如:
 
 ```html
-//incubator社区 投票时，只有IPMC成员才具有约束性 binding
+//incubator社区 投票时，只有IPMC成员才具有约束性 binding，PPMC需要注意约束性的变化
 Forward my +1 from dev@linkis (non-binding)
 Copy my +1 from linkis DEV ML (non-binding)
 ```
