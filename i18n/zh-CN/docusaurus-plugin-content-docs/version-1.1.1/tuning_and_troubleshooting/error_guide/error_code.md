@@ -181,7 +181,7 @@ Linkis服务负载过高，导致服务连接超时
 **解决1**
 
 - 打开DSS平台，点击管理台--参数配置--IDE--Spark--显示高级设置--woker引擎资源设置(2)--调整执行器并发数[spark.executor.instances]
-  ![](image/sparkSetting.png)
+- ![](image/sparkSetting.png)
 
 - 或者在管理台--参数配置-全局设置调整队列资源使用上限值
 ---------------------------------
@@ -199,7 +199,7 @@ Linkis服务负载过高，导致服务连接超时
 
 **解决1**
 - 打开DSS平台，点击管理台--参数配置--IDE--Spark--显示高级设置--woker引擎资源设置(2)--调整执行器并发数[spark.executor.instances]
-  ![](image/sparkSetting.png)
+- ![](image/sparkSetting.png)
 
 - 或者在管理台--参数配置-全局设置调整队列资源使用上限值
 ---------------------------------
@@ -240,7 +240,7 @@ Linkis服务负载过高，导致服务连接超时
 
 **解决1**
 - 打开DSS平台，点击管理台--参数配置--全局设置--队列资源--yarn队列实例最大个数[wds.linkis.rm.yarnqueue.instance.max]
-  ![](image/queueInstanceMax.png)
+- ![](image/queueInstanceMax.png)
 
 **解决2**
 
@@ -267,7 +267,7 @@ Linkis服务负载过高，导致服务连接超时
 **解决1**
 
 - 打开DSS平台，点击管理台--参数配置--全局设置--队列资源--队列CPU使用上限[wds.linkis.rm.yarnqueue.cores.max]
-  ![](image/queueCodesMax.png)
+- ![](image/queueCodesMax.png)
 
 **解决2**
 
@@ -294,15 +294,15 @@ Linkis服务负载过高，导致服务连接超时
 **解决1**
 
 - 修改配置，全局配置：打开DSS平台，点击管理台--参数配置--全局设置--队列资源--全局各个引擎最大并发数[wds.linkis.rm.instance]
-  ![](image/MaxInstance.png)
+- ![](image/MaxInstance.png)
 - spark引擎
-  ![](image/sparkMaxInstance.png)
+- ![](image/sparkMaxInstance.png)
 - hive引擎
-  ![](image/hiveMaxInstance.png)
+- ![](image/hiveMaxInstance.png)
 - python引擎
-  ![](image/pythonMaxInstance.png)
+- ![](image/pythonMaxInstance.png)
 - pipeline引擎
-  ![](image/pipelineMaxInstance.png)
+- ![](image/pipelineMaxInstance.png)
 
 **备注**
 
@@ -325,8 +325,8 @@ Linkis服务负载过高，导致服务连接超时
 **解决1**
 
 - 如果集群正常，用户队列配置错误：
--  linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue]
-   ![](image/yarnQueue.png)
+- linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue]
+- ![](image/yarnQueue.png)
 
 **解决2**
 
@@ -355,8 +355,8 @@ Linkis服务负载过高，导致服务连接超时
 
 **解决1**
 
-用户联系管理员，确认队列是否正确
-![](image/yarnQueue.png)
+- 用户联系管理员，确认队列是否正确
+- ![](image/yarnQueue.png)
 ---------------------------------
 
 #### 错误码 12010
@@ -372,8 +372,8 @@ Linkis服务负载过高，导致服务连接超时
 
 **解决1**
 
-检查资源内存是否已满，用户联系组内人员释放资源，或者申请队列扩容
-![](image/queueRamResource.png)
+- 检查资源内存是否已满，用户联系组内人员释放资源，或者申请队列扩容
+- ![](image/queueRamResource.png)
 ---------------------------------
 
 #### 错误码 12011
@@ -389,8 +389,9 @@ Linkis服务负载过高，导致服务连接超时
 
 **解决1**
 
-检查资源cpu是否已满,用户联系组内人员释放资源，或者申请队列扩容
-![](image/queueCPUResource.png)
+- 检查资源cpu是否已满,用户联系组内人员释放资源，或者申请队列扩容
+
+- ![](image/queueCPUResource.png)
 ---------------------------------
 
 #### 错误码 12013
@@ -1443,73 +1444,4 @@ UDF函数未指定完整参数
 **解决1**
 
 - 联系运维人员排查
-
-
----------------------------------
-
-#### 错误码 91002
-
-**现象**
-
-任务执行过程中报错：错误码 91002，错误信息 不存在的代理用户，请检查你是否申请过平台层（bdp或者bdap）用户
-
->failed to change current working directory ownership
-
-**原因1**
-
-用户不存在
-
-**解决1**
-
-- 用户检查是否申请过，可提单申请
-
----------------------------------
-
-#### 错误码 91003
-
-**现象**
-
-任务执行过程中报错：错误码 91003，错误信息 请检查提交用户在WTSS内是否有该代理用户的权限，代理用户中是否存在特殊字符，是否用错了代理用户，OS层面是否有该用户，系统设置里面是否设置了该用户为代理用户
-
->没有权限执行当前任务
-
-**原因1**
-
-用户没有权限
-
-**解决1**
-
-- 用户检查是否申请过，可提单申请
-
-
----------------------------------
-
-
-
-#### 错误码 91006
-
-**现象**
-
-任务执行过程中报错：错误码 91006，错误信息 您的用户初始化有问题，请联系管理员
-
->java: No such file or directory
-
-**原因1**
-
-用户初始化未成功
-
-**解决1**
-
-- 如果已经提单，联系运维人员处理，否则提单 DM - 大数据服务 - 用户服务
-
-
-
-
-
-
-
-
-
-
-
 
