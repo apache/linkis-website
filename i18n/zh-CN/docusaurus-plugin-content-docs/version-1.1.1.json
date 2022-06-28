@@ -83,5 +83,9 @@
   "sidebar.tutorialSidebar.category.Components": {
     "message": "组件介绍",
     "description": "The label for category Components in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.error_guide": {
+    "message": "常见错误排查指南",
+    "description": "The label for category error_guide in sidebar tutorialSidebar"
   }
 }
