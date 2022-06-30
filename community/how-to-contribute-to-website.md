@@ -152,7 +152,7 @@ Located in `src/pages/versions`
         index.less
 ```
 
-### 3.9 Path specification
+### 3.9 Link specification in markdown
 In the markdown document, if you want to jump to another document such as `/community/how-to-email.md`, you need to remove the suffix `.md`(written as `/community/how-to-email`) from the path.
 
 ## 4 New documents
