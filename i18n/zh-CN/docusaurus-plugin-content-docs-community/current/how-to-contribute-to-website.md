@@ -152,7 +152,7 @@ css等样式文件放在`src/css`目录下
         index.less
 ```
 
-### 3.9  路径规范
+### 3.9  Markdown中链接规范
 在markdown文档中若要跳转到另一个文档如`/community/how-to-email.md`，则该路径需要删除`.md`后缀（写成`/community/how-to-email`）。
 
 ## 4 新增文档
