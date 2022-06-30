@@ -9,18 +9,18 @@ sidebar_position: 2
 ## 1 升级说明
 
 - 如果是第一次安装使用 Linkis，或重装 Linkis，无需关注 Linkis 升级指南。
-- 如果涉及到其他平台的组件（DataSphereStudio/Qualitis/Visualis等），升级前，请确认版本之间的兼容性，最好使用推荐的版本。
+- 如果涉及到其他平台的组件（DataSphereStudio/Qualitis/Visualis等），升级前，请确认版本之间的兼容性，最好使用推荐的版本，可参考 https://github.com/apache/incubator-linkis#ecosystem。
 - 建议通过软链方式来进行版本管控，可以通过修改软链的目标地址 来切换版本 如:`linkis -> /appcom/Install/LinkisInstall/linkis-1.1.3.20220615210213` 
 - 升级过程主要是需要关注数据库表结构的调整和部分配置参数的调整 
 - 除了后端服务的升级，linkis的管理台资源也需要一并升级  
-- 每个版本的主要变动点 可以查阅版本的总览信息`https://linkis.apache.org/zh-CN/docs/x.x.x /release` 以及版本[release-note](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main
+- 每个版本的主要变动点 可以查阅版本的总览信息`https://linkis.apache.org/zh-CN/docs/x.x.x /release` 以及版本的[Release-Note](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main
 - 每个版本的数据库变化/配置参数变化 都是基于上一个版本
 
 ## 2 服务升级安装
 
 按[部署指引文档](../deployment/quick_deploy)（文档中关于管理台的安装可以跳过），进行新版本的安装。
  
-安装服务时，如果历史数据保留，请保留历史数据，如果无需保留数据，直接重装即可
+安装服务时，如果历史数据保留，请保留历史数据，如果无需保留数据，直接重装即可，也无需关注升级流程
 ```shell script
 Do you want to clear Linkis table information in the database?
  1: Do not execute table-building statements
@@ -32,7 +32,7 @@ Please input the choice: ## choice 1
 
 ## 3. 数据库表升级
 >服务安装完成后，需要对数据库进行结构修改，包括进行表结构变更和表数据变更 
- 
+ 3
 
 找到对应的版本`db/upgrade/x.x.x-schema/` sql变动文件
  
@@ -56,7 +56,7 @@ Please input the choice: ## choice 1
 ```
 
 ```mysql-sql
-    #如果是跨多个版本执行，请按版本顺序，依次执行 先执行ddl 再执行ddl 
+    #如果是跨多个版本执行，请按版本顺序，依次执行 先执行ddl 再执行dml 
     #比如当前从linkis-1.0.3 升级到linkis-1.1.2 
     source upgrade/1.1.0_schema/mysql/linkis_ddl.sql
     source upgrade/1.1.0_schema/mysql/linkis_dml.sql
@@ -69,9 +69,11 @@ Please input the choice: ## choice 1
 >按实际情况，决定是否需要做如下调整 
 
 ### 4.1 TOKEN 配置 
-用于接口调用是的认证
+> 用于接口调用时的认证
+
 1.1.1 版本调整将原来的TOKEN配置从`${LINKIS_HOME}/conf/token.properties`迁移到数据库表`linkis_mg_gateway_auth_token`,
 对于原来在`token.properties`额外配置的TOKEN，需要手动迁移表中
+
 ### 4.2 UDF 调整 
 1.1.1 中支持支持UDF多版本控制、UDF存储到BML的功能特性，UDF函数存储的表结构有调整，UDF的历史数据，需要单独进行迁移 
 

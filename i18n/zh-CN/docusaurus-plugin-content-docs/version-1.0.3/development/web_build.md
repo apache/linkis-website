@@ -25,6 +25,9 @@ npm install
 **该步骤仅第一次使用时需要执行。**
 
 ## 3. 配置
+:::caution 注意
+如果是本地运行时此步骤可跳过
+:::
 您需要在代码中进行一些配置，如后端接口地址等，如根目录下的.env.development文件：
 
 ```
@@ -53,19 +56,7 @@ npm run serve
 在浏览器中（建议Chrome浏览器）通过链接访问应用：[http://localhost:8080/](http://localhost:8080/) .
 当您使用该方式运行项目时，您对代码的改动产生的效果，会动态体现在浏览器上。
 
-**注意：因为项目采用前后端分离开发，所以在本地浏览器上运行时，需要对浏览器进行设置跨域才能访问后端接口：**
-
-比如chrome浏览器：
-windows系统下的配置方式：
-1. 关闭所有的chrome浏览器。
-2. 新建一个chrome快捷方式，右键“属性”，“快捷方式”选项卡里选择“目标”，添加  --args --disable-web-security --user-data-dir=C:\MyChromeDevUserData
-3. 通过快捷方式打开chrome浏览器
-mac系统下的配置方式：
-在终端命令行执行以下命令(需要替换路径中的yourname，若还不生效请检查您机器上MyChromeDevUserData文件夹的位置并将路径复制到下面指令的“--user-data-dir=”后面)
-
-```
-open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/yourname/MyChromeDevUserData/
-```
+**注意：因为项目采用前后端分离开发，所以在本地浏览器上运行时，需要对浏览器进行设置跨域才能访问后端接口，具体设置可参考：[解决Chrome跨域问题](https://www.jianshu.com/p/56b1e01e6b6a)**
 
 
 ##6 常见问题

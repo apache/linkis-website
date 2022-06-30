@@ -9,7 +9,7 @@ sidebar_position: 4
 Download Node.js to your computer and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (It is recommended to use the latest stable version)
 **This step only needs to be performed the first time you use it. **
 
-### Second, the installation project
+### 2. The installation project
 Execute the following commands in the terminal command line:
 
 ```
@@ -25,7 +25,10 @@ Introduction to the instruction:
 
 **This step only needs to be performed the first time you use it. **
 
-### Three, configuration
+### 3. Configuration
+:::caution
+If it is a local runtime, this step can be skipped.
+:::
 You need to make some configuration in the code, such as the back-end interface address, etc., such as the .env.development file in the root directory:
 
 ```
@@ -35,7 +38,7 @@ VUE_APP_MN_CONFIG_PREFIX=http://yourIp:yourPort/yourPath
 
 For specific explanation of the configuration, please refer to the official vue-cli document: [Environment Variables and Modes](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%92%8C%E6%A8%A1%E5%BC%8F)
 
-### Package the project
+### 4. Package the project
 You can package the project by executing the following commands on the terminal command line to generate compressed code:
 
 ```
@@ -44,7 +47,7 @@ npm run build
 
 After the command is successfully executed, a "dist" folder and a "*-${getVersion()}-dist.zip" compressed file will appear in the project web directory. The directory dist/dist is the packaged code. You can Put the folder directly into your static server, or refer to the installation document and use the script to deploy and install.
 
-### Run the project
+### 5. Run the project
 If you want to run the project on a local browser and change the code to view the effect, you need to execute the following commands in the terminal command line:
 
 ```
@@ -54,24 +57,12 @@ npm run serve
 In the browser (Chrome browser is recommended) to access the application through the link: [http://localhost:8080/](http://localhost:8080/).
 When you run the project in this way, the effect of your code changes will be dynamically reflected in the browser.
 
-**Note: Because the project is developed separately from the front and back ends, when running on a local browser, the browser needs to be set to cross domains to access the back-end interface:**
-
-For example, the chrome browser:
-Configuration method under windows system:
-1. Close all chrome browsers.
-2. Create a new chrome shortcut, right-click "Properties", select "Target" in the "Shortcut" tab, and add --args --disable-web-security --user-data-dir=C:\MyChromeDevUserData
-3. Open chrome browser via shortcut
-Configuration method under mac system:
-Execute the following command on the terminal command line (you need to replace yourname in the path, if it does not take effect, please check the location of the MyChromeDevUserData folder on your machine and copy the path to the "--user-data-dir=" in the following command)
-
-```
-open -n /Applications/Google\ Chrome.app/ --args --disable-web-security --user-data-dir=/Users/yourname/MyChromeDevUserData/
-```
+**Note: Because the project is developed separately from the front and back ends, when running on a local browser, the browser needs to be set to cross domains to access the back-end interface. For specific setting, please refer to [solve the chrome cross domain problem](https://www.jianshu.com/p/56b1e01e6b6a).**
 
 
-### common problem
+### 6. Common problem
 
-#### npm install cannot succeed
+#### 6.1 npm install cannot succeed
 If you encounter this situation, you can use the domestic Taobao npm mirror:
 
 ```

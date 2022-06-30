@@ -7,8 +7,10 @@ sidebar_position: 4
 
 For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
-## 1. Download the candidate version 
+## 1. Download the candidate version
+ 
 > Download the candidate version to be released to the local environment
+> Need to rely on gpg tool, if not, it is recommended to install gpg2
 
 :::caution Note
 If the network is poor, downloading may be time-consuming. The download is completed normally in about 20 minutes, please wait patiently.
@@ -94,6 +96,11 @@ gpg: Good signature from "xxx @apache.org>"
 ```shell
 $ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
+#or
+$ sha512sum --check apache-linkis-${release_version}-src.tar.gz.sha512
+# If you upload a binary package, you also need to check whether the signature of the binary package is correct
+$ sha512sum --check apache-linkis-${release_version}-bin.tar.gz.sha512
+
 ```
 
 
@@ -143,7 +150,7 @@ If it is not 0, you need to confirm whether the source code has the license for 
 </font>
 
 
-#### 2.4.2 Source code compilation verification
+#### 2.4.2 Project source code compilation verification
 Mac OS/Linux
 ```shell
 $ ./mvnw -N install
@@ -156,7 +163,46 @@ $ mvnw.cmd -N install
 #If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
 $ mvnw.cmd clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ````
-#### 2.4.3 Check related compliance items
+#### 2.4.3 Web source code compilation verification
+> This will require node.js environment. It is recommended to use node v14 version.
+
+First, install the packages:
+```shell
+npm install
+```
+Next, build the project：
+```shell
+npm run build
+```
+The console installation package `apache-linkis-${version}-incubating-web-bin.tar.gz` will be generated after the above command is successfully executed
+
+:::caution
+1.An error occured when running `npm install`:
+
+`Error: Can't find Python executable "python", you can set the PYTHON env variable`
+
+You can install the windows-build-tools (This requires administractor privileges)
+```shell
+$ npm install --global --production windows-build-tools
+```
+Install the node-gyp:
+```shell
+$ npm install --global node-gyp
+```
+2.If compilation fails, please clean up and re-execute as follows:
+```shell
+#Delete node_modules
+$ rm -rf node_modules
+#Delete package-lock.json
+$ rm -rf package-lock.json
+#Clean npm cache
+$ npm cache clear --force
+#Download packages again
+$ npm install
+
+```
+:::
+#### 2.4.4 Check related compliance items
 
 and check as follows:
 
@@ -211,7 +257,7 @@ When IPMC votes in the general@incubator.apache.org incubator community. Please 
 If you have already voted on dev@linkis.apache.org, you can take it directly to the incubator community when you reply to the vote, such as:
 
 ```html
-//Incubator community voting, only IPMC members have binding binding
+//Incubator community voting, only IPMC members have binding binding，PPMC needs to be aware of binding changes
 Forward my +1 from dev@linkis (non-binding)
 Copy my +1 from linkis DEV ML (non-binding)
 ````

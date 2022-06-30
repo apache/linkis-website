@@ -60,6 +60,7 @@ $ npm cache clear --force
 $ npm install
 
 ```
+
 ### 3.2  如果出现兼容问题,建议重新安装node
 [node下载地址](https://nodejs.org/zh-cn/download/)
 ```shell
@@ -77,5 +78,4 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 cnpm install
 ```
-
 

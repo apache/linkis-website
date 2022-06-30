@@ -1,0 +1,107 @@
+.dialog{
+    width: 700px;
+    border: solid #D8D9DB 1px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 70px;
+    display: inline-block;
+    
+}
+
+.dialogBar{
+    width: 100%;
+    height: 30px;
+    background-color: #F7F8FA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+.tri{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #D8D9DB;
+    border-bottom: 10px solid transparent;
+
+    border-top: 10px solid transparent;
+    position: absolute;
+    left: -20px;
+    top: 7px;
+}
+
+.tri_small{
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid #F7F8FA;
+    border-bottom: 9px solid transparent;
+    border-top: 9px solid transparent;
+    position: absolute;
+    left: -18px;
+    top: 8px; 
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 5px;
+    background-size: 50px 50px;
+    position: absolute;
+    top: 20px;
+}
+
+.person_dialog{
+    margin-left: 50px;
+    position: relative;
+}
+
+.user_info{
+    height: 30px;
+    width: 600px;
+    margin: auto 0;
+    margin-left: 20px;
+    line-height: 30px;
+
+}
+
+.user_blessing{
+    margin-left: 20px;
+    color: #5B5A60;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.big_page_box{
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+.page{
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-color: #D8D9DB;
+    margin-left: 10px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+    margin-top: 0;
+}
+
+.title{
+    height: 50px;
+    background-color: #F7F8FA;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color: #5B5A60;
+}
+
+
