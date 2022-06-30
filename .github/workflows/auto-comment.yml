@@ -15,16 +15,22 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Welcome to the Apache Linkis (incubating) community!!
-            We are glad that you are contributing by opening this issue. :D
+            :blush:  Welcome to the Apache Linkis (incubating) community!!
+            We are glad that you are contributing by opening this issue.
+
             Please make sure to include all the relevant context.
             We will be here shortly.
+
             If you are interested in contributing to our website project, please let us know!
-            You can check out our contributing guide on [How to Participate in the Official Website Contribution](https://linkis.apache.org/community/how-to-contribute-to-website).
-            Want to get closer to the community?
+            You can check out our contributing guide on 
+             :point_right:  [How to Participate in the Official Website Contribution](https://linkis.apache.org/community/how-to-contribute-to-website).
+
+            WeChat  Group:
+
+            ![image](https://user-images.githubusercontent.com/7869972/176336986-d6b9be8f-d1d3-45f1-aa45-8e6adf5dd244.png)
+
             Mailing Lists:
             |name|description|Subscribe|Unsubscribe|archive|
             |:-----|:--------|:------|:-------|:-----|
             | [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | community activity information | [subscribe](mailto:dev-subscribe@linkis.apache.org) | [unsubscribe](mailto:dev-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-dev) |
-            | [commits@linkis.apache.org](mailto:commits@linkis.apache.org) | Code repo update information | [subscribe](mailto:commits-subscribe@linkis.apache.org) | [unsubscribe](mailto:commits-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-commits) |
           
