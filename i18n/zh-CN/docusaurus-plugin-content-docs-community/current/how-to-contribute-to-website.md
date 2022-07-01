@@ -151,6 +151,10 @@ css等样式文件放在`src/css`目录下
         index.jsorchestrator/overview.md
         index.less
 ```
+
+### 3.9  Markdown中链接规范
+为了能够让[untitaker/hyperlink@0.1.21](https://github.com/marketplace/actions/hyperlink-link-checker)更好地检查markdown中的无效链接，在markdown文档中若要跳转到另一个文档如`/community/how-to-email.md`，则该路径需要删除`.md`后缀（写成`/community/how-to-email`）。
+
 ## 4 新增文档
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) md文档建议通过访问官网查看,通过github查看md文档存在图片等静态资源无法正确显示问题

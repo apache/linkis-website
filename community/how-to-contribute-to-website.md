@@ -142,7 +142,7 @@ Located in `src/pages/user`
         index.less
 ```
 
-### 3.8 version List page modification
+### 3.8 Version list page modification
 Visit the page https://linkis.apache.org/versions
 ```
 Located in `src/pages/versions`
@@ -151,6 +151,10 @@ Located in `src/pages/versions`
         index.jsorchestrator/overview.md
         index.less
 ```
+
+### 3.9 Link specification in markdown
+In order to be properly detected by [untitaker/hyperlink@0.1.21](https://github.com/marketplace/actions/hyperlink-link-checker), if you want to jump to another document such as `/community/how-to-email.md` from a markdown document, you need to remove the suffix `.md`(written as `/community/how-to-email`) from the path.
+
 ## 4 New documents
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The md document is recommended to be viewed by visiting the official website and viewing the md document through github. There is a problem that static resources such as pictures cannot be displayed correctly
