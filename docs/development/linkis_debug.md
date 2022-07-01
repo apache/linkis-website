@@ -91,7 +91,7 @@ Modify the port:
 server:
   port: 8080 ##Started port
 ```
-#####The specific configuration is as follows
+##### The specific configuration is as follows
 
 Old version idea configuration
 ![](/Images/development/old_debug_application.png)
