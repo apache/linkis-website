@@ -55,14 +55,14 @@ log4j2.xml 路径 incubator-linkis/assembly-combined-package/assembly-combined/c
 </configuration>
 ```
 
-## step 4 整体调试方案
+## step 4 方案
 Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eureka服务也可以用您已经启动的Eureka。Eureka启动后就可以启动其他服务了。
 
 因为linkis内部通过-DserviceName参数设置应用名以及使用的配置文件，所以-DserviceName是必须的启动VM参数 
 
 可以通过 “-Xbootclasspath/a:配置文件路径“命令。将配置文件，追加到引导程序类的搜索路劲末尾，即将依赖的配置文件加到classpath中
 
-通过勾选Include dependencies with “Provided” scope ，这样可以在调试时，引入provided级别的依赖包。
+<font color="red"> 通过勾选Include dependencies with “Provided” scope ，这样可以在调试时，引入provided级别的依赖包。</font>
 
 **Microservice Governance Services组件**
 
@@ -88,7 +88,10 @@ linkis-eureka
 server:
   port: 8080 ##启动的端口
 ```
-具体配置如下
+##### 具体配置如下：
+老版idea配置
+![](/Images/development/old_debug_application.png)
+ 新版idea配置
 ![](/Images/development/debug_application.png)
 
 启动后可以通过[http://localhost:20303/](http://localhost:20303/) 查看eureka服务列表
@@ -112,16 +115,17 @@ linkis-gateway-server-support
 
 **Public Enhancement Services组件**
 ### linkis-ps-publicservice的启动配置
+<font color="red">1.1.0版本之前为 linkis-jobhistory 1.1.0 版本包括1.1.0版本 为linkis-filesystem</font>
 
 ```plain
 [main Class]
-org.apache.linkis.jobhistory.LinkisPublicServiceApp
+org.apache.linkis.filesystem.LinkisPublicServiceApp
 
 [VM Opitons]
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
-linkis-jobhistory
+linkis-filesystem
 ```
 
 ### linkis-ps-cs的启动配置

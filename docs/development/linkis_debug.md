@@ -65,7 +65,7 @@ Because linkis internally uses the -DserviceName parameter to set the applicatio
 
 You can use the "-Xbootclasspath/a: configuration file path" command. Append the configuration file to the end of the search path of the bootloader class, and add the dependent configuration file to the classpath
 
-By checking Include dependencies with "Provided" scope, you can introduce provided-level dependency packages during debugging.
+<font color="red"> By checking Include dependencies with "Provided" scope, you can introduce provided-level dependency packages during debugging. </font>
 
 **Microservice Governance Services component**
 
@@ -91,7 +91,11 @@ Modify the port:
 server:
   port: 8080 ##Started port
 ```
-The specific configuration is as follows
+##### The specific configuration is as follows
+
+Old version idea configuration
+![](/Images/development/old_debug_application.png)
+New version of idea configuration
 ![](/Images/development/debug_application.png)
 
 After startup, you can view the list of eureka services through [http://localhost:20303/](http://localhost:20303/)
@@ -115,16 +119,17 @@ Please exclude, the dependency on spring-boot-starter-logging
 
 **Public Enhancement Services component**
 ### Linkis-ps-publicservice startup configuration
+<font color="red">version 1.1.0 is linkis-jobhistory version 1.1.0 including version 1.1.0 is linkis-filesystem</font>
 
 ```plain
 [main Class]
-org.apache.linkis.jobhistory.LinkisPublicServiceApp
+org.apache.linkis.filesystem.LinkisPublicServiceApp
 
 [VM Opitons]
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
-linkis-jobhistory
+linkis-filesystem
 ```
 
 ### Linkis-ps-cs startup configuration
