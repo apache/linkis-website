@@ -78,7 +78,7 @@ org.apache.linkis.eureka.SpringCloudEurekaApplication
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
 
-[User classpath of module]
+[Use classpath of module]
 linkis-eureka
 ```
 如果不想默认的20303端口可以修改端口配置：
@@ -88,7 +88,7 @@ linkis-eureka
 server:
   port: 8080 ##启动的端口
 ```
-#####具体配置如下：
+##### 具体配置如下：
 老版idea配置
 ![](/Images/development/old_debug_application.png)
 新版idea配置
@@ -106,7 +106,7 @@ org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 [VM Opitons]
 -DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-gateway-server-support
 
 ```
@@ -115,16 +115,17 @@ linkis-gateway-server-support
 
 **Public Enhancement Services组件**
 ### linkis-ps-publicservice的启动配置
+<font color="red">1.1.0版本之前为 linkis-jobhistory 1.1.0 版本包括1.1.0版本 为linkis-filesystem</font>
 
 ```plain
 [main Class]
-org.apache.linkis.jobhistory.LinkisPublicServiceApp
+org.apache.linkis.filesystem.LinkisPublicServiceApp
 
 [VM Opitons]
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
-linkis-jobhistory
+[Use classpath of module]
+linkis-storage-script-dev-server
 ```
 
 ### linkis-ps-cs的启动配置
@@ -136,7 +137,7 @@ org.apache.linkis.cs.server.LinkisCSApplication
 [VM Opitons]
 -DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-cs-server
 
 ```
@@ -150,7 +151,7 @@ org.apache.linkis.manager.am.LinkisManagerApplication
 [VM Opitons]
 -DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-application-manager
 ```
 ### linkis-cg-entrance启动
@@ -161,7 +162,7 @@ org.apache.linkis.entrance.LinkisEntranceApplication
 [VM Opitons]
 -DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-entrance
 ```
 
