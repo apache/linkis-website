@@ -142,7 +142,7 @@ Located in `src/pages/user`
         index.less
 ```
 
-### 3.8 version List page modification
+### 3.8 Version list page modification
 Visit the page https://linkis.apache.org/versions
 ```
 Located in `src/pages/versions`
@@ -153,7 +153,7 @@ Located in `src/pages/versions`
 ```
 
 ### 3.9 Link specification in markdown
-In the markdown document, if you want to jump to another document such as `/community/how-to-email.md`, you need to remove the suffix `.md`(written as `/community/how-to-email`) from the path.
+According to the [Markdown Link](https://www.docusaurus.cn/docs/markdown-features/links) specification in the Docusaurus document, if you want to jump to another document such as `/community/how-to-email.md` from a markdown document, you need to remove the suffix `.md`(written as `/community/how-to-email`) from the path.
 
 ## 4 New documents
 
