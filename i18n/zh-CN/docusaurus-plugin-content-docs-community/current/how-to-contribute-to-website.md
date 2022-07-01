@@ -153,7 +153,7 @@ css等样式文件放在`src/css`目录下
 ```
 
 ### 3.9  Markdown中链接规范
-根据Docusaurus文档中的[Markdown Link](https://www.docusaurus.cn/docs/markdown-features/links)要求，在markdown文档中若要跳转到另一个文档如`/community/how-to-email.md`，则该路径需要删除`.md`后缀（写成`/community/how-to-email`）。
+为了能够让[untitaker/hyperlink@0.1.21](https://github.com/marketplace/actions/hyperlink-link-checker)更好地检查markdown中的无效链接，在markdown文档中若要跳转到另一个文档如`/community/how-to-email.md`，则该路径需要删除`.md`后缀（写成`/community/how-to-email`）。
 
 ## 4 新增文档
 
