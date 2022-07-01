@@ -91,11 +91,11 @@ server:
 老版idea配置
 ![](/Images/development/old_debug_application.png)
 新版idea配置
-![](/Images/development/debug_application.png)
+![](/Images/development/debug_application![img.png](img.png).png)
 
 启动后可以通过[http://localhost:20303/](http://localhost:20303/) 查看eureka服务列表
 ![](/Images/development/debug_eureka.png)
-
+ 
 ###  linkis-mg-gateway的启动配置 
 
 ```plain

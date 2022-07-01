@@ -55,7 +55,7 @@ log4j2.xml 路径 incubator-linkis/assembly-combined-package/assembly-combined/c
 </configuration>
 ```
 
-## step 4 整体调试方案
+## step 4 方案
 Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eureka服务也可以用您已经启动的Eureka。Eureka启动后就可以启动其他服务了。
 
 因为linkis内部通过-DserviceName参数设置应用名以及使用的配置文件，所以-DserviceName是必须的启动VM参数 

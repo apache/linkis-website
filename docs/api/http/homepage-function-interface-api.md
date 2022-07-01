@@ -1,9 +1,9 @@
-
 ---
-title:Admin console home page interface
+title: Admin console home page interface
 sidebar_position: 28
 ---
 ** QueryRestfulApi class **
+
 
 ## admin authentication
 

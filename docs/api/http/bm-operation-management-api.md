@@ -1,11 +1,9 @@
-
 ---
 title: BM project operation management
-sidebar_position: 19
+sidebar_position: 29
 ---
+
 ** BmlProjectRestful class **
-
-
 
 
 ## Attachment resource item

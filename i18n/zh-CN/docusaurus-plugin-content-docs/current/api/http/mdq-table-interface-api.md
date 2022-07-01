@@ -6,8 +6,6 @@ sidebar_position: 21
 ** MdqTableRestfulApi 类 **
 
 
-# Mdq表接口
-
 
 ## 激活表操作
 

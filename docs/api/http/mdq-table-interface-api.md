@@ -2,10 +2,10 @@
 title: Mdq table interface
 sidebar_position: 21
 ---
+
 ** MdqTableRestfulApi class **
 
 
-# Mdq table interface
 
 
 ## Activate table operations

@@ -1,7 +1,6 @@
-
 ---
-title:BML resource management
-sidebar_position: 22
+title: BML resource management
+sidebar_position: 30
 ---
 ** BmlRestfulApi class **
 
