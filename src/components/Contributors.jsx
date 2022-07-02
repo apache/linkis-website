@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 
 export default (props) => {
     const [contributers, setContributers] = useState([]);
@@ -36,7 +37,7 @@ export default (props) => {
     html += '</table>';*/
     let element_arr = [];
     let new_contributers = [];
-    let row = Math.floor(window.innerWidth / 200);
+    let row = useIsBrowser() && Math.floor(window.innerWidth / 200);
     contributers.forEach((item, index) => {
         if((index + 1) % row === 0){
             element_arr.push(item);
