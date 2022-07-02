@@ -47,6 +47,7 @@ export default (props) => {
             element_arr.push(item);
         }
     })
+    new_contributers.push([...element_arr]);
     return (
         <table>
             {new_contributers.map((item, index) => {
