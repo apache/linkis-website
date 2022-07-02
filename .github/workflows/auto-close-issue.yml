@@ -1,0 +1,28 @@
+name: Auto close issue when PR is merged
+
+on:
+  pull_request_target:
+    types: [ closed ]
+
+jobs:
+  close-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Issue number validator"
+        uses: ./.github/actions/PR_has_a_valid_issue/
+        id: validator
+        with:
+          prbody: ${{ github.event.pull_request.body }}
+          prurl: ${{ github.event.pull_request.url }}
+
+      - name: Close Issue
+        uses: peter-evans/close-issue@v2
+        if: ${{ github.event.pull_request.merged }}
+        with:
+          issue-number: ${{ steps.validator.outputs.issueNumber }}
+          comment: Auto-closing issue
+        env:
+          Github_Token: ${{ secrets.GITHUB_TOKEN }}
+          PRNUM: ${{ github.event.pull_request.number }}
