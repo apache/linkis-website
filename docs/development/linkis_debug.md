@@ -119,7 +119,6 @@ Please exclude, the dependency on spring-boot-starter-logging
 
 **Public Enhancement Services component**
 ### Linkis-ps-publicservice startup configuration
-<font color="red">version 1.1.0 is linkis-jobhistory version 1.1.0 including version 1.1.0 is linkis-filesystem</font>
 
 ```plain
 [main Class]
@@ -129,6 +128,8 @@ org.apache.linkis.filesystem.LinkisPublicServiceApp
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
 [Use classpath of module]
+#linkis < 1.1.0  为linkis-jobhistory  
+#linkis >= 1.1.0 为linkis-storage-script-dev-server
 linkis-storage-script-dev-server
 ```
 

@@ -70,7 +70,7 @@ sidebar_position: 18
 ```
 
 
-## -product-openScriptFromBML
+## 打开来自BML的script
 
 
 **接口地址**:`/api/rest_j/v1/filesystem/product/openScriptFromBML`

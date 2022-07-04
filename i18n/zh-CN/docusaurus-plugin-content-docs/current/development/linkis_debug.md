@@ -115,9 +115,9 @@ linkis-gateway-server-support
 
 **Public Enhancement Services组件**
 ### linkis-ps-publicservice的启动配置
-<font color="red">1.1.0版本之前为 linkis-jobhistory 1.1.0 版本包括1.1.0版本 为linkis-filesystem</font>
 
 ```plain
+
 [main Class]
 org.apache.linkis.filesystem.LinkisPublicServiceApp
 
@@ -125,6 +125,8 @@ org.apache.linkis.filesystem.LinkisPublicServiceApp
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
 [Use classpath of module]
+#linkis < 1.1.0  为linkis-jobhistory  
+#linkis >= 1.1.0 为linkis-storage-script-dev-server
 linkis-storage-script-dev-server
 ```
 

@@ -167,7 +167,7 @@ sidebar_position: 28
 ```
 
 
-## 列表撤消
+## 获取未完成任务列表
 
 
 **接口地址**:`/api/rest_j/v1/jobhistory/listundone`
@@ -182,7 +182,7 @@ sidebar_position: 28
 **响应数据类型**:`*/*`
 
 
-**接口描述**:<p>列表撤消</p>
+**接口描述**:<p>获取未完成任务列表</p>
 
 
 
@@ -234,7 +234,7 @@ sidebar_position: 28
 ```
 
 
-## 历史详细记录
+## job任务详细记录
 
 
 **接口地址**:`/api/rest_j/v1/jobhistory/{id}/get`
@@ -249,7 +249,7 @@ sidebar_position: 28
 **响应数据类型**:`*/*`
 
 
-**接口描述**:<p>通过历史记录ID获取某条历史的详细信息</p>
+**接口描述**:<p>job任务详细记录</p>
 
 
 
