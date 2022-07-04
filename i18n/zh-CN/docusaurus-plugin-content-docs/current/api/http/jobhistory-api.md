@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ** QueryRestfulApi 类 **
 
-## governanceStationAdmin
+## 判断用户是否是管理员
 **接口地址**:`/api/rest_j/v1/jobhistory/governanceStationAdmin`
 
 **请求方式**:`GET`
@@ -33,7 +33,7 @@ sidebar_position: 3
 ```
 
 
-## getHistoryTask
+## 获取数据源的数据库名称列表
 **接口地址**:`/api/rest_j/v1/jobhistory/{id}/get`
 
 **请求方式**:`GET`
@@ -84,7 +84,7 @@ sidebar_position: 3
 }
 ```
 
-## listHistoryTask
+## 历史任务列表
 **接口地址**:`/api/rest_j/v1/jobhistory/list`
 
 **请求方式**:`GET`
@@ -93,7 +93,7 @@ sidebar_position: 3
 
 **响应数据类型**:`application/json`
 
-**接口描述**:
+**接口描述**:历史任务列表
 
 **请求参数**:
 
@@ -168,7 +168,7 @@ sidebar_position: 3
 }
 ```
 
-## listUndoneHistoryTask
+## 未完成的历史任务列表
 **接口地址**:`/api/rest_j/v1/jobhistory/listundone`
 
 **请求方式**:`GET`
@@ -177,7 +177,7 @@ sidebar_position: 3
 
 **响应数据类型**:`application/json`
 
-**接口描述**:
+**接口描述**:未完成的历史任务列表
 
 **请求参数**:
 

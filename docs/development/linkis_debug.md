@@ -91,7 +91,7 @@ Modify the port:
 server:
   port: 8080 ##Started port
 ```
-#####The specific configuration is as follows
+##### The specific configuration is as follows
 
 Old version idea configuration
 ![](/Images/development/old_debug_application.png)
@@ -110,7 +110,7 @@ org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 [VM Opitons]
 -DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-gateway-server-support
 
 ```
@@ -127,8 +127,10 @@ org.apache.linkis.filesystem.LinkisPublicServiceApp
 [VM Opitons]
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
-linkis-filesystem
+[Use classpath of module]
+#linkis < 1.1.0  by linkis-jobhistory  
+#linkis >= 1.1.0 by linkis-storage-script-dev-server
+linkis-storage-script-dev-server
 ```
 
 ### Linkis-ps-cs startup configuration
@@ -140,7 +142,7 @@ org.apache.linkis.cs.server.LinkisCSApplication
 [VM Opitons]
 -DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-cs-server
 
 ```
@@ -155,7 +157,7 @@ org.apache.linkis.manager.am.LinkisManagerApplication
 [VM Opitons]
 -DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-application-manager
 ```
 ### linkis-cg-entrance start
@@ -166,7 +168,7 @@ org.apache.linkis.entrance.LinkisEntranceApplication
 [VM Opitons]
 -DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-entrance
 ```
 
@@ -226,3 +228,4 @@ As shown in the figure below, open the window and configure the port, service an
 ### 4. Start debugging
 click the debugging button, and the following information appears, which means you can start debugging  
 ![screenshot of enterprise wechat _16500167527083](https://user-images.githubusercontent.com/29391030/163559920-05aba3c3-b146-4f62-8e20-93f94a65158d.png)
+y
