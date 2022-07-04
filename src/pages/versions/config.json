@@ -13,19 +13,25 @@
       "release": "Release Note",
       "latestData": [
         {
-          "versionLabel": "1.1.1",
-          "downloadUrl": "/zh-CN/download/release-notes-1.1.1",
+          "versionLabel": "1.1.2",
+          "downloadUrl": "/zh-CN/download/release-notes-1.1.2",
           "docUrl": "/zh-CN/docs/latest/introduction",
-          "sourceTag":"release-1.1.1"
+          "sourceTag":"release-1.1.2"
         }
       ],
       "nextData": [
         {
-          "versionLabel": "Next-1.1.2(WIP)",
-          "docUrl": "/zh-CN/docs/1.1.2/introduction"
+          "versionLabel": "Next-1.1.3(WIP)",
+          "docUrl": "/zh-CN/docs/1.1.3/introduction"
         }
       ],
       "historyData": [
+        {
+          "versionLabel": "1.1.1",
+          "downloadUrl": "/zh-CN/download/release-notes-1.1.1",
+          "docUrl": "/zh-CN/docs/1.1.1/introduction",
+          "sourceTag":"release-1.1.1"
+        },
         {
           "versionLabel": "1.1.0",
           "downloadUrl": "/zh-CN/download/release-notes-1.1.0",
@@ -67,19 +73,25 @@
       "release": "Release Note",
       "latestData": [
         {
-          "versionLabel": "1.1.1",
+          "versionLabel": "1.1.2",
           "docUrl": "/docs/latest/introduction",
-          "releaseNotes": "/download/release-notes-1.1.1",
-          "sourceTag":"release-1.1.1"
+          "releaseNotes": "/download/release-notes-1.1.2",
+          "sourceTag":"release-1.1.2"
         }
       ],
       "nextData": [
         {
-          "versionLabel": "Next-1.1.2(WIP)",
-          "docUrl": "/docs/1.1.2/introduction"
+          "versionLabel": "Next-1.1.3(WIP)",
+          "docUrl": "/docs/1.1.3/introduction"
         }
       ],
       "historyData": [
+        {
+          "versionLabel": "1.1.1",
+          "docUrl": "/docs/1.1.1/introduction",
+          "releaseNotes": "/download/release-notes-1.1.1",
+          "sourceTag":"release-1.1.1"
+        },
         {
           "versionLabel": "1.1.0",
           "docUrl": "/docs/1.1.0/introduction",

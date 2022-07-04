@@ -1,12 +1,7 @@
 ---
-title: Release Notes 1.1.2-RC2
-sidebar_position: 0.4
+title: Release Notes 1.1.2
+sidebar_position: 6
 --- 
-
-在1.1.2-RC1基础上，1.1.2-RC2修复如下问题:
-- 移除了源码中的web/src/common/util/ras.js,web/src/common/util/ras.js文件，调整登陆页面用户密码加密使用的函数
-
--------
 
 Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20)。
 

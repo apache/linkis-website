@@ -41,10 +41,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.1.2',
-              label: 'Next(1.1.2)'
+              path: '1.1.3',
+              label: 'Next(1.1.3)'
             },
-            '1.1.1': {
+            '1.1.2': {
               path: 'latest',
             },
           }
@@ -195,41 +195,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
           ],
         },
-        /*{
-          position: 'right',
-          label: 'Doc',
-          //            to: "/docs/user_guide/overview",
-          items: [
-            {
-                label: "Next-1.1.2 (WIP)",
-                to: "/docs/1.1.2/introduction",
-            },
-            {
-              label: "1.1.1",
-              to: "/docs/latest/introduction",
-            },
-            {
-              label: "1.1.0",
-              to: "/docs/1.1.0/introduction",
-            },
-            {
-              label: "1.0.3",
-              to: "/docs/1.0.3/introduction",
-            },
-            {
-              label: "1.0.2",
-              to: "/docs/1.0.2/introduction",
-            },
-            {
-              label: "0.11.0",
-              to: "/docs/0.11.0/introduction",
-            },
-            {
-              label: "All Versions",
-              to: "/versions/",
-            },
-          ],
-        },*/
         {
           href: 'https://github.com/apache/incubator-linkis',
           'aria-label': 'GitHub',

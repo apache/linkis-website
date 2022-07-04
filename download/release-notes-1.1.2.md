@@ -1,11 +1,7 @@
 ---
-title: Release Notes 1.1.2-RC2
-sidebar_position: 0.4
+title: Release Notes 1.1.2
+sidebar_position: 6
 ---
-Based on 1.1.2-RC1, 1.1.2-RC2 fixes the following problems:
-- Removed the web/src/common/util/ras.js, web/src/common/util/ras.js files in the source code, and adjusted the function used for user password encryption on the login page
-
--------
 
 Apache Linkis(incubating) 1.1.2 includes all of [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20).
 
