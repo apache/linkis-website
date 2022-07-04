@@ -128,8 +128,8 @@ org.apache.linkis.filesystem.LinkisPublicServiceApp
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
 [Use classpath of module]
-#linkis < 1.1.0  为linkis-jobhistory  
-#linkis >= 1.1.0 为linkis-storage-script-dev-server
+#linkis < 1.1.0  by linkis-jobhistory  
+#linkis >= 1.1.0 by linkis-storage-script-dev-server
 linkis-storage-script-dev-server
 ```
 
