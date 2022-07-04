@@ -4,7 +4,7 @@ sidebar_position: 6
 ---
 ** CommonRestfulApi 类 **
 
-## 离线
+## 下线某个服务
 
 
 **接口地址**:`/api/rest_j/v1/offline`
@@ -19,7 +19,7 @@ sidebar_position: 6
 **响应数据类型**:`*/*`
 
 
-**接口描述**:<p>离线</p>
+**接口描述**:<p>下线某个服务</p>
 
 
 
