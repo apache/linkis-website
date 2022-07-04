@@ -127,7 +127,7 @@
     "description": "The title of the page for a docs tag"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
-    "message": "此版本是还未发布的文档版本{siteTitle} {versionLabel}(1.1.2)",
+    "message": "此版本是还未发布的文档版本{siteTitle} {versionLabel}(1.1.3)",
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
