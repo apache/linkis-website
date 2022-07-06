@@ -22,43 +22,44 @@
 
 ### 1. 提交执行
 
-- 接口 `/api/rest_j/v1/entrance/execute`
-
-- 提交方式 `POST`
-
-```json
-{
-    "executeApplicationName": "hive", //引擎类型
-    "requestApplicationName": "dss", //客户端服务类型
-    "executionCode": "show tables",
-    "params": {"variable": {}, "configuration": {}},
-    "runType": "hql", //运行的脚本类型
-   "source": {"scriptPath":"file:///tmp/hadoop/1.hql"}
-}
-```
-
 - 接口 `/api/rest_j/v1/entrance/submit`
 
 - 提交方式 `POST`
 
 ```json
 {
-    "executionContent": {"code": "show tables", "runType":  "sql"},
-    "params": {"variable": {}, "configuration": {}},
-    "source":  {"scriptPath": "file:///mnt/bdp/hadoop/1.hql"},
-    "labels": {
-        "engineType": "spark-2.4.3",
-        "userCreator": "hadoop-IDE"
+  "executionContent": {
+    "code": "show tables",
+    "runType": "sql"
+  },
+  "params": {
+    "variable": {// task variable 
+      "testvar": "hello"
+    },
+    "configuration": {
+      "runtime": {// task runtime params 
+        "jdbc.url": "XX"
+      },
+      "startup": { // ec start up params 
+        "spark.executor.cores": "4"
+      }
     }
+  },
+  "source": { //task source information
+    "scriptPath": "file:///tmp/hadoop/test.sql"
+  },
+  "labels": {
+    "engineType": "spark-2.4.3",
+    "userCreator": "hadoop-IDE"
+  }
 }
 ```
-
 
 - 返回示例
 
 ```json
 {
- "method": "/api/rest_j/v1/entrance/execute",
+ "method": "/api/rest_j/v1/entrance/submit",
  "status": 0,
  "message": "请求执行成功",
  "data": {
@@ -158,6 +159,8 @@
 
 - 提交方式 `GET`
 
+- 返回示例
+
 ```json
 {
  "method": "/api/rest_j/v1/entrance/{execID}/kill",
@@ -169,3 +172,229 @@
 }
 ```
 
+### 6. 获取任务信息
+
+- 接口 `/api/rest_j/v1/jobhistory/{id}/get`
+
+- 提交方式 `GET`
+
+- 请求参数
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|id|id|path|true|string||
+
+
+- 返回示例
+
+```json
+{
+  "method": null,
+  "status": 0,
+  "message": "OK",
+  "data": {
+    "task": {
+      "taskID": 1,
+      "instance": "xxx",
+      "execId": "exec-id-xxx",
+      "umUser": "test",
+      "engineInstance": "xxx",
+      "progress": "10%",
+      "logPath": "hdfs://xxx/xxx/xxx",
+      "resultLocation": "hdfs://xxx/xxx/xxx",
+      "status": "FAILED",
+      "createdTime": "2019-01-01 00:00:00",
+      "updatedTime": "2019-01-01 01:00:00",
+      "engineType": "spark",
+      "errorCode": 100,
+      "errDesc": "Task Failed with error code 100",
+      "executeApplicationName": "hello world",
+      "requestApplicationName": "hello world",
+      "runType": "xxx",
+      "paramJson": "{\"xxx\":\"xxx\"}",
+      "costTime": 10000,
+      "strongerExecId": "execId-xxx",
+      "sourceJson": "{\"xxx\":\"xxx\"}"
+    }
+  }
+}
+```
+
+### 7. 获取结果集信息
+
+支持多结果集信息
+
+- 接口 `/api/rest_j/v1/filesystem/getDirFileTrees`
+
+- 提交方式 `GET`
+
+- 请求参数
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|path|结果集目录路径|query|true|string||
+
+
+- 返回示例
+
+```json
+{
+  "method": "/api/filesystem/getDirFileTrees",
+  "status": 0,
+  "message": "OK",
+  "data": {
+    "dirFileTrees": {
+      "name": "1946923",
+      "path": "hdfs:///tmp/hadoop/linkis/2022-07-06/211446/IDE/1946923",
+      "properties": null,
+      "children": [
+        {
+          "name": "_0.dolphin",
+          "path": "hdfs:///tmp/hadoop/linkis/2022-07-06/211446/IDE/1946923/_0.dolphin",//result set 1
+          "properties": {
+            "size": "7900",
+            "modifytime": "1657113288360"
+          },
+          "children": null,
+          "isLeaf": true,
+          "parentPath": "hdfs:///tmp/hadoop/linkis/2022-07-06/211446/IDE/1946923"
+        },
+        {
+          "name": "_1.dolphin",
+          "path": "hdfs:///tmp/hadoop/linkis/2022-07-06/211446/IDE/1946923/_1.dolphin",//result set 2
+          "properties": {
+            "size": "7900",
+            "modifytime": "1657113288614"
+          },
+          "children": null,
+          "isLeaf": true,
+          "parentPath": "hdfs:///tmp/hadoop/linkis/2022-07-06/211446/IDE/1946923"
+        }
+      ],
+      "isLeaf": false,
+      "parentPath": null
+    }
+  }
+}
+```
+
+### 8. 获取结果集内容
+
+- 接口 `/api/rest_j/v1/filesystem/openFile`
+
+- 提交方式 `GET`
+
+- 请求参数
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|path|结果集文件|query|true|string||
+|charset|字符集|query|false|string||
+|page|页码|query|false|ref||
+|pageSize|页面大小|query|false|ref||
+
+
+- 返回示例
+
+```json
+{
+  "method": "/api/filesystem/openFile",
+  "status": 0,
+  "message": "OK",
+  "data": {
+    "metadata": [
+      {
+        "columnName": "count(1)",
+        "comment": "NULL",
+        "dataType": "long"
+      }
+    ],
+    "totalPage": 0,
+    "totalLine": 1,
+    "page": 1,
+    "type": "2",
+    "fileContent": [
+      [
+        "28"
+      ]
+    ]
+  }
+}
+```
+
+### 9. 获取结果集按照文件流的方式
+
+获取结果集为CSV和Excel按照流的方式
+
+- 接口 `/api/rest_j/v1/filesystem/resultsetToExcel`
+
+- 提交方式 `GET`
+
+- 请求参数
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|autoFormat|是否自动转换格式|query|false|boolean||
+|charset|字符集|query|false|string||
+|csvSeperator|csv分隔栏|query|false|string||
+|limit|获取行数|query|false|ref||
+|nullValue|空值转换|query|false|string||
+|outputFileName|输出文件名称|query|false|string||
+|outputFileType|输出文件类型 csv 或者Excel|query|false|string||
+|path|结果集路径|query|false|string||
+
+- 返回示例
+
+```json
+文件流
+```
+
+### 10. 兼容0.X的任务执行接口
+
+- 接口 `/api/rest_j/v1/entrance/execute`
+
+- 提交方式 `POST`
+
+```json
+{
+    "executeApplicationName": "hive", //Engine type
+    "requestApplicationName": "dss", //Client service type
+    "executionCode": "show tables",
+    "params": {
+      "variable": {// task variable 
+        "testvar": "hello"
+      },
+      "configuration": {
+        "runtime": {// task runtime params 
+          "jdbc.url": "XX"
+        },
+        "startup": { // ec start up params 
+          "spark.executor.cores": "4"
+        }
+      }
+    },
+    "source": { //task source information
+      "scriptPath": "file:///tmp/hadoop/test.sql"
+    },
+    "labels": {
+      "engineType": "spark-2.4.3",
+      "userCreator": "hadoop-IDE"
+    },
+    "runType": "hql", //The type of script to run
+    "source": {"scriptPath":"file:///tmp/hadoop/1.hql"}
+}
+```
+
+- Sample Response
+
+```json
+{
+ "method": "/api/rest_j/v1/entrance/execute",
+ "status": 0,
+ "message": "Request executed successfully",
+ "data": {
+   "execID": "030418IDEhivebdpdwc010004:10087IDE_hadoop_21",
+   "taskID": "123"
+ }
+}
+```
