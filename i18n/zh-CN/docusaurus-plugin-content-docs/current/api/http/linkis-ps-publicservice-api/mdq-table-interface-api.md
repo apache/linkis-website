@@ -1,5 +1,5 @@
 ---
-title: Mdq表接口
+title: Mdq表API
 sidebar_position: 4
 ---
 ** MdqTableRestfulApi 类 **

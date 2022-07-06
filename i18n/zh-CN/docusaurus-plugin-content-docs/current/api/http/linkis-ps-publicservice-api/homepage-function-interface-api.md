@@ -1,5 +1,5 @@
 ---
-title: 管理台首页接口
+title: 管理台首页API
 sidebar_position: 7
 ---
 ** QueryRestfulApi 类 **

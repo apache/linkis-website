@@ -1,5 +1,5 @@
 ---
-title: 引擎物料刷新接口
+title: 引擎物料刷新API
 sidebar_position: 2
 --- 
 >主要用于引擎的物料资源({LINKIS_INSTALL_HOME}/lib/linkis-engineconn-plugin 下，引擎的jar包/配置文件 )更新至BML中。

@@ -1,5 +1,5 @@
 ---
-title: 引擎插件api
+title: 引擎插件API
 sidebar_position: 3
 ---
 

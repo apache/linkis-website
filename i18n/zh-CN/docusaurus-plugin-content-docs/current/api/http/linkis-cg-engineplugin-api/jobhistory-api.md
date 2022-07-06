@@ -1,5 +1,5 @@
 ---
-title: 历史作业接口
+title: 历史作业API
 sidebar_position: 1
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: BMLFs管理
+title: BMLFS管理
 sidebar_position: 13
 ---
 ** BMLFsRestfulApi 类 **

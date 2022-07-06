@@ -1,5 +1,5 @@
 ---
-title: Context Service
+title: Context API
 sidebar_position: 15
 ---
 ** ContextRestfulApi class **

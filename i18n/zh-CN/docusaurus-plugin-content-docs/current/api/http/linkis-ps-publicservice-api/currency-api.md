@@ -1,5 +1,5 @@
 ---
-title: 通用api
+title: 通用API
 sidebar_position: 12
 ---
 ** CommonRestfulApi 类 **

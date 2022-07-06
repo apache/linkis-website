@@ -1,5 +1,5 @@
 ---
-title: bml资源管理
+title: BML资源管理
 sidebar_position: 14
 ---
 ** BmlRestfulApi 类 **

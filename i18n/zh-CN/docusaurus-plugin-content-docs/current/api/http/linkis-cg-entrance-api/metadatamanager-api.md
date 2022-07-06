@@ -1,5 +1,5 @@
 ---
-title: 元数据查询接口
+title: 元数据查询API
 sidebar_position: 3
 ---
 
