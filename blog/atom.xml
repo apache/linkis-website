@@ -2,11 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://linkis.incubator.apache.org/blog</id>
     <title>Apache Linkis Blog</title>
-    <updated>2022-06-09T00:00:00.000Z</updated>
+    <updated>2022-07-04T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://linkis.incubator.apache.org/blog"/>
     <subtitle>Apache Linkis Blog</subtitle>
     <icon>https://linkis.incubator.apache.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[How to add a GitHub Action for the GitHub repository]]></title>
+        <id>How to add a GitHub Action for the GitHub repository</id>
+        <link href="https://linkis.incubator.apache.org/blog/2022/07/04/how-to-add-auto-bot"/>
+        <updated>2022-07-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[1 Summary]]></summary>
+        <author>
+            <name>BeaconTown</name>
+            <uri>https://github.com/Beacontownfc/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Apache Linkis(Incubating) Meep Up]]></title>
         <id>Apache Linkis(Incubating) Meep Up</id>

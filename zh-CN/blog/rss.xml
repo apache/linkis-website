@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.incubator.apache.org/zh-CN/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Thu, 09 Jun 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 04 Jul 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[如何为github仓库添加一个github action]]></title>
+            <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/07/04/how-to-add-auto-bot</link>
+            <guid>如何为github仓库添加一个github action</guid>
+            <pubDate>Mon, 04 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[1 概述]]></description>
+        </item>
         <item>
             <title><![CDATA[Apache Linkis(Incubating) Meep Up]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/06/09/meetup-content-review</link>

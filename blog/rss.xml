@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.incubator.apache.org/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Thu, 09 Jun 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 04 Jul 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[How to add a GitHub Action for the GitHub repository]]></title>
+            <link>https://linkis.incubator.apache.org/blog/2022/07/04/how-to-add-auto-bot</link>
+            <guid>How to add a GitHub Action for the GitHub repository</guid>
+            <pubDate>Mon, 04 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[1 Summary]]></description>
+        </item>
         <item>
             <title><![CDATA[Apache Linkis(Incubating) Meep Up]]></title>
             <link>https://linkis.incubator.apache.org/blog/2022/06/09/meetup-content-review</link>
