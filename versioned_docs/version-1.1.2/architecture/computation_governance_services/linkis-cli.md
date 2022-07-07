@@ -1,6 +1,6 @@
 ---
 title: Linkis-Client Architecture Design
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 Provide users with a lightweight client that submits tasks to Linkis for execution.

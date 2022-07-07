@@ -1,5 +1,5 @@
 ---
-title: Job 提交准备执行流程
+title: Linkis任务执行流程
 sidebar_position: 1
 ---
 
@@ -16,13 +16,13 @@ sidebar_position: 1
 - Orchestrator作为准备阶段的入口，主要提供了Job的解析、编排和执行能力。。
 
 - Linkis Manager：是计算治理能力的管理中枢，主要的职责为：
-  
+
   1. ResourceManager：不仅具备对Yarn和Linkis EngineConnManager的资源管理能力，还将提供基于标签的多级资源分配和回收能力，让ResourceManager具备跨集群、跨计算资源类型的全资源管理能力；
-  
+
   2. AppManager：统筹管理所有的EngineConnManager和EngineConn，包括EngineConn的申请、复用、创建、切换、销毁等生命周期全交予AppManager进行管理；
-  
+
   3. LabelManager：将基于多级组合标签，为跨IDC、跨集群的EngineConn和EngineConnManager路由和管控能力提供标签支持；
-  
+
   4. EngineConnPluginServer：对外提供启动一个EngineConn的所需资源生成能力和EngineConn的启动命令生成能力。
 
 - EngineConnManager：是EngineConn的管理器，提供引擎的生命周期管理，同时向RM汇报负载信息和自身的健康状况。
@@ -38,7 +38,7 @@ sidebar_position: 1
 ![提交阶段流程图](/Images-zh/Architecture/Job提交准备执行流程/提交阶段流程图.png)
 
 1. 首先，Client（如前端或客户端）发起Job请求，Job请求信息精简如下
-（关于Linkis的具体使用方式，请参考 [如何使用Linkis](user_guide/how_to_use.md)）：
+   （关于Linkis的具体使用方式，请参考 [如何使用Linkis](user_guide/how_to_use.md)）：
 
 ```
 POST /api/rest_j/v1/entrance/submit
@@ -74,7 +74,7 @@ POST /api/rest_j/v1/entrance/submit
 
 如何定义可复用EngineConn？指能匹配计算任务的所有标签要求的，且EngineConn本身健康状态为Healthy（负载低且实际EngineConn状态为Idle）的，然后再按规则对所有满足条件的EngineConn进行排序选择，最终锁定一个最佳的EngineConn。
 
-如果该用户不存在可复用的EngineConn，则此时会触发EngineConn新增流程，关于EngineConn新增流程，请参阅：[EngineConn新增流程](add_an_engine_conn.md) 。
+如果该用户不存在可复用的EngineConn，则此时会触发EngineConn新增流程，关于EngineConn新增流程，请参阅：[EngineConn新增流程](engine/add_an_engine_conn.md) 。
 
 #### 2.2 计算任务编排
 

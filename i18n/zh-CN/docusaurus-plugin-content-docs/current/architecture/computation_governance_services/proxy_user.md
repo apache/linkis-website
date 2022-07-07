@@ -1,5 +1,5 @@
 ---
-title: 代理用户模式
+title: Linkis支持代理用户提交架构涉及
 sidebar_position: 2
 ---
 
