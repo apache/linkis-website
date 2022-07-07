@@ -95,7 +95,7 @@ sidebar_position: 8
 **请求参数**:
 
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
+| 参数名称 | 参数说明 | 是否必须    | 请求类型 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |globalVariables|新增参数数据一对多key:globalVariables,value:List||Map|true|Map|
 |key|参数名称，属于globalVariables||String|true|String|

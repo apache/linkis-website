@@ -39,9 +39,9 @@ sidebar_position: 23
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|globalVariables|Added parameter data one-to-many key:globalVariables,value:List||Map|true|Map|
-|key|Parameter name, belonging to globalVariables||String|true|String|
-|value| variable value, and key belong to the key-value pair that is contained by globalVariables ||List|true|List|
+|globalVariables|Added parameter data one-to-many key:globalVariables,value:List|Map|true|Map|
+|key|Parameter name, belonging to globalVariables|String|true|String|
+|value| variable value, and key belong to the key-value pair that is contained by globalVariables |List|true|List|
 
 
 **Response Status**:
@@ -50,10 +50,10 @@ sidebar_position: 23
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -61,9 +61,9 @@ sidebar_position: 23
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

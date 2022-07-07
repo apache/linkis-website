@@ -31,7 +31,7 @@ sidebar_position: 10
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|ticketid|ticketid|path|true|string||
+|ticketid|ticketid|path|true|string|
 
 
 **Response Status**:
@@ -40,9 +40,9 @@ sidebar_position: 10
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|204|No Content||
-|401|Unauthorized||
-|403|Forbidden||
+|204|No Content|
+|401|Unauthorized|
+|403|Forbidden|
 
 
 **Response parameters**:
@@ -50,9 +50,9 @@ sidebar_position: 10
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -91,7 +91,7 @@ sidebar_position: 10
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|ticketid|ticketid|query|true|string||
+|ticketid|ticketid|query|true|string|
 
 
 **Response Status**:
@@ -100,9 +100,9 @@ sidebar_position: 10
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -110,9 +110,9 @@ sidebar_position: 10
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

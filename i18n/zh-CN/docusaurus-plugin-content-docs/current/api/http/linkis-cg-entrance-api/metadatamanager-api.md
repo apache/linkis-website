@@ -20,10 +20,10 @@ sidebar_position: 3
 
 | 参数名称  | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
-|database|database|path|true|string||
-|system|system|query|true|string||
-|table|table|path|true|string||
+|dataSourceId|dataSourceId|path|true|string|
+|database|database|path|true|string|
+|system|system|query|true|string|
+|table|table|path|true|string|
 
 **响应示例**:
 
@@ -145,8 +145,8 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
-|system|system|query|true|string||
+|dataSourceId|dataSourceId|path|true|string|
+|system|system|query|true|string|
 
 **响应示例**:
 ```javascript
@@ -180,11 +180,11 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
-|database|database|path|true|string||
-|system|system|query|true|string||
-|table|table|path|true|string||
-|traverse|traverse|query|false|boolean||
+|dataSourceId|dataSourceId|path|true|string|
+|database|database|path|true|string|
+|system|system|query|true|string|
+|table|table|path|true|string|
+|traverse|traverse|query|false|boolean|
 
 **响应示例**:
 ```javascript
@@ -219,10 +219,10 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
-|database|database|path|true|string||
-|system|system|query|true|string||
-|table|table|path|true|string||
+|dataSourceId|dataSourceId|path|true|string|
+|database|database|path|true|string|
+|system|system|query|true|string|
+|table|table|path|true|string|
 
 **响应示例**:
 ```javascript
@@ -272,11 +272,11 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
-|database|database|path|true|string||
-|partition|partition|path|true|string||
-|system|system|query|true|string||
-|table|table|path|true|string||
+|dataSourceId|dataSourceId|path|true|string|
+|database|database|path|true|string|
+|partition|partition|path|true|string|
+|system|system|query|true|string|
+|table|table|path|true|string|
 
 
 **响应示例**:
@@ -305,9 +305,9 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
-|database|database|path|true|string||
-|system|system|query|true|string||
+|dataSourceId|dataSourceId|path|true|string|
+|database|database|path|true|string|
+|system|system|query|true|string|
 
 **响应示例**:
 ```javascript

@@ -37,9 +37,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -47,9 +47,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

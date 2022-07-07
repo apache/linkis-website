@@ -31,10 +31,10 @@ sidebar_position: 24
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|engineType|engineType|query|false|string||
-|keyJson|keyJson|query|false|string||
-|token|token|query|false|string||
-|version|version|query|false|string||
+|engineType|engineType|query|false|string|
+|keyJson|keyJson|query|false|string|
+|token|token|query|false|string|
+|version|version|query|false|string|
 
 
 **Response Status**:
@@ -43,9 +43,9 @@ sidebar_position: 24
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -53,9 +53,9 @@ sidebar_position: 24
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -98,10 +98,10 @@ sidebar_position: 24
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|categoryName|Reference type label name||false|String|String|
-|description|Description||false|String|STRing|
+|categoryName|Reference type label name|false|String|String|
+|description|Description|false|String|STRing|
 
 
 **Response Status**:
@@ -110,10 +110,10 @@ sidebar_position: 24
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -121,9 +121,9 @@ sidebar_position: 24
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -168,12 +168,12 @@ sidebar_position: 24
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description |Required  | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|categoryId|Parameter ConfigurationId||true|String|String|
-|description|Description||true|String|String|
-|engineType|Engine Type||true|String|String|
-|version|version number||true|String|String|
+|categoryId|Parameter ConfigurationId|true|String|String|
+|description|Description|true|String|String|
+|engineType|Engine Type|true|String|String|
+|version|version number|true|String|String|
 
 
 **Response Status**:
@@ -182,10 +182,10 @@ sidebar_position: 24
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -193,9 +193,9 @@ sidebar_position: 24
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -239,7 +239,7 @@ sidebar_position: 24
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|categoryId|Parameter ConfigurationId||String|true|String|
+|categoryId|Parameter ConfigurationId|String|true|String|
 
 
 **Response Status**:
@@ -248,10 +248,10 @@ sidebar_position: 24
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -259,9 +259,9 @@ sidebar_position: 24
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -307,9 +307,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -317,9 +317,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -365,9 +365,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -375,9 +375,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -436,9 +436,9 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|creator|label name|query|false|string||
-|engineType|engineType|query|false|string||
-|version|version|query|false|string||
+|creator|label name|query|false|string|
+|engineType|engineType|query|false|string|
+|version|version|query|false|string|
 
 
 **Response Status**:
@@ -447,9 +447,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -457,9 +457,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -522,10 +522,10 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|configKey|configKey|query|true|string||
-|creator|creator|query|false|string||
-|engineType|engineType|query|false|string||
-|version|version|query|false|string||
+|configKey|configKey|query|true|string|
+|creator|creator|query|false|string|
+|engineType|engineType|query|false|string|
+|version|version|query|false|string|
 
 
 **Response Status**:
@@ -534,9 +534,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -544,9 +544,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -581,13 +581,13 @@ No
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required |  Request type| Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|configKey|configKey||true|String|String|
-|configValue|configValue||true|String|String|
-|creator|creator||true|String|String|
-|engineType|engineType||true|String|String|
-|version|version||true|String|String|
+|configKey|configKey|true|String|String|
+|configValue|configValue|true|String|String|
+|creator|creator|true|String|String|
+|engineType|engineType|true|String|String|
+|version|version|true|String|String|
 |SaveKeyValue|json|body|true|SaveKeyValue|SaveKeyValue|
 
 
@@ -597,10 +597,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -608,9 +608,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -647,13 +647,12 @@ No
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required  | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|configKey|configKey||true|String|String|
-|creator|creator||true|String|String|
-|engineType|engineType||true|String|String|
-|version|version||true|String|String|
-|DeleteKeyValue|json|body|true|DeleteKeyValue|DeleteKeyValue|
+|configKey|configKey|true|String|String|
+|creator|creator|true|String|String|
+|engineType|engineType|true|String|String|
+|version|version|true|String|String|
 
 
 **Response Status**:
@@ -662,9 +661,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|204|No Content||
-|401|Unauthorized||
-|403|Forbidden||
+|204|No Content|
+|401|Unauthorized|
+|403|Forbidden|
 
 
 **Response parameters**:
@@ -672,9 +671,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -713,10 +712,10 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|creator|creator|query|false|string||
-|engineType|engineType|query|false|string||
-|username|username|query|false|string||
-|version|version|query|false|string||
+|creator|creator|query|false|string|
+|engineType|engineType|query|false|string|
+|username|username|query|false|string|
+|version|version|query|false|string|
 
 
 **Response Status**:
@@ -725,9 +724,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -735,9 +734,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -776,12 +775,12 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|creator|App Type Name||String|true|String|
-|description|Description, belonging to the content in fullTree||String|true|String|
-|engineType|Engine Type||String|true|String|
-|fullTree|Details under Application Type||List|true|List|
-|name|Queue resource name, which belongs to the content in fullTree||String|true|String|
-|settings|Detailed content in the queue resource, belonging to the content in fullTree||List|true|List|
+|creator|App Type Name|String|true|String|
+|description|Description, belonging to the content in fullTree|String|true|String|
+|engineType|Engine Type|String|true|String|
+|fullTree|Details under Application Type|List|true|List|
+|name|Queue resource name, which belongs to the content in fullTree|String|true|String|
+|settings|Detailed content in the queue resource, belonging to the content in fullTree|List|true|List|
 
 
 **Response Status**:
@@ -790,10 +789,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -801,9 +800,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -849,8 +848,8 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|categoryId|categoryId||String|true|String|
-|description|description||String|true|String|
+|categoryId|categoryId|String|true|String|
+|description|description|String|true|String|
 
 
 **Response Status**:
@@ -859,10 +858,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -870,9 +869,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

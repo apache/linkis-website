@@ -1,5 +1,5 @@
 ---
-title: BMLFs Management
+title: BMLFS Management
 sidebar_position: 18
 ---
 ** BMLFsRestfulApi class **
@@ -30,11 +30,11 @@ sidebar_position: 18
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|fileName|File name|query|true|string||
-|creator|Creator|query|false|string||
-|projectName|Project name|query|false|string||
-|resourceId|ResourceId|query|false|string||
-|version|version|query|false|string||
+|fileName|File name|query|true|string|
+|creator|Creator|query|false|string|
+|projectName|Project name|query|false|string|
+|resourceId|ResourceId|query|false|string|
+|version|version|query|false|string|
 
 
 **Response Status**:
@@ -43,9 +43,9 @@ sidebar_position: 18
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -53,9 +53,9 @@ sidebar_position: 18
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -94,10 +94,10 @@ sidebar_position: 18
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|fileName|File name|query|true|string||
-|creator|Creator|query|false|string||
-|resourceId|ResourceId|query|false|string||
-|version|version|query|false|string||
+|fileName|File name|query|true|string|
+|creator|Creator|query|false|string|
+|resourceId|ResourceId|query|false|string|
+|version|version|query|false|string|
 
 
 **Response Status**:
@@ -106,9 +106,9 @@ sidebar_position: 18
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -116,9 +116,9 @@ sidebar_position: 18
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -155,14 +155,14 @@ sidebar_position: 18
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required  | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|creator|Creator||true|String|String|
-|fileName|File name||true|String|String|
-|metadata|metadata||true|String|String|
-|projectName|Project Name||true|String|String|
-|resourceId|Resource ID||true|String|String|
-|scriptContent|Content||true|String|String|
+|creator|Creator|true|String|String|
+|fileName|File name|true|String|String|
+|metadata|metadata|true|String|String|
+|projectName|Project Name|true|String|String|
+|resourceId|Resource ID|true|String|String|
+|scriptContent|Content|true|String|String|
 |SaveScriptToBML|json|body|true|SaveScriptToBML|SaveScriptToBML|
 
 
@@ -172,10 +172,10 @@ sidebar_position: 18
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -183,9 +183,9 @@ sidebar_position: 18
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

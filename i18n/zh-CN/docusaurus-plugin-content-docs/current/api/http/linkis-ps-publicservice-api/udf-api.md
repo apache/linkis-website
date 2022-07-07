@@ -1,505 +1,1395 @@
 ---
-title: UDF接口
-sidebar_position: 1
---- 
+title: UDF操作管理
+sidebar_position: 16
+---
 
-## UDF移交
+** UDFApi 类 **
 
-### 基本信息
+## 新增
 
-**Path：** /api/rest_j/v1/udf/handover
+**接口地址**:`/api/rest_j/v1/udf/add`
 
-**Method：** POST
 
-**接口描述：**
+**请求方式**:`POST`
 
 
-### 请求参数
-**Headers**
+**请求数据类型**:`application/json`
 
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead>
-  <tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> handoverUser</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>被移交用户</span></td><td key="5"></td></tr>
-  </tbody>
-</table>
+**响应数据类型**:`*/*`
 
-## UDF修改
 
-### 基本信息
+**接口描述**:<p>新增</p>
 
-**Path：** /api/rest_j/v1/udf/update
 
-**Method：** POST
 
-**接口描述：**
+**请求参数**:
 
 
-### 请求参数
-**Headers**
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|clusterName|clusterName|false|String|String|
+|createTime|创建时间|false|Date|Date|
+|createUser|创建者|false|String|String|
+|description|描述|false|String|String|
+|directory|分类，个人函数一级目录|false|String|String|
+|isExpire|是否失效|false|Boolean|Boolean|
+|isLoad|是否负载|false|Boolean|Boolean|
+|isShared|是否共享|false|Boolean|Boolean|
+|path|仅存储用户上一次上传的路径 作提示用|false|String|String|
+|registerFormat|注册执行地址|false|String|String|
+|sys|sys|false|String|String|
+|treeId|treeId|false|Long|Long|
+|udfName|udfName|false|String|String|
+|udfType|udfType|false|Integer|Integer|
+|updateTime|更新时间|false|Date|Date|
+|useFormat|使用格式|false|String|String|
 
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfUpdateVo</span></td><td key="1"><span>object</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-0"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> id</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-1"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfName</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>不能修改</span></td><td key="5"></td></tr><tr key="0-0-2"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfType</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>不能修改</span></td><td key="5"></td></tr><tr key="0-0-3"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> description</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-4"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> path</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>jar类型udf采用文件路径方式上传</span></td><td key="5"></td></tr><tr key="0-0-5"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> useFormat</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-6"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> registerFormat</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-       
-### 返回数据
+**响应状态**:
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody">
-   </tbody>
-</table>
 
-## UDF共享用户列表
-### 基本信息
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
-**Path：** /api/rest_j/v1/udf/getSharedUsers
 
-**Method：** POST
+**响应参数**:
 
-**接口描述：**
 
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
 
-### 请求参数
-**Headers**
 
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-       
-### 返回数据
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> sharedUsers</span></td><td key="1"><span>string []</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"><p key="4"><span style={{fontWeight:'700'}}>item 类型: </span><span>string</span></p></td></tr><tr key="array-13"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> </span></td><td key="1"><span></span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
+## udf树形菜单
 
-## UDF删除
-### 基本信息
 
-**Path：** /api/rest_j/v1/udf/delete/{id}
+**接口地址**:`/api/rest_j/v1/udf/all`
 
-**Method：** POST
 
-**接口描述：**
+**请求方式**:`POST`
 
 
-### 请求参数
-**Headers**
+**请求数据类型**:`application/json`
 
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**路径参数**
 
-| 参数名称 | 示例  | 备注  |
-| ------------ | ------------ | ------------ |
-| id |  100 |  udf id |
-**Body**
+**响应数据类型**:`*/*`
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody">
-               </tbody>
-              </table>
 
-## UDF新增
+**接口描述**:<p>获取udf树形菜单详细信息</p>
 
-### 基本信息
 
-**Path：** /api/rest_j/v1/udf/add
 
-**Method：** POST
+**请求参数**:
 
-**接口描述：**
 
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|path|请求路径|false|String|String|
+|jsonString|jsonString|query|false|string|
 
-### 请求参数
-**Headers**
 
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
+**响应状态**:
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfAddVo</span></td><td key="1"><span>object</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-0"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfName</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-1"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfType</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-2"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> description</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-3"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> path</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>jar类型udf采用文件路径方式上传</span></td><td key="5"></td></tr><tr key="0-0-4"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> shared</span></td><td key="1"><span>boolean</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>不用传</span></td><td key="5"></td></tr><tr key="0-0-5"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> useFormat</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-6"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> expire</span></td><td key="1"><span>boolean</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>不用传</span></td><td key="5"></td></tr><tr key="0-0-7"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> load</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-8"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> registerFormat</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-9"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> treeId</span></td><td key="1"><span>number</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>不用传</span></td><td key="5"></td></tr><tr key="0-0-10"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> sys</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>系统：暂时均为：“IDE”</span></td><td key="5"></td></tr><tr key="0-0-11"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> clusterName</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>集群，暂时均为“all”</span></td><td key="5"></td></tr><tr key="0-0-12"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> directory</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>个人函数的一级分类目录</span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
 
-         
-### 返回数据
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody">
-               </tbody>
-              </table>
 
-## UDF查看源码
+**响应参数**:
 
-### 基本信息
 
-**Path：** /api/rest_j/v1/udf/downloadUdf
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
 
-**Method：** POST
 
-**接口描述：**
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
 
-
-### 请求参数
-**Headers**
-
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> version</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-</table>
-
-### 返回数据
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> method</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> status</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-2"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> message</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-3"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> data</span></td><td key="1"><span>object</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-3-0"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> content</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>udf内容</span></td><td key="5"></td></tr>
-       </tbody>
-</table>
-
-## UDF版本发布
-
-### 基本信息
-
-**Path：** /api/rest_j/v1/udf/publish
-
-**Method：** POST
-
-**接口描述：**
-
-
-### 请求参数
-**Headers**
-
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> version</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>发布的版本：v000005</span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-
-## UDF共享
-
-### 基本信息
-
-**Path：** /api/rest_j/v1/udf/shareUDF
-
-**Method：** POST
-
-**接口描述：**
-
-
-### 请求参数
-**Headers**
-
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfInfo</span></td><td key="1"><span>object</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-0"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> id</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-1"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfName</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-2"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfType</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> sharedUsers</span></td><td key="1"><span>string []</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>被共享用户列表</span></td><td key="5"><p key="4"><span style={{fontWeight:'700'}}>item 类型: </span><span>string</span></p></td></tr><tr key="array-14"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> </span></td><td key="1"><span></span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-
-## UDF管理页面
->注：只能看到用户自己创建的udf
-
-### 基本信息
-
-**Path：** /api/rest_j/v1/udf/managerPages
-
-**Method：** POST
-
-**接口描述：**
-
-
-### 请求参数
-**Headers**
-
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfName</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfType</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>逗号分割的字符串，如：0,1,2</span></td><td key="5"></td></tr><tr key="0-2"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> createUser</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-3"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> curPage</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>第几页</span></td><td key="5"></td></tr><tr key="0-4"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> pageSize</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>记录个数</span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-
-### 返回数据
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> infoList</span></td><td key="1"><span>object []</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"><p key="4"><span style={{fontWeight:'700'}}>item 类型: </span><span>object</span></p></td></tr><tr key="0-0-0"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> id</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-1"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> createUser</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>udf创建者</span></td><td key="5"></td></tr><tr key="0-0-2"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfName</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-3"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfType</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-4"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> expire</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>udf是否过期</span></td><td key="5"></td></tr><tr key="0-0-5"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> shared</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>是否为共享udf</span></td><td key="5"></td></tr><tr key="0-0-6"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> treeId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-7"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> sys</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>系统，例如：dss</span></td><td key="5"></td></tr><tr key="0-0-8"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> clusterName</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>集群，暂时为all</span></td><td key="5"></td></tr><tr key="0-0-9"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> createTime</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-10"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> updateTime</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-11"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> path</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>用户上一次上传的路径，作展示用</span></td><td key="5"></td></tr><tr key="0-0-12"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> registerFormat</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-13"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> useFormat</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-14"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> description</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-15"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> operationStatus</span></td><td key="1"><span>object</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>分类</span></td><td key="5"></td></tr><tr key="0-0-15-0"><td key="0"><span style={{paddingLeft:'40px'}}><span style={{color:'#8c8a8a'}}>├─</span> canUpdate</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>可否编辑</span></td><td key="5"></td></tr><tr key="0-0-15-1"><td key="0"><span style={{paddingLeft:'40px'}}><span style={{color:'#8c8a8a'}}>├─</span> canShare</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>可否共享</span></td><td key="5"></td></tr><tr key="0-0-15-2"><td key="0"><span style={{paddingLeft:'40px'}}><span style={{color:'#8c8a8a'}}>├─</span> canPublish</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>可否发布</span></td><td key="5"></td></tr><tr key="0-0-15-3"><td key="0"><span style={{paddingLeft:'40px'}}><span style={{color:'#8c8a8a'}}>├─</span> canDelete</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>可否删除</span></td><td key="5"></td></tr><tr key="0-0-15-4"><td key="0"><span style={{paddingLeft:'40px'}}><span style={{color:'#8c8a8a'}}>├─</span> canExpire</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>可否过期</span></td><td key="5"></td></tr><tr key="0-0-15-5"><td key="0"><span style={{paddingLeft:'40px'}}><span style={{color:'#8c8a8a'}}>├─</span> canHandover</span></td><td key="1"><span>boolean</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>可否移交</span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> totalPage</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>总页数</span></td><td key="5"></td></tr><tr key="0-2"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> field_1</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-3"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> total</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>总条数</span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-
-## UDF过期
-
-### 基本信息
-
-**Path：** /api/rest_j/v1/udf/setExpire
-
-**Method：** POST
-
-**接口描述：**
-
-
-### 请求参数
-**Headers**
-
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-
-### 返回数据
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody">
-               </tbody>
-              </table>
-
-## udf文件下载到本地
-
-### 基本信息
-
-**Path：** /api/rest_j/v1/udf/downloadToLocal
-
-**Method：** POST
-
-**接口描述：**
-
-
-### 请求参数
-**Headers**
-
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> version</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-
-### 返回数据
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody">
-               </tbody>
-              </table>
-
-## 版本列表查看
-
-### 基本信息
-
-**Path：** /api/rest_j/v1/udf/versionList
-
-**Method：** GET
-
-**接口描述：**
-
-
-### 请求参数
-**Query**
-
-| 参数名称  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ |
-| udfId | 是  |  100 |   |
-
-### 返回数据
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> versionList</span></td><td key="1"><span>object []</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"><p key="4"><span style={{fontWeight:'700'}}>item 类型: </span><span>object</span></p></td></tr><tr key="0-0-0"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> id</span></td><td key="1"><span>number</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-1"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfId</span></td><td key="1"><span>number</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-2"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> path</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-3"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> bmlResourceId</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-4"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> bmlResourceVersion</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-5"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> isPublished</span></td><td key="1"><span>boolean</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-6"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> registerFormat</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-7"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> useFormat</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-8"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> description</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-9"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> createTime</span></td><td key="1"><span>number</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-10"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> expire</span></td><td key="1"><span>boolean</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-11"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> createUser</span></td><td key="1"><span>string</span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-
-## 版本回退
-
-### 基本信息
-
-**Path：** /api/rest_j/v1/udf/rollback
-
-**Method：** POST
-
-**接口描述：**
-
-
-### 请求参数
-**Headers**
-
-| 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ | ------------ |
-| Content-Type  |  application/json | 是  |   |   |
-**Body**
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-1"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> version</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>回退版本</span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
 
 ## 获取udf用户列表
 
-### 基本信息
 
-**Path：** /api/rest_j/v1/udf/allUdfUsers
-
-**Method：** GET
-
-**接口描述：**
+**接口地址**:`/api/rest_j/v1/udf/allUdfUsers`
 
 
-### 请求参数
-
-### 返回数据
-
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfUsers</span></td><td key="1"><span>string []</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"><p key="4"><span style={{fontWeight:'700'}}>item 类型: </span><span>string</span></p></td></tr><tr key="array-15"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> </span></td><td key="1"><span></span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody>
-              </table>
-
-## 获取用户个人函数的一级分类
-
-### 基本信息
-
-**Path：** /api/rest_j/v1/udf/userDirectory
-
-**Method：** GET
-
-**接口描述：**
+**请求方式**:`GET`
 
 
-### 请求参数
-**Query**
+**请求数据类型**:`application/x-www-form-urlencoded`
 
-| 参数名称  |  是否必须 | 示例  | 备注  |
-| ------------ | ------------ | ------------ | ------------ |
-| category | 是  |  udf |  必须是"udf"或"function"，分别代表获取udf函数的一级分类和方法函数的一级分类 |
 
-### 返回数据
+**响应数据类型**:`*/*`
 
-<table>
-  <thead class="ant-table-thead">
-    <tr>
-      <th key="name">名称</th><th key="type">类型</th><th key="required">是否必须</th><th key="default">默认值</th><th key="desc">备注</th><th key="sub">其他信息</th>
-    </tr>
-  </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> userDirectory</span></td><td key="1"><span>string []</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>分类名组成的列表</span></td><td key="5"><p key="4"><span style={{fontWeight:'700'}}>item 类型: </span><span>string</span></p></td></tr><tr key="array-16"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> </span></td><td key="1"><span></span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
-               </tbody> </table>
-            
+
+**接口描述**:<p>获取udf用户列表</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|json|json|body|true|JsonNode|JsonNode|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 证实
+
+
+**接口地址**:`/api/rest_j/v1/udf/authenticate`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>证明…是真实的</p>
+
+
+
+**请求参数**:
+
+
+暂无
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 删除
+
+
+**接口地址**:`/api/rest_j/v1/udf/delete/{id}`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>删除</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|id|id|path|false|integer(int64)|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## udf文件下载到本地
+
+
+**接口地址**:`/api/rest_j/v1/udf/downloadToLocal`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>根据版本参数下载UDF文件到本地</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|udfId|udfId|false|integer|
+|version|version|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+##  UDF查看源码
+
+
+**接口地址**:`/api/rest_j/v1/udf/downloadUdf`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p> UDF查看源码</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|udfId|udfId|false|integer|
+|version|version|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## UDF共享用户列表
+
+
+**接口地址**:`/api/rest_j/v1/udf/getSharedUsers`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>UDF共享用户列表</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|udfId|udfId|false|integer|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## UDF移交
+
+
+**接口地址**:`/api/rest_j/v1/udf/handover`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>UDF移交</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|handoverUser|切换用户|false|String|String|
+|udfId|udfId|false|integer|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 是否负载
+
+
+**接口地址**:`/api/rest_j/v1/udf/isload`
+
+
+**请求方式**:`GET`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>是否负载</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|isLoad|是否负载|query|false|boolean|
+|udfId|udfId|query|false|integer(int64)|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 函数列表
+
+
+**接口地址**:`/api/rest_j/v1/udf/list`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>获取函数列表</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|ListUDF|json|body|true|ListUDF|ListUDF|
+|category|类别|false|String|String|
+|treeId|树形菜单Id|false|String|String|
+|type|函数类型，比如expire,self,share等类型|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 基本信息
+
+
+**接口地址**:`/api/rest_j/v1/udf/managerPages`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>基本信息</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|curPage|页码|false|Integer|Integer|
+|pageSize|页面大小|false|Integer|Integer|
+|udfName|udf名称|false|String|String|
+|udfType|udf类型|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 出版
+
+
+**接口地址**:`/api/rest_j/v1/udf/publish`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>UDF版本发布</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|udfId|udfId|false|integer|
+|version|version|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 回退版本
+
+
+**接口地址**:`/api/rest_j/v1/udf/rollback`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>回退版本</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|udfId|udfId|false|integer|
+|version|version|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 设置过期
+
+
+**接口地址**:`/api/rest_j/v1/udf/setExpire`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>设置过期</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|udfId|udfId|false|Long|Long|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## UDF共享
+
+
+**接口地址**:`/api/rest_j/v1/udf/shareUDF`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>UDF共享</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|sharedUsers|sharedUsers|false|List|List|
+|udfInfo|udfInfo|false|UDFInfo|UDFInfo|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## tree新增
+
+
+**接口地址**:`/api/rest_j/v1/udf/tree/add`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>tree新增</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|category|category|false|String|String|
+|childrens|childrens|false|List|List|
+|clusterName|clusterName|false|String|String|
+|createTime|createTime|false|Date|Date|
+|description|description|false|String|String|
+|id|id|false|Long|Long|
+|name|name|false|String|String|
+|parent|parent|false|Long|Long|
+|udfInfos|udfInfos|false|List|List|
+|updateTime|updateTime|false|Date|Date|
+|userName|userName|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## tree删除
+
+
+**接口地址**:`/api/rest_j/v1/udf/tree/delete/{id}`
+
+
+**请求方式**:`GET`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>tree删除</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|id|id|path|false|integer(int64)|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## tree更新
+
+
+**接口地址**:`/api/rest_j/v1/udf/tree/update`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>tree更新</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|category|category|false|String|String|
+|childrens|childrens|false|List|List|
+|clusterName|clusterName|false|String|String|
+|createTime|createTime|false|Date|Date|
+|description|description|false|String|String|
+|id|id|false|Long|Long|
+|name|name|false|String|String|
+|parent|parent|false|Long|Long|
+|udfInfos|udfInfos|false|List|List|
+|updateTime|updateTime|false|Date|Date|
+|userName|userName|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 更新
+
+
+**接口地址**:`/api/rest_j/v1/udf/update`
+
+
+**请求方式**:`POST`
+
+
+**请求数据类型**:`application/json`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>UDF修改</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|description|描述|false|String|String|
+|id|id|false|Long|Long|
+|isLoad|是否负载|false|Boolean|Boolean|
+|path|仅存储用户上一次上传的路径 作提示用|false|String|String|
+|registerFormat|注册执行地址|false|String|String|
+|udfName|udfName|false|String|String|
+|udfType|udfType|false|Integer|Integer|
+|useFormat|使用格式|false|String|String|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 获取用户目录
+
+
+**接口地址**:`/api/rest_j/v1/udf/userDirectory`
+
+
+**请求方式**:`GET`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>获取用户个人函数的一级分类</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|category|获取指定集合类型用户目录，如类型为UDF即获取该类型下的用户目录|query|false|string|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```
+
+
+## 版本列表
+
+
+**接口地址**:`/api/rest_j/v1/udf/versionList`
+
+
+**请求方式**:`GET`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>版本列表查看</p>
+
+
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |  是否必须   | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|udfId|udfId|query|false|integer(int64)|
+
+
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
+{
+	"data": {},
+	"message": "",
+	"method": "",
+	"status": 0
+}
+```

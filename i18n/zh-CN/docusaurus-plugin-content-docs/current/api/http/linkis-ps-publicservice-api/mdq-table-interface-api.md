@@ -30,7 +30,7 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|tableId|表ID|query|false|string||
+|tableId|表ID|query|false|string|
 
 
 **响应状态**:
@@ -39,9 +39,9 @@ sidebar_position: 4
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -49,9 +49,9 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -90,7 +90,7 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|table|表||false|String|String|
+|table|表|String|false|String|
 
 
 **响应状态**:
@@ -99,10 +99,10 @@ sidebar_position: 4
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -110,9 +110,9 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -151,10 +151,10 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|database|数据源|query|false|string||
-|partitionSort|分区排序||false|String|String|
-|tableName|表名称|query|false|string||
-|partitionPath|partitionPath|query|false|string||
+|database|数据源|query|false|string|
+|partitionSort|分区排序|String|false|String|
+|tableName|表名称|query|false|string|
+|partitionPath|partitionPath|query|false|string|
 
 
 **响应状态**:
@@ -163,9 +163,9 @@ sidebar_position: 4
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -173,9 +173,9 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -214,8 +214,8 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|database|数据源|query|false|string||
-|tableName|表名称|query|false|string||
+|database|数据源|query|false|string|
+|tableName|表名称|query|false|string|
 
 
 **响应状态**:
@@ -224,9 +224,9 @@ sidebar_position: 4
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -234,9 +234,9 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -275,8 +275,8 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|database|数据源|query|false|string||
-|tableName|表名称|query|false|string||
+|database|数据源|query|false|string|
+|tableName|表名称|query|false|string|
 
 
 **响应状态**:
@@ -285,9 +285,9 @@ sidebar_position: 4
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -295,9 +295,9 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -336,11 +336,11 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|database|数据源|query|false|string||
-|pageNow|页码|query|false|string||
-|pageSize|页面大小|query|false|string||
-|partitionSort|分区排序|query|false|string||
-|tableName|表名称|query|false|string||
+|database|数据源|query|false|string|
+|pageNow|页码|query|false|string|
+|pageSize|页面大小|query|false|string|
+|partitionSort|分区排序|query|false|string|
+|tableName|表名称|query|false|string|
 
 
 **响应状态**:
@@ -349,9 +349,9 @@ sidebar_position: 4
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -359,9 +359,9 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -400,7 +400,7 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|table|表||false|String|String|
+|table|表|String|false|String|
 
 
 **响应状态**:
@@ -409,10 +409,10 @@ sidebar_position: 4
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -420,9 +420,9 @@ sidebar_position: 4
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 

@@ -29,7 +29,7 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|json|json|body|true|object||
+|json|json|body|true|object|
 
 
 **响应状态**:
@@ -38,10 +38,10 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -49,9 +49,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -99,10 +99,10 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -110,9 +110,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -151,8 +151,8 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|ID|path|false|string||
-|taskID|任务ID|query|false|string||
+|id|ID|path|false|string|
+|taskID|任务ID|query|false|string|
 
 
 **响应状态**:
@@ -161,9 +161,9 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -171,9 +171,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -220,9 +220,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|id请求路径生成|path|true|string||
-|taskIDList|任务ID集合||false|String|String|
-|idList|ID集合||false|String|String|
+|id|id请求路径生成|path|true|string|
+|taskIDList|任务ID集合|false|String|String|
+|idList|ID集合|false|String|String|
 
 
 **响应状态**:
@@ -231,10 +231,10 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -242,9 +242,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -292,7 +292,7 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|任务ID|path|false|string||
+|id|任务ID|path|false|string|
 
 
 **响应状态**:
@@ -301,9 +301,9 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -311,9 +311,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -352,7 +352,7 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|任务ID|path|false|string||
+|id|任务ID|path|false|string|
 
 
 **响应状态**:
@@ -361,9 +361,9 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -371,9 +371,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -412,7 +412,7 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|任务ID|path|false|string||
+|id|任务ID|path|false|string|
 
 
 **响应状态**:
@@ -421,9 +421,9 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -431,9 +431,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -472,7 +472,7 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|ID|path|false|string||
+|id|ID|path|false|string|
 
 
 **响应状态**:
@@ -481,9 +481,9 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -491,9 +491,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -532,8 +532,8 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|ID|path|false|string||
-|taskID|任务ID|query|false|string||
+|id|ID|path|false|string|
+|taskID|任务ID|query|false|string|
 
 
 **响应状态**:
@@ -542,9 +542,9 @@ sidebar_position: 1
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -552,9 +552,9 @@ sidebar_position: 1
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 

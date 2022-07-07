@@ -31,9 +31,8 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|jsonNode|jsonNode|body|true|JsonNode|JsonNode|
-|projectName|项目名称||false|String|String|
-|resourceId|资源名称||false|String|String|
+|projectName|项目名称|false|String|String|
+|resourceId|资源名称|false|String|String|
 
 
 **响应状态**:
@@ -42,10 +41,10 @@ sidebar_position: 15
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -53,9 +52,9 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -95,9 +94,9 @@ sidebar_position: 15
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |jsonNode|jsonNode|body|true|JsonNode|JsonNode|
-|accessUsers|访问用户||false|String|String|
-|editUsers|编辑用户||false|String|String|
-|projectName|项目名称||false|String|String|
+|accessUsers|访问用户|false|String|String|
+|editUsers|编辑用户|false|String|String|
+|projectName|项目名称|false|String|String|
 
 
 **响应状态**:
@@ -106,10 +105,10 @@ sidebar_position: 15
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -117,9 +116,9 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -158,8 +157,8 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|resourceId|资源ID|query|false|string||
-|version|版本|query|false|string||
+|resourceId|资源ID|query|false|string|
+|version|版本|query|false|string|
 
 
 **响应状态**:
@@ -168,9 +167,9 @@ sidebar_position: 15
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -178,9 +177,9 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -219,7 +218,7 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|projectName|项目名称|query|false|string||
+|projectName|项目名称|query|false|string|
 
 
 **响应状态**:
@@ -228,9 +227,9 @@ sidebar_position: 15
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -238,9 +237,9 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -280,9 +279,9 @@ sidebar_position: 15
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |jsonNode|jsonNode|body|true|JsonNode|JsonNode|
-|accessUsers|访问用户||false|String|String|
-|editUsers|编辑用户||false|String|String|
-|projectName|项目名称||false|String|String|
+|accessUsers|访问用户|false|String|String|
+|editUsers|编辑用户|false|String|String|
+|projectName|项目名称|false|String|String|
 
 
 **响应状态**:
@@ -291,10 +290,10 @@ sidebar_position: 15
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -302,9 +301,9 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -343,8 +342,8 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|file|文件|formData|false|ref||
-|resourceId|资源ID|query|false|string||
+|file|文件|formData|false|ref|
+|resourceId|资源ID|query|false|string|
 
 
 **响应状态**:
@@ -353,10 +352,10 @@ sidebar_position: 15
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -364,9 +363,9 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -405,14 +404,14 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|expireTime|失效时间|query|false|string||
-|expireType|失效类型|query|false|string||
-|file|文件集合|formData|false|ref||
-|isExpire|是否失效|query|false|string||
-|maxVersion|mav版本|query|false|ref||
-|projectName|项目名称|query|false|string||
-|resourceHeader|资源标头|query|false|string||
-|system|系统|query|false|string||
+|expireTime|失效时间|query|false|string|
+|expireType|失效类型|query|false|string|
+|file|文件集合|formData|false|ref|
+|isExpire|是否失效|query|false|string|
+|maxVersion|mav版本|query|false|ref|
+|projectName|项目名称|query|false|string|
+|resourceHeader|资源标头|query|false|string|
+|system|系统|query|false|string|
 
 
 **响应状态**:
@@ -421,10 +420,10 @@ sidebar_position: 15
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -432,9 +431,9 @@ sidebar_position: 15
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 

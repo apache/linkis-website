@@ -36,9 +36,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -46,9 +46,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -90,17 +90,17 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|creator|Creator|query|false|string||
-|endDate|End time|query|false|integer(int64)||
-|executeApplicationName|operator|query|false|string||
-|isAdminView|Whether it is in administrator mode or normal mode|query|false|boolean||
-|pageSize|Number of pages|query|false|ref||
-|proxyUser|Proxy User|query|false|string||
-|startDate|Start time|query|false|integer(int64)||
-|status|end time|query|false|string||
-|taskID|ID|query|false|integer(int64)||
-|tpageNow|page number|query|false|ref||
-|pageNow|pageNow|query|false|integer(int32)||
+|creator|Creator|query|false|string|
+|endDate|End time|query|false|integer(int64)|
+|executeApplicationName|operator|query|false|string|
+|isAdminView|Whether it is in administrator mode or normal mode|query|false|boolean|
+|pageSize|Number of pages|query|false|ref|
+|proxyUser|Proxy User|query|false|string|
+|startDate|Start time|query|false|integer(int64)|
+|status|end time|query|false|string|
+|taskID|ID|query|false|integer(int64)|
+|tpageNow|page number|query|false|ref|
+|pageNow|pageNow|query|false|integer(int32)|
 
 
 **Response Status**:
@@ -109,9 +109,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -119,9 +119,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -192,14 +192,14 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|creator|creator|query|false|string||
-|endDate|End time|query|false|integer(int64)||
-|engineType|engineType|query|false|string||
-|pageNow|pageNow|query|false|ref||
-|pageSize|pageSize|query|false|ref||
-|startDate|Start time|query|false|ref||
-|startTaskID|startTaskID|query|false|integer(int64)||
-|status|status|query|false|string||
+|creator|creator|query|false|string|
+|endDate|End time|query|false|integer(int64)|
+|engineType|engineType|query|false|string|
+|pageNow|pageNow|query|false|ref|
+|pageSize|pageSize|query|false|ref|
+|startDate|Start time|query|false|ref|
+|startTaskID|startTaskID|query|false|integer(int64)|
+|status|status|query|false|string|
 
 
 **Response Status**:
@@ -208,9 +208,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -218,9 +218,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -259,7 +259,7 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|HistoryId|query|false|integer(int64)||
+|id|HistoryId|query|false|integer(int64)|
 
 
 **Response Status**:
@@ -268,9 +268,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -278,9 +278,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

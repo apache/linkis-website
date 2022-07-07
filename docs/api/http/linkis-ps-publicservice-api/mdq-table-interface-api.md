@@ -32,7 +32,7 @@ sidebar_position: 21
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|tableId|Table ID|query|false|string||
+|tableId|Table ID|query|false|string|
 
 
 **Response Status**:
@@ -41,9 +41,9 @@ sidebar_position: 21
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -51,9 +51,9 @@ sidebar_position: 21
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -92,7 +92,7 @@ sidebar_position: 21
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|table|Table||false|String|String|
+|table|Table|String|false|String|
 
 
 **Response Status**:
@@ -101,10 +101,10 @@ sidebar_position: 21
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -112,9 +112,9 @@ sidebar_position: 21
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -153,10 +153,10 @@ sidebar_position: 21
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|database|Datasource|query|false|string||
-|partitionSort|Partition Sort||false|String|String|
-|tableName|table name|query|false|string||
-|partitionPath|partitionPath|query|false|string||
+|database|Datasource|query|false|string|
+|partitionSort|Partition Sort|String|false|String|
+|tableName|table name|query|false|string|
+|partitionPath|partitionPath|query|false|string|
 
 
 **Response Status**:
@@ -165,9 +165,9 @@ sidebar_position: 21
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -175,9 +175,9 @@ sidebar_position: 21
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -215,8 +215,8 @@ sidebar_position: 21
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|database|Datasource|query|false|string||
-|tableName|table name|query|false|string||
+|database|Datasource|query|false|string|
+|tableName|table name|query|false|string|
 
 
 **Response Status**:
@@ -225,9 +225,9 @@ sidebar_position: 21
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -235,9 +235,9 @@ sidebar_position: 21
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -276,8 +276,8 @@ sidebar_position: 21
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|database|Datasource|query|false|string||
-|tableName|table name|query|false|string||
+|database|Datasource|query|false|string|
+|tableName|table name|query|false|string|
 
 
 **Response Status**:
@@ -286,9 +286,9 @@ sidebar_position: 21
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -296,9 +296,9 @@ sidebar_position: 21
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -337,11 +337,11 @@ sidebar_position: 21
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|database|Datasource|query|false|string||
-|pageNow|page number|query|false|string||
-|pageSize|page size|query|false|string||
-|partitionSort|Partition Sort|query|false|string||
-|tableName|table name|query|false|string||
+|database|Datasource|query|false|string|
+|pageNow|page number|query|false|string|
+|pageSize|page size|query|false|string|
+|partitionSort|Partition Sort|query|false|string|
+|tableName|table name|query|false|string|
 
 
 **Response Status**:
@@ -350,9 +350,9 @@ sidebar_position: 21
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -360,9 +360,9 @@ sidebar_position: 21
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -399,9 +399,9 @@ sidebar_position: 21
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required |  Request type| Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|table|Table||false|String|String|
+|table|Table|false|String|String|
 
 
 **Response Status**:
@@ -410,10 +410,10 @@ sidebar_position: 21
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -421,9 +421,9 @@ sidebar_position: 21
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

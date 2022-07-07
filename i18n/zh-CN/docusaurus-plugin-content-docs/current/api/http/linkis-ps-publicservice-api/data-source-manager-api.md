@@ -21,19 +21,19 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|currentPage|currentPage|query|false|integer(int32)||
-|name|name|query|false|string||
-|pageSize|pageSize|query|false|integer(int32)||
-|typeId|typeId|query|false|integer(int64)||
+|currentPage|currentPage|query|false|integer(int32)|
+|name|name|query|false|string|
+|pageSize|pageSize|query|false|integer(int32)|
+|typeId|typeId|query|false|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -89,16 +89,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|typeId|typeId|path|true|integer(int64)||
+|typeId|typeId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -164,32 +164,32 @@ sidebar_position: 11
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceEnv|dataSourceEnv|body|true|DataSourceEnv|DataSourceEnv|
-|&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;createTime|||false|string(date-time)||
-|&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;dataSourceType|||false|DataSourceType|DataSourceType|
-|&emsp;&emsp;&emsp;&emsp;classifier|||false|string||
-|&emsp;&emsp;&emsp;&emsp;description|||false|string||
-|&emsp;&emsp;&emsp;&emsp;icon|||false|string||
-|&emsp;&emsp;&emsp;&emsp;id|||false|string||
-|&emsp;&emsp;&emsp;&emsp;layers|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;name|||false|string||
-|&emsp;&emsp;&emsp;&emsp;option|||false|string||
-|&emsp;&emsp;dataSourceTypeId|||false|integer(int64)||
-|&emsp;&emsp;envDesc|||false|string||
-|&emsp;&emsp;envName|||false|string||
-|&emsp;&emsp;id|||false|integer(int64)||
-|&emsp;&emsp;modifyTime|||false|string(date-time)||
-|&emsp;&emsp;modifyUser|||false|string||
+|&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;createTime||false|string(date-time)|
+|&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;dataSourceType||false|DataSourceType|DataSourceType|
+|&emsp;&emsp;&emsp;&emsp;classifier||false|string|
+|&emsp;&emsp;&emsp;&emsp;description||false|string|
+|&emsp;&emsp;&emsp;&emsp;icon||false|string|
+|&emsp;&emsp;&emsp;&emsp;id||false|string|
+|&emsp;&emsp;&emsp;&emsp;layers||false|integer|
+|&emsp;&emsp;&emsp;&emsp;name||false|string|
+|&emsp;&emsp;&emsp;&emsp;option||false|string|
+|&emsp;&emsp;dataSourceTypeId||false|integer(int64)|
+|&emsp;&emsp;envDesc||false|string|
+|&emsp;&emsp;envName||false|string|
+|&emsp;&emsp;id||false|integer(int64)|
+|&emsp;&emsp;modifyTime||false|string(date-time)|
+|&emsp;&emsp;modifyUser||false|string|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -215,16 +215,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|envId|envId|path|true|integer(int64)||
+|envId|envId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -264,16 +264,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|envId|envId|path|true|integer(int64)||
+|envId|envId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -324,33 +324,33 @@ sidebar_position: 11
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceEnv|dataSourceEnv|body|true|DataSourceEnv|DataSourceEnv|
-|&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;createTime|||false|string(date-time)||
-|&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;dataSourceType|||false|DataSourceType|DataSourceType|
-|&emsp;&emsp;&emsp;&emsp;classifier|||false|string||
-|&emsp;&emsp;&emsp;&emsp;description|||false|string||
-|&emsp;&emsp;&emsp;&emsp;icon|||false|string||
-|&emsp;&emsp;&emsp;&emsp;id|||false|string||
-|&emsp;&emsp;&emsp;&emsp;layers|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;name|||false|string||
-|&emsp;&emsp;&emsp;&emsp;option|||false|string||
-|&emsp;&emsp;dataSourceTypeId|||false|integer(int64)||
-|&emsp;&emsp;envDesc|||false|string||
-|&emsp;&emsp;envName|||false|string||
-|&emsp;&emsp;id|||false|integer(int64)||
-|&emsp;&emsp;modifyTime|||false|string(date-time)||
-|&emsp;&emsp;modifyUser|||false|string||
-|envId|envId|path|true|integer(int64)||
+|&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;createTime||false|string(date-time)|
+|&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;dataSourceType||false|DataSourceType|DataSourceType|
+|&emsp;&emsp;&emsp;&emsp;classifier||false|string|
+|&emsp;&emsp;&emsp;&emsp;description||false|string|
+|&emsp;&emsp;&emsp;&emsp;icon||false|string|
+|&emsp;&emsp;&emsp;&emsp;id||false|string|
+|&emsp;&emsp;&emsp;&emsp;layers||false|integer|
+|&emsp;&emsp;&emsp;&emsp;name||false|string|
+|&emsp;&emsp;&emsp;&emsp;option||false|string|
+|&emsp;&emsp;dataSourceTypeId||false|integer(int64)|
+|&emsp;&emsp;envDesc||false|string|
+|&emsp;&emsp;envName||false|string|
+|&emsp;&emsp;id||false|integer(int64)|
+|&emsp;&emsp;modifyTime||false|string(date-time)|
+|&emsp;&emsp;modifyUser||false|string|
+|envId|envId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -380,21 +380,21 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|currentPage|currentPage|query|false|integer(int32)||
-|identifies|identifies|query|false|string||
-|name|name|query|false|string||
-|pageSize|pageSize|query|false|integer(int32)||
-|system|system|query|false|string||
-|typeId|typeId|query|false|integer(int64)||
+|currentPage|currentPage|query|false|integer(int32)|
+|identifies|identifies|query|false|string|
+|name|name|query|false|string|
+|pageSize|pageSize|query|false|integer(int32)|
+|system|system|query|false|string|
+|typeId|typeId|query|false|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -459,16 +459,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -559,65 +559,65 @@ sidebar_position: 11
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSource|dataSource|body|true|DataSource|DataSource|
-|&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;createIdentify|||false|string||
-|&emsp;&emsp;createSystem|||false|string||
-|&emsp;&emsp;createTime|||false|string(date-time)||
-|&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;dataSourceDesc|||false|string||
-|&emsp;&emsp;dataSourceEnv|||false|DataSourceEnv|DataSourceEnv|
-|&emsp;&emsp;&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;&emsp;&emsp;createTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;&emsp;&emsp;dataSourceType|||false|DataSourceType|DataSourceType|
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;classifier|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;icon|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;id|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;layers|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;option|||false|string||
-|&emsp;&emsp;&emsp;&emsp;dataSourceTypeId|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;envDesc|||false|string||
-|&emsp;&emsp;&emsp;&emsp;envName|||false|string||
-|&emsp;&emsp;&emsp;&emsp;id|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;modifyTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;modifyUser|||false|string||
-|&emsp;&emsp;dataSourceEnvId|||false|integer(int64)||
-|&emsp;&emsp;dataSourceName|||false|string||
-|&emsp;&emsp;dataSourceType|||false|DataSourceType|DataSourceType|
-|&emsp;&emsp;&emsp;&emsp;classifier|||false|string||
-|&emsp;&emsp;&emsp;&emsp;description|||false|string||
-|&emsp;&emsp;&emsp;&emsp;icon|||false|string||
-|&emsp;&emsp;&emsp;&emsp;id|||false|string||
-|&emsp;&emsp;&emsp;&emsp;layers|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;name|||false|string||
-|&emsp;&emsp;&emsp;&emsp;option|||false|string||
-|&emsp;&emsp;dataSourceTypeId|||false|integer(int64)||
-|&emsp;&emsp;expire|||false|boolean||
-|&emsp;&emsp;id|||false|integer(int64)||
-|&emsp;&emsp;labels|||false|string||
-|&emsp;&emsp;modifyTime|||false|string(date-time)||
-|&emsp;&emsp;modifyUser|||false|string||
-|&emsp;&emsp;publishedVersionId|||false|integer(int64)||
-|&emsp;&emsp;versionId|||false|integer(int64)||
-|&emsp;&emsp;versions|||false|array|DatasourceVersion|
-|&emsp;&emsp;&emsp;&emsp;comment|||false|string||
-|&emsp;&emsp;&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;&emsp;&emsp;createTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;&emsp;&emsp;datasourceId|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;parameter|||false|string||
-|&emsp;&emsp;&emsp;&emsp;versionId|||false|integer||
+|&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;createIdentify||false|string|
+|&emsp;&emsp;createSystem||false|string|
+|&emsp;&emsp;createTime||false|string(date-time)|
+|&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;dataSourceDesc||false|string|
+|&emsp;&emsp;dataSourceEnv||false|DataSourceEnv|DataSourceEnv|
+|&emsp;&emsp;&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;&emsp;&emsp;createTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;&emsp;&emsp;dataSourceType||false|DataSourceType|DataSourceType|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;classifier||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;icon||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;id||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;layers||false|integer|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;option||false|string|
+|&emsp;&emsp;&emsp;&emsp;dataSourceTypeId||false|integer|
+|&emsp;&emsp;&emsp;&emsp;envDesc||false|string|
+|&emsp;&emsp;&emsp;&emsp;envName||false|string|
+|&emsp;&emsp;&emsp;&emsp;id||false|integer|
+|&emsp;&emsp;&emsp;&emsp;modifyTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;modifyUser||false|string|
+|&emsp;&emsp;dataSourceEnvId||false|integer(int64)|
+|&emsp;&emsp;dataSourceName||false|string|
+|&emsp;&emsp;dataSourceType||false|DataSourceType|DataSourceType|
+|&emsp;&emsp;&emsp;&emsp;classifier||false|string|
+|&emsp;&emsp;&emsp;&emsp;description||false|string|
+|&emsp;&emsp;&emsp;&emsp;icon||false|string|
+|&emsp;&emsp;&emsp;&emsp;id||false|string|
+|&emsp;&emsp;&emsp;&emsp;layers||false|integer|
+|&emsp;&emsp;&emsp;&emsp;name||false|string|
+|&emsp;&emsp;&emsp;&emsp;option||false|string|
+|&emsp;&emsp;dataSourceTypeId||false|integer(int64)|
+|&emsp;&emsp;expire||false|boolean|
+|&emsp;&emsp;id||false|integer(int64)|
+|&emsp;&emsp;labels||false|string|
+|&emsp;&emsp;modifyTime||false|string(date-time)|
+|&emsp;&emsp;modifyUser||false|string|
+|&emsp;&emsp;publishedVersionId||false|integer(int64)|
+|&emsp;&emsp;versionId||false|integer(int64)|
+|&emsp;&emsp;versions||false|array|DatasourceVersion|
+|&emsp;&emsp;&emsp;&emsp;comment||false|string|
+|&emsp;&emsp;&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;&emsp;&emsp;createTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;&emsp;&emsp;datasourceId||false|integer|
+|&emsp;&emsp;&emsp;&emsp;parameter||false|string|
+|&emsp;&emsp;&emsp;&emsp;versionId||false|integer|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -643,16 +643,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceName|dataSourceName|path|true|string||
+|dataSourceName|dataSourceName|path|true|string|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -700,16 +700,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -761,16 +761,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -861,66 +861,66 @@ sidebar_position: 11
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSource|dataSource|body|true|DataSource|DataSource|
-|&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;createIdentify|||false|string||
-|&emsp;&emsp;createSystem|||false|string||
-|&emsp;&emsp;createTime|||false|string(date-time)||
-|&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;dataSourceDesc|||false|string||
-|&emsp;&emsp;dataSourceEnv|||false|DataSourceEnv|DataSourceEnv|
-|&emsp;&emsp;&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;&emsp;&emsp;createTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;&emsp;&emsp;dataSourceType|||false|DataSourceType|DataSourceType|
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;classifier|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;icon|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;id|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;layers|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;option|||false|string||
-|&emsp;&emsp;&emsp;&emsp;dataSourceTypeId|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;envDesc|||false|string||
-|&emsp;&emsp;&emsp;&emsp;envName|||false|string||
-|&emsp;&emsp;&emsp;&emsp;id|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;modifyTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;modifyUser|||false|string||
-|&emsp;&emsp;dataSourceEnvId|||false|integer(int64)||
-|&emsp;&emsp;dataSourceName|||false|string||
-|&emsp;&emsp;dataSourceType|||false|DataSourceType|DataSourceType|
-|&emsp;&emsp;&emsp;&emsp;classifier|||false|string||
-|&emsp;&emsp;&emsp;&emsp;description|||false|string||
-|&emsp;&emsp;&emsp;&emsp;icon|||false|string||
-|&emsp;&emsp;&emsp;&emsp;id|||false|string||
-|&emsp;&emsp;&emsp;&emsp;layers|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;name|||false|string||
-|&emsp;&emsp;&emsp;&emsp;option|||false|string||
-|&emsp;&emsp;dataSourceTypeId|||false|integer(int64)||
-|&emsp;&emsp;expire|||false|boolean||
-|&emsp;&emsp;id|||false|integer(int64)||
-|&emsp;&emsp;labels|||false|string||
-|&emsp;&emsp;modifyTime|||false|string(date-time)||
-|&emsp;&emsp;modifyUser|||false|string||
-|&emsp;&emsp;publishedVersionId|||false|integer(int64)||
-|&emsp;&emsp;versionId|||false|integer(int64)||
-|&emsp;&emsp;versions|||false|array|DatasourceVersion|
-|&emsp;&emsp;&emsp;&emsp;comment|||false|string||
-|&emsp;&emsp;&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;&emsp;&emsp;createTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;&emsp;&emsp;datasourceId|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;parameter|||false|string||
-|&emsp;&emsp;&emsp;&emsp;versionId|||false|integer||
-|dataSourceId|dataSourceId|path|true|integer(int64)||
+|&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;createIdentify||false|string|
+|&emsp;&emsp;createSystem||false|string|
+|&emsp;&emsp;createTime||false|string(date-time)|
+|&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;dataSourceDesc||false|string|
+|&emsp;&emsp;dataSourceEnv||false|DataSourceEnv|DataSourceEnv|
+|&emsp;&emsp;&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;&emsp;&emsp;createTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;&emsp;&emsp;dataSourceType||false|DataSourceType|DataSourceType|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;classifier||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;icon||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;id||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;layers||false|integer|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;option||false|string|
+|&emsp;&emsp;&emsp;&emsp;dataSourceTypeId||false|integer|
+|&emsp;&emsp;&emsp;&emsp;envDesc||false|string|
+|&emsp;&emsp;&emsp;&emsp;envName||false|string|
+|&emsp;&emsp;&emsp;&emsp;id||false|integer|
+|&emsp;&emsp;&emsp;&emsp;modifyTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;modifyUser||false|string|
+|&emsp;&emsp;dataSourceEnvId||false|integer(int64)|
+|&emsp;&emsp;dataSourceName||false|string|
+|&emsp;&emsp;dataSourceType||false|DataSourceType|DataSourceType|
+|&emsp;&emsp;&emsp;&emsp;classifier||false|string|
+|&emsp;&emsp;&emsp;&emsp;description||false|string|
+|&emsp;&emsp;&emsp;&emsp;icon||false|string|
+|&emsp;&emsp;&emsp;&emsp;id||false|string|
+|&emsp;&emsp;&emsp;&emsp;layers||false|integer|
+|&emsp;&emsp;&emsp;&emsp;name||false|string|
+|&emsp;&emsp;&emsp;&emsp;option||false|string|
+|&emsp;&emsp;dataSourceTypeId||false|integer(int64)|
+|&emsp;&emsp;expire||false|boolean|
+|&emsp;&emsp;id||false|integer(int64)|
+|&emsp;&emsp;labels||false|string|
+|&emsp;&emsp;modifyTime||false|string(date-time)|
+|&emsp;&emsp;modifyUser||false|string|
+|&emsp;&emsp;publishedVersionId||false|integer(int64)|
+|&emsp;&emsp;versionId||false|integer(int64)|
+|&emsp;&emsp;versions||false|array|DatasourceVersion|
+|&emsp;&emsp;&emsp;&emsp;comment||false|string|
+|&emsp;&emsp;&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;&emsp;&emsp;createTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;&emsp;&emsp;datasourceId||false|integer|
+|&emsp;&emsp;&emsp;&emsp;parameter||false|string|
+|&emsp;&emsp;&emsp;&emsp;versionId||false|integer|
+|dataSourceId|dataSourceId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -946,17 +946,17 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
-|version|version|path|true|integer(int64)||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
+|version|version|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1008,16 +1008,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|typeId|typeId|path|true|integer(int64)||
+|typeId|typeId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1064,16 +1064,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceName|dataSourceName|path|true|string||
+|dataSourceName|dataSourceName|path|true|string|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1106,17 +1106,17 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
-|params|params|body|true|object||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
+|params|params|body|true|object|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1142,17 +1142,17 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
-|versionId|versionId|path|true|integer(int64)||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
+|versionId|versionId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1180,10 +1180,10 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1231,16 +1231,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1273,16 +1273,16 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1324,17 +1324,17 @@ sidebar_position: 11
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|integer(int64)||
-|version|version|path|true|integer(int64)||
+|dataSourceId|dataSourceId|path|true|integer(int64)|
+|version|version|path|true|integer(int64)|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript
@@ -1429,65 +1429,65 @@ sidebar_position: 11
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSource|dataSource|body|true|DataSource|DataSource|
-|&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;createIdentify|||false|string||
-|&emsp;&emsp;createSystem|||false|string||
-|&emsp;&emsp;createTime|||false|string(date-time)||
-|&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;dataSourceDesc|||false|string||
-|&emsp;&emsp;dataSourceEnv|||false|DataSourceEnv|DataSourceEnv|
-|&emsp;&emsp;&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;&emsp;&emsp;createTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;&emsp;&emsp;dataSourceType|||false|DataSourceType|DataSourceType|
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;classifier|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;icon|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;id|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;layers|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name|||false|string||
-|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;option|||false|string||
-|&emsp;&emsp;&emsp;&emsp;dataSourceTypeId|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;envDesc|||false|string||
-|&emsp;&emsp;&emsp;&emsp;envName|||false|string||
-|&emsp;&emsp;&emsp;&emsp;id|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;modifyTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;modifyUser|||false|string||
-|&emsp;&emsp;dataSourceEnvId|||false|integer(int64)||
-|&emsp;&emsp;dataSourceName|||false|string||
-|&emsp;&emsp;dataSourceType|||false|DataSourceType|DataSourceType|
-|&emsp;&emsp;&emsp;&emsp;classifier|||false|string||
-|&emsp;&emsp;&emsp;&emsp;description|||false|string||
-|&emsp;&emsp;&emsp;&emsp;icon|||false|string||
-|&emsp;&emsp;&emsp;&emsp;id|||false|string||
-|&emsp;&emsp;&emsp;&emsp;layers|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;name|||false|string||
-|&emsp;&emsp;&emsp;&emsp;option|||false|string||
-|&emsp;&emsp;dataSourceTypeId|||false|integer(int64)||
-|&emsp;&emsp;expire|||false|boolean||
-|&emsp;&emsp;id|||false|integer(int64)||
-|&emsp;&emsp;labels|||false|string||
-|&emsp;&emsp;modifyTime|||false|string(date-time)||
-|&emsp;&emsp;modifyUser|||false|string||
-|&emsp;&emsp;publishedVersionId|||false|integer(int64)||
-|&emsp;&emsp;versionId|||false|integer(int64)||
-|&emsp;&emsp;versions|||false|array|DatasourceVersion|
-|&emsp;&emsp;&emsp;&emsp;comment|||false|string||
-|&emsp;&emsp;&emsp;&emsp;connectParams|||false|object||
-|&emsp;&emsp;&emsp;&emsp;createTime|||false|string||
-|&emsp;&emsp;&emsp;&emsp;createUser|||false|string||
-|&emsp;&emsp;&emsp;&emsp;datasourceId|||false|integer||
-|&emsp;&emsp;&emsp;&emsp;parameter|||false|string||
-|&emsp;&emsp;&emsp;&emsp;versionId|||false|integer||
+|&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;createIdentify||false|string|
+|&emsp;&emsp;createSystem||false|string|
+|&emsp;&emsp;createTime||false|string(date-time)|
+|&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;dataSourceDesc||false|string|
+|&emsp;&emsp;dataSourceEnv||false|DataSourceEnv|DataSourceEnv|
+|&emsp;&emsp;&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;&emsp;&emsp;createTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;&emsp;&emsp;dataSourceType||false|DataSourceType|DataSourceType|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;classifier||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;description||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;icon||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;id||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;layers||false|integer|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name||false|string|
+|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;option||false|string|
+|&emsp;&emsp;&emsp;&emsp;dataSourceTypeId||false|integer|
+|&emsp;&emsp;&emsp;&emsp;envDesc||false|string|
+|&emsp;&emsp;&emsp;&emsp;envName||false|string|
+|&emsp;&emsp;&emsp;&emsp;id||false|integer|
+|&emsp;&emsp;&emsp;&emsp;modifyTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;modifyUser||false|string|
+|&emsp;&emsp;dataSourceEnvId||false|integer(int64)|
+|&emsp;&emsp;dataSourceName||false|string|
+|&emsp;&emsp;dataSourceType||false|DataSourceType|DataSourceType|
+|&emsp;&emsp;&emsp;&emsp;classifier||false|string|
+|&emsp;&emsp;&emsp;&emsp;description||false|string|
+|&emsp;&emsp;&emsp;&emsp;icon||false|string|
+|&emsp;&emsp;&emsp;&emsp;id||false|string|
+|&emsp;&emsp;&emsp;&emsp;layers||false|integer|
+|&emsp;&emsp;&emsp;&emsp;name||false|string|
+|&emsp;&emsp;&emsp;&emsp;option||false|string|
+|&emsp;&emsp;dataSourceTypeId||false|integer(int64)|
+|&emsp;&emsp;expire||false|boolean|
+|&emsp;&emsp;id||false|integer(int64)|
+|&emsp;&emsp;labels||false|string|
+|&emsp;&emsp;modifyTime||false|string(date-time)|
+|&emsp;&emsp;modifyUser||false|string|
+|&emsp;&emsp;publishedVersionId||false|integer(int64)|
+|&emsp;&emsp;versionId||false|integer(int64)|
+|&emsp;&emsp;versions||false|array|DatasourceVersion|
+|&emsp;&emsp;&emsp;&emsp;comment||false|string|
+|&emsp;&emsp;&emsp;&emsp;connectParams||false|object|
+|&emsp;&emsp;&emsp;&emsp;createTime||false|string|
+|&emsp;&emsp;&emsp;&emsp;createUser||false|string|
+|&emsp;&emsp;&emsp;&emsp;datasourceId||false|integer|
+|&emsp;&emsp;&emsp;&emsp;parameter||false|string|
+|&emsp;&emsp;&emsp;&emsp;versionId||false|integer|
 
 **响应参数**:
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- |
-|data||object||
-|message||string||
-|method||string||
-|status||integer(int32)|integer(int32)|
+|data|object|
+|message|string|
+|method|string|
+|status|integer(int32)|integer(int32)|
 
 **响应示例**:
 ```javascript

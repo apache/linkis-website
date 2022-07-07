@@ -31,7 +31,7 @@ sidebar_position: 10
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|ticketid|ticketid|path|true|string||
+|ticketid|ticketid|path|true|string|
 
 
 **Response Status**:
@@ -40,9 +40,9 @@ sidebar_position: 10
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|204|No Content||
-|401|Unauthorized||
-|403|Forbidden||
+|204|No Content|
+|401|Unauthorized|
+|403|Forbidden|
 
 
 **Response parameters**:
@@ -50,9 +50,9 @@ sidebar_position: 10
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -91,7 +91,7 @@ sidebar_position: 10
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|ticketid|ticketid|query|true|string||
+|ticketid|ticketid|query|true|string|
 
 
 **Response Status**:
@@ -100,9 +100,9 @@ sidebar_position: 10
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -110,9 +110,9 @@ sidebar_position: 10
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -149,9 +149,9 @@ sidebar_position: 10
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|instance|instance name|query|false|string||
-|nodeHealthy|Status, the status has the following enumeration types 'Healthy', 'UnHealthy', 'WARN', 'StockAvailable', 'StockUnavailable'|query|false|string||
-|owner|Creator|query|false|string||
+|instance|instance name|query|false|string|
+|nodeHealthy|Status, the status has the following enumeration types 'Healthy', 'UnHealthy', 'WARN', 'StockAvailable', 'StockUnavailable'|query|false|string|
+|owner|Creator|query|false|string|
 
 
 **Response Status**:
@@ -160,9 +160,9 @@ sidebar_position: 10
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -170,9 +170,9 @@ sidebar_position: 10
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -270,14 +270,14 @@ sidebar_position: 10
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|applicationName|Engine Label||false|String|String|
-|emStatus|Instance status, the status has the following enumeration types 'Healthy', 'UnHealthy', 'WARN', 'StockAvailable', 'StockUnavailable'||false|String|String|
-|instance|Engine instance name||false|String|String|
-|labelKey|The label in the added content belongs to the key in the map in the labels collection||false|String|String|
-|labels|The engine instance updates the parameter content, and the collection stores the map type ||false|List|List|
-|stringValue|The value of the label in the added content belongs to the value in the map in the labels collection||false|String|String|
+|applicationName|Engine Label|false|String|String|
+|emStatus|Instance status, the status has the following enumeration types 'Healthy', 'UnHealthy', 'WARN', 'StockAvailable', 'StockUnavailable'|false|String|String|
+|instance|Engine instance name|false|String|String|
+|labelKey|The label in the added content belongs to the key in the map in the labels collection|false|String|String|
+|labels|The engine instance updates the parameter content, and the collection stores the map type |false|List|List|
+|stringValue|The value of the label in the added content belongs to the value in the map in the labels collection|false|String|String|
 
 
 **Response Status**:
@@ -286,10 +286,10 @@ sidebar_position: 10
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -297,9 +297,9 @@ sidebar_position: 10
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -350,13 +350,13 @@ sidebar_position: 10
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|applicationName|Engine Label||String|false|String|
-|emInstance|Instance name||String|false|String|
-|fromLine|From Line||String|false|String|
-|instance|Engine instance name||String|false|String|
-|logType|Log type, default stdout type, belonging to parameters||String|false|String|
-|pageSize|Page Size||String|false|String|
-|parameters|Pagination information||Map|false|Map|
+|applicationName|Engine Label|String|false|String|
+|emInstance|Instance name|String|false|String|
+|fromLine|From Line|String|false|String|
+|instance|Engine instance name|String|false|String|
+|logType|Log type, default stdout type, belonging to parameters|String|false|String|
+|pageSize|Page Size|String|false|String|
+|parameters|Pagination information|Map|false|Map|
 
 
 **Response Status**:
@@ -365,10 +365,10 @@ sidebar_position: 10
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -376,9 +376,9 @@ sidebar_position: 10
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

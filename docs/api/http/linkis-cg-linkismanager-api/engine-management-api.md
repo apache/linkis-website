@@ -38,10 +38,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -49,9 +49,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -99,10 +99,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -110,9 +110,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -156,10 +156,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -167,9 +167,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -215,10 +215,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -226,9 +226,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -267,7 +267,7 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|onlyEditable|onlyEditable|query|false|boolean||
+|onlyEditable|onlyEditable|query|false|boolean|
 
 
 **Response Status**:
@@ -276,9 +276,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -286,9 +286,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -339,14 +339,14 @@ No
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|applicationName|Engine tag name, which belongs to the value in serviceInstance||String|false|String|
-|em|The outermost layer of the input parameter||Map|false|Map|
-|emInstance|The name of the engine instance and the level of 'em' belong to the outermost layer||String|false|String|
-|engineType|The engine type belongs to the outermost level with the same level as 'em'||String|false|String|
-|instance|Instance name||String|false|String|
-|nodeStatus|The status is the outermost level with 'em', and the status has the following enumeration types 'Healthy', 'UnHealthy', 'WARN', 'StockAvailable', 'StockUnavailable'||String|false|String|
-|owner|The creator is at the same level as 'em' and belongs to the outermost layer||String|false|String|
-|serviceInstance|The input parameter belongs to ''em||Map|false|Map|
+|applicationName|Engine tag name, which belongs to the value in serviceInstance|String|false|String|
+|em|The outermost layer of the input parameter|Map|false|Map|
+|emInstance|The name of the engine instance and the level of 'em' belong to the outermost layer|String|false|String|
+|engineType|The engine type belongs to the outermost level with the same level as 'em'|String|false|String|
+|instance|Instance name|String|false|String|
+|nodeStatus|The status is the outermost level with 'em', and the status has the following enumeration types 'Healthy', 'UnHealthy', 'WARN', 'StockAvailable', 'StockUnavailable'|String|false|String|
+|owner|The creator is at the same level as 'em' and belongs to the outermost layer|String|false|String|
+|serviceInstance|The input parameter belongs to ''em|Map|false|Map|
 
 
 **Response Status**:
@@ -355,10 +355,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -366,9 +366,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -414,9 +414,9 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -424,9 +424,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -463,14 +463,14 @@ No
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|applicationName|Engine Label||false|String|String|
-|emStatus|Running Status||false|String|String|
-|instance|Engine instance name||false|String|String|
-|labelKey|The label in the added content belongs to the key in the map in the labels collection||false|String|String|
-|labels|The engine instance updates the parameter content, and the collection stores the map type ||false|List|List|
-|stringValue|The value of the label in the added content belongs to the value in the map in the labels collection||false|String|String|
+|applicationName|Engine Label|false|String|String|
+|emStatus|Running Status|false|String|String|
+|instance|Engine instance name|false|String|String|
+|labelKey|The label in the added content belongs to the key in the map in the labels collection|false|String|String|
+|labels|The engine instance updates the parameter content, and the collection stores the map type |false|List|List|
+|stringValue|The value of the label in the added content belongs to the value in the map in the labels collection|false|String|String|
 
 
 **Response Status**:
@@ -479,10 +479,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -490,9 +490,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -539,10 +539,10 @@ No
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required | Request type  | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|applicationName|The application name, the outermost layer is an array and the engineInstance parameter is a level||false|String|String|
-|engineInstance|The name of the engine instance, the outermost layer is an array and the applicationName parameter is a level||false|String|String|
+|applicationName|The application name, the outermost layer is an array and the engineInstance parameter is a level|false|String|String|
+|engineInstance|The name of the engine instance, the outermost layer is an array and the applicationName parameter is a level|false|String|String|
 
 
 **Response Status**:
@@ -551,10 +551,10 @@ No
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -562,9 +562,9 @@ No
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

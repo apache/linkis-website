@@ -38,10 +38,10 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -49,9 +49,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -99,10 +99,10 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -110,9 +110,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -158,10 +158,10 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -169,9 +169,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -217,10 +217,10 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -228,9 +228,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -269,7 +269,7 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|onlyEditable|onlyEditable|query|false|boolean||
+|onlyEditable|onlyEditable|query|false|boolean|
 
 
 **响应状态**:
@@ -278,9 +278,9 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -288,9 +288,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -341,14 +341,14 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|applicationName|引擎标签名称，属于serviceInstance中的值||String|false|String|
-|em|入参最外层||Map|false|Map|
-|emInstance|引擎实例名称跟‘em’一个级别属于最外层||String|false|String|
-|engineType|引擎类型跟‘em’一个级别属于最外层||String|false|String|
-|instance|实例名称||String|false|String|
-|nodeStatus|状态跟‘em’一个级别属于最外层,状态有以下枚举类型 ‘Healthy‘, ‘UnHealthy‘, ‘WARN‘, ’StockAvailable’, ‘StockUnavailable’||String|false|String|
-|owner|创建者跟‘em’一个级别属于最外层||String|false|String|
-|serviceInstance|入参属于‘’em||Map|false|Map|
+|applicationName|引擎标签名称，属于serviceInstance中的值|String|false|String|
+|em|入参最外层|Map|false|Map|
+|emInstance|引擎实例名称跟‘em’一个级别属于最外层|String|false|String|
+|engineType|引擎类型跟‘em’一个级别属于最外层|String|false|String|
+|instance|实例名称|String|false|String|
+|nodeStatus|状态跟‘em’一个级别属于最外层,状态有以下枚举类型 ‘Healthy‘, ‘UnHealthy‘, ‘WARN‘, ’StockAvailable’, ‘StockUnavailable’|String|false|String|
+|owner|创建者跟‘em’一个级别属于最外层|String|false|String|
+|serviceInstance|入参属于‘’em|Map|false|Map|
 
 
 **响应状态**:
@@ -357,10 +357,10 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -368,9 +368,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -418,9 +418,9 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -428,9 +428,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -469,12 +469,12 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|applicationName|引擎标签||false|String|String|
-|emStatus|运行状态||false|String|String|
-|instance|引擎实例名称||false|String|String|
-|labelKey|添加内容里面的标签，属于labels集合 内 map里的key||false|String|String|
-|labels|引擎实例更新参数内容，集合存放的是map类型的||false|List|List|
-|stringValue|添加内容里面的标签对于的值，属于labels集合 内 map里的value||false|String|String|
+|applicationName|引擎标签|false|String|String|
+|emStatus|运行状态|false|String|String|
+|instance|引擎实例名称|false|String|String|
+|labelKey|添加内容里面的标签，属于labels集合 内 map里的key|false|String|String|
+|labels|引擎实例更新参数内容，集合存放的是map类型的|false|List|List|
+|stringValue|添加内容里面的标签对于的值，属于labels集合 内 map里的value|false|String|String|
 
 
 **响应状态**:
@@ -483,10 +483,10 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -494,9 +494,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -545,8 +545,8 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|applicationName|应用名称，最外层是个数组和engineInstance参数是一个级别||false|String|String|
-|engineInstance|引擎实例名称，最外层是个数组和applicationName参数是一个级别||false|String|String|
+|applicationName|应用名称，最外层是个数组和engineInstance参数是一个级别|false|String|String|
+|engineInstance|引擎实例名称，最外层是个数组和applicationName参数是一个级别|false|String|String|
 
 
 **响应状态**:
@@ -555,10 +555,10 @@ sidebar_position: 2
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -566,9 +566,9 @@ sidebar_position: 2
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 

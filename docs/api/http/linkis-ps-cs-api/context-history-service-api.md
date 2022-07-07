@@ -28,11 +28,11 @@ sidebar_position: 14
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|jsonNode|jsonNode|body|true|JsonNode|JsonNode|
-|contextHistory|History context||false|String|String|
-|contextID|context id||false|String|String|
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
+|contextHistory|History context|false|String|String|
+|contextID|context id|false|String|String|
 
 
 **Response Status**:
@@ -41,10 +41,10 @@ sidebar_position: 14
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -52,9 +52,9 @@ sidebar_position: 14
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -91,10 +91,10 @@ sidebar_position: 14
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|jsonNode|jsonNode|body|true|JsonNode|JsonNode|
-|contextID|context id||false|String|String|
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
+|contextID|context id|false|String|String|
 
 
 **Response Status**:
@@ -103,10 +103,10 @@ sidebar_position: 14
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -114,9 +114,9 @@ sidebar_position: 14
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -153,11 +153,11 @@ sidebar_position: 14
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|jsonNode|jsonNode|body|true|JsonNode|JsonNode|
-|contextID|ContextId||false|String|String|
-|source|Context Source||false|String|String|
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
+|contextID|ContextId|false|String|String|
+|source|Context Source|false|String|String|
 
 
 **Response Status**:
@@ -166,10 +166,10 @@ sidebar_position: 14
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -177,9 +177,9 @@ sidebar_position: 14
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -216,11 +216,11 @@ sidebar_position: 14
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|jsonNode|jsonNode|body|true|JsonNode|JsonNode|
-|contextHistory|History context||false|String|String|
-|contextID|context id||false|String|String|
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
+|contextHistory|History context|false|String|String|
+|contextID|context id|false|String|String|
 
 
 **Response Status**:
@@ -229,10 +229,10 @@ sidebar_position: 14
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -240,9 +240,9 @@ sidebar_position: 14
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 
@@ -279,11 +279,11 @@ sidebar_position: 14
 **Request Parameters**:
 
 
-| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|jsonNode|jsonNode|body|true|JsonNode|JsonNode|
-|contextID|ContextId||false|String|String|
-|keywords|Keywords||false|String|String|
+| Parameter name | Parameter description | Required   | Request type| Data type | schema |
+|contextID|ContextId|false|String|String|
+|keywords|Keywords|false|String|String|
 
 
 **Response Status**:
@@ -292,10 +292,10 @@ sidebar_position: 14
 | Status code | Description | schema |
 | -------- | -------- | ----- |
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -303,9 +303,9 @@ sidebar_position: 14
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
-|data|Dataset|object||
-|message|Description|string||
-|method|request url|string||
+|data|Dataset|object|
+|message|Description|string|
+|method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
 

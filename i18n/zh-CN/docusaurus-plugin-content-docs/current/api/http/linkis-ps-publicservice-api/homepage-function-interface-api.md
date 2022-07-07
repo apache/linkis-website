@@ -36,9 +36,9 @@ sidebar_position: 7
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -46,9 +46,9 @@ sidebar_position: 7
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -87,17 +87,17 @@ sidebar_position: 7
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|creator|创建者|query|false|string||
-|endDate|结束时间|query|false|integer(int64)||
-|executeApplicationName|操作人|query|false|string||
-|isAdminView|是否为管理员模式或者普通模式|query|false|boolean||
-|pageSize|页面数量|query|false|ref||
-|proxyUser|代理用户|query|false|string||
-|startDate|开始时间|query|false|integer(int64)||
-|status|结束时间|query|false|string||
-|taskID|ID|query|false|integer(int64)||
-|tpageNow|页码|query|false|ref||
-|pageNow|pageNow|query|false|integer(int32)||
+|creator|创建者|query|false|string|
+|endDate|结束时间|query|false|integer(int64)|
+|executeApplicationName|操作人|query|false|string|
+|isAdminView|是否为管理员模式或者普通模式|query|false|boolean|
+|pageSize|页面数量|query|false|ref|
+|proxyUser|代理用户|query|false|string|
+|startDate|开始时间|query|false|integer(int64)|
+|status|结束时间|query|false|string|
+|taskID|ID|query|false|integer(int64)|
+|tpageNow|页码|query|false|ref|
+|pageNow|pageNow|query|false|integer(int32)|
 
 
 **响应状态**:
@@ -106,9 +106,9 @@ sidebar_position: 7
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -116,9 +116,9 @@ sidebar_position: 7
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -191,14 +191,14 @@ sidebar_position: 7
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|creator|creator|query|false|string||
-|endDate|结束时间|query|false|integer(int64)||
-|engineType|engineType|query|false|string||
-|pageNow|pageNow|query|false|ref||
-|pageSize|pageSize|query|false|ref||
-|startDate|开始时间|query|false|ref||
-|startTaskID|startTaskID|query|false|integer(int64)||
-|status|status|query|false|string||
+|creator|creator|query|false|string|
+|endDate|结束时间|query|false|integer(int64)|
+|engineType|engineType|query|false|string|
+|pageNow|pageNow|query|false|ref|
+|pageSize|pageSize|query|false|ref|
+|startDate|开始时间|query|false|ref|
+|startTaskID|startTaskID|query|false|integer(int64)|
+|status|status|query|false|string|
 
 
 **响应状态**:
@@ -207,9 +207,9 @@ sidebar_position: 7
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -217,9 +217,9 @@ sidebar_position: 7
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 
@@ -258,7 +258,7 @@ sidebar_position: 7
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|id|历史记录Id|query|false|integer(int64)||
+|id|历史记录Id|query|false|integer(int64)|
 
 
 **响应状态**:
@@ -267,9 +267,9 @@ sidebar_position: 7
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **响应参数**:
@@ -277,9 +277,9 @@ sidebar_position: 7
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|data|数据集|object||
-|message|描述|string||
-|method|请求url|string||
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
 |status|状态|integer(int32)|integer(int32)|
 
 

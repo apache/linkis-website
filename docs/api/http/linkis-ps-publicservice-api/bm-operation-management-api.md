@@ -39,10 +39,10 @@ sidebar_position: 29
 |Status code | description | schema|
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -50,9 +50,9 @@ sidebar_position: 29
 
 |parameter name | parameter description | type | schema|
 | -------- | -------- | ----- |----- | 
-|data | dataset | object||
-|message | description | string||
-|method| request url|string||
+|data | dataset | object|
+|message | description | string|
+|method| request url|string|
 |status | status | integer  | integer |
 
 
@@ -102,10 +102,10 @@ sidebar_position: 29
 |Status code | description | schema|
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -113,9 +113,9 @@ sidebar_position: 29
 
 |Parameter name | parameter description | type | schema|
 | -------- | -------- | ----- |----- | 
-|Data | dataset | object||
-|Message | description | string||
-|Method| request url|string||
+|Data | dataset | object|
+|Message | description | string|
+|Method| request url|string|
 |Status | status | integer  | integer |
 
 
@@ -154,8 +154,8 @@ sidebar_position: 29
 
 |Parameter name | parameter description | request type | must be | data type | schema|
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|Resourceid | resource ID | query | false | string||
-|Version | version | query | false | string||
+|Resourceid | resource ID | query | false | string|
+|Version | version | query | false | string|
 
 
 **Response status**:
@@ -164,9 +164,9 @@ sidebar_position: 29
 |Status code | description | schema|
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -174,9 +174,9 @@ sidebar_position: 29
 
 |parameter name | parameter description | type | schema|
 | -------- | -------- | ----- |----- | 
-|data | dataset | object||
-|message | description | string||
-|method| request url|string||
+|data | dataset | object|
+|message | description | string|
+|method| request url|string|
 |status | status | integer  | integer |
 
 
@@ -215,7 +215,7 @@ sidebar_position: 29
 
 |Parameter name | parameter description | request type | must be | data type | schema|
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|ProjectName | project name | query | false | string||
+|ProjectName | project name | query | false | string|
 
 
 **Response status**:
@@ -224,9 +224,9 @@ sidebar_position: 29
 |Status code | description | schema|
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -234,9 +234,9 @@ sidebar_position: 29
 
 |Parameter name | parameter description | type | schema|
 | -------- | -------- | ----- |----- | 
-|Data | dataset | object||
-|Message | description | string||
-|Method| request url|string||
+|Data | dataset | object|
+|Message | description | string|
+|Method| request url|string|
 |Status | status | integer  | integer |
 
 
@@ -286,10 +286,10 @@ sidebar_position: 29
 |Status code | description | schema|
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -297,9 +297,9 @@ sidebar_position: 29
 
 |Parameter name | parameter description | type | schema|
 | -------- | -------- | ----- |----- | 
-|Data | dataset | object||
-|Message | description | string||
-|Method| request url|string||
+|Data | dataset | object|
+|Message | description | string|
+|Method| request url|string|
 |Status | status | integer  | integer |
 
 
@@ -338,8 +338,8 @@ sidebar_position: 29
 
 |parameter name | parameter description | request type | must be | data type | schema|
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|file | file | formdata | false | ref||
-|resourceid | resource ID | query | false | string||
+|file | file | formdata | false | ref|
+|resourceid | resource ID | query | false | string|
 
 **Response status**:
 
@@ -347,10 +347,10 @@ sidebar_position: 29
 |Status code | description | schema|
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -358,9 +358,9 @@ sidebar_position: 29
 
 |Parameter name | parameter description | type | schema|
 | -------- | -------- | ----- |----- | 
-|Data | dataset | object||
-|Message | description | string||
-|Method| request url|string||
+|Data | dataset | object|
+|Message | description | string|
+|Method| request url|string|
 |Status | status | integer  | integer |
 
 
@@ -399,14 +399,14 @@ sidebar_position: 29
 
 |parameter name | parameter description | request type | must be | data type | schema|
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|expireTime | expiration time | query | false | string||
-|expiretype | failure type | query | false | string||
-|file | file set | formdata | false | ref||
-|isexpire | invalid | query | false | string||
-|maxversion | MAV version | query | false | ref||
-|projectName | project name | query | false | string||
-|resourceheader | resource header | query | false | string||
-|system | system | query | false | string||
+|expireTime | expiration time | query | false | string|
+|expiretype | failure type | query | false | string|
+|file | file set | formdata | false | ref|
+|isexpire | invalid | query | false | string|
+|maxversion | MAV version | query | false | ref|
+|projectName | project name | query | false | string|
+|resourceheader | resource header | query | false | string|
+|system | system | query | false | string|
 
 **Response status**:
 
@@ -414,10 +414,10 @@ sidebar_position: 29
 |Status code | description | schema|
 | -------- | -------- | ----- | 
 |200|OK|Message|
-|201|Created||
-|401|Unauthorized||
-|403|Forbidden||
-|404|Not Found||
+|201|Created|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
 
 
 **Response parameters**:
@@ -425,9 +425,9 @@ sidebar_position: 29
 
 |Parameter name | parameter description | type | schema|
 | -------- | -------- | ----- |----- | 
-|Data | dataset | object||
-|Message | description | string||
-|Method| request url|string||
+|Data | dataset | object|
+|Message | description | string|
+|Method| request url|string|
 |Status | status | integer  | integer |
 
 
