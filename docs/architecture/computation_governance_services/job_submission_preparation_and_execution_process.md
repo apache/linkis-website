@@ -62,7 +62,7 @@ If the user has a reusable EngineConn in LinkisManager, the EngineConn is direct
 
 How to define a reusable EngineConn? It refers to those that can match all the label requirements of the computing task, and the EngineConn's own health status is Healthy (the load is low and the actual status is Idle). Then, all the EngineConn that meets the conditions are sorted and selected according to the rules, and finally the best one is locked.
 
-If the user does not have a reusable EngineConn, a process to request a new EngineConn will be triggered at this time. Regarding the process, please refer to: [How to add an EngineConn](add_an_engine_conn.md).
+If the user does not have a reusable EngineConn, a process to request a new EngineConn will be triggered at this time. Regarding the process, please refer to: [How to add an EngineConn](engine/add_an_engine_conn.md).
 
 #### 2.2 Orchestrate a computing task
 
