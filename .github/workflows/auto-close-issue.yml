@@ -10,19 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: "Issue number validator"
-        uses: ./.github/actions/PR_has_a_valid_issue/
-        id: validator
+      - name: "Auto issue closer"
+        uses: ./.github/actions/Auto_close_associate_issue/
+        id: Closer
         with:
           prbody: ${{ github.event.pull_request.body }}
-          prurl: ${{ github.event.pull_request.url }}
 
       - name: Close Issue
         uses: peter-evans/close-issue@v2
         if: ${{ github.event.pull_request.merged }}
         with:
-          issue-number: ${{ steps.validator.outputs.issueNumber }}
-          comment: Auto-closing issue
+          issue-number: ${{ steps.Closer.outputs.issueNumber && steps.Closer.outputs.issueNumber != -1 }}
+          comment: The associated PR has been merged, this issue is automatically closed, you can reopend if necessary.
         env:
           Github_Token: ${{ secrets.GITHUB_TOKEN }}
           PRNUM: ${{ github.event.pull_request.number }}
