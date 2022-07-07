@@ -17,7 +17,7 @@ sidebar_position: 1
 ### 2.1 技术架构
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自定义变量整体架构如下，用于任务提交过来后，会经过变量替换拦截器。首先会解析出所有代码中用到的变量和表达式，然后通过和系统以及用户自定义的变量初始值进行替换，最终将解析后的代码提交给EngineConn执行。所以到底层引擎已经是替换好的代码。
 
-![var_arc](/Images-zh/Architecture/Commons/var_arc.png)
+![var_arc](/Images/Architecture/Commons/var_arc.png)
 
 ### 3 功能介绍
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis支持的变量类型分为自定义变量和系统内置变量，内部变量是Linkis预先定义好的，可以直接进行使用。然后不同的变量类型支持不同的计算格式：String支持+、整数小数支持+-*/,日期支持+-。

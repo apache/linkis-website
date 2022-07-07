@@ -17,7 +17,7 @@ sidebar_position: 1
 ### 2.1 Technical Architecture
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The overall structure of custom variables is as follows. After the task is submitted, it will go through the variable replacement interceptor. First, all variables and expressions used in the code will be parsed, and then replaced with the system and user-defined initial values ​​of variables, and finally the parsed code will be submitted to EngineConn for execution. So the underlying engine is already replaced code.
 
-![var_arc](/Images-en/Architecture/Commons/var_arc.png)
+![var_arc](/Images/Architecture/Commons/var_arc.png)
 
 ### 3 Function introduction
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The variable types supported by Linkis are divided into custom variables and system built-in variables. The internal variables are predefined by Linkis and can be used directly. Then different variable types support different calculation formats: String supports +, integer decimal supports +-*/, date supports +-.
