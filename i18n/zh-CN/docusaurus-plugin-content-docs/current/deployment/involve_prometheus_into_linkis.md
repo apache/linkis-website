@@ -1,39 +1,40 @@
 ---
-title: Involve Prometheus into Linkis
+title: 开启Prometheus监控
 sidebar_position: 11
 ---
-This article describes how to enable Prometheus to monitor all running Linkis services.
+这篇文章描述了如何让Prometheus监控所有正在运行的Linkis服务。
 
-## 1. Introduction to Prometheus
+## 1. Prometheus介绍
 
-### 1.1 What is Prometheus
+### 1.1 Prometheus是什么
 
-Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed.
 
-In the context of microservice, it provides the service discovery feature, enabling to find targets dynamically from service register center, like Eureka, Consul, etc, and pull the metrics from API endpoint over http protocol.
+Prometheus 是一个云原生计算基金会项目，是一个系统和服务监控系统。它以给定的时间间隔从配置的目标收集指标，评估规则表达式，显示结果，并在观察到指定条件时触发警报。
 
-### 1.2 Prometheus Architecture
+在微服务上下文中，它提供了服务发现功能，可以从服务注册中心动态查找目标，如 Eureka、Consul 等，并通过 http 协议从 API 端点拉取指标。
 
-This diagram illustrates the architecture of Prometheus and some of its ecosystem components:
+### 1.2 Prometheus架构
+
+下图说明了 Prometheus 的架构及其一些生态系统组件：
 
 ![](https://prometheus.io/assets/architecture.png)
 
-Prometheus scrapes metrics from instrumented jobs, either directly or via an intermediary push gateway for short-lived jobs. It stores all scraped samples locally and runs rules over this data to either aggregate and record new time series from existing data or generate alerts. Grafana or other API consumers can be used to visualize the collected data.
+Prometheus可以直接抓取指标，或通过push gateway间接地接收短作业的指标。它将所有抓取的样本存储在本地，并在这些数据上运行规则，以从现有数据聚合和记录新的时间序列，或生成警报。可以使用Grafana或其他API消费者对收集的数据进行可视化。
 
 ![](/Images/deployment/monitoring/prometheus_architecture.jpg)
 
-In the context of Linkis, we will use Eureka (Service Discover)SD in Prometheus to retrieve scrape targets using the Eureka REST API. And Prometheus will periodically check the REST endpoint and create a target for every app instance.
+在 Linkis中，我们将使用 Prometheus 中的 Eureka (Service Discover)SD 来使用 Eureka REST API 来查询抓取目标。 Prometheus 将定期检查 REST 端点并为每个应用程序实例创建一个抓取目标。
 
-## 2. Enable Prometheus and start Linkis
+## 2. 启用 Prometheus 并启动 Linkis
 
-### 2.1 Enable Prometheus when installing Linkis
+### 2.1 安装 Linkis 时启用 Prometheus
 
-Modify the configuration item `PROMETHEUS_ENABLE` in linkis-env.sh of Linkis.
+修改安装脚本linkis-env.sh中的`PROMETHEUS_ENABLE`。
 
 ```bash
 export PROMETHEUS_ENABLE=true
 ````
-After running the `install.sh`, it's expected to see the configuration is appended inside the following files:
+运行 `install.sh`脚本后, 新的配置会出现在下列文件中：
 
 ```yaml
 ## application-linkis.yml  ##
@@ -72,7 +73,7 @@ wds.linkis.prometheus.enable=true
 wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
 ````
-Then inside each computation engine, like spark, flink or hive, it's needed to add the same configuration **manually**.
+然后在每个计算引擎内部，如 spark、flink 或 hive，都需要手动添加相同的配置。
 ```yaml
 ## linkis-engineconn.properties  ##
 ...
@@ -81,26 +82,28 @@ wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
 ````
 
-**Note**: If you don't use `install.sh` script when installing Linkis, it's necessary to add the above configuration on your own.
+**请注意**: 如果安装Linkis时不使用install.sh脚本，则需要自行添加以上配置。
 
-Then start Linkis.
+然后启动Linkis
 
 ```bash
 $ bash linkis-start-all.sh
 ````
 
-After start the services, it's expected to access the prometheus endpoint of each microservice in the Linkis, for example, http://linkishost:9103/api/rest_j/v1/actuator/prometheus.
+Linkis启动后，各个微服务的prometheus端点是可以直接被访问的，例如http://linkishost:9103/api/rest_j/v1/actuator/prometheus
 
-## 3. Deploy the Prometheus, Alertmanager and Grafana
-Usually the monitoring setup for a cloud native application will be deployed on kubernetes with service discovery and high availability (e.g. using a kubernetes operator like Prometheus Operator). To quickly prototype dashboards and experiment with different metric type options (e.g. histogram vs gauge) you may need a similar setup locally. This sector explains how to setup locally a Prometheus/Alert Manager and Grafana monitoring stack with Docker Compose.
+## 3. 部署Prometheus,Alertmanager和Grafana
+通常来说，云原生应用程序的监控设置将部署在具有服务发现和高可用性的 Kubernetes 上（例如，使用像 Prometheus Operator 这样的 Kubernetes Operator）。
+为了快速展示监控仪表盘，和试验不同类型的图表(histogram/ gauge)，你需要一个本地简易的构建。
+这个部分将会解释如何在本地通过 Docker Compose搭建Prometheus/Alert Manager和Grafana这一监控套件。
 
-First, lets define a general component of the stack as follows:
+首先，让我们定义该技术栈的通用组件，如下所示：
 
-- An Alert Manager container that exposes its UI at 9093 and read its configuration from alertmanager.conf
-- A Prometheus container that exposes its UI at 9090 and read its configuration from prometheus.yml and its list of alert rules from alert_rules.yml
-- A Grafana container that exposes its UI at 3000, with list of metrics sources defined in grafana_datasources.yml and configuration in grafana_config.ini
+- Alert Manager容器对外通过端口9093暴露UI，并从alertmanager.conf读取配置；
+- Prometheus容器对外通过端口9090暴露UI，从prometheus.yml读取配置文件，从alert_rules.yml中读取报警规则；
+- Grafana容器对外通过端口3000暴露UI, 指标数据源定义在grafana_datasources.yml中，配置文件通过grafana_config.ini定义；
+- 以下的docker-compose.yml文件总结了上述组件的配置:
 
-- The following docker-compose.yml file summaries the configuration of all those components:
 
 ````yaml
 ## docker-compose.yml ##
@@ -143,8 +146,9 @@ services:
     ports:
       - "3000:3000"
 ````
-Second, to define some alerts based on metrics in Prometheus, you can group then into an alert_rules.yml, so you could validate those alerts are properly triggered in your local setup before configuring them in the production instance.
-As an example, the following configration convers the usual metrics used to monitor Linkis services.
+
+然后，为了根据 Prometheus 中的指标定义一些警报，您可以将它们分组到一个 alert_rules.yml 中，这样您就可以在生产实例中配置它们之前验证这些警报是否在本地设置中正确触发。例如，以下配置转换了用于监控 Linkis 服务的常用指标。
+
 - a. Down instance
 - b. High Cpu for each JVM instance (>80%)
 - c. High Heap memory for each JVM instance (>80%)
@@ -216,14 +220,15 @@ groups:
         description: "waiting threads is over 100 for over 1min"
         value: "{{ $value }}"
 ````
-**Note**: Since once the service instance is shutdown, it will not be one of the target of Prometheus Eureka SD, and `up` metrics will not return any data after a short time. Thus we will collect if the `up=0` in the last one minute to determine whether the service is alive or not. 
+**请注意**: 由于服务实例一旦关闭，它就不会成为 Prometheus Eureka SD 的目标之一，并且 up 指标在短时间内不会返回任何数据。因此，我们将收集最后一分钟是否 up=0 以确定服务是否处于活动状态。
 
-Third, and most importantly define Prometheus configuration in prometheus.yml file. This will defines:
+第三点, 最重要的是在 prometheus.yml 文件中定义 Prometheus 配置。这将定义：
 
-- the global settings like scrapping interval and rules evaluation interval
-- the connection information to reach AlertManager and the rules to be evaluated
-- the connection information to application metrics endpoint.
-This is an example configration file for Linkis:
+- 全局设定，例如指标抓取时间间隔，和规则扫描间隔；
+- AlertManager的连接信息，告警规则定义路径；
+- 应用指标端口的连接信息。
+
+这是 Linkis 的示例配置文件:
 ````yaml
 ## prometheus.yml ##
 # my global config
@@ -256,7 +261,7 @@ scrape_configs:
         target_label: __metrics_path__
         regex: (.+)
 ````
-Forth, the following configuration defines how alerts will be sent to external webhook.
+第四点，下面的配置定义了警报将如何发送到外部webhook。
 ```yaml
 ## alertmanager.yml ##
 global:
@@ -281,15 +286,15 @@ receivers:
 
 ````
 
-Finally, after defining all the configuration file as well as the docker compose file we can start the monitoring stack with `docker-compose up`
-
-## 4. Result display
-On Prometheus page, it's expected to see all the Linkis service instances as shown below:
+最后，在定义完所有配置文件以及 docker compose 文件后，我们可以使用 docker-compose up启动监控套件
+## 4. 结果展示
+在 Prometheus 页面上，预计会看到所有 Linkis 服务实例，如下所示：
 ![](/Images/deployment/monitoring/prometheus_screenshot.jpg)
 
-When the Grafana is accessible, you need to import the prometheus as datasource in Grafana, and import the dashboard template with id 11378, which is normally used for springboot service(2.1+).
-Then you can view one living dashboard of Linkis there.
+当 Grafana 可访问的时候，您需要在 Grafana 中导入 prometheus 作为数据源，并导入 id 为 11378 的仪表板模板，该模板通常用于 springboot 服务（2.1+）。然后您可以在那里查看 Linkis 的一个实时仪表板。
+
+然后您可以在那里查看 Linkis 的实时仪表板。
 
 ![](/Images/deployment/monitoring/grafana_screenshot.jpg)
 
-You can also try to integrate the Prometheus alter manager with your own webhook, where you can see if the alter message is fired.
+您还可以尝试将 Prometheus alter manager 与您自己的 webhook 集成，您可以在其中查看是否触发了告警消息。
