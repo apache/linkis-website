@@ -152,8 +152,11 @@ Located in `src/pages/versions`
         index.less
 ```
 
-### 3.9 Link specification in markdown
-In order to be properly detected by [untitaker/hyperlink@0.1.21](https://github.com/marketplace/actions/hyperlink-link-checker), if you want to jump to another document such as `/community/how-to-email.md` from a markdown document, you need to remove the suffix `.md`(written as `/community/how-to-email`) from the path.
+### 3.9 User list page modification
+Visit the page https://linkis.apache.org/user
+
+Company logo Located in `static/home/user`, and the picture size must be 176 × 88.
+
 
 ## 4 New documents
 
