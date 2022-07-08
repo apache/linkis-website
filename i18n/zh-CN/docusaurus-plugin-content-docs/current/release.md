@@ -2,36 +2,35 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-
-- [数据源管理服务架构文档](/architecture/public_enhancement_services/datasource_manager.md)
-- [元数据管理服务架构文档](/architecture/public_enhancement_services/metadata_manager.md)
-- [数据源介绍&功能使用指引](/deployment/start_metadatasource.md)
-- [数据源客户端的使用指引](/user_guide/linkis-datasource-client.md)
-- [数据源http接口文档](/api/http/data-source-manager-api.md)
-- [元数据http接口文档](/api/http/metadatamanager-api.md)
-- [开启SkyWalking功能](/deployment/involve_skywalking_into_linkis.md)
-- [版本的release-notes](release-notes-1.1.0.md)
+- [无HDFS模式的精简化部署指引](/deployment/deploy_linkis_without_hdfs.md)
+- [Sqoop引擎的使用](/engine_usage/sqoop.md)
+- [历史任务查询HTTP接口](/api/http/jobhistory-api.md)
+- [工具Scriptis的安装部署](/deployment/linkis_scriptis_install.md)
 
 ## 参数变化 
 
-| 模块名(服务名)| 类型  |     参数名                                                | 默认值                                                | 描述                                                    |
-| ----------- | ----- | -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.lib.dir                    | /lib/linkis-public-enhancements/linkis-ps-metadatamanager/service | 设置需要加载数据源jar包的相对路径，会通过反射调用|
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.instance.expire-in-seconds | 60                                                    | 设置加载子服务的过期时间，超过该时间将不加载该服务           |
-|ps-metadatamanager | 新增  | wds.linkis.server.dsm.app.name                           | linkis-ps-data-source-manager                         | 设置获取数据源信息的名称                                 |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.app.name                   | linkis-ps-metadatamanager                             | 设置数据元信息的服务名称                                  |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.kerberos.principle         | hadoop/HOST@EXAMPLE.COM                               | set kerberos principle for linkis-metadata hive service |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.user                       | hadoop                                                | 设置hive服务的访问用户                                    |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.kerberos.krb5.path         | ""                                                    | 设置hive服务使用的kerberos krb5 路径                     |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.temp.location              | classpath:/tmp                                        | 设置kafka与hive的临时路径                               |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.sql.driver                 | com.mysql.jdbc.Driver                                 | 设置mysql服务的驱动                                     |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.sql.url                    | jdbc:mysql://%s:%s/%s                                 | 设置mysql服务的url格式                                  |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.sql.connect.timeout        | 3000                                                  | 设置mysql服务连接mysql服务的连接超时时间                 |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.sql.socket.timeout         | 6000                                                  | 设置mysql服务打开mysql服务的socket超时时间              |
-|ps-metadatamanager | 新增  | wds.linkis.server.mdm.service.temp.location              | /tmp/keytab                                           | 设置服务的本地临时存储路径，主要是存储从bml物料服务下载的认证文件 |
-|ps-data-source-manager| 新增  | wds.linkis.server.dsm.auth.admin                      | hadoop                                                | datasourcemanager 部分接口权限验证用户  |
-|cg-engineconnmanager| 修改  | wds.linkis.engineconn.max.free.time                     | 1h -> 0.5h                                           | EngineConn的最大空闲时间 从1h调至0.5h |
+
+| 模块名(服务名)| 类型  |     参数名                                                | 默认值             | 描述                                                    |
+| ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
+|common   | 新增   |linkis.codeType.runType.relation             | sql=>sql\|hql\|jdbc\|hive\|psql\|fql,<br/>python=>python\|py\|pyspark,<br/>java=>java,scala=>scala,<br/>shell=>sh\|shell |codeType和runType的映射关系|
+|rpc      | 新增  | linkis.rpc.spring.params.enable             | false   | 控制RPC模块的ribbon模式参数开关|
+|ec       | 新增  | linkis.engineconn.max.parallelism           |300 |    异步执行支持设置并发作业组数     |
+|ec       | 新增  | linkis.engineconn.async.group.max.running   | 10|                                   |
+|ec-flink | 新增  | linkis.flink.execution.attached                 | true|                                 |
+|ec-flink | 新增  | linkis.flink.kerberos.enable                    | false|                                |
+|ec-flink | 新增  | linkis.flink.kerberos.login.contexts            | Client,KafkaClient|                  |
+|ec-flink | 新增  | linkis.flink.kerberos.login.keytab              | |                                   |
+|ec-flink | 新增  | linkis.flink.kerberos.login.principal           | |                                   |
+|ec-flink | 新增  | linkis.flink.kerberos.krb5-conf.path            | |                                   |
+|ec-flink | 新增  | linkis.flink.params.placeholder.blank           | \\0x001|                            |
+|ec-sqoop | 新增  | sqoop.task.map.memory                           | 2|                                 |
+|ec-sqoop | 新增  | sqoop.task.map.cpu.cores                        | 1|                                 |
+|ec-sqoop | 新增  | sqoop.params.name.mode                         | sqoop.mode|                        |
+|ec-sqoop | 新增  | sqoop.params.name.prefix                        | sqoop.args.|                     |
+|ec-sqoop | 新增  | sqoop.params.name.env.prefix                    |sqoop.env.|                     |             
+|ec-sqoop | 新增  | linkis.hadoop.site.xml                     |/etc/hadoop/conf/core-site.xml;<br/>/etc/hadoop/conf/hdfs-site.xml;<br/>/etc/hadoop/conf/yarn-site.xml;<br/>/etc/hadoop/conf/mapred-site.xml|  设置sqoop加载hadoop参数文件位置                   |          
+|ec-sqoop | 新增  | sqoop.fetch.status.interval                    |5s|            设置获取sqoop执行状态的间隔时间         |                       
 
 ## 数据库表变化 
 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.0_schema`文件
+无变化

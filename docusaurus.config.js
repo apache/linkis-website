@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   // omit unrelated docusaurus options
   title: 'Apache Linkis',
   tagline: 'Apache Linkis',
-  url: 'https://linkis.apache.org',
+  url: 'https://linkis.incubator.apache.org',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
@@ -41,21 +41,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.1.0',
+              path: '1.1.3',
+              label: 'Next(1.1.3)'
             },
-            '1.0.3': {
-              //label: 'Next v1.0.3 (WIP)',
+            '1.1.2': {
               path: 'latest',
-              //banner: 'none',
             },
-            '1.0.2': {
-              //label: 'v1.0.2',
-              path: '1.0.2',
-              //banner: 'unmaintained',
-            },
-            '0.11.0': {
-              path: '0.11.0',
-            }
           }
         },
         blog: {
@@ -119,6 +110,17 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           activeBaseRegex: `^/$`,
         },
         {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+          dropdownItemsAfter: [
+            {
+              to: '/versions',
+              label: 'All versions',
+            },
+          ],
+        },
+        {
           to: '/faq/main',
           position: 'left',
           label: 'FAQ',
@@ -140,7 +142,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           to: 'blog',
           label: 'Blog',
           position: 'left',
-          activeBaseRegex: `/blog/`,
+          activeBaseRegex: `/blog`,
         },
         {
           to: '/team',
@@ -148,6 +150,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           position: 'left',
           activeBaseRegex: `/team`,
         },
+//        {
+//          to: '/blessing_wall',
+//          label: 'Blessing',
+//          position: 'left',
+//          activeBaseRegex: `/blessing_wall`,
+//        },
         {
           to: '/user',
           label: 'Users',
@@ -178,40 +186,19 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               to: "https://www.apache.org/foundation/sponsorship.html",
             },
             {
+              label: "Privacy",
+              to: "https://www.apache.org/foundation/policies/privacy.html",
+            },
+            {
               label: "Thanks",
               to: "https://www.apache.org/foundation/thanks.html",
             },
           ],
         },
         {
-          position: 'right',
-          label: 'Doc',
-          //            to: "/docs/user_guide/overview",
-          items: [{
-              label: "Next-1.1.0 (WIP)",
-              to: "/docs/1.1.0/introduction",
-            },
-            {
-              label: "1.0.3",
-              to: "/docs/latest/introduction",
-            },
-            {
-              label: "1.0.2",
-              to: "/docs/1.0.2/introduction",
-            },
-            {
-              label: "0.11.0",
-              to: "/docs/0.11.0/introduction",
-            },
-            {
-              label: "All Versions",
-              to: "/versions/",
-            },
-          ],
-        },
-        {
           href: 'https://github.com/apache/incubator-linkis',
-          label: 'GitHub',
+          'aria-label': 'GitHub',
+          className: 'header-github-link',
           position: 'right',
         },
         {

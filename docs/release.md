@@ -3,35 +3,34 @@ title: Version Overview
 sidebar_position: 0.1
 ---
 
-- [Datasource Management Service Architecture Documentation](/architecture/public_enhancement_services/datasource_manager.md)
-- [Metadata Management Services Architecture Documentation](/architecture/public_enhancement_services/metadata_manager.md)
-- [Data source introduction & function usage guide](/deployment/start_metadatasource.md)
-- [Guidelines for using the datasource client](/user_guide/linkis-datasource-client.md)
-- [Data source http interface documentation](/api/http/data-source-manager-api.md)
-- [Metadata http interface documentation](/api/http/metadatamanager-api.md)
-- [Start SkyWalking](/deployment/involve_skywalking_into_linkis.md)
-- [Release-notes](release-notes-1.1.0.md)
+- [Lite Deployment Without HDFS Mode](/deployment/deploy_linkis_without_hdfs.md)
+- [Sqoop Engine Usage](/engine_usage/sqoop.md)
+- [History Task Query HTTP Interface](/api/http/jobhistory-api.md)
+- [Installation And Deployment of Tool Scriptis](/deployment/linkis_scriptis_install.md)
 
-## Parameter Changes
+## Configuration Item 
 
-| module name (service name) | type | parameter name | default value | description |
-| ----------- | ----- | ------------------------------- | ------------------------- | ------------------------ |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.lib.dir | /lib/linkis-public-enhancements/linkis-ps-metadatamanager/service | Set the relative path to load the data source jar package, will be called by reflection|
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.instance.expire-in-seconds | 60 | Set the expiration time for loading sub-services, after which the service will not be loaded |
-|ps-metadatamanager | New | wds.linkis.server.dsm.app.name | linkis-ps-data-source-manager | Set the name of the data source information |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.app.name | linkis-ps-metadatamanager | Service name for setting metadata information |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.kerberos.principle | hadoop/HOST@EXAMPLE.COM | set kerberos principle for linkis-metadata hive service |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.user | hadoop | Set the access user of hive service |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.kerberos.krb5.path | "" | Set the kerberos krb5 path used by the hive service |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.temp.location | classpath:/tmp | Set the temporary path of kafka and hive |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.sql.driver | com.mysql.jdbc.Driver | Set the driver of mysql service |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.sql.url | jdbc:mysql://%s:%s/%s | Set the url format of mysql service |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.sql.connect.timeout | 3000 | Set the connection timeout time for mysql service to connect to mysql service |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.sql.socket.timeout | 6000 | Set the socket timeout time for mysql service to open mysql service |
-|ps-metadatamanager | New | wds.linkis.server.mdm.service.temp.location | /tmp/keytab | Set the local temporary storage path of the service, mainly to store the authentication files downloaded from the bml material service |
-|ps-data-source-manager| New | wds.linkis.server.dsm.auth.admin | hadoop | datasourcemanager part of the interface permission authentication user |
-|cg-engineconnmanager| Modified | wds.linkis.engineconn.max.free.time | 1h -> 0.5h | Maximum idle time of EngineConn changed from 1h to 0.5h |
+
+| Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
+| ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
+|common | New |linkis.codeType.runType.relation | sql=>sql\|hql\|jdbc\|hive\|psql\|fql,<br/>python=>python\|py\|pyspark,< br/>java=>java,scala=>scala,<br/>shell=>sh\|shell |mapping relationship between codeType and runType|
+|rpc | New | linkis.rpc.spring.params.enable | false | Controls the ribbon mode parameter switch of the RPC module|
+|ec | New | linkis.engineconn.max.parallelism |300 | Asynchronous execution supports setting the number of concurrent job groups |
+|ec | New | linkis.engineconn.async.group.max.running | 10| |
+|ec-flink | New | linkis.flink.execution.attached | true| |
+|ec-flink | New | linkis.flink.kerberos.enable | false| |
+|ec-flink | New | linkis.flink.kerberos.login.contexts | Client,KafkaClient| |
+|ec-flink | New | linkis.flink.kerberos.login.keytab | | |
+|ec-flink | New | linkis.flink.kerberos.login.principal | | |
+|ec-flink | New | linkis.flink.kerberos.krb5-conf.path | | |
+|ec-flink | New | linkis.flink.params.placeholder.blank | \\0x001| |
+|ec-sqoop | New | sqoop.task.map.memory | 2| |
+|ec-sqoop | New | sqoop.task.map.cpu.cores | 1| |
+|ec-sqoop | New | sqoop.params.name.mode | sqoop.mode| |
+|ec-sqoop | New | sqoop.params.name.prefix | sqoop.args.| |
+|ec-sqoop | New | sqoop.params.name.env.prefix |sqoop.env.| |
+|ec-sqoop | New | linkis.hadoop.site.xml |/etc/hadoop/conf/core-site.xml;<br/>/etc/hadoop/conf/hdfs- site.xml;<br/>/etc/hadoop/conf/yarn-site.xml;<br/>/etc/hadoop/conf/mapred-site.xml| set sqoop to load hadoop parameter file location|
+|ec-sqoop | New | sqoop.fetch.status.interval |5s| Sets the interval for obtaining sqoop execution status |
 
 ## DB Table Changes
-
-For details, see the upgrade schema`db/upgrade/1.1.0_schema` file in the corresponding branch of the code repository (https://github.com/apache/incubator-linkis).
+no change

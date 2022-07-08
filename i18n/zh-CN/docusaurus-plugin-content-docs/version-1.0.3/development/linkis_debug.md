@@ -62,7 +62,7 @@ Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eu
 
 可以通过 “-Xbootclasspath/a:配置文件路径“命令。将配置文件，追加到引导程序类的搜索路劲末尾，即将依赖的配置文件加到classpath中
 
-通过勾选Include dependencies with “Provided” scope ，这样可以在调试时，引入provided级别的依赖包。
+<font color="red"> 通过勾选Include dependencies with “Provided” scope ，这样可以在调试时，引入provided级别的依赖包。</font>
 
 **Microservice Governance Services组件**
 
@@ -88,7 +88,10 @@ linkis-eureka
 server:
   port: 8080 ##启动的端口
 ```
-具体配置如下
+##### 具体配置如下：
+老版idea配置
+![](/Images/development/old_debug_application.png)
+新版idea配置
 ![](/Images/development/debug_application.png)
 
 启动后可以通过[http://localhost:20303/](http://localhost:20303/) 查看eureka服务列表
@@ -103,7 +106,7 @@ org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 [VM Opitons]
 -DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-gateway-server-support
 
 ```
@@ -120,7 +123,9 @@ org.apache.linkis.jobhistory.LinkisPublicServiceApp
 [VM Opitons]
 -DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
+#linkis < 1.1.0  为linkis-jobhistory  
+#linkis >= 1.1.0 为linkis-storage-script-dev-server
 linkis-jobhistory
 ```
 
@@ -133,7 +138,7 @@ org.apache.linkis.cs.server.LinkisCSApplication
 [VM Opitons]
 -DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-cs-server
 
 ```
@@ -147,7 +152,7 @@ org.apache.linkis.manager.am.LinkisManagerApplication
 [VM Opitons]
 -DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-application-manager
 ```
 ### linkis-cg-entrance启动
@@ -158,7 +163,7 @@ org.apache.linkis.entrance.LinkisEntranceApplication
 [VM Opitons]
 -DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
 
-[User classpath of module]
+[Use classpath of module]
 linkis-entrance
 ```
 

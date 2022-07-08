@@ -39,7 +39,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 |TiSpark|1.1|\>=0.5.0|ongoing|TiSpark EngineConn. 支持用SparkSQL 查询TiDB.|
 
 ## 下载
-请前往[Linkis releases 页面](https://github.com/apache/incubator-linkis/releases) 下载Linkis 的已编译版本或源码包。
+请前往[Linkis releases 页面](https://github.com/apache/incubator-linkis/releases) 下载Linkis 已编译的部署安装包或源码包。
 
 ## 编译和安装部署
 请参照[编译指引](development/linkis_compile_and_package.md) 来编译Linkis 源码。  
@@ -60,7 +60,7 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 下面是Linkis 的架构概要图. 更多详细架构文档请见 [Linkis/Architecture](architecture/overview.md).
 ![architecture](/Images/Linkis_1.0_architecture.png)
 
-基于Linkis 计算中间件，我们在大数据平台套件[WeDataSphere](https://github.com/WeBankFinTech/WeDataSphere) 中构建了许多应用和工具系统。下面是目前可用的开源项目。
+基于Linkis 计算中间件，我们在大数据平台套件[WeDataSphere](https://github.com/WeBankFinTech/WeDataSphere) 中构建了许多应用和工具系统，下面是目前可用的开源项目。
 
 ![wedatasphere_stack_Linkis](/Images/wedatasphere_stack_Linkis.png)
 
@@ -80,15 +80,15 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 
 ## 贡献
 我们非常欢迎和期待更多的贡献者参与共建Linkis, 不论是代码、文档，或是其他能够帮助到社区的贡献形式。  
-代码和文档相关的贡献请参照[贡献指引](/community/how-to-contribute).
+代码和文档相关的贡献请参照[贡献指引](/community/how-to-contribute)。
 
 ## 联系我们
 对Linkis 的任何问题和建议，敬请提交issue，以便跟踪处理和经验沉淀共享。  
-您也可以扫描下面的二维码，加入我们的微信/QQ群，以获得更快速的响应。
+您也可以扫描下面的二维码，加入我们的微信群，以获得更快速的响应。
 ![introduction05](/Images/wedatasphere_contact_01.png)
 
-Meetup 视频 [Bilibili](https://space.bilibili.com/598542776?from=search&seid=14344213924133040656).
+Meetup 视频 [Bilibili](https://space.bilibili.com/598542776?from=search&seid=14344213924133040656)。
 
 ## 谁在使用Linkis
-我们创建了[一个 issue](https://github.com/apache/incubator-linkis/issues/23) 以便用户反馈和记录谁在使用Linkis.  
+我们创建了[一个 issue](https://github.com/apache/incubator-linkis/issues/23) 以便用户反馈和记录谁在使用Linkis。  
 Linkis 自2019年开源发布以来，累计已有700多家试验企业和1000+沙盒试验用户，涉及金融、电信、制造、互联网等多个行业。

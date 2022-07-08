@@ -74,7 +74,7 @@ POST /api/rest_j/v1/entrance/submit
 
 如何定义可复用EngineConn？指能匹配计算任务的所有标签要求的，且EngineConn本身健康状态为Healthy（负载低且实际EngineConn状态为Idle）的，然后再按规则对所有满足条件的EngineConn进行排序选择，最终锁定一个最佳的EngineConn。
 
-如果该用户不存在可复用的EngineConn，则此时会触发EngineConn新增流程，关于EngineConn新增流程，请参数：[EngineConn新增流程](add_an_engine_conn.md) 。
+如果该用户不存在可复用的EngineConn，则此时会触发EngineConn新增流程，关于EngineConn新增流程，请参阅：[EngineConn新增流程](add_an_engine_conn.md) 。
 
 #### 2.2 计算任务编排
 
@@ -118,7 +118,7 @@ Linkis Orchestrator的编排流程与很多SQL解析引擎（如Spark、Hive的S
 
 <!--
 #todo  Orchestrator文档还没准备好！！
-关于Orchestrator的编排详细介绍，请参考：[Orchestrator架构设计](architecture/orchestrator/orchestrator_architecture_doc.md)
+关于Orchestrator的编排详细介绍，请参考：[Orchestrator架构设计]()
 -->
 
 经过了Linkis Orchestrator的解析编排后，用户的计算任务已经转换成了一颗可被执行的Physical树。Orchestrator会将该Physical树提交给Orchestrator的Execution模块，进入最后的执行阶段。

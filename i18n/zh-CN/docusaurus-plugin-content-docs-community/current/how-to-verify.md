@@ -7,6 +7,9 @@ sidebar_position: 4
 详细检查列表请参考官方的[check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
 ## 1. 下载要发布的候选版本到本地环境
+
+>需要依赖gpg工具，如果没有，建议安装gpg2
+
 :::caution 注意
 如果网络较差，下载可能会比较耗时。正常完成下载大约20分钟左右，请耐心等待。
 :::
@@ -34,7 +37,7 @@ wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-
 #### 2.2.1 导入公钥
 
 ```shell
-$ curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS > KEYS # 下载KEYS
+$ curl  https://downloads.apache.org/incubator/linkis/KEYS > KEYS # 下载KEYS
 $ gpg --import KEYS # 导入KEYS到本地
 ```
 #### 2.2.2 信任公钥
@@ -65,11 +68,12 @@ Do you really want to set this key to ultimate trust? (y/N) y #选择y
 gpg> 
      
 ```
-#### 2.2.3 使用如下命令检查签名
+#### 2.2.3 检查签名
 
 ```shell
 $ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
-  #或者
+
+ #或者
 $ gpg --verify apache-linkis-${release_version}-src.tar.gz.asc apache-linkis-${release_version}-src.tar.gz
   # 如果上传二进制包，则同样需要检查二进制包的签名是否正确
 $ gpg --verify apache-linkis-${release_version}-bin.tar.gz.asc apache-linkis-${release_version}-bin.tar.gz
@@ -92,7 +96,13 @@ gpg: Good signature from "xxx @apache.org>"
 ```shell
 $ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
+ #或者
+$ sha512sum --check apache-linkis-${release_version}-src.tar.gz.sha512 
+  # 如果上传二进制包，则同样需要检查二进制包的签名是否正确
+$ sha512sum --check apache-linkis-${release_version}-bin.tar.gz.sha512 
+
 ```
+
 
 > Windows
 
@@ -112,15 +122,23 @@ $ cd apache-linkis-${release_version}-incubating-src
 ```
 
 #### 2.4.1 ASF许可证RAT检查
-
+Mac OS/Linux
 ```shell
 #正常5分钟内可以执行完
-$ mvn -N install 
-$ mvn apache-rat:check
+$ ./mvnw -N install  
+$ ./mvnw apache-rat:check
 
 #无异常后 检查所有的rat文件 
 $ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
+
+Window 
+```shell
+#正常5分钟内可以执行完
+$ mvnw.cmd -N install  
+$ mvnw.cmd apache-rat:check
+```
+
 rat check的白名单文件配置在外层pom.xml中的apache-rat-plugin插件配置中。
 检查merged-rat.txt中所有license信息，注意Binaries 和Archives文件是否为0。
 ```text
@@ -134,13 +152,57 @@ Archives: 0
 </font>
 
 
-#### 2.4.2 源码编译验证
+#### 2.4.2 项目源码编译验证
+Mac OS/Linux
 ```shell
-$ mvn -N install  
+$ ./mvnw -N install  
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
-$ mvn  clean install -Dmaven.javadoc.skip=true
+$ ./mvnw  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ```
-#### 2.4.3 相关合规项检查 
+Window 
+```shell
+$ mvnw.cmd -N install  
+#如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
+$ mvnw.cmd  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+```
+
+#### 2.4.3 web源码编译验证
+
+>需要依赖node.js环境，建议使用node v14版本
+
+安装依赖：
+```shell
+npm install
+```
+接下来项目进行打包：
+```shell
+npm run build
+```
+
+:::caution 注意：
+1.Windows下`npm install`步骤报错：
+`Error: Can't find Python executable "python", you can set the PYTHON env variable`
+安装windows-build-tools （管理员权限）:
+```shell
+$ npm install --global --production windows-build-tools
+```
+安装node-gyp:
+```
+$ npm install --global node-gyp
+```
+2.如果编译失败 请按如下步骤清理后重新执行
+```shell
+#进入项目工作目录，删除 node_modules
+$ rm -rf node_modules
+#删除 package-lock.json
+$ rm -rf package-lock.json
+#清除 npm 缓存
+$ npm cache clear --force
+#重新下载依赖
+$ npm install
+```
+::: 
+#### 2.4.4 相关合规项检查 
 
 进行如下检查:
 
@@ -197,10 +259,10 @@ IPMC在general@incubator.apache.org incubator社区投票，请带上 binding后
 </font>
 
 :::caution 注意
-如果在dev@linkis.apache.org已经投过票，在incubator社区进行投票回复时，可以直接带过去 如:
+如果在dev@linkis.apache.org已经投过票，在incubator社区进行投票回复时，可以直接带过去,<font color="red">需要注意约束性</font>  如:
 
 ```html
-//incubator社区 投票时，只有IPMC成员才具有约束性 binding
+//incubator社区 投票时，只有IPMC成员才具有约束性 binding，PPMC需要注意约束性的变化
 Forward my +1 from dev@linkis (non-binding)
 Copy my +1 from linkis DEV ML (non-binding)
 ```
@@ -232,3 +294,13 @@ I  checked:
     4. Build successfully on macOS(Big Sur) 
     5. ....
 ```
+
+
+## 4. 注意事项 
+<font color="red">
+如果你有安装maven工具，你可以使用自己的mvn命令替换 ./mvnw或则mvnw.cmd
+
+mvnw是Maven Wrapper的缩写。它可以支持运行 Maven 项目，而无需安装 Maven 并配置环境变量。如果找不到它，它会根据配置文件，下载对应的 Maven 版本
+
+
+</font>

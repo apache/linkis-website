@@ -7,8 +7,10 @@ sidebar_position: 4
 
 For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
-## 1. Download the candidate version 
+## 1. Download the candidate version
+ 
 > Download the candidate version to be released to the local environment
+> Need to rely on gpg tool, if not, it is recommended to install gpg2
 
 :::caution Note
 If the network is poor, downloading may be time-consuming. The download is completed normally in about 20 minutes, please wait patiently.
@@ -36,7 +38,7 @@ First import the publisher's public key. Import KEYS from the svn repository to 
 
 #### 2.2.1 Import public key
 ```shell
-$ curl https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS> KEYS # Download KEYS
+$ curl  https://downloads.apache.org/incubator/linkis/KEYS > KEYS # Download KEYS
 $ gpg --import KEYS # Import KEYS to local
 ```
 #### 2.2.2 Trust the public key
@@ -66,7 +68,7 @@ Do you really want to set this key to ultimate trust? (y/N) y  #choose y
 gpg>
          
 ```
-#### 2.2.3 Use the following command to check the signature
+#### 2.2.3 Check the gpg signature
 
 ```shell
 $ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
@@ -94,6 +96,11 @@ gpg: Good signature from "xxx @apache.org>"
 ```shell
 $ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
+#or
+$ sha512sum --check apache-linkis-${release_version}-src.tar.gz.sha512
+# If you upload a binary package, you also need to check whether the signature of the binary package is correct
+$ sha512sum --check apache-linkis-${release_version}-bin.tar.gz.sha512
+
 ```
 
 
@@ -114,15 +121,21 @@ $ tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
 $ cd apache-linkis-${release_version}-incubating-src
 ```
 #### 2.4.1 ASF License RAT Check
-
+Mac OS/Linux
 ```shell
 #normally can be executed within 5 minutes
-$ mvn -N install 
-$ mvn apache-rat:check
+$ ./mvnw -N install  
+$ ./mvnw apache-rat:check
 
 #Check all rat files after no exception
 $ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
+Window
+```shell
+#normally can be executed within 5 minutes
+$ mvnw.cmd -N install
+$ mvnw.cmd apache-rat:check
+````
 
 The whitelist file of rat check is configured in the apache-rat-plugin plugin configuration in the outer pom.xml.
 Check all the license information in merged-rat.txt, and notice if the Binaries and Archives files are 0.
@@ -137,13 +150,59 @@ If it is not 0, you need to confirm whether the source code has the license for 
 </font>
 
 
-#### 2.4.2 Source code compilation verification
+#### 2.4.2 Project source code compilation verification
+Mac OS/Linux
 ```shell
-$ mvn -N install
+$ ./mvnw -N install
 #If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
-$ mvn clean install -Dmaven.javadoc.skip=true
+$  ./mvnw clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ````
-#### 2.4.3 Check related compliance items
+Window 
+```shell
+$ mvnw.cmd -N install
+#If the performance of the machine where the compilation is located is relatively poor, this process will be time-consuming, usually about 30min
+$ mvnw.cmd clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+````
+#### 2.4.3 Web source code compilation verification
+> This will require node.js environment. It is recommended to use node v14 version.
+
+First, install the packages:
+```shell
+npm install
+```
+Next, build the project：
+```shell
+npm run build
+```
+The console installation package `apache-linkis-${version}-incubating-web-bin.tar.gz` will be generated after the above command is successfully executed
+
+:::caution
+1.An error occured when running `npm install`:
+
+`Error: Can't find Python executable "python", you can set the PYTHON env variable`
+
+You can install the windows-build-tools (This requires administractor privileges)
+```shell
+$ npm install --global --production windows-build-tools
+```
+Install the node-gyp:
+```shell
+$ npm install --global node-gyp
+```
+2.If compilation fails, please clean up and re-execute as follows:
+```shell
+#Delete node_modules
+$ rm -rf node_modules
+#Delete package-lock.json
+$ rm -rf package-lock.json
+#Clean npm cache
+$ npm cache clear --force
+#Download packages again
+$ npm install
+
+```
+:::
+#### 2.4.4 Check related compliance items
 
 and check as follows:
 
@@ -198,7 +257,7 @@ When IPMC votes in the general@incubator.apache.org incubator community. Please 
 If you have already voted on dev@linkis.apache.org, you can take it directly to the incubator community when you reply to the vote, such as:
 
 ```html
-//Incubator community voting, only IPMC members have binding binding
+//Incubator community voting, only IPMC members have binding binding，PPMC needs to be aware of binding changes
 Forward my +1 from dev@linkis (non-binding)
 Copy my +1 from linkis DEV ML (non-binding)
 ````
@@ -227,3 +286,13 @@ I checked:
      4. Build successfully on macOS(Big Sur)
      5.  
 ````
+
+
+## 4. Precautions
+<font color="red">
+If you have maven tools installed, you can replace ./mvnw or mvnw.cmd with your own mvn command
+
+mvnw is short for Maven Wrapper. It can support running Maven projects without installing Maven and configuring environment variables. If it can't find it, it will download the corresponding Maven version according to the configuration file
+
+
+</font>

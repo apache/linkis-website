@@ -25,14 +25,30 @@ The process of submitting ICLA are:
 > - Leave a space between family name and last name, remember capitalize the first letter, please write family name at first.
 > - Preferred Apache id(s) is a required field for committers.
 
-![information](https://user-images.githubusercontent.com/29391030/153529823-791977ec-6f8a-42fb-80e6-73c60ab58191.png)
+![information](https://user-images.githubusercontent.com/7869972/172194397-deca4649-32c1-4584-8525-2a387ca80ac6.png)
 
 **4. The signature at the bottom of the document:**
-Apache only accept hand-written signature or [PDF signature software](https://pdf.yozocloud.cn/p/pdfaddsign)
+Apache only accept hand-written signature or [PDF signature software](https://smallpdf.com/cn/sign-pdf)
 
 ![sign](https://user-images.githubusercontent.com/29391030/153529853-e6869cd4-7193-4403-8ebe-3d5b65e1d310.png)
 
-**5.After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor**
+**5.After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor (The email address is `secretary@apache.org`), here is the mail template:**
+
+```html
+To: secretary@apache.org
+Subject: Accept to become a linkis committer
+Content:
+
+Hello Apache Incubator:
+    I have accepted the Apache Linkis(Incubator) PPMC 
+invitation to become linkis committer, the attachment 
+is my ICLA information.
+Thanks!
+```
+
+Here is a specific example:
+
+![example](../static/img/community/email-example.png)
 
 **6.After the email is sent successfully, Apache ShenYu official community informs**
 
@@ -54,6 +70,4 @@ Apache only accept hand-written signature or [PDF signature software](https://pd
 > - Convert photos into **single pdf** file
 > - Send to the specified mailbox
 
-![doc_example](https://user-images.githubusercontent.com/29391030/153530035-cf22ddd4-6327-4afd-92ae-d37a610ddbfc.png)
-
-![doc_content](https://user-images.githubusercontent.com/29391030/153530048-ab95f6be-4e05-4600-b656-74efa2fa332e.png)
+For example files, please refer to https://github.com/casionone/incubator-linkis-website/tree/dev/resource/wangming-icla.pdf
