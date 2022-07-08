@@ -4,7 +4,7 @@ sidebar_position: 0.1
 --- 
 - [无HDFS模式的精简化部署指引](/deployment/deploy_linkis_without_hdfs.md)
 - [Sqoop引擎的使用](/engine_usage/sqoop.md)
-- [历史任务查询HTTP接口](/api/http/linkis-cg-engineplugin-api/jobhistory-api.md)
+- [历史任务查询HTTP接口](/api/http/jobhistory-api.md)
 - [工具Scriptis的安装部署](/deployment/linkis_scriptis_install.md)
 - [版本的release-notes](/download/release-notes-1.1.2)
 
