@@ -20,13 +20,13 @@ Client module, DataSourceRemoteClient for basic management of user data sources,
 **linkis-datasource-manager-server**
 Data source management module, service name ps-data-source-manager. Perform basic management of data sources, and provide http interfaces such as adding, querying, modifying, and connection testing of external data sources. The rpc service is provided internally, which is convenient for the data element management module to call through rpc to query the necessary information needed to establish a connection to the database.
 
-- [http interface documentation](/api/http/data-source-manager-api.md)
+- [http interface documentation](/api/http/linkis-ps-publicservice-api/data-source-manager-api.md)
 - http interface class org.apache.linkis.metadatamanager.server.restful
 - rpc interface class org.apache.linkis.metadatamanager.server.receiver
 
 **linkis-metedata-manager-server**
 Data element management module, service name ps-metadatamanager. It provides the basic query function of the data metadata of the database, provides the http interface externally, and provides the rpc service internally, which is convenient for the data source management module to perform the connection test of the data source through the rpc call.
-- [http interface documentation](/api/http/metadatamanager-api.md)
+- [http interface documentation](/api/http/linkis-cg-entrance-api/metadatamanager-api.md)
 - http interface class org.apache.linkis.datasourcemanager.core.restful
 - rpc interface class org.apache.linkis.datasourcemanager.core.receivers
 

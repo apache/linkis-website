@@ -7,8 +7,8 @@ sidebar_position: 0.1
 - [Metadata Management Services Architecture Documentation](/architecture/public_enhancement_services/metadata_manager.md)
 - [Data source introduction & function usage guide](/deployment/start_metadatasource.md)
 - [Guidelines for using the datasource client](/user_guide/linkis-datasource-client.md)
-- [Data source http interface documentation](/api/http/data-source-manager-api.md)
-- [Metadata http interface documentation](/api/http/metadatamanager-api.md)
+- [Data source http interface documentation](/api/http/linkis-ps-publicservice-api/data-source-manager-api.md)
+- [Metadata http interface documentation](/api/http/linkis-cg-entrance-api/metadatamanager-api.md)
 - [Start SkyWalking](/deployment/involve_skywalking_into_linkis.md)
 - [Release-notes](/download/release-notes-1.1.0)
 

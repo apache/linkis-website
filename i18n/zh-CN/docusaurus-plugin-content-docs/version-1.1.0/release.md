@@ -7,8 +7,8 @@ sidebar_position: 0.1
 - [元数据查询服务架构文档](/architecture/public_enhancement_services/metadata_manager.md)
 - [数据源介绍&功能使用指引](/deployment/start_metadatasource.md)
 - [数据源客户端的使用指引](/user_guide/linkis-datasource-client.md)
-- [数据源http接口文档](/api/http/data-source-manager-api.md)
-- [元数据查询服务http接口文档](/api/http/metadatamanager-api.md)
+- [数据源http接口文档](/api/http/linkis-ps-publicservice-api/data-source-manager-api.md)
+- [元数据查询服务http接口文档](/api/http/linkis-cg-entrance-api/metadatamanager-api.md)
 - [开启SkyWalking功能](/deployment/involve_skywalking_into_linkis.md)
 - [版本的release-notes](/download/release-notes-1.1.0)
 
