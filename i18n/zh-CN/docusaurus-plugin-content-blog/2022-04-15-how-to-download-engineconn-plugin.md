@@ -9,34 +9,63 @@ tags: [engine,guide]
 非常用引擎，项目代码中有flink/io_file/pipeline/sqoop(不同版本之间可能有区别)，
 为了方便大家使用，基于linkis每个版本的release分支代码: https://github.com/apache/incubator-linkis, 编译出这部分引擎，供大家选择使用。
 
+## 1.1.2 版本
+
+| **引擎** | **对应的组件版本** | 官方安装包中是否默认有| **说明** |
+|:---- |:---- |:---- |:---- |:---- |
+|Spark|2.4.3|是|Spark EngineConn。 支持SQL, Scala, Pyspark 和R 代码。|
+|Hive|2.3.3|是|Hive EngineConn。 支持HiveQL 代码。|
+|Shell||是|Shell EngineConn。 支持Bash shell 代码。|
+|Python||是|Python EngineConn。 支持python 代码。|
+|JDBC| |否|JDBC EngineConn。 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle。|
+|Flink |1.12.2|否| Flink EngineConn。支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序。|
+|openLooKeng |1.5.0|否| openLooKeng EngineConn。 支持用Sql查询数据虚拟化引擎openLooKeng。|
+|sqoop |1.4.6|否|Sqoop EngineConn。 支持 数据迁移工具 Sqoop 引擎。|
+
+
+[非默认引擎下载链接](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.1.2-engineconn-plugin.tar)
+
+
+## 1.1.1版本
+
+| **引擎** | **对应的组件版本** | 官方安装包中是否默认有| **说明** |
+|:---- |:---- |:---- |:---- |:---- |
+|Spark|2.4.3|是|Spark EngineConn。 支持SQL, Scala, Pyspark 和R 代码。|
+|Hive|2.3.3|是|Hive EngineConn。 支持HiveQL 代码。|
+|Shell||是|Shell EngineConn。 支持Bash shell 代码。|
+|Python||是|Python EngineConn。 支持python 代码。|
+|JDBC| |否|JDBC EngineConn。 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle。|
+|Flink |1.12.2|否| Flink EngineConn。支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序。|
+|openLooKeng |1.5.0|否| openLooKeng EngineConn。 支持用Sql查询数据虚拟化引擎openLooKeng。|
+
+[非默认引擎下载链接](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.1.1-engineconn-plugin.tar)
+
 ## 1.1.0 版本
 
 | **引擎** | **对应的组件版本** | 官方安装包中是否默认有| **说明** |
 |:---- |:---- |:---- |:---- |:---- |
-|Spark|2.4.3|是|Spark EngineConn. 支持SQL, Scala, Pyspark 和R 代码.|
-|Hive|2.3.3|是1|Hive EngineConn. 支持HiveQL 代码.|
-|Shell||是|Shell EngineConn. 支持Bash shell 代码.|
-|Python||是|Python EngineConn. 支持python 代码.|
-|JDBC| |否|JDBC EngineConn. 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle.|
+|Spark|2.4.3|是|Spark EngineConn。 支持SQL, Scala, Pyspark 和R 代码。|
+|Hive|2.3.3|是|Hive EngineConn。 支持HiveQL 代码。|
+|Shell||是|Shell EngineConn。 支持Bash shell 代码。|
+|Python||是|Python EngineConn。 支持python 代码。|
+|JDBC| |否|JDBC EngineConn。 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle。|
 |Flink |1.12.2|否|	Flink EngineConn。支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序。|
 
-非默认引擎下载链接
-https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.0.1-engineconn-plugin.tar
+[非默认引擎下载链接](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.0.1-engineconn-plugin.tar)
 
 
 ## 1.0.3版本
 
 | **引擎** | **对应的组件版本** | 官方安装包中是否默认有| **说明** |
 |:---- |:---- |:---- |:---- |:---- |
-|Spark|2.4.3|是|Spark EngineConn. 支持SQL, Scala, Pyspark 和R 代码.|
-|Hive|2.3.3|是1|Hive EngineConn. 支持HiveQL 代码.|
-|Shell||是|Shell EngineConn. 支持Bash shell 代码.|
-|Python||是|Python EngineConn. 支持python 代码.|
-|JDBC| |否|JDBC EngineConn. 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle.|
+|Spark|2.4.3|是|Spark EngineConn。 支持SQL, Scala, Pyspark 和R 代码。|
+|Hive|2.3.3|是|Hive EngineConn。 支持HiveQL 代码。|
+|Shell||是|Shell EngineConn。 支持Bash shell 代码。|
+|Python||是|Python EngineConn。 支持python 代码。|
+|JDBC| |否|JDBC EngineConn。 已支持MySQL 和HiveQL，可快速扩展支持其他有JDBC Driver 包的引擎, 如Oracle。|
 |Flink |1.12.2|否|	Flink EngineConn。支持FlinkSQL 代码，也支持以Flink Jar 形式启动一个新的Yarn 应用程序。|
 
-非默认引擎下载链接
-https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.0.3-engineconn-plugin.tar 
+[非默认引擎下载链接](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.0.3-engineconn-plugin.tar)
 
 
 ## 安装引擎指引 
@@ -50,5 +79,5 @@ cd 1.0.3-engineconn-plugin
 
 将需要要使用的引擎物料包拷贝至linkis的引擎插件目录，然后刷新引擎物料即可
 
-详细流程参考[安装 EngineConnPlugin 引擎](https://linkis.apache.org/zh-CN/docs/latest/deployment/engine_conn_plugin_installation)
+详细流程参考[安装 EngineConnPlugin 引擎](https://linkis.apache.org/zh-CN/docs/latest/deployment/engine_conn_plugin_installation)。
 
