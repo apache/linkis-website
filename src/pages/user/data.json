@@ -590,5 +590,16 @@
         "地点": "中国广州",
         "联系方式": "bigdata@52tt.com",
         "业务场景": "作为数据服务的计算治理中间件"
+    },
+    {
+        "auther": "service@longbridge.global",
+        "company": "Long Bridge Securities",
+        "location": "New Zealand",
+        "contact": "service@longbridge.global",
+        "business scenario": "build the company's big data platform as the underlying computing engine",
+        "公司": "长桥证券",
+        "地点": "新西兰",
+        "联系方式": "https://longbridgeapp.com",
+        "业务场景": "搭建公司大数据平台，作为底层计算引擎"
     }
 ]
