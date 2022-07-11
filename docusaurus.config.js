@@ -109,7 +109,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Home',
           activeBaseRegex: `^/$`,
         },
-        {
+        /*{
           type: 'docsVersionDropdown',
           position: 'right',
           dropdownActiveClassDisabled: true,
@@ -119,7 +119,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               label: 'All versions',
             },
           ],
-        },
+        },*/
         {
           to: '/faq/main',
           position: 'left',
@@ -161,6 +161,20 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Users',
           position: 'left',
           activeBaseRegex: `/user`,
+        },
+        {
+          label: 'Doc',
+          position: 'right',
+          items: [
+            {label: 'Next(1.1.3)', to: '/docs/1.1.3/introduction'},
+            {label: '1.1.2', to: '/docs/latest/introduction'},
+            {label: '1.1.1', to: '/docs/1.1.1/introduction'},
+            {label: '1.1.0', to: '/docs/1.1.0/introduction'},
+            {label: '1.0.3', to: '/docs/1.0.3/introduction'},
+            {label: '1.0.2', to: '/docs/1.0.2/introduction'},
+            {label: '0.11.0', to: '/docs/0.11.0/introduction'},
+            {label: 'All Version', to: '/versions'}
+          ]
         },
         {
           label: 'ASF',
