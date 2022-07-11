@@ -23,6 +23,17 @@ Table 1-1 Environmental configuration list
 Python supports python2 and
 For python3, you can simply change the configuration to complete the Python version switch, without recompiling the python EngineConn version.
 
+```
+#1: CLI to submit tasks for version switching, and set the version Python at the end of the command Version=python3 (python3: the name of the file generated when creating a soft connection, which can be customized)
+sh ./ bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python. version=python3
+
+#2: CLI to submit the task for version switching, and add the command setting to the version path python Version=/usr/bin/python (/usr/bin/python: the path of the generated file when creating the soft connection)
+sh ./ bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python. version=/usr/bin/python
+
+```
+Page configuration:
+![](/Images/EngineUsage/python-configure.png)
+
 ### 2.2 python engineConn deployment and loading
 
 Here you can use the default loading method to be used normally.
