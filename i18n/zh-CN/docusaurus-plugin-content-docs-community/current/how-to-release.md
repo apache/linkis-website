@@ -73,9 +73,9 @@ GnuPG needs to construct a user ID to identify your key.
 
 Real name: mingXiao #这里输入拼英或则英文名
 Email address: xiaoming@apache.org #这里输入apache的邮箱地址
-Comment: test key for apache create at 20211110  #这里输入一些注释，可以为空
+Comment: for apache release create at 20211110  #这里输入一些注释，可以为空
 You selected this USER-ID:
-    "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>"
+    "mingXiao (for apache release create at 20211110) <xiaoming@apache.org>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O #这里输入O
 We need to generate a lot of random bytes. It is a good idea to perform
@@ -108,7 +108,7 @@ sub   rsa4096 2021-11-10 [E]
 $ gpg  --keyid-format SHORT --list-keys 
 pub   rsa4096/584EE68E 2021-11-10 [SC] #584EE68E就是key id
       E7A9B12D1AC2D8CF857AF5851AE82584584EE68E
-uid         [ultimate] mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>
+uid         [ultimate] mingXiao (for apache release create at 20211110) <xiaoming@apache.org>
 sub   rsa4096/399AA54F 2021-11-10 [E]
 
 # 通过key id发送public key到keyserver 
@@ -123,7 +123,7 @@ $ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
 $ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E 
 
 #结果如下
-gpg: key 1AE82584584EE68E: "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>" not changed
+gpg: key 1AE82584584EE68E: "mingXiao (for apache release create at 20211110) <xiaoming@apache.org>" not changed
 gpg: Total number processed: 1
 gpg:              unchanged: 1
 
