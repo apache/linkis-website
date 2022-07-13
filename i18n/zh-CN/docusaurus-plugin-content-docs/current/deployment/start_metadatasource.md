@@ -26,7 +26,7 @@ sidebar_position: 7
 
 ** linkis-metedata-manager-server  **
 元数据查询模块,服务名ps-metadatamanager。提供对数据库元数据的基本查询功能,对外提供了http接口，对内提供了rpc服务，方便数据源管理模块，通过rpc调用，进行该数据源的连通性测试。
-- [http接口文档](/api/http/linkis-cg-entrance-api/metadatamanager-api.md)
+- [http接口文档](/api/http/linkis-ps-publicservice-api/metadatamanager-api.md)
 - http接口类 org.apache.linkis.datasourcemanager.core.restful
 - rpc接口类 org.apache.linkis.datasourcemanager.core.receivers
 

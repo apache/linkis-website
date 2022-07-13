@@ -25,16 +25,19 @@ Prometheus可以直接抓取指标，或通过push gateway间接地接收短作�
 
 在 Linkis中，我们将使用 Prometheus 中的 Eureka (Service Discover)SD 来使用 Eureka REST API 来查询抓取目标。 Prometheus 将定期检查 REST 端点并为每个应用程序实例创建一个抓取目标。
 
-## 2. 启用 Prometheus 并启动 Linkis
+## 2. 如何启用 Prometheus
 
-### 2.1 安装 Linkis 时启用 Prometheus
+### 2.1 安装 Linkis时 启用 Prometheus
+
+>安装脚本中，可以通过开关进行开启
 
 修改安装脚本linkis-env.sh中的`PROMETHEUS_ENABLE`。
 
 ```bash
 export PROMETHEUS_ENABLE=true
-````
-运行 `install.sh`脚本后, 新的配置会出现在下列文件中：
+```
+
+运行 `install.sh`安装linkis后, `prometheus`的相关配置会出现在下列文件中：
 
 ```yaml
 ## application-linkis.yml  ##
@@ -72,27 +75,63 @@ management:
 wds.linkis.prometheus.enable=true
 wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
-````
-然后在每个计算引擎内部，如 spark、flink 或 hive，都需要手动添加相同的配置。
+```
+
+如果在引擎内部，如 spark、flink 或 hive，都需要手动添加相同的配置。
 ```yaml
 ## linkis-engineconn.properties  ##
 ...
 wds.linkis.prometheus.enable=true
 wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
+```
+### 2.2 已经安装后 启用 Prometheus
+修改`${LINKIS_HOME}/conf/application-linkis.yml`
+endpoints配置修改 增加`prometheus`
+```yaml
+## application-linkis.yml  ##
+management:
+  endpoints:
+    web:
+      exposure:
+        #增加 prometheus
+        include: refresh,info,health,metrics,prometheus
+```
+
+修改`${LINKIS_HOME}/conf/application-eureka.yml`
+endpoints配置修改 增加`prometheus`
+```yaml
+## application-eureka.yml  ##
+management:
+  endpoints:
+    web:
+      exposure:
+        #增加 prometheus
+        include: refresh,info,health,metrics,prometheus
 ````
+修改`${LINKIS_HOME}/conf/linkis.properties`
+```yaml
+## linkis.properties ##
+...
+wds.linkis.prometheus.enable=true
+wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
+...
+```
 
-**请注意**: 如果安装Linkis时不使用install.sh脚本，则需要自行添加以上配置。
-
-然后启动Linkis
+### 2.3 启动Linkis
 
 ```bash
 $ bash linkis-start-all.sh
 ````
 
 Linkis启动后，各个微服务的prometheus端点是可以直接被访问的，例如http://linkishost:9103/api/rest_j/v1/actuator/prometheus
+:::caution 注意
+gateway/eureka 服务prometheus端点是没有`api/rest_j/v1`前缀的   http://linkishost:9001/actuator/prometheus
+:::
 
-## 3. 部署Prometheus,Alertmanager和Grafana
+
+## 3. 部署 Prometheus,Alertmanager和 Grafana 示例
+
 通常来说，云原生应用程序的监控设置将部署在具有服务发现和高可用性的 Kubernetes 上（例如，使用像 Prometheus Operator 这样的 Kubernetes Operator）。
 为了快速展示监控仪表盘，和试验不同类型的图表(histogram/ gauge)，你需要一个本地简易的构建。
 这个部分将会解释如何在本地通过 Docker Compose搭建Prometheus/Alert Manager和Grafana这一监控套件。
@@ -103,7 +142,6 @@ Linkis启动后，各个微服务的prometheus端点是可以直接被访问的�
 - Prometheus容器对外通过端口9090暴露UI，从prometheus.yml读取配置文件，从alert_rules.yml中读取报警规则；
 - Grafana容器对外通过端口3000暴露UI, 指标数据源定义在grafana_datasources.yml中，配置文件通过grafana_config.ini定义；
 - 以下的docker-compose.yml文件总结了上述组件的配置:
-
 
 ````yaml
 ## docker-compose.yml ##
@@ -155,71 +193,72 @@ services:
 - d. High NonHeap memory for each JVM instance (>80%)
 - e. High Waiting thread for each JVM instance (100)
 
-````yaml
+```yaml
 ## alertrule.yml ##
 groups:
-  - name: alerting_rules
-    rules:
-    - alert: LinkisNodeDown
-      expr: last_over_time(up{job="linkis", application=~"LINKIS.*", application!="LINKIS-CG-ENGINECONN"}[1m])== 0
-      for: 15s
-      labels:
-        severity: critical
-        service: Linkis
-        instance: "{{ $labels.instance }}"
-      annotations:
-        summary: "instance: {{ $labels.instance }} down"
-        description: "Linkis instance(s) is/are down in last 1m"
-        value: "{{ $value }}"
-    
-    - alert: LinkisNodeCpuHigh
-      expr: system_cpu_usage{job="linkis", application=~"LINKIS.*"} >= 0.8
-      for: 1m
-      labels:
-        severity: warning
-        service: Linkis
-        instance: "{{ $labels.instance }}"
-      annotations:
-        summary: "instance: {{ $labels.instance }} cpu overload"
-        description: "CPU usage is over 80% for over 1min"
-        value: "{{ $value }}"
-    
-    - alert: LinkisNodeHeapMemoryHigh
-      expr: sum(jvm_memory_used_bytes{job="linkis", application=~"LINKIS.*", area="heap"}) by(instance) *100/sum(jvm_memory_max_bytes{job="linkis", application=~"LINKIS.*", area="heap"}) by(instance) >= 80
-      for: 1m
-      labels:
-        severity: warning
-        service: Linkis
-        instance: "{{ $labels.instance }}"
-      annotations:
-        summary: "instance: {{ $labels.instance }} memory(heap) overload"
-        description: "Memory usage(heap) is over 80% for over 1min"
-        value: "{{ $value }}"
-    
-    - alert: LinkisNodeNonHeapMemoryHigh
-      expr: sum(jvm_memory_used_bytes{job="linkis", application=~"LINKIS.*", area="nonheap"}) by(instance) *100/sum(jvm_memory_max_bytes{job="linkis", application=~"LINKIS.*", area="nonheap"}) by(instance) >= 80
-      for: 1m
-      labels:
-        severity: warning
-        service: Linkis
-        instance: "{{ $labels.instance }}"
-      annotations:
-        summary: "instance: {{ $labels.instance }} memory(nonheap) overload"
-        description: "Memory usage(nonheap) is over 80% for over 1min"
-        value: "{{ $value }}"
-    
-    - alert: LinkisWaitingThreadHigh
-      expr: jvm_threads_states_threads{job="linkis", application=~"LINKIS.*", state="waiting"} >= 100
-      for: 1m
-      labels:
-        severity: warning
-        service: Linkis
-        instance: "{{ $labels.instance }}"
-      annotations:
-        summary: "instance: {{ $labels.instance }} waiting threads is high"
-        description: "waiting threads is over 100 for over 1min"
-        value: "{{ $value }}"
-````
+- name: LinkisAlert
+  rules:
+  - alert: LinkisNodeDown
+    expr: last_over_time(up{job="linkis", application=~"LINKISI.*", application!="LINKIS-CG-ENGINECONN"}[1m])== 0
+    for: 15s
+    labels:
+      severity: critical
+      service: Linkis
+      instance: "{{ $labels.instance }}"
+    annotations:
+      summary: "instance: {{ $labels.instance }} down"
+      description: "Linkis instance(s) is/are down in last 1m"
+      value: "{{ $value }}"
+  
+  - alert: LinkisNodeCpuHigh
+    expr: system_cpu_usage{job="linkis", application=~"LINKIS.*"} >= 0.8
+    for: 1m
+    labels:
+      severity: warning
+      service: Linkis
+      instance: "{{ $labels.instance }}"
+    annotations:
+      summary: "instance: {{ $labels.instance }} cpu overload"
+      description: "CPU usage is over 80% for over 1min"
+      value: "{{ $value }}"
+  
+  - alert: LinkisNodeHeapMemoryHigh
+    expr: sum(jvm_memory_used_bytes{job="linkis", application=~"LINKIS.*", area="heap"}) by(instance) *100/sum(jvm_memory_max_bytes{job="linkis", application=~"LINKIS.*", area="heap"}) by(instance) >= 50
+    for: 1m
+    labels:
+      severity: warning
+      service: Linkis
+      instance: "{{ $labels.instance }}"
+    annotations:
+      summary: "instance: {{ $labels.instance }} memory(heap) overload"
+      description: "Memory usage(heap) is over 80% for over 1min"
+      value: "{{ $value }}"
+  
+  - alert: LinkisNodeNonHeapMemoryHigh
+    expr: sum(jvm_memory_used_bytes{job="linkis", application=~"LINKIS.*", area="nonheap"}) by(instance) *100/sum(jvm_memory_max_bytes{job="linkis", application=~"LINKIS.*", area="nonheap"}) by(instance) >= 60
+    for: 1m
+    labels:
+      severity: warning
+      service: Linkis
+      instance: "{{ $labels.instance }}"
+    annotations:
+      summary: "instance: {{ $labels.instance }} memory(nonheap) overload"
+      description: "Memory usage(nonheap) is over 80% for over 1min"
+      value: "{{ $value }}"
+  
+  - alert: LinkisWaitingThreadHigh
+    expr: jvm_threads_states_threads{job="linkis", application=~"LINKIS.*", state="waiting"} >= 100
+    for: 1m
+    labels:
+      severity: warning
+      service: Linkis
+      instance: "{{ $labels.instance }}"
+    annotations:
+      summary: "instance: {{ $labels.instance }} waiting threads is high"
+      description: "waiting threads is over 100 for over 1min"
+      value: "{{ $value }}"
+```
+
 **请注意**: 由于服务实例一旦关闭，它就不会成为 Prometheus Eureka SD 的目标之一，并且 up 指标在短时间内不会返回任何数据。因此，我们将收集最后一分钟是否 up=0 以确定服务是否处于活动状态。
 
 第三点, 最重要的是在 prometheus.yml 文件中定义 Prometheus 配置。这将定义：
@@ -287,6 +326,7 @@ receivers:
 ````
 
 最后，在定义完所有配置文件以及 docker compose 文件后，我们可以使用 docker-compose up启动监控套件
+
 ## 4. 结果展示
 在 Prometheus 页面上，预计会看到所有 Linkis 服务实例，如下所示：
 ![](/Images/deployment/monitoring/prometheus_screenshot.jpg)
