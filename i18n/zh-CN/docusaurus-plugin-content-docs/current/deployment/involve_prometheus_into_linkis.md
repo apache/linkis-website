@@ -45,7 +45,7 @@ export PROMETHEUS_ENABLE=true
 eureka:
   instance:
     metadata-map:
-      prometheus.path: ${prometheus.path:/actuator/prometheus}
+      prometheus.path: ${prometheus.path:${prometheus.endpoint}}
 ...
 management:
   endpoints:
@@ -98,8 +98,7 @@ management:
         include: refresh,info,health,metrics,prometheus
 ```
 
-修改`${LINKIS_HOME}/conf/application-eureka.yml`
-endpoints配置修改 增加`prometheus`
+修改`${LINKIS_HOME}/conf/application-eureka.yml`，endpoints配置修改增加`prometheus`
 ```yaml
 ## application-eureka.yml  ##
 management:
@@ -109,12 +108,11 @@ management:
         #增加 prometheus
         include: refresh,info,health,metrics,prometheus
 ````
-修改`${LINKIS_HOME}/conf/linkis.properties`
+修改`${LINKIS_HOME}/conf/linkis.properties`，去掉`prometheus.enable`前的注释
 ```yaml
 ## linkis.properties ##
 ...
 wds.linkis.prometheus.enable=true
-wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
 ```
 
@@ -125,6 +123,7 @@ $ bash linkis-start-all.sh
 ````
 
 Linkis启动后，各个微服务的prometheus端点是可以直接被访问的，例如http://linkishost:9103/api/rest_j/v1/actuator/prometheus
+
 :::caution 注意
 gateway/eureka 服务prometheus端点是没有`api/rest_j/v1`前缀的   http://linkishost:9001/actuator/prometheus
 :::
