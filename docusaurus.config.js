@@ -344,9 +344,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       '@docusaurus/plugin-client-redirects',
       {
         createRedirects(existingPath) {
-          if (existingPath.includes('/1.1.2')) {
+          if (existingPath.includes('/latest')) {
             return [
-              existingPath.replace('/1.1.2', '/latest'),
+              existingPath.replace('/latest', '/1.1.2'),
             ];
           }
           return undefined; // Return a false value: no redirect created
