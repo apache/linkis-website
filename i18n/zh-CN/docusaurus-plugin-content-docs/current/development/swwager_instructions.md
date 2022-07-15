@@ -15,7 +15,6 @@ sidebar_position: 5
 |value|String|""|描述，无实际意义。|
 |tags|String[]|""|分组|
 |basePath|String|""|基本路径|
-|position|int|显示顺序（已弃用)|已无效|
 |protocols|String|int|请求协议|
 |authorizations|Authorization[]|@Authorization(value = "")|高级特性认证时的配置|
 |hidden|boolean|false|是否隐藏（不显示）|
@@ -54,7 +53,6 @@ tags作用在方法上时，会根据当前类的所有方法的tags值做分组
 |notes|String|""|	详细描述|
 |tags|String[]|""|分组|
 |response|Class<?>|Void.class|响应参数类型|
-|responseContainer|String|""|该属性对这些对象是有效的：List、Set、Map，其他无效。|
 |responseReference|String[]|""|指定对响应类型的引用，本地/远程引用，并将覆盖任何其它指定的response()类|
 |httpMethod|String|""|http请求方式，如：GET、HEAD、POST、PUT、DELETE、OPTION、SPATCH|
 |hidden|boolean|false|是否隐藏（不显示）|
