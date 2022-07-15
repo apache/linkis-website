@@ -14,7 +14,6 @@ Used on classes to describe the request class. Identifies a Controller class is 
 |value|String|""|Description, meaningless. |
 |tags|String[]|""|Grouping|
 |basePath|String|""|Base Path|
-|position|int|Display Order (Deprecated)|Invalid|
 |protocols|String|int|Request Protocol|
 |authorizations|Authorization[]|@Authorization(value = "")|Configuration for advanced feature authentication|
 |hidden|boolean|false|Is it hidden (not displayed)|
