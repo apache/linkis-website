@@ -157,6 +157,12 @@ Visit the page https://linkis.apache.org/user
 
 Company logo Located in `static/home/user`, and the picture size must be 176 × 88.
 
+### 3.10 Path specification
+If you want to link from a markdown document to another, it is best to use absolute path. For example, if you want to link to `quick_deploy.md`, the path should be `/docs/deployment/quick_deploy.md`.
+
+### English document title specification
+English siderbar titles should be capitalized except for prepositions, and only the first word of the title in the markdwon document should be capitalized.
+
 
 ## 4 New documents
 
