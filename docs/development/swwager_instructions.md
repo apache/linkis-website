@@ -3,11 +3,23 @@ title: Swwager Annotation Instructions
 sidebar_position: 5
 ---
 
+## 1. Scope of swwager annotations
+| API| Scope | Where to use |
+| -------- | -------- | ----- |
+|@Api|Protocol set description|Used on the controller class|
+|@ApiOperation|Protocol description|Used in controller methods|
+|@ApiImplicitParams|Non-object parameter set|Used in controller methods|
+|@ApiImplicitParam|Non-object parameter description|Used in methods of @ApiImplicitParams|
+|@ApiResponses|Response set|Used in the controller's method|
+|@ApiResponse|Response|Used in @ApiResponses|
+|@ApiModel|Describe the meaning of the returned object|Used in the returned object class|
+|@ApiModelProperty|Object property|Used on the fields of the parameter object|
+|@ApiParam|Protocol description|Used on methods, parameters, fields of classes|
 
-## 1. @Api
-Used on classes to describe the request class. Identifies a Controller class is the Swagger document class.
+## 2. @Api
+Use the location to use on the class to describe the request class. Identifies a Controller class is the Swagger document class.
 
-### 1.1 Attributes of annotations
+### 2.1 Attributes of annotations
 
 | Property Name | Property Type | Property Default Value | Property Description |
 | -------- | -------- | ----- |----- |
@@ -16,10 +28,10 @@ Used on classes to describe the request class. Identifies a Controller class is 
 |basePath|String|""|Base Path|
 |protocols|String|int|Request Protocol|
 |authorizations|Authorization[]|@Authorization(value = "")|Configuration for advanced feature authentication|
-|hidden|boolean|false|Is it hidden (not displayed)|
+|hidden|boolean|false|Is it hidden (not displayed, the default is false)|
 
 
-### 1.2 The difference between attribute value and tags
+### 2.2 The difference between attribute value and tags
 
 The value attribute is used to describe both the role of the class and the role of the method;
 
@@ -29,7 +41,7 @@ When tags act on a class, the global methods are grouped, that is, multiple copi
 
 When tags act on a method, they will be grouped according to the tags values ​​of all methods of the current class, with a finer granularity.
 
-### 1.3 How to use
+### 2.3 How to use
 <font color="red">Note: The difference between java and scala in @Api annotation </font>
 
 ````java
@@ -42,9 +54,10 @@ When tags act on a method, they will be grouped according to the tags values ​
 @RestController
 ````
 
-## 2. @ApiOperation
+
+## 3. @ApiOperation
 Used in methods, to describe the request method.
-### 2.1 Attributes of annotations
+### 3.1 Attributes of annotations
 
 | Property Name | Property Type | Property Default Value | Property Description |
 | -------- | -------- | ----- |----- |
@@ -52,14 +65,13 @@ Used in methods, to describe the request method.
 |notes|String|""| Detailed description|
 |tags|String[]|""|Grouping|
 |response|Class<?>|Void.class|Response parameter type|
-|responseContainer|String|""|This property is valid for these objects: List, Set, Map, others are invalid. |
 |responseReference|String[]|""|Specifies a reference to the response type, local/remote reference, and will override any other specified response() class|
 |httpMethod|String|""|http request method, such as: GET, HEAD, POST, PUT, DELETE, OPTION, SPATCH|
-|hidden|boolean|false|Is it hidden (not displayed)|
+|hidden|boolean|false|whether hidden (not displayed) defaults to false|
 |code|int|200|http status code|
 |extensions|Extension[]|@Extension(properties = @ExtensionProperty(name = "", value = "")|Extension Properties|
 
-### 2.2 How to use
+### 3.2 How to use
 
 ````java
 @GetMapping("test1")
@@ -68,54 +80,20 @@ public ApiResult<String> test1(@RequestParam String aa, @RequestParam String bb,
         return ApiUtil.success("success");
 }
 ````
-## 3. @ApiImplicitParams
-
-Commonly used in methods to describe the request parameter list.
-The value attribute can contain multiple @ApiImplicitParam, and describe each participant in detail.
-
-### 3.1 Attributes of annotations
-| Property Name | Property Type | Property Default Value | Property Description |
-| -------- | -------- | ----- |----- |
-|value|String|""|Description|
 
 ## 4. @ApiImplicitParams
 
-Used in methods to describe request parameters. When multiple parameters need to be described, it is used as a property of @ApiImplicitParams.
+Commonly used in methods to describe the request parameter list.
+The value attribute can contain multiple @ApiImplicitParam, and describe each participant in detail.
 
 ### 4.1 Attributes of annotations
 | Property Name | Property Type | Property Default Value | Property Description |
 | -------- | -------- | ----- |----- |
 |value|String|""|Description|
-|name|String|""|Parameter Description|
-|defaultValue|String|""|default value|
-|allowableValues|String|""|Parameter allowable values|
-|required|boolean|false|Required, default false|
-|access|String|""|Parameter Filter|
-|allowMultiple|boolean|false|Whether the parameter can accept multiple values ​​by appearing multiple times, the default is not allowed|
-|dataType|String|""|The data type of the parameter, which can be a class name or a primitive data type|
-|dataTypeClass|Class<?>|Void.class| The data type of the parameter, overriding dataType| if provided
-|paramType|String|""|Parameter type, valid values ​​are path, query, body, header, form|
-|example|String|""|Parameter example of non-body type|
-|examples|Example|@Example(value = @ExampleProperty(mediaType = "", value = ""))|Parameter example of body type|
-|type|String|""|Add functionality to override detected types|
-|format|String|""|Add the function to provide custom format format|
-|readOnly|boolean|false|Adds features designated as read-only|
 
-### 4.2 How to use
+## 5. @ApiImplicitParams
 
-````java
-@GetMapping("test1")
-@ApiOperation(value = "test1 interface", notes = "test1 interface detailed description")
-@ApiImplicitParams(value = {
-        @ApiImplicitParam(name = "aa",value = "aa description",defaultValue = "1",allowableValues ​​= "1,2,3",required = true),
-        @ApiImplicitParam(name = "bb",value = "bb description",defaultValue = "1",allowableValues ​​= "1,2,3",required = true),
-        @ApiImplicitParam(name = "cc",value = "Description of cc",defaultValue = "2",allowableValues ​​= "1,2,3",required = true),
-
-})
-````
-## 5. @ApiParam
-
-Used in fields of methods, parameters, and classes to describe request parameters.
+Used in methods to describe request parameters. When multiple parameters need to be described, it is used as a property of @ApiImplicitParams.
 
 ### 5.1 Attributes of annotations
 | Property Name | Property Type | Property Default Value | Property Description |
@@ -139,17 +117,54 @@ Used in fields of methods, parameters, and classes to describe request parameter
 ### 5.2 How to use
 
 ````java
- @GetMapping("test2")
+@GetMapping("test1")
+@ApiOperation(value = "test1 interface", notes = "test1 interface detailed description")
+@ApiImplicitParams(value = {
+        @ApiImplicitParam(name = "aa",value = "aa description",defaultValue = "1",allowableValues ​​= "1,2,3",required = true),
+        @ApiImplicitParam(name = "bb",value = "bb description",defaultValue = "1",allowableValues ​​= "1,2,3",required = true),
+        @ApiImplicitParam(name = "cc",value = "Description of cc",defaultValue = "2",allowableValues ​​= "1,2,3",required = true),
+
+})
+````
+
+## 6. @ApiParam
+
+Used in fields of methods, parameters, and classes to describe request parameters.
+
+### 6.1 Attributes of annotations
+| Property Name | Property Type | Property Default Value | Property Description |
+| -------- | -------- | ----- |----- |
+|value|String|""|Description|
+|name|String|""|Parameter Description|
+|defaultValue|String|""|default value|
+|allowableValues|String|""|Parameter allowable values|
+|required|boolean|false|Required, default false|
+|access|String|""|Parameter Filter|
+|allowMultiple|boolean|false|Whether the parameter can accept multiple values ​​by appearing multiple times, the default is not allowed|
+|dataType|String|""|The data type of the parameter, which can be a class name or a primitive data type|
+|dataTypeClass|Class<?>|Void.class| The data type of the parameter, overriding dataType| if provided
+|paramType|String|""|Parameter type, valid values ​​are path, query, body, header, form|
+|example|String|""|Parameter example of non-body type|
+|examples|Example|@Example(value = @ExampleProperty(mediaType = "", value = ""))|Parameter example of body type|
+|type|String|""|Add functionality to override detected types|
+|format|String|""|Add the function to provide custom format format|
+|readOnly|boolean|false|Adds features designated as read-only|
+
+### 6.2 How to use
+
+````java
+@GetMapping("test2")
 @ApiOperation(value = "test2 interface", notes = "test2 interface detailed description")
 public ApiResult<TestRes> test2(@ApiParam(value = "aa description") @RequestParam String aa, @ApiParam(value = "bb description") @RequestParam String bb) {
         return ApiUtil.success(new TestRes());
 }
 ````
-## 6. @ApiModel
+
+## 7. @ApiModel
 
 Used in classes to describe requests, response classes, and entity classes.
 
-### 6.1 Attributes of annotations
+### 7.1 Attributes of annotations
 | Property Name | Property Type | Property Default Value | Property Description |
 | -------- | -------- | ----- |----- |
 |value|String|""| is an alternative name to provide the model, by default, the class name is used|
@@ -160,11 +175,11 @@ Used in classes to describe requests, response classes, and entity classes.
 |access|Class<?> parent|Void.class| Array of subtypes inherited from this model|
 |reference|boolean|false|Specifies a reference to the corresponding type definition, overriding any other metadata specified|
 
-## 7. @ApiModel
+##8 @ApiModelProperty
 
 Used in classes to describe requests, response classes, and entity classes.
 
-### 7.1 Attributes of annotations
+### 8.1 Attributes of annotations
 | Property Name | Property Type | Property Default Value | Property Description |
 | -------- | -------- | ----- |----- |
 |value|String|""|Attribute Description|
@@ -179,7 +194,7 @@ Used in classes to describe requests, response classes, and entity classes.
 |allowEmptyValue|boolean|false|Allow empty values|
 |example|String|""|Example value for attribute|
 
-### 7.2 How to use
+### 8.2 How to use
 
 <font color="red">Note: The difference between java and scala in the use of @ApiModelProperty annotation </font>
 
@@ -205,20 +220,20 @@ public class TestRes {
 ````
 
 
-## 8. @ApiResponses
+## 9. @ApiResponses
 
 Used on methods and classes to describe the response status code list.
 
-### 8.1 Attributes of annotations
+### 9.1 Attributes of annotations
 | Property Name | Property Type | Property Default Value | Property Description |
 | -------- | -------- | ----- |----- |
 |value|ApiResponse[]|""|Description of response status code list|
 
-## 9. @ApiResponse
+## 10. @ApiResponse
 
 Used in the method to describe the response status code. Generally used as a property of @ApiResponses.
 
-### 9.1 Attributes of annotations
+### 10.1 Attributes of annotations
 | Property Name | Property Type | Property Default Value | Property Description |
 | -------- | -------- | ----- |----- |
 |code|int|""|Response HTTP Status Code|
@@ -228,22 +243,11 @@ Used in the method to describe the response status code. Generally used as a pro
 |responseHeaders|ResponseHeader[]|@ResponseHeader(name = "", response = Void.class)|List of possible response headers|
 |responseContainer|String|""|Declare the container of the response, valid values ​​are List, Set, Map, any other value will be ignored|
 
-## 10. @ApiResponse
-
-Used in the method to describe the response status code. Generally used as a property of @ApiResponses.
-
-### 10.1 Attributes of annotations
-| Property Name | Property Type | Property Default Value | Property Description |
-| -------- | -------- | ----- |----- |
-|name|String|""|Response header parameter name|
-|description|String|""|Detail description of response header parameters|
-|response|Class<?>|Void.class|Response header data type|
-|responseContainer|String|""|Declare the container that wraps the response, valid values ​​are List or Set, any other value will be overridden|
 
 ### 10.2 How to use
 
 ````java
-    @GetMapping("test2")
+@GetMapping("test2")
 @ApiOperation(value = "test2 interface", notes = "test2 interface detailed description")
 @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Request successful", responseHeaders = {@ResponseHeader(name = "header1", description = "description of header1",response = String.class)}),
@@ -252,6 +256,6 @@ Used in the method to describe the response status code. Generally used as a pro
 })
 public ApiResult<TestRes> test2(@ApiParam(value = "aa description") @RequestParam String aa, @ApiParam(value = "bb description") @RequestParam String bb) {
         return ApiUtil.success(new TestRes());
-        }
+}
 
 ````

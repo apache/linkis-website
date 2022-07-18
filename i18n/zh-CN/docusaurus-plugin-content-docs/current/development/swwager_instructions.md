@@ -3,24 +3,35 @@ title: Swwager 注解使用说明
 sidebar_position: 5
 ---
 
+## 1. swwager注解的作用域
+|  API| 作用范围 | 使用位置 | 
+| -------- | -------- | ----- |
+|@Api|协议集描述|用于controller类上|
+|@ApiOperation|协议描述|用在controller的方法上|
+|@ApiImplicitParams|非对象参数集|用在controller的方法上|
+|@ApiImplicitParam|非对象参数描述|用在@ApiImplicitParams的方法里边|
+|@ApiResponses|Response集|用在controller的方法上|
+|@ApiResponse|Response|用在 @ApiResponses里边|
+|@ApiModel|描述返回对象的意义|	用在返回对象类上|
+|@ApiModelProperty|对象属性|用在出入参数对象的字段上|
+|@ApiParam|协议描述|用在方法、参数、类的字段上|
 
+## 2. @Api
+使用位置即用在类上，对请求类进行描述。标识一个Controller类是Swagger文档类。
 
-## 1. @Api
-用在类上，对请求类进行描述。标识一个Controller类是Swagger文档类。
-
-### 1.1 注解的属性
+### 2.1 注解的属性
 
 | 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
 | -------- | -------- | ----- |----- | 
-|value|String|""|描述，无实际意义。|
+|value|String|""|描述，无实际意义。| 
 |tags|String[]|""|分组|
 |basePath|String|""|基本路径|
 |protocols|String|int|请求协议|
 |authorizations|Authorization[]|@Authorization(value = "")|高级特性认证时的配置|
-|hidden|boolean|false|是否隐藏（不显示）|
+|hidden|boolean|false|是否隐藏（不显示,默认为false）|
 
 
-### 1.2 属性value、tags二者的区别
+### 2.2 属性value、tags二者的区别
 
 value属性作用在类和作用在方法上都用于描述；
 
@@ -30,7 +41,7 @@ tags作用在类上时，会对全局的方法分组，即根据tags属性值复
 
 tags作用在方法上时，会根据当前类的所有方法的tags值做分组，粒度更细。
 
-### 1.3 使用方法
+### 2.3 使用方法
 <font color="red">注意：java和scala在@Api注解上使用的区别 </font>
 
 ```java
@@ -43,9 +54,11 @@ tags作用在方法上时，会根据当前类的所有方法的tags值做分组
 @RestController
 ```
 
-## 2. @ApiOperation
+
+
+## 3. @ApiOperation
 用在方法上，对请求方法进行描述。
-### 2.1 注解的属性
+### 3.1 注解的属性
 
 | 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
 | -------- | -------- | ----- |----- | 
@@ -55,11 +68,11 @@ tags作用在方法上时，会根据当前类的所有方法的tags值做分组
 |response|Class<?>|Void.class|响应参数类型|
 |responseReference|String[]|""|指定对响应类型的引用，本地/远程引用，并将覆盖任何其它指定的response()类|
 |httpMethod|String|""|http请求方式，如：GET、HEAD、POST、PUT、DELETE、OPTION、SPATCH|
-|hidden|boolean|false|是否隐藏（不显示）|
+|hidden|boolean|false|是否隐藏（不显示）默认为false|
 |code|int|200|http的状态码|
 |extensions|Extension[]|@Extension(properties = @ExtensionProperty(name = "", value = "")|扩展属性|
 
-### 2.2 使用方法
+### 3.2 使用方法
 
 ```java
 @GetMapping("test1")
@@ -69,55 +82,19 @@ public ApiResult<String> test1(@RequestParam String aa, @RequestParam String bb,
 }
 ```
 
-## 3. @ApiImplicitParams
+## 4. @ApiImplicitParams
 
 常用在方法上，对请求参数列表进行描述。
 其中的value属性可包含多个@ApiImplicitParam，对每个参加进行具体的描述。
-
-### 3.1 注解的属性
-| 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
-| -------- | -------- | ----- |----- | 
-|value|String|""|描述|
-
-## 4. @ApiImplicitParams
-
-用在方法上，对请求参数进行描述。当需要对多个参数进行描述时，作为@ApiImplicitParams的属性使用。
 
 ### 4.1 注解的属性
 | 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
 | -------- | -------- | ----- |----- | 
 |value|String|""|描述|
-|name|String|""|参数说明|
-|defaultValue|String|""|默认值|
-|allowableValues|String|""|参数允许值|
-|required|boolean|false|是否必填,默认false|
-|access|String|""|参数过滤|
-|allowMultiple|boolean|false|参数是否可以通过多次出现来接受多个值，默认不允许|
-|dataType|String|""|参数的数据类型，可以使类名或原始数据类型|
-|dataTypeClass|Class<?>|Void.class|参数的数据类型，如果提供则覆盖 dataType|
-|paramType|String|""|参数类型，有效值为 path, query, body, header, form|
-|example|String|""|非body类型的参数示例|
-|examples|Example|@Example(value = @ExampleProperty(mediaType = “”, value = “”))|body类型的参数示例|
-|type|String|""|添加覆盖检测到的类型的功能|
-|format|String|""|添加提供自定义format格式的功能|
-|readOnly|boolean|false|添加被指定为只读的功能|
 
-### 4.2 使用方法
+## 5. @ApiImplicitParams
 
-```java
-@GetMapping("test1")
-@ApiOperation(value = "test1接口",notes = "test1接口详细描述")
-@ApiImplicitParams(value = {
-        @ApiImplicitParam(name = "aa",value = "aa的说明",defaultValue = "1",allowableValues = "1,2,3",required = true),
-        @ApiImplicitParam(name = "bb",value = "bb的说明",defaultValue = "1",allowableValues = "1,2,3",required = true),
-        @ApiImplicitParam(name = "cc",value = "cc的说明",defaultValue = "2",allowableValues = "1,2,3",required = true),
-
-})
-```
-
-## 5. @ApiParam
-
-用在方法、参数、类的字段上，对请求参数进行描述。
+用在方法上，对请求参数进行描述。当需要对多个参数进行描述时，作为@ApiImplicitParams的属性使用。
 
 ### 5.1 注解的属性
 | 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
@@ -141,17 +118,53 @@ public ApiResult<String> test1(@RequestParam String aa, @RequestParam String bb,
 ### 5.2 使用方法
 
 ```java
- @GetMapping("test2")
+@GetMapping("test1")
+@ApiOperation(value = "test1接口",notes = "test1接口详细描述")
+@ApiImplicitParams(value = {
+        @ApiImplicitParam(name = "aa",value = "aa的说明",defaultValue = "1",allowableValues = "1,2,3",required = true),
+        @ApiImplicitParam(name = "bb",value = "bb的说明",defaultValue = "1",allowableValues = "1,2,3",required = true),
+        @ApiImplicitParam(name = "cc",value = "cc的说明",defaultValue = "2",allowableValues = "1,2,3",required = true),
+
+})
+```
+
+## 6. @ApiParam
+
+用在方法、参数、类的字段上，对请求参数进行描述。
+
+### 6.1 注解的属性
+| 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
+| -------- | -------- | ----- |----- | 
+|value|String|""|描述|
+|name|String|""|参数说明|
+|defaultValue|String|""|默认值|
+|allowableValues|String|""|参数允许值|
+|required|boolean|false|是否必填,默认false|
+|access|String|""|参数过滤|
+|allowMultiple|boolean|false|参数是否可以通过多次出现来接受多个值，默认不允许|
+|dataType|String|""|参数的数据类型，可以使类名或原始数据类型|
+|dataTypeClass|Class<?>|Void.class|参数的数据类型，如果提供则覆盖 dataType|
+|paramType|String|""|参数类型，有效值为 path, query, body, header, form|
+|example|String|""|非body类型的参数示例|
+|examples|Example|@Example(value = @ExampleProperty(mediaType = “”, value = “”))|body类型的参数示例|
+|type|String|""|添加覆盖检测到的类型的功能|
+|format|String|""|添加提供自定义format格式的功能|
+|readOnly|boolean|false|添加被指定为只读的功能|
+
+### 6.2 使用方法
+
+```java
+@GetMapping("test2")
 @ApiOperation(value = "test2接口",notes = "test2接口详细描述")
 public ApiResult<TestRes> test2(@ApiParam(value = "aa的说明") @RequestParam String aa, @ApiParam(value = "bb的说明") @RequestParam String bb) {
         return ApiUtil.success(new TestRes());
 }
 ```
-## 6. @ApiModel
+## 7. @ApiModel
 
 用在类上，对请求、响应类,实体类进行描述。
 
-### 6.1 注解的属性
+### 7.1 注解的属性
 | 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
 | -------- | -------- | ----- |----- | 
 |value|String|""|	为提供模型的替代名称，默认情况下，使用类名|
@@ -162,11 +175,11 @@ public ApiResult<TestRes> test2(@ApiParam(value = "aa的说明") @RequestParam S
 |access|Class<?> parent|Void.class|	从此模型继承的子类型数组|
 |reference|boolean|false|指定对应类型定义的引用，覆盖指定的任何其他元数据|
 
-## 7. @ApiModel
+## 8 @ApiModelProperty
 
 用在类上，对请求、响应类,实体类进行描述。
 
-### 7.1 注解的属性
+### 8.1 注解的属性
 | 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
 | -------- | -------- | ----- |----- | 
 |value|String|""|属性说明|
@@ -181,7 +194,7 @@ public ApiResult<TestRes> test2(@ApiParam(value = "aa的说明") @RequestParam S
 |allowEmptyValue|boolean|false|允许传空值|
 |example|String|""|属性的示例值|
 
-### 7.2 使用方法
+### 8.2 使用方法
 
 <font color="red">注意：java和scala在@ApiModelProperty注解上的使用的区别 </font>
 
@@ -207,20 +220,20 @@ public class TestRes {
 ```
 
 
-## 8. @ApiResponses
+## 9. @ApiResponses
 
 用在方法、类上，对响应状态码列表进行描述。
 
-### 8.1 注解的属性
+### 9.1 注解的属性
 | 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
 | -------- | -------- | ----- |----- | 
 |value|ApiResponse[]|""|响应状态码列表的描述|
 
-## 9. @ApiResponse
+## 10. @ApiResponse
 
 用在方法上，对响应状态码进行描述。一般作为@ApiResponses的属性使用。
 
-### 9.1 注解的属性
+### 10.1 注解的属性
 | 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
 | -------- | -------- | ----- |----- | 
 |code|int|""|响应的HTTP状态码|
@@ -230,22 +243,11 @@ public class TestRes {
 |responseHeaders|ResponseHeader[]|@ResponseHeader(name = "", response = Void.class)|可能响应的header列表|
 |responseContainer|String|""|声明响应的容器，有效值为List,Set,Map，任何其他值都将被忽略|
 
-## 10. @ApiResponse
-
-用在方法上，对响应状态码进行描述。一般作为@ApiResponses的属性使用。
-
-### 10.1 注解的属性
-| 属性名称 | 属性类型 | 属性默认值 | 属性描述 |
-| -------- | -------- | ----- |----- | 
-|name|String|""|响应头参数名称|
-|description|String|""|响应头参数详细描述|
-|response|Class<?>|Void.class|响应头数据类型|
-|responseContainer|String|""|声明包装响应的容器，有效值为List或Set，任何其他值都将被覆盖|
 
 ### 10.2 使用方法
 
 ```java
-    @GetMapping("test2")
+@GetMapping("test2")
 @ApiOperation(value = "test2接口",notes = "test2接口详细描述")
 @ApiResponses(value = {
         @ApiResponse(code = 200, message = "请求成功", responseHeaders = {@ResponseHeader(name = "header1", description = "header1的描述",response = String.class)}),
@@ -254,6 +256,6 @@ public class TestRes {
 })
 public ApiResult<TestRes> test2(@ApiParam(value = "aa的说明") @RequestParam String aa, @ApiParam(value = "bb的说明") @RequestParam String bb) {
         return ApiUtil.success(new TestRes());
-        }
+}
 
 ```
