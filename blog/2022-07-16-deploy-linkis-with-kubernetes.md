@@ -1,6 +1,6 @@
 ---
 title: deploy linkis with kubernetes
-authors: [jackTao]
+authors: [jacktao]
 tags: [github]
 ---
 
