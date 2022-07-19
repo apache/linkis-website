@@ -1,6 +1,6 @@
 ---
-title: BML 物料库架构
-sidebar_position: 2
+title: 总览
+sidebar_position: 0
 ---
 ## 背景
 
