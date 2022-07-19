@@ -1,122 +1,121 @@
 ---
-title: Installation and deployment of tool scriptis
+title: Installation and deployment of the tool Scriptis
 sidebar_position: 10
 ---
 
-## 1. introduce
+## 1 Introduction
 
-> On linkis1.0 and DSS 1.1.0, scriptpis can be deployed separately to integrate with linkis. Using the interactive analysis function of scriptis, you can write SQL, pyspark, hiveql and other scripts online on the web page, submit them to linkis for execution, and support UDF, functions, resource control, user-defined variables and other features. This article will introduce how to deploy the web component scriptis separately, and use linkis through such a web page as scriptis.
-:::caution be careful
-Premise: the linkis service (back-end and management console services) has been successfully installed and can be used normally. See [rapid deployment of linkis] (deployment/quick_deploy) for the deployment process of linkis
+> After Linkis 1.0 and DSS 1.1.0, it is supported to deploy Scritpis separately to integrate Linkis, using the interactive analysis function of Scriptis, you can write SQL, Pyspark, HiveQL and other scripts online on web pages, submit them to Linkis for execution and support Features such as UDF, function, resource management, and custom variables. This article will introduce how to deploy the web component - Scriptis separately, and use Linkis through a web page such as Scriptis.
+
+
+Prerequisite: The linkis service (backend and management desk service) has been successfully installed and can be used normally. For the deployment process of linkis, see [Quick Deployment of Linkis](quick_deploy.md)
+
 Example description:
-- The address of the linkis gateway service is 10.10.10.10 and the port is 9001
-- The management console nginx of linkis is deployed on port 8080 of 10.10.10.10
-  :::
+- The address of the linkis-gateway service is 10.10.10.10 and the port is 9001
+- The linkis management console nginx is deployed on 10.10.10.10 and the port is 8080
 
+## 2. Environment preparation
+>Required for first use
 
-
-
-
-## 2. Compilation process
-
-### 2.1 Install node js
-```shell script
-     Set node JS download and install. Download address: http://nodejs.cn/download/ (it is recommended to use the latest stable version) this step is only required for the first use
-```
-
-### 2.1 install learn
-```shell script
-   #The computer opens the CMD terminal tool and enters the command for global installation
-   npm install lerna -g
-```
-Wait until the installation is completed. The installation of liarn only needs to be performed when it is used for the first time
-
-
-### 2.2 Get scripts code
-> Scriptis is a pure front-end project, which is integrated into the DSS web code component as a component. We only need to compile the DSS web project with a separate scripts module
+### 2.1 Install node.js
 
 ```shell script
-#Before downloading the official version of DSS 1.1.0 through GIT and releasing it, it is recommended to use the dev-1.1.4 branch of this branch to compile the scripts component
-git clone  -b dev-1.1.0 https://github.com/WeDataSphere/DataSphereStudio
-# Or download the zip package directly and unzip it
+Download node.js and install it. Download address: http://nodejs.cn/download/ (The latest stable version is recommended) This step only needs to be executed for the first time
+````
+
+### 2.2 Install learn
+```shell script
+#Wait for the installation to complete, the installation of liarn only needs to be executed when it is used for the first time
+npm install lerna -g
+````
+
+## 3 Compile and deploy
+### 3.1 Get script code
+> Scriptis is a pure front-end project, integrated as a component in the DSS web code component, we only need to compile the DSS web project with a separate scriptis module
+
+```shell script
+#Download dss 1.1.0 through git Before the official version is released, it is recommended to use this branch dev-1.1.4 to compile script components
+git clone -b dev-1.1.0 https://github.com/WeDataSphere/DataSphereStudio
+# Or directly download the zip package and unzip it
 https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.0
 
-#Enter web directory
-cd DataSphereStudio/web 
+# enter the web directory
+cd DataSphereStudio/web
 
-#Add dependency note: learn needs to be installed in lerna bootstrap instead of NPM install. This step needs to be performed only for the first time
+#Add dependencies Note: This is not through npm install but lerna bootstrap needs to be installed first learn This step only needs to be executed for the first time
 lerna bootstrap
-```
+````
 
 
+### 3.2 Running the project locally (optional)
+> If you don't want to run the view locally, you can skip this step
 
-### 2.3 Local operation project
-> If you do not want to run the view locally, you can skip this step
+#### 3.2.1 Configure linkis-gateway service address configuration
 
-#### 2.3.1 Configure the linkis gateway service address configuration
-If the service is started locally, you need to configure the back-end linkis gateway service address in the code, which is in the `. Under the web/packages/dss/ directory Env` file,
-Configuration is not required when packaging deployment
+If you start the service locally, you need to configure the backend linkis-gateway service address in the code, the `.env` file in the `web/packages/dss/` directory,
+No configuration is required when packaging and deploying
 ```shell script
-// Backend linkis gatway service address
+// Backend linkis-gatway service address
 VUE_APP_HOST=http://10.10.10.10:9001
 VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
-```
-#### 2.3.2 Running scripts module
+````
+#### 3.2.2 Running the scripts module
 
 ```shell script
-cd DataSphereStudio/web 
-# Run scripts component 
+cd DataSphereStudio/web
+# run script component
 npm run serve --module=scriptis
-```
+````
 
-Open the browser and link` http://localhost:8080 `(the default port for the local request is 8080) to access the application scripts, because it will request the remote linkis gatway service interface, which will have a cross domain problem. To solve the cross domain problem for the Chrome browser, please refer to [solve the chrome cross domain problem]（ https://www.jianshu.com/p/56b1e01e6b6a )
+Open the browser and access the application script through the link `http://localhost:8080` (the default port for local requests is 8080), because it will request the remote linkis-gatway service interface, which will cause cross-domain problems, chrome browser To solve cross-domain problems, please refer to [Solving Chrome Cross-Domain Problems](https://www.jianshu.com/p/56b1e01e6b6a)
 
-## 3. Packaging &amp; Deployment scriptis
 
-### 3.1  pack
+## 4 Packaging & deploying scriptis
+
+### 4.1 Packaging
 ```shell script
-#Specify scripts module
-cd DataSphereStudio/web 
+#Specify the scripts module
+cd DataSphereStudio/web
 
-#After the instruction is successfully executed, a folder named 'dist' will appear in the web directory, which is the component resource code of packaged scripts. We need to deploy this front-end resource to the nginx server where linkis web is located
-npm run build --module=scriptis 
-```
+#After the instruction is successfully executed, a folder named `dist` will appear in the web directory, which is the component resource code of the packaged script. We need to deploy the front-end resource to the nginx server where linkis-web is located
+npm run build --module=scriptis
+````
 
-### 3.2 deploy
+### 4.2 Deployment
 
-Upload the static resources compiled in 3.1 to the server where the linkis management console is located, and store them in `/data/install/scripts-web/dist/`,
-Add the static resource access rules of scripts to the nginx server configuration for installing the linkis management console. The nginx configuration deployed by the linkis management console is generally located in `/etc/nginx/conf.d/linkis conf`
+Upload the static resources compiled in 3.1 to the server where the linkis console is located, and store them in `/data/Install/scriptis-web/dist/`,
+In the nginx server configuration where the linkis management console is installed, add scriptis static resource access rules. The nginx configuration deployed by the linkis management console is generally located in `/etc/nginx/conf.d/linkis.conf`
 
 ```shell script
- location /scriptis { 
-     alias      /data/Install/scriptis-web/dist/ ;
-     index     index.html ;
+ location /scripts {
+     alias /data/Install/scriptis-web/dist/ ;
+     index index.html ;
 }
-```
+````
 
 sudo vim `/etc/nginx/conf.d/linkis.conf`
 
 ```shell script
 server {
-            listen       8080;# Access port
-            server_name  localhost;
+            listen 8080;# access port
+            server_name localhost;
             #charset koi8-r;
-            #access_log  /var/log/nginx/host.access.log  main;
+            #access_log /var/log/nginx/host.access.log main;
 
             location / {
-             root    /appcom/Install/linkis-web/dist/; # Static file directory
-             index   index.html;
+             root /appcom/Install/linkis-web/dist/; # static file directory
+             index index.html;
             }
 
-           location /scriptis {  #The resources of scripts are prefixed with scripts to distinguish them from the linkis management console
-             alias        /data/Install/scriptis-web/dist/  ;  #Nginx scripts static file storage path (customizable)
-             index     index.html ;
+           location /scriptis { #scriptis resources are prefixed with scriptis to distinguish them from the linkis console
+             alias /data/Install/scriptis-web/dist/ ; #nginx scriptis static file storage path (customizable)
+             index index.html ;
             }
 
-        .......
+        ......
 
 location /api {
-            proxy_pass http://10.10.10.10:9001; #Address of gatway
+            proxy_pass http://10.10.10.10:9001; #gatway's address
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -130,61 +129,60 @@ location /api {
             proxy_set_header Connection upgrade;
             }
 
-            #error_page  404              /404.html;
+            #error_page 404 /404.html;
             # redirect server error pages to the static page /50x.html
             #
-            error_page   500 502 503 504  /50x.html;
+            error_page 500 502 503 504 /50x.html;
             location = /50x.html {
-            root   /usr/share/nginx/html;
+            root /usr/share/nginx/html;
             }
         }
 
-```
+````
 After modifying the configuration, reload the nginx configuration
 ```shell script
 sudo nginx -s reload
-```
+````
 
 Note the difference between root and alias in nginx
-- The result of root processing is: root path + location path
-- The result of alias processing is to replace the location path with the alias path
-- Alias is the definition of a directory alias, and root is the definition of the top-level directory
+- The processing result of root is: root path + location path.
+- The result of alias processing is: replace the location path with the alias path.
+- alias is the definition of a directory alias, root is the definition of the top-level directory
 
-## 4. scriptis Use steps
+## 5 scriptis usage steps
 
-### 4.1 Log in to the linkis management console normally
+### 5.1 Log in to the linkis console normally
 ```shell script
 #http://10.10.10.10:8080/#/
 http://nginxIp:port/#/
-```
-Because scripts requires login verification, you need to log in first to get the cookie.
+````
+Because scriptis requires login verification, you need to log in first and get the cookie.
 
-### 4.2 Visit the scripts page after successful login
+### 5.2 Access the scriptis page after successful login
 
 ```shell script
-#http://10.10.10.10:8080/scriptis/
-http://nginxIp:port/scriptis/
-```
-Nginxip:nginx server IP, port:linkis management console nginx configuration start port number, `scripts` is the location address configured for the static file nginx of the requested scripts project (customizable)
-### 4.3 use scriptis
-Take creating an SQL query task as an example.
+#http://10.10.10.10:8080/scriptis/#/home
+http://nginxIp:port/scriptis/#/home
+````
+nginxIp: nginx server ip, port: port number for linkis management console nginx configuration startup, `scriptis` is the location address of nginx configuration for requesting scriptis project static files (can be customized)
+
+### 4.3 Using scriptis
+Take creating a new SQL query task as an example.
 
 
-step1 New script
+step1 Create a new script and select the script type as sql type
 
-![design sketch](/Images-zh/deployment/scriptis/new_script.png)
+![Rendering](/Images-zh/deployment/scriptis/new_script.png)
 
-step2 Enter the statement to query
+step2 Enter the statement to be queried
 
-![design sketch](/Images-zh/deployment/scriptis/test_statement.png)
+![Rendering](/Images-zh/deployment/scriptis/test_statement.png)
 
-step3 function
+step3 run
 
-![design sketch](/Images-zh/deployment/scriptis/running_results.png)
-
-
-shep4 View results
-
-![design sketch](/Images-zh/deployment/scriptis/design_sketch.png)
+![Rendering](/Images-zh/deployment/scriptis/running_results.png)
 
 
+shep4 View Results
+
+![Rendering](/Images-zh/deployment/scriptis/design_sketch.png)
