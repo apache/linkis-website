@@ -5,7 +5,7 @@ sidebar_position: 10
 
 ## 1. 介绍
 
-> 在Linkis1.0和DSS 1.1.X之后，支持将Scritpis单独部署来集成Linkis，使用Scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署Web组件-Scriptis，并通过Scriptis这种Web页面来使用Linkis。
+> 在Linkis1.0和DSS 1.1.0之后，支持将Scritpis单独部署来集成Linkis，使用Scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署Web组件-Scriptis，并通过Scriptis这种Web页面来使用Linkis。
 
 
 前提:已经成功安装并可以正常使用了linkis服务（后端和管理台服务），linkis的部署流程可以见[Linkis的快速部署](quick_deploy.md)
@@ -19,12 +19,12 @@ sidebar_position: 10
 
 ### 2.1 安装node.js
 ```shell script
-     将node.js下载，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
+将node.js下载，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
 ```
 ### 2.2 安装learn
 ```shell script
-   #等待安装完即可，安装liarn仅第一次使用时需要执行
-   npm install lerna -g
+#等待安装完即可，安装liarn仅第一次使用时需要执行
+npm install lerna -g
 ```
 
 ## 3 编译部署 
@@ -33,9 +33,9 @@ sidebar_position: 10
 
 ```shell script
 #通过git下载 dss 1.1.0官方版本发布前，建议先使用这个分支dev-1.1.4分支，来编译scriptis组件
-git clone  -b dev-1.1.4 https://github.com/WeDataSphere/DataSphereStudio
+git clone  -b dev-1.1.0 https://github.com/WeDataSphere/DataSphereStudio
 # 或则直接下载zip包 后解压
-https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.4
+https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.0
 
 #进入web目录
 cd DataSphereStudio/web 

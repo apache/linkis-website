@@ -5,7 +5,7 @@ sidebar_position: 10
 
 ## 1. introduce
 
-> On linkis1.0 and DSS 1.1 After X, scriptpis can be deployed separately to integrate with linkis. Using the interactive analysis function of scriptis, you can write SQL, pyspark, hiveql and other scripts online on the web page, submit them to linkis for execution, and support UDF, functions, resource control, user-defined variables and other features. This article will introduce how to deploy the web component scriptis separately, and use linkis through such a web page as scriptis.
+> On linkis1.0 and DSS 1.1.0, scriptpis can be deployed separately to integrate with linkis. Using the interactive analysis function of scriptis, you can write SQL, pyspark, hiveql and other scripts online on the web page, submit them to linkis for execution, and support UDF, functions, resource control, user-defined variables and other features. This article will introduce how to deploy the web component scriptis separately, and use linkis through such a web page as scriptis.
 :::caution be careful
 Premise: the linkis service (back-end and management console services) has been successfully installed and can be used normally. See [rapid deployment of linkis] (deployment/quick_deploy) for the deployment process of linkis
 Example description:
@@ -37,9 +37,9 @@ Wait until the installation is completed. The installation of liarn only needs t
 
 ```shell script
 #Before downloading the official version of DSS 1.1.0 through GIT and releasing it, it is recommended to use the dev-1.1.4 branch of this branch to compile the scripts component
-git clone  -b dev-1.1.4 https://github.com/WeDataSphere/DataSphereStudio
+git clone  -b dev-1.1.0 https://github.com/WeDataSphere/DataSphereStudio
 # Or download the zip package directly and unzip it
-https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.4
+https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.0
 
 #Enter web directory
 cd DataSphereStudio/web 
