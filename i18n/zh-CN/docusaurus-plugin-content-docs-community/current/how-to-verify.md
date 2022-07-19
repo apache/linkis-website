@@ -132,14 +132,11 @@ $ ./mvnw apache-rat:check
 $ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
 
-Window 环境下打开 Git BaSH 命令窗口
+Window 
 ```shell
 #正常5分钟内可以执行完
 $ mvnw.cmd -N install  
 $ mvnw.cmd apache-rat:check
-
-#无异常后 检查所有的rat文件 
-$ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
 
 rat check的白名单文件配置在外层pom.xml中的apache-rat-plugin插件配置中。

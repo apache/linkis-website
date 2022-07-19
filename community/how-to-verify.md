@@ -130,14 +130,11 @@ $ ./mvnw apache-rat:check
 #Check all rat files after no exception
 $ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ```
-Open git bash command window in environment
+Window
 ```shell
 #normally can be executed within 5 minutes
 $ mvnw.cmd -N install
 $ mvnw.cmd apache-rat:check
-
-#Check all rat files after no exception
-$ find ./ -name rat.txt -print0 | xargs -0 -I file cat file > merged-rat.txt
 ````
 
 The whitelist file of rat check is configured in the apache-rat-plugin plugin configuration in the outer pom.xml.

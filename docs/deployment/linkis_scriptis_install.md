@@ -1,11 +1,11 @@
 ---
-title: Installation and deployment of the tool Scriptis
+title: Installation and deployment of tool scripts
 sidebar_position: 10
 ---
 
 ## 1 Introduction
 
-> After Linkis 1.0 and DSS 1.1.0, it is supported to deploy Scritpis separately to integrate Linkis, using the interactive analysis function of Scriptis, you can write SQL, Pyspark, HiveQL and other scripts online on web pages, submit them to Linkis for execution and support Features such as UDF, function, resource management, and custom variables. This article will introduce how to deploy the web component - Scriptis separately, and use Linkis through a web page such as Scriptis.
+> After Linkis 1.0 and DSS 1.1.0, scriptis can be deployed separately to integrate Linkis. Using the interactive analysis function of scriptis, you can write SQL, Pyspark, HiveQL and other scripts online on web pages and submit them to Linkis for execution and support Features such as UDFs, functions, resource management, and custom variables. This article will introduce how to deploy the web component -scriptis separately, and use Linkis through the scriptis web page.
 
 
 Prerequisite: The linkis service (backend and management desk service) has been successfully installed and can be used normally. For the deployment process of linkis, see [Quick Deployment of Linkis](quick_deploy.md)
@@ -15,10 +15,9 @@ Example description:
 - The linkis management console nginx is deployed on 10.10.10.10 and the port is 8080
 
 ## 2. Environment preparation
->Required for first use
+>Requires installation on first use
 
 ### 2.1 Install node.js
-
 ```shell script
 Download node.js and install it. Download address: http://nodejs.cn/download/ (The latest stable version is recommended) This step only needs to be executed for the first time
 ````
@@ -31,13 +30,13 @@ npm install lerna -g
 
 ## 3 Compile and deploy
 ### 3.1 Get script code
-> Scriptis is a pure front-end project, integrated as a component in the DSS web code component, we only need to compile the DSS web project with a separate scriptis module
+> scriptis is a pure front-end project, integrated as a component in the DSS web code component, we only need to compile the DSS web project with a separate scriptis module
 
 ```shell script
-#Download dss 1.1.0 through git Before the official version is released, it is recommended to use this branch dev-1.1.4 to compile script components
-git clone -b dev-1.1.0 https://github.com/WeDataSphere/DataSphereStudio
+#Download >=dss 1.1.0 via git to compile script components
+git clone https://github.com/WeBankFinTech/DataSphereStudio/tree/branch-1.1.0
 # Or directly download the zip package and unzip it
-https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.0
+https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.0.zip
 
 # enter the web directory
 cd DataSphereStudio/web
@@ -46,9 +45,9 @@ cd DataSphereStudio/web
 lerna bootstrap
 ````
 
-
 ### 3.2 Running the project locally (optional)
-> If you don't want to run the view locally, you can skip this step
+
+> If you don't need to run the debug view locally, you can skip this step
 
 #### 3.2.1 Configure linkis-gateway service address configuration
 
@@ -68,7 +67,6 @@ npm run serve --module=scriptis
 ````
 
 Open the browser and access the application script through the link `http://localhost:8080` (the default port for local requests is 8080), because it will request the remote linkis-gatway service interface, which will cause cross-domain problems, chrome browser To solve cross-domain problems, please refer to [Solving Chrome Cross-Domain Problems](https://www.jianshu.com/p/56b1e01e6b6a)
-
 
 ## 4 Packaging & deploying scriptis
 
@@ -144,7 +142,7 @@ After modifying the configuration, reload the nginx configuration
 sudo nginx -s reload
 ````
 
-Note the difference between root and alias in nginx
+Note that in nginx, the difference between root and alias is used in the locaiton configuration block
 - The processing result of root is: root path + location path.
 - The result of alias processing is: replace the location path with the alias path.
 - alias is the definition of a directory alias, root is the definition of the top-level directory
