@@ -1,36 +1,25 @@
 ---
-title: Version Overview
+title: Version overview
 sidebar_position: 0.1
 ---
 
-- [Lite Deployment Without HDFS Mode](/deployment/deploy_linkis_without_hdfs.md)
-- [Sqoop Engine Usage](/engine_usage/sqoop.md)
-- [History Task Query HTTP Interface](/api/http/linkis-ps-publicservice-api/jobhistory-api.md)
-- [Installation And Deployment of Tool Scriptis](/deployment/linkis_scriptis_install.md)
+- [Enable Prometheus monitoring](/deployment/involve_prometheus_into_linkis.md)
+- [Custom Variable Design & Built-in Variables](/architecture/commons/variable.md)
+- [EngineConn History Information Recording Features](/architecture/computation_governance_services/engine/engine_conn_history.md)
+- [EngineConn Metrics reporting feature](/architecture/computation_governance_services/engine/engine_conn_metrics.md)
+- [ContextService cleanup interface features](/architecture/public_enhancement_services/context_service/content_service_cleanup.md)
 
-## Configuration Item 
 
+## Configuration Item
 
-| Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
+| module name (service name) | type | parameter name | default value | description |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
-|common | New |linkis.codeType.runType.relation | sql=>sql\|hql\|jdbc\|hive\|psql\|fql,<br/>python=>python\|py\|pyspark,< br/>java=>java,scala=>scala,<br/>shell=>sh\|shell |mapping relationship between codeType and runType|
-|rpc | New | linkis.rpc.spring.params.enable | false | Controls the ribbon mode parameter switch of the RPC module|
-|ec | New | linkis.engineconn.max.parallelism |300 | Asynchronous execution supports setting the number of concurrent job groups |
-|ec | New | linkis.engineconn.async.group.max.running | 10| |
-|ec-flink | New | linkis.flink.execution.attached | true| |
-|ec-flink | New | linkis.flink.kerberos.enable | false| |
-|ec-flink | New | linkis.flink.kerberos.login.contexts | Client,KafkaClient| |
-|ec-flink | New | linkis.flink.kerberos.login.keytab | | |
-|ec-flink | New | linkis.flink.kerberos.login.principal | | |
-|ec-flink | New | linkis.flink.kerberos.krb5-conf.path | | |
-|ec-flink | New | linkis.flink.params.placeholder.blank | \\0x001| |
-|ec-sqoop | New | sqoop.task.map.memory | 2| |
-|ec-sqoop | New | sqoop.task.map.cpu.cores | 1| |
-|ec-sqoop | New | sqoop.params.name.mode | sqoop.mode| |
-|ec-sqoop | New | sqoop.params.name.prefix | sqoop.args.| |
-|ec-sqoop | New | sqoop.params.name.env.prefix |sqoop.env.| |
-|ec-sqoop | New | linkis.hadoop.site.xml |/etc/hadoop/conf/core-site.xml;<br/>/etc/hadoop/conf/hdfs- site.xml;<br/>/etc/hadoop/conf/yarn-site.xml;<br/>/etc/hadoop/conf/mapred-site.xml| set sqoop to load hadoop parameter file location|
-|ec-sqoop | New | sqoop.fetch.status.interval |5s| Sets the interval for obtaining sqoop execution status |
+|eureka(application-eureka.yml) | New |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} |mapping relationship between codeType and runType|
+|eureka(application-eureka.yml) | New | management.endpoints.web.exposure.include|refresh,info,health,metrics | Control the ribbon mode parameter switch of RPC module|
+|common(application-linkis.yml) | New | eureka.instance.metadata-map:.prometheus.path|${prometheus.path:${prometheus.endpoint}} | Asynchronous execution supports setting the number of concurrent job groups |
+|common | New |wds.linkis.prometheus.enable | false| |
+|common | Modify | wds.linkis.server.user.restful.uri.pass.auth | /api/rest_j/v1/actuator/prometheus| |
+|common | modify | spring.spring.cloud.config.enabled | false | |
 
 ## DB Table Changes
-no change
+For details, see the upgrade schema`db/upgrade/1.1.1_schema` file in the corresponding branch of the code repository (https://github.com/apache/incubator-linkis).
