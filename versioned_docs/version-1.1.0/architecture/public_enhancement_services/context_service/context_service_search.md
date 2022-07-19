@@ -1,6 +1,6 @@
 ---
 title: CS Search Architecture
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 ## **CSSearch Architecture**

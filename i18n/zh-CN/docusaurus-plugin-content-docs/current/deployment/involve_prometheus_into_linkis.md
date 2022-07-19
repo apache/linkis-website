@@ -86,6 +86,7 @@ wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
 ```
 ### 2.2 已经安装后 启用 Prometheus
+
 修改`${LINKIS_HOME}/conf/application-linkis.yml`
 endpoints配置修改 增加`prometheus`
 ```yaml
@@ -99,6 +100,7 @@ management:
 ```
 
 修改`${LINKIS_HOME}/conf/application-eureka.yml`，endpoints配置修改增加`prometheus`
+
 ```yaml
 ## application-eureka.yml  ##
 management:
@@ -108,7 +110,9 @@ management:
         #增加 prometheus
         include: refresh,info,health,metrics,prometheus
 ````
+
 修改`${LINKIS_HOME}/conf/linkis.properties`，去掉`prometheus.enable`前的注释
+
 ```yaml
 ## linkis.properties ##
 ...
@@ -123,13 +127,16 @@ $ bash linkis-start-all.sh
 ````
 
 Linkis启动后，各个微服务的prometheus端点是可以直接被访问的，例如http://linkishost:9103/api/rest_j/v1/actuator/prometheus
-
 :::caution 注意
 gateway/eureka 服务prometheus端点是没有`api/rest_j/v1`前缀的   http://linkishost:9001/actuator/prometheus
 :::
 
 
 ## 3. 部署 Prometheus,Alertmanager和 Grafana 示例
+
+:::caution 注意
+gateway/eureka 服务prometheus端点是没有`api/rest_j/v1`前缀的   http://linkishost:9001/actuator/prometheus
+:::
 
 通常来说，云原生应用程序的监控设置将部署在具有服务发现和高可用性的 Kubernetes 上（例如，使用像 Prometheus Operator 这样的 Kubernetes Operator）。
 为了快速展示监控仪表盘，和试验不同类型的图表(histogram/ gauge)，你需要一个本地简易的构建。

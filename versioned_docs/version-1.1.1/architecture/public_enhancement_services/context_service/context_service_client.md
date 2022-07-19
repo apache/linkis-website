@@ -1,6 +1,6 @@
 ---
 title: CS Client Design
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 ## **CSClient design ideas and implementation**
