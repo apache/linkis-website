@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.incubator.apache.org/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Mon, 04 Jul 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 16 Jul 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[deploy linkis with kubernetes]]></title>
+            <link>https://linkis.incubator.apache.org/blog/2022/07/16/deploy-linkis-with-kubernetes</link>
+            <guid>deploy linkis with kubernetes</guid>
+            <pubDate>Sat, 16 Jul 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[1. Dependencies and versions]]></description>
+        </item>
         <item>
             <title><![CDATA[How to add a GitHub Action for the GitHub repository]]></title>
             <link>https://linkis.incubator.apache.org/blog/2022/07/04/how-to-add-auto-bot</link>
