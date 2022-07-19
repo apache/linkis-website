@@ -76,7 +76,7 @@ npm run serve --module=scriptis
 cd DataSphereStudio/web 
 
 #该指令成功执行后，web目录下会出现一个名叫 `dist` 的文件夹，该文件夹即为打包好scriptis的组件资源代码。我们需要将该前端资源部署到linkis-web所在的nginx服务器上
-npm run build --module=scriptis 
+npm run build --module=scriptis  
 ```
 
 ### 4.2 部署
