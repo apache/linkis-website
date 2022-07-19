@@ -2,11 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://linkis.incubator.apache.org/zh-CN/blog</id>
     <title>Apache Linkis Blog</title>
-    <updated>2022-07-04T00:00:00.000Z</updated>
+    <updated>2022-07-16T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://linkis.incubator.apache.org/zh-CN/blog"/>
     <subtitle>Apache Linkis Blog</subtitle>
     <icon>https://linkis.incubator.apache.org/zh-CN/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[部署Linkis到Kubernetes]]></title>
+        <id>部署Linkis到Kubernetes</id>
+        <link href="https://linkis.incubator.apache.org/zh-CN/blog/2022/07/16/deploy-linkis-with-kubernetes"/>
+        <updated>2022-07-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[1.依赖、版本]]></summary>
+        <author>
+            <name>jacktao</name>
+            <uri>https://github.com/jacktao007</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[如何为github仓库添加一个github action]]></title>
         <id>如何为github仓库添加一个github action</id>
