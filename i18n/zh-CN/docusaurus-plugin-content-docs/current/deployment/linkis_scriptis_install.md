@@ -1,11 +1,11 @@
 ---
-title: 工具Scriptis的安装部署
+title: 工具scriptis的安装部署
 sidebar_position: 10
 ---
 
 ## 1. 介绍
 
-> 在Linkis1.0和DSS 1.1.X之后，支持将Scritpis单独部署来集成Linkis，使用Scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署Web组件-Scriptis，并通过Scriptis这种Web页面来使用Linkis。
+> 在Linkis1.0和DSS 1.1.0之后，支持将scriptis单独部署来集成Linkis，使用scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署Web组件-scriptis，并通过scriptis这种Web页面来使用Linkis。
 
 
 前提:已经成功安装并可以正常使用了linkis服务（后端和管理台服务），linkis的部署流程可以见[Linkis的快速部署](quick_deploy.md)
@@ -15,27 +15,27 @@ sidebar_position: 10
 - linkis的管理台nginx部署在10.10.10.10 端口为8080
 
 ## 2.环境准备
->首次使用需要
+>首次使用时需要安装
 
 ### 2.1 安装node.js
 ```shell script
-     将node.js下载，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
+将node.js下载，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
 ```
 ### 2.2 安装learn
 ```shell script
-   #等待安装完即可，安装liarn仅第一次使用时需要执行
-   npm install lerna -g
+#等待安装完即可，安装liarn仅第一次使用时需要执行
+npm install lerna -g
 ```
 
 ## 3 编译部署 
 ### 3.1 获取scriptis代码
-> Scriptis是一个纯前端的项目，作为一个组件集成在DSS的web代码组件中，我们只需要将DSS web项目进行单独的scriptis模块编译
+> scriptis是一个纯前端的项目，作为一个组件集成在DSS的web代码组件中，我们只需要将DSS web项目进行单独的scriptis模块编译
 
 ```shell script
-#通过git下载 dss 1.1.0官方版本发布前，建议先使用这个分支dev-1.1.4分支，来编译scriptis组件
-git clone  -b dev-1.1.4 https://github.com/WeDataSphere/DataSphereStudio
+#通过git下载 >=dss 1.1.0 版本来编译scriptis组件
+git clone  https://github.com/WeBankFinTech/DataSphereStudio/tree/branch-1.1.0
 # 或则直接下载zip包 后解压
-https://codeload.github.com/WeDataSphere/DataSphereStudio/zip/refs/heads/dev-1.1.4
+https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.0.zip
 
 #进入web目录
 cd DataSphereStudio/web 
@@ -46,7 +46,7 @@ lerna bootstrap
 
 ### 3.2 本地运行项目（可选）
 
-> 如果不想本地运行查看，可以跳过此步 
+> 如果不需要本地运行调试查看，可以跳过此步
 
 #### 3.2.1 配置linkis-gateway服务地址配置
 
@@ -76,7 +76,7 @@ npm run serve --module=scriptis
 cd DataSphereStudio/web 
 
 #该指令成功执行后，web目录下会出现一个名叫 `dist` 的文件夹，该文件夹即为打包好scriptis的组件资源代码。我们需要将该前端资源部署到linkis-web所在的nginx服务器上
-npm run build --module=scriptis 
+npm run build --module=scriptis  
 ```
 
 ### 4.2 部署
@@ -142,7 +142,7 @@ location /api {
 sudo nginx -s reload
 ```
 
-注意nginx中，root和alias区别
+注意nginx中，locaiton配置块中使用 root和alias区别
 - root的处理结果是：root路径＋location路径.
 - alias的处理结果是：使用alias路径替换location路径.
 - alias是一个目录别名的定义，root则是最上层目录的定义
