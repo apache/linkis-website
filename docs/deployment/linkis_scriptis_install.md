@@ -23,7 +23,7 @@ Download node.js and install it. Download address: http://nodejs.cn/download/ (T
 ````
 ### 2.2 Install learn
 ```shell script
-#Wait for the installation to complete, the installation of liarn only needs to be executed when it is used for the first time
+#Wait for the installation to  complete, the installation of liarn only needs to be executed when it is used for the first time
 npm install lerna -g
 ````
 
