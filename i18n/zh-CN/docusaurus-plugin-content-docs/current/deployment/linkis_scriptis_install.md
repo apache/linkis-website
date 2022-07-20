@@ -32,8 +32,8 @@ npm install lerna -g
 > scriptis 是一个纯前端的项目，作为一个组件集成在 DSS 的 web 代码组件中，我们只需要将 DSS web 项目进行单独的 scriptis 模块编译
 
 ```shell script
-#通过 git 下载 >=dss 1.1.0 版本来编译 scriptis 组件
-git clone  https://github.com/WeBankFinTech/DataSphereStudio/tree/branch-1.1.0
+#通过git下载 >=dss 1.1.0 版本来编译scriptis组件
+git clone -b branch-1.1.0  https://github.com/WeBankFinTech/DataSphereStudio
 # 或则直接下载 zip 包 后解压
 https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.0.zip
 
