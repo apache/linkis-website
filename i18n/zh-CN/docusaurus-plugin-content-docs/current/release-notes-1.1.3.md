@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.1.3-RC1
-sidebar_position: 1
+sidebar_position: 0.2
 --- 
 
 Apache Linkis(incubating) 1.1.3 包括所有 [Project Linkis-1.1.3](https://github.com/apache/incubator-linkis/projects/19)。
@@ -31,7 +31,7 @@ Apache Linkis(incubating) 1.1.3 包括所有 [Project Linkis-1.1.3](https://gith
 * \[Common][[Linkis-1656]](https://github.com/apache/incubator-linkis/issues/1656)  集成prometheus，提供linkis微服务监控的基础能力
 * \[EC-Flink][[Linkis-2241]](https://github.com/apache/incubator-linkis/pull/2241) 添加 Yarn Log Operator，支持将 Yarn 日志下载到 EC 日志目录
 * \[Web][[Linkis-2235]](https://github.com/apache/incubator-linkis/issues/2108) 前端页面支持水印
-* \[Entrance][[Linkis-2164]](~~https://github.com/apache/incubator-linkis/pull/2164~~) Entrance 支持任务重试次数的参数 
+* \[Entrance][[Linkis-2164]](https://github.com/apache/incubator-linkis/pull/2164) Entrance 支持任务重试次数的参数 
 * \[EC][[Linkis-2163]](https://github.com/apache/incubator-linkis/pull/2163) 增加任务与执行EC的记录，EC信息记录到任务的 Metrics字段中
 
 ## 增强点
