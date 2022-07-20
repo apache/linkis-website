@@ -25,6 +25,8 @@ sidebar_position: 10
 ```shell script
 #等待安装完即可，安装 liarn 仅第一次使用时需要执行 
 npm install lerna -g
+#初始化
+lerna init
 ```
 
 ## 3 编译部署 

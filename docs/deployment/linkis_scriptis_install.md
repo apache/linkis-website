@@ -26,6 +26,8 @@ Download node.js and install it. Download address: http://nodejs.cn/download/ (T
 ```shell script
 #Wait for the installation to complete, the installation of liarn only needs to be executed when it is used for the first time
 npm install lerna -g
+#init
+lerna init
 ````
 
 ## 3 Compile and deploy

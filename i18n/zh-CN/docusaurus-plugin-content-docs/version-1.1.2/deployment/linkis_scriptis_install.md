@@ -42,6 +42,8 @@ cd DataSphereStudio/web
 
 #添加依赖  注意：这里不是通过 npm install 而是 lerna bootstrap  需先安装 learn  该步骤仅第一次使用时需要执行
 lerna bootstrap
+#初始化
+lerna init
 ```
 
 ### 3.2 本地运行项目（可选）
