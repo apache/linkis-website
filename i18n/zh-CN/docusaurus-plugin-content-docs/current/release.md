@@ -13,9 +13,9 @@ sidebar_position: 0.1
 
 | 模块名(服务名)| 类型  |     参数名                                                | 默认值             | 描述                                                    |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
-|eureka(application-eureka.yml)  | 新增   |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} |codeType和runType的映射关系|
-|eureka(application-eureka.yml) | 新增  | management.endpoints.web.exposure.include|refresh,info,health,metrics   | 控制RPC模块的ribbon模式参数开关|
-|common(application-linkis.yml) | 新增  | eureka.instance.metadata-map:.prometheus.path|${prometheus.path:${prometheus.endpoint}} |    异步执行支持设置并发作业组数     |
+|eureka(application-eureka.yml) | 新增  | management.endpoints.web.exposure.include|refresh,info,health,metrics   | Spring Boot Actuator暴露端口范围|
+|eureka(application-eureka.yml)  | 新增   |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} | 注册在eureka元数据中的微服务prometheus监控端口|
+|common(application-linkis.yml) | 新增  | eureka.instance.metadata-map:.prometheus.path|${prometheus.path:${prometheus.endpoint}} | 同上|
 |common       | 新增  |wds.linkis.prometheus.enable  | false|        |
 |common  | 修改  | wds.linkis.server.user.restful.uri.pass.auth               | /api/rest_j/v1/actuator/prometheus|                                 |
 |common | 修改  | spring.spring.cloud.config.enabled                   | false|                                |
