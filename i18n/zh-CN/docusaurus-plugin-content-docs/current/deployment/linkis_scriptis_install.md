@@ -40,7 +40,7 @@ https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.
 #进入web目录
 cd DataSphereStudio/web 
 
-#添加依赖  注意：这里不是通过npm install 而是lerna bootstrap  需先安装 learn  该步骤仅第一次使用时需要执行
+#添加依赖   注意：这里不是通过npm install 而是lerna bootstrap  需先安装 learn  该步骤仅第一次使用时需要执行
 lerna bootstrap
 ```
 

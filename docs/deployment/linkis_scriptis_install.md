@@ -21,7 +21,6 @@ Example description:
 ```shell script
 Download node.js and install it. Download address: http://nodejs.cn/download/ (The latest stable version is recommended) This step only needs to be executed for the first time
 ````
-
 ### 2.2 Install learn
 ```shell script
 #Wait for the installation to complete, the installation of liarn only needs to be executed when it is used for the first time
@@ -34,7 +33,7 @@ npm install lerna -g
 
 ```shell script
 #Download >=dss 1.1.0 via git to compile script components
-git clone -b branch-1.1.0  https://github.com/WeBankFinTech/DataSphereStudio
+git clone -b branch-1.1.0 https://github.com/WeBankFinTech/DataSphereStudio
 # Or directly download the zip package and unzip it
 https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.0.zip
 
@@ -59,6 +58,7 @@ VUE_APP_HOST=http://10.10.10.10:9001
 VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
 ````
 #### 3.2.2 Running the scripts module
+
 
 ```shell script
 cd DataSphereStudio/web
