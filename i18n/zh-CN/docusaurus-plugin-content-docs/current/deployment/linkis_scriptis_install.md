@@ -23,7 +23,7 @@ sidebar_position: 10
 ```
 ### 2.2 安装 learn
 ```shell script
-#等待安装完即可，安装 liarn 仅第一次使用时需要执行
+#等待安装完即可，安装 liarn 仅第一次使用时需要执行 
 npm install lerna -g
 ```
 
