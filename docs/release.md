@@ -14,9 +14,9 @@ sidebar_position: 0.1
 
 | module name (service name) | type | parameter name | default value | description |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
-|eureka(application-eureka.yml) | New |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} |mapping relationship between codeType and runType|
-|eureka(application-eureka.yml) | New | management.endpoints.web.exposure.include|refresh,info,health,metrics | Control the ribbon mode parameter switch of RPC module|
-|common(application-linkis.yml) | New | eureka.instance.metadata-map:.prometheus.path|${prometheus.path:${prometheus.endpoint}} | Asynchronous execution supports setting the number of concurrent job groups |
+|eureka(application-eureka.yml) | New | management.endpoints.web.exposure.include|refresh,info,health,metrics | The endpoint exposure range for Spring Boot Actuator|
+|eureka(application-eureka.yml) | New |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} | Prometheus monitoring endpoint for microservices registered in Eureka metadata|
+|common(application-linkis.yml) | New | eureka.instance.metadata-map:.prometheus.path|${prometheus.path:${prometheus.endpoint}} | ditto|
 |common | New |wds.linkis.prometheus.enable | false| |
 |common | Modify | wds.linkis.server.user.restful.uri.pass.auth | /api/rest_j/v1/actuator/prometheus| |
 |common | modify | spring.spring.cloud.config.enabled | false | |
