@@ -1,46 +1,46 @@
 ---
-title: 工具scriptis的安装部署
+title: 工具 scriptis 的安装部署
 sidebar_position: 10
 ---
 
 ## 1. 介绍
 
-> 在Linkis1.0和DSS 1.1.0之后，支持将scriptis单独部署来集成Linkis，使用scriptis的交互式分析的功能，可以在web 页面在线写SQL、Pyspark、HiveQL等脚本，提交给Linkis执行且支持UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署Web组件-scriptis，并通过scriptis这种Web页面来使用Linkis。
+> 在 Apache Linkis 1.0 和 DSS 1.1.0 之后，支持将 scriptis 单独部署和 Apache Linkis 进行搭配使用，使用 scriptis 的交互式分析的功能，可以在 web 页面在线写 SQL、Pyspark、HiveQL 等脚本，提交给 Linkis 执行且支持 UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署 Web 组件-scriptis，并通过 scriptis 这种 Web 页面来使用 Apache 。
 
 
-前提:已经成功安装并可以正常使用了linkis服务（后端和管理台服务），linkis的部署流程可以见[Linkis的快速部署](quick_deploy.md)
+前提:已经成功安装并可以正常使用了 Apache Linkis 服务（后端和管理台服务），Apache Linkis 的部署流程可以见[Apache Linkis 的快速部署 ](quick_deploy.md)
 
 示例说明:
-- linkis-gateway服务的地址为10.10.10.10 端口为9001 
-- linkis的管理台nginx部署在10.10.10.10 端口为8080
+- linkis-gateway 服务的地址为 10.10.10.10 端口为 9001 
+- Apache Linkis 的管理台 nginx 部署在 10.10.10.10 端口为 8080
 
 ## 2.环境准备
->首次使用时需要安装
+> 首次使用时需要安装
 
-### 2.1 安装node.js
+### 2.1 安装 node.js
 ```shell script
-将node.js下载，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
+将 node.js 下载，安装即可。下载地址：http://nodejs.cn/download/ （建议使用最新的稳定版本） 该步骤仅第一次使用时需要执行
 ```
-### 2.2 安装learn
+### 2.2 安装 learn
 ```shell script
-#等待安装完即可，安装liarn仅第一次使用时需要执行
+#等待安装完即可，安装 liarn 仅第一次使用时需要执行
 npm install lerna -g
 ```
 
 ## 3 编译部署 
-### 3.1 获取scriptis代码
-> scriptis是一个纯前端的项目，作为一个组件集成在DSS的web代码组件中，我们只需要将DSS web项目进行单独的scriptis模块编译
+### 3.1 获取 scriptis 代码
+> scriptis 是一个纯前端的项目，作为一个组件集成在 DSS 的 web 代码组件中，我们只需要将 DSS web 项目进行单独的 scriptis 模块编译
 
 ```shell script
-#通过git下载 >=dss 1.1.0 版本来编译scriptis组件
+#通过 git 下载 >=dss 1.1.0 版本来编译 scriptis 组件
 git clone  https://github.com/WeBankFinTech/DataSphereStudio/tree/branch-1.1.0
-# 或则直接下载zip包 后解压
+# 或则直接下载 zip 包 后解压
 https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.0.zip
 
-#进入web目录
+#进入 web 目录
 cd DataSphereStudio/web 
 
-#添加依赖  注意：这里不是通过npm install 而是lerna bootstrap  需先安装 learn  该步骤仅第一次使用时需要执行
+#添加依赖  注意：这里不是通过 npm install 而是 lerna bootstrap  需先安装 learn  该步骤仅第一次使用时需要执行
 lerna bootstrap
 ```
 
@@ -48,41 +48,41 @@ lerna bootstrap
 
 > 如果不需要本地运行调试查看，可以跳过此步
 
-#### 3.2.1 配置linkis-gateway服务地址配置
+#### 3.2.1 配置 linkis-gateway 服务地址配置
 
-如果是在本地启动服务，需要在代码中配置后端linkis-gateway服务地址，在`web/packages/dss/`目录下的`.env`文件，
+如果是在本地启动服务，需要在代码中配置后端 linkis-gateway 服务地址，在`web/packages/dss/`目录下的`.env`文件，
 打包部署时不需要进行配置
 ```shell script
-// 后端linkis-gatway服务地址
+// 后端 linkis-gatway 服务地址
 VUE_APP_HOST=http://10.10.10.10:9001
 VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
 ```
-#### 3.2.2 运行scriptis模块 
+#### 3.2.2 运行 scriptis 模块 
 
 ```shell script
 cd DataSphereStudio/web 
-# 运行scriptis组件 
+# 运行 scriptis 组件 
 npm run serve --module=scriptis
 ```
 
-打开浏览器，通过链接`http://localhost:8080`(本地请求默认端口是8080)访问应用scriptis ，因为会请求到远端的linkis-gatway服务接口，这会存在跨域问题，chrome浏览器解决跨域问题可参考[解决Chrome跨域问题](https://www.jianshu.com/p/56b1e01e6b6a)
+打开浏览器，通过链接`http://localhost:8080`(本地请求默认端口是 8080) 访问应用 scriptis ，因为会请求到远端的 linkis-gatway 服务接口，这会存在跨域问题，chrome 浏览器解决跨域问题可参考[解决 Chrome 跨域问题 ](https://www.jianshu.com/p/56b1e01e6b6a)
 
 
 ## 4 打包&部署 scriptis
 
 ### 4.1  打包
 ```shell script
-#指定scriptis模块 
+#指定 scriptis 模块 
 cd DataSphereStudio/web 
 
-#该指令成功执行后，web目录下会出现一个名叫 `dist` 的文件夹，该文件夹即为打包好scriptis的组件资源代码。我们需要将该前端资源部署到linkis-web所在的nginx服务器上
+#该指令成功执行后，web 目录下会出现一个名叫 `dist` 的文件夹，该文件夹即为打包好 scriptis 的组件资源代码。我们需要将该前端资源部署到 linkis-web 所在的 nginx 服务器上
 npm run build --module=scriptis  
 ```
 
 ### 4.2 部署
 
-将 3.1编译出来的静态资源 上传至 linkis 管理台所在的服务器上，存放于`/data/Install/scriptis-web/dist/`，
-在安装 linkis 管理台的nginx服务器配置中，添加 scriptis 的静态资源访问规则，linkis 管理台部署的 nginx 配置一般位于 `/etc/nginx/conf.d/linkis.conf`
+将步骤 3.1 编译出来的静态资源 上传至 Apache Linkis 管理台所在的服务器上，存放于`/data/Install/scriptis-web/dist/`，
+在安装 Apache Linkis  管理台的 nginx 服务器配置中，添加 scriptis 的静态资源访问规则，Apache Linkis  管理台部署的 nginx 配置一般位于 `/etc/nginx/conf.d/linkis.conf`
 
 ```shell script
  location /scriptis { 
@@ -105,15 +105,15 @@ server {
              index   index.html;
             }
 
-           location /scriptis {  #scriptis的资源带有scriptis前缀与linkis 管理台区分开
-             alias        /data/Install/scriptis-web/dist/  ;  #nginx scriptis静态文件存放路径(可自定义)
+           location /scriptis {  #scriptis 的资源带有 scriptis 前缀与 linkis 管理台区分开
+             alias        /data/Install/scriptis-web/dist/  ;  #nginx scriptis 静态文件存放路径 (可自定义)
              index     index.html ;
             }
 
         .......
 
 location /api {
-            proxy_pass http://10.10.10.10:9001; #gatway的地址
+            proxy_pass http://10.10.10.10:9001; #gatway 的地址
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -137,24 +137,25 @@ location /api {
         }
 
 ```
-修改配置后 ，重新加载nginx配置 
+修改配置后，重新加载 nginx 配置 
+
 ```shell script
 sudo nginx -s reload
 ```
 
-注意nginx中，locaiton配置块中使用 root和alias区别
-- root的处理结果是：root路径＋location路径.
-- alias的处理结果是：使用alias路径替换location路径.
-- alias是一个目录别名的定义，root则是最上层目录的定义
+注意 nginx 中，location 配置块中使用 root 和 alias 区别
+- root 的处理结果是：root 路径＋location 路径.
+- alias 的处理结果是：使用 alias 路径替换 location 路径.
+- alias 是一个目录别名的定义，root 则是最上层目录的定义
 
 ## 5 scriptis 使用步骤
 
-### 5.1 正常登录linkis管理台
+### 5.1 正常登录 Apache Linkis 管理台
 ```shell script
 #http://10.10.10.10:8080/#/
 http://nginxIp:port/#/
 ```
-因scriptis需要进行登录验证所以需要先进行登录，拿到cookie。
+因访问 scriptis 需要进行登录验证,所以需要先进行登录，获取并缓存 cookie。
 
 ### 5.2 登录成功后 访问 scriptis 页面
 
@@ -162,27 +163,28 @@ http://nginxIp:port/#/
 #http://10.10.10.10:8080/scriptis/#/home
 http://nginxIp:port/scriptis/#/home
 ```
-nginxIp:nginx服务器ip，port:linkis管理台nginx配置启动的端口号，`scriptis`为请求scriptis项目静态文件nginx配置的location 地址（可自定义设置）
+`nginxIp`:Apache Linkis 管理台所部署的 nginx 服务器 ip，`port`:nginx 配置启动的端口号，`scriptis`为请求 scriptis 项目静态文件 nginx 配置的 location 地址（可自定义设置）
 
 ### 4.3 使用 scriptis 
-以新建一个sql查询任务为例。
+
+以新建一个 sql 查询任务为例。
 
 
-step1 新建脚本 选择脚本类型为sql类型
+step1 新建脚本 选择脚本类型为 sql 类型
 
-![效果图](/Images-zh/deployment/scriptis/new_script.png)
+![效果图 ](/Images-zh/deployment/scriptis/new_script.png)
 
 step2 输入要查询的语句
 
-![效果图](/Images-zh/deployment/scriptis/test_statement.png)
+![效果图 ](/Images-zh/deployment/scriptis/test_statement.png)
 
 step3 运行
 
-![效果图](/Images-zh/deployment/scriptis/running_results.png)
+![效果图 ](/Images-zh/deployment/scriptis/running_results.png)
 
 
 shep4 查看结果 
 
-![效果图](/Images-zh/deployment/scriptis/design_sketch.png)
+![效果图 ](/Images-zh/deployment/scriptis/design_sketch.png)
 
 
