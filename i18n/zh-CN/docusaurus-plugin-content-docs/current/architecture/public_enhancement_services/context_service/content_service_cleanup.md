@@ -86,12 +86,28 @@ CREATE TABLE `linkis_ps_cs_context_id` (
 ##5. 接口设计
 ###5.1 Restful接口
 
-1 查询ID接口`searchContextIDByTime`
 
-①接口名称   
-GET   `/api/rest_j/v1/contextservice/searchContextIDByTime`
+#### 搜索文本Id执行时间
 
-②输入参数
+
+**接口地址**:`/api/rest_j/v1/contextservice/searchContextIDByTime`
+
+
+**请求方式**:`GET`
+
+
+**请求数据类型**:`application/x-www-form-urlencoded`
+
+
+**响应数据类型**:`*/*`
+
+
+**接口描述**:<p>搜索文本Id执行时间</p>
+
+
+
+**请求参数**:
+
 
 | 参数名称 | 参数说明 |     请求类型 | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -105,8 +121,30 @@ GET   `/api/rest_j/v1/contextservice/searchContextIDByTime`
 |updateTimeStart|更新时间|query|false|string|
 
 
-③输出参数实例
-```
+**响应状态**:
+
+
+| 状态码 | 说明 | schema |
+| -------- | -------- | ----- | 
+|200|OK|Message|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
 {
     "method": "/api/contextservice/searchContextIDByTime",
     "status": 0,
@@ -125,20 +163,40 @@ GET   `/api/rest_j/v1/contextservice/searchContextIDByTime`
 ```
 
 
-2，清理指定ID接口clearAllContextByID
+#### 清理指定ID
 
-①接口名   `POST    /api/rest_j/v1/contextservice/clearAllContextByID`
-②输入参数示例
-```
-{
-	"idList" : [
-		"8-8--cs_1_devcs_1_dev2236"
-		]
-}
-```
 
-③输出参数示例
-```
+**接口地址**:`/api/rest_j/v1/contextservice/clearAllContextByID`
+
+**请求方式**:`POST`
+
+**请求数据类型**:`application/json`
+
+**响应数据类型**:`*/*`
+
+**接口描述**:<p>通过ID清除所以上下文</p>
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 |   是否必须  | 请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|idList|上下文id集合|false|String|String|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+
+**响应示例**:
+```javascript
 {
     "method": "/api/contextservice/clearAllContextByID",
     "status": 0,
@@ -149,16 +207,53 @@ GET   `/api/rest_j/v1/contextservice/searchContextIDByTime`
 }
 ```
 
-3，根据时间清理接口`clearAllContextByTime`
-①接口名称
-POST   /api/rest_j/v1/contextservice/clearAllContextByTime
-②输入参数示例
+
+## 通过时间清除所以上下文
+
+
+**接口地址**:`/api/rest_j/v1/contextservice/clearAllContextByTime`
+
+**请求方式**:`POST`
+
+**请求数据类型**:`application/json`
+
+**响应数据类型**:`*/*`
+
+**接口描述**:<p>通过时间清除所以上下文</p>
+
+**请求参数**:
+
+
+| 参数名称 | 参数说明 | 是否必须    |  请求类型 | 数据类型 | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|accessTimeEnd|访问时间结束|false|String|String|
+|accessTimeStart|访问时间开始|false|String|String|
+|createTimeEnd|创建时间结束|false|String|String|
+|createTimeStart|创建时间|false|String|String|
+|updateTimeStart|更新开始时间|false|String|String|
+
+
+**响应参数**:
+
+
+| 参数名称 | 参数说明 | 类型 | schema |
+| -------- | -------- | ----- |----- | 
+|data|数据集|object|
+|message|描述|string|
+|method|请求url|string|
+|status|状态|integer(int32)|integer(int32)|
+
+**输入参数示例**
+```javascript
 {
 	"createTimeStart": "2022-06-01 00:00:00",
 	"createTimeEnd": "2022-06-30 00:00:00"
 }
-③输出参数示例
 ```
+
+
+**响应示例**:
+```javascript
 {
     "method": "/api/contextservice/clearAllContextByTime",
     "status": 0,
