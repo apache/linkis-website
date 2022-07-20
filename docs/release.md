@@ -8,7 +8,7 @@ sidebar_position: 0.1
 - [EngineConn History Information Recording Features](/architecture/computation_governance_services/engine/engine_conn_history.md)
 - [EngineConn Metrics reporting feature](/architecture/computation_governance_services/engine/engine_conn_metrics.md)
 - [ContextService cleanup interface features](/architecture/public_enhancement_services/context_service/content_service_cleanup.md)
-
+- [Release-Notes](release-notes-1.1.3)
 
 ## Configuration Item
 

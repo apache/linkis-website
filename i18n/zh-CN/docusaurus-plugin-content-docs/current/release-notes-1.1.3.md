@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.1.3-RC1
-sidebar_position: 1
+sidebar_position: 0.2
 --- 
 
 Apache Linkis(incubating) 1.1.3 包括所有 [Project Linkis-1.1.3](https://github.com/apache/incubator-linkis/projects/19)。
