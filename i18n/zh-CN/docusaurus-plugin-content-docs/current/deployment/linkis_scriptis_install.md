@@ -33,7 +33,7 @@ npm install lerna -g
 
 ```shell script
 #通过git下载 >=dss 1.1.0 版本来编译scriptis组件
-git clone  https://github.com/WeBankFinTech/DataSphereStudio/tree/branch-1.1.0
+git clone -b branch-1.1.0  https://github.com/WeBankFinTech/DataSphereStudio
 # 或则直接下载zip包 后解压
 https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.0.zip
 
