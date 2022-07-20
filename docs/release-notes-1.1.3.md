@@ -31,7 +31,7 @@ abbreviation:
 * \[Common][[Linkis-1656]](https://github.com/apache/incubator-linkis/issues/1656) Integrate prometheus to provide basic capabilities for linkis microservice monitoring
 * \[EC-Flink][[Linkis-2241]](https://github.com/apache/incubator-linkis/pull/2241) Add Yarn Log Operator to support downloading Yarn logs to EC log directory
 * \[Web][[Linkis-2235]](https://github.com/apache/incubator-linkis/issues/2108) Front-end page supports watermark
-* \[Entrance][[Linkis-2164]](~~https://github.com/apache/incubator-linkis/pull/2164~~) Entrance supports the parameter of task retry times
+* \[Entrance][[Linkis-2164]](https://github.com/apache/incubator-linkis/pull/2164) Entrance supports the parameter of task retry times
 * \[EC][[Linkis-2163]](https://github.com/apache/incubator-linkis/pull/2163) Add task and execution EC records, EC information is recorded in the task's Metrics field
 
 ## Enhancement
