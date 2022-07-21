@@ -58,7 +58,7 @@ Apache Linkis(incubating) 1.1.3 包括所有 [Project Linkis-1.1.3](https://gith
 * \[EC][[Linkis-2275]](https://github.com/apache/incubator-linkis/pull/2275) 修复EC引擎心跳上报在异常场景下日志字段过长导致存储失败问题 
 * \[Web][[Linkis-2239]](https://github.com/apache/incubator-linkis/pull/2239) 修复yarm 队列资源空闲/繁忙状态使用率的环形占比图显示不正确问题
 * \[PS-ContextService][[Linkis-2226]](https://github.com/apache/incubator-linkis/pull/2226) 修复 FileReader 和 BufferedReader 资源在 final 中未释放的问题 
-* \[Install][[Linkis-2159]](https://github.com/apache/incubator-linkis/pull/2159) 不同系统编译出现shell脚本授权+x权限失败问题
+* \[Install][[Linkis-2203]](https://github.com/apache/incubator-linkis/pull/2203) 不同系统编译出现shell脚本授权+x权限失败问题
 * \[Entrance][[Linkis-2237]](https://github.com/apache/incubator-linkis/pull/2237) 重构 JobQueueLabel 和 JobRunningLabel,修复任务排队标签和任务运行标签bug
 * \[Build][[Linkis-2354]](https://github.com/apache/incubator-linkis/pull/2354) 修复WIN系统下 编译打包项目存在的ERROR级别的警告问题
 * \[Gateway][[Linkis-2329]](https://github.com/apache/incubator-linkis/pull/2329) 修复LDAP接入存在的配置问题

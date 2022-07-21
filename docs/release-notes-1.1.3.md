@@ -58,7 +58,7 @@ abbreviation:
 * \[EC][[Linkis-2275]](https://github.com/apache/incubator-linkis/pull/2275) Fix the problem that the EC engine heartbeat report log feild is too long in abnormal scenarios to cause storage failure
 * \[Web][[Linkis-2239]](https://github.com/apache/incubator-linkis/pull/2239) Fix yarm queue resource idle/busy state usage ratio ring chart is not displayed correctly
 * \[PS-ContextService][[Linkis-2226]](https://github.com/apache/incubator-linkis/pull/2226) Fix FileReader and BufferedReader resources not released in final
-* \[Install][[Linkis-2159]](https://github.com/apache/incubator-linkis/pull/2159) The problem of shell script authorization +x permission failure occurs when compiling in different systems
+* \[Install][[Linkis-2203]](https://github.com/apache/incubator-linkis/pull/2203) The problem of shell script authorization +x permission failure occurs when compiling in different systems
 * \[Entrance][[Linkis-2237]](https://github.com/apache/incubator-linkis/pull/2237) Refactor JobQueueLabel and JobRunningLabel, fix task queue label and task running label bug
 * \[Build][[Linkis-2354]](https://github.com/apache/incubator-linkis/pull/2354) Fix the ERROR level warning problem when compiling and packaging projects under WIN system
 * \[Gateway][[Linkis-2329]](https://github.com/apache/incubator-linkis/pull/2329) Fix the configuration problem of LDAP integration
