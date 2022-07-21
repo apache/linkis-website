@@ -227,7 +227,7 @@ If the source branch currently developed is dev-1.0.3, version 1.0.3 needs to be
 -Create branch: release-1.0.3-rc1
 -Create tag: release-1.0.3-rc1
 
-Sort out the content description of this change and release, sort by [module][pr_url].
+Sort out the content description of this change and release, sort by \[module]\[pr_url].
 Enter the creation page https://github.com/apache/incubator-linkis/releases/new
 Create a release based on the previous release-1.0.3-rc1 tag, and check `This is a pre-release` to write the release notes.
 

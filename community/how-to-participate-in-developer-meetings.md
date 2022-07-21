@@ -1,5 +1,5 @@
 ---
-title: How to participate in developer meetings
+title: How to Participate in Developer Meetings
 sidebar_position: 2.2
 ---
 

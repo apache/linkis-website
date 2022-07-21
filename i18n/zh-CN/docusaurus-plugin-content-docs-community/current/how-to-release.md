@@ -140,8 +140,6 @@ gpg:              unchanged: 1
 
 #### 1.5.1 在dev分支中添加公钥到KEYS
 
-用于发布RC版本
-
 ```shell
 $ mkdir -p linkis_svn/dev
 $ cd linkis_svn/dev
@@ -153,15 +151,13 @@ $ cd linkis_svn/dev/linkis
 # 追加你生成的KEY到文件KEYS中, 追加后最好检查一下是否正确
 $ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS 
 
-# 如果之前存在KEYS文件，则不需要
-$ svn add KEYS	
+# 第一次提交KEY文件，需要先将KEYS文件加入版本控制   svn add KEYS
+
 #提交到SVN
 $ svn ci -m "add gpg key for YOUR_NAME" 
 ```
 
 #### 1.5.2 在release分支中添加公钥到KEYS
-
-用于发布正式版本
 
 ```shell
 $ mkdir -p linkis_svn/release
@@ -173,8 +169,8 @@ $ svn co https://dist.apache.org/repos/dist/release/incubator/linkis
 $ cd  linkis
 # 追加你生成的KEY到文件KEYS中, 追加后最好检查一下是否正确
 $ (gpg --list-sigs YOUR_NAME@apache.org && gpg --export --armor YOUR_NAME@apache.org) >> KEYS 
-# 如果之前存在KEYS文件，则不需要
-$ svn add KEYS	
+
+# 第一次提交KEY文件，需要先将KEYS文件加入版本控制   svn add KEYS	
 #提交到SVN
 $ svn ci -m "add gpg key for YOUR_NAME" 
 ```
@@ -266,9 +262,9 @@ step1 基于待发布的开发分支，创建release-${release_version}-rc分支
 step2 创建新的github release
 
 进入到创建页面 https://github.com/apache/incubator-linkis/releases/new 
-基于之前release-1.1.2-rc1分支创建同名tag，填写标题`Apache Linkis(incubating) Release-1.1.2-Incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
+基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc`的tag，填写标题`Apache Linkis(incubating) Release-1.1.2-Incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
 
-![image](https://user-images.githubusercontent.com/7869972/172565676-b04a99b9-ced8-4aaf-a479-1b33979d742a.png)
+ ![image](https://user-images.githubusercontent.com/7869972/180214706-7228e5ae-f810-4e07-80fc-67fcf01688eb.png)
 
 step3 检查
 
@@ -456,8 +452,6 @@ $ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 详细验证流程可以参见[验证候选版本](how-to-verify.md)
 
-
-
 ## 3 发布Apache SVN仓库
 
 - Linkis [DEV分支](https://dist.apache.org/repos/dist/dev/incubator/linkis) 用来存储候选版本的源码和二进制等原始物料
@@ -586,11 +580,54 @@ Hello Linkis Community,
         https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
     Steps to validate the release，Please refer to: 
         https://linkis.apache.org/community/how-to-verify
+
 Thanks,
 ${Linkis Release Manager}
 ```
 
-#### 5.1.2 宣布投票结果模板
+#### 5.1.2 关闭投票线程 
+如果投票已达到所需票数后，进行结果统计前，需要直接回复投票邮件，说明关闭本次投票线程
+
+```html
+Hi,
+
+Thanks, everyone, I will close 
+
+this vote thread and the results will be tallied.
+
+Best wishes!
+
+${Linkis Release Manager}
+```
+
+#### 5.1.3 取消投票（如果需要取消） 
+
+如果反馈了一些严重问题，需要修复后，重新发布，则需要取消投票，发布经理需要新起取消投票邮件 并进行说明
+
+```html
+邮件标题：
+[CANCEL][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+
+邮件正文：
+Hello Linkis Community,
+
+    I'm cancelling this vote [投票链接] because of license issues. I'll fix them and start
+    the round 2 vote process.
+    
+    The detail of the modifications are as follows:
+    
+    1. Remove the file xxx
+    2. Removes the files be built from shenyu-dashboard
+    
+    Thanks a lot for all your help.
+
+${Linkis Release Manager}
+```
+
+
+
+#### 5.1.4 宣布投票结果模板
+
 参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3) https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3
 备注：该邮件thread地址，可以通过访问`https://lists.apache.org/list?dev@linkis.apache.org `这个页面查到（注意加载时间可能会比较长），然后选择相应邮件，点击进去后即可生成thread链接;
 ```html
@@ -676,21 +713,53 @@ Hello Incubator Community,
     Steps to validate the release，Please refer to: 
         • https://linkis.apache.org/community/how-to-verify
 
+
 Thanks,
 On behalf of Apache Linkis(Incubating) community
 
 ```
-在投票满足条件，并已结束后，需要简单回复之前投票邮件，表示投票已结束，举例：
-``` html
 
-Hi all：
+#### 5.2.2 关闭投票线程 
+如果投票已达到所需票数后，进行结果统计前，需要直接回复投票邮件，说明关闭本次投票线程
 
-With a total of 3 +1 binding votes, 2 +1 non-binding votes, no 0 or -1 votes, I will close the voting email.
+```html
+Hi,
 
-Thanks!
+Thanks, everyone, I will close 
+
+this vote thread and the results will be tallied.
+
+Best wishes!
+
+Apache Linkis(Incubating) community
 ```
 
-#### 5.2.2 宣布投票结果模板
+#### 5.2.3 取消投票（如果需要取消） 
+
+如果反馈了一些严重问题，需要修复后，重新发布，则需要取消投票，发布经理需要新起取消投票邮件 并进行说明
+
+```html
+邮件标题：
+[CANCEL][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+
+邮件正文：
+Hello Incubator Community,
+
+    I'm cancelling this vote [投票链接] because of license issues. I'll fix them and start
+    the round 2 vote process.
+    
+    The detail of the modifications are as follows:
+    
+    1. Remove the file xxx
+    2. Removes the files be built from shenyu-dashboard
+    
+    Thanks a lot for all your help.
+
+Apache Linkis(Incubating) community
+```
+
+
+#### 5.2.4 宣布投票结果模板
 
 参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63) https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63
 ```html
