@@ -106,15 +106,15 @@ A file importing script to B folder
 from hdfs:///000/000/000/A.csv to file:///000/000/B/
 ```
 - `from` grammar，`to`：grammar
-- `hdfs:///000/000/000/A.csv`：Output file path and file
-- `file:///000/000/B/`： Input file path and file
+- `hdfs:///000/000/000/A.csv`：Input file path and file
+- `file:///000/000/B/`： Output file path and file
 
 B file import script to a folder
 ```bash
 from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 ```
-- `hdfs:///000/000/000/B.csv`： Output file path and file
-- `file:///000/000/A/`： Input file path and file
+- `hdfs:///000/000/000/B.csv`： Input file path and file
+- `file:///000/000/A/`： Output file path and file
 
 ![](/Images-zh/EngineConnNew/to_write.png)
 
