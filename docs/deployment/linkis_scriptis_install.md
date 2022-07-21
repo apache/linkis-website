@@ -26,6 +26,8 @@ Download node.js and install it. Download address: http://nodejs.cn/download/ (T
 ```shell script
 #Wait for the installation to complete, the installation of liarn only needs to be executed when it is used for the first time
 npm install lerna -g
+#init
+lerna init
 ````
 
 ## 3 Compile and deploy
@@ -34,7 +36,7 @@ npm install lerna -g
 
 ```shell script
 #Download >=dss 1.1.0 via git to compile script components
-git clone https://github.com/WeBankFinTech/DataSphereStudio/tree/branch-1.1.0
+git clone -b branch-1.1.0 https://github.com/WeBankFinTech/DataSphereStudio
 # Or directly download the zip package and unzip it
 https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.0.zip
 
