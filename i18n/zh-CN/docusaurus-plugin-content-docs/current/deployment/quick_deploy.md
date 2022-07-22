@@ -214,7 +214,7 @@ export ENABLE_SPARK=false
 
 install.sh脚本会询问您是否需要初始化数据库并导入元数据。如果选择初始化，会把数据库中的表数据清空重新初始化。
 
-<font size="6" color="red">第一次安装</font><font color="red">必须选清空数据库</font>
+**<font color="red">第一次安装必须选清空数据库</font>**
 
 :::tip 注意
 - 如果出现报错，又不清楚具体是执行什么命令报错，可以加 -x 参数`sh -x bin/install.sh`，将shell脚本执行过程日志打印出来，方便定位问题
@@ -227,7 +227,7 @@ install.sh脚本会询问您是否需要初始化数据库并导入元数据。�
 Your default account password is [hadoop/5e8e312b4]`
 ```
 
-### 3.2 添加mysql驱动包
+### <font color="red">3.2 添加mysql驱动包</font>
 
 :::caution 注意
 因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包（**若是通过集成的全家桶物料包安装，则无需手动添加**），安装部署时需要自行添加依赖到对应的lib包中。 可以在对应的目录下查看是否存在，如果不存在则需要添加
