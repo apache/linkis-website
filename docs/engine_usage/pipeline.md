@@ -1,5 +1,5 @@
 ---
-title: pipeline engine
+title: Pipeline Engine
 sidebar_position: 10
 ---
 

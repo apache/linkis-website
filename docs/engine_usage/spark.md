@@ -68,10 +68,15 @@ If you use Hive, you only need to make the following changes:
 ### 3.2 How to use Linkis-cli
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of Spark is as follows:
+
 ```shell
-## codeType py-->pyspark  sql-->sparkSQL scala-->Spark scala
-sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables"  -submitUser hadoop -proxyUser hadoop
-```
+## codeType correspondence py-->pyspark sql-->sparkSQL scala-->Spark scala
+sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables" -submitUser hadoop -proxyUser hadoop
+
+# You can specify the yarn queue in the submission parameter by -confMap wds.linkis.yarnqueue=dws
+sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -confMap wds.linkis.yarnqueue=dws -code "show tables" -submitUser hadoop -proxyUser hadoop
+````
+
 The specific usage can refer to [Linkis CLI Manual](user_guide/linkiscli_manual.md).
 
 
