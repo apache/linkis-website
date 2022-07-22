@@ -115,7 +115,7 @@ from hdfs:///000/000/000/A.csv to file:///000/000/000/B.csv
 from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 ```
 - `hdfs:///000/000/000/B.csv`： 输入文件路径及文件
-- `file:///000/000/000/B.csv`： 输出文件路径及文件
+- `file:///000/000/000/A.CSV`： 输出文件路径及文件
 
 ![](/Images-zh/EngineConnNew/to_write.png)
 
