@@ -109,7 +109,8 @@ from hdfs:///000/000/000/A.csv to file:///000/000/B/
 - `hdfs:///000/000/000/A.csv`：Input file path and file
 - `file:///000/000/B/`： Output file path and file
 
-B file import script to a folder
+
+file B is exported as file A
 ```bash
 from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 ```
