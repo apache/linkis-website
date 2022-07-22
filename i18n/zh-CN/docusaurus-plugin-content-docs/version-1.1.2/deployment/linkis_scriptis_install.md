@@ -5,16 +5,18 @@ sidebar_position: 10
 
 ## 1. 介绍
 
-> 在 Apache Linkis 1.0 和 DSS 1.1.0 之后，支持将 scriptis 单独部署和 Apache Linkis 进行搭配使用，使用 scriptis 的交互式分析的功能，可以在 web 页面在线写 SQL、Pyspark、HiveQL 等脚本，提交给 Linkis 执行且支持 UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署 Web 组件-scriptis，并通过 scriptis 这种 Web 页面来使用 Apache 。
+> 在 Apache Linkis >= 1.1.1 和 DSS >= 1.1.0 之后，支持将 scriptis 单独部署和 Linkis 进行搭配使用，使用 scriptis 的交互式分析的功能，可以在 web 页面在线写 SQL、Pyspark、HiveQL 等脚本，提交给 Linkis 执行且支持 UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署 Web 组件-scriptis，并通过 scriptis 这种 Web 页面来使用 Apache 。
 
 
-前提:已经成功安装并可以正常使用了 Apache Linkis 服务（后端和管理台服务），Apache Linkis 的部署流程可以见[Apache Linkis 的快速部署 ](quick_deploy.md)
+前提:已经成功安装并可以正常使用了 Linkis 服务（后端和管理台服务），Linkis 的部署流程可以见[Apache Linkis 的快速部署 ](quick_deploy.md)
 
 示例说明:
+
 - linkis-gateway 服务的地址为 10.10.10.10 端口为 9001
-- Apache Linkis 的管理台 nginx 部署在 10.10.10.10 端口为 8080
+- Linkis 的管理台 nginx 部署在 10.10.10.10 端口为 8080
 
 ## 2.环境准备
+
 > 首次使用时需要安装
 
 ### 2.1 安装 node.js
@@ -42,8 +44,6 @@ cd DataSphereStudio/web
 
 #添加依赖  注意：这里不是通过 npm install 而是 lerna bootstrap  需先安装 learn  该步骤仅第一次使用时需要执行
 lerna bootstrap
-#初始化
-lerna init
 ```
 
 ### 3.2 本地运行项目（可选）
@@ -83,8 +83,8 @@ npm run build --module=scriptis
 
 ### 4.2 部署
 
-将步骤 3.1 编译出来的静态资源 上传至 Apache Linkis 管理台所在的服务器上，存放于`/data/Install/scriptis-web/dist/`，
-在安装 Apache Linkis  管理台的 nginx 服务器配置中，添加 scriptis 的静态资源访问规则，Apache Linkis  管理台部署的 nginx 配置一般位于 `/etc/nginx/conf.d/linkis.conf`
+将步骤 3.1 编译出来的静态资源 上传至 Linkis 管理台所在的服务器上，存放于`/data/Install/scriptis-web/dist/`，
+在安装 Linkis  管理台的 nginx 服务器配置中，添加 scriptis 的静态资源访问规则，Linkis  管理台部署的 nginx 配置一般位于 `/etc/nginx/conf.d/linkis.conf`
 
 ```shell script
  location /scriptis { 
@@ -152,7 +152,7 @@ sudo nginx -s reload
 
 ## 5 scriptis 使用步骤
 
-### 5.1 正常登录 Apache Linkis 管理台
+### 5.1 正常登录 Linkis 管理台
 ```shell script
 #http://10.10.10.10:8080/#/
 http://nginxIp:port/#/
@@ -165,7 +165,7 @@ http://nginxIp:port/#/
 #http://10.10.10.10:8080/scriptis/#/home
 http://nginxIp:port/scriptis/#/home
 ```
-`nginxIp`:Apache Linkis 管理台所部署的 nginx 服务器 ip，`port`:nginx 配置启动的端口号，`scriptis`为请求 scriptis 项目静态文件 nginx 配置的 location 地址（可自定义设置）
+`nginxIp`:Linkis 管理台所部署的 nginx 服务器 ip，`port`:nginx 配置启动的端口号，`scriptis`为请求 scriptis 项目静态文件 nginx 配置的 location 地址（可自定义设置）
 
 ### 4.3 使用 scriptis
 
