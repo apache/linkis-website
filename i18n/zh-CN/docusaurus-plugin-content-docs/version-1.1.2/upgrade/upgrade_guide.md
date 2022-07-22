@@ -19,7 +19,7 @@ sidebar_position: 2
 ## 2 服务升级安装
 
 按[部署指引文档](../deployment/quick_deploy)（文档中关于管理台的安装可以跳过），进行新版本的安装。
- 
+
 安装服务时，如果历史数据保留，请保留历史数据，如果无需保留数据，直接重装即可，也无需关注升级流程
 ```shell script
 Do you want to clear Linkis table information in the database?
@@ -32,12 +32,17 @@ Please input the choice: ## choice 1
 
 ## 3. 数据库表升级
 >服务安装完成后，需要对数据库进行结构修改，包括进行表结构变更和表数据变更 
- 
+
 
 找到对应的版本`db/upgrade/x.x.x-schema/` sql变动文件
- 
+
 如果是跨多个版本执行，请按版本顺序，依次执行，
 如果某些版本没有x.x.x_schema(linkis>=1.1.0版本后，只要涉及到数据库表的调整，都会有对应版本的schema文件),则表示该版本没有数据表的变化 
+
+:::caution 注意
+执行upgrade下的1.1.1_schema中的ddl升级脚本,如若执行到linkis_cg_rm_resource_action_record相关的错误,请检查创建该表的语句是否缺少ENGINE=InnoDB DEFAULT CHARSET=utf8;   如果缺少,请加上再执行
+:::
+
 ```shell script
 ├── linkis_ddl.sql # 当前版本的全量ddl 数据库定义语言 建表语句 
 ├── linkis_dml.sql # 当前版本的全量dml 数据操纵语言   数据的增改

@@ -19,7 +19,7 @@ sidebar_position: 2
 ## 2 Service upgrade installation
 
 Press [Deployment guide document](../deployment/quick_deploy) (the installation of the management console in the document can be skipped) to install the new version.
- 
+
 When installing the service, if the historical data is retained, please retain the historical data, if you do not need to retain the data, just reinstall it directly
 ```shell script
 Do you want to clear Linkis table information in the database?
@@ -32,12 +32,17 @@ Please input the choice: ## choice 1
 
 ## 3. Database table upgrade
 >After the service installation is completed, the database structure needs to be modified, including table structure changes and table data changes
- 
+
 
 Find the corresponding version `db/upgrade/x.x.x-schema/` sql change file
- 
+
 If it is executed across multiple versions, please execute them in the order of versions,
 If some versions do not have x.x.x_schema (after the linkis>=1.1.0 version, as long as the adjustment of the database table is involved, there will be a corresponding version of the schema file), it means that there is no change in the data table in this version
+
+:::caution notice
+Execute upgrade_1.1.1 under  DDL upgrade script in schema, such as if it is executed to linkis_ cg_ rm_ resource_ action_ Record related error, please check whether the statement creating the table is missing engine=innodb default charset=utf8; If it is missing, please add it before execution
+:::
+
 ```shell script
 ├── linkis_ddl.sql # The current version of the full ddl database definition language table building statement
 ├── linkis_dml.sql # The current version of the full dml data manipulation language data additions and changes
