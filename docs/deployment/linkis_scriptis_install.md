@@ -5,7 +5,7 @@ sidebar_position: 10
 
 ## 1 Introduction
 
-> After Apache Linkis >= 1.1.1 and DSS >= 1.1.0, scriptis can be deployed separately and used in conjunction with Linkis. Using the interactive analysis function of scriptis, you can write SQL, Pyspark, HiveQL, etc. online on web pages Scripts are submitted to Linkis for execution and support features such as UDFs, functions, resource management and custom variables. This article will introduce how to deploy the web component-scriptis separately, and use Apache through the scriptis web page.
+> After Apache Linkis >= 1.1.1 and DSS >= 1.1.0, scriptis can be deployed separately and used in conjunction with Linkis. Using the interactive analysis function of scriptis, you can write SQL, Pyspark, HiveQL, etc. online on web pages Scripts are submitted to Linkis for execution and support features such as UDFs, functions, resource management and custom variables. This article will introduce how to deploy the web component-scriptis separately, and use  Apache Linkis through the scriptis web page.
 
 
 Prerequisite: The Linkis service (backend and management desk service) has been successfully installed and can be used normally. The deployment process of Linkis can be found in [Quick Deployment of Apache Linkis](quick_deploy.md)
@@ -21,7 +21,7 @@ Example description:
 
 ### 2.1 Install node.js
 ```shell script
-Download node.js and install it. Download address: http://nodejs.cn/download/ (The latest stable version is recommended) This step only needs to be executed for the first time
+Download node.js and install it. Download address: http://nodejs.cn/download/ (It is recommended to use node v14 version) This step only needs to be executed for the first time
 ````
 ### 2.2 Install learn
 ```shell script
@@ -174,17 +174,17 @@ Take creating a new sql query task as an example.
 
 step1 Create a new script Select the script type as sql type
 
-![Rendering](/Images-en/deployment/scriptis/new_script.png)
+![Rendering](/Images-zh/deployment/scriptis/new_script.png)
 
 step2 Enter the statement to be queried
 
-![Rendering](/Images-en/deployment/scriptis/test_statement.png)
+![Rendering](/Images-zh/deployment/scriptis/test_statement.png)
 
 step3 run
 
-![Rendering](/Images-en/deployment/scriptis/running_results.png)
+![Rendering](/Images-zh/deployment/scriptis/running_results.png)
 
 
 shep4 View Results
 
-![Rendering](/Images-en/deployment/scriptis/design_sketch.png)
+![Rendering](/Images-zh/deployment/scriptis/design_sketch.png)
