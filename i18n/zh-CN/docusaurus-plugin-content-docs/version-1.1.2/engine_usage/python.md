@@ -5,7 +5,7 @@ sidebar_position: 5
 
 本文主要介绍在Linkis1.X中，Python引擎的配置、部署和使用。
 
-## 1.Spark引擎使用前的环境配置
+## 1.Python引擎使用前的环境配置
 
 如果您希望在您的服务器上使用python引擎，您需要保证用户的PATH中是有python的执行目录和执行权限。
 
