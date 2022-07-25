@@ -68,10 +68,11 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Spark的使用如下：
 ```shell
-#You can also add the queue value in the StartUpMap of the submission parameter: 
-startupMap.put("wds.linkis.rm.yarnqueue", "dws")
-## codeType py-->pyspark  sql-->sparkSQL scala-->Spark scala
+## codeType对应关系 py-->pyspark  sql-->sparkSQL scala-->Spark scala
 sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables"  -submitUser hadoop -proxyUser hadoop
+
+# 可以在提交参数通过-confMap wds.linkis.yarnqueue=dws  来指定yarn 队列
+sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
 具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
 
