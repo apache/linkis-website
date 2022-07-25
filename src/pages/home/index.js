@@ -2,7 +2,7 @@ import React from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import config from './config';
-import systemConfiguration from '../../js/sysConfig'
+import systemConfiguration from '../../js/sysConfig';
 
 export default function() {
   const isBrowser = useIsBrowser();
@@ -12,6 +12,7 @@ export default function() {
 
   return (
    <div>
+    <script src='//cdn.matomo.cloud/apachelinkis.matomo.cloud/matomo.js'></script>
      <div className="home-page slogan">
        <div className="ctn-block">
          <div className="banner text-center">
