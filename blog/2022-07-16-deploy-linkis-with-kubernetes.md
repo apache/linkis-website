@@ -66,7 +66,7 @@ vi /etc/docker/daemon.json
 
 
 
-**3.install the kind**
+**3.Install the kind**
 
 （1）Manually download the Kind binary
 

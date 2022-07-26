@@ -26,7 +26,7 @@ In the communication process, a detailed description, mechanisms and usage scena
 
 Helping answering the questions in the Linkis community is a very valuable way to contribute; there will always be new users in the community that will keep coming in. While helping new users, you can also show your expertise.
 
-### 1.4 Documentation Refinements
+### 1.4 Documentation refinements
 
 You can find linkis documentations at [linkis-Website](https://linkis.apache.org/docs/latest/introduction), and the supplement of the document is also crucial to the development of Linkis.
 
@@ -35,7 +35,7 @@ Including participating in and helping to organize community exchanges, communit
 
 ---
 
-## 2. How to Contribution
+## 2. How to contribution
 
 ### 2.1 Branch structure
 
@@ -89,7 +89,7 @@ git remote remove apache
 git pull
 ````
 
-#### 2.1.4 A pr process
+#### 2.1.4 A PR process
 
 1. Confirm the base branch of the current development (usually the current version in progress, such as version 1.1.0 currently under development by the community, then the branch is dev-1.1.0, if you are not sure, you can ask in the community group or in @relevant classmates in the issue)
 
@@ -111,7 +111,7 @@ git push
 
 Please note: The dev branch of major features will be named with corresponding naming instructions in addition to the version number, such as: dev-0.10.0-flink, which refers to the flink feature development branch of 0.10.0.
 
-### 2.2 Development Guidelines
+### 2.2 Development guidelines
 
 Linkis front-end and back-end code share the same code base, but they are separated in development. Before starting the development, please fork the Linkis project to your Github Repositories. When developing, please develop based on the Linkis code base in your Github Repositories.
 

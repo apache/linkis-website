@@ -1,7 +1,7 @@
 # Q&A 
 >Linkis1.0 the latest Q&A document: [https://docs.qq.com/doc/DWlN4emlJeEJxWlR0](https://docs.qq.com/doc/DWlN4emlJeEJxWlR0)
 
-#### Q1, linkis startup error: NoSuchMethodErrorgetSessionManager()Lorg/eclipse/jetty/server/SessionManager
+#### Q1, Linkis startup error: NoSuchMethodErrorgetSessionManager()Lorg/eclipse/jetty/server/SessionManager
 
 Specific stack:
 ```
@@ -47,7 +47,7 @@ Solution: The reason is that hive is not authorized to Hadoop users. The authori
 
 ![db-config-01.png](/Images/Tuning_and_Troubleshooting/db-config-01.png)
 
-#### Q6, shell engine scheduling execution, the page reports Insufficient resource, requesting available engine timeout, eneningeconnmanager linkis.out, and the following error is reported:
+#### Q6. Shell engine scheduling execution, the page reports insufficient resource, requesting available engine timeout, and the following error is reported:
 
 ![linkis-exception-04.png](/Images/Tuning_and_Troubleshooting/linkis-exception-04.png)
 
@@ -231,13 +231,13 @@ Solution: To migrate the address configuration of yarn to the DB configuration, 
 
 Solution: The background is that the architecture of the linkis1.0 engine has been adjusted. After the spark session is created, in order to avoid overhead and improve execution efficiency, the session is reused. When we execute spark.scala for the first time, there is spark.stop() in our script. This command will cause the newly created session to be closed. When executed again, it will prompt that the session is closed, please restart it. Solution: first remove stop() from all scripts, and then execute the order: execute default.sql first, then execute scalaspark and pythonspark.
 
-#### Q20, pythonspark scheduling execution, error: initialize python executor failed ClassNotFoundException org.slf4j.impl.StaticLoggerBinder, as follows:
+#### Q20. Pythonspark scheduling execution, error: initialize python executor failed ClassNotFoundException org.slf4j.impl.StaticLoggerBinder, as follows:
 
 ![linkis-exception-10.png](/Images/Tuning_and_Troubleshooting/linkis-exception-10.png)
 
 Solution: The reason is that the spark server lacks slf4j-log4j12-1.7.25.jar, copy the above jar and report to /opt/cloudera/parcels/CDH-6.3.2-1.cdh6.3.2.p0.1605554/lib/spark/jars .
 
-#### Q21, pythonspark scheduling execution, error: initialize python executor failed, submit-version error, as follows:
+#### Q21. Pythonspark scheduling execution, error: initialize python executor failed, submit-version error, as follows:
 
 ![shell-error-03.png](/Images/Tuning_and_Troubleshooting/shell-error-03.png)
 
@@ -253,6 +253,6 @@ Solution: The reason is that the system spark and python versions are not compat
 
 ![shell-error-05.png](/Images/Tuning_and_Troubleshooting/shell-error-05.png)
 
-#### Q23, spark engine is 2.4.0+cdh6.3.2, python engine was previously lacking pandas, matplotlib upgraded local python to 3.8, but spark does not support python3.8, only supports below 3.6;
+#### Q23. Spark engine is 2.4.0+cdh6.3.2, python engine was previously lacking pandas, matplotlib upgraded local python to 3.8, but spark does not support python3.8, only supports below 3.6;
 
 Solution: reinstall the python package manager anaconda2, reduce python to 2.7, install pandas, matplotlib modules, python engine and spark engine can be scheduled normally.

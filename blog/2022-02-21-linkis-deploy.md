@@ -5,12 +5,12 @@ title: Linkis Deployment Troubleshooting
 
 ## 1. Precautions for preparation
 
-### 1.1 linux server
+### 1.1 Linux server
 
 **Hardware requirements**  
 Install nearly 10 linkis microservices. The default configuration of each microservice is to start the jvm-Xmx memory size of 512M (if the memory is not enough, you can try to reduce it to 256/128M, and you can also increase it if the memory is sufficient)
 
-**Software Requirements**  
+**Software requirements**  
 basic software environment
 Use the following command to check whether the corresponding software has been installed, if not, please install it first
 ```shell

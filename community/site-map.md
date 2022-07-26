@@ -38,7 +38,7 @@ sidebar_position: 12
 - The incubator homepage https://incubator.apache.org/ has related video sharing and ppt
 
 
-## Linkis related links
+## Linkis related Links
 - linkis-logo https://svn.apache.org/repos/asf/comdev/project-logos/originals/
 - Project list https://projects.apache.org/project.html?incubator-linkis
 - Maintain IP Clearance https://svn.apache.org/repos/asf/incubator/public/trunk/content/ip-clearance/

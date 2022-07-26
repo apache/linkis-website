@@ -3,8 +3,8 @@ title: Login Api
 sidebar_position: 1
 ---
 
-# Login Document
-## 1. Docking With LDAP Service
+# Login document
+## 1. Docking with LDAP service
 
 Enter the /conf/linkis-spring-cloud-services/linkis-mg-gateway directory and execute the command:  
 ```bash
@@ -17,7 +17,7 @@ wds.linkis.ldap.proxy.url=ldap://127.0.0.1:389/ #LDAP service URL
 wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com #Configuration of LDAP service    
 ```    
 
-## 2. How To Open The Test Mode To Achieve Login-Free
+## 2. How to open The test mode to achieve Login-Free
 
 Enter the /conf/linkis-spring-cloud-services/linkis-mg-gateway directory and execute the command:
 ```bash
@@ -31,7 +31,7 @@ Turn on the test mode and the parameters are as follows:
     wds.linkis.test.user=hadoop  # Specify which user to delegate all requests to in test mode
 ```
 
-## 3.Log In Interface Summary
+## 3.Log in interface summary
 We provide the following login-related interfaces:
  - Login In
 
@@ -62,7 +62,7 @@ We provide the following login-related interfaces:
  
 For more information about the Linkis Restful interface specification, please refer to: [Linkis Restful Interface Specification](/community/development_specification/api)
 
-### 1). Login In
+### 1). Login in
 
 - Interface `/api/rest_j/v1/user/login`
 
@@ -93,7 +93,7 @@ Among them:
 
 -isAdmin: Linkis only has admin users and non-admin users. The only privilege of admin users is to support viewing the historical tasks of all users in the Linkis management console.
 
-### 2). Login Out
+### 2). Login out
 
 - Interface `/api/rest_j/v1/user/logout`
 
@@ -111,7 +111,7 @@ Among them:
     }
 ```
 
-### 3). Heart Beat
+### 3). Heart beat
 
 - Interface `/api/rest_j/v1/user/heartbeat`
 

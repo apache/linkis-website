@@ -3,7 +3,7 @@ title: How to Release
 sidebar_position: 3
 ---
 
-# Apache Publishing Guide
+# Apache publishing guide
 > This article takes the release of 1.0.3 Apache version as an example. If it is a non-Apache version, please refer to the [detailed information](https://incubator.apache.org/guides/releasemanagement.html) https://incubator.apache.org/guides/releasemanagement.html
 
 Understand the content and process of Apache's release. Source Release is the focus of Apache’s attention and is also a required content for release; Binary Release is optional. Please refer to the following link to find more ASF release guidelines:
@@ -441,7 +441,7 @@ $ svn commit -m "prepare for 1.0.3-RC1"
 ```
 If Chinese garbled characters appear in the svn command, you can try to set the encoding format (set the encoding format: export LANG=en_US.UTF-8).
 
-## 4 Verify Release Candidates
+## 4 Verify release candidates
 
 For details, please refer to [How to Verify release](/how-to-verify.md)
 
@@ -468,7 +468,7 @@ The DISCLAIMER-WIP disclaimer is currently used, please add this description `As
 - To vote in the Linkis community, send a voting email to `dev@linkis.apache.org`. PMC needs to check the correctness of the version according to the document, and then vote. After at least 72 hours have passed and three `+1 PMC member` votes have been counted, you can enter the next stage of voting.
 - Announce the results of the voting and send an email to the result of the voting to `dev@linkis.apache.org`.
 
-#### 5.1.1 Linkis Community Voting Template
+#### 5.1.1 Linkis community voting template
 
 ```html
 title:

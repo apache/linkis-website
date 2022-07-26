@@ -9,7 +9,7 @@ Considering the size of the release package and the use of plug-ins, the binary 
 Very useful engine, there are flink/io_file/pipeline/sqoop in the project code (there may be differences between different versions),
 In order to facilitate everyone's use, based on the release branch code of each version of linkis: https://github.com/apache/incubator-linkis, this part of the engine is compiled for everyone to choose and use.
 
-## 1.1.2 版本
+## Version 1.1.2
 
 | **Engine** | **Corresponding component version** | Is there default in the official installation package | **Description** |
 |:---- |:---- |:---- |:---- |:---- |
@@ -26,7 +26,7 @@ In order to facilitate everyone's use, based on the release branch code of each 
 [Non-default engine download link](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.1.2-engineconn-plugin.tar)
 
 
-## 1.1.1版本
+## Version 1.1.1
 
 | **Engine** | **Corresponding component version** | Is there default in the official installation package | **Description** |
 |:---- |:---- |:---- |:---- |:---- |

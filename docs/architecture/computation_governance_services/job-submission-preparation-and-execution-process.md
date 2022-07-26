@@ -24,7 +24,7 @@ Among them:
 - EngineConnManager: It is the manager of EngineConn, which provides engine life-cycle management, and at the same time reports load information and its own health status to RM.
 - EngineConn: It is the actual connector between Linkis and the underlying computing storage engines. All user computing and storage tasks will eventually be submitted to the underlying computing storage engine by EngineConn. According to different user scenarios, EngineConn provides full-stack computing capability framework support for interactive computing, streaming computing, off-line computing, and data storage tasks.
 
-## 1. Submission Stage
+## 1. Submission stage
 
 The submission phase is mainly the interaction of Client -> Linkis Gateway -> Entrance, and the process is as follows:
 
@@ -52,7 +52,7 @@ POST /api/rest_j/v1/entrance/submit
 4. The scheduling queue will open up a consumption queue and a consumption thread for each group. The consumption queue is used to store the user computing tasks that have been preliminarily encapsulated. The consumption thread will continue to take computing tasks from the consumption queue for consumption in a FIFO manner. The current default grouping method is Creator + User (that is, submission system + user). Therefore, even if it is the same user, as long as it is a computing task submitted by different systems, the actual consumption queues and consumption threads are completely different, and they are completely isolated from each other. (Reminder: Users can modify the grouping algorithm as needed)
 5. After the consuming thread takes out the calculation task, it will submit the calculation task to Orchestrator, which officially enters the preparation phase.
 
-## 2. Preparation Stage
+## 2. Preparation stage
 
 There are two main processes in the preparation phase. One is to apply for an available EngineConn from LinkisManager to submit and execute the following computing tasks. The other is Orchestrator to orchestrate the computing tasks submitted by Entrance, and to convert a user's computing request into a physical execution tree and handed over to the execution phase where a computing task actually being executed. 
 
@@ -107,7 +107,7 @@ Please refer to [Orchestrator Architecture Design]() for more details.
 
 After the analysis and arrangement of Linkis Orchestrator, the  computing task has been transformed into a executable physical tree. Orchestrator will submit the Physical tree to Orchestrator's Execution module and enter the final execution stage.
 
-## 3. Execution Stage
+## 3. Execution stage
 
 The execution stage is mainly divided into the following two steps, these two steps are the last two phases of capabilities provided by Linkis Orchestrator:
 

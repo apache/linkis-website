@@ -103,7 +103,7 @@ Positive example: `render-dom.js / signup.css / index.html / company-logo.png`
 
 Counter example: `renderDom.js / UserManagement.html`
 
-### 3.3 Resource Path
+### 3.3 Resource path
 
 Image resources are unified under `static/{module name}`
 

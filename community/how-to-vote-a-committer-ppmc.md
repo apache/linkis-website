@@ -4,7 +4,7 @@ sidebar_position: 6
 ---
 > Introduce the selection requirements and process for Committer and PPMC. Official guidelines can be found at: https://community.apache.org/newcommitter.html
 
-## 1. Candidate Requirements
+## 1. Candidate requirements
 When voting, all PMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/incubator-linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/incubator-linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
 
 Below are some points to consider when evaluating candidates for commitment eligibility.

@@ -80,7 +80,7 @@ After successful execution, the following figure is shown. After the success, th
 
 ![open-Apache's-GitHub-warehouse11](https://user-images.githubusercontent.com/29391030/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
 
-### 1.5 Related Links Documentation
+### 1.5 Related Links documentation
 [github uses TOTP to enable 2FA authentication] https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
 
 [Create a private token] https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token

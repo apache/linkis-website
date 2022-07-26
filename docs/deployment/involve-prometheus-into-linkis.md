@@ -4,15 +4,15 @@ sidebar_position: 11
 ---
 This article describes how to enable Prometheus to monitor all running Linkis services.
 
-## 1. Introduction to Prometheus
+## 1. Introduction to prometheus
 
-### 1.1 What is Prometheus
+### 1.1 What is prometheus
 
 Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed.
 
 In the context of microservice, it provides the service discovery feature, enabling to find targets dynamically from service register center, like Eureka, Consul, etc, and pull the metrics from API endpoint over http protocol.
 
-### 1.2 Prometheus Architecture
+### 1.2 Prometheus architecture
 
 This diagram illustrates the architecture of Prometheus and some of its ecosystem components:
 
@@ -24,9 +24,9 @@ Prometheus scrapes metrics from instrumented jobs, either directly or via an int
 
 In the context of Linkis, we will use Eureka (Service Discover)SD in Prometheus to retrieve scrape targets using the Eureka REST API. And Prometheus will periodically check the REST endpoint and create a target for every app instance.
 
-## 2. How to Enable Prometheus
+## 2. How to enable prometheus
 
-### 2.1 Enable Prometheus when installing Linkis
+### 2.1 Enable prometheus when installing Linkis
 
 Modify the configuration item `PROMETHEUS_ENABLE` in linkis-env.sh of Linkis.
 

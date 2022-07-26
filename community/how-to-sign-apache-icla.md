@@ -3,7 +3,7 @@ title: ICLA Signing Process
 sidebar_position: 7
 ---
 
-## Apache Sign ICLA Guide {#apache-sign-icla-guide}
+## Apache sign ICLA guide {#apache-sign-icla-guide}
 Note: This article refers to the Apache icla signing process guide document of the incubator-shenyu-website project https://shenyu.apache.org/community/icla
 
 Apache CLA short for Apache Contributor License Agreement, the purpose of this agreement is to clearly define the terms under which intellectual property has been contributed to the ASF and thereby allow us to defend the project should there be a legal dispute regarding the software at some future time.

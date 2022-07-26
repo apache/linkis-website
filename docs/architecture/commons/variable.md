@@ -4,17 +4,17 @@ sidebar_position: 1
 ---
 
 ## 1. General
-### Requirements Background
+### Requirements background
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Users want to be able to define some common variables when writing code and then replace them during execution. For example, users run the same sql in batches every day, and need to specify the partition time of the previous day. If based on sql It will be more complicated to write if the system provides a variable of run_date which will be very convenient to use.
 ### Target
 1. Support variable substitution of task code
 2. Support custom variables, support users to define custom variables in scripts and task parameters submitted to Linkis, support simple +, - and other calculations
 3. Preset system variables: run_date, run_month, run_today and other system variables
 
-## 2. Overall Design
+## 2. Overall design
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;During the execution of the Linkis task, the custom variables are carried out in Entrance, mainly through the interceptor of Entrance before the task is submitted and executed. The variable and the defined variable, and complete the code replacement through the initial value of the custom variable passed in by the task, and become the final executable code.
 
-### 2.1 Technical Architecture
+### 2.1 Technical architecture
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The overall structure of custom variables is as follows. After the task is submitted, it will go through the variable replacement interceptor. First, all variables and expressions used in the code will be parsed, and then replaced with the system and user-defined initial values ​​of variables, and finally the parsed code will be submitted to EngineConn for execution. So the underlying engine is already replaced code.
 
 ![var_arc](/Images/Architecture/Commons/var_arc.png)
