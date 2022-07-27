@@ -47,7 +47,7 @@ sh linkis-daemon restart cg-engineplugin
 
 Linkis1.X is done through tags, so we need to insert data into our database, and the insertion method is as follows.
 
-[EngineConnPlugin engine plugin installation](../deployment/engine_conn_plugin_installation)
+[EngineConnPlugin engine plugin installation](../deployment/engine-conn-plugin-installation)
 
 ## 3 The use of the engine
 
@@ -84,7 +84,7 @@ Example of http request parameters
 
 ### 3.1 Using Linkis SDK
 
-Linkis provides Java and Scala SDKs to submit tasks to the Linkis server. For details, please refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis provides Java and Scala SDKs to submit tasks to the Linkis server. For details, please refer to [JAVA SDK Manual](../user_guide/sdk-manual.md).
 For the openlookeng task, you only need to modify the EngineConnType and CodeType parameters in the Demo:
 
 ````java
@@ -100,4 +100,4 @@ After Linkis 1.0, the cli method is provided to submit tasks. We only need to sp
 ```shell
 sh ./bin/linkis-cli -engineType openlookeng-1.5.0 -codeType sql -code 'show databases;' -submitUser hadoop -proxyUser hadoop
 ````
-For specific usage, please refer to: [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+For specific usage, please refer to: [Linkis CLI Manual](../user_guide/linkiscli-manual.md).

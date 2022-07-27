@@ -118,7 +118,7 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 sh ./bin/linkis-cli -engineType flink-1.12.2 -codeType sql -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
 
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 
 ### 3.3 OnceEngineConn方式

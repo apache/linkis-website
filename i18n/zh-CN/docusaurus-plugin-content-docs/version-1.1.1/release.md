@@ -2,7 +2,7 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-- [代理用户模式介绍](/architecture/proxy_user.md)
+- [代理用户模式介绍](/architecture/proxy-user.md)
 - [UDF函数介绍和使用指引](/user_guide/udf.md)
 - [引擎物料刷新HTTP接口](/api/http/engineconn-plugin-refesh.md)
 - [UDF相关的HTTP接口](/api/http/udf-api.md)

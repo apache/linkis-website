@@ -56,13 +56,13 @@ cd ${LINKIS_HOME}/sbin
 sh linkis-daemon restart cg-engineplugin
 ```
 A more detailed introduction to engineplugin can be found in the following article.
-[EngineConnPlugin Installation](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin Installation](../deployment/engine-conn-plugin-installation) 
 
 ### 2.3 Flink engine tags
 
 Linkis1.0 is done through tags, so we need to insert data in our database, the way of inserting is shown below.
 
-[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine-conn-plugin-installation) 
 
 ## 3. The use of Flink engine
 
@@ -115,7 +115,7 @@ After Linkis 1.0, a cli method is provided to submit tasks. We only need to spec
 sh ./bin/linkis-cli -engineType flink-1.12.2 -codeType sql -code "show tables" -submitUser hadoop -proxyUser hadoop
 ```
 
-For specific usage, please refer to: [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+For specific usage, please refer to: [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 ### 3.3 OnceEngineConn method
 

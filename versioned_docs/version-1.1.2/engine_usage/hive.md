@@ -38,7 +38,7 @@ If you have already compiled your hive engineConn plug-in has been compiled, the
 
 Linkis can configure the corresponding EngineConn parameters on the management console. If your newly added EngineConn needs this feature, you can refer to the following documents:
 
-[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine-conn-plugin-installation) 
 
 ## 3. Use of hive engineConn
 
@@ -54,7 +54,7 @@ You can also add the queue value in the StartUpMap of the submission parameter: 
 
 ### 3.1 How to use Linkis SDK
 
-Linkis  provides a client method to call hive tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis  provides a client method to call hive tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user_guide/sdk-manual.md).
 If you use Hive, you only need to make the following changes:
 ```java
         Map<String, Object> labels = new HashMap<String, Object>();
@@ -69,7 +69,7 @@ After Linkis 1.0, you can submit tasks through cli. We only need to specify the 
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
-The specific usage can refer to [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+The specific usage can refer to [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 ### 3.3 How to use Scriptis
 

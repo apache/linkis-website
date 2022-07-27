@@ -84,7 +84,7 @@ Scriptis页面为我们提供了可以设置启动参数的配置页面，其中
 
 ## 2 Spark引擎的实现方式
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis-Python执行引擎的实现，是参照[如何实现一个新引擎](/development/new_engine_conn.md)实现了Entrance、EngineManager和Engine三个模块的必要接口。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis-Python执行引擎的实现，是参照[如何实现一个新引擎](/development/new-engine-conn.md)实现了Entrance、EngineManager和Engine三个模块的必要接口。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在EngineManager模块，我们选择采用spark-submit这命令来进行启动java进程，所以Linkis采取了重写ProcessEngineBuilder的build方法，将用户配置的spark的启动参数与spark-submit命令进行整合,构成一个启动spark引擎的命令，然后执行该命令。
 

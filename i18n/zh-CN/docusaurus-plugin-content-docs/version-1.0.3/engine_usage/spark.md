@@ -54,7 +54,7 @@ Linkis1.0是通过标签来进行的，所以需要在我们数据库中插入�
 
 ### 3.1 通过Linkis SDK进行使用
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user_guide/sdk-manual.md).
 对于Spark任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
 
 ```java
@@ -74,7 +74,7 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables"  -
 # 可以在提交参数通过-confMap wds.linkis.yarnqueue=dws  来指定yarn 队列
 sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式
 

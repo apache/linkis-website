@@ -84,7 +84,7 @@ http 请求参数示例
 
 ### 3.1 通过Linkis SDK进行使用
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user_guide/sdk-manual.md).
 对于openlookeng任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
 
 ```java
@@ -100,5 +100,5 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 ```shell
 sh ./bin/linkis-cli   -engineType openlookeng-1.5.0 -codeType sql -code 'show databases;' -submitUser hadoop -proxyUser hadoop
 ```
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
