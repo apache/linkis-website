@@ -269,7 +269,7 @@ Your default account password is [hadoop/5e8e312b4]`
 
 ### 3.4 添加mysql驱动(>=1.0.3)版本 
 因为license原因，linkis官方发布包中(dss集成的全家桶会包含，无需手动添加)移除了mysql-connector-java，需要手动添加  
-具体参见[ 添加mysql驱动包](/docs/latest/deployment/quick_deploy#-44-添加mysql驱动包)
+具体参见[ 添加mysql驱动包](/docs/latest/deployment/quick-deploy#-44-添加mysql驱动包)
 
 ### 3.5 启动服务
 ```shell script
@@ -546,7 +546,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 
 ### 9.5 Http接口的调试  
 
-- 方式1 可以开启[免登陆模式指引](/docs/latest/api/login_api/#2免登录配置)  
+- 方式1 可以开启[免登陆模式指引](/docs/latest/api/login-api/#2免登录配置)  
 - 方式2 postman中的，请求头带上登陆成功的cookie值
 cookie值可以在浏览器端登陆成功后，获取
 ![bml](https://user-images.githubusercontent.com/7869972/157619718-3afb480f-6087-4d5c-9a77-5e75c8cb4a3c.png)

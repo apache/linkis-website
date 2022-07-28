@@ -50,5 +50,5 @@ $ ./mvnw -N install
 $ ./mvnw clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
 ```
-详细指引可以参考：[编译打包指引](/docs/latest/development/linkis_compile_and_package)
+详细指引可以参考：[编译打包指引](/docs/latest/development/linkis-compile-and-package)
  

@@ -43,7 +43,7 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ### 2.1 安装包准备
 
 - 方式1：从官网[下载地址](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main，下载对应的安装包(项目安装包和管理台安装包)
-- 方式2：根据[Linkis 编译打包](../development/linkis_compile_and_package)和[前端管理台编译](../development/web_build) 自行编译出项目安装包和管理台安装包
+- 方式2：根据[Linkis 编译打包](../development/linkis-compile-and-package)和[前端管理台编译](../development/web_build) 自行编译出项目安装包和管理台安装包
 
 上传安装包`apache-linkis-x.x.x-incubating-bin.tar.gz`后，进行解压安装包 
 
@@ -622,7 +622,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 
 ### 8.9 Http接口的调试
 
-- 方式1 可以开启[免登陆模式指引](/docs/latest/api/login_api/#2免登录配置)
+- 方式1 可以开启[免登陆模式指引](/docs/latest/api/login-api/#2免登录配置)
 - 方式2 postman中的，请求头带上登陆成功的cookie值
   cookie值可以在浏览器端登陆成功后，获取
   ![bml](https://user-images.githubusercontent.com/7869972/157619718-3afb480f-6087-4d5c-9a77-5e75c8cb4a3c.png)

@@ -268,7 +268,7 @@ After the installation is complete, if you need to modify the configuration, you
 
 ### 3.4 Add mysql driver (>=1.0.3) version
 Because of the license, mysql-connector-java is removed from the release package of linkis itself (the family bucket integrated by dss will be included, no need to manually add it), which needs to be added manually.  
-For details, see [Add mysql driver package](docs/1.0.3/deployment/quick_deploy#-44-Add mysql driver package)
+For details, see [Add mysql driver package](docs/1.0.3/deployment/quick-deploy#-44-Add mysql driver package)
 
 ### 3.5 Start the service
 ```shell script
@@ -517,7 +517,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 
 ### 6.6 Debugging of Http interface
 
-  Method 1 can open the [Login-Free Mode Guide] (docs/latest/api/login_api#2 Login-Free Configuration)  
+  Method 1 can open the [Login-Free Mode Guide] (docs/latest/api/login-api#2 Login-Free Configuration)  
   Method 2: Add a static Token to the http request header
   ```shell script
   Token-User:hadoop

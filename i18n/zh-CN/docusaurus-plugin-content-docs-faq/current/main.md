@@ -26,7 +26,7 @@ A: 这个是因为eureka的启动Java进程时没有使用nohup当会话退出�
 可以参考PR：https://github.com/apache/incubator-linkis/pull/837/files
 
 #### Q4: Linkis Entrance LogWriter 缺依赖包
-A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://linkis.apache.org/zh-CN/docs/next/development/linkis_compile_and_package/
+A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://linkis.apache.org/zh-CN/docs/next/development/linkis-compile-and-package/
 
 #### Q5: Linkis1.0 执行任务报： select list is not in  group by clause
 

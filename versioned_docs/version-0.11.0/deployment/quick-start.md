@@ -27,4 +27,4 @@ As shown in the figure below, if the following microservices appear on your Eure
 
 ## 3 Quick Use Linkis
 
-Please refer to[to quickly use Linkis](quick_deploy#5-快速使用linkis)
+Please refer to[to quickly use Linkis](quick-deploy#5-快速使用linkis)

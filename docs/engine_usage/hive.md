@@ -32,7 +32,7 @@ Other hive operating modes are similar, just copy the corresponding dependencies
 
 If you have already compiled your hive engineConn plug-in has been compiled, then you need to put the new plug-in in the specified location to load, you can refer to the following article for details
 
-[EngineConnPlugin Installation](../deployment/engine_conn-plugin-installation) 
+[EngineConnPlugin Installation](../deployment/engine-conn-plugin-installation) 
 
 ### 2.3 Linkis adds Hive console parameters(optional)
 

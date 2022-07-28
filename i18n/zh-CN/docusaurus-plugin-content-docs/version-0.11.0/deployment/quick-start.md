@@ -27,4 +27,4 @@ sidebar_position: 2
 
 ## 3 快速使用Linkis
       
-  请参考[快速使用Linkis](quick_deploy#5-快速使用linkis)
+  请参考[快速使用Linkis](quick-deploy#5-快速使用linkis)
