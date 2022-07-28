@@ -411,7 +411,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 ## 6 开发工具IDE（Scriptis）的安装(可选)
 >安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本
 
-详细指引见[工具Scriptis的安装部署](./linkis_scriptis_install)
+详细指引见[工具Scriptis的安装部署](./linkis-scriptis-install)
 
 ## 7. 支持的引擎 
 
