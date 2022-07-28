@@ -34,13 +34,13 @@ In theory, Linkis1.0 supports all versions of spark2.x and above. Spark 2.4.3 is
 
 If you have already compiled your spark EngineConn plug-in has been compiled, then you need to put the new plug-in to the specified location to load, you can refer to the following article for details
 
-[EngineConnPlugin Installation](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin Installation](../deployment/engine-conn-plugin-installation) 
 
 ### 2.3 tags of spark EngineConn
 
 Linkis1.0 is done through tags, so we need to insert data in our database, the way of inserting is shown below.
 
-[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine-conn-plugin-installation) 
 
 ## 3. Use of spark EngineConn
 

@@ -344,7 +344,7 @@ Failed  to async get EngineNode ErrorException: errCode: 0 ,desc: operation fail
 ```
 
 解决办法
-需要安装下对应的引擎插件，可以参考：[引擎安装指引](/docs/latest/deployment/engine_conn_plugin_installation)
+需要安装下对应的引擎插件，可以参考：[引擎安装指引](/docs/latest/deployment/engine-conn-plugin-installation)
 
 #### Q37.关闭资源检查
 报错现象：资源不足

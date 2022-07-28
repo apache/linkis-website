@@ -413,7 +413,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 
 ### 7.1 引擎适配列表
 
-请注意：Linkis的单独安装包默认只包含的：Python/Shell/Hive/Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](engine_conn_plugin_installation)。
+请注意：Linkis的单独安装包默认只包含的：Python/Shell/Hive/Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](engine-conn-plugin-installation)。
 
 本版本已适配的支持引擎列表如下：
 
@@ -521,7 +521,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
 
-- 如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](engine_conn_plugin_installation#23-引擎刷新))。
+- 如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](engine-conn-plugin-installation#23-引擎刷新))。
 - 通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致
 - 检查gateway地址配置是否正确`conf/linkis.properties`的配置项`wds.linkis.gateway.url`
 

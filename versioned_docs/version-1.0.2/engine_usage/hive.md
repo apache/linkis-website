@@ -33,13 +33,13 @@ Other hive operating modes are similar, just copy the corresponding dependencies
 
 If you have already compiled your hive engineConn plug-in has been compiled, then you need to put the new plug-in in the specified location to load, you can refer to the following article for details
 
-[EngineConnPlugin Installation](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin Installation](../deployment/engine-conn-plugin-installation) 
 
 ### 2.3 Linkis adds Hive console parameters(optional)
 
 Linkis can configure the corresponding EngineConn parameters on the management console. If your newly added EngineConn needs this feature, you can refer to the following documents:
 
-[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine-conn-plugin-installation) 
 
 ## 3. Use of hive engineConn
 
