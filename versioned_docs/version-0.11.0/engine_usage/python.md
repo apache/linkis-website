@@ -71,7 +71,7 @@ Figure 3 Spark running effect Figure 2
 
 ## 2 Implementation of Python engine
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The implementation of the Linkis-Python execution engine is based on [How to implement a new engine](/development/new_engine_conn.md) to implement the Entrance, EngineManager and Engine three The necessary interface of the module.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The implementation of the Linkis-Python execution engine is based on [How to implement a new engine](/development/new-engine-conn.md) to implement the Entrance, EngineManager and Engine three The necessary interface of the module.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The implementation of the execution module uses the py4j framework to allow the python executor to interact with the JVM. After the user submits the code, the JVM submits the code to the py4j framework The python interpreter executes and gets the output or error message from the python process.
 

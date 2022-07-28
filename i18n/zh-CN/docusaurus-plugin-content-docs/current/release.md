@@ -2,11 +2,11 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-- [开启Prometheus监控](/deployment/involve_prometheus_into_linkis.md)
+- [开启Prometheus监控](/deployment/involve-prometheus-into-linkis.md)
 - [自定义变量设计&内置变量](/architecture/commons/variable.md)
-- [EngineConn 历史信息记录特性](/architecture/computation_governance_services/engine/engine_conn_history.md)
-- [EngineConn Metrics 上报特性](/architecture/computation_governance_services/engine/engine_conn_metrics.md)
-- [ContextService 清理接口特性](/architecture/public_enhancement_services/context_service/content_service_cleanup.md)
+- [EngineConn 历史信息记录特性](/architecture/computation_governance_services/engine/engine-conn-history.md)
+- [EngineConn Metrics 上报特性](/architecture/computation_governance_services/engine/engine-conn-metrics.md)
+- [ContextService 清理接口特性](/architecture/public_enhancement_services/context_service/content-service-cleanup.md)
 - [版本的Release-Notes](release-notes-1.1.3)
 
 ## 参数变化 

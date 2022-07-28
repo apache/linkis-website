@@ -26,7 +26,7 @@ A: 这个是因为eureka的启动Java进程时没有使用nohup当会话退出�
 可以参考PR：https://github.com/apache/incubator-linkis/pull/837/files
 
 #### Q4: Linkis Entrance LogWriter 缺依赖包
-A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://linkis.apache.org/zh-CN/docs/next/development/linkis_compile_and_package/
+A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://linkis.apache.org/zh-CN/docs/next/development/linkis-compile-and-package/
 
 #### Q5: Linkis1.0 执行任务报： select list is not in  group by clause
 
@@ -344,7 +344,7 @@ Failed  to async get EngineNode ErrorException: errCode: 0 ,desc: operation fail
 ```
 
 解决办法
-需要安装下对应的引擎插件，可以参考：[引擎安装指引](/docs/latest/deployment/engine_conn_plugin_installation)
+需要安装下对应的引擎插件，可以参考：[引擎安装指引](/docs/latest/deployment/engine-conn-plugin-installation)
 
 #### Q37.关闭资源检查
 报错现象：资源不足

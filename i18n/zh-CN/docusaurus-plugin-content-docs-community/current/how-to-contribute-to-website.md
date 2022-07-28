@@ -158,7 +158,7 @@ Visit the page https://linkis.apache.org/zh-CN/user
 公司的logo位于 `static/home/user`, 且图片的大小必须是 176 × 88.
 
 ### 3.10 路径规范
-如果希望想从一个markdown文档链接到另外一个文档, 最好使用绝对路径. 例如, 如果希望链接到 `quick_deploy.md`这个文档, 路径应写成 `/docs/deployment/quick_deploy.md`。
+如果希望想从一个markdown文档链接到另外一个文档, 最好使用绝对路径. 例如, 如果希望链接到 `quick-deploy.md`这个文档, 路径应写成 `/docs/deployment/quick-deploy.md`。
 
 ### 英文文档标题规范
 英文文档侧边栏除介词外的所有词首字母使用大写, 同时英文markdown中的标题的第一个词首字母应大写，其他词首字母小写。

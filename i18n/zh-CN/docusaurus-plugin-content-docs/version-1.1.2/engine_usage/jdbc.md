@@ -44,7 +44,7 @@ sh linkis-daemon.sh restart cg-engineplugin
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
 
 
 ## 3.JDBC引擎的使用
@@ -91,7 +91,7 @@ http 请求参数示例
 
 ### 3.1 通过Linkis SDK进行使用
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user_guide/sdk-manual.md).
 对于JDBC任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
 
 ```java
@@ -107,7 +107,7 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式
 

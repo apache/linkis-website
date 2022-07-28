@@ -55,7 +55,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示
 
-[EngineConnPlugin引擎插件安装](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
 
 
 ## 2 引擎的使用
@@ -73,7 +73,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipelin
 ```
 `from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv` 该内容 2.3 有解释
 
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 
 

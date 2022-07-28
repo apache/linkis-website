@@ -35,7 +35,7 @@ sidebar_position: 0
  
   **支持的脚本语言有**：SparkSQL、Spark Scala、Pyspark、R、Python、HQL和Shell等；
   
-  更多关于统一作业执行服务的信息，请查看[UJES架构设计文档](ujes/ujes_design.md)
+  更多关于统一作业执行服务的信息，请查看[UJES架构设计文档](ujes/ujes-design.md)
  
  
 - **资源管理服务**： 支持实时管控每个系统和用户的资源使用情况，限制系统和用户的资源使用量和并发数，并提供实时的资源动态图表，方便查看和管理系统和用户的资源；
@@ -134,4 +134,4 @@ sidebar_position: 0
 
 12. 一旦SQL执行成功，Engine主动将结果集推给Entrance，Entrance通知前端拿取结果。
 
-关于Entrance/EngineManager/Engine异常情况下的设计方案，请查看[UJES架构设计文档](ujes/ujes_design.md)
+关于Entrance/EngineManager/Engine异常情况下的设计方案，请查看[UJES架构设计文档](ujes/ujes-design.md)

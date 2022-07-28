@@ -58,12 +58,12 @@ cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
 engineplugin更详细的介绍可以参看下面的文章。  
-https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine_conn_plugin_installation
+https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation
 ### 2.3 Flink引擎的标签
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
 
 ## 3.Flink引擎的使用
 
@@ -117,7 +117,7 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 sh ./bin/linkis-cli -engineType flink-1.12.2 -codeType sql -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
 
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 
 ### 3.3 OnceEngineConn方式

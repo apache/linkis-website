@@ -37,7 +37,7 @@ Shell引擎不需要用户自行编译，直接使用编译好的shell引擎插�
 
 ### 3.1 通过Linkis SDK进行使用
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user_guide/sdk-manual.md).
 对于Shell任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
 
 ```java
@@ -53,7 +53,7 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 ```shell
 sh ./bin/linkis-cli -engineType shell-1 -codeType shell -code "echo \"hello\" "  -submitUser hadoop -proxyUser hadoop
 ```
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式
 

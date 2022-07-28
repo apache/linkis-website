@@ -33,13 +33,13 @@ sidebar_position: 1
 
 如果您已经编译完了您的spark引擎的插件，那么您需要将新的插件放置到指定的位置中才能加载，具体可以参考下面这篇文章
 
-[EngineConnPlugin引擎插件安装](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
 
 ### 2.3 spark引擎的标签
 
 Linkis1.X是通过标签配置来区分引擎版本的，所以需要我们在数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/engine-conn-plugin-installation) 
 
 ## 3.spark引擎的使用
 
@@ -54,7 +54,7 @@ Linkis1.X是通过标签配置来区分引擎版本的，所以需要我们在�
 
 ### 3.1 通过Linkis SDK进行使用
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user_guide/sdk-manual.md).
 对于Spark任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
 
 ```java
@@ -74,7 +74,7 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables"  -
 # 可以在提交参数通过-confMap wds.linkis.yarnqueue=dws  来指定yarn 队列
 sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式
 
