@@ -10,9 +10,24 @@ export default function() {
   const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
   const dataSource = config?.[language];
 
+  let _paq = [];
+  isBrowser && (window._paq = []);
+  isBrowser && (_paq = window._paq);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://apachelinkis.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d = isBrowser && document;
+    var g = isBrowser && d.createElement('script'), s = isBrowser && d.getElementsByTagName('script')[0];
+    isBrowser && (g.async=true); 
+    isBrowser && (g.src='//cdn.matomo.cloud/apachelinkis.matomo.cloud/matomo.js'); 
+    isBrowser && (s.parentNode.insertBefore(g,s));
+  })();
+
   return (
    <div>
-    <script src='//cdn.matomo.cloud/apachelinkis.matomo.cloud/matomo.js'></script>
      <div className="home-page slogan">
        <div className="ctn-block">
          <div className="banner text-center">
