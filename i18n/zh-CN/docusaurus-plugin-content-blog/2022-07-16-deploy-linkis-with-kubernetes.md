@@ -1,34 +1,32 @@
 ---
-title: 部署Linkis到Kubernetes
+title: 部署到Kubernetes
 authors: [jacktao]
 tags: [github]
 ---
 
-**1.依赖、版本**
+## 1. 依赖版本
 
-kind github：https://github.com/kubernetes-sigs/kind
+- kind github：https://github.com/kubernetes-sigs/kind
 
-kind官网：[kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
+- kind官网：[kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
 
 版本:
 
-kind 0.14.0
-
-docker  20.10.17
-
-node v14.19.3
+- kind 0.14.0
+- docker  20.10.17
+- node v14.19.3
 
 注意：
 
-1.先确保前后端能够正常编译
+- 1.先确保前后端能够正常编译
 
-2.确保组件依赖版本
+- 2.确保组件依赖版本
 
-3.kind是用docker容器模拟节点的 机器重启回来容器都变了 调度器就不工作了 这个是kind的limitation,官方文档有详细说明。
+- 3.kind是用docker容器模拟节点的 机器重启回来容器都变了 调度器就不工作了 这个是kind的limitation,官方文档有详细说明。
 
-**2.安装docker**
+## 2.安装docker
 
-（1）安装教程
+### 2.1 安装教程
 
 ```
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -48,7 +46,7 @@ systemctl enable docker
 
 
 
-（2）设置国内镜像
+### 2.2 设置国内镜像
 
 ```
 vi /etc/docker/daemon.json
@@ -64,7 +62,7 @@ vi /etc/docker/daemon.json
 
 
 
-**3.安装kind**
+## 3. 安装kind
 
 （1）手工下载kind二进制
 
@@ -80,7 +78,7 @@ mv kind-linux-amd64 /usr/bin/kind
 
 
 
-**4.安装JDK 和 Maven**
+## 4. 安装JDK 和 Maven 
 
 （1）参考通用安装教程，安装如下组件
 
@@ -88,7 +86,7 @@ jdk 1.8
 
 mavne 3.5+
 
-**5.安装NodeJS**
+## 5. 安装NodeJS
 
 （1）安装版本
 
@@ -146,7 +144,7 @@ yarn
 
 
 
-**6.编译linkis**
+## 6. 编译linkis
 
 ```
 \# 1. When compiling for the first time, execute the following command first
@@ -172,8 +170,7 @@ yarn
 
 
 
-**7.创建集群**
-
+## 7. 创建集群 
 ```
 dos2unix ./linkis-dist/helm/scripts/*.sh
 
@@ -184,7 +181,7 @@ dos2unix ./linkis-dist/helm/scripts/*.sh
 
 
 
-**8.安装helm charts**
+## 8. 安装helm charts
 
 ```
  ./scripts/install-charts.sh linkis linkis-demo
@@ -194,7 +191,7 @@ dos2unix ./linkis-dist/helm/scripts/*.sh
 
 
 
-**9.访问linkis页面**
+## 9.访问linkis页面
 
 ```
 kubectl port-forward -n linkis  --address=0.0.0.0 service/linkis-demo-web 8087:8087
@@ -206,7 +203,7 @@ http://10.0.2.101:8087
 
 
 
-**10.使用Linkis客户端测试**
+## 10.使用Linkis客户端测试
 
 ```
 kubectl -n linkis exec -it linkis-demo-ps-publicservice-77d7685d9-f59ht -- bash
@@ -215,7 +212,7 @@ kubectl -n linkis exec -it linkis-demo-ps-publicservice-77d7685d9-f59ht -- bash
 
 
 
-**11.安装kubectl**
+## 11.安装kubectl
 
 ```
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
