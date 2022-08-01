@@ -15,7 +15,7 @@ The main functions are as follows:
 * Fix the security issues of interfaces such as user unauthorized access
 * Some dependency package upgrades and community-known bug fixes
 
-abbreviation:
+Abbreviations:
 - COMMON: Linkis Common
 - EC: Engineconn
 - ECM: EngineConnManager

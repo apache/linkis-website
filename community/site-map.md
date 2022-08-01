@@ -1,5 +1,5 @@
 ---
-title: sitemap
+title: Site Map
 sidebar_position: 12
 ---
 

@@ -14,7 +14,7 @@ The main functions are as follows:
 * Flink engine supports downloading Yarn logs to EC log directory
 * Some dependency package upgrades and community-known bug fixes
 
-abbreviation:
+Abbreviations:
 - COMMON: Linkis Common
 - EC: Engineconn
 - ECM: EngineConnManager
