@@ -8,11 +8,11 @@
     <subtitle>Apache Linkis Blog</subtitle>
     <icon>https://linkis.incubator.apache.org/zh-CN/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[部署Linkis到Kubernetes]]></title>
-        <id>部署Linkis到Kubernetes</id>
+        <title type="html"><![CDATA[部署到Kubernetes]]></title>
+        <id>部署到Kubernetes</id>
         <link href="https://linkis.incubator.apache.org/zh-CN/blog/2022/07/16/deploy-linkis-with-kubernetes"/>
         <updated>2022-07-16T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[1.依赖、版本]]></summary>
+        <summary type="html"><![CDATA[1. 依赖版本]]></summary>
         <author>
             <name>jacktao</name>
             <uri>https://github.com/jacktao007</uri>
