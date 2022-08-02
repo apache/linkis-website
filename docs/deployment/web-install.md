@@ -28,8 +28,7 @@ The decompression directory is as follows.
 &nbsp;&nbsp;&nbsp;&nbsp;There are two deployment methods, automated deployment and manual deployment
 
 ### 2.1 Automated deployment
-#### 2.1.1
-&nbsp;&nbsp;&nbsp;&nbsp;modify config.sh file (use vim or nano)
+#### 2.1.1 modify config.sh file (use vim or nano)
 
 ```$xslt
 #Configuring front-end ports
@@ -42,8 +41,7 @@ linkis_url="http://localhost:9001"
 linkis_ipaddr=$(ip addr | awk'/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1" , "g", $2)}')
 ```
 
-#### 2.1.2
-&nbsp;&nbsp;&nbsp;&nbsp;execute deployment script
+#### 2.1.2 execute deployment script
 
  ```shell
     #sudo permission is required to install nginx
