@@ -3,12 +3,12 @@ title: Version overview
 sidebar_position: 0.1
 ---
 
-- [Enable Prometheus monitoring](/deployment/involve_prometheus_into_linkis.md)
+- [Enable Prometheus monitoring](/deployment/involve-prometheus-into-linkis.md)
 - [Custom Variable Design & Built-in Variables](/architecture/commons/variable.md)
-- [EngineConn History Information Recording Features](/architecture/computation_governance_services/engine/engine_conn_history.md)
-- [EngineConn Metrics reporting feature](/architecture/computation_governance_services/engine/engine_conn_metrics.md)
-- [ContextService cleanup interface features](/architecture/public_enhancement_services/context_service/content_service_cleanup.md)
-- [Release-Notes](release-notes-1.1.3)
+- [EngineConn History Information Recording Features](/architecture/computation_governance_services/engine/engine-conn-history.md)
+- [EngineConn Metrics reporting feature](/architecture/computation_governance_services/engine/engine-conn-metrics.md)
+- [ContextService cleanup interface features](/architecture/public_enhancement_services/context_service/content-service-cleanup.md)
+- [Release-Notes](/download/release-notes-1.1.3)
 
 ## Configuration Item
 

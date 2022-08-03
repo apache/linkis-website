@@ -79,5 +79,5 @@ cd 1.0.3-engineconn-plugin
 
 将需要要使用的引擎物料包拷贝至linkis的引擎插件目录，然后刷新引擎物料即可
 
-详细流程参考[安装 EngineConnPlugin 引擎](https://linkis.apache.org/zh-CN/docs/latest/deployment/engine_conn_plugin_installation)。
+详细流程参考[安装 EngineConnPlugin 引擎](https://linkis.apache.org/zh-CN/docs/latest/deployment/engine-conn-plugin-installation)。
 

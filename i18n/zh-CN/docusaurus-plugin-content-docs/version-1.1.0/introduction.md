@@ -44,8 +44,8 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 请前往[Linkis releases 页面](https://github.com/apache/incubator-linkis/releases) 下载Linkis 已编译的部署安装包或源码包。
 
 ## 编译和安装部署
-请参照[编译指引](development/linkis_compile_and_package.md) 来编译Linkis 源码。  
-请参考[安装部署文档](deployment/quick_deploy.md) 来部署Linkis。
+请参照[编译指引](development/linkis-compile-and-package.md) 来编译Linkis 源码。  
+请参考[安装部署文档](deployment/quick-deploy.md) 来部署Linkis。
 
 ## 示例和使用指引
 请到[用户手册](user_guide/overview.md), [各引擎使用指引](engine_usage/overview.md) 和[API 文档](api/overview.md) 中，查看如何使用和管理Linkis 的示例和指引。

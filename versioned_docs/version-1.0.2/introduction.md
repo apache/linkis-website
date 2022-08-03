@@ -54,8 +54,8 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/releases) to download a compiled distribution or a source code package of Linkis.
 
 # Compile and deploy
-Please follow [Compile Guide](development/linkis_compile_and_package.md) to compile Linkis from source code.  
-Please refer to [Deployment_Documents](deployment/quick_deploy.md) to do the deployment. 
+Please follow [Compile Guide](development/linkis-compile-and-package.md) to compile Linkis from source code.  
+Please refer to [Deployment_Documents](deployment/quick-deploy.md) to do the deployment. 
 
 # Examples and Guidance
 You can find examples and guidance for how to use and manage Linkis in [User_Manual](user_guide/overview.md), [Engine_Usage_Documents](engine_usage/overview.md) and [API_Documents](../version-1.0.2/api/overview.md).

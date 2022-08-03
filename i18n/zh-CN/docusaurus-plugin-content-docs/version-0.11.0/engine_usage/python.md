@@ -71,7 +71,7 @@ python.script=${真实的python解析器路径,如/usr/bin/python}
 
 ## 2 Python引擎的实现方式
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis-Python执行引擎的实现，是参照[如何实现一个新引擎](/development/new_engine_conn.md)实现了Entrance、EngineManager和Engine三个模块的必要接口。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis-Python执行引擎的实现，是参照[如何实现一个新引擎](/development/new-engine-conn.md)实现了Entrance、EngineManager和Engine三个模块的必要接口。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中执行模块的实现是采用了py4j框架，让python执行器与JVM进行交互，当用户提交代码之后，JVM通过py4j框架将代码提交到python解释器进行执行，并从python进程中得到输出的结果或者错误信息。
 

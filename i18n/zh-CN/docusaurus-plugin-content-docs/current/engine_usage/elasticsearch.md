@@ -43,7 +43,7 @@ sh linkis-daemon.sh restart cg-engineplugin
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
 
 ### 2.2 ElasticSearch 引擎相关配置
 

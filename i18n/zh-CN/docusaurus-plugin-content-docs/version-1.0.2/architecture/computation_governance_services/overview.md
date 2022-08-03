@@ -66,10 +66,10 @@ Linkis1.0将优化Job的整体执行流程，从提交 —\> 准备 —\>
 
  EngineConnManager (简称ECM)是 Linkis0.X EngineManager 的精简升级版。Linkis1.0下的ECM去除了引擎的申请能力，整个微服务完全无状态，将聚焦于支持各类 EngineConn 的启动和销毁。
  
- [进入EngineConnManager架构设计](engine/engine_conn_manager.md)
+ [进入EngineConnManager架构设计](engine/engine-conn-manager.md)
 
 ### 5、EngineConn
 
 EngineConn 是 Linkis0.X Engine 的优化升级版本，将提供 EngineConn 和 Executor 两大模块，其中 EngineConn 用于连接底层的计算存储引擎，提供一个打通了底层各计算存储引擎的 Session 会话；Executor 则基于这个 Session 会话，提供交互式计算、流式计算、离线计算、数据存储的全栈计算能力支持。
 
-[进入EngineConn架构设计](engine/engine_conn.md)
+[进入EngineConn架构设计](engine/engine-conn.md)

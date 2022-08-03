@@ -5,7 +5,7 @@ sidebar_position: 5
 
 本文主要介绍在Linkis1.X中，Python引擎的配置、部署和使用。
 
-## 1.Spark引擎使用前的环境配置
+## 1.Python引擎使用前的环境配置
 
 如果您希望在您的服务器上使用python引擎，您需要保证用户的PATH中是有python的执行目录和执行权限。
 
@@ -20,7 +20,19 @@ sidebar_position: 5
 ### 2.1 Python版本的选择和编译
 
 Python是支持python2 和
-python3的，您可以简单更改配置就可以完成Python版本的切换，不需要重新编译python的引擎版本。
+python3的，您可以简单更改配置就可以完成Python版本的切换，不需要重新编译python的引擎版本，具体配置如下。
+
+
+```
+#1：cli的方式提交任务进行版本切换,命令末端设置版本 python.version=python3 (python3：创建软连接时生成文件的名称，可自定义命名)
+sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python.version=python3
+
+#2：cli的方式提交任务进行版本切换,命令设置加入版本路径 python.version=/usr/bin/python (/usr/bin/python：创建软连接时生成文件的路径)
+sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python.version=/usr/bin/python
+
+```
+页面配置：
+![](/Images/EngineUsage/python-configure.png)
 
 ### 2.2 python engineConn部署和加载
 
@@ -34,7 +46,7 @@ python3的，您可以简单更改配置就可以完成Python版本的切换，�
 
 ### 3.1 通过Linkis SDK进行使用
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](user_guide/sdk_manual.md).
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user_guide/sdk-manual.md).
 对于Python任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
 
 ```java
@@ -50,7 +62,7 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 ```shell
 sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop
 ```
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式
 

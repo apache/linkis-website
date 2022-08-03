@@ -8,4 +8,4 @@ The architecture of Linkis1.0 is very different from Linkis0.x, and there are so
 
 1. If you are installing Linkis for the first time, or reinstalling Linkis, you do not need to pay attention to the Linkis Upgrade Guide.
 
-2. If you are upgrading from Linkis0.x to Linkis1.0, be sure to read the [Linkis Upgrade from 0.x to 1.0 guide](upgrade_from_0.X_to_1.0_guide.md) carefully.
+2. If you are upgrading from Linkis0.x to Linkis1.0, be sure to read the [Linkis Upgrade from 0.x to 1.0 guide](upgrade-from-0.X-to-1.0-guide.md) carefully.

@@ -55,7 +55,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示
 
-[EngineConnPlugin引擎插件安装](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
 
 
 ## 2 引擎的使用
@@ -73,7 +73,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipelin
 ```
 `from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv` 该内容 2.3 有解释
 
-具体使用可以参考： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 
 
@@ -100,21 +100,21 @@ from hdfs:///000/000/000/A.txt to file:///000/000/000/B.txt
 ```
 
 
-A文件向B文件夹导入脚本 
+文件A导出为文件B
 ```bash
 from hdfs:///000/000/000/A.csv to file:///000/000/000/B.csv
 ```
 
 - `from path to path`
-- `hdfs:///000/000/000/A.csv`： 输出文件路径及文件
-- `file:///000/000/000/B.csv`： 输入文件路径及文件
+- `hdfs:///000/000/000/A.csv`： 输入文件路径及文件
+- `file:///000/000/000/B.csv`： 输出文件路径及文件
 
-B文件向A文件夹导入脚本
+文件B导出为文件A
 ```bash
 from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 ```
-- `hdfs:///000/000/000/B.csv`： 输出文件路径及文件
-- `file:///000/000/000/B.csv`： 输入文件路径及文件
+- `hdfs:///000/000/000/B.csv`： 输入文件路径及文件
+- `file:///000/000/000/B.csv`： 输出文件路径及文件
 
 ![](/Images-zh/EngineConnNew/to_write.png)
 

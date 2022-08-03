@@ -60,7 +60,7 @@ cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
 More engineplugin details can be found in the following article.  
-https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine_conn_plugin_installation
+https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation
 
 ## 3.Sqoop Engine Usage 
 

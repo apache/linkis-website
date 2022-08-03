@@ -268,7 +268,7 @@ After the installation is complete, if you need to modify the configuration, you
 
 ### 3.4 Add mysql driver (>=1.0.3) version
 Because of the license, mysql-connector-java is removed from the release package of linkis itself (the family bucket integrated by dss will be included, no need to manually add it), which needs to be added manually.  
-For details, see [Add mysql driver package](docs/1.0.3/deployment/quick_deploy#-44-Add mysql driver package)
+For details, see [Add mysql driver package](docs/1.0.3/deployment/quick-deploy#-44-Add mysql driver package)
 
 ### 3.5 Start the service
 ```shell script
@@ -420,7 +420,7 @@ normal as follows
 
 
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).  
-If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](docs/latest/deployment/engine_conn_plugin_installation#23-Engine Refresh)). Check the `log/linkis-cg-engineplugin.log` log to check the specific reasons for the failure of the material. In many cases, it may be caused by the lack of permissions in the hdfs directory. Check whether the gateway address configuration is correct `conf/linkis.properties:wds.linkis.gateway.url`
+If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](docs/latest/deployment/engine-conn-plugin-installation#23-Engine Refresh)). Check the `log/linkis-cg-engineplugin.log` log to check the specific reasons for the failure of the material. In many cases, it may be caused by the lack of permissions in the hdfs directory. Check whether the gateway address configuration is correct `conf/linkis.properties:wds.linkis.gateway.url`
 
 The material resources of the engine are uploaded to the hdfs directory by default as `/apps-data/${deployUser}/bml`
 ```shell script
@@ -517,7 +517,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 
 ### 6.6 Debugging of Http interface
 
-  Method 1 can open the [Login-Free Mode Guide] (docs/latest/api/login_api#2 Login-Free Configuration)  
+  Method 1 can open the [Login-Free Mode Guide] (docs/latest/api/login-api#2 Login-Free Configuration)  
   Method 2: Add a static Token to the http request header
   ```shell script
   Token-User:hadoop
