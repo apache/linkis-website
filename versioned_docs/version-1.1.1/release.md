@@ -3,12 +3,12 @@ title: Version overview
 sidebar_position: 0.1
 ---
 - [Introduction of Proxy User Mode](/architecture/proxy-user.md)
-- [UDF function introduction and usage guide](/user_guide/udf.md)
+- [UDF function introduction and usage guide](/user-guide/udf.md)
 - [Engine material refresh HTTP interface](/api/http/engineconn-plugin-refesh.md)
 - [UDF related HTTP interface](/api/http/udf-api.md)
 - [UDF related table structure](/table/udf-table.md)
 - [Implementation of OpenLookEng Engine](/blog/2022/03/20/openlookeng)
-- [Use of OpenLookEng](/engine_usage/openlookeng.md)
+- [Use of OpenLookEng](/engine-usage/openlookeng.md)
 - [release-notes](/download/release-notes-1.1.1)
 
 ## Configuration Item 

@@ -47,7 +47,7 @@ source linkis_ecp.sql
 ## Add a table that the public service-instanceLabel service depends on
 source linkis_instance_label.sql
 ## Added tables that the linkis-manager service depends on
-source linkis_manager.sql
+source linkis-manager.sql
 ```
 
 ### 3.3 Publicservice-Configuration table modification

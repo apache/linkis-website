@@ -3,7 +3,7 @@ title: 版本总览
 sidebar_position: 0.1
 --- 
 - [无HDFS模式的精简化部署指引](/deployment/deploy-linkis-without-hdfs.md)
-- [Sqoop引擎的使用](/engine_usage/sqoop.md)
+- [Sqoop引擎的使用](/engine-usage/sqoop.md)
 - [历史任务查询HTTP接口](/api/http/linkis-ps-publicservice-api/jobhistory-api.md)
 - [工具Scriptis的安装部署](/deployment/linkis-scriptis-install.md)
 - [版本的release-notes](/download/release-notes-1.1.2)

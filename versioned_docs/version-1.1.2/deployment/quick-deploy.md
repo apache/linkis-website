@@ -387,7 +387,7 @@ wds.linkis.admin.user= #User
 wds.linkis.admin.password= #Password
 
 ````
-Refer to the [User Manual](../user_guide/console-manual.md) for the usage guide of the console
+Refer to the [User Manual](../user-guide/console-manual.md) for the usage guide of the console
 
 ## 5. Verify basic functionality
 >Verify the corresponding engine tasks according to actual needs

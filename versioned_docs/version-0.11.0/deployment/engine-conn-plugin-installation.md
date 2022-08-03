@@ -57,7 +57,7 @@ spark
 &nbsp;&nbsp;&nbsp;&nbsp;After 1.0, the configuration of the management console is managed according to the engine label. If the new engine has configuration parameters, you need to insert the corresponding configuration parameters in the Configuration, and you need to insert the parameters in the three tables:
 ```
 linkis_configuration_config_key: insert the key and default values ​​of the configuration parameters of the engine
-linkis_manager_label: Insert engine label such as hive-1.2.1
+linkis-manager_label: Insert engine label such as hive-1.2.1
 linkis_configuration_category: Insert the catalog relationship of the engine
 linkis_configuration_config_value: Insert the configuration that the engine needs to display
 ```

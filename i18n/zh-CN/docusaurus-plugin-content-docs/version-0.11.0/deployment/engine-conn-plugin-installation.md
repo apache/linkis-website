@@ -57,7 +57,7 @@ spark
 &nbsp;&nbsp;&nbsp;&nbsp;1.0后管理台的配置是按照引擎标签来进行管理的，如果新增引擎有配置参数需要在Configuration插入相应的配置参数，需要在三个表中插入参数：
 ```
 linkis_configuration_config_key:  插入引擎的配置参数的key和默认values
-linkis_manager_label：插入引擎label如：hive-1.2.1
+linkis-manager_label：插入引擎label如：hive-1.2.1
 linkis_configuration_category： 插入引擎的目录关联关系
 linkis_configuration_config_value： 插入引擎需要展示的配置
 ```
