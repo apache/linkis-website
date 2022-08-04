@@ -20,3 +20,4 @@ dist-ssr
 *.idea
 *.iml.
 .vscode
+package-lock.json
