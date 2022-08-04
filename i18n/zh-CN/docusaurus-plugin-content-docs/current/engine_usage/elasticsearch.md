@@ -7,15 +7,14 @@ sidebar_position: 11
 
 ## 1. 环境准备
 
-如果您希望在您的服务器上使用 ElasticSearch 引擎，您需要准备 ElasticSearch 连接信息，如 ElasticSearch 集群的连接地址、用户名和密码等
+如果您希望在您的服务器上使用 ElasticSearch 引擎，您需要准备 ElasticSearch 服务并提供连接信息，如 ElasticSearch 集群的连接地址、用户名和密码等
 
 ## 2. 部署和配置
 
 ### 2.1 版本的选择和编译
 注意: 编译 ElasticSearch 引擎之前需要进行 Linkis 项目全量编译  
 发布的安装部署包中默认不包含此引擎插件，
-你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
-，或者按以下流程，手动编译部署
+你可以按[Linkis引擎安装指引](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)部署安装 ，或者按以下流程，手动编译部署
 
 单独编译 ElasticSearch 引擎 
 
@@ -34,7 +33,7 @@ ${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/
 ```bash 
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
-并重启linkis-engineplugin（或则通过引擎接口进行刷新）
+并重启linkis-engineplugin（或者通过引擎接口进行刷新）
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
@@ -45,7 +44,7 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 
 [EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
 
-### 2.2 ElasticSearch 引擎相关配置
+### 2.4 ElasticSearch 引擎相关配置
 
 | 配置                     | 默认值              | 说明                                     |
 | ------------------------ | ------------------- | ---------------------------------------- |
@@ -60,3 +59,48 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 | linkis.es.sql.format     | {"query":"%s"} | SQL 脚本调用的模板，%s 替换成 SQL 作为请求体请求Es 集群 |
 | linkis.es.headers.* | 无 | 客户端 Headers 配置 |
 | linkis.engineconn.concurrent.limit | 100 | 引擎最大并发 |
+
+## 3. ElasticSearch引擎使用
+### 3.1 准备操作
+您需要配置ElasticSearch的连接信息，包括连接地址信息或用户名密码(如果启用)等信息。
+
+![ElasticSearch](https://user-images.githubusercontent.com/22620332/182787195-8051bf25-1e1e-47e5-ad88-4896278857f2.png)  
+
+图3-1 ElasticSearch配置信息
+
+您也可以再提交任务接口中的params.configuration.runtime进行修改即可
+```shell
+linkis.es.cluster
+linkis.es.username               |
+linkis.es.password
+```
+
+### 3.2 通过Linkis SDK进行使用
+
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user_guide/sdk-manual.md).
+对于ElasticSearch任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
+
+```java
+        Map<String, Object> labels = new HashMap<String, Object>();
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "elasticsearch-7.6.2"); // required engineType Label
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "elasticsearch"); // required codeType
+```
+
+### 3.2 通过Linkis-cli进行任务提交
+**-codeType参数说明**
+- sql/essql：
+- json/esjson：设置请求参数通过json格式的方式提交任务
+
+**使用示例**
+
+Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，ElasticSearch的使用如下：
+```shell
+sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType json -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search
+```
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
+
+
+## 4. ElasticSearch引擎的用户设置
+
+ElasticSearch的用户设置主要是设置ElasticSearch的连接信息，但是建议用户将此密码等信息进行加密管理。
