@@ -31,7 +31,7 @@ sidebar_position: 0
 
 ### 二、社区issue专栏搜索关键词
 
-在github社区首页，issue专栏留存了社区用户遇到的部分问题和解决方案，非常适合在遇到问题后快速寻找解决方案，在filter过滤器中搜索报错的关键词即可。![](/Images-zh/tuning-and-troubleshooting/searching_keywords.png)
+在github社区首页，issue专栏留存了社区用户遇到的部分问题和解决方案，非常适合在遇到问题后快速寻找解决方案，在filter过滤器中搜索报错的关键词即可。![](/Images-zh/Tuning-and-Troubleshooting/searching_keywords.png)
 
 
 
