@@ -115,7 +115,7 @@ linkis-public-enhancements/linkis-datasource
 
 ### 1.5 Configuration Parameters
 
-See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/Tuning-and-Troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
+See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/tuning-and-troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
 
 ## 2. Enable data source function
 
