@@ -41,23 +41,61 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 ### 2.3 ElasticSearch EngineConn Labels
 Linkis1.x works with tags, so you need to insert data into our database as shown below.
 
-[EngineConnPlugin Installs](../deployment/engine-conn-plugin-installation) 
+The configuration of the management console is managed by engine labels. If a new engine needs to be configured, you need to modify the metadata of the corresponding table.
+
+```
+linkis_ps_configuration_config_key:  Insert the key and default values for the engine's configuration parameters
+linkis_cg_manager_label：Insert engine label such as：elasticsearch-7.6.2
+linkis_ps_configuration_category： Insert the directory association of the engine
+linkis_ps_configuration_config_value： Insert the configuration that the engine needs to show
+linkis_ps_configuration_key_engine_relation:Association between configuration items and engines
+```
+
+```sql
+
+SET @ELASTICSEARCHENG_LABEL="elasticsearch-7.6.2";
+SET @ELASTICSEARCHENG_ALL=CONCAT('*-*,',@ELASTICSEARCHENG_LABEL);
+SET @ELASTICSEARCHENG_IDE=CONCAT('*-IDE,',@ELASTICSEARCHENG_LABEL);
+
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@ELASTICSEARCHENG_ALL, 'OPTIONAL', 2, now(), now());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@ELASTICSEARCHENG_IDE, 'OPTIONAL', 2, now(), now());
+
+select @label_id := id from linkis_cg_manager_label where `label_value` = @ELASTICSEARCHENG_IDE;
+insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
+
+
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.url', 'such as:http://127.0.0.1:8080', 'conn address', 'http://127.0.0.1:8080', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', 'elasticsearcheng', 0, 0, 1, 'data source conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.catalog', 'catalog', 'catalog', 'system', 'None', '', 'elasticsearcheng', 0, 0, 1, 'data source conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.source', 'source', 'source', 'global', 'None', '', 'elasticsearcheng', 0, 0, 1, 'data source conf');
+
+
+-- elasticsearcheng-*
+insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
+(select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
+INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'elasticsearcheng' and label_value = @ELASTICSEARCHENG_ALL);
+
+-- elasticsearcheng default configuration
+insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
+(select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
+INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @ELASTICSEARCHENG_ALL);
+
+```
 
 ### 2.4 ElasticSearch EngineConn configurations
 
-|   configurations                   | default              | description                                     |
-| ------------------------ | ------------------- | ---------------------------------------- |
-| linkis.es.cluster        | 127.0.0.1:9200      | ElasticSearch cluster，separate multiple nodes using commas  |
-| linkis.es.username       | None                  | ElasticSearch cluster username                 |
-| linkis.es.password       | None                  | ElasticSearch cluster password                   |
-| linkis.es.auth.cache     | false               | Whether the client is cache authenticated                       |
-| linkis.es.sniffer.enable | false               | Whether the sniffer is enabled on the client                   |
-| linkis.es.http.method    | GET                 | Request methods                                 |
-| linkis.es.http.endpoint  | /_search            | the Endpoint in JSON Script                 |
-| linkis.es.sql.endpoint   | /_sql               | the Endpoint in SQL                  |
-| linkis.es.sql.format     | {"query":"%s"} | the template of SQL script call , %s replaced with SQL as the body of the request request ElasticSearch cluster |
-| linkis.es.headers.* | None | Client Headers configuration |
-| linkis.engineconn.concurrent.limit | 100 | Maximum engine concurrency of ElasticSearch cluster |
+|   configurations                   | default              | is necessary |description                                     |
+| ------------------------ | ------------------- | ---|---------------------------------------- |
+| linkis.es.cluster        | 127.0.0.1:9200      | yes |ElasticSearch cluster，separate multiple nodes using commas  |
+| linkis.es.username       | None                  |no | ElasticSearch cluster username                 |
+| linkis.es.password       | None                  |no | ElasticSearch cluster password                   |
+| linkis.es.auth.cache     | false               |no | Whether the client is cache authenticated                       |
+| linkis.es.sniffer.enable | false               |no | Whether the sniffer is enabled on the client                   |
+| linkis.es.http.method    | GET                 | no | Request methods                                 |
+| linkis.es.http.endpoint  | /_search            |no | the Endpoint in JSON Script                 |
+| linkis.es.sql.endpoint   | /_sql               |no | the Endpoint in SQL                  |
+| linkis.es.sql.format     | {"query":"%s"} | no | the template of SQL script call , %s replaced with SQL as the body of the request request ElasticSearch cluster |
+| linkis.es.headers.* | None | no | Client Headers configuration |
+| linkis.engineconn.concurrent.limit | 100 | no | Maximum engine concurrency of ElasticSearch cluster |
 
 ## 3. The use of ElasticSearch EngineConn 
 ### 3.1 Ready to operate

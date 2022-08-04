@@ -42,23 +42,61 @@ sh linkis-daemon.sh restart cg-engineplugin
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
+管理台的配置是按照引擎标签来进行管理的，如果新增的引擎，有配置参数需要配置的话，需要修改对应的表的元数据
+
+```
+linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
+linkis_cg_manager_label：插入引擎label如：hive-2.3.3
+linkis_ps_configuration_category： 插入引擎的目录关联关系
+linkis_ps_configuration_config_value： 插入引擎需要展示的配置
+linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
+```
+
+```sql
+
+SET @ELASTICSEARCHENG_LABEL="elasticsearch-7.6.2";
+SET @ELASTICSEARCHENG_ALL=CONCAT('*-*,',@ELASTICSEARCHENG_LABEL);
+SET @ELASTICSEARCHENG_IDE=CONCAT('*-IDE,',@ELASTICSEARCHENG_LABEL);
+
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@ELASTICSEARCHENG_ALL, 'OPTIONAL', 2, now(), now());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@ELASTICSEARCHENG_IDE, 'OPTIONAL', 2, now(), now());
+
+select @label_id := id from linkis_cg_manager_label where `label_value` = @ELASTICSEARCHENG_IDE;
+insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
+
+
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.url', 'such as:http://127.0.0.1:8080', 'conn address', 'http://127.0.0.1:8080', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', 'elasticsearcheng', 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.catalog', 'catalog', 'catalog', 'system', 'None', '', 'elasticsearcheng', 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.source', 'source', 'source', 'global', 'None', '', 'elasticsearcheng', 0, 0, 1, '数据源配置');
+
+
+-- elasticsearcheng-*
+insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
+(select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
+INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'elasticsearcheng' and label_value = @ELASTICSEARCHENG_ALL);
+
+-- elasticsearcheng default configuration
+insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
+(select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
+INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @ELASTICSEARCHENG_ALL);
+
+```
 
 ### 2.4 ElasticSearch 引擎相关配置
 
-| 配置                     | 默认值              | 说明                                     |
-| ------------------------ | ------------------- | ---------------------------------------- |
-| linkis.es.cluster        | 127.0.0.1:9200      | ElasticSearch 集群，多个节点使用逗号分隔 |
-| linkis.es.username       | 无                  | ElasticSearch 集群用户名                 |
-| linkis.es.password       | 无                  | ElasticSearch 集群密码                   |
-| linkis.es.auth.cache     | false               | 客户端是否缓存认证                       |
-| linkis.es.sniffer.enable | false               | 客户端是否开启 sniffer                   |
-| linkis.es.http.method    | GET                 | 调用方式                                 |
-| linkis.es.http.endpoint  | /_search            | JSON 脚本调用的 Endpoint                 |
-| linkis.es.sql.endpoint   | /_sql               | SQL 脚本调用的 Endpoint                  |
-| linkis.es.sql.format     | {"query":"%s"} | SQL 脚本调用的模板，%s 替换成 SQL 作为请求体请求Es 集群 |
-| linkis.es.headers.* | 无 | 客户端 Headers 配置 |
-| linkis.engineconn.concurrent.limit | 100 | 引擎最大并发 |
+| 配置                     | 默认值          |是否必须    | 说明                                     |
+| ------------------------ | ------------------- | ---|---------------------------------------- |
+| linkis.es.cluster        | 127.0.0.1:9200    |是  | ElasticSearch 集群，多个节点使用逗号分隔 |
+| linkis.es.username       | 无    |否              | ElasticSearch 集群用户名                 |
+| linkis.es.password       | 无       |否           | ElasticSearch 集群密码                   |
+| linkis.es.auth.cache     | false       |否        | 客户端是否缓存认证                       |
+| linkis.es.sniffer.enable | false          |否     | 客户端是否开启 sniffer                   |
+| linkis.es.http.method    | GET               |否  | 调用方式                                 |
+| linkis.es.http.endpoint  | /_search           |否 | JSON 脚本调用的 Endpoint                 |
+| linkis.es.sql.endpoint   | /_sql             |否  | SQL 脚本调用的 Endpoint                  |
+| linkis.es.sql.format     | {"query":"%s"} |否| SQL 脚本调用的模板，%s 替换成 SQL 作为请求体请求Es 集群 |
+| linkis.es.headers.* | 无 |否| 客户端 Headers 配置 |
+| linkis.engineconn.concurrent.limit | 100|否 | 引擎最大并发 |
 
 ## 3. ElasticSearch引擎使用
 ### 3.1 准备操作
