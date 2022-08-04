@@ -15,7 +15,7 @@ Solution: jetty-servlet and jetty-security versions need to be upgraded from 9.3
 
 Specific exception stack:
 
-![linkis-exception-01.png](/Images/Tuning_and_Troubleshooting/linkis-exception-01.png)
+![linkis-exception-01.png](/Images/tuning-and-troubleshooting/linkis-exception-01.png)
 
 Solution: jar package conflict, delete asm-5.0.4.jar;
 
@@ -23,64 +23,64 @@ Solution: jar package conflict, delete asm-5.0.4.jar;
 
 Specific exception stack:
 
-![linkis-exception-02.png](/Images/Tuning_and_Troubleshooting/linkis-exception-02.png)
+![linkis-exception-02.png](/Images/tuning-and-troubleshooting/linkis-exception-02.png)
 
 
 Solution: caused by the Linkis-datasource configuration problem, modify the three parameters at the beginning of linkis.properties hive.meta:
 
-![hive-config-01.png](/Images/Tuning_and_Troubleshooting/hive-config-01.png)
+![hive-config-01.png](/Images/tuning-and-troubleshooting/hive-config-01.png)
 
 
 #### Q4. When starting the microservice linkis-ps-datasource, the following exception ClassNotFoundException HttpClient is reported:
 
 Specific exception stack:
 
-![linkis-exception-03.png](/Images/Tuning_and_Troubleshooting/linkis-exception-03.png)
+![linkis-exception-03.png](/Images/tuning-and-troubleshooting/linkis-exception-03.png)
 
 Solution: There is a problem with linkis-metadata-dev-1.0.0.jar compiled in 1.0, and it needs to be recompiled and packaged.
 
 #### Q5. Click scriptis-database, no data is returned, the phenomenon is as follows:
 
-![page-show-01.png](/Images/Tuning_and_Troubleshooting/page-show-01.png)
+![page-show-01.png](/Images/tuning-and-troubleshooting/page-show-01.png)
 
 Solution: The reason is that hive is not authorized to Hadoop users. The authorization data is as follows:
 
-![db-config-01.png](/Images/Tuning_and_Troubleshooting/db-config-01.png)
+![db-config-01.png](/Images/tuning-and-troubleshooting/db-config-01.png)
 
 #### Q6, shell engine scheduling execution, the page reports Insufficient resource, requesting available engine timeout, eneningeconnmanager linkis.out, and the following error is reported:
 
-![linkis-exception-04.png](/Images/Tuning_and_Troubleshooting/linkis-exception-04.png)
+![linkis-exception-04.png](/Images/tuning-and-troubleshooting/linkis-exception-04.png)
 
 Solution: The reason Hadoop did not create /appcom/tmp/hadoop/workDir. Create it in advance through the root user, and then authorize the Hadoop user.
 
 #### Q7. When the shell engine is scheduled for execution, the engine execution directory reports the following error /bin/java: No such file or directory:
 
-![shell-error-01.png](/Images/Tuning_and_Troubleshooting/shell-error-01.png)
+![shell-error-01.png](/Images/tuning-and-troubleshooting/shell-error-01.png)
 
 Solution: There is a problem with the local java environment variables, and you need to make a symbolic link to the java command.
 
 #### Q8, hive engine scheduling, the following error is reported EngineConnPluginNotFoundException:errorCode:70063
 
-![linkis-exception-05.png](/Images/Tuning_and_Troubleshooting/linkis-exception-05.png)
+![linkis-exception-05.png](/Images/tuning-and-troubleshooting/linkis-exception-05.png)
 
 Solution: It is caused by not modifying the version of the corresponding engine during installation, so the engine type inserted into the db by default is the default version, and the compiled version is not caused by the default version. Specific modification steps: cd /appcom/Install/dss-linkis/linkis/lib/linkis-engineconn-plugins/, modify the v2.1.1 directory name in the dist directory to v1.2.1 modify the subdirectory name in the plugin directory 2.1. 1 is 1.2.1 of the default version. If it is Spark, you need to modify dist/v2.4.3 and plugin/2.4.3 accordingly. Finally restart the engineplugin service.
 
 #### Q9. After the linkis microservice is started, the following error is reported: Load balancer does not have available server for client:
 
-![page-show-02.png](/Images/Tuning_and_Troubleshooting/page-show-02.png)
+![page-show-02.png](/Images/tuning-and-troubleshooting/page-show-02.png)
 
 Solution: This is because the linkis microservice has just started and the registration has not been completed. Wait for 1~2 minutes and try again.
 
 #### Q10. When the hive engine is scheduled for execution, the following error is reported: operation failed NullPointerException:
 
-![linkis-exception-06.png](/Images/Tuning_and_Troubleshooting/linkis-exception-06.png)
+![linkis-exception-06.png](/Images/tuning-and-troubleshooting/linkis-exception-06.png)
 
 
 Solution: The server lacks environment variables, add export HIVE_CONF_DIR=/etc/hive/conf in /etc/profile;
 
 #### Q11. When hive engine is scheduled, the error log of engineConnManager is as follows method did not exist: SessionHandler:
 
-![linkis-exception-07.png](/Images/Tuning_and_Troubleshooting/linkis-exception-07.png)
+![linkis-exception-07.png](/Images/tuning-and-troubleshooting/linkis-exception-07.png)
 
 Solution: Under the hive engine lib, the jetty jar package conflicts, replace jetty-security and jetty-server with 9.4.20;
 
@@ -159,11 +159,11 @@ Solution: The reason is that there is a corresponding relationship between the v
 
 #### Q15. When the python engine is scheduled, the following error is reported: Python proces is not alive:
 
-![linkis-exception-08.png](/Images/Tuning_and_Troubleshooting/linkis-exception-08.png)
+![linkis-exception-08.png](/Images/tuning-and-troubleshooting/linkis-exception-08.png)
 
 Solution: The server installed the anaconda3 package manager. After debugging python, two problems were found: (1) lack of pandas and matplotlib modules, which need to be installed manually; (2) when the new version of the python engine is executed, it depends on the higher version of python, first install python3, Next, make a symbolic link (as shown in the figure below) and restart the engineplugin service.
 
-![shell-error-02.png](/Images/Tuning_and_Troubleshooting/shell-error-02.png)
+![shell-error-02.png](/Images/tuning-and-troubleshooting/shell-error-02.png)
 
 #### Q16. When the spark engine is executed, the following error NoClassDefFoundError: org/apache/hadoop/hive/ql/io/orc/OrcFile is reported:
 
@@ -215,7 +215,7 @@ Solution: cdh6.3.2 cluster spark engine classpath only has /opt/cloudera/parcels
 
 #### Q17. When the spark engine starts, it reports queue default is not exists in YARN, the specific information is as follows:
 
-![linkis-exception-09.png](/Images/Tuning_and_Troubleshooting/linkis-exception-09.png)
+![linkis-exception-09.png](/Images/tuning-and-troubleshooting/linkis-exception-09.png)
 
 Solution: When the 1.0 linkis-resource-manager-dev-1.0.0.jar pulls queue information, there is a compatibility problem in parsing json. After the official classmates optimize it, re-provide a new package. The jar package path: /appcom/Install/dss- linkis/linkis/lib/linkis-computation-governance/linkis-cg-linkismanager/.
 
@@ -223,35 +223,35 @@ Solution: When the 1.0 linkis-resource-manager-dev-1.0.0.jar pulls queue informa
 
 Solution: To migrate the address configuration of yarn to the DB configuration, the following configuration needs to be added:
  
-![db-config-02.png](/Images/Tuning_and_Troubleshooting/db-config-02.png)
+![db-config-02.png](/Images/tuning-and-troubleshooting/db-config-02.png)
 
 #### Q19. When the spark engine is scheduled, it can be executed successfully for the first time, and if executed again, it will report Spark application sc has already stopped, please restart it. The specific errors are as follows:
 
-![page-show-03.png](/Images/Tuning_and_Troubleshooting/page-show-03.png)
+![page-show-03.png](/Images/tuning-and-troubleshooting/page-show-03.png)
 
 Solution: The background is that the architecture of the linkis1.0 engine has been adjusted. After the spark session is created, in order to avoid overhead and improve execution efficiency, the session is reused. When we execute spark.scala for the first time, there is spark.stop() in our script. This command will cause the newly created session to be closed. When executed again, it will prompt that the session is closed, please restart it. Solution: first remove stop() from all scripts, and then execute the order: execute default.sql first, then execute scalaspark and pythonspark.
 
 #### Q20, pythonspark scheduling execution, error: initialize python executor failed ClassNotFoundException org.slf4j.impl.StaticLoggerBinder, as follows:
 
-![linkis-exception-10.png](/Images/Tuning_and_Troubleshooting/linkis-exception-10.png)
+![linkis-exception-10.png](/Images/tuning-and-troubleshooting/linkis-exception-10.png)
 
 Solution: The reason is that the spark server lacks slf4j-log4j12-1.7.25.jar, copy the above jar and report to /opt/cloudera/parcels/CDH-6.3.2-1.cdh6.3.2.p0.1605554/lib/spark/jars .
 
 #### Q21, pythonspark scheduling execution, error: initialize python executor failed, submit-version error, as follows:
 
-![shell-error-03.png](/Images/Tuning_and_Troubleshooting/shell-error-03.png)
+![shell-error-03.png](/Images/tuning-and-troubleshooting/shell-error-03.png)
 
 Solution: The reason is that the linkis1.0 pythonSpark engine has a bug in obtaining the spark version code. The fix is ​​as follows:
 
-![code-fix-01.png](/Images/Tuning_and_Troubleshooting/code-fix-01.png)
+![code-fix-01.png](/Images/tuning-and-troubleshooting/code-fix-01.png)
 
 #### Q22. When pythonspark is scheduled to execute, it reports TypeError: an integer is required (got type bytes) (executed separately from the command to pull up the engine), the details are as follows:
 
-![shell-error-04.png](/Images/Tuning_and_Troubleshooting/shell-error-04.png)
+![shell-error-04.png](/Images/tuning-and-troubleshooting/shell-error-04.png)
 
 Solution: The reason is that the system spark and python versions are not compatible, python is 3.8, spark is 2.4.0-cdh6.3.2, spark requires python version<=3.6, reduce python to 3.6, comment file /opt/cloudera/parcels/CDH/ The following lines of lib/spark/python/lib/pyspark.zip/pyspark/context.py:
 
-![shell-error-05.png](/Images/Tuning_and_Troubleshooting/shell-error-05.png)
+![shell-error-05.png](/Images/tuning-and-troubleshooting/shell-error-05.png)
 
 #### Q23, spark engine is 2.4.0+cdh6.3.2, python engine was previously lacking pandas, matplotlib upgraded local python to 3.8, but spark does not support python3.8, only supports below 3.6;
 

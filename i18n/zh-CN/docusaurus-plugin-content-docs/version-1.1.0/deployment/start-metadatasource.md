@@ -115,7 +115,7 @@ linkis-public-enhancements/linkis-datasource
 
 ### 1.5 配置参数 
 
-参见[调优排障>参数列表#datasource配置参数](/docs/1.1.0/tuning_and_troubleshooting/configuration/#6-数据源及元数据服务配置参数)
+参见[调优排障>参数列表#datasource配置参数](/docs/1.1.0/tuning-and-troubleshooting/configuration/#6-数据源及元数据服务配置参数)
 
 ## 2. 数据源功能的启用
 
