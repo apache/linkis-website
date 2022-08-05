@@ -84,19 +84,19 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 ````
 
 ### 2.2 Presto engine related configuration
-| Configuration | Default | Description |
-| -------------------------------------- | ---------- ----------- | -------------------------------------- ----- |
-| wds.linkis.presto.url | http://127.0.0.1:8080 | Presto Cluster Connection |
-| wds.linkis.presto.username | default | Presto cluster username |
-| wds.linkis.presto.password | None | Presto cluster password |
-| wds.linkis.presto.catalog | system | Catalog for queries |
-| wds.linkis.presto.schema | none | query schema |
-| wds.linkis.presto.source | global | source used by the query |
-| presto.session.query_max_total_memory | 8GB | Query uses maximum memory |
-| wds.linkis.presto.http.connectTimeout | 60 | Presto client connect timeout (unit: seconds) |
-| wds.linkis.presto.http.readTimeout | 60 | Presto client read timeout (unit: seconds) |
-| wds.linkis.engineconn.concurrent.limit | 100 | The maximum number of concurrent Presto engines |
 
+| Configuration | Default | Description | Required |
+| -------------------------------------- | ---------- ----------- | -------------------------------------- ----- | -------- |
+| wds.linkis.presto.url | http://127.0.0.1:8080 | Presto cluster connection | true |
+| wds.linkis.presto.username | default | Presto cluster username | false |
+| wds.linkis.presto.password | none | Presto cluster password | false |
+| wds.linkis.presto.catalog | system | Catalog for queries | true |
+| wds.linkis.presto.schema | None | Query Schema | true |
+| wds.linkis.presto.source | global | source used by the query | false |
+| presto.session.query_max_total_memory | 8GB | query uses maximum memory | false |
+| wds.linkis.presto.http.connectTimeout | 60 | Presto client connect timeout (unit: seconds) | false |
+| wds.linkis.presto.http.readTimeout | 60 | Presto client read timeout (unit: seconds) | false |
+| wds.linkis.engineconn.concurrent.limit | 100 | The maximum number of concurrent Presto engines | false |
 ## 3 The use of the engine
 
 ### 3.1 Preparing for Operation

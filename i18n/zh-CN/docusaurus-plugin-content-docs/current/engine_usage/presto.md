@@ -85,18 +85,18 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 
 ### 2.2 Presto 引擎相关配置
 
-| 配置                                   | 默认值                | 说明                                        |
-| -------------------------------------- | --------------------- | ------------------------------------------- |
-| wds.linkis.presto.url                  | http://127.0.0.1:8080 | Presto 集群连接                             |
-| wds.linkis.presto.username             | default               | Presto 集群用户名                           |
-| wds.linkis.presto.password             | 无                    | Presto 集群密码                             |
-| wds.linkis.presto.catalog              | system                | 查询的 Catalog                              |
-| wds.linkis.presto.schema               | 无                    | 查询的 Schema                               |
-| wds.linkis.presto.source               | global                | 查询使用的 source                           |
-| presto.session.query_max_total_memory  | 8GB                   | 查询使用最大的内存                          |
-| wds.linkis.presto.http.connectTimeout  | 60                    | Presto 客户端的 connect timeout（单位：秒） |
-| wds.linkis.presto.http.readTimeout     | 60                    | Presto 客户端的 read timeout（单位：秒）    |
-| wds.linkis.engineconn.concurrent.limit | 100                   | Presto 引擎最大并发数                       |
+| 配置                                   | 默认值                | 说明                                        | 是否必须 |
+| -------------------------------------- | --------------------- | ------------------------------------------- | -------- |
+| wds.linkis.presto.url                  | http://127.0.0.1:8080 | Presto 集群连接                             | true |
+| wds.linkis.presto.username             | default               | Presto 集群用户名                           | false |
+| wds.linkis.presto.password             | 无                    | Presto 集群密码                             | false |
+| wds.linkis.presto.catalog              | system                | 查询的 Catalog                              | true |
+| wds.linkis.presto.schema               | 无                    | 查询的 Schema                               | true |
+| wds.linkis.presto.source               | global                | 查询使用的 source                           | false |
+| presto.session.query_max_total_memory  | 8GB                   | 查询使用最大的内存                          | false |
+| wds.linkis.presto.http.connectTimeout  | 60                    | Presto 客户端的 connect timeout（单位：秒） | false |
+| wds.linkis.presto.http.readTimeout     | 60                    | Presto 客户端的 read timeout（单位：秒）    | false |
+| wds.linkis.engineconn.concurrent.limit | 100                   | Presto 引擎最大并发数                       | false |
 
 ## 3 引擎的使用
 
