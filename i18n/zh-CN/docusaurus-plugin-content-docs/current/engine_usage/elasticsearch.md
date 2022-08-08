@@ -115,7 +115,7 @@ linkis.es.password
 
 ### 3.2 通过Linkis SDK进行使用
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user_guide/sdk-manual.md).
+Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
 对于ElasticSearch任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
 
 ```java
@@ -136,7 +136,7 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 ```shell
 sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType json -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search
 ```
-具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 
 ## 4. ElasticSearch引擎的用户设置

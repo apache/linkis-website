@@ -153,7 +153,7 @@ If the management console, task interface, and configuration file are not config
 sh ./bin/linkis-cli -engineType presto-0.234 -codeType tsql -code 'show tables;' -runtimeMap wds.linkis.presto.url=http://172.22.32.11:50070 -runtimeMap wds.linkis.presto. catalog=hive -runtimeMap wds.linkis.presto.schema=default -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
 ````
 
-For specific usage, please refer to: [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
+For specific usage, please refer to: [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 Using via Scriptis
 

@@ -114,7 +114,7 @@ linkis.es.password
 
 ### 3.2 How to use Linkis SDK
 
-Linkis provides a client method to call ElasticSearch tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user_guide/sdk-manual.md).
+Linkis provides a client method to call ElasticSearch tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
 
 For the ElasticSearch task, you only need to change the EngineConnType and CodeType parameters in the Demo.
 
@@ -136,7 +136,7 @@ After Linkis 1.0, you can submit tasks through cli. We only need to specify the 
 ```shell
 sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType json -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search
 ```
-Specific use can refer to： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
+Specific use can refer to： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 
 ## 4. ElasticSearch EngineConn user settings
