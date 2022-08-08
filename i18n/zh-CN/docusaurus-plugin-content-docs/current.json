@@ -53,7 +53,7 @@
     "description": "The label for category Public Enhancement Services in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Context Service": {
-    "message": "Context Service统一上下文",
+    "message": "上下文服务",
     "description": "The label for category Public Enhancement Services in sidebar tutorialSidebar"
   },
 
@@ -83,5 +83,26 @@
   "sidebar.tutorialSidebar.category.Components": {
     "message": "组件介绍",
     "description": "The label for category Components in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Engine Plugin Management Service": {
+    "message": "引擎插件管理服务",
+    "description": "Engine Plugin Management Service"
+  },
+  "sidebar.tutorialSidebar.category.Computing Governance Portal Service": {
+    "message": "计算治理入口服务",
+    "description": "Computing Governance Portal Service"
+  },
+  "sidebar.tutorialSidebar.category.Computing Governance Management Services": {
+    "message": "计算治理管理服务",
+    "description": "Computing Governance Management Services"
+  },
+  "sidebar.tutorialSidebar.category.Public Service": {
+    "message": "公共服务",
+    "description": "Public Service"
+  },
+  "sidebar.tutorialSidebar.category.Context Service": {
+    "message": "上下文服务",
+    "description": "Context Service"
   }
 }

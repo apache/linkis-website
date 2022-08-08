@@ -15,7 +15,7 @@ The main functions are as follows:
 * Fix the security issues of interfaces such as user unauthorized access
 * Some dependency package upgrades and community-known bug fixes
 
-abbreviation:
+Abbreviations:
 - COMMON: Linkis Common
 - EC: Engineconn
 - ECM: EngineConnManager
@@ -43,7 +43,6 @@ abbreviation:
 * \[ECP][[Linkis-2074]](https://github.com/apache/incubator-linkis/issues/2074) Flink engine supports custom configuration
 * \[Deployment][[Linkis-1841]](https://github.com/apache/incubator-linkis/pull/1841) Support user deployment to disable Spark/Hive/HDFS environment detection
 * \[Deployment][[Linkis-1971]](https://github.com/apache/incubator-linkis/pull/1989) Fix the problem of automatically getting ip error when deploying on multiple NIC machines
-
 * \[Entrance][[Linkis-1941]](https://github.com/apache/incubator-linkis/pull/1941) Entrance supports passing raw jobId to EngineConn and LinkisManager
 * \[Entrance][[Linkis-2045]](https://github.com/apache/incubator-linkis/issues/2045) Refactor the matching relationship between script type and run type in EntranceInterceptor implementation class
 * \[RPC][[Linkis-1903]](https://github.com/apache/incubator-linkis/pull/1903/files) Modify the exception handling logic of the RPC module to transparently transmit the original error message of the EngineConnPlugin exception

@@ -152,8 +152,16 @@ css等样式文件放在`src/css`目录下
         index.less
 ```
 
-### 3.9  Markdown中链接规范
-为了能够让[untitaker/hyperlink@0.1.21](https://github.com/marketplace/actions/hyperlink-link-checker)更好地检查markdown中的无效链接，在markdown文档中若要跳转到另一个文档如`/community/how-to-email.md`，则该路径需要删除`.md`后缀（写成`/community/how-to-email`）。
+### 3.9 user列表页修改
+Visit the page https://linkis.apache.org/zh-CN/user
+
+公司的logo位于 `static/home/user`, 且图片的大小必须是 176 × 88.
+
+### 3.10 路径规范
+如果希望想从一个markdown文档链接到另外一个文档, 最好使用绝对路径. 例如, 如果希望链接到 `quick-deploy.md`这个文档, 路径应写成 `/docs/deployment/quick-deploy.md`。
+
+### 英文文档标题规范
+英文文档侧边栏除介词外的所有词首字母使用大写, 同时英文markdown中的标题的第一个词首字母应大写，其他词首字母小写。
 
 ## 4 新增文档
 

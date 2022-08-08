@@ -18,7 +18,7 @@ Linkis 1.0 将所有微服务总体划分为三大类：公共增强服务、计
 
 以下是 Linkis1.0 架构文档的目录列表：
 
-1. Linkis1.0在架构上的特点，请阅读[Linkis1.0 与 Linkis0.x 的区别](difference_between_1.0_and_0.x)。
+1. Linkis1.0在架构上的特点，请阅读[Linkis1.0 与 Linkis0.x 的区别](difference-between-1.0-and-0.x)。
 
 2. Linkis1.0公共增强服务相关文档，请阅读[公共增强服务](public_enhancement_services/overview.md)。
 

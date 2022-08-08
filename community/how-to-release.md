@@ -69,9 +69,9 @@ GnuPG needs to construct a user ID to identify your key.
 
 Real name: mingXiao #Enter Pinying or English name here
 Email address: xiaoming@apache.org #Enter the email address of apache here
-Comment: test key for apache create at 20211110 #Enter some comments here, can be empty
+Comment: for apache release create at 20211110 #Enter some comments here, can be empty
 You selected this USER-ID:
-    "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>"
+    "mingXiao (for apache release create at 20211110) <xiaoming@apache.org>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O #Enter O here
 We need to generate a lot of random bytes. It is a good idea to perform
@@ -94,7 +94,7 @@ public and secret key created and signed.
 
 pub rsa4096 2021-11-10 [SC]
       E7A9B12D1AC2D8CF857AF5851AE82584584EE68E
-uid mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>
+uid mingXiao (for apache release create at 20211110) <xiaoming@apache.org>
 sub rsa4096 2021-11-10 [E]
 ```
 
@@ -104,7 +104,7 @@ sub rsa4096 2021-11-10 [E]
 $ gpg --keyid-format SHORT --list-keys
 pub rsa4096/584EE68E 2021-11-10 [SC] #584EE68E is the key id
       E7A9B12D1AC2D8CF857AF5851AE82584584EE68E
-uid [ultimate] mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>
+uid [ultimate] mingXiao (for apache release create at 20211110) <xiaoming@apache.org>
 sub rsa4096/399AA54F 2021-11-10 [E]
 
 # Send public key to keyserver via key id
@@ -118,7 +118,7 @@ Verify whether it is synchronized to the public network. It takes about a minute
 $ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E is the corresponding key id
 
 #Results are as follows
-gpg: key 1AE82584584EE68E: "mingXiao (test key for apache create at 20211110) <xiaoming@apache.org>" not changed
+gpg: key 1AE82584584EE68E: "mingXiao (for apache release create at 20211110) <xiaoming@apache.org>" not changed
 gpg: Total number processed: 1
 gpg: unchanged: 1
 
@@ -227,7 +227,7 @@ If the source branch currently developed is dev-1.0.3, version 1.0.3 needs to be
 -Create branch: release-1.0.3-rc1
 -Create tag: release-1.0.3-rc1
 
-Sort out the content description of this change and release, sort by [module][pr_url].
+Sort out the content description of this change and release, sort by \[module]\[pr_url].
 Enter the creation page https://github.com/apache/incubator-linkis/releases/new
 Create a release based on the previous release-1.0.3-rc1 tag, and check `This is a pre-release` to write the release notes.
 

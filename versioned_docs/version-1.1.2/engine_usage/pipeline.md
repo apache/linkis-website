@@ -62,7 +62,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 Linkis1.XIt is carried out through labels, so it is necessary to insert data into our database. The insertion method is shown below.
 
-[EngineConnPlugin Engine plug-in installation](../deployment/engine_conn_plugin_installation) 
+[EngineConnPlugin Engine plug-in installation](../deployment/engine-conn-plugin-installation) 
 
 
 ## 2 Use of engine
@@ -76,7 +76,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipelin
 ```
 from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv 3.3 Explained
 
-For specific use, please refer to： [Linkis CLI Manual](user_guide/linkiscli_manual.md).
+For specific use, please refer to： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 because`pipeline`The engine is mainly used to import and export files. Now let's assume that importing files from a to B is the most introduced case
 
@@ -106,15 +106,15 @@ A file importing script to B folder
 from hdfs:///000/000/000/A.csv to file:///000/000/B/
 ```
 - `from` grammar，`to`：grammar
-- `hdfs:///000/000/000/A.csv`：Output file path and file
-- `file:///000/000/B/`： Input file path and file
+- `hdfs:///000/000/000/A.csv`：Input file path
+- `file:///000/000/B/`： Output path
 
-B file import script to a folder
+file B is exported as file A
 ```bash
 from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 ```
-- `hdfs:///000/000/000/B.csv`： Output file path and file
-- `file:///000/000/A/`： Input file path and file
+- `hdfs:///000/000/000/B.csv`： Input file path
+- `file:///000/000/000/A.CSV`： Output file path
 
 ![](/Images-zh/EngineConnNew/to_write.png)
 

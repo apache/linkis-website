@@ -44,7 +44,7 @@ Perform three stages to fully upgrade Linkis's Job execution architecture, as sh
  [Enter LinkisManager Architecture Design](linkis_manager/overview.md)  
 ### 4. Engine Manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engine conn Manager (ECM) is a simplified and upgraded version of linkis0. X engine manager. The ECM under linkis1.0 removes the application ability of the engine, and the whole microservice is completely stateless. It will focus on supporting the startup and destruction of all kinds of enginecon.  
-[Enter EngineConnManager Architecture Design](engine/engine_conn_manager.md)  
+[Enter EngineConnManager Architecture Design](engine/engine-conn-manager.md)  
  ### 5. EngineConn
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EngineConn is an optimized and upgraded version of Linkis0.X Engine. It will provide EngineConn and Executor two modules. EngineConn is used to connect the underlying computing storage engine and provide a session session that connects the underlying computing storage engines; Executor is based on this Session session , Provide full-stack computing support for interactive computing, streaming computing, offline computing, and data storage.  
- [Enter EngineConn Architecture Design](engine/engine_conn.md)
+ [Enter EngineConn Architecture Design](engine/engine-conn.md)

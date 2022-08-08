@@ -151,7 +151,7 @@ The user configuration is in the project root directory /config/, the project st
 
 3. Code directory structure
 
-   For details, see [Linkis Code Directory Structure](https://linkis.apache.org/docs/latest/deployment/sourcecode_hierarchical_structure)
+   For details, see [Linkis Code Directory Structure](https://linkis.apache.org/docs/latest/deployment/sourcecode-hierarchical-structure)
 
 4. Log directory
 

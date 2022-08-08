@@ -3,13 +3,13 @@ title: Version Overview
 sidebar_position: 0.1
 ---
 
-- [Datasource Management Service Architecture Documentation](/architecture/public_enhancement_services/datasource_manager.md)
-- [Metadata Management Services Architecture Documentation](/architecture/public_enhancement_services/metadata_manager.md)
-- [Data source introduction & function usage guide](/deployment/start_metadatasource.md)
-- [Guidelines for using the datasource client](/user_guide/linkis-datasource-client.md)
+- [Datasource Management Service Architecture Documentation](/architecture/public_enhancement_services/datasource-manager.md)
+- [Metadata Management Services Architecture Documentation](/architecture/public_enhancement_services/metadata-manager.md)
+- [Data source introduction & function usage guide](/deployment/start-metadatasource.md)
+- [Guidelines for using the datasource client](user_guide/linkis-datasource-client.md)
 - [Data source http interface documentation](/api/http/data-source-manager-api.md)
 - [Metadata http interface documentation](/api/http/metadatamanager-api.md)
-- [Start SkyWalking](/deployment/involve_skywalking_into_linkis.md)
+- [Start SkyWalking](/deployment/involve-skywalking-into-linkis.md)
 - [Release-notes](/download/release-notes-1.1.0)
 
 ## Configuration Item 

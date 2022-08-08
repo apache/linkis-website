@@ -73,7 +73,7 @@ slug: welcome-docusaurus-v2
 authors:
   - name: Joel Marcey
     title: Co-creator of Docusaurus 1
-    url: https://github.com/JoelMarceyengine_conn_plugin_installation
+    url: https://github.com/JoelMarceyengine-conn-plugin-installation
     image_url: https://github.com/JoelMarcey.png
   - name: Sébastien Lorber
     title: Docusaurus maintainer

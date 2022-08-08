@@ -165,7 +165,7 @@ runs:
   using: docker
   image: Dockerfile
 ```
-imag 指定镜像启动需要的Dockerfile，这里指定为项目根目录下的Dockerfile文件，在 Dockerfile中，用ENTRYPOINT或者CMD指定启动的脚本。比如这样定义一个用python运行脚本的程序：
+image 指定镜像启动需要的Dockerfile，这里指定为项目根目录下的Dockerfile文件，在 Dockerfile中，用ENTRYPOINT或者CMD指定启动的脚本。比如这样定义一个用python运行脚本的程序：
 ```docker
 FROM python:3
 
@@ -190,7 +190,7 @@ name: "Auto_close_associate_issue"
 # 该action的描述
 description: "Auto close an issue which associate with a PR."
 
-#定义需要输出的参数
+#定义需要输入的参数
 inputs:
   # 第一个参数名叫prbody
   prbody: 

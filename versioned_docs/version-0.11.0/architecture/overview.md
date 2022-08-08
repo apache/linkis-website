@@ -35,7 +35,7 @@ Each microservice cluster bears part of the system's functional responsibilities
  
   **Supported scripting languages ​​are**: SparkSQL, Spark Scala, Pyspark, R, Python, HQL and Shell, etc.;
   
-  For more information about unified job execution services, please check [UJES Architecture Design Document](ujes/ujes_design.md)
+  For more information about unified job execution services, please check [UJES Architecture Design Document](ujes/ujes-design.md)
  
  
 -**Resource Management Service**: Support real-time management and control of the resource usage of each system and user, limit the resource usage and concurrency of the system and users, and provide real-time resource dynamic charts to facilitate viewing and managing the system and users resource;
@@ -134,4 +134,4 @@ Now let's introduce how the user submits a SQL in the upper system, and how Link
 
 12. Once the SQL execution is successful, Engine actively pushes the result set to Entrance, and Entrance informs the front end to get the result.
 
-For the design plan under abnormal Entrance/EngineManager/Engine, please refer to [UJES Architecture Design Document](ujes/ujes_design.md)
+For the design plan under abnormal Entrance/EngineManager/Engine, please refer to [UJES Architecture Design Document](ujes/ujes-design.md)
