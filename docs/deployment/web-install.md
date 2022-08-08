@@ -2,26 +2,33 @@
 title: Linkis Console Deployment
 sidebar_position: 6
 ---
-
-Linkis 1.0 provides a Linkis Console, which provides functions such as displaying Linkis' global history, modifying user parameters, managing ECM and microservices, etc. Before deploying the front-end management console, you need to deploy the Linkis back-end. Linkis deployment manual See: [Linkis Deployment Manual](deployment/quick-deploy.md)
+```
+The linkis web service uses nginx as a static resource server. The access request process is as follows :
+Linkis Management Console request -> Nginx ip:port-> Linkis-gateway ip:port-> Other services
+```
+Linkis 1.0 provides a Linkis Console, which provides functions such as displaying Linkis' global history, modifying user parameters, managing ECM and microservices, etc. Before deploying the front-end management console, you need to deploy the Linkis back-end. Linkis deployment manual See: [Linkis Deployment Manual](quick-deploy.md)
 
 ## 1. Preparation
 
 1. Download the web installation package from the release page of Linkis ([click here to enter the download page](https://linkis.apache.org/download/main/)), apache-linkis-xxx-incubating-web-bin. tar.gz
-Manually decompress: tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz, the decompressed directory is:
+Manually decompress: tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz
+
+The decompression directory is as follows.
 ```
-config.sh
-dist
-install.sh
-....
+├── config.sh
+├── DISCLAIMER
+├── dist
+├── install.sh
+├── LICENSE
+├── licenses
+└── NOTICE
 ```
 
 ## 2. Deployment
 &nbsp;&nbsp;&nbsp;&nbsp;There are two deployment methods, automated deployment and manual deployment
 
 ### 2.1 Automated deployment
-&nbsp;&nbsp;&nbsp;&nbsp;Enter the unzipped front-end directory, and edit ```vi config.sh ``` in the directory
-Change the front-end port and back-end interface address, the back-end interface address is the gateway address of Linkis.
+#### 2.1.1 modify config.sh file (use vim or nano)
 
 ```$xslt
 #Configuring front-end ports
@@ -34,7 +41,12 @@ linkis_url="http://localhost:9001"
 linkis_ipaddr=$(ip addr | awk'/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1" , "g", $2)}')
 ```
 
-After the modification is executed in this directory, you need to use sudo to execute: ```sudo sh install.sh ```
+#### 2.1.2 execute deployment script
+
+ ```shell
+    #sudo permission is required to install nginx
+    sudo sh install.sh 
+ ```
 
 After execution, you can directly access it in Google browser: ```http://linkis_ipaddr:linkis_port``` where linkis_port is the port configured in config.sh, and linkis_ipaddr is the IP of the installation machine
 
