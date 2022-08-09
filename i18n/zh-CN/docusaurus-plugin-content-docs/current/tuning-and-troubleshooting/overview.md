@@ -155,7 +155,7 @@ sh -x engineConnExec.sh
 
 ### 4. 问题反馈 
 
-对于按上述排查方式排查后，仍然没解决的问题，可以通过[需求帮助](/community/how-to-subscribe/ask-for-help)指引方式进行反馈和需求帮助 
+对于按上述排查方式排查后，仍然没解决的问题，可以通过[需求帮助](/community/how-to-subscribe/how-to-ask-for-help)指引方式进行反馈和需求帮助 
 
 
 ### 5. 定位源码远程debug
