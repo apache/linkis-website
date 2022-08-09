@@ -1,7 +1,7 @@
 ---
-title: linkis1.1.1适配hadoop3.1.1以及整合其他模块
+title: linkis1.1.1适配hadoop3.1.1以及部署其他服务
 authors: [ruY9527]
-tags: [blog]
+tags: [blog,linki1.1.1,hadoop3.1.1,spark3.0.1,hive3.1.2,flink1.13.2]
 ---
 
 ## 环境以及版本
@@ -23,8 +23,8 @@ tags: [blog]
 
 | 系统名字         | 版本  | 场景                                                         |
 | ---------------- | ----- | ------------------------------------------------------------ |
-| linkis           | 1.1.1 | 引擎编排,运行执行hive,spark,flinkSql,shell,python等,数据源统一管理等. |
-| DataSphereStudio | 1.1.0 | 实现对任务的dag编排,实现整合其他系统的规范以及统一接入,提供基于SparkSql的服务Api. |
+| linkis           | 1.1.1 | 引擎编排,运行执行hive,spark,flinkSql,shell,python等,数据源统一管理等 |
+| DataSphereStudio | 1.1.0 | 实现对任务的dag编排,实现整合其他系统的规范以及统一接入,提供基于SparkSql的服务Api |
 | Schudulis        | 0.7.0 | 任务调度,以及调度详情和重跑,并且提供基于选择时间的补漏数据   |
 | Qualitis         | 0.9.2 | 提供内置Sql的版本等功能,对常见的数据质量以及可以自定义sql,对一些不符合规则的数据进行校验并写入到对应的库中 |
 | Exchangis        | 1.0.0 | Hive到Mysql,Mysql到Hive之间的数据交换                        |
@@ -129,8 +129,8 @@ org.apache.flink.table.client.gateway.local.CollectStreamTableSink
 
 #### linkis-engineplugin-python
 
-参考pr: [https://github.com/apache/incubator-linkis/commit/7a26e85c53fc7cd55ddefbd78b1748b00f85ddd6](https://github.com/apache/incubator-linkis/commit/7a26e85c53fc7cd55ddefbd78b1748b00f85ddd6)
-如果linkis-engineplugin-python下的resource/python的python.py文件中,有import pandas as pd , 如果不想安装pandas的话,需对其进行移除.
+[参考pr](https://github.com/apache/incubator-linkis/commit/7a26e85c53fc7cd55ddefbd78b1748b00f85ddd6)
+如果linkis-engineplugin-python下的resource/python的python.py文件中,有import pandas as pd , 如果不想安装pandas的话,需对其进行移除
 
 #### linkis-label-common
 
@@ -197,8 +197,8 @@ responseRef.getValue("expireTime")
 
 #### web调整
 
-前端编译地址: [https://github.com/WeBankFinTech/DataSphereStudio-Doc/blob/main/zh_CN/%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/%E5%89%8D%E7%AB%AF%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md](https://github.com/WeBankFinTech/DataSphereStudio-Doc/blob/main/zh_CN/%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/%E5%89%8D%E7%AB%AF%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md)
-参考pr: [https://github.com/WeBankFinTech/DataSphereStudio/commit/1dc9d99648e9f78b2dfb4776df4b9f46ef530c8a](https://github.com/WeBankFinTech/DataSphereStudio/commit/1dc9d99648e9f78b2dfb4776df4b9f46ef530c8a)
+ [前端编译地址](https://github.com/WeBankFinTech/DataSphereStudio-Doc/blob/main/zh_CN/%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/%E5%89%8D%E7%AB%AF%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md)
+[参考pr](https://github.com/WeBankFinTech/DataSphereStudio/commit/1dc9d99648e9f78b2dfb4776df4b9f46ef530c8a)
 将如下目录从master分支的内容覆盖,或者web基于master分支去build
 ![image.png](./img/dss1.png)
 
@@ -225,7 +225,7 @@ responseRef.getValue("expireTime")
 
 ####  azkaban-jobtype
 
-下载对应版本的jobtype文件(注意对应好版本): [https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
+下载对应版本的jobtype文件(注意对应好版本): [下载地址](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
 下载完后,将整个jobtypes放在jobtypes下
 ![image.png](./img/schedulis1.png)
 
@@ -235,7 +235,7 @@ responseRef.getValue("expireTime")
 
 #### forgerock包下载
 
-[https://github.com/WeBankFinTech/Qualitis/releases](https://github.com/WeBankFinTech/Qualitis/releases) 下的[release-0.9.1](https://github.com/WeBankFinTech/Qualitis/releases/tag/release-0.9.1),解压完后放在.m2\repository\org下即可.
+[release地址](https://github.com/WeBankFinTech/Qualitis/releases) 下的[release-0.9.1](https://github.com/WeBankFinTech/Qualitis/releases/tag/release-0.9.1),解压完后放在.m2\repository\org下即可.
 
 #### 编译
 
@@ -269,7 +269,7 @@ gradle clean distZip
 
 #### 后端编译
 
-官方地址: [https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md](https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md)
+[官方编译文档](https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md)
 assembly-package的target包中wedatasphere-exchangis-1.0.0.tar.gz是自身的服务包
 linkis-engineplugin-sqoop是需要放入linkis中(lib/linkis-engineconn-plugins)
 exchangis-appconn.zip是需要放入dss中(dss-appconns)
@@ -288,7 +288,7 @@ mvn clean install
 ### Visualis
 
 [原项目代码地址](https://github.com/WeBankFinTech/Visualis/tree/v1.0.0)
-[链接]()
+[适配修改代码参考地址](https://github.com/ruY9527/Visualis/tree/v1.0.0-hadoop3.x)
 
 #### Visualis的pom文件
 
@@ -298,7 +298,7 @@ mvn clean install
 
 #### 编译
 
-官方编译地址: [https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md](https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md)
+ [官方编译文档](https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md)
 assembly下的target中visualis-server-zip是自身服务的包
 visualis-appconn的target是visualis.zip是dss需要的包(dss-appconns)
 build是前端打出来的包
@@ -336,7 +336,7 @@ streamis-project-server的pom文件
 
 #### 编译
 
-官方编译文档: [https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md](https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
+ [官方编译文档](https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
 assembly下target包wedatasphere-streamis-0.2.0-dist.tar.gz是自身后端服务的包
 streamis-appconn下target的streamis.zip包是dss需要的(dss-appconns)
 dist下的dist是前端的包
@@ -351,8 +351,8 @@ mvn clean install
 
 ## 安装部署
 
-官方部署地址:[https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/quick-deploy](https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/quick-deploy)
-常见排错地址:[https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy](https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)
+[官方部署地址](https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/quick-deploy)
+[常见错误地址](https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)
 
 ### 路径统一
 
@@ -385,6 +385,16 @@ HIVE_VERSION=3.1.2
 -- 指定linkis安装后的路径,比如我这里就同意指定在对应组件下的路径
 LINKIS_HOME=/home/hadoop/application/linkis/linkis-home
 ```
+
+#### flink
+
+如果你使用了flink的话,可以尝试从 [flink-engine.sql](./img/flink-engine.sql) 导入到linkis的数据库中.
+
+需要修改@FLINK_LABEL版本为自己对应的版本,yarn的队列默认是default.
+
+同时这个版本,如果你遇见了"1G"转换数字类型的错误,尝试去掉1g的单位以及正则校验的规则.参考如下:
+
+![flink3.png](./img/flink3.png)
 
 #### lzo使用
 
@@ -427,7 +437,7 @@ wds.linkis.flink.engine.version=1.13.2
 
 ### DSS部署注意点
 
-官方安装文档:  [https://github.com/WeBankFinTech/DataSphereStudio-Doc/tree/main/zh_CN](https://github.com/WeBankFinTech/DataSphereStudio-Doc/tree/main/zh_CN)
+[官方安装文档](https://github.com/WeBankFinTech/DataSphereStudio-Doc/tree/main/zh_CN)
 
 #### config文件夹
 
@@ -460,7 +470,7 @@ wds.linkis.flink.engine.version=1.13.2
 ```
 
 如果调度是想使用dolphinscheduler的话,请参数这个pr添加对应的spark/hive版本
-[https://github.com/WeBankFinTech/DataSphereStudio/pull/914/files](https://github.com/WeBankFinTech/DataSphereStudio/pull/914/files)
+[参考pr](https://github.com/WeBankFinTech/DataSphereStudio/pull/914/files)
 
 #### dss-appconns
 
@@ -473,11 +483,11 @@ exchangis,qualitis,streamis,visualis 都分别要从 Exchangis , Qualitis , Stre
 - hostname和ip,如果是使用ip访问的话,执行appconn-install.sh安装的时候,也确保是ip. 否则会出现访问其他组件的时候,会提示没有登录或者没有权限
 
 ![ec4989a817646f785c59f6802d0fab2.jpg](./img/deploy6.jpg)
-#### 
+
 
 ### Schedulis部署注意点
 
-官方部署文档: [https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
+ [官方部署文档](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
 
 #### conf文件夹
 
@@ -525,7 +535,7 @@ executor.global.properties=/home/hadoop/application/schedulis/apps/schedulis_0.7
 
 ### Qualitis部署注意点
 
-官方部署文档: [https://github.com/WeBankFinTech/Qualitis/blob/master/docs/zh_CN/ch1/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%89%8B%E5%86%8C%E2%80%94%E2%80%94%E5%8D%95%E6%9C%BA%E7%89%88.md](https://github.com/WeBankFinTech/Qualitis/blob/master/docs/zh_CN/ch1/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%89%8B%E5%86%8C%E2%80%94%E2%80%94%E5%8D%95%E6%9C%BA%E7%89%88.md)
+[官方部署文档](https://github.com/WeBankFinTech/Qualitis/blob/master/docs/zh_CN/ch1/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%89%8B%E5%86%8C%E2%80%94%E2%80%94%E5%8D%95%E6%9C%BA%E7%89%88.md)
 
 #### conf文件夹
 
@@ -544,7 +554,7 @@ application-dev.yml
 
 ### Exchangis部署注意点
 
-官方部署文档: [https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md](https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md)
+[官方部署文档](https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md)
 
 #### 常见问题注意点
 
@@ -552,7 +562,7 @@ application-dev.yml
 
 ### Visualis
 
-官方部署文档:   [https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md](https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md)
+[官方部署文档](https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md)
 
 #### 常见问题注意点
 
@@ -566,7 +576,7 @@ application-dev.yml
 
 ### Streamis
 
-官方部署文档:  [https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md](https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
+ [官方部署文档](https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
 
 ### dss-appconn
 

@@ -1,15 +1,15 @@
 ---
-title: linkis1.1.1适配hadoop3.1.1以及整合其他模块
+title: Linkis1.1.1 adapts Hadoop 3.1.1 and deploys other services
 authors: [ruY9527]
-tags: [blog]
+tags: [blog,linki1.1.1,hadoop3.1.1,spark3.0.1,hive3.1.2,flink1.13.2]
 ---
 
-## 环境以及版本
+## Environment and Version
 
 - jdk-8 , maven-3.6.3
-- node-14.15.0(是否需要自己编译前端代码调整)
-- Gradle-4.6(是否编译Qualitis质量服务)
-- hadoop-3.1.1,Spark-3.0.1,Hive-3.1.2,Flink-1.13.2,Sqoop-1.4.7 (Apache版本)
+- node-14.15.0(Compiling the front end requires)
+- Gradle-4.6(Compile qualitis quality service)
+- hadoop-3.1.1,Spark-3.0.1,Hive-3.1.2,Flink-1.13.2,Sqoop-1.4.7 (Apache version)
 - linkis-1.1.1
 - DataSphereStudio-1.1.0
 - Schudulis-0.7.0
@@ -17,25 +17,25 @@ tags: [blog]
 - Visualis-1.0.0
 - Streamis-0.2.0
 - Exchangis-1.0.0
-- Chrome建议100以下的版本
+- Chrome recommends versions below 100
 
-## 各组件场景以及版本
+## Scenarios and versions of each component
 
-| 系统名字         | 版本  | 场景                                                         |
-| ---------------- | ----- | ------------------------------------------------------------ |
-| linkis           | 1.1.1 | 引擎编排,运行执行hive,spark,flinkSql,shell,python等,数据源统一管理等. |
-| DataSphereStudio | 1.1.0 | 实现对任务的dag编排,实现整合其他系统的规范以及统一接入,提供基于SparkSql的服务Api. |
-| Schudulis        | 0.7.0 | 任务调度,以及调度详情和重跑,并且提供基于选择时间的补漏数据   |
-| Qualitis         | 0.9.2 | 提供内置Sql的版本等功能,对常见的数据质量以及可以自定义sql,对一些不符合规则的数据进行校验并写入到对应的库中 |
-| Exchangis        | 1.0.0 | Hive到Mysql,Mysql到Hive之间的数据交换                        |
-| Streamis         | 0.2.0 | 流式开发应用中心                                             |
-| Visualis         | 1.0.0 | 可视化报表展示,可以分享外链接                                |
+| System name      | Version | scene                                                        |
+| ---------------- | ------- | ------------------------------------------------------------ |
+| linkis           | 1.1.1   | Engine orchestration, running and executing hive, spark, flinksql, shell, python, etc., unified data source management, etc |
+| DataSphereStudio | 1.1.0   | Implement DAG scheduling of tasks, integrate the specifications of other systems and provide unified access, and provide sparksql based service API |
+| Schudulis        | 0.7.0   | Task scheduling, as well as scheduling details and rerouting, and provide trap data based on the selected time |
+| Qualitis         | 0.9.2   | Provide built-in SQL version and other functions, check common data quality and customizable SQL, verify some data that does not conform to the rules, and write it to the corresponding library |
+| Exchangis        | 1.0.0   | Hive to MySQL, data exchange between MySQL and hive          |
+| Streamis         | 0.2.0   | Streaming development and Application Center                 |
+| Visualis         | 1.0.0   | Visual report display, can share external links              |
 
 
-## 部署顺序
+## Deployment sequence
 
-  从序号3之后的顺序可以自己选择进行调整.但是在部署exchangis中需要注意一点,将exchangis的sqoop引擎插件,给copy到linkis的lib下的engine插件包下
-Schedulis,Qualitis,Exchangis,Streamis,Visualis等系统,都是通过各自的appconn来与dss进行整合,注意每次整合组件-appconn后,进行重启dss对应的服务模块或者重启dss
+  You can select and adjust the sequence after serial number 3 However, one thing to pay attention to when deploying exchangis is to copy the sqoop engine plug-in of exchangis to the engine plug-in package under lib of linkis
+  Schedulis, qualitis, exchangis, streamis, visualis and other systems are integrated with DSS through their respective appconn. Note that after integrating the component appconn, restart the service module corresponding to DSS or restart DSS
 
 1. linkis
 1. DataSphereStudio
@@ -47,37 +47,37 @@ Schedulis,Qualitis,Exchangis,Streamis,Visualis等系统,都是通过各自的app
 
 ![image.png](./img/sx1.png)
 
-如果你集成了Skywalking的话,就可以在扩拓扑图中,看到服务的状态和连接状态,如下图
+If you integrate skywalking, you can see the service status and connection status in the extended topology diagram, as shown in the following figure:
 ![image.png](./img/sx2.png)
-同时你也可以看清晰到在追踪中看到调用链路,如下图,也便于你定位具体服务的错误日志文件
+At the same time, you can also clearly see the call link in the trace, as shown in the following figure, which is also convenient for you to locate the error log file of the specific service
 ![image.png](./img/sx3.png)
 
-## 依赖调整以及打包
+## Dependency adjustment and packaging
 
 ### linkis
 
-由于spark是采用了3.x版本的,scala也是需要升级到12版本
-[原项目代码地址](https://github.com/apache/incubator-linkis/tree/release-1.1.1)
-[适配修改代码参考地址](https://github.com/ruY9527/incubator-linkis/tree/release-1.1.1-hadoop3.x)
+Since spark uses version 3. X, Scala also needs to be upgraded to version 12
+[Original project code address](https://github.com/apache/incubator-linkis/tree/release-1.1.1)
+[Adaptation modification code reference address](https://github.com/ruY9527/incubator-linkis/tree/release-1.1.1-hadoop3.x)
 
-#### linkis的pom文件
+#### The pom file of linkis
 
 ```xml
 <hadoop.version>3.1.1</hadoop.version>
 <scala.version>2.12.10</scala.version>
 <scala.binary.version>2.12</scala.binary.version>
 
-<!-- 将hadoop-hdfs 替换成为hadoop-hdfs-client -->
+<!-- hadoop-hdfs replace with hadoop-hdfs-client -->
 <dependency>
     <groupId>org.apache.hadoop</groupId>
     <artifactId>hadoop-hdfs-client</artifactId>
     <version>${hadoop.version}</version>
 ```
 
-#### linkis-hadoop-common的pom文件
+#### The pom file of linkis-hadoop-common
 
 ```xml
-       <!-- 注意这里的 <version>${hadoop.version}</version> , 根据你有没有遇到错误来进行调整 --> 
+       <!-- Notice here <version>${hadoop.version}</version> , adjust according to whether you have encountered any errors --> 
        <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs-client</artifactId>
@@ -85,19 +85,19 @@ Schedulis,Qualitis,Exchangis,Streamis,Visualis等系统,都是通过各自的app
         </dependency>
 ```
 
-#### linkis-engineplugin-hive的pom文件
+#### The pom file of linkis-engineplugin-hive
 
 ```xml
 <hive.version>3.1.2</hive.version>
 ```
 
-#### linkis-engineplugin-spark的pom文件
+#### The pom file of linkis-engineplugin-spark
 
 ```xml
 <spark.version>3.0.1</spark.version>
 ```
 
-SparkScalaExecutor 中 getField 方法需调整下代码
+The getfield method in sparkscalaexecutor needs to adjust the following code
 
 ```java
 protected def getField(obj: Object, name: String): Object = {
@@ -108,17 +108,17 @@ protected def getField(obj: Object, name: String): Object = {
   }
 ```
 
-#### linkis-engineconn-plugin-flink的pom文件
+#### The pom file of linkis-engineplugin-flink
 
 ```xml
 <flink.version>1.13.2</flink.version>
 ```
 
-由于flink1.12.2版本和1.13.2有些类的调整,这里目前参考社区同学给出的临时"暴力"方法: 将1.12.2部分的类给copy到1.13.2,调整scala版本到12,自己编译
-涉及到flink具体的模块: flink-sql-client_${scala.binary.version}
+Due to the adjustment of some classes in Flink 1.12.2 and 1.13.2, we refer to the temporary "violence" method given by the community students: copy the classes in part 1.12.2 to 1.13.2, adjust the scala version to 12, and compile them by ourselves
+It involves the specific modules of flink: flink-sql-client_${scala.binary.version}
 
 ```
--- 注意,下列的类是从1.12.2给copy到1.13.2版本来
+-- Note that the following classes are copied from 1.12.2 to 1.13.2
 org.apache.flink.table.client.config.entries.DeploymentEntry
 org.apache.flink.table.client.config.entries.ExecutionEntry
 org.apache.flink.table.client.gateway.local.CollectBatchTableSink
@@ -129,13 +129,13 @@ org.apache.flink.table.client.gateway.local.CollectStreamTableSink
 
 #### linkis-engineplugin-python
 
-参考pr: [https://github.com/apache/incubator-linkis/commit/7a26e85c53fc7cd55ddefbd78b1748b00f85ddd6](https://github.com/apache/incubator-linkis/commit/7a26e85c53fc7cd55ddefbd78b1748b00f85ddd6)
-如果linkis-engineplugin-python下的resource/python的python.py文件中,有import pandas as pd , 如果不想安装pandas的话,需对其进行移除.
+[Reference pr](https://github.com/apache/incubator-linkis/commit/7a26e85c53fc7cd55ddefbd78b1748b00f85ddd6)
+If resource / Python's python In the PY file, there is import pandas as PD. If you do not want to install pandas, you need to remove it
 
 #### linkis-label-common
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig
-修改默认版本,便于后续的自编译调度组件使用
+Modify the default version to facilitate the use of subsequent self compilation scheduling components
 
 ```
     public static final CommonVars<String> SPARK_ENGINE_VERSION =
@@ -148,7 +148,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig
 #### linkis-computation-governance-common
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf
-修改默认版本,便于后续的自编译调度组件使用
+Modify the default version to facilitate the use of subsequent self compilation scheduling components
 
 ```
   val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "3.0.1")
@@ -156,9 +156,9 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf
   val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.2")
 ```
 
-#### 编译
+#### Compile
 
-确保以上修改和环境都有,依次执行
+Ensure that the above modifications and environments are available and implemented in sequence
 
 ```shell
     cd incubator-linkis-x.x.x
@@ -166,43 +166,43 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf
     mvn clean install -DskipTests
 ```
 
-#### 编译错误
+#### Compilation error troubleshooting
 
-- 如果你整理进行编译的时候,出现了错误,尝试单独进入到一个模块中进行编译,看是否有错误,根据具体的错误来进行调整
-- 比如下面举例(群友适配cdh低版本的时候,存在py4j版本不适配): 如果你遇到了这种问题,可以调整下有对应方法的版本来进行是否适配
+- If there is an error when you compile, try to enter a module to compile separately to see if there is an error and adjust it according to the specific error
+- For example, the following example (the py4j version does not adapt when the group Friends adapt to the lower version of CDH): if you encounter this problem, you can adjust the version with the corresponding method to determine whether to adapt
 
 ![image.png](./img/linkis1.png)
 
 ### DataSphereStudio
 
-[原项目代码地址](https://github.com/WeBankFinTech/DataSphereStudio/tree/1.1.0)
-[适配修改代码参考地址](https://github.com/ruY9527/DataSphereStudio/tree/1.1.0-hadoop3.x)
+[Original project code address](https://github.com/WeBankFinTech/DataSphereStudio/tree/1.1.0)
+[Adaptation modification code reference address](https://github.com/ruY9527/DataSphereStudio/tree/1.1.0-hadoop3.x)
 
-#### DataSphereStudio的pom文件
+#### The pom file of DataSphereStudio
 
-由于dss依赖了linkis,所有编译dss之前编译linkis
+Since DSS relies on linkis, all compilers should compile linkis before compiling DSS
 
 ```xml
-<!-- scala 环境一致 -->
+<!-- scala consistent environment -->
 <scala.version>2.12.10</scala.version>
 ```
 
 #### dss-dolphinschuduler-token
 
-DolphinSchedulerTokenRestfulApi: 去掉类型的转换
+DolphinSchedulerTokenRestfulApi: Remove type conversion
 
 ```
 responseRef.getValue("expireTime")
 ```
 
-#### web调整
+#### web tuning
 
-前端编译地址: [https://github.com/WeBankFinTech/DataSphereStudio-Doc/blob/main/zh_CN/%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/%E5%89%8D%E7%AB%AF%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md](https://github.com/WeBankFinTech/DataSphereStudio-Doc/blob/main/zh_CN/%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/%E5%89%8D%E7%AB%AF%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md)
-参考pr: [https://github.com/WeBankFinTech/DataSphereStudio/commit/1dc9d99648e9f78b2dfb4776df4b9f46ef530c8a](https://github.com/WeBankFinTech/DataSphereStudio/commit/1dc9d99648e9f78b2dfb4776df4b9f46ef530c8a)
-将如下目录从master分支的内容覆盖,或者web基于master分支去build
+ [Front end compilation address](https://github.com/WeBankFinTech/DataSphereStudio-Doc/blob/main/zh_CN/%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3/%E5%89%8D%E7%AB%AF%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3.md)
+[Reference pr](https://github.com/WeBankFinTech/DataSphereStudio/commit/1dc9d99648e9f78b2dfb4776df4b9f46ef530c8a)
+Overwrite the contents of the following directories from the master branch, or build the web based on the master branch
 ![image.png](./img/dss1.png)
 
-#### 编译
+#### Compile
 
 ```shell
     cd DataSphereStudio
@@ -212,10 +212,10 @@ responseRef.getValue("expireTime")
 
 ### Schedulis
 
-[原项目代码地址](https://github.com/WeBankFinTech/Schedulis/tree/release-0.7.0)
-[适配修改代码参考地址](https://github.com/ruY9527/Schedulis/tree/release-0.7.0-hadoop.x)
+[Original project code address](https://github.com/WeBankFinTech/Schedulis/tree/release-0.7.0)
+[Adaptation modification code reference address](https://github.com/ruY9527/Schedulis/tree/release-0.7.0-hadoop.x)
 
-#### Schedulis的pom文件
+#### The pom file of Schedulis
 
 ```xml
        <hadoop.version>3.1.1</hadoop.version>
@@ -225,54 +225,54 @@ responseRef.getValue("expireTime")
 
 ####  azkaban-jobtype
 
-下载对应版本的jobtype文件(注意对应好版本): [https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
-下载完后,将整个jobtypes放在jobtypes下
+Download the jobtype file of the corresponding version (note the corresponding version): [Download address:](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
+After downloading, put the entire jobtypes under jobtypes
 ![image.png](./img/schedulis1.png)
 
 ### Qualitis
 
-[原项目代码地址](https://github.com/WeBankFinTech/Qualitis/tree/release-0.9.2)
+[Original project code address](https://github.com/WeBankFinTech/Qualitis/tree/release-0.9.2)
 
-#### forgerock包下载
+#### Forgerock package download
 
-[https://github.com/WeBankFinTech/Qualitis/releases](https://github.com/WeBankFinTech/Qualitis/releases) 下的[release-0.9.1](https://github.com/WeBankFinTech/Qualitis/releases/tag/release-0.9.1),解压完后放在.m2\repository\org下即可.
+[release地址](https://github.com/WeBankFinTech/Qualitis/releases) of [release-0.9.1](https://github.com/WeBankFinTech/Qualitis/releases/tag/release-0.9.1),after decompression, put it under. m2\repository\org
 
-#### 编译
+#### Compile
 
-gradle建议使用4.6
+Gradle version 4.6
 
 ```shell
 cd Qualitis
 gradle clean distZip
 ```
 
-编译完后,会再qualitis下有一个qualitis-0.9.2.zip文件
+After compiling, there will be a qualitis-0.9.2.zip file under qualitis
 ![image.png](./img/qualitis1.png)
 
-#### dss-qualitis-appconn编译
+#### dss-qualitis-appconn compile
 
-将appconn内从给copy到DataSphereStudio下的appconns中(创建dss-qualitis-appconn文件夹),如下图
-对dss-qualitis-appconn进行编译,out下的qualitis就是dss整合qualitis的包
+Copy the appconn to the appconns under datasphere studio (create the DSS quality appconn folder), as shown in the following figure:
+Compile the DSS qualitis appconn. The qualitis under out is the package of integrating qualitis with DSS
 ![image.png](./img/qualitis2.png)
 
 ### Exchangis
 
-[原项目代码地址](https://github.com/WeBankFinTech/Exchangis/tree/release-1.0.0)
-[适配修改代码参考地址](https://github.com/ruY9527/Exchangis/tree/release-1.0.0-hadoop3.x)
+[Original project code address](https://github.com/WeBankFinTech/Exchangis/tree/release-1.0.0)
+[Adaptation modification code reference address](https://github.com/ruY9527/Exchangis/tree/release-1.0.0-hadoop3.x)
 
-#### Exchangis的pom文件
+#### The pom file of Exchangis
 
 ```xml
-<!-- scala 版本保持一致 -->
+<!-- scala Consistent version -->
 <scala.version>2.12.10</scala.version>
 ```
 
-#### 后端编译
+#### Back end compilation
 
-官方地址: [https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md](https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md)
-assembly-package的target包中wedatasphere-exchangis-1.0.0.tar.gz是自身的服务包
-linkis-engineplugin-sqoop是需要放入linkis中(lib/linkis-engineconn-plugins)
-exchangis-appconn.zip是需要放入dss中(dss-appconns)
+[Official compiled documents](https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md)
+In the target package of the assembly package, wedatasphere-exchangis-1.0.0.tar.gz is its own service package
+Linkis engineplug sqoop needs to be put into linkis (lib/linkis enginecon plugins)
+Exchangis-appconn.zip needs to be put into DSS (DSS appconns)
 
 ```xml
 mvn clean install 
@@ -280,28 +280,28 @@ mvn clean install
 
 ![image.png](./img/exchangis1.png)
 
-#### 前端编译
+#### Front end compilation
 
-如果前端你是自己用nginx部署的话,需要注意是拿到dist下面dist文件夹
+If you deploy the front-end using nginx yourself, you need to pay attention to the dist folder under dist
 ![image.png](./img/exchangis2.png)
 
 ### Visualis
 
-[原项目代码地址](https://github.com/WeBankFinTech/Visualis/tree/v1.0.0)
-[链接]()
+[Original project code address](https://github.com/WeBankFinTech/Visualis/tree/v1.0.0)
+[Adaptation modification code reference address](https://github.com/ruY9527/Visualis/tree/v1.0.0-hadoop3.x)
 
-#### Visualis的pom文件
+#### The pom file of Visualis
 
 ```xml
 <scala.version>2.12.10</scala.version>
 ```
 
-#### 编译
+#### Compile
 
-官方编译地址: [https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md](https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md)
-assembly下的target中visualis-server-zip是自身服务的包
-visualis-appconn的target是visualis.zip是dss需要的包(dss-appconns)
-build是前端打出来的包
+ [Official compiled documents](https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md)
+In the target under assembly, visuis server zip is the package of its own service
+The target of visualis appconn is visualis.zip, which is the package required by DSS (DSS appconns)
+Build is the package printed by the front end
 
 ```xml
 cd Visualis
@@ -313,19 +313,19 @@ mvn clean package -DskipTests=true
 
 ### Streamis
 
-[原项目代码地址](https://github.com/WeBankFinTech/Streamis/tree/0.2.0)
-[适配修改代码参考地址](https://github.com/ruY9527/Streamis/tree/0.2.0-hadoop3.x)
+[Original project code address](https://github.com/WeBankFinTech/Streamis/tree/0.2.0)
+[Adaptation modification code reference address](https://github.com/ruY9527/Streamis/tree/0.2.0-hadoop3.x)
 
-#### Streamis的pom文件
+#### The pom file of Streamis
 
 ```xml
 <scala.version>2.12.10</scala.version>
 ```
 
-streamis-project-server的pom文件
+The pom file of streamis-project-server
 
 ```xml
-       <!-- 如果你这里是1.0.1的话,就调整到${dss.version} -->
+       <!-- If you are 1.0.1 here, adjust it to ${dss.version} -->
        <dependency>
             <groupId>com.webank.wedatasphere.dss</groupId>
             <artifactId>dss-sso-integration-standard</artifactId>
@@ -334,12 +334,12 @@ streamis-project-server的pom文件
         </dependency>
 ```
 
-#### 编译
+#### Compile
 
-官方编译文档: [https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md](https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
-assembly下target包wedatasphere-streamis-0.2.0-dist.tar.gz是自身后端服务的包
-streamis-appconn下target的streamis.zip包是dss需要的(dss-appconns)
-dist下的dist是前端的包
+ [Official compiled documents](https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
+Under assembly, the target package wedatasphere-streams-0.2.0-dist.tar.gz is the package of its own back-end service
+The stream.zip package of target under stream appconn is required by DSS (DSS appconns)
+dist under dist is the front-end package
 
 ```xml
 cd ${STREAMIS_CODE_HOME}
@@ -349,62 +349,72 @@ mvn clean install
 
 ![image.png](./img/streamis1.png)
 
-## 安装部署
+## Installation deployment
 
-官方部署地址:[https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/quick-deploy](https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/quick-deploy)
-常见排错地址:[https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy](https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)
+[Official deployment address](https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/quick-deploy)
+[Common error address](https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)
 
-### 路径统一
+### Path unification
 
-建议将相关的组件,部署同一个路径(比如我这里全部解压在/home/hadoop/application下)
+It is recommended to deploy the relevant components in the same path (for example, I unzip them all in /home/hadoop/application)
 ![image.png](./img/deploy1.png)
 
-### linkis部署注意点
+### Notes on linkis deployment
 
-#### deploy-config文件夹
+#### Deploy config folder
 
-db.sh中, MYSQL配置的linkis连接的地址,HIVE的元数据连接地址
+db.sh, the address of the links connection configured by mysql, and the metadata connection address of hive
 linkis-env.sh
 
 ```shell
--- 保存script脚本的路径,下一次会有一个用户名字的文件夹,对应用户的脚本就存放在该文件夹中
+-- The path to save the script script. Next time, there will be a folder with the user's name, and the script of the corresponding user will be stored in this folder
 WORKSPACE_USER_ROOT_PATH=file:///home/hadoop/logs/linkis
--- 存放物料以及引擎执行的log文件
+-- Log files for storing materials and engine execution
 HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis
--- 引擎每次执行的log以及启动engineConnExec.sh相关的信息
+-- Log of each execution of the engine and information related to starting engineconnexec.sh
 ENGINECONN_ROOT_PATH=/home/hadoop/logs/linkis/apps
--- Yarn主节点访问地址(Active resourcemanager)
+-- Access address of yarn master node (active resource manager)
 YARN_RESTFUL_URL
--- Hadoop/Hive/Spark的conf地址
+-- Conf address of Hadoop / hive / spark
 HADOOP_CONF_DIR
 HIVE_CONF_DIR
 SPARK_CONF_DIR
--- 指定对应的版本
+-- Specify the corresponding version
 SPARK_VERSION=3.0.1
 HIVE_VERSION=3.1.2
--- 指定linkis安装后的路径,比如我这里就同意指定在对应组件下的路径
+-- Specify the path after the installation of linkis. For example, I agree to specify the path under the corresponding component here
 LINKIS_HOME=/home/hadoop/application/linkis/linkis-home
 ```
 
-#### lzo使用
+#### flink
 
-如果你的hive使用了lzo的话,将对应的lzo的jar包给copy到hive路径下.比如下面路径:
+If you use Flink, you can try importing it from [flink-engine.sql](./img/flink-engine.sql)  into the database of linkis
+
+Need to modify @Flink_LABEL version is the corresponding version, and the queue of yarn is default by default
+
+At the same time, in this version, if you encounter the error of "1g" converting digital types, try to remove the 1g unit and the regular check rules. Refer to the following:
+
+![flink3.png](./img/flink3.png)
+
+#### lzo
+
+If your hive uses LZO, copy the corresponding LZO jar package to the hive path. For example, the following path:
 
 ```
 lib/linkis-engineconn-plugins/hive/dist/v3.1.2/lib
 ```
 
-#### 常见问题注意点
+#### Frequently asked questions and precautions
 
-- Mysql的驱动包一定要copy到/lib/linkis-commons/public-module/和/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-- 初始化密码在conf/linkis-mg-gateway.properties中的wds.linkis.admin.password
-- ps-cs 在启动脚本中,有可能存在存在失败的情况,如果有的话,使用 sh linkis-daemon.sh ps-cs , 对其进行单独启动
-- 目前日志是有时间备份的话,有时候之前的错误日志找不到的话,可能是备份到对应日期的文件夹里去了
-- 目前lib/linkis-engineconn-plugins是默认只有spark/shell/python/hive,如果你想要appconn,flink,sqoop就分别去dss中,linkis和exchangis中获取
-- 配置文件版本检查
+- The MySQL driver package must be copied to /lib/linkis-commons/public-module/ and /lib/linkis-spring-cloud-services/linkis-mg-gateway/
+- Initialization password in conf/linkis-mg-gateway.properties -> wds.linkis.admin.password
+- ps-cs in the startup script,there may be failures, if any,use sh linkis-daemon.sh ps-cs , start it separately
+- At present, if there is time to back up the log, sometimes if the previous error log cannot be found, it may be backed up to the folder of the corresponding date
+- At present lib/linkis-engineconn-plugins have only spark/shell/python/hive,If you want appconn, flink and sqoop, go to DSS, linkis and exchangis to get them
+- Configuration file version check
 
 ```shell
-linkis.properties中,flink看有没有使用
+linkis.properties,flink see if it is used
 wds.linkis.spark.engine.version=3.0.1
 wds.linkis.hive.engine.version=3.1.2
 wds.linkis.flink.engine.version=1.13.2
@@ -413,38 +423,38 @@ wds.linkis.flink.engine.version=1.13.2
 ![image.png](./img/deploy2.png)
 ![image.png](./img/deploy3.png)
 
-#### 错误记录
+#### Error record
 
-1. 版本不兼容,如果你遇到了下面这种错误的话,是scala版本是否没有完全保持一致,检查后再编译一下即可.
+1. Incompatible versions. If you encounter the following error, it is whether the scala version is not completely consistent. Check and compile it
 
 ![1905943989d7782456c356b6ce0d72b.png](./img/deploy4.png)
 
-2. yarn配置Active节点地址,如果是配置了Standby地址的话,就会出现如下的错误
+2. Yarn configures the active node address. If the standby address is configured, the following error will appear:
 
 ![1ca32f79d940016d72bf1393e4bccc8.jpg](./img/deploy5.jpg)
 
-3. 
 
-### DSS部署注意点
 
-官方安装文档:  [https://github.com/WeBankFinTech/DataSphereStudio-Doc/tree/main/zh_CN](https://github.com/WeBankFinTech/DataSphereStudio-Doc/tree/main/zh_CN)
+### Considerations for DSS deployment
 
-#### config文件夹
+[Official installation document](https://github.com/WeBankFinTech/DataSphereStudio-Doc/tree/main/zh_CN)
 
-db.sh: 配置dss的数据库
+#### config folder
+
+db.sh: configure the database of DSS
 config.sh
 
 ```shell
--- dss的安装路径,比如我这里就定义在dss下的文件夹中
+-- The installation path of DSS, for example, is defined in the folder under DSS
 DSS_INSTALL_HOME=/home/hadoop/application/dss/dss
 ```
 
-#### conf文件夹
+#### conf folder
 
 dss.properties
 
 ```properties
-# 主要检查spark/hive等版本有,如果没有,就追加上
+# Mainly check whether spark / hive and other versions are available. If not, add
 wds.linkis.spark.engine.version=3.0.1
 wds.linkis.hive.engine.version=3.1.2
 wds.linkis.flink.engine.version=1.13.2
@@ -453,86 +463,86 @@ wds.linkis.flink.engine.version=1.13.2
 dss-flow-execution-server.properties
 
 ```properties
-# 主要检查spark/hive等版本有,如果没有,就追加上
+# Mainly check whether spark / hive and other versions are available. If not, add
 wds.linkis.spark.engine.version=3.0.1
 wds.linkis.hive.engine.version=3.1.2
 wds.linkis.flink.engine.version=1.13.2
 ```
 
-如果调度是想使用dolphinscheduler的话,请参数这个pr添加对应的spark/hive版本
-[https://github.com/WeBankFinTech/DataSphereStudio/pull/914/files](https://github.com/WeBankFinTech/DataSphereStudio/pull/914/files)
+If you want to use dolphin scheduler for scheduling, please add the corresponding spark / hive version to this pr
+[Reference pr](https://github.com/WeBankFinTech/DataSphereStudio/pull/914/files)
 
 #### dss-appconns
 
-exchangis,qualitis,streamis,visualis 都分别要从 Exchangis , Qualitis , Streamis, Visualis 的项目去获取
+Exchangis, qualitis, streamis and visualis should be obtained from the projects of exchangis, qualitis, streamis and visualis respectively
 
-#### 常见问题注意点
+#### Frequently asked questions and precautions
 
-- 由于dss我们整合了schedulis,qualitis,exchangis等组件,所有创建一个项目会同步调用这些组件的接口创建,所以确保dss_appconn_instance中的配置路径都是正确的,可以访问的
-- chrome浏览器建议内核使用10版本一下的,否则会出现你可以单独Scdulis,Qaulitis等组件,但是却无法通过dss登录成功问题
-- hostname和ip,如果是使用ip访问的话,执行appconn-install.sh安装的时候,也确保是ip. 否则会出现访问其他组件的时候,会提示没有登录或者没有权限
+- Since we integrate scheduleis, qualitis, exchangis and other components into DSS, all the interfaces of these components will be called synchronously when creating a project, so we ensure that dss_appconn_instance  configuration paths in the instance are correct and accessible
+- The Chrome browser recommends that the kernel use version 100 or below. Otherwise, there will be a problem that you can separate scdulis, qaulitis and other components, but you cannot log in successfully through DSS
+- Hostname and IP. If IP access is used, make sure it is IP when executing appconn-install.sh installation Otherwise, when accessing other components, you will be prompted that you do not have login or permission
 
 ![ec4989a817646f785c59f6802d0fab2.jpg](./img/deploy6.jpg)
-#### 
 
-### Schedulis部署注意点
 
-官方部署文档: [https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
+### Schedulis deployment considerations
 
-#### conf文件夹
+ [Official deployment document](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
+
+#### conf folder
 
 azkaban.properties
 
 ```properties
-# azkaban.jobtype.plugin.dir和executor.global.properties这里最好改成绝对路径
+# azkaban.jobtype.plugin.dir and executor.global.properties. It's better to change the absolute path here
 # Azkaban JobTypes Plugins
 azkaban.jobtype.plugin.dir=/home/hadoop/application/schedulis/apps/schedulis_0.7.0_exec/plugins/jobtypes
 
 # Loader for projects
 executor.global.properties=/home/hadoop/application/schedulis/apps/schedulis_0.7.0_exec/conf/global.properties
 
-# 引擎的版本
+# Engine version
 wds.linkis.spark.engine.version=3.0.1
 wds.linkis.hive.engine.version=3.1.2
 wds.linkis.flink.engine.version=1.13.2
 ```
 
-#### web模块
+#### web modular
 
-plugins/viewer/system/conf:  这里需要配置数据库连接地址,与schedulis保持一致
-azkaban.properties:  用户参数和系统管理的配置
+plugins/viewer/system/conf:  Here, you need to configure the database connection address to be consistent with scheduleis
+azkaban.properties:  Configuration of user parameters and system management
 
 ```properties
 viewer.plugins=system
 viewer.plugin.dir=/home/hadoop/application/schedulis/apps/schedulis_0.7.0_web/plugins/viewer
 ```
 
-#### 常见问题注意点
+#### Frequently asked questions and precautions
 
-如果出现资源或者web界面出现没有css等静态文件的话,将相关的路径修改为绝对路径
-如果出现配置文件加载不到的问题,也可以将路径修改为绝对路径
-比如:
+If there are resources or there are no static files such as CSS in the web interface, change the relevant path to an absolute path
+If the configuration file cannot be loaded, you can also change the path to an absolute path
+For example:
 
 ```
-### web模块中
+### web module
 web.resource.dir=/home/hadoop/application/schedulis/apps/schedulis_0.7.0_web/web/
 viewer.plugin.dir=/home/hadoop/application/schedulis/apps/schedulis_0.7.0_web/plugins/viewer
 
-### exec模块中
+### exec module
 azkaban.jobtype.plugin.dir=/home/hadoop/application/schedulis/apps/schedulis_0.7.0_exec/plugins/jobtypes
 executor.global.properties=/home/hadoop/application/schedulis/apps/schedulis_0.7.0_exec/conf/global.properties
 ```
 
-### Qualitis部署注意点
+### Considerations for qualitis deployment
 
-官方部署文档: [https://github.com/WeBankFinTech/Qualitis/blob/master/docs/zh_CN/ch1/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%89%8B%E5%86%8C%E2%80%94%E2%80%94%E5%8D%95%E6%9C%BA%E7%89%88.md](https://github.com/WeBankFinTech/Qualitis/blob/master/docs/zh_CN/ch1/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%89%8B%E5%86%8C%E2%80%94%E2%80%94%E5%8D%95%E6%9C%BA%E7%89%88.md)
+[Official deployment document](https://github.com/WeBankFinTech/Qualitis/blob/master/docs/zh_CN/ch1/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%89%8B%E5%86%8C%E2%80%94%E2%80%94%E5%8D%95%E6%9C%BA%E7%89%88.md)
 
-#### conf文件夹
+#### conf folder
 
 application-dev.yml
 
 ```properties
-  # 这里配置正确的spark版本
+  # The correct spark version is configured here
   spark:
     application:
       name: IDE
@@ -542,22 +552,22 @@ application-dev.yml
       version: 3.0.1
 ```
 
-### Exchangis部署注意点
+### Exchange deployment considerations
 
-官方部署文档: [https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md](https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md)
+[Official deployment document](https://github.com/WeBankFinTech/Exchangis/blob/dev-1.0.0/docs/zh_CN/ch1/exchangis_deploy_cn.md)
 
-#### 常见问题注意点
+#### Frequently asked questions and precautions
 
-如果点击数据源出现没有发布的错误的话,可以尝试将linkis_ps_dm_datasource的published_version_id值修改为1(如果是null的话)
+If you click the data source and there is an error that has not been published, you can try to add linkis_ps_dm_datasource_ -> published_version_id Modify the published_version_id value to 1 (if it is null)
 
 ### Visualis
 
-官方部署文档:   [https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md](https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md)
+[Official deployment document](https://github.com/WeBankFinTech/Visualis/blob/master/visualis_docs/zh_CN/Visualis_deploy_doc_cn.md)
 
-#### 常见问题注意点
+#### Frequently asked questions and precautions
 
-如果出现预览视图一致出不来的话,请检查bin/phantomjs该文件是否完整上传.
-如果能看到如下结果的话,说明是上传是完整的
+If the preview view is inconsistent, please check whether the bin / phantomjs file is uploaded completely
+If you can see the following results, the upload is complete
 
 ```properties
 ./phantomjs -v
@@ -566,14 +576,14 @@ application-dev.yml
 
 ### Streamis
 
-官方部署文档:  [https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md](https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
+ [Official deployment document](https://github.com/WeBankFinTech/Streamis/blob/main/docs/zh_CN/0.2.0/Streamis%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3.md)
 
 ### dss-appconn
 
-qualitis,exchangis,streamis,visualis是分别要从各种的模块中编译好,copy到dss下的dss-appconns中,然后执行bin下的appconn-install.sh来为各自的组件进行安装
-如果你在整合的时候,如果到一些如下的Sql脚本错误的话,请检测错误的Sql周边是否有注释,如果有的话,删掉注释再重新appconn-install一遍尝试
+Qualitis, exchangis, streams and visualis are compiled from various modules, copied to DSS appconns under DSS, and then executed appconn-install.sh under bin to install their components
+If you find the following SQL script errors during integration, please check whether there are comments around the wrong SQL. If so, delete the comments and try appconn install again
 ![903ceec2f69fc1c7a2be5f309f69726.png](./img/deploy7.png)
-比如qualitis举例,下面的ip和host端口,根据自己具体使用的来
+For example, for qualitis, the following IP and host ports are determined according to their specific use
 
 ```
 qualitis
@@ -581,13 +591,13 @@ qualitis
 8090
 ```
 
-## Nginx部署举例
+## Nginx deployment example
 
- linkis.conf:   dss/linkis/visualis 前端
- exchangis.conf:  exchangis前端
- streamis.conf:      streamis前端
- Schedulis和Qualitis是分别在自己项目中.
- linkis/visualis需要将前端打包出来的dist或者build在这里修改为对应组件的名字
+ linkis.conf:   dss/linkis/visualis front end
+ exchangis.conf:  exchangis front end
+ streamis.conf:      streamis front end
+Scheduling and Qaulitis are in their own projects
+Linkis / Visualis needs to change the dist or build packaged from the front end to the name of the corresponding component here
 ![image.png](./img/deploy8.png)
 ![image.png](./img/deploy9.png)
 ![image.png](./img/deploy10.png)
@@ -596,39 +606,39 @@ qualitis
 
 ```
 server {
-listen       8089;# 访问端口
+listen       8089;# Access port:
 server_name  localhost;
 #charset koi8-r;
 #access_log  /var/log/nginx/host.access.log  main;
 
 location /dss/visualis {
-# 修改为自己的前端路径
-root   /home/hadoop/application/webs; # 静态文件目录
+# Modify to your own front-end path
+root   /home/hadoop/application/webs; # Static file directory
 autoindex on;
 }
 
 location /dss/linkis {
-# 修改为自己的前端路径
-root   /home/hadoop/application/webs; # linkis管理台的静态文件目录
+# Modify to your own front-end path
+root   /home/hadoop/application/webs; # linkis Static file directory of management console
 autoindex on;
 }
 
 location / {
-# 修改为自己的前端路径
-root   /home/hadoop/application/webs/dist; # 静态文件目录
+# Modify to your own front-end path
+root   /home/hadoop/application/webs/dist; # Static file directory
 #root /home/hadoop/dss/web/dss/linkis;
 index  index.html index.html;
 }
 
 location /ws {
-proxy_pass http://172.21.129.210:9001;#后端Linkis的地址
+proxy_pass http://172.21.129.210:9001;#Address of back-end linkis
 proxy_http_version 1.1;
 proxy_set_header Upgrade $http_upgrade;
 proxy_set_header Connection upgrade;
 }
 
 location /api {
-proxy_pass http://172.21.129.210:9001; #后端Linkis的地址
+proxy_pass http://172.21.129.210:9001; #Address of back-end linkis
 proxy_set_header Host $host;
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header x_real_ipP $remote_addr;
@@ -657,18 +667,18 @@ root   /usr/share/nginx/html;
 
 ```
 server {
-            listen       9800; # 访问端口 如果该端口被占用，则需要修改
+            listen       9800; # Access port: if the port is occupied, it needs to be modified
             server_name  localhost;
             #charset koi8-r;
             #access_log  /var/log/nginx/host.access.log  main;
             location / {
-            # 修改为自己路径
-            root   /home/hadoop/application/webs/exchangis/dist/dist; # Exchangis 前端部署目录
+            # Modify to own path
+            root   /home/hadoop/application/webs/exchangis/dist/dist; #Modify to your own path
             autoindex on;
             }
 
             location /api {
-            proxy_pass http://172.21.129.210:9001;  # 后端Linkis的地址，需要修改
+            proxy_pass http://172.21.129.210:9001;  # The address of the backend link needs to be modified
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -697,15 +707,15 @@ server {
 
 ```
 server {
-    listen       9088;# 访问端口 如果该端口被占用，则需要修改
+    listen       9088;# Access port: if the port is occupied, it needs to be modified
     server_name  localhost;
     location / {
-    # 修改为自己的路径
-        root   /home/hadoop/application/webs/streamis/dist/dist; # 请修改成Streamis前端的静态文件目录
+    # Modify to your own path
+        root   /home/hadoop/application/webs/streamis/dist/dist;  #Modify to your own path
         index  index.html index.html;
     }
     location /api {
-    proxy_pass http://172.21.129.210:9001; #后端Linkis的地址,请修改成Linkis网关的ip和端口
+    proxy_pass http://172.21.129.210:9001;        # The address of the backend link needs to be modified
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header x_real_ipP $remote_addr;
