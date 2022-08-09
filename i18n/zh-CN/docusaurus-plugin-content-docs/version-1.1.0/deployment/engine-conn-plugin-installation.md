@@ -72,7 +72,7 @@ ${LINKIS_HOME}/lib/linkis-engineconn-plugins/plugin:
 
 ```
 linkis_configuration_config_key:  插入引擎的配置参数的key和默认values
-linkis_manager_label：插入引擎label如：hive-2.3.3
+linkis-manager_label：插入引擎label如：hive-2.3.3
 linkis_configuration_category： 插入引擎的目录关联关系
 linkis_configuration_config_value： 插入引擎需要展示的配置
 ```

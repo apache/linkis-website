@@ -30,7 +30,7 @@ The submission phase is mainly the interaction of Client -> Linkis Gateway -> En
 
 ![Flow chart of submission phase](/Images/Architecture/Job_submission_preparation_and_execution_process/submission.png)
 
-1. First, the Client (such as the front end or the client) initiates a Job request, and the job request information is simplified as follows (for the specific usage of Linkis, please refer to [How to use Linkis](../user_guide/how-to-use.md)):
+1. First, the Client (such as the front end or the client) initiates a Job request, and the job request information is simplified as follows (for the specific usage of Linkis, please refer to [How to use Linkis](../user-guide/how-to-use.md)):
 ```
 POST /api/rest_j/v1/entrance/submit
 ```
