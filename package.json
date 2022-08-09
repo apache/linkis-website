@@ -21,6 +21,7 @@
     "@docusaurus/plugin-content-docs": "^2.0.0-beta.6",
     "@docusaurus/preset-classic": "2.0.0-beta.6",
     "@docusaurus/theme-search-algolia": "^2.0.0-beta.6",
+    "docusaurus-plugin-less": "^2.0.2",
     "lodash-es": "^4.17.21",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
