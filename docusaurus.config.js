@@ -41,10 +41,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.1.3',
-              label: 'Next(1.1.3)'
+              path: '1.2.0',
+              label: 'Next(1.2.0)'
             },
-            '1.1.2': {
+            '1.1.3': {
               path: 'latest',
             },
           }
@@ -166,8 +166,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Doc',
           position: 'right',
           items: [
-            {label: 'Next(1.1.3)', to: '/docs/1.1.3/introduction'},
-            {label: '1.1.2', to: '/docs/latest/introduction'},
+            {label: 'Next(1.2.0)', to: '/docs/1.2.0/introduction'},
+            {label: '1.1.3', to: '/docs/latest/introduction'},
+            {label: '1.1.2', to: '/docs/1.1.2/introduction'},
             {label: '1.1.1', to: '/docs/1.1.1/introduction'},
             {label: '1.1.0', to: '/docs/1.1.0/introduction'},
             {label: '1.0.3', to: '/docs/1.0.3/introduction'},
@@ -346,7 +347,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         createRedirects(existingPath) {
           if (existingPath.includes('/latest')) {
             return [
-              existingPath.replace('/latest', '/1.1.2'),
+              existingPath.replace('/latest', '/1.1.3'),
             ];
           }
           return undefined; // Return a false value: no redirect created

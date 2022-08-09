@@ -155,7 +155,7 @@ http 请求参数示例
 sh ./bin/linkis-cli -engineType presto-0.234 -codeType  tsql -code 'show tables;'  -runtimeMap wds.linkis.presto.url=http://172.22.32.11:50070 -runtimeMap wds.linkis.presto.catalog=hive -runtimeMap  wds.linkis.presto.schema=default  -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
 ```
 
-具体使用可以参考： [Linkis CLI Manual](docs/user-guide/linkiscli-manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 通过 Scriptis 使用
 
