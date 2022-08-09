@@ -2,11 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://linkis.incubator.apache.org/blog</id>
     <title>Apache Linkis Blog</title>
-    <updated>2022-07-16T00:00:00.000Z</updated>
+    <updated>2022-08-08T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://linkis.incubator.apache.org/blog"/>
     <subtitle>Apache Linkis Blog</subtitle>
     <icon>https://linkis.incubator.apache.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Linkis1.1.1 adapts Hadoop 3.1.1 and deploys other services]]></title>
+        <id>Linkis1.1.1 adapts Hadoop 3.1.1 and deploys other services</id>
+        <link href="https://linkis.incubator.apache.org/blog/2022/08/08/linkis111-compile-integration"/>
+        <updated>2022-08-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Environment and Version]]></summary>
+        <author>
+            <name>ruY9527</name>
+            <uri>https://github.com/ruY9527</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[deploy linkis with kubernetes]]></title>
         <id>deploy linkis with kubernetes</id>
