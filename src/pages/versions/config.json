@@ -16,7 +16,7 @@
           "versionLabel": "1.1.3",
           "downloadUrl": "/zh-CN/download/release-notes-1.1.3",
           "docUrl": "/zh-CN/docs/latest/introduction",
-          "sourceTag":"release-1.1.3"
+          "sourceTag":"1.1.3"
         }
       ],
       "nextData": [
@@ -30,7 +30,7 @@
           "versionLabel": "1.1.2",
           "downloadUrl": "/zh-CN/download/release-notes-1.1.2",
           "docUrl": "/zh-CN/docs/1.1.2/introduction",
-          "sourceTag":"release-1.1.2"
+          "sourceTag":"1.1.2"
         },
         {
           "versionLabel": "1.1.1",
@@ -96,13 +96,13 @@
           "versionLabel": "1.1.2",
           "docUrl": "/docs/1.1.2/introduction",
           "releaseNotes": "/download/release-notes-1.1.2",
-          "sourceTag":"release-1.1.2"
+          "sourceTag":"1.1.2"
         },
         {
           "versionLabel": "1.1.1",
           "docUrl": "/docs/1.1.1/introduction",
           "releaseNotes": "/download/release-notes-1.1.1",
-          "sourceTag":"release-1.1.1"
+          "sourceTag":"1.1.1"
         },
         {
           "versionLabel": "1.1.0",
