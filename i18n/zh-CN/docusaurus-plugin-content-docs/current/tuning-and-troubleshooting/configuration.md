@@ -3,13 +3,13 @@ title: 参数列表
 sidebar_position: 1
 ---
 
-> Linkis1.0 在 Linkis0.x 配置基础上进行了简化，在conf目录提供了一个公共配置文件 linkis.properties，避免通用的配置参数需要同时在多个微服务里面配置。本文档将会把Linkis1.0的参数分模块列举出来。
+> 在conf目录提供了一个公共配置文件 linkis.properties，避免通用的配置参数需要同时在多个微服务里面配置。本文档将会把参数分模块列举出来。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意：本文只给出了 Linkis 所有对运行性能有影响或是环境依赖相关的配置参数，很多无需用户关心的配置参数已略去，如果用户感兴趣，可以翻阅源码查看。
+请注意：本文只给出了 Linkis 所有对运行性能有影响或是环境依赖相关的配置参数，很多无需用户关心的配置参数已略去，如果用户感兴趣，可以翻阅源码查看。
 
 ### 1 通用配置
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通用配置可在全局的linkis.properties当中设置即可，一处设置，各个微服务都可生效。
+通用配置可在全局的`linkis.properties`当中设置即可，一处设置，各个微服务都可生效。
 
 #### 1.1 全局配置参数
 
