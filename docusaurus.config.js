@@ -281,8 +281,17 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       theme: require('prism-react-renderer/themes/dracula'),
       darkTheme: darkCodeTheme,
     },
+    scripts: ['/script/matomo.js'],
   },
   plugins: [
+     [
+        'docusaurus-plugin-less',
+        {
+          lessOptions: {
+            javascriptEnabled: true,
+          },
+        },
+      ],
     'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-content-docs',
