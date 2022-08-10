@@ -127,16 +127,26 @@ For the ElasticSearch task, you only need to change the EngineConnType and CodeT
 
 ### 3.2 How to use Linkis-cli
 **-codeType parameter description**
-- sql/essql：
-- json/esjson：request parameters are submitted in JSON format
+- sql/essql：Execute ES engine tasks through SQL script
+- json/esjson：Execute ES engine tasks using JSON script
 
 **Using the sample**
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of ElasticSearch is as follows.
+
+**Example using mode sql/essql**
+
+**注意：** 使用这种形式，ElasticSearch服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
+```shell
+ sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType sql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql
+```
+
+**Example using mode json/esjson**
+
 ```shell
 sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType json -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search
 ```
-Specific use can refer to： [Linkis CLI Manual](/user-guide/linkiscli-manual.md).
+Specific use can refer to： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 
 ## 4. ElasticSearch EngineConn user settings
