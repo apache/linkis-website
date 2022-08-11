@@ -23,7 +23,7 @@ You can click [Linkis engine installation guide] (https://linkis.apache.org/zh-C
 Compile ElasticSearch engine separately
 
 ```
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/elasticsearch/
+${linkis_code_dir}linkis-engineconn-plugins/elasticsearch/
 mvn clean install
 ```
 
@@ -31,7 +31,7 @@ mvn clean install
 
 Upload the engine package compiled in Step 2.1
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/elasticsearch
+${linkis_code_dir}/linkis-engineconn-pluginsjdbc/target/out/elasticsearch
 ```
 to the engine directory on the server
 ```bash 

@@ -54,7 +54,7 @@ Linkis 1.1.2及以上支持的主流Sqoop版本1.4.6与1.4.7，更高版本可�
 
 ```
 单独编译sqoop的方式
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/sqoop/
+${linkis_code_dir}/linkis-engineconn-plugins/sqoop/
 mvn clean install
 ```
 安装方式是将编译出来的引擎包,位置在

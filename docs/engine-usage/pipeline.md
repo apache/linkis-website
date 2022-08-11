@@ -28,7 +28,7 @@ mvn clean install
 将 1.1 The engine package compiled in step, located in
 
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/pipeline/target/out/pipeline
+${linkis_code_dir}/linkis-engineconn-pluginspipeline/target/out/pipeline
 ```
 Upload to the engine directory of the server
 

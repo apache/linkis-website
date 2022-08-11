@@ -28,7 +28,7 @@ mvn clean install
 
 将 2.1 步编译出来的引擎包,位于
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/presto
+${linkis_code_dir}/linkis-engineconn-plugins/jdbc/target/out/presto
 ```
 上传到服务器的引擎目录下
 ```bash 

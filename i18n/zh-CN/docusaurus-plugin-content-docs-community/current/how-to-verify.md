@@ -148,7 +148,7 @@ Archives: 0
 0 Unknown Licenses
 ```
 <font color="red">
-如果不为0，需要确认源码中是否有对该二进制或则压缩文件的license进行说明，可以参考源码中引用的`linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`
+如果不为0，需要确认源码中是否有对该二进制或则压缩文件的license进行说明，可以参考源码中引用的`linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`
 </font>
 
 

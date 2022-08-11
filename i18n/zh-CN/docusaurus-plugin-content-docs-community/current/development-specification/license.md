@@ -40,7 +40,7 @@ ASF(Apache基金会)下的开源项目，对于License有着极其严苛的要�
 copyright notice that is included in or attached to the work.
 
 ### 示例 场景1
-比如源码中引入了`linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`第三方文件
+比如源码中引入了`linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`第三方文件
 
 找到py4j-0.10.7-src.zip 对应的版本源码分支，如果对应版本分支无`LICENSE/NOTICE`文件，则选择主分支
 - 项目源码位于:https://github.com/bartdag/py4j/tree/0.10.7/py4j-python
@@ -48,7 +48,7 @@ copyright notice that is included in or attached to the work.
 - NOTICE文件:无
 
 需要在`linkis/LICENSE`文件中说明`py4j-0.10.7-src.zip`的license信息。
-`py4j-0.10.7-src.zip`对应的详细的license.txt文件放在同级的目录下`linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10.7-src.txt`
+`py4j-0.10.7-src.zip`对应的详细的license.txt文件放在同级的目录下`linkis-engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10.7-src.txt`
 因为https://github.com/bartdag/py4j/tree/0.10.7/py4j-python 没有NOTICE文件，所以`linkis/NOTICE`文件中无需追加。
 
 ### 示例 场景 2

@@ -39,12 +39,12 @@ The Linkis Flink engine will not be installed in Linkis 1.0.2+ by default, and y
 
 ```
 The way to compile flink separately
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/flink/
+${linkis_code_dir}linkis-engineconn-plugins/flink/
 mvn clean install
 ```
 The installation method is to compile the engine package, the location is
 ```bash
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/flink/target/flink-engineconn.zip
+${linkis_code_dir}linkis-engineconn-plugins/flink/target/flink-engineconn.zip
 ```
 Then deploy to
 ```bash

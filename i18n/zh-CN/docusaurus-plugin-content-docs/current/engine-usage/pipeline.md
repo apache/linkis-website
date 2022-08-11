@@ -28,7 +28,7 @@ mvn clean install
 
 编译出来的引擎包,位于
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/pipeline/target/out/pipeline
+${linkis_code_dir}/linkis-engineconn-plugins/pipeline/target/out/pipeline
 ```
 
 ### 1.2 物料的部署和加载

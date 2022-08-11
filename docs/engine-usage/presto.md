@@ -21,7 +21,7 @@ You can follow this guide to deploy and install https://linkis.apache.org/zh-CN/
 Compile the Presto engine separately
 
 ````
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/presto/
+${linkis_code_dir}linkis-engineconn-plugins/presto/
 mvn clean install
 ````
 
@@ -29,7 +29,7 @@ mvn clean install
 
 The engine package compiled in step 2.1 is located in
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/presto
+${linkis_code_dir}/linkis-engineconn-pluginsjdbc/target/out/presto
 ````
 Upload to the engine directory of the server
 ```bash

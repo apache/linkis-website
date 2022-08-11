@@ -20,7 +20,7 @@ https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugi
 单独编译 Presto 引擎 
 
 ```
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/presto/
+${linkis_code_dir}/linkis-engineconn-plugins/presto/
 mvn clean install
 ```
 
@@ -28,7 +28,7 @@ mvn clean install
 
 将 2.1 步编译出来的引擎包,位于
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/presto
+${linkis_code_dir}/linkis-engineconn-plugins/jdbc/target/out/presto
 ```
 上传到服务器的引擎目录下
 ```bash 
