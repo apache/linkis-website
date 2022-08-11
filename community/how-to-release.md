@@ -269,7 +269,7 @@ Archives: 0
 0 Unknown Licenses
 ````
 <font color="red">
-If it is not 0, you need to confirm whether there is a license for the binary or compressed file in the source code. You can refer to `linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7- src.zip`
+If it is not 0, you need to confirm whether there is a license for the binary or compressed file in the source code. You can refer to `linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7- src.zip`
 </font>
 
 ### 2.3 Publish jar package to Apache Nexus repository
@@ -284,7 +284,7 @@ $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 :::
 
 After the above command is executed successfully, the release package will be automatically uploaded to Apache's staging repository. All Artifacts deployed to the remote [maven repository](http://repository.apache.org/) will be in the staging state. Visit https://repository.apache.org/#stagingRepositories and log in using the Apache LDAP account. You will see the uploaded version, and the content in the `Repository` column is ${STAGING.REPOSITORY}. Click `Close` to tell Nexus that the build is complete, and only then is the version available. If there is a problem with the electronic signature, `Close` will fail. You can check the failure information through `Activity`.
-At the same time, the binary file assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz is also generated
+At the same time, the binary file linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz is also generated
 
 Step 2.4-3.3 execute the command, merge it in the release.sh script, or execute it through the release.sh script (See appendix at the end of this article)
 ### 2.4 Package source code
@@ -300,9 +300,9 @@ $ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-i
 ```
 ### 2.5 Copy binary files
 
-After step 2.3 is executed, the binary file has been generated, located in assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz
+After step 2.3 is executed, the binary file has been generated, located in linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz
 ```shell
-$ cp assembly-combined-package/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-linkis
+$ cp linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-linkis
 ```
 
 ### 2.6 Package front-end management console
@@ -347,7 +347,7 @@ $ npm install
 
 #### 2.6.3 Package console project
 Execute the following instructions on the terminal command line to package the project and generate a compressed deployment installation package.
-Check web/package.json, web/.env files, and check whether the version number of the front-end management console is correct.
+Check linkis-web/package.json, linkis-web/.env files, and check whether the version number of the front-end management console is correct.
 ```shell
 $ npm run build
 ```
@@ -355,9 +355,9 @@ After the above command is successfully executed, the front-end management conso
 
 #### 2.6.4 Copy console installation package
 
-After step 2.6.3 is executed, the front-end management console installation package has been generated, located at web/apache-linkis-1.0.3-incubating-web-bin.tar.gz
+After step 2.6.3 is executed, the front-end management console installation package has been generated, located at linkis-web/apache-linkis-1.0.3-incubating-web-bin.tar.gz
 ```shell
-$ cp web/apache-linkis-1.0.3-incubating-web-bin.tar.gz dist/apache-linkis
+$ cp linkis-web/apache-linkis-1.0.3-incubating-web-bin.tar.gz dist/apache-linkis
 ```
 
 ### 2.7 Sign the source package/binary package/sha512
@@ -761,7 +761,7 @@ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_
 echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz' --prefix=apache-linkis-$release_version-incubating-src/   $git_branch"
 
 #step2 Copy the binary package
-cp assembly-combined-package/target/apache-linkis-$release_version-incubating-bin.tar.gz dist/apache-linkis
+cp linkis-dist/target/apache-linkis-$release_version-incubating-bin.tar.gz dist/apache-linkis
 
 #step3 Package the web (if you need to publish the front end)
 

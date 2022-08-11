@@ -24,7 +24,7 @@ You can follow this guide to deploy and install https://linkis.apache.org/zh-CN/
 Compile openlookeng separately
 
 ````
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/openlookeng/
+${linkis_code_dir}linkis-engineconn-plugins/openlookeng/
 mvn clean install
 ````
 
@@ -32,7 +32,7 @@ mvn clean install
 
 The engine package compiled in step 2.1 is located in
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/openlookeng/target/out/openlookeng
+${linkis_code_dir}/linkis-engineconn-pluginsopenlookeng/target/out/openlookeng
 ````
 Upload to the engine directory of the server
 ```bash

@@ -7,7 +7,7 @@ sidebar_position: 5
 
 
 ```html
-│-- assembly-combined-package //编译打包最后阶段步骤 整合所有lib包和安装部署脚本配置等
+│-- linkis-dist //编译打包最后阶段步骤 整合所有lib包和安装部署脚本配置等
 │        │-- assembly-combined
 │        │-- bin  安装相关的脚本
 │        │-- deploy-config //安装的配置

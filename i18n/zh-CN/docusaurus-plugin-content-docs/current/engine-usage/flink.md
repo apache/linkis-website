@@ -41,12 +41,12 @@ Linkis Flink引擎默认在Linkis1.0.2+不会安装，需要您手动进行编�
 
 ```
 单独编译flink的方式
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/flink/
+${linkis_code_dir}/linkis-engineconn-plugins/flink/
 mvn clean install
 ```
 安装方式是将编译出来的引擎包,位置在
 ```bash
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/flink/target/flink-engineconn.zip
+${linkis_code_dir}/linkis-engineconn-plugins/flink/target/flink-engineconn.zip
 ```
 然后部署到
 ```bash 

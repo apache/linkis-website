@@ -172,14 +172,14 @@ The final effect presented to the user:
 An example command for JDBC engine module compilation is as follows:
 
 ```shell
-cd /linkis-project/linkis-engineconn-plugins/engineconn-plugins/jdbc
+cd /linkis-project/linkis-engineconn-pluginsjdbc
 
 mvn clean install -DskipTests
 ````
 
 When compiling a complete project, the new engine will not be added to the final tar.gz archive by default. If necessary, please modify the following files:
 
-assembly-combined-package/assembly-combined/src/main/assembly/assembly.xml
+linkis-dist/package/src/main/assembly/assembly.xml
 
 ```xml
 <!--jdbc-->
@@ -187,7 +187,7 @@ assembly-combined-package/assembly-combined/src/main/assembly/assembly.xml
   ......
   <fileSet>
       <directory>
-          ../../linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/
+          ../../linkis-engineconn-pluginsjdbc/target/out/
       </directory>
       <outputDirectory>lib/linkis-engineconn-plugins/</outputDirectory>
       <includes>
@@ -203,7 +203,7 @@ Then run the compile command in the project root directory:
 mvn clean install -DskipTests
 ````
 
-After successful compilation, find out.zip in the directories of assembly-combined-package/target/apache-linkis-1.x.x-incubating-bin.tar.gz and linkis-engineconn-plugins/engineconn-plugins/jdbc/target/.
+After successful compilation, find out.zip in the directories of linkis-dist/target/apache-linkis-1.x.x-incubating-bin.tar.gz and linkis-engineconn-pluginsjdbc/target/.
 
 Upload the out.zip file to the Linkis deployment node and extract it to the Linkis installation directory /lib/linkis-engineconn-plugins/:
 

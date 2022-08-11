@@ -140,7 +140,7 @@ val CODE_TYPE_AND_RUN_TYPE_RELATION = CommonVars("wds.linkis.codeType.runType.re
 
 ### 2.6 Linkis管理员台界面引擎管理器中加入JDBC引擎文字提示或图标
 
-web/src/dss/module/resourceSimple/engine.vue
+linkis-web/src/dss/module/resourceSimple/engine.vue
 
 ```js
 methods: {
@@ -172,28 +172,28 @@ methods: {
 JDBC引擎模块编译的示例命令如下：
 
 ```shell
-cd /linkis-project/linkis-engineconn-plugins/engineconn-plugins/jdbc
+cd /linkis-project/linkis-engineconn-pluginsengineconn-plugins/jdbc
 
 mvn clean install -DskipTests
 ```
 
 编译完整项目时，新增引擎默认不会加到最终的tar.gz压缩包中，如果需要，请修改如下文件：
 
-assembly-combined-package/assembly-combined/src/main/assembly/assembly.xml
+linkis-dist/src/main/assembly/distribution.xml
 
 ```xml
 <!--jdbc-->
 <fileSets>
   ......
-  <fileSet>
-      <directory>
-          ../../linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/
-      </directory>
-      <outputDirectory>lib/linkis-engineconn-plugins/</outputDirectory>
-      <includes>
-          <include>**/*</include>
-      </includes>
-  </fileSet>
+        <fileSet>
+            <directory>
+                ../linkis-engineconn-plugins/jdbc/target/out/
+            </directory>
+            <outputDirectory>linkis-package/lib/linkis-engineconn-plugins/</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
 </fileSets>
 ```
 
@@ -203,7 +203,7 @@ assembly-combined-package/assembly-combined/src/main/assembly/assembly.xml
 mvn clean install -DskipTests
 ```
 
-编译成功后在assembly-combined-package/target/apache-linkis-1.x.x-incubating-bin.tar.gz和linkis-engineconn-plugins/engineconn-plugins/jdbc/target/目录下找到out.zip。
+编译成功后在linkis-dist/target/apache-linkis-1.x.x-incubating-bin.tar.gz和linkis-engineconn-plugins/jdbc/target/目录下找到out.zip。
 
 上传out.zip文件到Linkis的部署节点，解压缩到Linkis安装目录/lib/linkis-engineconn-plugins/下面：
 

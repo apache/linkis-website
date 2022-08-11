@@ -32,7 +32,7 @@ mvn clean install
 
 将 2.1 步编译出来的引擎包,位于
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/openlookeng/target/out/openlookeng
+${linkis_code_dir}/linkis-engineconn-plugins/openlookeng/target/out/openlookeng
 ```
 上传到服务器的引擎目录下
 ```bash 

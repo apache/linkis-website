@@ -19,7 +19,7 @@ sidebar_position: 11
 单独编译 ElasticSearch 引擎 
 
 ```
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/elasticsearch/
+${linkis_code_dir}/linkis-engineconn-plugins/elasticsearch/
 mvn clean install
 ```
 
@@ -27,7 +27,7 @@ mvn clean install
 
 将 2.1 步编译出来的引擎包,位于
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/elasticsearch
+${linkis_code_dir}/linkis-engineconn-plugins/jdbc/target/out/elasticsearch
 ```
 上传到服务器的引擎目录下
 ```bash 

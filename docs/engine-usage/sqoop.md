@@ -43,12 +43,12 @@ Note: Before compiling the sqoop engine, the linkis project needs to be fully co
 
 ```
 Compile sqoop separately:
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/sqoop/
+${linkis_code_dir}linkis-engineconn-plugins/sqoop/
 mvn clean install
 ```
 The installation method is to compile the compiled engine package, located in 
 ```bash
-${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/sqoop/target/sqoop-engineconn.zip
+${linkis_code_dir}linkis-engineconn-plugins/sqoop/target/sqoop-engineconn.zip
 ```
 and then deploy to 
 ```bash 

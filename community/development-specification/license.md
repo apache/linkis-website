@@ -40,7 +40,7 @@ We need to know the NOTICE/LICENSE of the files introduced by our project or jar
 copyright notice that is included in or attached to the work.
 
 ### Example Scenario 1
-For example, the third-party file `linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip` is introduced into the source code
+For example, the third-party file `linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip` is introduced into the source code
 
 Find the source branch of the version corresponding to py4j-0.10.7-src.zip, if there is no `LICENSE/NOTICE` file in the corresponding version branch, select the main branch
 - The project source code is located at: https://github.com/bartdag/py4j/tree/0.10.7/py4j-python
@@ -48,7 +48,7 @@ Find the source branch of the version corresponding to py4j-0.10.7-src.zip, if t
 - NOTICE file: none
 
 The license information of `py4j-0.10.7-src.zip` needs to be specified in the `linkis/LICENSE` file.
-The detailed license.txt file corresponding to `py4j-0.10.7-src.zip` is placed in the same level directory `linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10 .7-src.txt`
+The detailed license.txt file corresponding to `py4j-0.10.7-src.zip` is placed in the same level directory `linkis-engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10 .7-src.txt`
 Since https://github.com/bartdag/py4j/tree/0.10.7/py4j-python does not have a NOTICE file, there is no need to append to the `linkis/NOTICE` file.
 
 ### Example Scene 2
