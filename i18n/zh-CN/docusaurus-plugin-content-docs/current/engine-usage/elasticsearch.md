@@ -113,30 +113,28 @@ linkis.es.username               |
 linkis.es.password
 ```
 
-### 3.2 通过Linkis SDK进行使用
-
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于ElasticSearch任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
-
-```java
-        Map<String, Object> labels = new HashMap<String, Object>();
-        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "elasticsearch-7.6.2"); // required engineType Label
-        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
-        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "elasticsearch"); // required codeType
-```
-
 ### 3.2 通过Linkis-cli进行任务提交
-**-codeType参数说明**
-- sql/essql：
-- json/esjson：设置请求参数通过json格式的方式提交任务
+**-codeType 参数说明**
+- sql/essql：通过SQL语句的方式执行ElasticSearch引擎任务
+- json/esjson：通过JSON数据的方式执行ElasticSearch引擎任务
 
 **使用示例**
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，ElasticSearch的使用如下：
+
+**sql/essql方式示例**
+
+**注意：** 使用这种形式，ElasticSearch服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
+```shell
+ sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType sql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql
+```
+
+**json/esjson方式示例**
 ```shell
 sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType json -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search
 ```
-具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
+
+具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
 
 
 ## 4. ElasticSearch引擎的用户设置
