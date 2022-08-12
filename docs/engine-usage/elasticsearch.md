@@ -94,7 +94,7 @@ INNER JOIN `linkis_cg_manager_label` label ON relation.engine_type_label_id = la
 |   configurations                   | default              | is necessary |description                                     |
 | ------------------------ | ------------------- | ---|---------------------------------------- |
 | linkis.es.cluster        | 127.0.0.1:9200      | yes |ElasticSearch cluster，separate multiple nodes using commas  |
-| linkis.datasource        | hadoop            |是  | ElasticSearch datasource |
+| linkis.datasource        | hadoop            |yes  | ElasticSearch datasource |
 | linkis.es.username       | None                  |no | ElasticSearch cluster username                 |
 | linkis.es.password       | None                  |no | ElasticSearch cluster password                   |
 | linkis.es.auth.cache     | false               |no | Whether the client is cache authenticated                       |
@@ -136,19 +136,13 @@ For the ElasticSearch task, you only need to change the EngineConnType and CodeT
 
 ### 3.2 How to use Linkis-cli
 **-codeType parameter description**
-<<<<<<< HEAD:docs/engine_usage/elasticsearch.md
 - essql：Execute ES engine tasks through SQL scripts
 - esjson：Execute ES engine tasks using JSON scripts
-=======
-- sql/essql：Execute ES engine tasks through SQL script
-- json/esjson：Execute ES engine tasks using JSON script
->>>>>>> 65a37606fbd33e4a928a1b974ff64e9685d771a6:docs/engine-usage/elasticsearch.md
 
 **Using the sample**
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of ElasticSearch is as follows.
 
-<<<<<<< HEAD:docs/engine_usage/elasticsearch.md
 **Example using mode essql**
 
 **Note：** To use the SQL script, you must install the SQL plugin for ElasticSearch service：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
@@ -157,17 +151,6 @@ After Linkis 1.0, you can submit tasks through cli. We only need to specify the 
 ```
 
 **Example using mode esjson**
-=======
-**Example using mode sql/essql**
-
-**注意：** 使用这种形式，ElasticSearch服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
-```shell
- sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType sql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql
-```
-
-**Example using mode json/esjson**
->>>>>>> 65a37606fbd33e4a928a1b974ff64e9685d771a6:docs/engine-usage/elasticsearch.md
-
 ```shell
 sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200 
 ```
