@@ -59,8 +59,8 @@ SET @PRESTO_IDE=CONCAT('*-IDE,',@PRESTO_LABEL);
 
 SET @PRESTO_NAME="presto";
 
-insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@PRESTO_ALL, 'OPTIONAL', 2, now(), now ());
-insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@PRESTO_IDE, 'OPTIONAL', 2, now(), now ());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@PRESTO_ALL, 'OPTIONAL', 2, now(), now());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@PRESTO_IDE, 'OPTIONAL', 2, now(), now());
 
 select @label_id := id from `linkis_cg_manager_label` where `label_value` = @PRESTO_IDE;
 insert into `linkis_ps_configuration_category` (`label_id`, `level`) VALUES (@label_id, 2);
@@ -151,7 +151,7 @@ If the management console, task interface, and configuration file are not config
 sh ./bin/linkis-cli -engineType presto-0.234 -codeType tsql -code 'show tables;' -runtimeMap wds.linkis.presto.url=http://172.22.32.11:50070 -runtimeMap wds.linkis.presto. catalog=hive -runtimeMap wds.linkis.presto.schema=default -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
 ````
 
-For specific usage, please refer to: [Linkis CLI Manual](/user-guide/linkiscli-manual.md).
+For specific usage, please refer to: [Linkis CLI Manual](..//user-guide/linkiscli-manual.md).
 
 ### 3.3 Using via Scriptis
 
