@@ -87,6 +87,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 | 配置                     | 默认值          |是否必须    | 说明                                     |
 | ------------------------ | ------------------- | ---|---------------------------------------- |
 | linkis.es.cluster        | 127.0.0.1:9200    |是  | ElasticSearch 集群，多个节点使用逗号分隔 |
+| linkis.datasource        | hadoop            |是  | ElasticSearch datasource |
 | linkis.es.username       | 无    |否              | ElasticSearch 集群用户名                 |
 | linkis.es.password       | 无       |否           | ElasticSearch 集群密码                   |
 | linkis.es.auth.cache     | false       |否        | 客户端是否缓存认证                       |
@@ -134,7 +135,7 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType json -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search
 ```
 
-具体使用可以参考： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
+具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 
 ## 4. ElasticSearch引擎的用户设置
