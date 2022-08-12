@@ -146,7 +146,7 @@ Archives: 0
 0 Unknown Licenses
 ````
 <font color="red">
-If it is not 0, you need to confirm whether the source code has the license for the binary or compressed file. You can refer to the `linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j- 0.10.7-src.zip`
+If it is not 0, you need to confirm whether the source code has the license for the binary or compressed file. You can refer to the `linkis-engineconn-plugins/python/src/main/py4j/py4j- 0.10.7-src.zip`
 </font>
 
 

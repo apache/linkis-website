@@ -58,7 +58,7 @@ Please follow [Compile Guide](development/linkis-compile-and-package.md) to comp
 Please refer to [Deployment_Documents](deployment/quick-deploy.md) to do the deployment. 
 
 ## Examples and Guidance
-You can find examples and guidance for how to use and manage Linkis in [User_Manual](user_guide/overview.md), [Engine_Usage_Documents](engine_usage/overview.md) and [API_Documents](../../docs/api/overview.md).
+You can find examples and guidance for how to use and manage Linkis in [User_Manual](user-guide/overview.md), [engine-usage_Documents](engine-usage/overview.md) and [API_Documents](api/overview.md).
 
 ## Documentation
 

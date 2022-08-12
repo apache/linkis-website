@@ -8,7 +8,7 @@ sidebar_position: 5
 > Linkis source code hierarchical directory structure description, if you want to learn more about Linkis modules, please check [Linkis related architecture design](architecture/overview.md)
 
 ```html
-|-- assembly-combined-package //Compile the module of the entire project
+|-- linkis-dist //Compile the module of the entire project
 |        |-- assembly-combined
 |        |-- bin
 |        |-- deploy-config

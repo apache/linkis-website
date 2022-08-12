@@ -47,7 +47,7 @@ Please input the choice: ## choice 1
     ##新增public service-instanceLabel 服务依赖的表
     source linkis_instance_label.sql
     ##新增linkis-manager服务依赖的表
-    source linkis_manager.sql
+    source linkis-manager.sql
 ```
 
 ### 3.3 publicservice-Configuration表修改

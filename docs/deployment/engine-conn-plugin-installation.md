@@ -22,7 +22,7 @@ hive: engine home directory, must be the name of the engine
     └── 1.2.1 # Engine version
         └── linkis-engineplugin-hive-1.0.0-RC1.jar #Engine module package (only need to place a separate engine package)
 ```
-If you are adding a new engine, you can refer to hive's assembly configuration method, source code directory: linkis-engineconn-plugins/engineconn-plugins/hive/src/main/assembly/distribution.xml
+If you are adding a new engine, you can refer to hive's assembly configuration method, source code directory: linkis-engineconn-pluginshive/src/main/assembly/distribution.xml
 ## 2. Engine Installation
 ### 2.1 Plugin package installation
 1.First, confirm the dist directory of the engine: wds.linkis.engineconn.home (get the value of this parameter from ${LINKIS_HOME}/conf/linkis.properties), this parameter is used by EngineConnPluginServer to read the configuration file that the engine depends on And third-party Jar packages. If the parameter (wds.linkis.engineconn.dist.load.enable=true) is set, the engine in this directory will be automatically read and loaded into the Linkis BML (material library).
@@ -64,7 +64,7 @@ The configuration of the Linkis1.0 management console is managed according to th
 
 ```
 linkis_configuration_config_key: Insert the key and default values of the configuration parameters of the engin
-linkis_manager_label: Insert engine label such as hive-1.2.1
+linkis-manager_label: Insert engine label such as hive-1.2.1
 linkis_configuration_category: Insert the catalog relationship of the engine
 linkis_configuration_config_value: Insert the configuration that the engine needs to display
 ```

@@ -247,7 +247,7 @@ linkis-cg-entrance
 linkis-entrance
 
 [VM Opitons]
--DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
 
 [main Class]
 org.apache.linkis.entrance.LinkisEntranceApplication

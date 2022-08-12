@@ -22,7 +22,7 @@ mvn clean Install
 
 ## step2 Necessary parameter configuration
 
-For the configuration file under incubator-linkis/assembly-combined-package/assembly-combined/conf/, you need to configure the database and hive meta and other necessary startup parameters.
+For the configuration file under incubator-linkis/linkis-dist/package/conf/, you need to configure the database and hive meta and other necessary startup parameters.
 
 
 
@@ -31,7 +31,7 @@ For the configuration file under incubator-linkis/assembly-combined-package/asse
 
 In order to facilitate the printing of logs to the console during debugging, you need to modify the default log4j2.xml file and modify the appender to default to console. You need to remove the append of the default RollingFile and add the appender of the console, as shown below:
 ![](/Images/development/debug_log.png)
-log4j2.xml path incubator-linkis/assembly-combined-package/assembly-combined/conf/log4j2.xml
+log4j2.xml path incubator-linkis/linkis-dist/package/conf/log4j2.xml
 
 ```plain
  <?xml version="1.0" encoding="UTF-8"?>
@@ -76,7 +76,7 @@ You can use the "-Xbootclasspath/a: configuration file path" command. Append the
 org.apache.linkis.eureka.SpringCloudEurekaApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-eureka -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
 
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
@@ -108,7 +108,7 @@ After startup, you can view the list of eureka services through [http://localhos
 org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
 
 [Use classpath of module]
 linkis-gateway-server-support
@@ -125,7 +125,7 @@ Please exclude, the dependency on spring-boot-starter-logging
 org.apache.linkis.filesystem.LinkisPublicServiceApp
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
 
 [Use classpath of module]
 #linkis < 1.1.0  by linkis-jobhistory  
@@ -140,7 +140,7 @@ linkis-storage-script-dev-server
 org.apache.linkis.cs.server.LinkisCSApplication
 
 [VM Opitons]
--DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
 
 [Use classpath of module]
 linkis-cs-server
@@ -155,7 +155,7 @@ linkis-cs-server
 org.apache.linkis.manager.am.LinkisManagerApplication
 
 [VM Opitons]
--DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
 
 [Use classpath of module]
 linkis-application-manager
@@ -166,7 +166,7 @@ linkis-application-manager
 org.apache.linkis.entrance.LinkisEntranceApplication
 
 [VM Opitons]
--DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
 
 [Use classpath of module]
 linkis-entrance
