@@ -51,36 +51,34 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-```bash
-SET @PRESTO_LABEL="presto-x";
+```sql
+-- set variable
+SET @PRESTO_LABEL="presto-0.234";
 SET @PRESTO_ALL=CONCAT('*-*,',@PRESTO_LABEL);
 SET @PRESTO_IDE=CONCAT('*-IDE,',@PRESTO_LABEL);
 
 SET @PRESTO_NAME="presto";
 
-insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@PRESTO_ALL, 'OPTIONAL', 2, now(), now());
-insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@PRESTO_IDE, 'OPTIONAL', 2, now(), now());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@PRESTO_ALL, 'OPTIONAL', 2, now(), now ());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@PRESTO_IDE, 'OPTIONAL', 2, now(), now ());
 
-select @label_id := id from linkis_cg_manager_label where `label_value` = @PRESTO_IDE;
-insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
+select @label_id := id from `linkis_cg_manager_label` where `label_value` = @PRESTO_IDE;
+insert into `linkis_ps_configuration_category` (`label_id`, `level`) VALUES (@label_id, 2);
 
-
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.url','Presto 集群连接','presto连接地址','http://127.0.0.1:8080','None',null,'presto',0,0,1,'数据源配置');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.catalog','查询的 Catalog ','presto连接的catalog','hive','None',null,'presto',0,0,1,'数据源配置);
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.schema',' 查询的 Schema ','数据库连接schema','','None',null,'presto',0,0,1,'数据源配置);
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.source','查询使用的 source ','数据库连接source','','None',null,'presto',0,0,1,'数据源配置');
-
-
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.url','Presto cluster connection','presto connection address','http://127.0.0.1:8080','None',null,@PRESTO_NAME,0,0, 1,'Data source configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.catalog','Querys Catalog','presto-connected catalog','hive','None',null,@PRESTO_NAME,0,0,1,'Data source configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.schema','Query Schema','Database connection schema','','None',null,@PRESTO_NAME,0,0,1,'Data source configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.source','source used for query','database connection source','','None',null,@PRESTO_NAME,0,0,1,'data source configuration') ;
 
 -- engine -*
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
 (select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
-INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = @PRESTO_NAME and label_value = @PRESTO_ALL);
+INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = @PRESTO_NAME and label_value = @PRESTO_IDE);
 
 -- engine default configuration
 insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
 (select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
-INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @PRESTO_ALL);
+INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @PRESTO_IDE);
 ```
 
 ### 2.2 Presto 引擎相关配置
