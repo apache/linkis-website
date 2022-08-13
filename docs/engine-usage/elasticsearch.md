@@ -18,7 +18,7 @@ Note: The Linkis project needs to be fully compiled before ElasticSearch EngineC
 
 The published installation and deployment packages do not contain the engine plugin by default.
 
-You can click [Linkis engine installation guide] (https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)  to deployment installation, or according to the following process, Manual compilation and deployment
+You can click [Linkis engine installation guide](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)  to deployment installation, or according to the following process, Manual compilation and deployment
 
 Compile ElasticSearch engine separately
 
@@ -52,32 +52,40 @@ linkis_ps_configuration_key_engine_relation:Association between configuration it
 ```
 
 ```sql
+-- set variable
+SET @ENGINE_LABEL="elasticsearch-7.6.2";
+SET @ENGINE_IDE=CONCAT('*-IDE,',@ENGINE_LABEL);
+SET @ENGINE_NAME="elasticsearch";
 
-SET @ELASTICSEARCHENG_LABEL="elasticsearch-7.6.2";
-SET @ELASTICSEARCHENG_ALL=CONCAT('*-*,',@ELASTICSEARCHENG_LABEL);
-SET @ELASTICSEARCHENG_IDE=CONCAT('*-IDE,',@ELASTICSEARCHENG_LABEL);
+-- add es engine to IDE
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @ENGINE_IDE, 'OPTIONAL', 2, now(), now());
+select @label_id := id from `linkis_cg_manager_label` where label_value = @ENGINE_IDE;
+insert into `linkis_ps_configuration_category` (`label_id`, `level`) VALUES (@label_id, 2);
 
-insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@ELASTICSEARCHENG_ALL, 'OPTIONAL', 2, now(), now());
-insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@ELASTICSEARCHENG_IDE, 'OPTIONAL', 2, now(), now());
+-- insert configuration key
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.cluster', 'eg:http://127.0.0.1:9200', 'connection address', 'http://127.0.0.1:9200', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.datasource', 'datasource', 'datasource', 'hadoop', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.username', 'username', 'ES cluster username', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.password', 'password', 'ES cluster password', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.auth.cache', 'Whether the client is cache authenticated', 'Whether the client is cache authenticated', 'false', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sniffer.enable', 'Whether Sniffer is enabled on the client', 'Whether Sniffer is enabled on the client', 'false', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.http.method', 'Request Method', 'HTTP Request Method', 'GET', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.http.endpoint', '/_search', 'The Endpoint of th JSON script', '/_search', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.endpoint', '/_sql', 'The Endpoint of th SQL script', '/_sql', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.format', 'SQL script call template, %s replaced with SQL as the body of the request request Es cluster', 'request body', '{"query":"%s"}', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.headers.*', 'client headers configuration', 'client headers configuration', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.engineconn.concurrent.limit', 'the maximum engine concurrency', 'the maximum engine concurrency', '100', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
 
-select @label_id := id from linkis_cg_manager_label where `label_value` = @ELASTICSEARCHENG_IDE;
-insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
 
-
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.url', 'such as:http://127.0.0.1:8080', 'conn address', 'http://127.0.0.1:8080', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', 'elasticsearcheng', 0, 0, 1, 'data source conf');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.catalog', 'catalog', 'catalog', 'system', 'None', '', 'elasticsearcheng', 0, 0, 1, 'data source conf');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.source', 'source', 'source', 'global', 'None', '', 'elasticsearcheng', 0, 0, 1, 'data source conf');
-
-
--- elasticsearcheng-*
+-- elasticsearch engine -*
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
-(select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
-INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'elasticsearcheng' and label_value = @ELASTICSEARCHENG_ALL);
+(select config.id as config_key_id, label.id AS engine_type_label_id FROM `linkis_ps_configuration_config_key` config
+INNER JOIN `linkis_cg_manager_label` label ON config.engine_conn_type = @ENGINE_NAME and label_value = @ENGINE_IDE);
 
--- elasticsearcheng default configuration
+-- elasticsearch engine default configuration
 insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
-(select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
-INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @ELASTICSEARCHENG_ALL);
+(select relation.config_key_id AS config_key_id, '' AS config_value, relation.engine_type_label_id AS config_label_id FROM `linkis_ps_configuration_key_engine_relation` relation
+INNER JOIN `linkis_cg_manager_label` label ON relation.engine_type_label_id = label.id AND label.label_value = @ENGINE_IDE);
 
 ```
 
@@ -86,6 +94,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 |   configurations                   | default              | is necessary |description                                     |
 | ------------------------ | ------------------- | ---|---------------------------------------- |
 | linkis.es.cluster        | 127.0.0.1:9200      | yes |ElasticSearch cluster，separate multiple nodes using commas  |
+| linkis.datasource        | hadoop            |yes  | ElasticSearch datasource |
 | linkis.es.username       | None                  |no | ElasticSearch cluster username                 |
 | linkis.es.password       | None                  |no | ElasticSearch cluster password                   |
 | linkis.es.auth.cache     | false               |no | Whether the client is cache authenticated                       |
@@ -114,7 +123,7 @@ linkis.es.password
 
 ### 3.2 How to use Linkis SDK
 
-Linkis provides a client method to call ElasticSearch tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](/user-guide/linkiscli-manual.md).
+Linkis provides a client method to call ElasticSearch tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user-guide/linkiscli-manual.md).
 
 For the ElasticSearch task, you only need to change the EngineConnType and CodeType parameters in the Demo.
 
@@ -127,26 +136,25 @@ For the ElasticSearch task, you only need to change the EngineConnType and CodeT
 
 ### 3.2 How to use Linkis-cli
 **-codeType parameter description**
-- sql/essql：Execute ES engine tasks through SQL script
-- json/esjson：Execute ES engine tasks using JSON script
+- essql：Execute ES engine tasks through SQL scripts
+- esjson：Execute ES engine tasks using JSON scripts
 
 **Using the sample**
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of ElasticSearch is as follows.
 
-**Example using mode sql/essql**
+**Example using mode essql**
 
-**注意：** 使用这种形式，ElasticSearch服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
+**Note：** To use the SQL script, you must install the SQL plugin for ElasticSearch service：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
 ```shell
- sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType sql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql
+ sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType essql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql -runtimeMap linkis.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
-**Example using mode json/esjson**
-
+**Example using mode esjson**
 ```shell
-sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType json -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search
+sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200 
 ```
-Specific use can refer to： [Linkis CLI Manual](../user_guide/linkiscli-manual.md).
+Specific use can refer to： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 
 ## 4. ElasticSearch EngineConn user settings
