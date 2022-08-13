@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.incubator.apache.org/zh-CN/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Sat, 16 Jul 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 08 Aug 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[linkis1.1.1适配hadoop3.1.1以及部署其他服务]]></title>
+            <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/08/08/linkis111-compile-integration</link>
+            <guid>linkis1.1.1适配hadoop3.1.1以及部署其他服务</guid>
+            <pubDate>Mon, 08 Aug 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[环境以及版本]]></description>
+        </item>
         <item>
             <title><![CDATA[部署到Kubernetes]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/07/16/deploy-linkis-with-kubernetes</link>
