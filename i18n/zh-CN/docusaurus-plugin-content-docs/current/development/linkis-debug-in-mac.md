@@ -24,7 +24,7 @@ git checkout dev-1.2.0
 
 ```shell
 mvn -N install
-mvn clean Install
+mvn clean install
 ```
 
 编译命令运行成功之后，在目录incubator-linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-incubating-bin.tar.gz

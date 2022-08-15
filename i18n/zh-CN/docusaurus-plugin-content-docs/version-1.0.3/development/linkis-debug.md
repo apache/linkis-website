@@ -17,7 +17,7 @@ cd incubator-linkis
 #如果需要 可以切换到对应的分支上
 #git checkout dev-xxx
 mvn -N install 
-mvn clean Install
+mvn clean install
 ```
 
 ## step2 必要的参数配置

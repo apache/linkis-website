@@ -17,7 +17,7 @@ cd incubator-linkis
 #If needed, you can switch to the corresponding branch
 #git checkout dev-xxx
 mvn -N install
-mvn clean Install
+mvn clean install
 ```
 
 ## step2 Necessary parameter configuration
