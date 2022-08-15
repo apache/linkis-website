@@ -24,7 +24,7 @@ Clone the source code of Linkis to the local, and open it with IDEA. When you op
 
 ```shell
 mvn -N install
-mvn clean Install
+mvn clean install
 ````
 
 After the compilation command runs successfully, the compiled installation package can be found in the directory incubator-linkis/linkis-dist/target/: apache-linkis-version-incubating-bin.tar.gz
