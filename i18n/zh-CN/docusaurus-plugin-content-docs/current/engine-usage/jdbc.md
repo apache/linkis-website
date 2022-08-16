@@ -59,9 +59,10 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 
 您也可以再提交任务接口中的params.configuration.runtime进行修改即可
 ```shell
-jdbc.url 
-jdbc.username
-jdbc.password
+wds.linkis.jdbc.connect.url
+wds.linkis.jdbc.driver
+wds.linkis.jdbc.username
+wds.linkis.jdbc.password
 ```
 
 您也可以在提交任务接口，通过参数进行配置
@@ -74,9 +75,10 @@ http 请求参数示例
                     "variable": {},
                     "configuration": {
                             "runtime": {
-                                    "jdbc.url":"jdbc:mysql://127.0.0.1:3306/test",  
-                                    "jdbc.username":"test",
-                                    "jdbc.password":"test23"
+                                    "wds.linkis.jdbc.connect.url":"jdbc:mysql://127.0.0.1:3306/test",  
+                                    "wds.linkis.jdbc.driver":"com.mysql.jdbc.Driver",
+                                    "wds.linkis.jdbc.username":"test",
+                                    "wds.linkis.jdbc.password":"test23"
                                 }
                             }
                     },
@@ -118,6 +120,17 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 ![](/Images-zh/EngineUsage/jdbc-run.png)
 
 图3-2 JDBC的执行效果截图
+
+### 3.4 数据源管理
+Linkis 1.2.0后提供了数据源管理功能，我们可以在控制台管理不同的数据源。地址：登陆管理台-->数据源管理-->新增数据源
+
+![](/Images-zh/EngineUsage/datasourcemanage.png)
+
+图3-3 数据源管理
+
+![](/Images-zh/EngineUsage/datasourceconntest.png)
+
+图3-4 数据源连接测试
 
 ## 4.JDBC引擎的用户设置
 
