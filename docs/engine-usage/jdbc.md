@@ -36,9 +36,36 @@ Figure 3-1 JDBC configuration information
 
 You can also specify in the RuntimeMap of the submitted task
 ```shell
-wds.linkis.jdbc.connect.url 
+wds.linkis.jdbc.connect.url
+wds.linkis.jdbc.driver
 wds.linkis.jdbc.username
 wds.linkis.jdbc.password
+
+```
+
+You can also set parameters on the task submission interface.
+
+```shell
+http request params example 
+{
+    "executionContent": {"code": "show databases;", "runType":  "jdbc"},
+    "params": {
+                    "variable": {},
+                    "configuration": {
+                            "runtime": {
+                                    "wds.linkis.jdbc.connect.url":"jdbc:mysql://127.0.0.1:3306/test",  
+                                    "wds.linkis.jdbc.driver":"com.mysql.jdbc.Driver",
+                                    "wds.linkis.jdbc.username":"test",
+                                    "wds.linkis.jdbc.password":"test23"
+                                }
+                            }
+                    },
+    "source":  {"scriptPath": "file:///mnt/bdp/hadoop/1.sql"},
+    "labels": {
+        "engineType": "jdbc-4",
+        "userCreator": "hadoop-IDE"
+    }
+}
 ```
 
 ### 3.1 How to use Linkis SDK
@@ -69,6 +96,17 @@ The execution principle of JDBC is to load the JDBC Driver and submit sql to the
 ![](/Images/EngineUsage/jdbc-run.png)
 
 Figure 3-2 Screenshot of the execution effect of JDBC
+
+### 3.4 DataSource Manage
+Linkis provides data source management function after 1.2.0, we can manage different data sources in the console. Address: Login management desktop --> DataSource Manage --> Add Source
+
+![](/Images/EngineUsage/datasourcemanage.png)
+
+Figure 3-3 DataSource Manage
+
+![](/Images/EngineUsage/datasourceconntest.png)
+
+Figure 3-4 DataSource Conn Test
 
 ## 4. JDBC EngineConn user settings
 
