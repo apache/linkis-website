@@ -97,7 +97,7 @@ The execution principle of JDBC is to load the JDBC Driver and submit sql to the
 
 Figure 3-2 Screenshot of the execution effect of JDBC
 
-### 3.4 数据源管理
+### 3.4 DataSource Manage
 Linkis provides data source management function after 1.2.0, we can manage different data sources in the console. Address: Login management desktop --> DataSource Manage --> Add Source
 
 ![](/Images/EngineUsage/datasourcemanage.png)
