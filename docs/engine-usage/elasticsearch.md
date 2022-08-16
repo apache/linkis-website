@@ -63,18 +63,18 @@ select @label_id := id from `linkis_cg_manager_label` where label_value = @ENGIN
 insert into `linkis_ps_configuration_category` (`label_id`, `level`) VALUES (@label_id, 2);
 
 -- insert configuration key
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.cluster', 'eg:http://127.0.0.1:9200', 'connection address', 'http://127.0.0.1:9200', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.datasource', 'datasource', 'datasource', 'hadoop', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.username', 'username', 'ES cluster username', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.password', 'password', 'ES cluster password', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.auth.cache', 'Whether the client is cache authenticated', 'Whether the client is cache authenticated', 'false', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sniffer.enable', 'Whether Sniffer is enabled on the client', 'Whether Sniffer is enabled on the client', 'false', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.http.method', 'Request Method', 'HTTP Request Method', 'GET', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.http.endpoint', '/_search', 'The Endpoint of th JSON script', '/_search', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.endpoint', '/_sql', 'The Endpoint of th SQL script', '/_sql', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.format', 'SQL script call template, %s replaced with SQL as the body of the request request Es cluster', 'request body', '{"query":"%s"}', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.headers.*', 'client headers configuration', 'client headers configuration', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.engineconn.concurrent.limit', 'the maximum engine concurrency', 'the maximum engine concurrency', '100', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.cluster', 'eg:http://127.0.0.1:9200', 'connection address', 'http://127.0.0.1:9200', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.datasource', 'datasource', 'datasource', 'hadoop', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.username', 'username', 'ES cluster username', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.password', 'password', 'ES cluster password', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.auth.cache', 'Whether the client is cache authenticated', 'Whether the client is cache authenticated', 'false', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sniffer.enable', 'Whether Sniffer is enabled on the client', 'Whether Sniffer is enabled on the client', 'false', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.http.method', 'Request Method', 'HTTP Request Method', 'GET', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.http.endpoint', '/_search', 'The Endpoint of th JSON script', '/_search', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.endpoint', '/_sql', 'The Endpoint of th SQL script', '/_sql', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.format', 'SQL script call template, %s replaced with SQL as the body of the request request Es cluster', 'request body', '{"query":"%s"}', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.headers.*', 'client headers configuration', 'client headers configuration', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.engineconn.concurrent.limit', 'the maximum engine concurrency', 'the maximum engine concurrency', '100', 'None', '', @ENGINE_NAME, 0, 0, 1, 'datasource conf');
 
 
 -- elasticsearch engine -*
@@ -94,7 +94,7 @@ INNER JOIN `linkis_cg_manager_label` label ON relation.engine_type_label_id = la
 |   configurations                   | default              | is necessary |description                                     |
 | ------------------------ | ------------------- | ---|---------------------------------------- |
 | linkis.es.cluster        | 127.0.0.1:9200      | yes |ElasticSearch cluster，separate multiple nodes using commas  |
-| linkis.datasource        | hadoop            |yes  | ElasticSearch datasource |
+| linkis.es.datasource        | hadoop            |yes  | ElasticSearch datasource |
 | linkis.es.username       | None                  |no | ElasticSearch cluster username                 |
 | linkis.es.password       | None                  |no | ElasticSearch cluster password                   |
 | linkis.es.auth.cache     | false               |no | Whether the client is cache authenticated                       |
@@ -117,6 +117,7 @@ Figure 3-1 ElasticSearch Configuration information
 You can also specify in the RuntimeMap of the submitted task.
 ```shell
 linkis.es.cluster
+linkis.es.datasource
 linkis.es.username               |
 linkis.es.password
 ```
@@ -147,12 +148,12 @@ After Linkis 1.0, you can submit tasks through cli. We only need to specify the 
 
 **Note：** To use the SQL script, you must install the SQL plugin for ElasticSearch service：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
 ```shell
- sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType essql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql -runtimeMap linkis.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
+ sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType essql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
 **Example using mode esjson**
 ```shell
-sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200 
+sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200 
 ```
 Specific use can refer to： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
