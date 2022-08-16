@@ -53,32 +53,40 @@ linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
 ```
 
 ```sql
+-- set variable
+SET @ENGINE_LABEL="elasticsearch-7.6.2";
+SET @ENGINE_IDE=CONCAT('*-IDE,',@ENGINE_LABEL);
+SET @ENGINE_NAME="elasticsearch";
 
-SET @ELASTICSEARCHENG_LABEL="elasticsearch-7.6.2";
-SET @ELASTICSEARCHENG_ALL=CONCAT('*-*,',@ELASTICSEARCHENG_LABEL);
-SET @ELASTICSEARCHENG_IDE=CONCAT('*-IDE,',@ELASTICSEARCHENG_LABEL);
+-- add es engine to IDE
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @ENGINE_IDE, 'OPTIONAL', 2, now(), now());
+select @label_id := id from `linkis_cg_manager_label` where label_value = @ENGINE_IDE;
+insert into `linkis_ps_configuration_category` (`label_id`, `level`) VALUES (@label_id, 2);
 
-insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@ELASTICSEARCHENG_ALL, 'OPTIONAL', 2, now(), now());
-insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType',@ELASTICSEARCHENG_IDE, 'OPTIONAL', 2, now(), now());
+-- insert configuration key
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.cluster', 'eg:http://127.0.0.1:9200', 'connection address', 'http://127.0.0.1:9200', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.datasource', 'datasource', 'datasource', 'hadoop', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.username', 'username', 'ES cluster username', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.password', 'password', 'ES cluster password', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.auth.cache', 'Whether the client is cache authenticated', 'Whether the client is cache authenticated', 'false', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sniffer.enable', 'Whether Sniffer is enabled on the client', 'Whether Sniffer is enabled on the client', 'false', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.http.method', 'Request Method', 'HTTP Request Method', 'GET', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.http.endpoint', '/_search', 'The Endpoint of th JSON script', '/_search', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.endpoint', '/_sql', 'The Endpoint of th SQL script', '/_sql', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.format', 'SQL script call template, %s replaced with SQL as the body of the request request Es cluster', 'request body', '{"query":"%s"}', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.headers.*', 'client headers configuration', 'client headers configuration', 'None', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.engineconn.concurrent.limit', 'the maximum engine concurrency', 'the maximum engine concurrency', '100', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
 
-select @label_id := id from linkis_cg_manager_label where `label_value` = @ELASTICSEARCHENG_IDE;
-insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
 
-
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.url', 'such as:http://127.0.0.1:8080', 'conn address', 'http://127.0.0.1:8080', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', 'elasticsearcheng', 0, 0, 1, '数据源配置');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.catalog', 'catalog', 'catalog', 'system', 'None', '', 'elasticsearcheng', 0, 0, 1, '数据源配置');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.elasticsearcheng.source', 'source', 'source', 'global', 'None', '', 'elasticsearcheng', 0, 0, 1, '数据源配置');
-
-
--- elasticsearcheng-*
+-- elasticsearch engine -*
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
-(select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
-INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'elasticsearcheng' and label_value = @ELASTICSEARCHENG_ALL);
+(select config.id as config_key_id, label.id AS engine_type_label_id FROM `linkis_ps_configuration_config_key` config
+INNER JOIN `linkis_cg_manager_label` label ON config.engine_conn_type = @ENGINE_NAME and label_value = @ENGINE_IDE);
 
--- elasticsearcheng default configuration
+-- elasticsearch engine default configuration
 insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
-(select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
-INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @ELASTICSEARCHENG_ALL);
+(select relation.config_key_id AS config_key_id, '' AS config_value, relation.engine_type_label_id AS config_label_id FROM `linkis_ps_configuration_key_engine_relation` relation
+INNER JOIN `linkis_cg_manager_label` label ON relation.engine_type_label_id = label.id AND label.label_value = @ENGINE_IDE);
 
 ```
 
@@ -87,7 +95,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 | 配置                     | 默认值          |是否必须    | 说明                                     |
 | ------------------------ | ------------------- | ---|---------------------------------------- |
 | linkis.es.cluster        | 127.0.0.1:9200    |是  | ElasticSearch 集群，多个节点使用逗号分隔 |
-| linkis.datasource        | hadoop            |是  | ElasticSearch datasource |
+| linkis.es.datasource        | hadoop            |是  | ElasticSearch datasource |
 | linkis.es.username       | 无    |否              | ElasticSearch 集群用户名                 |
 | linkis.es.password       | 无       |否           | ElasticSearch 集群密码                   |
 | linkis.es.auth.cache     | false       |否        | 客户端是否缓存认证                       |
@@ -110,6 +118,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 您也可以再提交任务接口中的params.configuration.runtime进行修改即可
 ```shell
 linkis.es.cluster
+linkis.es.datasource
 linkis.es.username               |
 linkis.es.password
 ```
@@ -123,16 +132,16 @@ linkis.es.password
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，ElasticSearch的使用如下：
 
-**sql/essql方式示例**
+**essql方式示例**
 
 **注意：** 使用这种形式，ElasticSearch服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
 ```shell
- sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType sql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql
+ sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType essql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
-**json/esjson方式示例**
+**esjson方式示例**
 ```shell
-sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType json -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search
+sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
