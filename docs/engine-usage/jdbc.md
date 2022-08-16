@@ -106,7 +106,7 @@ Figure 3-3 DataSource Manage
 
 ![](/Images/EngineUsage/datasourceconntest.png)
 
-Figure 3-4 DateSource Conn Test
+Figure 3-4 DataSource Conn Test
 
 ## 4. JDBC EngineConn user settings
 
