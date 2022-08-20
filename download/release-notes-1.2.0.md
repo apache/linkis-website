@@ -1,5 +1,5 @@
 ---
-title: Release Notes 1.2.0
+title: Release Notes 1.2.0-RC1
 sidebar_position: 0.18
 ---
 
@@ -9,8 +9,12 @@ Apache Linkis(incubating) 1.2.0 includes all of [Project Linkis-1.2.0](https://g
 This release mainly supports Presto and ElasticSearch engines for Linkis 1.X architecture, enhances JDBC engine to support configuration multiple data source, supports displaying historical engine information on web, reduced and optimized Linkis modules, improved test cases for some engines, and made a lot of bug fixes and feature improvements.
 
 The main functions are as follows:
-+ Supports Presto and ElasticSearch engines for Linkis 1.X architecture
-+ ...
+
+* Added support for Presto engine
+* Added support for ElasticSearch engine
+* Added features to JDBC engine to support data source mode
+* Reduce and optimize Linkis modules
+* Data source module interface optimization
 
 Abbreviations:
 - COMMON: Linkis Common
@@ -140,4 +144,8 @@ Abbreviations:
 + \[CG][[LINKIS-2452]](https://github.com/apache/incubator-linkis/issues/2452) Upgrade oshi-core version
 
 ## Thanks
-The release of Apache Linkis(incubating) 1.2.0 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order): CCweixiao, Dlimeng, QuintinTao, WenxiangFan, aiceflower, barry8023, binbinCheng, casionone, duhanmin, gabeng1996, huangKai-2323, huapan123456, huiyuanjjjjuice, hunter-cloud09, jackxu2011, legendtkl, liangqilang, liuyou2, mindflow94, peacewong, ruY9527, seedscoder, wForget, yyuser5201314
+The release of Apache Linkis(incubating) 1.2.0 is inseparable from the contributors of the Linkis community. 
+Thanks to all the community contributors, including but not limited to the following Contributors 
+(in no particular order): CCweixiao, Dlimeng, QuintinTao, WenxiangFan, aiceflower, barry8023, binbinCheng,
+ casionone, duhanmin, gabeng1996, huangKai-2323, huapan123456, huiyuanjjjjuice, hunter-cloud09, jackxu2011, 
+ legendtkl, liangqilang, liuyou2, mindflow94, peacewong, ruY9527, seedscoder, wForget, yyuser5201314

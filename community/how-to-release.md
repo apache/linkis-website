@@ -318,7 +318,7 @@ Download Node.js to the local and install it. Download link: [http://nodejs.cn/d
 Execute the following commands in the terminal command line:
 ```shell
 #Enter the project WEB root directory
-$ cd incubator-linkis/web
+$ cd incubator-linkis/linkis-web
 #Required dependencies for installation project
 $ npm install
 ```
@@ -765,7 +765,7 @@ cp linkis-dist/target/apache-linkis-$release_version-incubating-bin.tar.gz dist/
 
 #step3 Package the web (if you need to publish the front end)
 
-cd web
+cd linkis-web
 #Installation dependencies
 npm install
 npm run build

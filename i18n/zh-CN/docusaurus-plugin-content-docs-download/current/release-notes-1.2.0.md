@@ -1,19 +1,23 @@
 ---
-title: Release Notes 1.2.0
+title: Release Notes 1.2.0-RC1
 sidebar_position: 0.18
 ---
 
 Apache Linkis(incubating) 1.2.0 包括所有 [Project Linkis-1.2.0](https://github.com/apache/incubator-linkis/projects/12).
 
-
-Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎，同时增强了JDBC引擎，支持配置多数据源，支持在web上显示引擎的历史信息，减少和优化Linkis模块，改进部分引擎的测试用例，并进行了大量的bug修复和功能改进。
+Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引擎新增特性，以支持数据源模式；减少和优化Linkis模块；数据源功能优化；改进部分引擎的测试用例，并进行了大量的bug修复和功能改进。
 
 主要功能如下：
-* 支持 Presto 引擎和 ElasticSearch 引擎
-* 增强了 JDBC 引擎，支持配置多数据源
-* 支持在 web 上显示引擎的历史信息
-+ ...
-
+* 新增对 Presto 引擎的支持 
+* 新增对 ElasticSearch 引擎的支持
+* JDBC引擎新增特性:支持数据源模式
+* 减少和优化Linkis部分模块
+* 数据源功能模块接口优化
+* 集成swagger,http 接口新增swagger注解说明 
+* entrance支持Route标签租户隔离 
+* 支持SDK客户端任务重试 
+* 新增单个Entrance任务统计接口 
+* 管理台资源管理页面支持查看历史引擎信息
 缩写：
 - COMMON: Linkis Common
 - EC: Engineconn
@@ -32,7 +36,7 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎，同时增强
 + \[ECP-PRESTO][[LINKIS-1631]](https://github.com/apache/incubator-linkis/issues/1631) 增强Presto引擎，适配Linkis 1.X 架构
 + \[ECP-ES][[LINKIS-1632]](https://github.com/apache/incubator-linkis/issues/1632) 增强ElasticSearch引擎, 适配Linkis 1.X 架构
 + \[ECP-JDBC][[LINKIS-2092]](https://github.com/apache/incubator-linkis/issues/2092) Linkis JDBC引擎支持多个数据源链接
-+ \[COMMON][[LINKIS-2191]](https://github.com/apache/incubator-linkis/issues/2191) 为所有服务添加离线公共rest api
++ \[COMMON][[LINKIS-2191]](https://github.com/apache/incubator-linkis/issues/2191) 为所有服务添加offline的公共通用接口
 + \[CG][[LINKIS-2222]](https://github.com/apache/incubator-linkis/issues/2222) 单链路入口任务指标收集
 + \[CG][[LINKIS-2227]](https://github.com/apache/incubator-linkis/issues/2227) 添加ECR历史查询接口
 + \[WEB][[LINKIS-2227]](https://github.com/apache/incubator-linkis/issues/2227) 支持显示引擎历史信息
@@ -142,4 +146,7 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎，同时增强
 + \[CG][[LINKIS-2452]](https://github.com/apache/incubator-linkis/issues/2452) oshi-core 版本升级
 
 ## 致谢
-Apache Linkis(incubating) 1.2.0的发布离不开Linkis社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: CCweixiao, Dlimeng, QuintinTao, WenxiangFan, aiceflower, barry8023, binbinCheng, casionone, duhanmin, gabeng1996, huangKai-2323, huapan123456, huiyuanjjjjuice, hunter-cloud09, jackxu2011, legendtkl, liangqilang, liuyou2, mindflow94, peacewong, ruY9527, seedscoder, wForget, yyuser5201314
+Apache Linkis(incubating) 1.2.0的发布离不开Linkis社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: 
+CCweixiao, Dlimeng, QuintinTao, WenxiangFan, aiceflower, barry8023, binbinCheng, casionone,
+ duhanmin, gabeng1996, huangKai-2323, huapan123456, huiyuanjjjjuice, hunter-cloud09, jackxu2011,
+legendtkl, liangqilang, liuyou2, mindflow94, peacewong, ruY9527, seedscoder, wForget, yyuser5201314
