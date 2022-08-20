@@ -219,7 +219,7 @@ $ npm install
 
 
 ### 2.5 检查二进制包
->如果上传了项目的二进制包/web的编译包
+>如果上传了项目的二进制包/linkis-web的编译包
 
 解压缩`apache-linkis-${release_version}-incubating-bin.tar.gz`，
 

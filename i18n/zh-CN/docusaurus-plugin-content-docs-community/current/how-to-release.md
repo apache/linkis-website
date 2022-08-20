@@ -376,7 +376,7 @@ $ cp  linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz   dist/apache
 在终端命令行中执行以下指令：
 ```
 #进入项目WEB根目录
-$ cd incubator-linkis/web
+$ cd incubator-linkis/linkis-web
 #安装项目所需依赖
 $ npm install
 ```
@@ -947,7 +947,7 @@ cp  linkis-dist/target/apache-linkis-$release_version-incubating-bin.tar.gz   di
 
 #step3 打包web(如果需要发布前端)
 
-cd web
+cd linkis-web
 #安装依赖
 npm install
 npm run build
