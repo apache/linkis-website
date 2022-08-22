@@ -135,7 +135,8 @@ Parameter: wds.linkis.engine.runtime.datasource is a configuration with a fixed 
 2. Through the Scripts code submission entry of DSS, drop down and filter the data sources to be submitted, as shown in the following figure:
    ![](/Images/EngineUsage/muti-data-source-usage.png)
 
-
+Currently dss-1.1.0 does not yet support drop-down selection of data source name, PR is under development, you can wait for subsequent releases or pay attention to related PRs:
+(https://github.com/WeBankFinTech/DataSphereStudio/issues/940)
 
 Function description of multiple data sources:
 

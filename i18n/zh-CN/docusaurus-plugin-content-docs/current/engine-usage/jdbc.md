@@ -158,6 +158,9 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 
 2、通过DSS的Scripts代码提交入口下拉筛选需要提交的数据源，如下图：
 ![](/Images-zh/EngineUsage/muti-data-source-usage.png)
+当前dss-1.1.0还暂不支持下拉选择数据源名称，PR在开发中，可以等后续发版或关注相关PR：
+（https://github.com/WeBankFinTech/DataSphereStudio/issues/940）
+
 
 多数据源的功能说明：
 
