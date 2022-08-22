@@ -108,6 +108,47 @@ Figure 3-3 DataSource Manage
 
 Figure 3-4 DataSource Conn Test
 
+After the data source is completed, you can use the JDBC multi-data source switch to add, there are functional methods:
+1. Specify the data source name parameter through the interface parameter, as shown below:
+![](/Images/EngineUsage/muti-data-source.png)
+
+Parameter example:
+```json
+{
+    "executionContent": {"code": "show databases", "runType":  "jdbc"},
+    "params": {"variable": {}, "configuration": {"startup":{}, 
+    "runtime": 
+    	{ 
+    		"dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
+    	}
+    }}},
+    "source":  {"scriptPath": ""},
+    "labels": {
+        "engineType": "jdbc-4",
+        "userCreator": "linkis-IDE"
+    }
+}
+```
+
+Parameter: wds.linkis.engine.runtime.datasource is a configuration with a fixed name, do not modify the name definition arbitrarily
+
+2. Through the Scripts code submission entry of DSS, drop down and filter the data sources to be submitted, as shown in the following figure:
+   ![](/Images/EngineUsage/muti-data-source-usage.png)
+
+
+
+Function description of multiple data sources:
+
+1) In the previous version, the JDBC engine's support for data sources was not perfect, especially when used with Scripts, the jdbc script type can only bind a set of JDBC engine parameters of the console.
+   When we need to switch multiple data sources, we can only modify the connection parameters of the jdbc engine, which is troublesome.
+
+2) With the data source management, we introduce the multi-data source switching function of the JDBC engine, which can realize that only by setting the data source name, the job can be submitted to different JDBC services, and ordinary users do not need to
+   It maintains the connection information of the data source, avoids the complicated configuration, and also meets the security requirements of the data source connection password and other configurations.
+
+3) The data source set in the multi-data source management can be loaded by the JDBC engine only after it is published, and the data source that has not expired, otherwise, different types of exception prompts will be fed back to the user.
+
+4) The loading priority of jdbc engine parameters is: task submission parameters > select data source parameters > console JDBC engine parameters
+
 ## 4. JDBC EngineConn user settings
 
 JDBC user settings are mainly JDBC connection information, but it is recommended that users encrypt and manage this password and other information.

@@ -18,7 +18,7 @@ sidebar_position: 7
 ，或者按以下流程，手动编译部署
 
 
-单独编译jdbc引擎 
+单独编译jdbc引擎
 
 ```
 ${linkis_code_dir}/linkis-engineconn-plugins/jdbc/
@@ -44,7 +44,7 @@ sh linkis-daemon.sh restart cg-engineplugin
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation)
 
 
 ## 3.JDBC引擎的使用
@@ -53,7 +53,7 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 
 您需要配置JDBC的连接信息，包括连接地址信息和用户名以及密码。
 
-![jdbc](https://user-images.githubusercontent.com/29391030/168045539-9cea6c44-56a9-4b14-86fb-1e65f937ae54.png)  
+![jdbc](https://user-images.githubusercontent.com/29391030/168045539-9cea6c44-56a9-4b14-86fb-1e65f937ae54.png)
 
 图3-1 JDBC配置信息
 
@@ -121,8 +121,8 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 
 图3-2 JDBC的执行效果截图
 
-### 3.4 数据源管理
-Linkis 1.2.0后提供了数据源管理功能，我们可以在控制台管理不同的数据源。地址：登陆管理台-->数据源管理-->新增数据源
+### 3.4 多数据源支持
+从Linkis 1.2.0开始，提供了JDBC引擎多数据源的支持，我们首先可以在控制台管理不同的数据源。地址：登陆管理台-->数据源管理-->新增数据源
 
 ![](/Images-zh/EngineUsage/datasourcemanage.png)
 
@@ -131,6 +131,46 @@ Linkis 1.2.0后提供了数据源管理功能，我们可以在控制台管理�
 ![](/Images-zh/EngineUsage/datasourceconntest.png)
 
 图3-4 数据源连接测试
+
+数据源添加完成之后，就可以使用JDBC引擎的多数据源切换功能，有两种方式：
+1、通过接口参数指定数据源名称参数，如下图：
+![](/Images-zh/EngineUsage/muti-data-source.png)
+
+参数示例：
+```json
+{
+    "executionContent": {"code": "show databases", "runType":  "jdbc"},
+    "params": {"variable": {}, "configuration": {"startup":{}, 
+    "runtime": 
+    	{ 
+    		"dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
+    	}
+    }}},
+    "source":  {"scriptPath": ""},
+    "labels": {
+        "engineType": "jdbc-4",
+        "userCreator": "linkis-IDE"
+    }
+}
+```
+
+参数：wds.linkis.engine.runtime.datasource为固定名称的配置，不要随意修改名称定义
+
+2、通过DSS的Scripts代码提交入口下拉筛选需要提交的数据源，如下图：
+![](/Images-zh/EngineUsage/muti-data-source-usage.png)
+
+多数据源的功能说明：
+
+1）在之前的版本中，JDBC引擎对数据源的支持不够完善，尤其是搭配Scripts使用的时候，jdbc脚本类型只能绑定控制台的一套JDBC引擎参数，
+当我们有多数据源的切换需求时，只能修改jdbc引擎的连接参数，比较麻烦。
+
+2）配合数据源管理，我们引入JDBC引擎的多数据源切换功能，可以实现只设置数据源名称，就可把作业提交到不同的JDBC服务之上，普通用户不需要
+维护数据源的连接信息，避免了配置繁琐，也满足了数据源连接密码等配置的安全性需要。
+
+3）多数据源管理中设置的数据源，只有发布之后，并且没有过期的数据源才能被JDBC引擎加载到，否则会反馈给用户不同类型的异常提示。
+
+4）jdbc引擎参数的加载优先级为：任务提交传参 > 选择数据源的参数 > 控制台JDBC引擎的参数
+
 
 ## 4.JDBC引擎的用户设置
 
