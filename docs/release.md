@@ -5,7 +5,7 @@ sidebar_position: 0.1
 
 - [ElasticSearch engine usage instructions](/engine-usage/elasticsearch.md)
 - [Presto Engine Instructions](/engine-usage/presto.md)
-- [Integrate Knife4j and enable](/deployment/involve-knife4j-into-linkis)
+- [Integrate Knife4j and enable](/deployment/involve-knife4j-into-linkis.md)
 - [Data source function module interface optimization](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
 - [JDBC engine supports data source schema](/engine-usage/jdbc.md)
 - [version of Release-Notes](/download/release-notes-1.2.0)
