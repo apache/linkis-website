@@ -1,5 +1,5 @@
 ---
-title: Ceneric Api
+title: Public Api
 sidebar_position: 6
 ---
 ** CommonRestfulApi class **

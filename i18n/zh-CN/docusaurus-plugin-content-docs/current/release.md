@@ -2,14 +2,12 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-- [ElasticSearch引擎使用说明](/engine-usage/elasticsearch.md)
-- [Presto引擎使用说明](/engine-usage/presto.md)
-- [开启Prometheus监控](/deployment/involve-prometheus-into-linkis.md)
-- [自定义变量设计&内置变量](/architecture/commons/variable.md)
-- [EngineConn 历史信息记录特性](/architecture/computation-governance-services/engine/engine-conn-history.md)
-- [EngineConn Metrics 上报特性](/architecture/computation-governance-services/engine/engine-conn-metrics.md)
-- [ContextService 清理接口特性](/architecture/public-enhancement-services/context-service/content-service-cleanup.md)
-- [版本的Release-Notes](/download/release-notes-1.1.3)
+- [ElasticSearch 引擎使用说明](/engine-usage/elasticsearch.md)
+- [Presto 引擎使用说明](/engine-usage/presto.md)
+- [集成 Knife4j 和启用](/deployment/involve-knife4j-into-linkis)
+- [数据源功能模块接口优化](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
+- [JDBC 引擎支持数据源模式](/docs/engine-usage/jdbc.md)
+- [版本的 Release-Notes](/download/release-notes-1.2.0)
 
 ## 参数变化 
 

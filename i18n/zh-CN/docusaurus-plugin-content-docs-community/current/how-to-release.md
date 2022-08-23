@@ -240,6 +240,7 @@ mvn --encrypt-password <apache password>
   </profiles>
 </settings>
 ```
+
 :::caution 注意
 如果后续执行2.3步进行deploy时，报401，可以运行`mvn help:effective-settings` 检查下生效的maven `settings.xml`配置，
 可以尝试将上述的账户密码配置再自己maven环境的conf配置中，如：`D:\apache-maven-3.3.9\conf\setting.xml`
@@ -262,7 +263,7 @@ step1 基于待发布的开发分支，创建release-${release_version}-rc分支
 step2 创建新的github release
 
 进入到创建页面 https://github.com/apache/incubator-linkis/releases/new 
-基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc`的tag，填写标题`Apache Linkis(incubating) Release-1.1.2-Incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
+基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc`的tag，填写标题`Apache Linkis(incubating) Release-1.1.2-incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
 
  ![image](https://user-images.githubusercontent.com/7869972/180214706-7228e5ae-f810-4e07-80fc-67fcf01688eb.png)
 
@@ -284,6 +285,7 @@ git clone -b release-1.1.2-rc1  -c core.autocrlf=false  git@github.com:apache/in
 这会导致window下打的发布包 ，对于shell脚本在linux下直接运行，会出现换行符问题 ，clone时通过 `-c core.autocrlf=false` 关闭自动转换
 
 - 主仓库apache/incubator-linkis准备好发布分支/tag/release notes后，请克隆源码对应的发布分支release-1.1.2-rc1，进行下列步骤
+
 
 :::
 
@@ -542,7 +544,7 @@ Hello Linkis Community,
     This is a call for vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
 
 	Release notes:
-	    https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
+	    https://linkis.apache.org/download/release-notes-${release_version}-${rc_version}
 
     The release candidates:
     	https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
@@ -694,7 +696,7 @@ Hello Incubator Community,
         • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
 
     Release notes:
-        • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+        • https://linkis.apache.org/download/release-notes-${release_version}
 
     The artifacts signed with PGP key [填写你个人的KEY], corresponding to [填写你个人的邮箱], that can be found in keys file:
         • https://downloads.apache.org/incubator/linkis/KEYS

@@ -1,5 +1,5 @@
 ---
-title: Add Global Variable
+title: Global Variable Api
 sidebar_position: 23
 ---
 ** VariableRestfulApi class **

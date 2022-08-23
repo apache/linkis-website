@@ -1,3 +1,7 @@
+---
+title: Metadata Query Api
+sidebar_position: 3
+---
 
 # MetadataCoreRestful
 

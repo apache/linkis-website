@@ -79,4 +79,6 @@ Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://gith
 
 ## 致谢 
 
-Apache Linkis(incubating) 1.1.1的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors: AbnerHung、Alexkun、barry8023、CCweixiao 、Davidhua1996、Fuu3214、Liveipool、casionone、demonray、husofskyzy、jackxu2011 、legendtkl、lizheng920625、maidangdang44、peacewong、seedscoder
+Apache Linkis(incubating) 1.1.1的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors: 
+AbnerHung、Alexkun、barry8023、CCweixiao 、Davidhua1996、Fuu3214、Liveipool、
+casionone、demonray、husofskyzy、jackxu2011 、legendtkl、lizheng920625、maidangdang44、peacewong、seedscoder

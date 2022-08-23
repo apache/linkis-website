@@ -1,16 +1,15 @@
 ---
-title: Version overview
+title: Version Overview
 sidebar_position: 0.1
 ---
 
-- [ElasticSearch Engine usage introduction](/engine-usage/elasticsearch.md)
-- [Presto Engine usage introduction](/engine-usage/presto.md)
-- [Enable Prometheus monitoring](/deployment/involve-prometheus-into-linkis.md)
-- [Custom Variable Design & Built-in Variables](/architecture/commons/variable.md)
-- [EngineConn History Information Recording Features](/architecture/computation-governance-services/engine/engine-conn-history.md)
-- [EngineConn Metrics reporting feature](/architecture/computation-governance-services/engine/engine-conn-metrics.md)
-- [ContextService cleanup interface features](/architecture/public-enhancement-services/context-service/content-service-cleanup.md)
-- [Release-Notes](/download/release-notes-1.1.3)
+- [ElasticSearch engine usage instructions](/engine-usage/elasticsearch.md)
+- [Presto Engine Instructions](/engine-usage/presto.md)
+- [Integrate Knife4j and enable](/deployment/involve-knife4j-into-linkis)
+- [Data source function module interface optimization](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
+- [JDBC engine supports data source schema](/docs/engine-usage/jdbc.md)
+- [version of Release-Notes](/download/release-notes-1.2.0)
+
 
 ## Configuration Item
 
