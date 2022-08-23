@@ -18,6 +18,7 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 * 支持SDK客户端任务重试 
 * 新增单个Entrance任务统计接口 
 * 管理台资源管理页面支持查看历史引擎信息
+
 缩写：
 - COMMON: Linkis Common
 - EC: Engineconn

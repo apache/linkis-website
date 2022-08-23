@@ -1,13 +1,14 @@
 ---
-title: 元数据查询API
+title: 元数据查询API(新)
 sidebar_position: 3
 ---
-> 本接口为已废弃的老接口，请使用新接口[元数据查询新API](./metadatamanager-api.md)
+> 元数据查询接口优化之后的新接口，已废弃的旧接口见[元数据查询API](./metadatamanager-api.md)，相对于旧接口，主要调整请求的路径和接口参数命名
 
-** MetadataCoreRestful 类 ** 
+** MetadataQueryRestful 类 **
 
 ## getColumns
-**接口地址**:`/api/rest_j/v1/metadatamanager/columns/{dataSourceId}/db/{database}/table/{table}`
+
+**接口地址**:`/api/rest_j/v1//metadataQuery/getColumns`
 
 **请求方式**:`GET`
 
@@ -21,10 +22,10 @@ sidebar_position: 3
 
 | 参数名称  | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string|
-|database|database|path|true|string|
-|system|system|query|true|string|
-|table|table|path|true|string|
+|dataSourceName|dataSourceName|path|true|string||
+|database|database|path|true|string||
+|system|system|query|true|string||
+|table|table|path|true|string||
 
 **响应示例**:
 
@@ -53,78 +54,6 @@ sidebar_position: 3
                 "name": "datasource_desc",
                 "type": "VARCHAR"
             },
-            {
-                "index": 4,
-                "primaryKey": false,
-                "name": "datasource_type_id",
-                "type": "INT"
-            },
-            {
-                "index": 5,
-                "primaryKey": false,
-                "name": "create_identify",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 6,
-                "primaryKey": false,
-                "name": "create_system",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 7,
-                "primaryKey": false,
-                "name": "parameter",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 8,
-                "primaryKey": false,
-                "name": "create_time",
-                "type": "DATETIME"
-            },
-            {
-                "index": 9,
-                "primaryKey": false,
-                "name": "modify_time",
-                "type": "DATETIME"
-            },
-            {
-                "index": 10,
-                "primaryKey": false,
-                "name": "create_user",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 11,
-                "primaryKey": false,
-                "name": "modify_user",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 12,
-                "primaryKey": false,
-                "name": "labels",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 13,
-                "primaryKey": false,
-                "name": "version_id",
-                "type": "INT"
-            },
-            {
-                "index": 14,
-                "primaryKey": false,
-                "name": "expire",
-                "type": "TINYINT"
-            },
-            {
-                "index": 15,
-                "primaryKey": false,
-                "name": "published_version_id",
-                "type": "INT"
-            }
         ]
     }
 }
@@ -132,7 +61,7 @@ sidebar_position: 3
 
 
 ## getDatabases
-**接口地址**:`/api/rest_j/v1/metadatamanager/dbs/{dataSourceId}`
+**接口地址**:`/api/rest_j/v1//metadataQuery/getDatabases`
 
 **请求方式**:`GET`
 
@@ -146,8 +75,8 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string|
-|system|system|query|true|string|
+|dataSourceName|dataSourceName|path|true|string||
+|system|system|query|true|string||
 
 **响应示例**:
 ```javascript
@@ -167,7 +96,10 @@ sidebar_position: 3
 
 
 ## getPartitions
-**接口地址**:`/api/rest_j/v1/metadatamanager/partitions/{dataSourceId}/db/{database}/table/{table}`
+
+> 返回值调整为 props -> partitions
+
+**接口地址**:`/api/rest_j/v1//metadataQuery/getPartitions`
 
 **请求方式**:`GET`
 
@@ -181,11 +113,11 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string|
-|database|database|path|true|string|
-|system|system|query|true|string|
-|table|table|path|true|string|
-|traverse|traverse|query|false|boolean|
+|dataSourceName|dataSourceName|path|true|string||
+|database|database|path|true|string||
+|system|system|query|true|string||
+|table|table|path|true|string||
+|traverse|traverse|query|false|boolean||
 
 **响应示例**:
 ```javascript
@@ -194,7 +126,7 @@ sidebar_position: 3
     "status": 0,
     "message": "OK",
     "data": {
-        "props": {
+        "partitions": {
             "partKeys": [
                 "ds"
             ],
@@ -205,7 +137,7 @@ sidebar_position: 3
 ```
 
 ## getTableProps
-**接口地址**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}`
+**接口地址**:`/api/rest_j/v1//metadataQuery/getTableProps`
 
 **请求方式**:`GET`
 
@@ -220,10 +152,10 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string|
-|database|database|path|true|string|
-|system|system|query|true|string|
-|table|table|path|true|string|
+|dataSourceName|dataSourceName|path|true|string||
+|database|database|path|true|string||
+|system|system|query|true|string||
+|table|table|path|true|string||
 
 **响应示例**:
 ```javascript
@@ -259,7 +191,7 @@ sidebar_position: 3
 
 
 ## getPartitionProps
-**接口地址**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}/partition/{partition}`
+**接口地址**:`/api/rest_j/v1//metadataQuery/getPartitionProps`
 
 **请求方式**:`GET`
 
@@ -273,11 +205,11 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string|
-|database|database|path|true|string|
-|partition|partition|path|true|string|
-|system|system|query|true|string|
-|table|table|path|true|string|
+|dataSourceName|dataSourceName|path|true|string||
+|database|database|path|true|string||
+|partition|partition|path|true|string||
+|system|system|query|true|string||
+|table|table|path|true|string||
 
 
 **响应示例**:
@@ -292,7 +224,7 @@ sidebar_position: 3
 
 
 ## getTables
-**接口地址**:`/api/rest_j/v1/metadatamanager/tables/{dataSourceId}/db/{database}`
+**接口地址**:`/api/rest_j/v1//metadataQuery/getTables`
 
 **请求方式**:`GET`
 
@@ -306,9 +238,9 @@ sidebar_position: 3
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string|
-|database|database|path|true|string|
-|system|system|query|true|string|
+|dataSourceName|dataSourceName|path|true|string||
+|database|database|path|true|string||
+|system|system|query|true|string||
 
 **响应示例**:
 ```javascript
