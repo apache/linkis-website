@@ -1,3 +1,8 @@
+---
+title: EC History List Architecture Design
+sidebar_position: 4
+---
+
 ## 1. General
 ### Requirements Background
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now LinkisManager only records the information and resource usage of the running EengineConn, but this information is lost after the task ends. It is inconvenient to do some statistics and view of historical ECs, or to view logs of ECs that have ended. It is more important to record the historical EC.

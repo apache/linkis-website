@@ -1,3 +1,8 @@
+---
+title: EC历史引擎信息记录架构
+sidebar_position: 3
+---
+
 ## 1. 总述
 ### 需求背景
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在LinkisManager只记录了在运行中的EengineConn的信息和资源使用，但是在任务结束后这些信息就丢失了。如果需要做历史EC的一些统计和查看，或者要去查看已经结束的EC的日志都不太方便。对于历史EC的记录显得较为重要。
