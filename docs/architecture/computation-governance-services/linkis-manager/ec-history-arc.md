@@ -16,7 +16,7 @@ sidebar_position: 4
 
 ### 2.1 Technical Architecture
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Because this implementation needs to record EC information and resource information, and resource information is divided into three concepts, such as requesting resources, actual use of resources, and release of resources, and all need to be recorded. Therefore, this implementation is based on the life cycle of the EC in the ResourceManager. When the EC completes the above three stages, the update operation of the EC information is added. The whole is shown in the figure below
-![arc](/Images/Architecture/ecHistoryArc.png)
+![arc](/Images/Architecture/LinkisManager/ecHistoryArc.png)
 
 ### 2.2 Business Architecture
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This feature is mainly to complete the information recording of historical EC and support the log viewing of historical technical EC. The modules designed by the function point are as follows:
@@ -31,7 +31,7 @@ sidebar_position: 4
 [Input] The input is mainly the information input when creating the engine, requesting resources, reporting the actual use of resources after the engine starts, and releasing resources when the engine exits, mainly including the requested label, resource, ec unique ticketid, and resource type.
 [Processing process] The information recording service processes the input data, and parses the corresponding engine information, user, creator, and log path through tags. Confirm the resource request, use, and release by the resource type. Then talk about the information stored in the DB.
 The call sequence diagram is as follows:
-![Time](/Images/Architecture/ecHistoryTime.png)
+![Time](/Images/Architecture/LinkisManager/ecHistoryTime.png)
 
 
 ## 4. DDL:

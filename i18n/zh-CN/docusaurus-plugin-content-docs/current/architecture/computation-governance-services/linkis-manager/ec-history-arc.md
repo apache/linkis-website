@@ -16,7 +16,7 @@ sidebar_position: 3
 
 ### 2.1 技术架构
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为此次的实现需要记录EC的信息和资源信息，而资源信息分为请求资源、真实使用资源、释放资源等三个概念，而且都需要进行记录。所以此次实现为基于EC在ResourceManager的生命周期去进行实现，在EC完成以上三个阶段时，都加上EC信息的更新操作。整体如下图所示
-![arc](/Images/Architecture/ecHistoryArc.png)
+![arc](/Images/Architecture/LinkisManager/ecHistoryArc.png)
 
 ### 2.2 业务架构
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此次的特性主要是为了完成历史EC的信息记录和支持历史技术EC的日志查看。功能点设计的模块如下：
@@ -31,7 +31,7 @@ sidebar_position: 3
 [输入端] 输入端主要为创建引擎时请求资源、引擎启动后上报真实使用资源、引擎退出时释放资源时输入的信息，主要包括请求的label、资源、ec唯一的ticketid、资源类型.
 [处理流程] 信息记录service，对输入的数据进行处理，通过标签会解析出对应的引擎信息、用户、creator，以及日志路径。通过资源类型确认是资源请求、使用、释放。接着讲这些信息存储到DB中。
 调用时序图如下：
-![Time](/Images/Architecture/ecHistoryTime.png)
+![Time](/Images/Architecture/LinkisManager/ecHistoryTime.png)
 
 
 ## 4. 数据结构：
