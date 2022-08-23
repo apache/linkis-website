@@ -11,7 +11,7 @@ Idea enhancement plugin
 
 - JUnitGenerator V2. 0 standard module for generating test cases
 - Create the allnewset object and set the default value for allnewset
-- The association mapping between mybatisx ADO and mapper is easy to view
+- The association mapping between mybatisx DAO and mapper is easy to view
 
 ### Configure the Template of JUnit in Idea
 
@@ -313,11 +313,11 @@ Main scenarios: scenarios with and without unnecessary parameters are abnormal
         logger.info(mvcResult.getResponse().getContentAsString());
     }
 
-``` 
+```
 
 ### Unit Test of Server class
    //todo
-   
+
 ### Unit Test of Dao class
 
 Use H2 database, application. In the configuration file In properties, you need to configure the basic information of H2 database and the relevant path information of mybatis  
