@@ -4,9 +4,9 @@ sidebar_position: 0.1
 --- 
 - [ElasticSearch 引擎使用说明](/engine-usage/elasticsearch.md)
 - [Presto 引擎使用说明](/engine-usage/presto.md)
-- [集成 Knife4j 和启用](/deployment/involve-knife4j-into-linkis)
+- [集成 Knife4j 和启用](/deployment/involve-knife4j-into-linkis.md)
 - [数据源功能模块接口优化](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
-- [JDBC 引擎支持数据源模式](/docs/engine-usage/jdbc.md)
+- [JDBC 引擎支持数据源模式](/engine-usage/jdbc.md)
 - [版本的 Release-Notes](/download/release-notes-1.2.0)
 
 ## 参数变化 

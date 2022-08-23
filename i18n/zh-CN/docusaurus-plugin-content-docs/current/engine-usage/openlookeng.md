@@ -1,5 +1,5 @@
 ---
-title: openLooKeng 引擎
+title: OpenLooKeng 引擎
 sidebar_position: 8
 ---
 

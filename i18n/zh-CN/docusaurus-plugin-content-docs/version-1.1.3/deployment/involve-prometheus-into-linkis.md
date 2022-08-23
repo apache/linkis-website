@@ -1,5 +1,5 @@
 ---
-title: 开启Prometheus监控
+title: 开启 Prometheus 监控
 sidebar_position: 11
 ---
 这篇文章描述了如何让Prometheus监控所有正在运行的Linkis服务。
