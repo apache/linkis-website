@@ -1,5 +1,5 @@
 ---
-title: Service isolation Design
+title: 微服务租户隔离架构设计
 sidebar_position: 2
 ---
 
