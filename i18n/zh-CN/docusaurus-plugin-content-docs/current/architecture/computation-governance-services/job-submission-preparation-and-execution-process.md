@@ -3,170 +3,179 @@ title: Linkis任务执行流程
 sidebar_position: 1
 ---
 
-计算任务（Job）的提交执行是Linkis提供的核心能力，它几乎串通了Linkis计算治理架构中的所有模块，在Linkis之中占据核心地位。
+>  Linkis任务执行是Linkis的核心功能，调用到Linkis的计算治理服务、公共增强服务，微服务治理的三层服务，现在已经支持了OLAP、OLTP、Streaming等引擎类型的任务执行，本文将对OLAP类型引擎的任务提交、准备、执行、结果返回等流程进行介绍。
 
-我们将用户的计算任务从客户端提交开始，到最后的返回结果为止，整个流程分为三个阶段：提交 -> 准备 -> 执行，如下图所示：
+## 关键名词：
+LinkisMaster：Linkis的计算治理服务层架中的管理服务，主要包含了AppManager、ResourceManager、LabelManager等几个管控服务。原名LinkisManager服务
+Entrance：计算治理服务层架中的入口服务，完成任务的调度、状态管控、任务信息推送等功能
+Orchestrator：Linkis的编排服务，提供强大的编排和计算策略能力，满足多活、主备、事务、重放、限流、异构和混算等多种应用场景的需求。现阶段Orchestrator被Entrance服务所依赖
+EngineConn（EC）：引擎连接器，负责接受任务并提交给底层引擎如Spark、hive、Flink、Presto、trino等进行执行
+EngineConnManager（ECM）：Linkis 的EC进程管理服务，负责管控EngineConn的生命周期（启动、停止）
+LinkisEnginePluginServer：该服务负责管理各个引擎的启动物料和配置，另外提供每个EngineConn的启动命令获取，以及每个EngineConn所需要的资源
+PublicEnhencementService（PES）： 公共增强服务，为其他微服务模块提供统一配置管理、上下文服务、物料库、数据源管理、微服务管理和历史任务查询等功能的模块
 
-![计算任务整体流程图](/Images-zh/Architecture/Job提交准备执行流程/计算任务整体流程图.png)
+## 一、Linkis交互式任务执行架构
+### 1.1、任务执行思考
+&nbsp;&nbsp;&nbsp;&nbsp;在现有Linkis1.0任务执行架构之前，也经历了多次演变，从最开始用户一多起来就各种FullGC导致服务崩溃，到用户开发的脚本如何支持多平台、多租户、强管控、高并发运行，我们遇见了如下几个问题：
+1. 如何支持租户户的上万并发并互相隔离?
+2. 如何支持上下文统一 ，用户定义的UDF、自定义变量等支持多个系统使用?
+3. 如何支持高可用，做到用户提交的任务能够正常运行完?
+4. 如何支持任务的底层引擎日志、进度、状态能够实时推送给前端？
+5. 如何支持多种类型的任务提交sql、python、shell、scala、java等
 
-其中：
+### 1.2、Linkis任务执行设计
+&nbsp;&nbsp;&nbsp;&nbsp;基于以上5个问题出发，Linkis将OLTP任务分成了四个阶段，分别是:
+1. 提交阶段：APP提交到Linkis的CG-Entrance服务到完成任务的持久化（PS-JobHistory）以及任务的各种拦截器处理（危险语法、变量替换、参数检查）等步骤，并做生产者消费者的并发控制；
+2. 准备阶段：任务在Entrance被Scheduler消费调度给Orchestrator模块进行任务的编排、并向LinkisMaster完成EngineConn的申请，在这过程中会对租户的资源进行管控；
+3. 执行阶段：任务从Orchestrator提交给EngineConn执行，EngineConn具体提交底层引擎进行执行，并实时将任务的信息推送给调用方；
+4. 结果返回阶段：向调用方返回结果，支持json和io流返回结果集
+   Linkis的整体任务执行架构如下图所示：
+   ![arc](/Images/Architecture/Job_submission_preparation_and_execution_process/linkis_job_arc.png)
 
-- Entrance作为提交阶段的入口，提供任务的接收、调度和Job信息的转发能力，是所有计算型任务的统一入口，它将把计算任务转发给Orchestrator进行编排和执行；
+## 二、任务执行流程介绍
+&nbsp;&nbsp;&nbsp;&nbsp;首先我们先对OLAP型任务的处理流程进行一个简要介绍，任务整体的一个执行流程如下图所示：
+![flow](/Images/Architecture/Job_submission_preparation_and_execution_process/linkis_job_flow.png)
 
-- Orchestrator作为准备阶段的入口，主要提供了Job的解析、编排和执行能力。。
+&nbsp;&nbsp;&nbsp;&nbsp;整个任务涉及到了所有的计算治理的所有服务，任务通过Gateway转发到Linkis的人口服务Entrance后，会通过对任务的标签进行多级调度（生产者消费者模式）通过FIFO的模式完成任务的调度执行，Entrance接着将任务提交给Orchestrator进行任务编排和提交，Orchestrator会向LinkisMaster完成EC的申请，在这过程中会通过任务的Label进行资源管控和引擎版本选择申请不同的EC。接着Orchestrator将编排后的任务提交给EC进行执行，EC会将job的日志、进度、资源使用等信息推动给Entrance服务，并推送给调用方。下面我们基于上图和结合任务的四个阶段（提交、准备、执行、返回）对任务的执行流程进行一个简要介绍。
 
-- Linkis Manager：是计算治理能力的管理中枢，主要的职责为：
-  
-  1. ResourceManager：不仅具备对Yarn和Linkis EngineConnManager的资源管理能力，还将提供基于标签的多级资源分配和回收能力，让ResourceManager具备跨集群、跨计算资源类型的全资源管理能力；
-  
-  2. AppManager：统筹管理所有的EngineConnManager和EngineConn，包括EngineConn的申请、复用、创建、切换、销毁等生命周期全交予AppManager进行管理；
-  
-  3. LabelManager：将基于多级组合标签，为跨IDC、跨集群的EngineConn和EngineConnManager路由和管控能力提供标签支持；
-  
-  4. EngineConnPluginServer：对外提供启动一个EngineConn的所需资源生成能力和EngineConn的启动命令生成能力。
 
-- EngineConnManager：是EngineConn的管理器，提供引擎的生命周期管理，同时向RM汇报负载信息和自身的健康状况。
-
-- EngineConn：是Linkis与底层计算存储引擎的实际连接器，用户所有的计算存储任务最终都会交由EngineConn提交给底层计算存储引擎。根据用户的不同使用场景，EngineConn提供了交互式计算、流式计算、离线计算、数据存储任务的全栈计算能力框架支持。
-
-接下来，我们将详细介绍计算任务从 提交 -> 准备 -> 执行 的三个阶段。
-
-## 一、提交阶段
-
-提交阶段主要是Client端 -> Linkis Gateway -> Entrance的交互，其流程如下：
-
-![提交阶段流程图](/Images-zh/Architecture/Job提交准备执行流程/提交阶段流程图.png)
-
-1. 首先，Client（如前端或客户端）发起Job请求，Job请求信息精简如下
-（关于Linkis的具体使用方式，请参考 [如何使用Linkis](../../user-guide/how-to-use.md)）：
-
-```
-POST /api/rest_j/v1/entrance/submit
-```
-
-```json
-{
-    "executionContent": {"code": "show tables", "runType": "sql"},
-    "params": {"variable": {}, "configuration": {}},  //非必须
-    "source": {"scriptPath": "file:///1.hql"}, //非必须，仅用于记录代码来源
-    "labels": {
-        "engineType": "spark-2.4.3",  //指定引擎
-        "userCreator": "johnnwnag-IDE"  // 指定提交用户和提交系统
+### 2.1 Job提交阶段
+&nbsp;&nbsp;&nbsp;&nbsp;Job提交阶段Linkis支持多种类型的任务：SQL, Python, Shell, Scala, Java等，支持不同的提交接口，支持Restful/JDBC/Python/Shell等提交接口。提交任务主要包含任务代码、标签、参数等信息即可，下面是一个RestFul的示例：
+通过Restfu接口发起一个Spark Sql任务
+```JSON
+	"method": "/api/rest_j/v1/entrance/submit",
+	"data": {
+  "executionContent": {
+    "code": "select * from table01",
+    "runType": "sql"
+  },
+  "params": {
+    "variable": {// task variable 
+      "testvar": "hello"
+    },
+    "configuration": {
+      "runtime": {// task runtime params 
+        "jdbc.url": "XX"
+      },
+      "startup": { // ec start up params 
+        "spark.executor.cores": "4"
+      }
     }
+  },
+  "source": { //task source information
+    "scriptPath": "file:///tmp/hadoop/test.sql"
+  },
+  "labels": {
+    "engineType": "spark-2.4.3",
+    "userCreator": "hadoop-IDE"
+  }
 }
 ```
+1. 任务首先会提交给Linkis的网关linkis-mg-gateway服务，Gateway会通过任务中是否带有routeLabel来转发给对应的Entrance服务，如果没有RouteLabel则随机转发给一个Entrance服务
+2. Entrance接受到对应的Job后，会调用PES中JobHistory模块的RPC对Job的信息进行持久化，并对参数和代码进性解析对自定义变量进行替换，并提交给调度器（默认FIFO调度）调度器会通过任务的标签进行分组，标签不同的任务互相不影响调度。
+3. Entrance在通过FIFO调度器消费后会提交给Orchestrator进行编排执行，就完成了任务的提交阶段
+   主要涉及的类简单说明：
+```
+EntranceRestfulApi: 入口服务的Controller类，任务提交、状态、日志、结果、job信息、任务kill等操作
+EntranceServer：任务的提交入口，完成任务的持久化、任务拦截解析（EntranceInterceptors）、提交给调度器
+EntranceContext：Entrance的上下文持有类，包含获取调度器、任务解析拦截器、logManager、持久化、listenBus等方法
+FIFOScheduler： FIFO调度器，用于调度任务
+EntranceExecutor：调度的执行器，任务调度后会提交给EntranceExecutor进行执行
+EntranceJob：调度器调度的job任务，通过EntranceParser解析用户提交的JobRequest进行生成和JobRequest一一对应
+```
+此时任务状态为排队状态
 
-2. Linkis-Gateway接收到请求后，根据URI ``/api/rest_j/v1/${serviceName}/.+``中的serviceName，确认路由转发的微服务名，这里Linkis-Gateway会解析出微服务名为entrance，将Job请求转发给Entrance微服务。需要说明的是：如果用户指定了路由标签，则在转发时，会根据路由标签选择打了相应标签的Entrance微服务实例进行转发，而不是随机转发。
+### 2.2 Job准备阶段
+&nbsp;&nbsp;&nbsp;&nbsp;Entrance的调度器，会按照Job中的Label生成不同的消费器去消费任务，任务被消费修改状态为Running时开始进入准备状态，到对应的任务后就是任务的准备阶段开始了。主要涉及以下几个服务：Entrance、LinkisMaster、EnginepluginServer、EngineConnManager、EngineConn，下面将对以下服务进行分开介绍。
+### 2.2.1 Entrance步骤：
+1. 消费器（FIFOUserConsumer）通过对应标签配置的支持并发数进行消费将任务消费调度给编排器（Orchestrator）进行执行
+2. 首先是Orchestrator对提交的任务进行编排，对于普通的hive和Spark单引擎的任务主要是任务的解析、label检查和校验，对于多数据源混算的场景会拆分不同的任务提交给不同的数据源进行执行等
+3. 在准备阶段，编排器Orchestrator另外一个重要的事情是通过请求LinkisMaster获取用于执行任务的EngineConn。如果LinkisMaster有对应的EngineConn可以复用则直接返回，如果没有则创建EngineConn。
+4. Orchestrator拿到任务后提交给EngineConn进行执行，准备阶段结束，进入Job执行阶段
+   主要涉及的类简单说明：
 
-3. Entrance接收到Job请求后，会先简单校验请求的合法性，然后通过RPC调用JobHistory对Job的信息进行持久化，然后将Job请求封装为一个计算任务，放入到调度队列之中，等待被消费线程消费。
+```
+## Entrance
+FIFOUserConsumer: 调度器的消费器，会根据标签生成不同的消费器，如IDE-hadoop、spark-2.4.3生成不同的消费器。消费提交的任务。并控制同时运行的任务个数，通过对应标签配置的并发数：wds.linkis.rm.instance
+DefaultEntranceExecutor：任务执行的入口，发起编排器的调用：callExecute
+JobReq: 编排器接受的任务对象，通过EntranceJob转换而来，主要包括代码、标签信息、参数等
+OrchestratorSession：类似于SparkSession，是编排器的入口。正常单例。
+Orchestration：JobReq被OrchestratorSession编排后的返回对象，支持执行和打印执行计划等
+OrchestrationFuture： Orchestration选择异步执行的返回，包括cancel、waitForCompleted、getResponse等常用方法
+Operation：用于扩展操作任务的接口，现在已经实现了用于获取日志的LogOperation、获取进度的ProgressOperation等
 
-4. 调度队列会为每个组开辟一个消费队列 和 一个消费线程，消费队列用于存放已经初步封装的用户计算任务，消费线程则按照FIFO的方式，不断从消费队列中取出计算任务进行消费。目前默认的分组方式为 Creator + User（即提交系统 + 用户），因此，即便是同一个用户，只要是不同的系统提交的计算任务，其实际的消费队列和消费线程都完全不同，完全隔离互不影响。（温馨提示：用户可以按需修改分组算法）
+## Orchestrator
+CodeLogicalUnitExecTask: 代码类型任务的执行入口，任务最终编排运行后会调用该类的execute方法，首先会向LinkisMaster请求EngineConn再提交执行
+DefaultCodeExecTaskExecutorManager：负责管控代码类型的EngineConn，包括请求和释放EngineConn
+ComputationEngineConnManager：负责LinkisMaster进行对接，请求和释放ENgineConn
+```
 
-5. 消费线程取出计算任务后，会将计算任务提交给Orchestrator，由此正式进入准备阶段。
+### 2.2.2 LinkisMaster步骤：
 
-## 二、 准备阶段
+1.LinkisMaster接受到Entrance服务发出的请求EngineConn请求进行处理
+2.判断是否有对应Label可以复用的EngineConn，有则直接返回
+3.如果没有则进入创建EngineConn流程：
+- 首先通过Label选择合适的EngineConnManager服务。
+- 接着通过调用EnginePluginServer获取本次请求EngineConn的资源类型和资源使用，
+- 通过资源类型和资源，判断对应的Label是否还有资源，如果有则进入创建，否则抛出重试异常
+- 请求第一步的EngineConnManager启动EngineConn
+- 等待EngineConn空闲，返回创建的EngineConn，否则判断异常是否可以重试
 
-准备阶段主要有两个流程，一是向LinkisManager申请一个可用的EngineConn，用于接下来的计算任务提交执行，二是Orchestrator对Entrance提交过来的计算任务进行编排，将一个用户计算请求，通过编排转换成一个物理执行树，然后交给第三阶段的执行阶段去真正提交执行。
+4.锁定创建的EngineConn返回给Entrance，注意这里为异步请求Entrance发出EC请求后会接受到对应的请求ID，LinkisMaster请求完毕后主动通过给对应的Entrance服务
 
-#### 2.1 向LinkisManager申请可用EngineConn
+主要涉及的类简单说明：
+```
+## LinkisMaster
+EngineAskEngineService： LinkisMaster负责处理引擎请求的处理类，主要逻辑通过调用EngineReuseService判断是否有EngineConn可以复用，否则调用EngineCreateService创建EngineConn
+EngineCreateService：负责创建EngineConn，主要几个步骤：
 
-如果在LinkisManager中，该用户存在可复用的EngineConn，则直接锁定该EngineConn，并返回给Orchestrator，整个申请流程结束。
 
-如何定义可复用EngineConn？指能匹配计算任务的所有标签要求的，且EngineConn本身健康状态为Healthy（负载低且实际EngineConn状态为Idle）的，然后再按规则对所有满足条件的EngineConn进行排序选择，最终锁定一个最佳的EngineConn。
+## LinkisEnginePluginServer
+EngineConnLaunchService：提供ECM获取对应引擎类型EngineConn的启动信息
+EngineConnResourceFactoryService：提供给LinkisMaster获取对应本次任务所需要启动EngineConn需要的资源
+EngineConnResourceService： 负责管理引擎物料，包括刷新和刷新所有
 
-如果该用户不存在可复用的EngineConn，则此时会触发EngineConn新增流程，关于EngineConn新增流程，请参阅：[EngineConn新增流程](engine/add-an-engine-conn.md) 。
+## EngineConnManager
+AbstractEngineConnLaunchService：负责启动接受LinkisMaster请求启动EngineConn的请求，并完成EngineConn引擎的启动
+ECMHook： 用于处理EngineConn启动前后的前置后置操作，如hive UDF Jar加入到EngineConn启动的classPath中
+```
 
-#### 2.2 计算任务编排
 
-Orchestrator主要负责将一个计算任务（JobReq），编排成一棵可以真正执行的物理执行树（PhysicalTree），并提供Physical树的执行能力。
+这里需要说明的是如果用户存在一个可用空闲的引擎，则会跳过1，2，3，4 四个步骤；
 
-这里先重点介绍Orchestrator的计算任务编排能力，如下图：
+### 2.3 Job执行阶段
+&nbsp;&nbsp;&nbsp;&nbsp;当Entrance服务中的编排器拿到EngineConn后就进入了执行阶段，CodeLogicalUnitExecTask会将任务提交给EngineConn进行执行，EngineConn会通过对应的CodeLanguageLabel创建不同的执行器进行执行。主要步骤如下：
+1. CodeLogicalUnitExecTask通过RPC提交任务给到EngineConn
+2. EngineConn判断是否有对应的CodeLanguageLabel的执行器，如果没有则创建
+3. 提交给Executor进行执行，通过链接到具体底层的引擎执行进行执行，如Spark通过sparkSession提交sql、pyspark、scala任务
+4. 任务状态流转实时推送给Entrance服务
+5. 通过实现log4jAppender，SendAppender通过RPC将日志推送给Entrance服务
+6. 通过定时任务实时推送任务进度和资源信息给到Entrance
 
-![编排流程图](/Images-zh/Architecture/Job提交准备执行流程/编排流程图.png)
+主要涉及的类简单说明：
+```
+ComputationTaskExecutionReceiver：Entrance服务端编排器用于接收EngineConn所有RPC请求的服务类，负责接收进度、日志、状态、结果集在通过ListenerBus的模式推送给上次调用方
+TaskExecutionServiceImpl：EngineConn接收Entrance所有RPC请求的服务类，包括任务执行、状态查询、任务Kill等
+ComputationExecutor：具体的任务执行父类，比如Spark分为SQL/Python/Scala Executor
+ComputationExecutorHook: 用于Executor创建前后的Hook，比如初始化UDF、执行默认的UseDB等
+EngineConnSyncListener: ResultSetListener/TaskProgressListener/TaskStatusListener 用于监听Executor执行任务过程中的进度、结果集、和进度等信息
+SendAppender： 负责推送EngineConn端的日志给到Entrance
+```
+### 2.4 Job结果推送阶段
+&nbsp;&nbsp;&nbsp;&nbsp;该阶段比较简单，主要用于将任务在EngineConn产生的结果集返回给Client，主要步骤如下：
+1. 首先在EngineConn执行任务过程中会进行结果集写入，写入到文件系统中获取到对应路径。当然也支持内存缓存，默认写文件
+2. EngineConn将对应的结果集路径和结果集个数返回给Entrance
+3. Entrance调用JobHistory将结果集路径信息更新到任务表中
+4. Client通过任务信息获取到结果集路径并读取结果集
+   主要涉及的类简单说明：
+```
+EngineExecutionContext:负责创建结果集和推送结果集给到Entrance服务
+ResultSetWriter：负责写结果集到文件系统中支持linkis-storage支持的文件系统，现在以及支持本地和HDFS。支持的结果集类型，表格、文本、HTML、图片等
+JobHistory：存储有任务的所有信息包括状态、结果路径、指标信息等对应DB中的实体类
+ResultSetReader：读取结果集的关键类
+```
 
-其主要流程如下：
+## 三、总结
+&nbsp;&nbsp;&nbsp;&nbsp;上面我们主要介绍了Linkis计算治理服务组CGS,的OLAP任务的整个执行流程，按照任务请求的处理过程对任务拆分成了提交、准备、执行、返回结果四个阶段。CGS主要就是遵循这4个阶段来设计实现的，服务于这4个阶段，且为每个阶段提供了强大和灵活的能力。在提交阶段，主要提供通用的接口，接收上层应用工具提交过来的任务，并能提供基础的解析和拦截能力；在准备阶段，主要通过编排器Orchestrator，和LinkisMaster完成对任务的解析编排，并且做资源控制，和完成EngineConn的创建；执行阶段，通过引擎连接器EngineConn来去实际完成和底层引擎的对接，通常每个用户要连接不同的底层引擎，就得先启动一个对应的底层引擎连接器EC。计算任务通过EC，来提交给底层引擎做实际的执行，和状态、日志、结果等信息的获取，及；在结果返回阶段，返回任务执行的结果信息，支持按照多种返回模式，如：文件流、JSON、JDBC等。整体的时序图如下：
 
-- Converter（转换）：完成对用户提交的JobReq（任务请求）转换为Orchestrator的ASTJob，该步骤会对用户提交的计算任务进行参数检查和信息补充，如变量替换等；
-
-- Parser（解析）：完成对ASTJob的解析，将ASTJob拆成由ASTJob和ASTStage组成的一棵AST树。
-
-- Validator（校验）： 完成对ASTJob和ASTStage的检验和信息补充，如代码检查、必须的Label信息补充等。
-
-- Planner（计划）：将一棵AST树转换为一棵Logical树。此时的Logical树已经由LogicalTask组成，包含了整个计算任务的所有执行逻辑。
-
-- Optimizer(优化阶段)：将一棵Logical树转换为Physica树，并对Physical树进行优化。
-
-一棵Physical树，其中的很多节点都是计算策略逻辑，只有中间的ExecTask，才真正封装了将用户计算任务提交给EngineConn进行提交执行的执行逻辑。如下图所示：
-
-![Physical树](/Images-zh/Architecture/Job提交准备执行流程/Physical树.png)
-
-不同的计算策略，其Physical树中的JobExecTask 和 StageExecTask所封装的执行逻辑各不相同。
-
-如多活计算策略下，用户提交的一个计算任务，其提交给不同集群的EngineConn进行执行的执行逻辑封装在了两个ExecTask中，而相关的多活策略逻辑则体现在了两个ExecTask的父节点StageExecTask（End）之中。
-
-这里举多活计算策略下的多读场景。
-
-多读时，实际只要求一个ExecTask返回结果，该Physical树就可以标记为执行成功并返回结果了，但Physical树只具备按依赖关系进行依次执行的能力，无法终止某个节点的执行，且一旦某个节点被取消执行或执行失败，则整个Physical树其实会被标记为执行失败，这时就需要StageExecTask（End）来做一些特殊的处理，来保证既可以取消另一个ExecTask，又能把执行成功的ExecTask所产生的结果集继续往上传，让Physical树继续往上执行。这就是StageExecTask所代表的计算策略执行逻辑。
-
-Linkis Orchestrator的编排流程与很多SQL解析引擎（如Spark、Hive的SQL解析器）存在相似的地方，但实际上，Linkis Orchestrator是面向计算治理领域针对用户不同的计算治理需求，而实现的解析编排能力，而SQL解析引擎是面向SQL语言的解析编排。这里做一下简单区分：
-
-1. Linkis Orchestrator主要想解决的，是不同计算任务对计算策略所引发出的编排需求。如：用户想具备多活的能力，则Orchestrator会为用户提交的一个计算任务，基于“多活”的计算策略需求，编排出一棵Physical树，从而做到往多个集群去提交执行这个计算任务，并且在构建整个Physical树的过程中，已经充分考虑了各种可能存在的异常场景，并都已经体现在了Physical树中。
-
-2. Linkis Orchestrator的编排能力与编程语言无关，理论上只要是Linkis已经对接的引擎，其支持的所有编程语言都支持编排；而SQL解析引擎只关心SQL的解析和执行，只负责将一条SQL解析成一颗可执行的Physical树，最终计算出结果。
-
-3. Linkis Orchestrator也具备对SQL的解析能力，但SQL解析只是Orchestrator Parser针对SQL这种编程语言的其中一种解析实现。Linkis Orchestrator的Parser也考虑引入Apache Calcite对SQL进行解析，支持将一条跨多个计算引擎（必须是Linkis已经对接的计算引擎）的用户SQL，拆分成多条子SQL，在执行阶段时分别提交给对应的计算引擎进行执行，最后选择一个合适的计算引擎进行汇总计算。
-
-<!--
-#todo  Orchestrator文档还没准备好！！
-关于Orchestrator的编排详细介绍，请参考：[Orchestrator架构设计]()
--->
-
-经过了Linkis Orchestrator的解析编排后，用户的计算任务已经转换成了一颗可被执行的Physical树。Orchestrator会将该Physical树提交给Orchestrator的Execution模块，进入最后的执行阶段。
-
-## 三、执行阶段
-
-执行阶段主要分为如下两步，这两步是Linkis Orchestrator提供的最后两阶段的能力：
-
-![执行阶段流程图](/Images-zh/Architecture/Job提交准备执行流程/执行阶段流程图.png)
-
-其主要流程如下：
-
-- Execution（执行）：解析Physical树的依赖关系，按照依赖从叶子节点开始依次执行。
-
-- Reheater（再热）：一旦Physical树有节点执行完成，都会触发一次再热。再热允许依照Physical树的实时执行情况，动态调整Physical树，继续进行执行。如：检测到某个叶子节点执行失败，且该叶子节点支持重试（如失败原因是抛出了ReTryExecption），则自动调整Physical树，在该叶子节点上面添加一个内容完全相同的重试父节点。
-
-我们回到Execution阶段，这里重点介绍封装了将用户计算任务提交给EngineConn的ExecTask节点的执行逻辑。
-
-1. 前面有提到，准备阶段的第一步，就是向LinkisManager获取一个可用的EngineConn，ExecTask拿到这个EngineConn后，会通过RPC请求，将用户的计算任务提交给EngineConn。
-
-2. EngineConn接收到计算任务之后，会通过线程池异步提交给底层的计算存储引擎，然后马上返回一个执行ID。
-
-3. ExecTask拿到这个执行ID后，后续可以通过该执行ID异步去拉取计算任务的执行情况（如：状态、进度、日志、结果集等）。
-
-4. 同时，EngineConn会通过注册的多个Listener，实时监听底层计算存储引擎的执行情况。如果该计算存储引擎不支持注册Listener，则EngineConn会为计算任务启动守护线程，定时向计算存储引擎拉取执行情况。
-
-5. EngineConn将拉取到的执行情况，通过RCP请求，实时传回Orchestrator所在的微服务。
-
-6. 该微服务的Receiver接收到执行情况后，会通过ListenerBus进行广播，Orchestrator的Execution消费该事件并动态更新Physical树的执行情况。
-
-7. 计算任务所产生的结果集，会在EngineConn端就写入到HDFS等存储介质之中。EngineConn通过RPC传回的只是结果集路径，Execution消费事件，并将获取到的结果集路径通过ListenerBus进行广播，使Entrance向Orchestrator注册的Listener能消费到该结果集路径，并将结果集路径写入持久化到JobHistory之中。
-
-8. EngineConn端的计算任务执行完成后，通过同样的逻辑，会触发Execution更新Physical树该ExecTask节点的状态，使得Physical树继续往上执行，直到整棵树全部执行完成。这时Execution会通过ListenerBus广播计算任务执行完成的状态。
-
-9. Entrance向Orchestrator注册的Listener消费到该状态事件后，向JobHistory更新Job的状态，整个任务执行完成。
-
-----
-
-最后，我们再来看下Client端是如何得知计算任务状态变化，并及时获取到计算结果的，具体如下图所示：
-
-![结果获取流程](/Images-zh/Architecture/Job提交准备执行流程/结果获取流程.png)
-
-具体流程如下：
-
-1. Client端定时轮询请求Entrance，获取计算任务的状态。
-
-2. 一旦发现状态翻转为成功，则向JobHistory发送获取Job信息的请求，拿到所有的结果集路径
-
-3. 通过结果集路径向PublicService发起查询文件内容的请求，获取到结果集的内容。
-
-自此，整个Job的提交 -> 准备 -> 执行 三个阶段全部完成。
+![time](/Images/Architecture/Job_submission_preparation_and_execution_process/linkis_job_time.png)
