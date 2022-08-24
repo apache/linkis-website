@@ -49,60 +49,60 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 ![](/Images/tuning-and-troubleshooting/error-guide/logs.png)
 
 - cg-linkismanager：
->GC日志：` /data/bdp/logs/linkis/linkis-cg-linkismanager-gc.log`
+>GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-linkismanager-gc.log`
 >
->服务日志：` /data/bdp/logs/linkis/linkis-cg-linkismanager.log`
+>服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-linkismanager.log`
 >
->服务的System.out日志：` /data/bdp/logs/linkis/linkis-cg-linkismanager.out`
+>服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-linkismanager.out`
 
 - cg-engineplugin：
->GC日志：` /data/bdp/logs/linkis/linkis-cg-engineplugin-gc.log`
+>GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineplugin-gc.log`
 >
->服务日志：` /data/bdp/logs/linkis/linkis-cg-engineplugin.log`
+>服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineplugin.log`
 >
->服务的System.out日志：` /data/bdp/logs/linkis/linkis-cg-engineplugin.out`
+>服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineplugin.out`
 
 - cg-engineconnmanager：
->GC日志：` /data/bdp/logs/linkis/linkis-cg-engineconnmanager-gc.log`
+>GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineconnmanager-gc.log`
 >
->服务日志：` /data/bdp/logs/linkis/linkis-cg-engineconnmanager.log`
+>服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineconnmanager.log`
 >
->服务的System.out日志：` /data/bdp/logs/linkis/linkis-cg-engineconnmanager.out`
+>服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineconnmanager.out`
 
 - cg-entrance：
->GC日志：` /data/bdp/logs/linkis/linkis-cg-entrance-gc.log`
+>GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance-gc.log`
 >
->服务日志：` /data/bdp/logs/linkis/linkis-cg-entrance.log`
+>服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance.log`
 >
->服务的System.out日志：` /data/bdp/logs/linkis/linkis-cg-entrance.out`
+>服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance.out`
 
 - ps-bml：
->GC日志：` /data/bdp/logs/linkis/linkis-ps-bml-gc.log`
+>GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml-gc.log`
 >
->服务日志：` /data/bdp/logs/linkis/linkis-ps-bml.log`
+>服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.log`
 >
->服务的System.out日志：` /data/bdp/logs/linkis/linkis-ps-bml.out`
+>服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.out`
 
 - ps-cs：
->GC日志：` /data/bdp/logs/linkis/linkis-ps-cs-gc.log`
+>GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs-gc.log`
 >
->服务日志：` /data/bdp/logs/linkis/linkis-ps-cs.log`
+>服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.log`
 >
->服务的System.out日志：` /data/bdp/logs/linkis/linkis-ps-cs.out`
+>服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.out`
 
 - ps-datasource：
->GC日志：` /data/bdp/logs/linkis/linkis-ps-datasource-gc.log`
+>GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource-gc.log`
 >
->服务日志：` /data/bdp/logs/linkis/linkis-ps-datasource.log`
+>服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource.log`
 >
->服务的System.out日志：` /data/bdp/logs/linkis/linkis-ps-datasource.out`
+>服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource.out`
 
 - ps-publicservice：
->GC日志：` /data/bdp/logs/linkis/linkis-ps-publicservice-gc.log`
+>GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice-gc.log`
 >
->服务日志：` /data/bdp/logs/linkis/linkis-ps-publicservice.log`
+>服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice.log`
 >
->服务的System.out日志：` /data/bdp/logs/linkis/linkis-ps-publicservice.out`
+>服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice.out`
 
 ###  4. 查看日志
 展示接口对应的报错信息

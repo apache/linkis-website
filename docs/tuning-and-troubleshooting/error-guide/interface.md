@@ -49,60 +49,60 @@ The user service address is different. We need to locate the log address first
 ![](/Images/tuning-and-troubleshooting/error-guide/logs.png)
 
 - cg-linkismanager：
->GC log：` /data/bdp/logs/linkis/linkis-cg-linkismanager-gc.log`
+>GC log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-linkismanager-gc.log`
 >
->Service log：` /data/bdp/logs/linkis/linkis-cg-linkismanager.log`
+>Service log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-linkismanager.log`
 >
->System out log：` /data/bdp/logs/linkis/linkis-cg-linkismanager.out`
+>System out log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-linkismanager.out`
 
 - cg-engineplugin：
->GC log：` /data/bdp/logs/linkis/linkis-cg-engineplugin-gc.log`
+>GC log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineplugin-gc.log`
 >
->Service log：` /data/bdp/logs/linkis/linkis-cg-engineplugin.log`
+>Service log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineplugin.log`
 >
->System out log：` /data/bdp/logs/linkis/linkis-cg-engineplugin.out`
+>System out log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineplugin.out`
 
 - cg-engineconnmanager：
->GC log：` /data/bdp/logs/linkis/linkis-cg-engineconnmanager-gc.log`
+>GC log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineconnmanager-gc.log`
 >
->Service log：` /data/bdp/logs/linkis/linkis-cg-engineconnmanager.log`
+>Service log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineconnmanager.log`
 >
->System out log：` /data/bdp/logs/linkis/linkis-cg-engineconnmanager.out`
+>System out log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-engineconnmanager.out`
 
 - cg-entrance：
->GC log：` /data/bdp/logs/linkis/linkis-cg-entrance-gc.log`
+>GC log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance-gc.log`
 >
->Service log：` /data/bdp/logs/linkis/linkis-cg-entrance.log`
+>Service log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance.log`
 >
->System out log：` /data/bdp/logs/linkis/linkis-cg-entrance.out`
+>System out log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance.out`
 
 - ps-bml：
->GC log：` /data/bdp/logs/linkis/linkis-ps-bml-gc.log`
+>GC log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml-gc.log`
 >
->Service log：` /data/bdp/logs/linkis/linkis-ps-bml.log`
+>Service log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.log`
 >
->System out log：` /data/bdp/logs/linkis/linkis-ps-bml.out`
+>System out log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.out`
 
 - ps-cs：
->GC log：` /data/bdp/logs/linkis/linkis-ps-cs-gc.log`
+>GC log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs-gc.log`
 >
->Service log：` /data/bdp/logs/linkis/linkis-ps-cs.log`
+>Service log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.log`
 >
->System out log：` /data/bdp/logs/linkis/linkis-ps-cs.out`
+>System out log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.out`
 
 - ps-datasource：
->GC log：` /data/bdp/logs/linkis/linkis-ps-datasource-gc.log`
+>GC log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource-gc.log`
 >
->Service log：` /data/bdp/logs/linkis/linkis-ps-datasource.log`
+>Service log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource.log`
 >
->System out log：` /data/bdp/logs/linkis/linkis-ps-datasource.out`
+>System out log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource.out`
 
 - ps-publicservice：
->GC log：` /data/bdp/logs/linkis/linkis-ps-publicservice-gc.log`
+>GC log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice-gc.log`
 >
->Service log：` /data/bdp/logs/linkis/linkis-ps-publicservice.log`
+>Service log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice.log`
 >
->System out log：` /data/bdp/logs/linkis/linkis-ps-publicservice.out`
+>System out log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice.out`
 
 ###  4. view log
 Display the error message corresponding to the interface
