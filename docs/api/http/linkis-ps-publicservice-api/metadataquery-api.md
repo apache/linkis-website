@@ -2,11 +2,13 @@
 title: Metadata Query Api
 sidebar_position: 3
 ---
+> The new interface after the optimization of the metadata query interface, see [Metadata Query API](./metadatamanager-api.md) for the old interface that has been abandoned. Compared with the old interface, mainly adjust the request path and interface parameter naming
 
-# MetadataCoreRestful
+#  MetadataQueryRestful class
 
 ## getColumns
-**Interface address**: `/api/rest_j/v1/metadatamanager/columns/{dataSourceId}/db/{database}/table/{table}`
+
+**Interface address**:`/api/rest_j/v1//metadataQuery/getColumns`
 
 **Request method**: `GET`
 
@@ -20,7 +22,7 @@ sidebar_position: 3
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
+|dataSourceName|dataSourceName|path|true|string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 |table|table|path|true|string||
@@ -52,78 +54,6 @@ sidebar_position: 3
                 "name": "datasource_desc",
                 "type": "VARCHAR"
             },
-            {
-                "index": 4,
-                "primaryKey": false,
-                "name": "datasource_type_id",
-                "type": "INT"
-            },
-            {
-                "index": 5,
-                "primaryKey": false,
-                "name": "create_identify",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 6,
-                "primaryKey": false,
-                "name": "create_system",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 7,
-                "primaryKey": false,
-                "name": "parameter",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 8,
-                "primaryKey": false,
-                "name": "create_time",
-                "type": "DATETIME"
-            },
-            {
-                "index": 9,
-                "primaryKey": false,
-                "name": "modify_time",
-                "type": "DATETIME"
-            },
-            {
-                "index": 10,
-                "primaryKey": false,
-                "name": "create_user",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 11,
-                "primaryKey": false,
-                "name": "modify_user",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 12,
-                "primaryKey": false,
-                "name": "labels",
-                "type": "VARCHAR"
-            },
-            {
-                "index": 13,
-                "primaryKey": false,
-                "name": "version_id",
-                "type": "INT"
-            },
-            {
-                "index": 14,
-                "primaryKey": false,
-                "name": "expire",
-                "type": "TINYINT"
-            },
-            {
-                "index": 15,
-                "primaryKey": false,
-                "name": "published_version_id",
-                "type": "INT"
-            }
         ]
     }
 }
@@ -131,7 +61,7 @@ sidebar_position: 3
 
 
 ## getDatabases
-**Interface address**:`/api/rest_j/v1/metadatamanager/dbs/{dataSourceId}`
+**Interface address**:`/api/rest_j/v1//metadataQuery/getDatabases`
 
 **Request method**: `GET`
 
@@ -145,7 +75,7 @@ sidebar_position: 3
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
+|dataSourceName|dataSourceName|path|true|string||
 |system|system|query|true|string||
 
 **Sample Response**:
@@ -166,7 +96,10 @@ sidebar_position: 3
 
 
 ## getPartitions
-**Interface address**:`/api/rest_j/v1/metadatamanager/partitions/{dataSourceId}/db/{database}/table/{table}`
+
+> return value adjusted to props -> partitions
+
+**Interface address**:`/api/rest_j/v1//metadataQuery/getPartitions`
 
 **Request method**: `GET`
 
@@ -180,7 +113,7 @@ sidebar_position: 3
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
+|dataSourceName|dataSourceName|path|true|string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 |table|table|path|true|string||
@@ -193,7 +126,7 @@ sidebar_position: 3
     "status": 0,
     "message": "OK",
     "data": {
-        "props": {
+        "partitions": {
             "partKeys": [
                 "ds"
             ],
@@ -204,7 +137,8 @@ sidebar_position: 3
 ````
 
 ## getTableProps
-**Interface address**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}`
+
+**Interface address**:`/api/rest_j/v1//metadataQuery/getTableProps`
 
 **Request method**: `GET`
 
@@ -219,7 +153,7 @@ sidebar_position: 3
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceId|dataSourceId|path|true|string||
+|dataSourceName|dataSourceName|path|true|string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 |table|table|path|true|string||
@@ -252,6 +186,79 @@ sidebar_position: 3
             "serialization.format": ",",
             "column.name.delimiter": ","
         }
+    }
+}
+````
+
+
+## getPartitionProps
+**Interface address**:`/api/rest_j/v1//metadataQuery/getPartitionProps`
+
+**Request method**: `GET`
+
+**Request data type**: `application/x-www-form-urlencoded`
+
+**Response data type**: `application/json`
+
+**Interface description**:
+
+**Request Parameters**:
+
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|dataSourceName|dataSourceName|path|true|string||
+|database|database|path|true|string||
+|partition|partition|path|true|string||
+|system|system|query|true|string||
+|table|table|path|true|string||
+
+
+**Sample Response**:
+````javascript
+{
+"data": {},
+"message": "",
+"method": "",
+"status": 0
+}
+````
+
+
+## getTables
+**Interface address**:`/api/rest_j/v1//metadataQuery/getTables`
+
+**Request method**: `GET`
+
+**Request data type**: `application/x-www-form-urlencoded`
+
+**Response data type**: `application/json`
+
+**Interface description**: Get the list of data tables of a database of the data source
+
+**Request Parameters**:
+
+| Parameter name | Parameter description | Request type | Required | Data type | schema |
+| -------- | -------- | ----- | -------- | -------- | ------ |
+|dataSourceName|dataSourceName|path|true|string||
+|database|database|path|true|string||
+|system|system|query|true|string||
+
+**Sample Response**:
+````javascript
+{
+    "method": null,
+    "status": 0,
+    "message": "OK",
+    "data": {
+        "tables": [
+            "test",
+            "test_0317a",
+            "test_import_sqoop_1",
+            "test_linkis_sqoop_1",
+            "test_linkis_sqoop_2",
+            "test_linkis_sqoop_3",
+            "upload_test"
+        ]
     }
 }
 ````

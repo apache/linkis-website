@@ -1,3 +1,8 @@
+---
+title: DataSource Api
+sidebar_position: 1
+---
+
 # DataSourceAdminRestfulApi 
 
 ## queryDataSourceEnv

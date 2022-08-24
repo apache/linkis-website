@@ -2,7 +2,7 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-- [开启Prometheus监控](/deployment/involve-prometheus-into-linkis.md)
+- [开启 Prometheus 监控](/deployment/involve-prometheus-into-linkis.md)
 - [自定义变量设计&内置变量](/architecture/commons/variable.md)
 - [EngineConn 历史信息记录特性](/architecture/computation-governance-services/engine/engine-conn-history.md)
 - [EngineConn Metrics 上报特性](/architecture/computation-governance-services/engine/engine-conn-metrics.md)
