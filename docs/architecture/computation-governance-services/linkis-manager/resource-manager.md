@@ -1,6 +1,6 @@
 ---
 title: Resource Manager
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 ## 1. Background

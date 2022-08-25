@@ -3,144 +3,179 @@ title: Job Submission
 sidebar_position: 2
 ---
 
-# Job submission, preparation and execution process
+> Linkis task execution is the core function of Linkis. It calls to Linkis's computing governance service, public enhancement service, and three-tier services of microservice governance. Now it supports the execution of tasks of OLAP, OLTP, Streaming and other engine types. This article will discuss OLAP The process of task submission, preparation, execution, and result return of the type engine is introduced.
 
-The submission and execution of computing tasks (Job) is the core capability provided by Linkis. It almost colludes with all modules in the Linkis computing governance architecture and occupies a core position in Linkis.
+## Keywords:
+LinkisMaster: The management service in the computing governance service layer of Linkis mainly includes several management and control services such as AppManager, ResourceManager, and LabelManager. Formerly known as LinkisManager service
+Entrance: The entry service in the computing governance service layer, which completes the functions of task scheduling, status control, task information push, etc.
+Orchestrator: Linkis' orchestration service provides powerful orchestration and computing strategy capabilities to meet the needs of multiple application scenarios such as multi-active, active-standby, transaction, replay, current limiting, heterogeneous and mixed computing. At this stage, Orchestrator is relied on by the Entrance service
+EngineConn (EC): Engine connector, responsible for accepting tasks and submitting them to underlying engines such as Spark, hive, Flink, Presto, trino, etc. for execution
+EngineConnManager (ECM): Linkis' EC process management service, responsible for controlling the life cycle of EngineConn (start, stop)
+LinkisEnginePluginServer: This service is responsible for managing the startup materials and configuration of each engine, and also provides the startup command acquisition of each EngineConn, as well as the resources required by each EngineConn
+PublicEnhencementService (PES): A public enhancement service, a module that provides functions such as unified configuration management, context service, material library, data source management, microservice management, and historical task query for other microservice modules
 
-The whole process, starting at submitting user's computing tasks from the client and ending with returning final results, is divided into three stages: submission -> preparation -> executing. The details are shown in the following figure.
+## 1. Linkis interactive task execution architecture
+### 1.1, Task execution thinking
+&nbsp;&nbsp;&nbsp;&nbsp;Before the existing Linkis 1.0 task execution architecture, it has undergone many evolutions. From the very beginning, various FullGC caused the service to crash when there were many users, to how the scripts developed by users support multi-platform , multi-tenancy, strong control, high concurrent operation, we encountered the following problems:
+1. How to support tens of thousands of concurrent tenants and isolate each other?
+2. How to support context unification, user-defined UDFs, custom variables, etc. to support the use of multiple systems?
+3. How to support high availability so that the tasks submitted by users can run normally?
+4. How to support the underlying engine log, progress, and status of the task to be pushed to the front end in real time?
+5. How to support multiple types of tasks to submit sql, python, shell, scala, java, etc.
 
-![The overall flow chart of computing tasks](/Images/Architecture/Job_submission_preparation_and_execution_process/overall.png)
+### 1.2, Linkis task execution design
+&nbsp;&nbsp;&nbsp;&nbsp;Based on the above five questions, Linkis divides the OLTP task into four stages, which are:
+1. Submission stage: The APP is submitted to the CG-Entrance service of Linkis to the completion of the persistence of the task (PS-JobHistory) and various interceptor processing of the task (dangerous syntax, variable substitution, parameter checking) and other steps, and become a producer Consumer concurrency control;
+2. Preparation stage: The task is scheduled by the Scheduler in Entrance to the Orchestrator module for task arrangement, and completes the EngineConn application to the LinkisMaster. During this process, the tenant's resources will be managed and controlled;
+3. Execution stage: The task is submitted from Orchestrator to EngineConn for execution, and EngineConn specifically submits the underlying engine for execution, and pushes the task information to the caller in real time;
+4. Result return stage: return results to the caller, support json and io streams to return result sets
+   The overall task execution architecture of Linkis is shown in the following figure:
+   ![arc](/Images/Architecture/Job_submission_preparation_and_execution_process/linkis_job_arc.png)
 
-Among them:
+## 2. Introduction to the task execution process
+&nbsp;&nbsp;&nbsp;&nbsp;First of all, let's give a brief introduction to the processing flow of OLAP tasks. An overall execution flow of the task is shown in the following figure:
+![flow](/Images/Architecture/Job_submission_preparation_and_execution_process/linkis_job_flow.png)
 
-- Entrance, as the entrance to the submission stage, provides task reception, scheduling and job information forwarding capabilities. It is the unified entrance for all computing tasks. It will forward computing tasks to Orchestrator for scheduling and execution.
-- Orchestrator, as the entrance to the preparation phase, mainly provides job analysis, orchestration and execution capabilities.
-- Linkis Manager: The management center of computing governance capabilities. Its main responsibilities are as follows:
+&nbsp;&nbsp;&nbsp;&nbsp;The whole task involves all the services of all computing governance. After the task is forwarded to Linkis's population service Entrance through the Gateway, it will perform multi-level scheduling (producer-consumer mode) through the label of the task. The FIFO mode completes task scheduling and execution. Entrance then submits the task to Orchestrator for task scheduling and submission. Orchestrator will complete the EC application to LinkisMaster. During this process, resource management and engine version selection will be performed through the task Label. EC. Orchestrator then submits the orchestrated task to the EC for execution. The EC will push the job log, progress, resource usage and other information to the Entrance service and push it to the caller. Next, we will give a brief introduction to the execution process of the task based on the above figure and the four stages of the task (submit, prepare, execute, and return).
 
-  1. ResourceManager：Not only has the resource management capabilities of Yarn and Linkis EngineConnManager, but also provides tag-based multi-level resource allocation and recovery capabilities, allowing ResourceManager to have full resource management capabilities across clusters and across computing resource types；
-  2. AppManager:  Coordinate and manage all EngineConnManager and EngineConn, including the life cycle of EngineConn application, reuse, creation, switching, and destruction to AppManager for management;
-  3. LabelManager: Based on multi-level combined labels, it will provide label support for the routing and management capabilities of EngineConn and EngineConnManager across IDC and across clusters;
-  4. EngineConnPluginServer: Externally provides the resource generation capabilities required to start an EngineConn and EngineConn startup command generation capabilities.
-- EngineConnManager: It is the manager of EngineConn, which provides engine life-cycle management, and at the same time reports load information and its own health status to RM.
-- EngineConn: It is the actual connector between Linkis and the underlying computing storage engines. All user computing and storage tasks will eventually be submitted to the underlying computing storage engine by EngineConn. According to different user scenarios, EngineConn provides full-stack computing capability framework support for interactive computing, streaming computing, off-line computing, and data storage tasks.
 
-## 1. Submission Stage
-
-The submission phase is mainly the interaction of Client -> Linkis Gateway -> Entrance, and the process is as follows:
-
-![Flow chart of submission phase](/Images/Architecture/Job_submission_preparation_and_execution_process/submission.png)
-
-1. First, the Client (such as the front end or the client) initiates a Job request, and the job request information is simplified as follows (for the specific usage of Linkis, please refer to [How to use Linkis](../../user-guide/how-to-use.md)):
-```
-POST /api/rest_j/v1/entrance/submit
-```
-
-```json
-{
-     "executionContent": {"code": "show tables", "runType": "sql"},
-     "params": {"variable": {}, "configuration": {}}, //not required
-     "source": {"scriptPath": "file:///1.hql"}, //not required, only used to record code source
-     "labels": {
-         "engineType": "spark-2.4.3", //Specify engine
-         "userCreator": "username-IDE" // Specify the submission user and submission system
-     }
+### 2.1 Job submission stage
+&nbsp;&nbsp;&nbsp;&nbsp;Job submission phase Linkis supports multiple types of tasks: SQL, Python, Shell, Scala, Java, etc., supports different submission interfaces, and supports Restful/JDBC/Python/Shell and other submission interfaces. Submitting tasks mainly includes task code, labels, parameters and other information. The following is an example of RestFul:
+Initiate a Spark Sql task through the Restfu interface
+````JSON
+"method": "/api/rest_j/v1/entrance/submit",
+"data": {
+  "executionContent": {
+    "code": "select * from table01",
+    "runType": "sql"
+  },
+  "params": {
+    "variable": {// task variable
+      "testvar": "hello"
+    },
+    "configuration": {
+      "runtime": {// task runtime params
+        "jdbc.url": "XX"
+      },
+      "startup": { // ec start up params
+        "spark.executor.cores": "4"
+      }
+    }
+  },
+  "source": { //task source information
+    "scriptPath": "file:///tmp/hadoop/test.sql"
+  },
+  "labels": {
+    "engineType": "spark-2.4.3",
+    "userCreator": "hadoop-IDE"
+  }
 }
-```
+````
+1. The task will first be submitted to Linkis's gateway linkis-mg-gateway service. Gateway will forward it to the corresponding Entrance service according to whether the task has a routeLabel. If there is no RouteLabel, it will be forwarded to an Entrance service randomly.
+2. After Entrance receives the corresponding job, it will call the RPC of the JobHistory module in the PES to persist the job information, and parse the parameters and code to replace the custom variables, and submit them to the scheduler (default FIFO scheduling) ) The scheduler will group tasks by tags, and tasks with different tags do not affect scheduling.
+3. After Entrance is consumed by the FIFO scheduler, it will be submitted to the Orchestrator for orchestration and execution, and the submission phase of the task is completed.
+   A brief description of the main classes involved:
+````
+EntranceRestfulApi: Controller class of entry service, operations such as task submission, status, log, result, job information, task kill, etc.
+EntranceServer: task submission entry, complete task persistence, task interception analysis (EntranceInterceptors), and submit to the scheduler
+EntranceContext: Entrance's context holding class, including methods for obtaining scheduler, task parsing interceptor, logManager, persistence, listenBus, etc.
+FIFOScheduler: FIFO scheduler for scheduling tasks
+EntranceExecutor: The scheduled executor, after the task is scheduled, it will be submitted to the EntranceExecutor for execution
+EntranceJob: The job task scheduled by the scheduler, and the JobRequest submitted by the user is parsed through the EntranceParser to generate a one-to-one correspondence with the JobRequest
+````
+The task status is now queued
 
-2. After Linkis-Gateway receives the request, according to the serviceName in the URI ``/api/rest_j/v1/${serviceName}/.+``, it will confirm the microservice name for routing and forwarding. Here Linkis-Gateway will parse out the  name as entrance and  Job is forwarded to the Entrance microservice. It should be noted that if the user specifies a routing label, the Entrance microservice instance with the corresponding label will be selected for forwarding according to the routing label instead of random forwarding.
-3. After Entrance receives the Job request, it will first simply verify the legitimacy of the request, then use RPC to call JobHistory to persist the job information, and then encapsulate the Job request as a computing task, put it in the scheduling queue, and wait for it to be consumed by consumption thread.
-4. The scheduling queue will open up a consumption queue and a consumption thread for each group. The consumption queue is used to store the user computing tasks that have been preliminarily encapsulated. The consumption thread will continue to take computing tasks from the consumption queue for consumption in a FIFO manner. The current default grouping method is Creator + User (that is, submission system + user). Therefore, even if it is the same user, as long as it is a computing task submitted by different systems, the actual consumption queues and consumption threads are completely different, and they are completely isolated from each other. (Reminder: Users can modify the grouping algorithm as needed)
-5. After the consuming thread takes out the calculation task, it will submit the calculation task to Orchestrator, which officially enters the preparation phase.
+### 2.2 Job preparation stage
+&nbsp;&nbsp;&nbsp;&nbsp;Entrance's scheduler will generate different consumers to consume tasks according to the Label in the Job. When the task is consumed and modified to Running, it will enter the preparation state, and the task will be prepared after the corresponding task. Phase begins. It mainly involves the following services: Entrance, LinkisMaster, EnginepluginServer, EngineConnManager, and EngineConn. The following services will be introduced separately.
+### 2.2.1 Entrance steps:
+1. The consumer (FIFOUserConsumer) consumes the supported concurrent number configured by the corresponding tag, and schedules the task consumption to the Orchestrator for execution
+2. First, Orchestrator arranges the submitted tasks. For ordinary hive and Spark single-engine tasks, it is mainly task parsing, label checking and verification. For multi-data source mixed computing scenarios, different tasks will be split and submitted to Different data sources for execution, etc.
+3. In the preparation phase, another important thing for the Orchestrator is to request the LinkisMaster to obtain the EngineConn for executing the task. If LinkisMaster has a corresponding EngineConn that can be reused, it will return directly, if not, create an EngineConn.
+4. Orchestrator gets the task and submits it to EngineConn for execution. The preparation phase ends and the job execution phase is entered.
+   A brief description of the main classes involved:
 
-## 2. Preparation Stage
+````
+## Entrance
+FIFOUserConsumer: The consumer of the scheduler, which will generate different consumers according to the tags, such as IDE-hadoop and spark-2.4.3. Consume submitted tasks. And control the number of tasks running at the same time, configure the number of concurrency through the corresponding tag: wds.linkis.rm.instance
+DefaultEntranceExecutor: The entry point for task execution, which initiates a call to the orchestrator: callExecute
+JobReq: The task object accepted by the scheduler, converted from EntranceJob, mainly including code, label information, parameters, etc.
+OrchestratorSession: Similar to SparkSession, it is the entry point of the orchestrator. Normal singleton.
+Orchestration: The return object of the JobReq orchestrated by the OrchestratorSession, which supports execution and printing of execution plans, etc.
+OrchestrationFuture: Orchestration selects the return of asynchronous execution, including common methods such as cancel, waitForCompleted, and getResponse
+Operation: An interface used to extend operation tasks. Now LogOperation for obtaining logs and ProgressOperation for obtaining progress have been implemented.
 
-There are two main processes in the preparation phase. One is to apply for an available EngineConn from LinkisManager to submit and execute the following computing tasks. The other is Orchestrator to orchestrate the computing tasks submitted by Entrance, and to convert a user's computing request into a physical execution tree and handed over to the execution phase where a computing task actually being executed. 
+## Orchestrator
+CodeLogicalUnitExecTask: The execution entry of code type tasks. After the task is finally scheduled and run, the execute method of this class will be called. First, it will request EngineConn from LinkisMaster and then submit for execution.
+DefaultCodeExecTaskExecutorManager: EngineConn responsible for managing code types, including requesting and releasing EngineConn
+ComputationEngineConnManager: Responsible for LinkisMaster to connect, request and release ENgineConn
+````
 
-#### 2.1 Apply to LinkisManager for available EngineConn
+### 2.2.2 LinkisMaster steps:
 
-If the user has a reusable EngineConn in LinkisManager, the EngineConn is directly locked and returned to Orchestrator, and the entire application process ends.
+1. LinkisMaster receives the request EngineConn request from the Entrance service for processing
+2. Determine if there is an EngineConn that can be reused by the corresponding Label, and return directly if there is
+3. If not, enter the process of creating EngineConn:
+- First select the appropriate EngineConnManager service through Label.
+- Then get the resource type and resource usage of this request EngineConn by calling EnginePluginServer,
+- According to the resource type and resource, determine whether the corresponding Label still has resources, if so, enter the creation, otherwise throw a retry exception
+- Request the EngineConnManager of the first step to start EngineConn
+- Wait for the EngineConn to be idle, return the created EngineConn, otherwise judge whether the exception can be retried
 
-How to define a reusable EngineConn? It refers to those that can match all the label requirements of the computing task, and the EngineConn's own health status is Healthy (the load is low and the actual status is Idle). Then, all the EngineConn that meets the conditions are sorted and selected according to the rules, and finally the best one is locked.
+4. Lock the created EngineConn and return it to Entrance. Note that it will receive the corresponding request ID after sending the EC request for the asynchronous request Entrance. After the LinkisMaster request is completed, it will actively pass the corresponding Entrance service.
 
-If the user does not have a reusable EngineConn, a process to request a new EngineConn will be triggered at this time. Regarding the process, please refer to: [How to add an EngineConn](engine/add-an-engine-conn.md).
+A brief description of the main classes involved:
+````
+## LinkisMaster
+EngineAskEngineService: LinkisMaster is responsible for processing the engine request processing class. The main logic judges whether there is an EngineConn that can be reused by calling EngineReuseService, otherwise calling EngineCreateService to create an EngineConn
+EngineCreateService: Responsible for creating EngineConn, the main steps are:
 
-#### 2.2 Orchestrate a computing task
 
-Orchestrator is mainly responsible for arranging a computing task (JobReq) into a physical execution tree (PhysicalTree) that can be actually executed, and providing the execution capabilities of the Physical tree.
+##LinkisEnginePluginServer
+EngineConnLaunchService: Provides ECM to obtain the startup information of the corresponding engine type EngineConn
+EngineConnResourceFactoryService: Provided to LinkisMaster to obtain the resources needed to start EngineConn corresponding to this task
+EngineConnResourceService: Responsible for managing engine materials, including refreshing and refreshing all
 
-Here we first focus on Orchestrator's computing task scheduling capabilities. A flow chart is shown below:
+## EngineConnManager
+AbstractEngineConnLaunchService: Responsible for starting the request to start the EngineConn by accepting the LinkisMaster request, and completing the start of the EngineConn engine
+ECMHook: It is used to process the pre and post operations before and after EngineConn is started. For example, hive UDF Jar is added to the classPath started by EngineConn.
+````
 
-![Orchestration flow chart](/Images/Architecture/Job_submission_preparation_and_execution_process/orchestrate.png)
 
-The main process is as follows:
+It should be noted here that if the user has an available idle engine, the four steps 1, 2, 3, and 4 will be skipped;
 
-- Converter: Complete the conversion of the JobReq (task request) submitted by the user to Orchestrator's ASTJob. This step will perform parameter check and information supplementation on the calculation task submitted by the user, such as variable replacement, etc.
-- Parser: Complete the analysis of ASTJob. Split ASTJob into an AST tree composed of ASTJob and ASTStage.
-- Validator: Complete the inspection and information supplement of ASTJob and ASTStage, such as code inspection, necessary Label information supplement, etc.
-- Planner: Convert an AST tree into a Logical tree. The Logical tree at this time has been composed of LogicalTask, which contains all the execution logic of the entire computing task.
-- Optimizer: Convert a Logical tree to a Physical tree and optimize the Physical tree.
+### 2.3 Job execution phase
+&nbsp;&nbsp;&nbsp;&nbsp;When the orchestrator in the Entrance service gets the EngineConn, it enters the execution phase. CodeLogicalUnitExecTask will submit the task to the EngineConn for execution, and the EngineConn will create different executors through the corresponding CodeLanguageLabel for execution. The main steps are as follows:
+1. CodeLogicalUnitExecTask submits tasks to EngineConn via RPC
+2. EngineConn determines whether there is a corresponding CodeLanguageLabel executor, if not, create it
+3. Submit to Executor for execution, and execute by linking to the specific underlying engine execution, such as Spark submitting sql, pyspark, and scala tasks through sparkSession
+4. The task status flow is pushed to the Entrance service in real time
+5. By implementing log4jAppender, SendAppender pushes logs to Entrance service via RPC
+6. Push task progress and resource information to Entrance in real time through timed tasks
 
-In a physical tree, the majority of nodes are computing strategy logic. Only the middle ExecTask truly encapsulates the execution logic which will be further submitted to and executed at EngineConn. As shown below:
+A brief description of the main classes involved:
+````
+ComputationTaskExecutionReceiver: The service class used by the Entrance server orchestrator to receive all RPC requests from EngineConn, responsible for receiving progress, logs, status, and result sets pushed to the last caller through the ListenerBus mode
+TaskExecutionServiceImpl: The service class for EngineConn to receive all RPC requests from Entrance, including task execution, status query, task Kill, etc.
+ComputationExecutor: specific task execution parent class, such as Spark is divided into SQL/Python/Scala Executor
+ComputationExecutorHook: Hook before and after Executor creation, such as initializing UDF, executing default UseDB, etc.
+EngineConnSyncListener: ResultSetListener/TaskProgressListener/TaskStatusListener is used to monitor the progress, result set, and progress of the Executor during the execution of the task.
+SendAppender: Responsible for pushing logs from EngineConn to Entrance
+````
+### 2.4 Job result push stage
+&nbsp;&nbsp;&nbsp;&nbsp;This stage is relatively simple and is mainly used to return the result set generated by the task in EngineConn to the Client. The main steps are as follows:
+1. First, when EngineConn executes the task, the result set will be written, and the corresponding path will be obtained by writing to the file system. Of course, memory cache is also supported, and files are written by default.
+2. EngineConn returns the corresponding result set path and the number of result sets to Entrance
+3. Entrance calls JobHistory to update the result set path information to the task table
+4. Client obtains the result set path through task information and reads the result set
+   A brief description of the main classes involved:
+````
+EngineExecutionContext: responsible for creating the result set and pushing the result set to the Entrance service
+ResultSetWriter: Responsible for writing result sets to filesystems that support linkis-storage support, and now supports both local and HDFS. Supported result set types, table, text, HTML, image, etc.
+JobHistory: Stores all the information of the task, including status, result path, indicator information, etc. corresponding to the entity class in the DB
+ResultSetReader: The key class for reading the result set
+````
 
-![Physical Tree](/Images/Architecture/Job_submission_preparation_and_execution_process/physical_tree.png)
+## 3. Summary
+&nbsp;&nbsp;&nbsp;&nbsp;Above we mainly introduced the entire execution process of the OLAP task of the Linkis Computing Governance Service Group CGS. According to the processing process of the task request, the task is divided into four parts: submit, prepare, execute, and return the result stage. CGS is mainly designed and implemented according to these 4 stages, serves these 4 stages, and provides powerful and flexible capabilities for each stage. In the submission stage, it mainly provides a common interface, receives tasks submitted by upper-layer application tools, and provides basic parsing and interception capabilities; in the preparation stage, it mainly completes the parsing and scheduling of tasks through the orchestrator Orchestrator and LinkisMaster, and does Resource control, and the creation of EngineConn; in the execution stage, the connection with the underlying engine is actually completed through the engine connector EngineConn. Usually, each user needs to start a corresponding underlying engine connector EC to connect to a different underlying engine. . The computing task is submitted to the underlying engine for actual execution through EC, and information such as status, log, and result is obtained, and; in the result return stage, the result information of the task execution is returned, and various return modes are supported, such as: file Streams, JSON, JDBC, etc. The overall timing diagram is as follows:
 
-Different computing strategies have different execution logics encapsulated by JobExecTask and StageExecTask in the Physical tree.
-
-The execution logic encapsulated by JobExecTask and StageExecTask in the Physical tree depends on the  specific type of computing strategy.
-
-For example, under the multi-active computing strategy, for a computing task submitted by a user, the execution logic submitted to EngineConn of different clusters for execution is encapsulated in two ExecTasks, and the related strategy logic is reflected in the parent node (StageExecTask(End)) of the two ExecTasks.
-
-Here, we take the multi-reading scenario under the multi-active computing strategy as an example.
-
-In multi-reading scenario, only one result of ExecTask is required to return. Once the result is returned , the Physical tree can be marked as successful. However, the Physical tree only has the ability to execute sequentially according to dependencies, and cannot terminate the execution of each node. Once a node is canceled or fails to execute, the entire Physical tree will be marked as failure. At this time, StageExecTask (End) is needed to ensure that the Physical tree can not only cancel the ExecTask that failed to execute, but also continue to upload the result set generated by the Successful ExecTask, and let the Physical tree continue to execute. This is the execution logic of computing strategy  represented by StageExecTask.
-
-The orchestration process of Linkis Orchestrator is similar to many SQL parsing engines (such as Spark, Hive's SQL parser). But in fact, the orchestration capability of Linkis Orchestrator is realized based on the computing governance field for the different computing governance needs of users. The SQL parsing engine is a parsing orchestration oriented to the SQL language. Here is a simple distinction:
-
-1. What Linkis Orchestrator mainly wants to solve is the orchestration requirements caused by different computing tasks for computing strategies. For example, in order to be multi-active, Orchestrator will submit a calculation task for the user, based on the "multi-active" computing strategy requirements, compile a physical tree, so as to submit to multiple clusters to perform this calculation task. And in the process of constructing the entire Physical tree, various possible abnormal scenarios have been fully considered, and they have all been reflected in the Physical tree.
-2. The orchestration ability of Linkis Orchestrator has nothing to do with the programming language. In theory, as long as an engine has adapted to Linkis, all the programming languages it supports can be orchestrated, while the SQL parsing engine only cares about the analysis and execution of SQL, and is only responsible for parsing a piece of SQL into one executable Physical tree, and finally calculate the result.
-3. Linkis Orchestrator also has the ability to parse SQL, but SQL parsing is just one of Orchestrator Parser's analytic implementations for the SQL programming language. The Parser of Linkis Orchestrator also considers introducing Apache Calcite to parse SQL. It supports splitting a user SQL that spans multiple computing engines (must be a computing engine that Linkis has docked) into multiple sub SQLs and submitting them to each corresponding engine during the execution phase. Finally, a suitable calculation engine is selected for summary calculation.
-
-<!--
-#todo  Orchestrator documentation is not ready yet 
-Please refer to [Orchestrator Architecture Design]() for more details. 
--->
-
-After the analysis and arrangement of Linkis Orchestrator, the  computing task has been transformed into a executable physical tree. Orchestrator will submit the Physical tree to Orchestrator's Execution module and enter the final execution stage.
-
-## 3. Execution Stage
-
-The execution stage is mainly divided into the following two steps, these two steps are the last two phases of capabilities provided by Linkis Orchestrator:
-
-![Flow chart of the execution stage](/Images/Architecture/Job_submission_preparation_and_execution_process/execution.png)
-
-The main process is as follows:
-
-- Execution: Analyze the dependencies of the Physical tree, and execute them sequentially from the leaf nodes according to the dependencies.
-- Reheater: Once the execution of a node in the Physical tree is completed, it will trigger a reheat. Reheating allows the physical tree to be dynamically adjusted according to the real-time execution.For example: it is detected that a leaf node fails to execute, and it supports retry (if it is caused by throwing ReTryExecption), the Physical tree will be automatically adjusted, and a retry parent node with exactly the same content is added to the leaf node .
-
-Let us go back to the Execution stage, where we focus on the execution logic of the ExecTask node that encapsulates the user computing task submitted to EngineConn.
-
-1. As mentioned earlier, the first step in the preparation phase is to obtain a usable EngineConn from LinkisManager. After ExecTask gets this EngineConn, it will submit the user's computing task to EngineConn through an RPC request.
-2. After EngineConn receives the computing task, it will asynchronously submit it to the underlying computing storage engine through the thread pool, and then immediately return an execution ID.
-3. After ExecTask gets this execution ID, it can then use the ID to asynchronously pull the execution status of the computing task (such as: status, progress, log, result set, etc.).
-4. At the same time, EngineConn will monitor the execution of the underlying computing storage engine in real time through multiple registered Listeners. If the computing storage engine does not support registering Listeners, EngineConn will start a daemon thread for the computing task and periodically pull the execution status from the computing storage engine.
-5. EngineConn will pull the execution status back to the microservice where Orchestrator is located in real time through RCP request.
-6. After the Receiver of the microservice receives the execution status, it will broadcast it through the ListenerBus, and the Orchestrator Execution will consume the event and dynamically update the execution status of the Physical tree.
-7. The result set generated by the calculation task will be written to storage media such as HDFS at the EngineConn side. EngineConn returns only the result set path through RPC, Execution consumes the event, and broadcasts the obtained result set path through ListenerBus, so that the Listener registered by Entrance with Orchestrator can consume the result set path and write the result set path Persist to JobHistory.
-8. After the execution of the computing task on the EngineConn side is completed, through the same logic, the Execution will be triggered to update the state of the ExecTask node of the Physical tree, so that the Physical tree will continue to execute until the entire tree is completely executed. At this time, Execution will broadcast the completion status of the calculation task through ListenerBus.
-9. After the Entrance registered Listener with the Orchestrator consumes the state event, it updates the job state to JobHistory, and the entire task execution is completed.
-
-----
-
-Finally, let's take a look at how the client side knows the state of the calculation task and obtains the calculation result in time, as shown in the following figure:
-
-![Results acquisition process](/Images/Architecture/Job_submission_preparation_and_execution_process/result_acquisition.png)
-
-The specific process is as follows:
-
-1. The client periodically polls to request Entrance to obtain the status of the computing task.
-2. Once the status is flipped to success, it sends a request for job information to JobHistory, and gets all the result set paths.
-3. Initiate a query file content request to PublicService through the result set path, and obtain the content of the result set.
-
-Since then, the entire process of  job submission -> preparation -> execution have been completed.
-
+![time](/Images/Architecture/Job_submission_preparation_and_execution_process/linkis_job_time.png)

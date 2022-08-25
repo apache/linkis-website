@@ -32,7 +32,7 @@ On the homepage of the github community, the issue column retains some of the pr
 
 ### Ⅲ. "Q\&A Question Summary"
 
-"Linkis 1.0 FAQ", this document contains a summary of common problems and solutions during the installation and deployment process.
+[FAQ](/faq/main), this document contains a summary of common problems and solutions during the installation and deployment process.
 
 ### Ⅳ. Locating system log
 
@@ -61,9 +61,6 @@ Generally, errors can be divided into three stages: an error is reported when in
     │ ├── linkis-cg-entrance
     │ └── linkis-cg-linkismanager
     ├── linkis-public-enhancements
-    │ ├── linkis-ps-bml
-    │ ├── linkis-ps-cs
-    │ ├── linkis-ps-datasource
     │ └── linkis-ps-publicservice
     └── linkis-spring-cloud-services
     │ ├── linkis-mg-eureka

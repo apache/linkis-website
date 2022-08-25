@@ -1,6 +1,6 @@
 ---
 title: CS Cache 架构
-sidebar_position: 1
+sidebar_position: 7
 ---
 
 

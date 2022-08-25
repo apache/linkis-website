@@ -124,7 +124,7 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 
 #### 3.4.2 执行引擎任务的异常排查
 
-** step1:找到引擎的启动部署目录 **  
+** step1:找到EngineConn的启动部署目录 **  
 
 - 方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
 ![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
@@ -133,7 +133,10 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 ```shell script
 # 如果不清楚taskid，可以按时间排序后进行选择 ll -rt /appcom/tmp/${执行的用户}/${日期}/${引擎}/  
 cd /appcom/tmp/${执行的用户}/${日期}/${引擎}/${taskId}  
+例如一个Spark 引擎的启动目录如下:
+/appcom/tmp/hadoop/20210824/spark/6a09d5fb-81dd-41af-a58b-9cb5d5d81b5a
 ```
+
 目录大体如下 
 ```shell script
 conf -> /appcom/tmp/engineConnPublickDir/6a09d5fb-81dd-41af-a58b-9cb5d5d81b5a/v000002/conf #引擎的配置文件  
@@ -145,6 +148,7 @@ logs #引擎启动执行的相关日志
 ** step2：查看引擎的日志 **
 ```shell script
 less logs/stdout  
+less logs/stderr
 ```
 
 ** step3：尝试手动执行脚本(如果需要) **  

@@ -1,6 +1,6 @@
 ---
 title: CS Cleanup Interface Features
-sidebar_position: 7
+sidebar_position: 9
 tags: [Feature]
 ---
 

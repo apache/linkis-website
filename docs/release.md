@@ -8,6 +8,8 @@ sidebar_position: 0.1
 - [Integrate Knife4j and enable](/deployment/involve-knife4j-into-linkis.md)
 - [Data source function module interface optimization](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
 - [JDBC engine supports data source schema](/engine-usage/jdbc.md)
+- [EC History List Architecture Design](/architecture/computation-governance-services/linkis-manager/ec-history-arc.md)
+- [Service isolation Design](/architecture/microservice-governance-services/service_isolation.md)
 - [version of Release-Notes](/download/release-notes-1.2.0)
 
 

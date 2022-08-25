@@ -1,6 +1,6 @@
 ---
 title: Gateway Design
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 ## Gateway Architecture Design
