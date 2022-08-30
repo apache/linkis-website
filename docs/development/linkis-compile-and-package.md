@@ -173,5 +173,18 @@ Modifying the version of other engines is similar to modifying the Spark version
 
 Then please refer to [4. Compile an engine](#4-compile-an-engine)
 
-
-
+## 6. How to exclude the specified engines during fully compile
+You can use the `-pl` option of `mvn` command, please refer below for details
+```
+-pl,--projects <arg>                   Comma-delimited list of specified
+                                        reactor projects to build instead
+                                        of all projects. A project can be
+                                        specified by [groupId]:artifactId
+                                        or by its relative path.
+```
+Implement the reverse selection by using `!` to exclude the given engines so that shorten the consumed time for fully compile.
+Here we take flink, sqoop and hive as an example, and exclude them during fully compile:
+```
+mvn clean install -Dmaven.test.skip=true \
+-pl '!linkis-engineconn-plugins/flink,!linkis-engineconn-plugins/sqoop,!linkis-engineconn-plugins/hive'
+```

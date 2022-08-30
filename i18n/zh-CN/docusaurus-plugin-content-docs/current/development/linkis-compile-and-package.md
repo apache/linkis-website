@@ -131,7 +131,21 @@ step1 修改`linkis-dist/src/main/assembly/distribution.xml` 添加jdbc引擎
 ```
 step2 如果已经全量编译，可以直接重新编译`linkis-dist`模块，如果没有，这执行全量编译
 
- 
+### 3.3 如何在全量编译时跳过指定引擎
+可使用mvn指令中的`-pl`选项，详情可参考如下
+```
+-pl,--projects <arg>                   Comma-delimited list of specified
+                                        reactor projects to build instead
+                                        of all projects. A project can be
+                                        specified by [groupId]:artifactId
+                                        or by its relative path.
+```
+通过`!`实现反选，从而排除指定的引擎，缩短全量编译所需时间，以flink、sqoop和hive为例，跳过这些引擎进行编译:
+```
+mvn clean install -Dmaven.test.skip=true \
+-pl '!linkis-engineconn-plugins/flink,!linkis-engineconn-plugins/sqoop,!linkis-engineconn-plugins/hive'
+```
+
 ## 4. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本
 
 请注意：Hadoop 作为大数据基础服务，Linkis 必须依赖 Hadoop 进行编译；
