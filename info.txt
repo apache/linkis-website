@@ -6,12 +6,15 @@ https://www.apache.org/foundation/marks/pmcs#websites
 
 
 创建新版本
-#生成新版本文档
+基于当前的1.1.2 创建1.1.3
+
+#存档1.1.2 版本文档
 npm run docusaurus docs:version-1.1.2
 
 #拷贝中文新版本文档
 cd i18n/zh-CN/docusaurus-plugin-content-docs
 cp -r current  version-1.1.2
+cp -r current.json version-1.1.2.json
 
 修改配置docusaurus.config.js
 
@@ -24,7 +27,7 @@ cp -r current  version-1.1.2
           path: 'latest',
         },
       }
-
+->
   versions: {
          current: {
            path: '1.1.3',
@@ -35,9 +38,51 @@ cp -r current  version-1.1.2
          },
        }
 
+ items: [
+        {label: 'Next(1.2.0)', to: '/docs/1.2.0/introduction'},
+        {label: '1.1.3', to: '/docs/latest/introduction'},
+        {label: '1.1.2', to: '/docs/1.1.2/introduction'},
+        {label: '1.1.1', to: '/docs/1.1.1/introduction'},
+        {label: '1.1.0', to: '/docs/1.1.0/introduction'},
+        {label: '1.0.3', to: '/docs/1.0.3/introduction'},
+        {label: '1.0.2', to: '/docs/1.0.2/introduction'},
+        {label: '0.11.0', to: '/docs/0.11.0/introduction'},
+        {label: 'All Version', to: '/versions'}
+]
+
+ createRedirects(existingPath) {
+      if (existingPath.includes('/latest')) {
+        return [
+          existingPath.replace('/latest', '/1.1.3'),
+        ];
+      }
+      return undefined; // Return a false value: no redirect created
+    },
+
+
 修改src/pages/versions
 
 
 
 i18n/zh-CN/code.json
 theme.docs.versions.unreleasedVersionLabel
+
+[1.1.3->1.2.0]
+assembly-combined-package/assembly-combined
+linkis-dist/package
+
+assembly-combined-package\assembly-combined
+linkis-dist\package
+
+/linkis-enginepconn-lugins/engineconn-plugins/
+->
+/linkis-engineconn-plugins/
+
+linkis-engineconn-plugins/engineconn-plugins/
+->
+linkis-engineconn-plugins/
+
+web->linkis-web
+
+assembly-combined-package
+->

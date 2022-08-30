@@ -64,7 +64,7 @@ The configuration of the Linkis1.0 management console is managed according to th
 
 ```
 linkis_configuration_config_key: Insert the key and default values of the configuration parameters of the engin
-linkis_manager_label: Insert engine label such as hive-1.2.1
+linkis-manager_label: Insert engine label such as hive-1.2.1
 linkis_configuration_category: Insert the catalog relationship of the engine
 linkis_configuration_config_value: Insert the configuration that the engine needs to display
 ```

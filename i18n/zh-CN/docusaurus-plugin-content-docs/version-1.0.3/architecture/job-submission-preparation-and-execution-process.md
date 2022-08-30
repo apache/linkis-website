@@ -38,7 +38,7 @@ sidebar_position: 1
 ![提交阶段流程图](/Images-zh/Architecture/Job提交准备执行流程/提交阶段流程图.png)
 
 1. 首先，Client（如前端或客户端）发起Job请求，Job请求信息精简如下
-（关于Linkis的具体使用方式，请参考 [如何使用Linkis](../user_guide/how-to-use.md)）：
+（关于Linkis的具体使用方式，请参考 [如何使用Linkis](../user-guide/how-to-use.md)）：
 
 ```
 POST /api/rest_j/v1/entrance/submit

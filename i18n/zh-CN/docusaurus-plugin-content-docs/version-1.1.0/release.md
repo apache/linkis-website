@@ -3,10 +3,10 @@ title: 版本总览
 sidebar_position: 0.1
 --- 
 
-- [数据源管理服务架构文档](/architecture/public_enhancement_services/datasource-manager.md)
-- [元数据查询服务架构文档](/architecture/public_enhancement_services/metadata-manager.md)
+- [数据源管理服务架构文档](/architecture/public-enhancement-services/datasource-manager.md)
+- [元数据查询服务架构文档](/architecture/public-enhancement-services/metadata-manager.md)
 - [数据源介绍&功能使用指引](/deployment/start-metadatasource.md)
-- [数据源客户端的使用指引](/user_guide/linkis-datasource-client.md)
+- [数据源客户端的使用指引](/user-guide/linkis-datasource-client.md)
 - [数据源http接口文档](/api/http/data-source-manager-api.md)
 - [元数据查询服务http接口文档](/api/http/metadatamanager-api.md)
 - [开启SkyWalking功能](/deployment/involve-skywalking-into-linkis.md)

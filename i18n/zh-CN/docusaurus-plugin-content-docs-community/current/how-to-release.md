@@ -240,6 +240,7 @@ mvn --encrypt-password <apache password>
   </profiles>
 </settings>
 ```
+
 :::caution 注意
 如果后续执行2.3步进行deploy时，报401，可以运行`mvn help:effective-settings` 检查下生效的maven `settings.xml`配置，
 可以尝试将上述的账户密码配置再自己maven环境的conf配置中，如：`D:\apache-maven-3.3.9\conf\setting.xml`
@@ -262,7 +263,7 @@ step1 基于待发布的开发分支，创建release-${release_version}-rc分支
 step2 创建新的github release
 
 进入到创建页面 https://github.com/apache/incubator-linkis/releases/new 
-基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc`的tag，填写标题`Apache Linkis(incubating) Release-1.1.2-Incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
+基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc`的tag，填写标题`Apache Linkis(incubating) Release-1.1.2-incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
 
  ![image](https://user-images.githubusercontent.com/7869972/180214706-7228e5ae-f810-4e07-80fc-67fcf01688eb.png)
 
@@ -284,6 +285,7 @@ git clone -b release-1.1.2-rc1  -c core.autocrlf=false  git@github.com:apache/in
 这会导致window下打的发布包 ，对于shell脚本在linux下直接运行，会出现换行符问题 ，clone时通过 `-c core.autocrlf=false` 关闭自动转换
 
 - 主仓库apache/incubator-linkis准备好发布分支/tag/release notes后，请克隆源码对应的发布分支release-1.1.2-rc1，进行下列步骤
+
 
 :::
 
@@ -319,7 +321,7 @@ Archives: 0
 0 Unknown Licenses
 ```
 <font color="red">
-如果不为0，需要确认源码中是否有对该二进制或则压缩文件的license进行说明，可以参考源码中引用的`linkis-engineconn-plugins/engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`
+如果不为0，需要确认源码中是否有对该二进制或则压缩文件的license进行说明，可以参考源码中引用的`linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`
 </font>
 
 
@@ -338,7 +340,7 @@ $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  -DretryFailedDeplo
 
 
 上述命令执行成功后，待发布版本包会自动上传到Apache的临时筹备仓库(staging repository)。所有被deploy到远程[maven仓库](http://repository.apache.org/)的Artifacts都会处于staging状态，访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，`Repository`列的内容即为${STAGING.REPOSITORY}。 **点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的**。 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
-同时也生成了二进制文件 `assembly-combined-package/target/apache-linkis-1.1.2-incubating-bin.tar.gz`
+同时也生成了二进制文件 `linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz`
 
 
 步骤2.4-3.3执行命令，合并在release.sh脚本中，也可以通过release.sh脚本(见文末附录)来执行 
@@ -358,9 +360,9 @@ $ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.1.2-i
 
 ### 2.5 拷贝二进制文件
 
-步骤2.3执行后，二进制文件已经生成，位于assembly-combined-package/target/apache-linkis-1.1.2-incubating-bin.tar.gz
+步骤2.3执行后，二进制文件已经生成，位于linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz
 ```shell
-$ cp  assembly-combined-package/target/apache-linkis-1.1.2-incubating-bin.tar.gz   dist/apache-linkis
+$ cp  linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz   dist/apache-linkis
 ```
 
 ### 2.6 打包前端管理台(如果需要发布前端)
@@ -376,7 +378,7 @@ $ cp  assembly-combined-package/target/apache-linkis-1.1.2-incubating-bin.tar.gz
 在终端命令行中执行以下指令：
 ```
 #进入项目WEB根目录
-$ cd incubator-linkis/web
+$ cd incubator-linkis/linkis-web
 #安装项目所需依赖
 $ npm install
 ```
@@ -384,7 +386,7 @@ $ npm install
 
 #### 2.6.3 打包前端管理台项目
 在终端命令行执行以下指令对项目进行打包，生成压缩后的部署安装包。
-检查web/package.json，web/.env文件，检查前端管理台版本号是否正确。
+检查linkis-web/package.json，linkis-web/.env文件，检查前端管理台版本号是否正确。
 ```
 $ npm run build
 ```
@@ -414,9 +416,9 @@ $ npm install
 
 #### 2.6.4 拷贝前端管理台安装包
 
-步骤2.6.3执行后，前端管理台安装包已经生成，位于 `web/apache-linkis-1.1.2-incubating-web-bin.tar.gz`
+步骤2.6.3执行后，前端管理台安装包已经生成，位于 `linkis-web/apache-linkis-1.1.2-incubating-web-bin.tar.gz`
 ```shell
-$ cp  web/apache-linkis-1.1.2-incubating-web-bin.tar.gz   dist/apache-linkis
+$ cp  linkis-web/apache-linkis-1.1.2-incubating-web-bin.tar.gz   dist/apache-linkis
 ```
 
 ### 2.7 对源码包/二进制包进行签名/sha512
@@ -542,7 +544,7 @@ Hello Linkis Community,
     This is a call for vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
 
 	Release notes:
-	    https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
+	    https://linkis.apache.org/download/release-notes-${release_version}-${rc_version}
 
     The release candidates:
     	https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
@@ -694,7 +696,7 @@ Hello Incubator Community,
         • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
 
     Release notes:
-        • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+        • https://linkis.apache.org/download/release-notes-${release_version}
 
     The artifacts signed with PGP key [填写你个人的KEY], corresponding to [填写你个人的邮箱], that can be found in keys file:
         • https://downloads.apache.org/incubator/linkis/KEYS
@@ -943,11 +945,11 @@ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_
 echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz' --prefix=apache-linkis-$release_version-incubating-src/   $git_branch"
 
 #step2 拷贝二进制编译包
-cp  assembly-combined-package/target/apache-linkis-$release_version-incubating-bin.tar.gz   dist/apache-linkis
+cp  linkis-dist/target/apache-linkis-$release_version-incubating-bin.tar.gz   dist/apache-linkis
 
 #step3 打包web(如果需要发布前端)
 
-cd web
+cd linkis-web
 #安装依赖
 npm install
 npm run build

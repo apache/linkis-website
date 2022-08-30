@@ -52,7 +52,7 @@ sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show tables"  -s
 
 Linkis项目中包含的引擎模块`linkis-engineconn-plugins/engineconn-plugins`都是按这个目录进行打包配置的，
 如果是自己实现的新增引擎，需要按照上述的目录结构进行打包，可以参考hive的assembly配置方式来配置打包流程和配置，
-源码目录：`linkis-engineconn-plugins/engineconn-plugins/hive/src/main/assembly/distribution.xml`
+源码目录：`linkis-engineconn-plugins/hive/src/main/assembly/distribution.xml`
 
 ## 2. 引擎的安装
 
@@ -78,7 +78,7 @@ mvn clean install
 
 编译出来的引擎包,位于
 ```bash
-${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/{插件模块名}/target/out/{插件模块名}
+${linkis_code_dir}/linkis-engineconn-plugins/{插件模块名}/target/out/{插件模块名}
 ```
 
 ### 2.2 部署和加载

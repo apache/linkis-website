@@ -52,11 +52,11 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 ```  
 
 ### step3 获取安装包
-编译后的完整安装包，在工程的assembly-combined-package->target目录下：
+编译后的完整安装包，在工程的linkis-dist->target目录下：
 
 ```bash
     #详细路径如下
-    incubator-linkis-x.x.x/assembly-combined-package/target/apache-linkis-x.x.x-incubating-bin.tar.gz
+    incubator-linkis-x.x.x/linkis-dist/target/apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
 
 ## 3 常见问题 
@@ -97,7 +97,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 进入到 Spark 引擎所在的目录进行编译打包，命令如下：
    
 ```bash   
-    cd incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
+    cd incubator-linkis-x.x.x/linkis-engineconn-plugins/spark
     mvn clean install
 ```
 #### step2 获取引擎的物料包       
@@ -105,23 +105,23 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 ```
    #spark文件下就是编译好的引擎物料
-   incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/out/spark
+   incubator-linkis-x.x.x/linkis-engineconn-plugins/spark/target/out/spark
 ```
 如何单独安装 Spark 引擎？请参考 [Linkis 引擎插件安装文档](../deployment/engine-conn-plugin-installation)
 
 
 ### 3.2 如何将非默认引擎打包至安装部署包中 
  
-> 默认打包配置中`assembly-combined-package/assembly-combined/src/main/assembly/assembly.xml`，只会将`spark/hive/python/shell`打包到安装包中，如果需要添加其它引擎，可参考此步骤 
+> 默认打包配置中`linkis-dist/src/main/assembly/distribution.xml`，只会将`spark/hive/python/shell`打包到安装包中，如果需要添加其它引擎，可参考此步骤 
 
 以jdbc引擎为例 
 
-step1 修改`assembly-combined-package/assembly-combined/src/main/assembly/assembly.xml` 添加jdbc引擎
+step1 修改`linkis-dist/src/main/assembly/distribution.xml` 添加jdbc引擎
 ```shell script
  <!--jdbc-->
     <fileSet>
       <directory>
-        ../../linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/
+        ../../linkis-engineconn-plugins/jdbc/target/out/
       </directory>
       <outputDirectory>lib/linkis-engineconn-plugins/</outputDirectory>
       <includes>
@@ -129,7 +129,7 @@ step1 修改`assembly-combined-package/assembly-combined/src/main/assembly/assem
       </includes>
 </fileSet>
 ```
-step2 如果已经全量编译，可以直接重新编译`assembly-combined-package`模块，如果没有，这执行全量编译
+step2 如果已经全量编译，可以直接重新编译`linkis-dist`模块，如果没有，这执行全量编译
 
  
 ## 4. 如何修改Linkis的依赖的Hadoop、Hive、Spark版本
@@ -184,7 +184,7 @@ pom:Linkis/linkis-commons/linkis-hadoop-common/pom.xml
 这里以修改 Spark 的版本为例进行介绍。进入 Spark 引擎所在的目录，手动修改 pom.xml 文件的 Spark 版本信息，具体如下：
 
 ```bash
-    cd incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
+    cd incubator-linkis-x.x.x/linkis-engineconn-plugins/spark
     vim pom.xml
 ```
 

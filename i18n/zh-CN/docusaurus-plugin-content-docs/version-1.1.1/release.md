@@ -3,12 +3,12 @@ title: 版本总览
 sidebar_position: 0.1
 --- 
 - [代理用户模式介绍](/architecture/proxy-user.md)
-- [UDF函数介绍和使用指引](/user_guide/udf.md)
+- [UDF函数介绍和使用指引](/user-guide/udf.md)
 - [引擎物料刷新HTTP接口](/api/http/engineconn-plugin-refesh.md)
 - [UDF相关的HTTP接口](/api/http/udf-api.md)
 - [UDF相关的表结构](/table/udf-table.md)
 - [openLooKeng的引擎的实现](/blog/2022/03/20/openlookeng)
-- [openLooKeng的使用](/engine_usage/openlookeng.md)
+- [openLooKeng的使用](/engine-usage/openlookeng.md)
 - [版本的release-notes](/download/release-notes-1.1.1)
 
 ## 参数变化 

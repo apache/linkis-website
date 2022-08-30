@@ -4,7 +4,7 @@ sidebar_position: 0.1
 ---
 
 - [Lite Deployment Without HDFS Mode](/deployment/deploy-linkis-without-hdfs.md)
-- [Sqoop Engine Usage](/engine_usage/sqoop.md)
+- [Sqoop Engine Usage](/engine-usage/sqoop.md)
 - [History Task Query HTTP Interface](/api/http/linkis-ps-publicservice-api/jobhistory-api.md)
 - [Installation And Deployment of Tool Scriptis](/deployment/linkis-scriptis-install.md)
 - [Release-Notes](/download/release-notes-1.1.2)

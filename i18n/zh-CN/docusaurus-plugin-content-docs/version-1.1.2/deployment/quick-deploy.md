@@ -387,7 +387,7 @@ wds.linkis.admin.user= #用户
 wds.linkis.admin.password= #密码
 
 ```
-管理台使用指引见[使用手册](../user_guide/console-manual.md)
+管理台使用指引见[使用手册](../user-guide/console-manual.md)
 
 ## 5. 验证基础功能
 >根据实际需求，验证对应的引擎任务

@@ -2,6 +2,7 @@
 title: 元数据查询API
 sidebar_position: 3
 ---
+> 本接口为已废弃的老接口，请使用新接口[元数据查询新API](./metadatamanager-api.md)
 
 ** MetadataCoreRestful 类 ** 
 

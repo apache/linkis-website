@@ -24,7 +24,7 @@ sidebar_position: 4
 在终端命令行中执行以下指令：
 ```
 #进入项目WEB根目录
-$ cd incubator-linkis/web
+$ cd incubator-linkis/linkis-web
 #安装项目所需依赖
 $ npm install
 ```
@@ -34,7 +34,7 @@ $ npm install
 ## 2.2. 打包项目
 
 在终端命令行执行以下指令对项目进行打包，生成压缩后的部署安装包。
-检查web/package.json，web/.env文件，检查前端管理台版本号是否正确。
+检查`linkis-web/package.json`，`linkis-web/.env`文件，检查前端管理台版本号是否正确。
 ```
 $ npm run build
 ```

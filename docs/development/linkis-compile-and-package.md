@@ -52,11 +52,11 @@ Execute the following commands in the root directory of the Linkis source code p
 ```
 
 ### step3 Obtain the installation package
-The compiled complete installation package is in the assembly-combined-package->target directory of the project:
+The compiled complete installation package is in the linkis-dist->target directory of the project:
 
 ```bash
     #Detailed path is as follows
-    incubator-linkis-x.x.x/assembly-combined-package/target/apache-linkis-x.x.x-incubating-bin.tar.gz
+    incubator-linkis-x.x.x/linkis-dist/target/apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
 
 ## 3. Compile a single module
@@ -98,14 +98,14 @@ Here's an example of the Spark engine that builds Linkis:
 Enter the directory where the Spark engine is located to compile and package, the command is as follows:
    
 ```bash
-    cd incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
+    cd incubator-linkis-x.x.x/linkis-engineconn-pluginsspark
     mvn clean install
 ```
 ### step3 Obtain the installation package
 Get the installation package, there will be a compiled package in the ->target directory of the corresponding module:
    
 ```
-   incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.jar
+   incubator-linkis-x.x.x/linkis-engineconn-pluginsspark/target/linkis-engineplugin-spark-x.x.x.jar
 ```
 
 How to install Spark engine separately? Please refer to [Linkis Engine Plugin Installation Document](../deployment/engine-conn-plugin-installation)
@@ -159,7 +159,7 @@ Modify the dependency hadoop-hdfs to hadoop-hdfs-client:
 Here's an example of changing the version of Spark. Go to the directory where the Spark engine is located and manually modify the Spark version information of the pom.xml file as follows:
 
 ```bash
-    cd incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
+    cd incubator-linkis-x.x.x/linkis-engineconn-pluginsspark
     vim pom.xml
 ```
 

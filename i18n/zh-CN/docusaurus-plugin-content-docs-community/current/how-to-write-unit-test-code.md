@@ -7,7 +7,7 @@ Junit5+Mockito+jacoco+h2本地数据库
 Idea增强插件 
 - JUnitGenerator V2.​0  用于生成测试用例的标准模块
 - GenerateAllSet   用于快速new创建对象，并设置默认值
-- MybatisX  ado与mapper的关联映射 方便查看
+- MybatisX  dao与mapper的关联映射 方便查看
 
 ### 配置IDEA的Junit的模板 
 ```properties
@@ -112,7 +112,7 @@ public class $testClass {
 } 
 #end
 
-```   
+```
 ![test-0](https://user-images.githubusercontent.com/29391030/155080741-7e6b89db-0ee6-48e1-a858-4123d5bbf2f0.png) 
 
 1.配置配置测试类生成路径  
@@ -152,13 +152,13 @@ public class $testClass {
 - 3.单元测试必须可以重复执行的，不能受到外界环境的影响。 
     说明：单元测试通常会被放到持续集成中，每次有代码 check in 时单元测试都会被执行。如果单测对外部环境（网络、服务、中间件等）有依赖，容易导致持续集成机制的不可用。   
     正例：为了不受外界环境影响，要求设计代码时就把被测类的相关依赖改成注入，在测试时用 spring 这样的依赖注入框架注入一个本地（内存）实现或者 Mock 实现。
- 
+
 - 4.增量代码确保单元测试通过。   
     说明：新增代码必须补充单元测试，如果新增代码影响了原有单元测试，请修正
 
 - 5.对于单元测试，要保证测试粒度足够小，有助于精确定位问题。单测粒度一般都是方法级别(工具类或则枚举类等极少场景可以是类级别)。   
     说明：只有测试粒度小才能在出错时尽快定位到出错位置。单测不负责检查跨类或者跨系统的交互逻辑，那是集成测试的领域。
- 
+
 
  ## 断言的使用
 所有的测试用例的结果验证都必须使用断言模式
@@ -280,7 +280,7 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
         logger.info(mvcResult.getResponse().getContentAsString());
     }
 
-``` 
+```
 ### Server 类的单元测试
     //todo
 ### Dao 类的单元测试
