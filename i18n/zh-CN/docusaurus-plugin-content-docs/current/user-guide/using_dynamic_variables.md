@@ -97,7 +97,7 @@ aws s3 ls  s3://***/ads/tmp/dws_member_active_detail_d_20210601_20211231/pt=2022
           "parameter": {
             "bucket": "**************",
             "path": [
-              "ads/tmp/ccass_tm_announcements/${yyyyMMdd%-1d}/"
+              "ads/tmp/ccass_tm_announcements/&{yyyyMMdd%-1d}/"
             ],
             "stored": "parquet",
             "compression": "NONE",
