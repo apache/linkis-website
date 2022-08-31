@@ -5,7 +5,7 @@ sidebar_position: 7
 
 ## 1.总述
 ### 需求背景
-用户希望在写代码时，对时间的格式要求千变万化,已有的[Linkis自定义变量](https://mp.weixin.qq.com/s/utjiadAkqF9b2xme_4i35Q)目前还不足以支撑这些需求。另外,已有的时间运算-1有些表示减一个月,有些则是减一天,用户很容易混淆
+用户希望在写代码时，对时间的格式要求千变万化,已有的[Linkis自定义变量](https://linkis.apache.org/docs/latest/architecture/commons/variable/)目前还不足以支撑这些需求。另外,已有的时间运算-1有些表示减一个月,有些则是减一天,用户很容易混淆
 
 ### 目标
 * 其他日期内置变量都是相对run_date计算出来
@@ -40,10 +40,11 @@ Z	|Time zone	|RFC 822 time zone	|-0800
 X	|Time zone	|ISO 8601 time zone	|-08; -0800; -08:00
 
 ## 2. 总体设计
-总体设计和技术架构参照[Linkis自定义变量](https://mp.weixin.qq.com/s/utjiadAkqF9b2xme_4i35Q)
+总体设计和技术架构参照[Linkis自定义变量](https://linkis.apache.org/docs/latest/architecture/commons/variable/)
 
 ## 3. 功能介绍
-Linkis支持的变量类型分为自定义变量(不做赘述)和系统内置变量，自定变量日期支持+-。
+* Linkis支持的变量类型分为自定义变量(不做赘述)和系统内置变量，自定变量日期支持+-。
+* 其中+-是对linkis内置参数run_date进行运算,然后将%之前的pattern字段替换,非Pattern字符不支持运行。
 
 ### 3.1 内置变量举例
 可以根据自己的喜好/业务实际情况定义需要动态渲染的参数

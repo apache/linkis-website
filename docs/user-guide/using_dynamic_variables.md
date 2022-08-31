@@ -4,7 +4,7 @@ sidebar_position: 7
 ---
 ## 1. General
 ### Requirements Background
-Users hope that when writing code, the time format requirements are ever-changing, and the existing [Linkis custom variables](https://mp.weixin.qq.com/s/utjiadAkqF9b2xme_4i35Q) is currently not enough to support these requirements. In addition, some of the existing time operation -1 means minus one month, and some minus one day, which is easy for users to confuse
+Users hope that when writing code, the time format requirements are ever-changing, and the existing [Linkis custom variables](https://linkis.apache.org/docs/latest/architecture/commons/variable/) is currently not enough to support these requirements. In addition, some of the existing time operation -1 means minus one month, and some minus one day, which is easy for users to confuse
 
 ### Target
 * Other date built-in variables are calculated relative to run_date
@@ -39,10 +39,11 @@ Z |Time zone |RFC 822 time zone |-0800
 X |Time zone |ISO 8601 time zone |-08; -0800; -08:00
 
 ## 2. Overall Design
-The overall design and technical architecture refer to [Linkis Custom Variables](https://mp.weixin.qq.com/s/utjiadAkqF9b2xme_4i35Q)
+The overall design and technical architecture refer to [Linkis Custom Variables](https://linkis.apache.org/docs/latest/architecture/commons/variable/)
 
 ## 3. Function introduction
-The variable types supported by Linkis are divided into custom variables (not to be described in detail) and system built-in variables. The custom variable date supports +-.
+* The variable types supported by Linkis are divided into custom variables (not to be repeated) and system built-in variables. The custom variable date supports +-.
+* Among them, +- is to operate on the built-in parameter run_date of linkis, and then replace the pattern field before %. Non-pattern characters do not support running.
 
 ### 3.1 Examples of built-in variables
 You can define parameters that need to be dynamically rendered according to your own preferences/business actual situation
