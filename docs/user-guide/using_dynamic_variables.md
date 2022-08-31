@@ -43,7 +43,7 @@ The overall design and technical architecture refer to [Linkis Custom Variables]
 
 ## 3. Function introduction
 * The variable types supported by Linkis are divided into custom variables (not to be repeated) and system built-in variables. The custom variable date supports +-.
-* Among them, +- is to operate on the built-in parameter run_date of linkis, and then replace the pattern field before %. Non-pattern characters do not support operation replacement.
+* Among them, +- is to perform operation on the built-in parameter run_date of linkis, and then replace the pattern field before %. Non-pattern characters do not support operation replacement.
 
 ### 3.1 Examples of built-in variables
 You can define parameters that need to be dynamically rendered according to your own preferences/business actual situation
