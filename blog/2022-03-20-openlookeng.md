@@ -25,7 +25,7 @@ Architecture diagram:
 The task flow diagram is as follows:
   ![image](https://user-images.githubusercontent.com/7869972/166737177-57f8f84a-b16d-44bd-b7cf-a61fc2cc160c.png)
 
-The capabilities based on Linkie and OpenLooKeng can provide the following capabilities:
+The capabilities based on Linkis and OpenLooKeng can provide the following capabilities:
 - 1. The connection capability of the computing middleware layer based on Linkis allows upper-layer application tools to quickly connect to OpenLooKeng, submit tasks, and obtain logs, progress, and results.
 - 2. Based on the public service capability of Linkis, it can complete custom variable substitution, UDF management, etc. for OpenLooKeng's sql
 - 3. Based on the context capability of Linkis, the results of OpengLooKeng can be passed to downstream ECs such as Spark and Hive for query
