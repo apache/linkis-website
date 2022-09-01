@@ -25,7 +25,7 @@ OpenLooKeng ec的实现基于Linkis的EngineConn Plugin（ECP）进行扩展，�
 任务流转图如下：
   ![image](https://user-images.githubusercontent.com/7869972/166737177-57f8f84a-b16d-44bd-b7cf-a61fc2cc160c.png)
 
-基于Linkie和OpenLooKeng的能力可以提供如下能力：
+基于Linkis和OpenLooKeng的能力可以提供如下能力：
 - 1.基于Linkis的计算中间件层的连接能力可以让上层应用工具快速对接使用OpenLooKeng，提交任务，并获取日志、进度、结果。
 - 2.基于Linkis的公共服务能力可以做到对OpenLooKeng的sql完成自定义变量替换、UDF管理等
 - 3.基于Linkis的上下文能力可以打通OpengLooKeng的结果传递给下游Spark、Hive等EC进行查询
