@@ -42,6 +42,9 @@ https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.
 # enter the web directory
 cd DataSphereStudio/web
 
+#This step is only required for the first use
+lerna init
+
 #Add dependencies Note: This is not through npm install but lerna bootstrap needs to be installed first learn This step only needs to be executed for the first time
 lerna bootstrap
 ````
@@ -64,7 +67,7 @@ VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
 ```shell script
 cd DataSphereStudio/web
 # run scriptis component
-npm run serve --module=scriptis
+npm run serve --module=scriptis --micro_module=scriptis
 ````
 
 Open the browser and access the application script through the link `http://localhost:8080` (the default port for local requests is 8080), because it will request the remote linkis-gatway service interface, which will cause cross-domain problems, chrome browser To solve cross-domain problems, please refer to [Solving Chrome Cross-Domain Problems](https://www.jianshu.com/p/56b1e01e6b6a)
@@ -78,7 +81,7 @@ Open the browser and access the application script through the link `http://loca
 cd DataSphereStudio/web
 
 #After the command is executed successfully, a folder named `dist` will appear in the web directory, which is the component resource code of the packaged scriptis. We need to deploy the front-end resource to the nginx server where linkis-web is located
-npm run build --module=scriptis
+npm run build --module=scriptis --micro_module=scriptis
 ````
 
 ### 4.2 Deployment
