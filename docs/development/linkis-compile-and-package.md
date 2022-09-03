@@ -15,7 +15,7 @@ After obtaining the project code from [github repository](https://github.com/apa
 
 **Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.12.
 
-If you want to compile Linkis with another version of Hadoop, Hive, Spark, please refer to: [How to Modify Linkis dependency of Hadoop, Hive, Spark](#5 How to Modify Linkis dependency versionof Hadoop, Hive, Spark)
+If you want to compile Linkis with another version of Hadoop, Hive, Spark, please refer to: [How to Modify Linkis dependency of Hadoop, Hive, Spark](#5-how-to-modify-the-hadoop-hive-and-spark-versions-that-linkis-depends-on)
 
 ### <font color="red">1.2 Modify dependency configuration</font>
 :::caution Note

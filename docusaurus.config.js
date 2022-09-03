@@ -103,12 +103,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         alt: 'Apache Linkis Logo',
         src: 'img/logo.png',
       },
-      items: [{
-          to: '/',
-          position: 'left',
-          label: 'Home',
-          activeBaseRegex: `^/$`,
-        },
+      items: [
+//       {
+//          to: '/',
+//          position: 'left',
+//          label: 'Home',
+//          activeBaseRegex: `^/$`,
+//        },
         /*{
           type: 'docsVersionDropdown',
           position: 'right',
@@ -120,12 +121,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
           ],
         },*/
-        {
-          to: '/faq/main',
-          position: 'left',
-          label: 'FAQ',
-          activeBaseRegex: `/faq/`,
-        },
         {
           to: '/download/main',
           position: 'left',
@@ -161,6 +156,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Users',
           position: 'left',
           activeBaseRegex: `/user`,
+        },
+        {
+          to: '/faq/main',
+          position: 'left',
+          label: 'FAQ',
+          activeBaseRegex: `/faq/`,
         },
         {
           label: 'Doc',

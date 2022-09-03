@@ -25,12 +25,6 @@
         "email": "xujie@apache.org"
       },
       {
-        "apacheId": "legendtkl",
-        "githubId": "legendtkl",
-        "name": "陶克路",
-        "email": "legendtkl@apache.org"
-      },
-      {
         "apacheId": "leojie",
         "githubId": "CCweixiaoLongping",
         "name": "介龙平",
@@ -203,6 +197,14 @@
         "gitUrl": "https://github.com/yixiaohuamax",
         "githubId": "seayi",
         "name": "易小华"
+      },
+      {
+        "apacheId": "legendtkl",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2370761?s=60&v=4",
+        "email": "legendtkl@apache.org",
+        "gitUrl": "https://github.com/legendtkl",
+        "githubId": "legendtkl",
+        "name": "陶克路"
       }
     ]
   },
@@ -232,12 +234,6 @@
         "email": "xujie@apache.org"
       },
       {
-        "apacheId": "legendtkl",
-        "githubId": "legendtkl",
-        "name": "Kelu Tao",
-        "email": "legendtkl@apache.org"
-      },
-      {
         "apacheId": "leojie",
         "githubId": "CCweixiaoLongping",
         "name": "LongPing Jie",
@@ -246,7 +242,7 @@
       {
         "apacheId": "luxiaolongdet101",
         "githubId": "Xiaolong",
-        "name": "XiaoLong  Lu", 
+        "name": "XiaoLong Lu",
         "email": "luxiaolong@apache.org"
       }
     ],
@@ -410,6 +406,14 @@
         "gitUrl": "https://github.com/yixiaohuamax",
         "githubId": "seayi",
         "name": "Xiaohua Yi"
+      },
+      {
+        "apacheId": "legendtkl",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2370761?s=60&v=4",
+        "email": "legendtkl@apache.org",
+        "gitUrl": "https://github.com/legendtkl",
+        "githubId": "legendtkl",
+        "name": "Kelu Tao"
       }
     ]
   }
