@@ -42,7 +42,8 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 ### 2.1 Installation package preparation
 
-- Method 1: From the official website [download address](https://linkis.apache.org/zh-CN/download/main): https://linkis.apache.org/zh-CN/download/main, download the corresponding The installation package (project installation package and management console installation package)
+- Method 1: From the official website [download address](https://linkis.apache.org/zh-CN/download/main): https://linkis.apache.org/zh-CN/download/main
+, download the corresponding The installation package (project installation package and management console installation package)
 - Method 2: Compile the project installation package and management console according to [Linkis Compile and Package](../development/linkis-compile-and-package) and [Front-end Management Console Compile](../development/web-build) Installation package
 
 After uploading the installation package `apache-linkis-x.x.x-incubating-bin.tar.gz`, decompress the installation package

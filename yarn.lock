@@ -4070,6 +4070,11 @@ dns-txt@^2.0.2:
   dependencies:
     buffer-indexof "^1.0.0"
 
+docusaurus-plugin-less@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npmmirror.com/docusaurus-plugin-less/-/docusaurus-plugin-less-2.0.2.tgz#63bf04a5539a3b8ddc38bf527b51eb135b60f528"
+  integrity sha512-ez6WSSvGS8HoJslYHeG5SflyShWvHFXeTTHXPBd3H1T3zgq9wp6wD7scXm+rXyyfhFhP5VNiIqhYB78z4OLjwg==
+
 docusaurus-plugin-sass@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/docusaurus-plugin-sass/-/docusaurus-plugin-sass-0.2.2.tgz#9b7f8c6fbe833677064ec05b09b98d90b50be324"
