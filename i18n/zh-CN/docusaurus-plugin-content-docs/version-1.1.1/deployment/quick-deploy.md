@@ -42,7 +42,8 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 ### 2.1 安装包准备
 
-- 方式1：从官网[下载地址](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main，下载对应的安装包(项目安装包和管理台安装包)
+- 方式1：从官网[下载地址](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main
+，下载对应的安装包(项目安装包和管理台安装包)
 - 方式2：根据[Linkis 编译打包](../development/linkis-compile-and-package)和[前端管理台编译](../development/web-build) 自行编译出项目安装包和管理台安装包
 
 上传安装包`apache-linkis-x.x.x-incubating-bin.tar.gz`后，进行解压安装包 
