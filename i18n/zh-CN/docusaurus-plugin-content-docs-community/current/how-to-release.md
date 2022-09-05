@@ -263,7 +263,7 @@ step1 基于待发布的开发分支，创建release-${release_version}-rc分支
 step2 创建新的github release
 
 进入到创建页面 https://github.com/apache/incubator-linkis/releases/new 
-基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc`的tag，填写标题`Apache Linkis(incubating) Release-1.1.2-incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
+基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc1`的tag，填写标题`Apache Linkis(incubating) Release-1.1.2-incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
 
  ![image](https://user-images.githubusercontent.com/7869972/180214706-7228e5ae-f810-4e07-80fc-67fcf01688eb.png)
 
@@ -544,7 +544,7 @@ Hello Linkis Community,
     This is a call for vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
 
 	Release notes:
-	    https://linkis.apache.org/download/release-notes-${release_version}-${rc_version}
+	    https://linkis.apache.org/download/release-notes-${release_version}
 
     The release candidates:
     	https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
@@ -553,7 +553,7 @@ Hello Linkis Community,
         https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
 
 	Git tag for the release:
-	    https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
+	    https://github.com/apache/incubator-linkis/tree/${release_version}-${rc_version}
 
 	Keys to verify the Release Candidate:
 	    https://downloads.apache.org/incubator/linkis/KEYS
@@ -641,7 +641,7 @@ Hello Apache Linkis PPMC and Community,
 
     The vote closes now as 72hr have passed. The vote PASSES with
 
-    xx (+1 non-binding) votes from the PPMC,
+    xx (+1 binding) votes from the PPMC,
     xx (+1 binding) votes from the IPMC,
     xx (+1 non-binding) votes from the rest of the developer community,
     and no further 0 or -1 votes.
@@ -693,7 +693,7 @@ Hello Incubator Community,
         • https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
 
     Git tag for the release:
-        • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+        • https://github.com/apache/incubator-linkis/tree/${release_version}-${rc_version}
 
     Release notes:
         • https://linkis.apache.org/download/release-notes-${release_version}
@@ -801,6 +801,7 @@ release的分支路径名不能带rc标识
 
 ```shell
 #移动源码包与二进制包
+# 如 svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/1.2.0-RC1 https://dist.apache.org/repos/dist/release/incubator/linkis/release-1.2.0  -m "transfer packages for ${release_version}-${rc_version}" 
 $ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/linkis/${release_version} -m "transfer packages for ${release_version}-${rc_version}" 
 
 # 下面操作 按实际情况 决定是否更新release 分支的key
@@ -867,7 +868,7 @@ Apache Linkis (Incubating) builds a computation middleware layer to decouple the
 
 Download Links: https://linkis.apache.org/download/main/
 
-Release Notes: https://linkis.apache.org/download/release-${release_version}/
+Release Notes: https://linkis.apache.org/download/release-notes-${release_version}
 
 Website: https://linkis.apache.org/
 

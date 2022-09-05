@@ -1,5 +1,5 @@
 ---
-title: Release Notes 1.2.0-RC1
+title: Release Notes 1.2.0
 sidebar_position: 0.18
 ---
 
