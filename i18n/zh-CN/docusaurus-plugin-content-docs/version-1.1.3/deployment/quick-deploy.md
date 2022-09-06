@@ -407,7 +407,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -c
 #python引擎任务
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
 ```
-如果验证失败，请参考【步骤6】进行排查
+如果验证失败，请参考【步骤8】进行排查
 
 ## 6 开发工具IDE（Scriptis）的安装(可选)
 >安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本
