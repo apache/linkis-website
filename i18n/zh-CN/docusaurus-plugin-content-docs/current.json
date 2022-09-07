@@ -71,7 +71,7 @@
     "description": "The label for category Upgrade Guide in sidebar tutorialSidebar"
   },
 
-  "sidebar.tutorialSidebar.category.Development Doc": {
+  "sidebar.tutorialSidebar.category.Development": {
     "message": "开发文档",
     "description": "The label for category Development Doc in sidebar tutorialSidebar"
   },
