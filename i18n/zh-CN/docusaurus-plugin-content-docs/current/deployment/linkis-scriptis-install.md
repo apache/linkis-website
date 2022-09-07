@@ -42,6 +42,9 @@ https://github.com/WeBankFinTech/DataSphereStudio/archive/refs/heads/branch-1.1.
 #进入 web 目录
 cd DataSphereStudio/web 
 
+#该步骤仅第一次使用时需要执行
+lerna init
+
 #添加依赖  注意：这里不是通过 npm install 而是 lerna bootstrap  需先安装 learn  该步骤仅第一次使用时需要执行
 lerna bootstrap
 ```
@@ -64,7 +67,7 @@ VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
 ```shell script
 cd DataSphereStudio/web 
 # 运行 scriptis 组件 
-npm run serve --module=scriptis
+npm run serve --module=scriptis --micro_module=scriptis
 ```
 
 打开浏览器，通过链接`http://localhost:8080`(本地请求默认端口是 8080) 访问应用 scriptis ，因为会请求到远端的 linkis-gatway 服务接口，这会存在跨域问题，chrome 浏览器解决跨域问题可参考[解决 Chrome 跨域问题 ](https://www.jianshu.com/p/56b1e01e6b6a)
@@ -78,7 +81,7 @@ npm run serve --module=scriptis
 cd DataSphereStudio/web 
 
 #该指令成功执行后，web 目录下会出现一个名叫 `dist` 的文件夹，该文件夹即为打包好 scriptis 的组件资源代码。我们需要将该前端资源部署到 linkis-web 所在的 nginx 服务器上
-npm run build --module=scriptis  
+npm run build --module=scriptis --micro_module=scriptis
 ```
 
 ### 4.2 部署
