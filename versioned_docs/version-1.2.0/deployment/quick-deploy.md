@@ -406,7 +406,7 @@ sh bin/linkis-cli -submitUser hadoop -engineType spark-2.4.3 -codeType sql -code
 #python engine task
 sh bin/linkis-cli -submitUser hadoop -engineType python-python2 -codeType python -code 'print("hello, world!")'
 ````
-If the verification fails, please refer to [Step 6] for troubleshooting
+If the verification fails, please refer to [Step 8] for troubleshooting
 
 ## 6 Installation of development tool IDE (Scriptis) (optional)
 >After installing the Scripti tool, it can support writing SQL, Pyspark, HiveQL and other scripts online on the web page
