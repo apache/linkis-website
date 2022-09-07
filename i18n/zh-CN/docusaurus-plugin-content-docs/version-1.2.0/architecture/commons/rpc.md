@@ -64,27 +64,37 @@ abstract class Sender {
 - Sender发送器会将调用者的请求传递给拦截器，进行一系列发送前的逻辑处理。
 
 拦截器拦截请求，开始对请求做额外的功能性处理：
+
 **广播拦截器**
-
+```
 org.apache.linkis.rpc.interceptor.common.BroadcastRPCInterceptor
-
+```
 广播拦截器只对需要进行广播的请求生效。
 广播拦截器会提供特殊的广播接口，如果本次请求实现了该广播接口，且该请求不是正在广播中，广播拦截器则认为本次请求需要进行广播，这时会触发广播操作。
+
 **重试拦截器**
 
+```
 org.apache.linkis.rpc.interceptor.common.RetryableRPCInterceptor
+```
 
 重试拦截器会对接下来的所有步骤提供重试功能。
 如果接收端要求重试，或者发送请求时出现了ConnectException（连接异常），或者调用者指定某些异常需要重试，这时重试拦截器会自动进行重试。
-**缓存拦截器**
 
+
+**缓存拦截器**
+```
 org.apache.linkis.rpc.interceptor.common.CacheableRPCInterceptor
+```
 
 缓存拦截器是针对一些响应内容不大可能经常变动的同步请求而设定的。
 缓存拦截器也会提供特殊的缓存接口，如果本次请求实现了缓存接口，会首先在缓存拦截器中寻找缓存，不存在缓存才会继续请求，并在拿到响应后，先将响应缓存起来，再将响应返回。
-**公共默认拦截器**
 
+**公共默认拦截器**
+```
 org.apache.linkis.rpc.interceptor.common.CommonRPCInterceptor
+```
+
 
 公共默认拦截器用于调用接下来的处理步骤（示例参考:org.apache.linkis.rpc.BaseRPCSender#ask） 
 
