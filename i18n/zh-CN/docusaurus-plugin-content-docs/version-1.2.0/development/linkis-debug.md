@@ -298,7 +298,7 @@ linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/
 
 ```
 
-### 3.9 启动cg-engineconnmanager
+### 3.9 启动linkis-cg-engineconnmanager
 
 ![engineconnmanager-app](/Images/development/debug/engineconnmanager-app.png)
 
