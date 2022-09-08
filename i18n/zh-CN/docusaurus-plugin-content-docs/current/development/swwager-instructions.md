@@ -1,9 +1,9 @@
 ---
-title: Swwager 注解使用说明
+title: swagger 注解使用说明
 sidebar_position: 5
 ---
 
-## 1. swwager注解的作用域
+## 1. swagger注解的作用域
 |  API| 作用范围 | 使用位置 | 
 | -------- | -------- | ----- |
 |@Api|协议集描述|用于controller类上|
