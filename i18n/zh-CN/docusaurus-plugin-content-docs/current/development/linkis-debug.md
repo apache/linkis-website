@@ -4,7 +4,7 @@ sidebar_position: 2
 ---
 
 > 导语：本文详细记录了如何在IDEA中配置和启动Linkis的各个微服务，并实现JDBC、Python、Shell等脚本的提交和执行。在Mac OS上，Linkis的各个微服务都支持本地调试。
-> 但在Windows OS上，linkis-cg-engineplugin和linkis-cg-engineconnmanager两个服务暂不支持在本地进行调试，可参考下文第4小节的远程调试文档进行调试。
+> 但在Windows OS上，linkis-cg-engineconnmanager服务暂不支持在本地进行调试，可参考下文第4小节的远程调试文档进行调试。
 
 <h4><font color="red">linkis 1.0.3版本前，还未进入apache孵化，组织还是归属webank,主类的包名为`com.webank.wedatasphere.linkis`，调试时，注意区分。</font></h4>
 
@@ -24,8 +24,9 @@ git checkout dev-1.2.0
 克隆Linkis的源码到本地，并用IDEA打开，首次打开项目会从maven仓库中下载Linkis项目编译所需的依赖jar包。当依赖jar包加载完毕之后，运行如下编译打包命令。
 
 ```shell
+##如果对应版本已经发布，则可以跳过该步骤。发布的版本相关依赖已经deploy到maven中央仓库
 mvn -N install
-mvn clean install
+mvn clean install -DskipTests
 ```
 
 编译命令运行成功之后，在目录incubator-linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-incubating-bin.tar.gz
@@ -34,13 +35,23 @@ mvn clean install
 
 ### 3.1 add mysql-connector-java到classpath中
 
-服务启动过程中如果遇到mysql驱动类找不到的情况，可以把mysql-connector-java-版本号.jar添加到对应服务模块的classpath下，详细操作请参考3.5小节。
+服务启动过程中如果遇到mysql驱动类找不到的情况，可以把mysql-connector-java-版本号.jar添加到对应服务模块的classpath下。
 
-目前依赖mysql的服务有：
+目前依赖mysql的服务有和对应的pom.xml路径如下：
 
-- linkis-mg-gateway
-- linkis-ps-publicservice
-- linkis-cg-linkismanage
+- linkis-mg-gateway：linkis-spring-cloud-services/linkis-service-gateway/linkis-gateway-server-support/pom.xml
+- linkis-ps-publicservice：linkis-public-enhancements/pom.xml
+- linkis-cg-linkismanage：linkis-computation-governance/linkis-manager/linkis-application-manager/pom.xml
+- linkis-cg-engineplugin: linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
+
+增加到依赖的方式如下，修改对应服务的pom.xml文件讲mysql依赖加入进去，
+```xml
+<dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.connector.version}</version>
+</dependency>
+```
 
 ### 3.2 调整log4j2.xml配置
 
@@ -65,10 +76,11 @@ mvn clean install
     </loggers>
 </configuration>
 ```
+__注意：__ linkis.properties需要修改对应的jdbc的参数
 
 ### 3.3 启动eureka服务
 
-Linkis和DSS的服务都依赖Eureka，所以我们需要首先启动Eureka服务，Eureka服务可以在本地启动，也可以使用远程启动的服务。保证各个服务都能访问到Eureka的IP和端口之后，就可以开始着手启动其他微服务了。
+Linkis的服务依赖Eureka作为注册中心，所以我们需要首先启动Eureka服务，Eureka服务可以在本地启动，也可以使用远程启动的服务。保证各个服务都能访问到Eureka的IP和端口之后，就可以开始着手启动其他微服务了。
 
 在Linkis内部是通过-DserviceName参数设置应用名以及使用配置文件，所以-DserviceName是必须要指定的VM启动参数。
 
@@ -91,14 +103,14 @@ linkis-eureka
 org.apache.linkis.eureka.SpringCloudEurekaApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-eureka -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
 
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
 ```
 
 注意调试配置中涉及到的本地路径，需要要修改成自己设置的路径；
-在Windows中路径书写规则是：D:\yourDir\incubator-linkis\linkis-dist\package\conf
+在Windows中路径书写规则是：D:\{YourPathPrefix}\incubator-linkis\linkis-dist\package\conf
 （针对以下微服务同样适用）
 
 如果不想默认的20303端口可以修改端口配置：
@@ -116,8 +128,7 @@ server:
 
 ### 3.4 启动linkis-mg-gateway
 
-linkis-mg-gateway是Linkis的服务网关，所有的请求都会经由gateway来转发到对应的服务上。
-
+linkis-mg-gateway是Linkis的服务网关，所有的请求都会经由gateway来转发到对应的服务上。 
 启动服务器前，首先需要编辑conf/linkis-mg-gateway.properties配置文件，增加管理员用户名和密码，用户名需要与你当前登录的mac用户名保持一致。
 
 ```properties
@@ -139,7 +150,7 @@ linkis-mg-gateway
 linkis-gateway-server-support
 
 [VM Opitons]
--DserviceName=linkis-mg-gateway -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
@@ -165,7 +176,7 @@ linkis-ps-publicservice
 linkis-public-enhancements
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
 
 [main Class]
 org.apache.linkis.filesystem.LinkisPublicServiceApp
@@ -178,44 +189,26 @@ org.apache.linkis.filesystem.LinkisPublicServiceApp
 
 ![publicservice-debug-error](/Images/development/debug/publicservice-debug-error.png)
 
-需要把public-module模块加到linkis-public-enhancements模块的classpath下，详细步骤如下：
+需要把公共依赖的模块加到linkis-public-enhancements模块的classpath下，修改pes的pom增加以下依赖：
+linkis-public-enhancements/pom.xml
+```xml
+ <dependency>
+      <groupId>org.apache.linkis</groupId>
+      <artifactId>linkis-dist</artifactId>
+      <version>${project.version}</version>
+    </dependency>
 
-![step-1](/Images/development/debug/step-1.png)
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.connector.version}</version>
+</dependency>
 
-![step-2](/Images/development/debug/step-2.png)
-
-![step-3](/Images/development/debug/step-3.png)
-
-![step-4](/Images/development/debug/step-4.png)
+```
 
 做完上述配置后重新启动publicservice的Application
 
-### 3.6 启动linkis-ps-cs
-
-启动ps-cs服务之前，需要保证publicservice服务成功启动。
-
-![ps-cs-App](/Images/development/debug/ps-cs-App.png)
-
-参数解释：
-
-```shell
-[Service Name]
-linkis-ps-cs
-
-[Use classpath of module]
-linkis-cs-server
-
-[VM Opitons]
--DserviceName=linkis-ps-cs -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf 
-
-[main Class]
-org.apache.linkis.cs.server.LinkisCSApplication
-
-[Add provided scope to classpath]
-通过勾选Include dependencies with “Provided” scope ，可以在调试时，引入provided级别的依赖包。
-```
-
-### 3.7 启动linkis-cg-linkismanager
+### 3.6 启动linkis-cg-linkismanager
 
 ![cg-linkismanager-APP](/Images/development/debug/cg-linkismanager-APP.png)
 
@@ -229,7 +222,7 @@ linkis-cg-linkismanager
 linkis-application-manager
 
 [VM Opitons]
--DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.manager.am.LinkisManagerApplication
@@ -238,7 +231,7 @@ org.apache.linkis.manager.am.LinkisManagerApplication
 通过勾选Include dependencies with “Provided” scope ，可以在调试时，引入provided级别的依赖包。
 ```
 
-### 3.8 启动linkis-cg-entrance
+### 3.7 启动linkis-cg-entrance
 
 ![cg-entrance-APP](/Images/development/debug/cg-entrance-APP.png)
 
@@ -261,6 +254,50 @@ org.apache.linkis.entrance.LinkisEntranceApplication
 通过勾选Include dependencies with “Provided” scope ，可以在调试时，引入provided级别的依赖包。
 ```
 
+### 3.8 启动linkis-cg-engineplugin
+
+![engineplugin-app](/Images/development/debug/engineplugin-app.png)
+
+参数解释：
+
+```shell
+[Service Name]
+linkis-cg-engineplugin
+
+[Use classpath of module]
+linkis-engineconn-plugin-server
+
+[VM Opitons]
+-DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+
+[main Class]
+org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
+
+[Add provided scope to classpath]
+通过勾选Include dependencies with “Provided” scope ，可以在调试时，引入provided级别的依赖包。
+```
+
+启动engineplugin的时候可能会遇到如下报错：
+
+![engineplugin-debug-error](/Images/development/debug/engineplugin-debug-error.png)
+
+需要把公共依赖的模块加到ecp模块的classpath下，修改pes的pom增加以下依赖：
+linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
+```xml
+ <dependency>
+      <groupId>org.apache.linkis</groupId>
+      <artifactId>linkis-dist</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.connector.version}</version>
+</dependency>
+
+```
+
 ### 3.9 启动cg-engineconnmanager
 
 ![engineconnmanager-app](/Images/development/debug/engineconnmanager-app.png)
@@ -275,7 +312,7 @@ linkis-cg-engineconnmanager
 linkis-engineconn-manager-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
+-DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
 
 [main Class]
 org.apache.linkis.ecm.server.LinkisECMApplication
@@ -286,45 +323,16 @@ org.apache.linkis.ecm.server.LinkisECMApplication
 
 -DJAVA_HOME是为了指定ecm启动引擎时所使用的java命令所在的路径，如果你默认JAVA环境变量中的版本满足需要，此配置可以不加
 
-针对linkis-cg-engineplugin模块调试暂只支持Mac OS
+针对linkis-cg-engineconnmanager模块调试暂只支持Mac OS 和 Linux系统
 
 
-### 3.10 启动linkis-cg-engineplugin
 
-![engineplugin-app](/Images/development/debug/engineplugin-app.png)
 
-参数解释：
-
-```shell
-[Service Name]
-linkis-cg-engineplugin
-
-[Use classpath of module]
-linkis-engineconn-plugin-server
-
-[VM Opitons]
--DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf
-
-[main Class]
-org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
-
-[Add provided scope to classpath]
-通过勾选Include dependencies with “Provided” scope ，可以在调试时，引入provided级别的依赖包。
-```
-
-启动engineplugin的时候可能会遇到如下报错：
-
-![engineplugin-debug-error](/Images/development/debug/engineplugin-debug-error.png)
-
-解决办法是把public-module模块加到linkis-engineconn-plugin-server模块的classpath下，参考3.5小节
-
-针对linkis-cg-engineplugin模块调试暂只支持Mac OS
-
-### 3.11 关键配置修改
+### 3.10 关键配置修改
 
 以上操作只是完成了对Linkis各个微服务启动Application的配置，除此之外，Linkis服务启动时所加载的配置文件中，有些关键配置也需要做针对性地修改，否则启动服务或脚本执行的过程中会遇到一些报错。关键配置的修改归纳如下：
 
-####  3.11.1 conf/linkis.properties
+####  3.10.1 conf/linkis.properties
 
 ```properties
 # linkis底层数据库连接参数配置
@@ -344,39 +352,39 @@ wds.linkis.governance.station.admin=leojie
 
 在配置linkis底层数据库连接参数之前，请创建linkis数据库，并运行linkis-dist/package/db/linkis_ddl.sql和linkis-dist/package/db/linkis_dml.sql来初始化所有表和数据。
 
-其中wds.linkis.home=/Users/leojie/software/linkis的目录结构如下，里面只放置了lib目录和conf目录。引擎进程启动时会把wds.linkis.home中的conf和lib路径，加到classpath下，如果wds.linkis.home不指定，可能会遇到目录找不到的异常。
+其中wds.linkis.home={YourPathPrefix}/linkis的目录结构如下，里面只放置了lib目录和conf目录。引擎进程启动时会把wds.linkis.home中的conf和lib路径，加到classpath下，如果wds.linkis.home不指定，可能会遇到目录找不到的异常。
 
 ![linkis-home](/Images/development/debug/linkis-home.png)
 
-#### 3.11.2 conf/linkis-cg-entrance.properties
+#### 3.10.2 conf/linkis-cg-entrance.properties
 
 ```properties
 # entrance服务执行任务的日志目录
-wds.linkis.entrance.config.log.path=file:///Users/leojie/software/linkis/data/entranceConfigLog
+wds.linkis.entrance.config.log.path=file:///{YourPathPrefix}/linkis/data/entranceConfigLog
 
 # 结果集保存目录，本机用户需要读写权限
-wds.linkis.resultSet.store.path=file:///Users/leojie/software/linkis/data/resultSetDir
+wds.linkis.resultSet.store.path=file:///{YourPathPrefix}/linkis/data/resultSetDir
 ```
 
-#### 3.11.3 conf/linkis-cg-engineconnmanager.properties
+#### 3.10.3 conf/linkis-cg-engineconnmanager.properties
 
 ```properties
-wds.linkis.engineconn.root.dir=/Users/leojie/software/linkis/data/engineconnRootDir
+wds.linkis.engineconn.root.dir={YourPathPrefix}/linkis/data/engineconnRootDir
 ```
 
 不修改可能会遇到路径不存在异常。
 
-#### 3.11.4 conf/linkis-cg-engineplugin.properties
+#### 3.10.4 conf/linkis-cg-engineplugin.properties
 
 ```properties
-wds.linkis.engineconn.home=/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.home={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
 
-wds.linkis.engineconn.plugin.loader.store.path=/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
 ```
 
 这里两个配置主要为了指定引擎存储的根目录，指定为target/out的主要目的是，引擎相关代码或配置改动后可以直接重启engineplugin服务后生效。
 
-### 3.12 为当前用户设置sudo免密
+### 3.11 为当前用户设置sudo免密
 
 引擎拉起时需要使用sudo来执行启动引擎进程的shell命令，mac上当前用户使用sudo时一般都需要输入密码，因此，需要为当前用户设置sudo免密，设置方法如下：
 
@@ -387,7 +395,7 @@ sudo visudo
 保存文件退出
 ```
 
-### 3.13 服务测试
+### 3.12 服务测试
 
 保证上述服务都是成功启动状态，然后在postman中测试提交运行shell脚本作业。
 
@@ -506,4 +514,4 @@ sh linkis-daemon.sh restart ps-publicservice
 ### 4.5 开始调试
 
 点击调试按钮,出现如下信息代表可以开始调试  
-![企业微信截图_16500167527083](https://user-images.githubusercontent.com/29391030/163559920-05aba3c3-b146-4f62-8e20-93f94a65158d.png)
+![debug](https://user-images.githubusercontent.com/29391030/163559920-05aba3c3-b146-4f62-8e20-93f94a65158d.png)
