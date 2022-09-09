@@ -503,3 +503,25 @@ ERROR [main] com.webank.wedatasphere.linkis.engineconn.computation.executor.hook
     "%sql\n" + "add jar " + udfInfo.getPath + "\n%sql\n" + udfInfo.getRegisterFormat
   }
 ```
+
+### Q56 CDH环境Linkis执行Spark任务报：Failed to start bean 'webServerStartStop
+
+详细日志：
+```shell
+Caused by: java.lang.IllegalStateException
+at org.eclipse.jetty.servlet.ServletHolder.setClassFrom(ServletHolder.java:300) ~[jetty-servlet-9.4.48.v20220622.jar:9.4.48.v20220622]
+at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:347) ~[jetty-servlet-9.4.48.v20220622.jar:9.4.48.v20220622]
+at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:73) ~[jetty-util-9.4.48.v20220622.jar:9.4.48.v20220622]
+at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:749) ~[jetty-servlet-9.4.48.v20220622.jar:9.4.48.v20220622]
+at java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[?:1.8.0_292]
+at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:483) ~[?:1.8.0_292]
+at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472) ~[?:1.8.0_292]
+at java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:313) ~[?:1.8.0_292]
+at java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:743) ~[?:1.8.0_292]
+at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:647) ~[?:1.8.0_292]
+at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:774) ~[jetty-servlet-9.4.48.v20220622.jar:9.4.48.v20220622]
+at org.springframework.boot.web.embedded.jetty.JettyEmbeddedWebAppContext$JettyEmbeddedServletHandler.deferredInitialize(JettyEmbeddedWebAppContext.java:46) ~[spring-boot-2.3.12.RELEASE.jar:2.3.12.RELEASE]
+at
+```
+原因：这个是因为CDH—Spark底层依赖的classPath和Linkis的存在冲突导致
+解决办法：在linkis部署的机器上面可以检查spark-env.sh里面的classPath并进行注释掉，重新运行。详情可以参考[3282](https://github.com/apache/incubator-linkis/issues/3282)
