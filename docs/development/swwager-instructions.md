@@ -1,9 +1,9 @@
 ---
-title: Swwager Annotation Instructions
+title: Swagger Annotation Instructions
 sidebar_position: 5
 ---
 
-## 1. Scope of swwager annotations
+## 1. Scope of swagger annotations
 | API| Scope | Where to use |
 | -------- | -------- | ----- |
 |@Api|Protocol set description|Used on the controller class|
