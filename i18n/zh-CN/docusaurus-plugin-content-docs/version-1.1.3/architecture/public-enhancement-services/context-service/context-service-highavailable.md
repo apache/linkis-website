@@ -32,7 +32,7 @@ sidebar_position: 3
 
 ③别名机制
 
-对机器采用别名机制，HAID中包含的Instance信息采用自定义别名，后台维护别名映射队列。在于客户端交互时采用HAID，而与后台其它组件交互则采用ContextID，在实现具体操作时采用动态代理机制，将HAID转换为ContextID进行处理。
+对机器采用别名机制，HAID中包含的Instance信息采用自定义别名，后台维护别名映射队列。在客户端交互时采用HAID，而与后台其它组件交互则采用ContextID，在实现具体操作时采用动态代理机制，将HAID转换为ContextID进行处理。
 
 ### 2，模块设计
 

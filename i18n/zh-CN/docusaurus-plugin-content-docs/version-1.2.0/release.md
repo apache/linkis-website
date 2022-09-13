@@ -7,7 +7,7 @@ sidebar_position: 0.1
 - [集成 Knife4j 和启用](/deployment/involve-knife4j-into-linkis.md)
 - [数据源功能模块接口优化](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
 - [JDBC 引擎支持数据源模式](/engine-usage/jdbc.md)
-- [EC历史引擎信息记录架构设计](/architecture/computation-governance-services/linkis-manager/ec-history-arc.md)
+- [EngineConn历史引擎信息记录架构设计](/architecture/computation-governance-services/linkis-manager/ec-history-arc.md)
 - [微服务租户隔离架构设计](/architecture/microservice-governance-services/service_isolation.md)
 - [版本的 Release-Notes](/download/release-notes-1.2.0)
 

@@ -36,7 +36,7 @@ ContestService各模块访问关系如下图所示
 - `clearAllContextByID`清理输入的contextID列表中ID对应的context_map表和context_id表内容
 - `clearAllContextByTime` 按照3个时间起止范围搜索，并且清理所有搜索到的contextID对应的context_map表和context_id表的内容
 
-###2.2 业务架构
+### 2.2 业务架构
 此次特性是给ContextService服务增加批量查询和清理的相关接口，以及增加底层数据表的更新时间等字段，便于根据访问情况清理过期数据。功能点涉及模块如下表。
 
 | 一级模块  |  二级模块 | 功能点  |
@@ -46,10 +46,10 @@ ContestService各模块访问关系如下图所示
 | linkis-ps-cs  |  cs-persistence |  增加底层表的3个时间相关字段 |
 
 
-##3. 模块设计
-###主要执行流程
+## 3. 模块设计
+### 主要执行流程
 - 创建ContextID。用户创建ContextID时，会记录create_time，后期不更新这个字段
-- 更新ContextID。用户更新ContextID时，会更新update_time字段。注意此时更新如果是从cache中更新，则不会跟新access_time字段；如果从db加载到cache，再跟新contextID，则会先更新access_time，然后单独跟新update_time
+- 更新ContextID。用户更新ContextID时，会更新update_time字段。注意此时更新如果是从cache中更新，则不会更新access_time字段；如果从db加载到cache，再更新contextID，则会先更新access_time，然后单独更新update_time
 - 根据时间查询ContextID。用户查询对应时间范围的ContextID，仅会返回haid字符串列表。此接口有分页，默认仅限5000条数据
 - 批量清理ContextID。会批量清理传入的idList对应的所有contextMap数据和contextID数据。传入数组最大5000条
 - 查询并清理ContextID，先查询再批量清理

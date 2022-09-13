@@ -39,8 +39,7 @@ CreateEngienRequest->RPC/Rest -> MasterEventHandler ->CreateEngineService ->
 在创建引擎是存在和RM交互的部分，EnginePlugin应该需要通过Lables返回具体的资源类型，然后AM向RM发送资源请求
 
 引擎复用：为了减少引擎启动所耗费的时间和资源，引擎使用必须优先考虑复用原则，复用一般是指复用用户已经创建好的引擎，引擎复用模块负责提供可复用引擎集合，选举并锁定引擎后开始使用，或者返回没有可以复用的引擎。
-ReuseEngienRequest->RPC/Rest -> MasterEventHandler ->ReuseEngineService ->
-->abelContext->EngineNodeManager->EngineSelector->EngineLocker->Engine->EngineNodeManager->EngineReuser->EngineService=&gt;ServerInstance
+ReuseEngienRequest->RPC/Rest -> MasterEventHandler ->ReuseEngineService ->abelContext->EngineNodeManager->EngineSelector->EngineLocker->Engine->EngineNodeManager->EngineReuser->EngineService=&gt;ServerInstance
 
 引擎切换：主要是指对已有引擎进行标签切换，例如创建引擎的时候是由Creator1创建的，现在可以通过引擎切换改成Creator2。这个时候就可以允许当前引擎接收标签为Creator2的任务了。
 SwitchEngienRequest->RPC/Rest -> MasterEventHandler ->SwitchEngineService ->LabelContext/EnginePlugin/RMResourcevice->EngineNodeManager->EngineLocker->Engine->EngineNodeManager->EngineReuser->EngineService=&gt;ServerInstance

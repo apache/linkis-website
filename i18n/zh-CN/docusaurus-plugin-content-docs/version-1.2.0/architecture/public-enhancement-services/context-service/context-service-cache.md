@@ -11,7 +11,7 @@ sidebar_position: 7
 
 1. 支持按ContextType进行拆分：加快存储和查询性能
 
-2. 支持按不同得ContextID进行拆分：需要完成ContextID见元数据隔离
+2. 支持按不同的ContextID进行拆分：需要完成ContextID间元数据隔离
 
 3. 支持LRU：按照特定算法进行回收
 
@@ -53,7 +53,7 @@ ContextCache的架构如下图展示：
 
 6.  AutoClear：当Jvm内存不足时完成对ContextCache进行按需清理；
 
-7.  Listener：用于手机ContextCache的Metric信息，如：内存占用、访问次数。
+7.  Listener：用于监听ContextCache的Metric信息，如：内存占用、访问次数。
 
 ## **ContextCache存储结构设计**
 
@@ -63,7 +63,7 @@ ContextCache的存储结构划分为了三层结构：
 
 **ContextCach：**存储了ContextID和ContextIDValue的映射关系，并能够完成ContextID按照LRU算法进行回收；
 
-**ContextIDValue：**拥有存储了ContextID的所有上下文信息和索引的CSKeyValueContext。并统计ContestID的内存和使用记录。
+**ContextIDValue：**拥有存储了ContextID的所有上下文信息和索引的CSKeyValueContext。并统计ContextID的内存和使用记录。
 
 **CSKeyValueContext：**包含了按照类型存储并支持关键词的CSInvertedIndexSet索引集，还包含了存储ContextKey和ContextValue的存储集CSKeyValueMapSet。
 
