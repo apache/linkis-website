@@ -36,7 +36,7 @@ Add 3 cleanup related interfaces: `searchContextIDByTime, clearAllContextByID, c
 - `clearAllContextByID` clears the content of the context_map table and context_id table corresponding to the ID in the input contextID list
 - `clearAllContextByTime` searches according to 3 time ranges, and clears all the contents of the context_map table and context_id table corresponding to the searched contextID
 
-###2.2 Business Architecture
+### 2.2 Business Architecture
 This feature is to add related interfaces for batch query and cleanup to the ContextService service, and to add fields such as the update time of the underlying data table, so as to clean up expired data according to the access situation. The function points involve the modules as shown in the table below.
 
 | First-level module | Second-level module | Function point |

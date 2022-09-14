@@ -28,7 +28,7 @@ sidebar_position: 3
 
 2、接口层，通过Restful接口向其他应用，提供了数据库\表\分区信息查询;
 
-3、Service层，通过数据源ID号在数据源管理服务中获取到数据源类型，通过类型获取具体支持的服务，先支持的服务为mysql\es\kafka\hive;
+3、Service层，通过数据源ID号在数据源管理服务中获取到数据源类型，通过类型获取具体支持的服务，支持的服务为mysql\es\kafka\hive;
 
 ### 核心流程
 

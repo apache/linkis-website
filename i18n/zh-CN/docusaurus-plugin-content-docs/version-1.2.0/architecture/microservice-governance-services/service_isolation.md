@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## 1. 总述
 ### 需求背景
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在Linkis在Gateway进行服务转发时现在是基于ribbon进行负载均衡的，但是有些情况下存在一些重要业务的任务希望做到服务级别的隔离，如果基于ribbon进行服务在均衡就会存在问题。比如租户A希望他的任务都路由到特定的Linkis-CG-Entrance服务，这样当其他的实例出现异常时可以不会影响到A服务的Entrance。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis在Gateway进行服务转发时是基于ribbon进行负载均衡的，但是有些情况下存在一些重要业务的任务希望做到服务级别的隔离，如果基于ribbon进行服务在均衡就会存在问题。比如租户A希望他的任务都路由到特定的Linkis-CG-Entrance服务，这样当其他的实例出现异常时可以不会影响到A服务的Entrance。
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另外支持服务的租户及隔离也可以做到快速隔离某个异常服务，支持灰度升级等场景。
 
 ### 目标
@@ -34,8 +34,8 @@ sidebar_position: 2
 
 ## 3. 模块设计
 ### 核心执行流程
-[输入端] 输入端为请求Gatway的restful请求，且是参数中待用roure label的请求才会进行处理
-[处理流程] Gateway会判断请求是否带有对应的RouteLabel，如果存在则基于RouteLabel来进行转发。
+- [输入端] 输入端为请求Gatway的restful请求，且是参数中待用roure label的请求才会进行处理
+- [处理流程] Gateway会判断请求是否带有对应的RouteLabel，如果存在则基于RouteLabel来进行转发。
 调用时序图如下：
 
 ![Time](/Images/Architecture/Gateway/service_isolation_time.png)
