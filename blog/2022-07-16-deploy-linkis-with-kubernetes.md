@@ -6,7 +6,7 @@ tags: [github]
 
 **1. Dependencies and versions**
 
-kind github：https://github.com/kubernetes-sigs/kind
+kind github：<https://github.com/kubernetes-sigs/kind>
 
 kind website：[kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
 
@@ -25,8 +25,6 @@ Note:
 2. Ensure that the component depends on the version
 
 3. Kind refers to the machine that uses docker container to simulate nodes. When the machine is restarted, the scheduler does not work because the container is changed.
-
- 
 
 **2.Install the docker**
 
@@ -48,8 +46,6 @@ systemctl start docker
 systemctl enable docker
 ```
 
-
-
 （2）setting image mirrors
 
 ```
@@ -64,13 +60,11 @@ vi /etc/docker/daemon.json
 }
 ```
 
-
-
 **3.install the kind**
 
 （1）Manually download the Kind binary
 
-https://github.com/kubernetes-sigs/kind/releases
+<https://github.com/kubernetes-sigs/kind/releases>
 
 （2）Install kind binary
 
@@ -79,8 +73,6 @@ chmod +x ./kind
 
 mv kind-linux-amd64 /usr/bin/kind
 ```
-
-
 
 **4.Install the JDK and Maven**
 
@@ -112,8 +104,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
-
-
 （3）install the nodejs
 
 ```
@@ -122,8 +112,6 @@ nvm ls-remote
 nvm install v14.19.3
 ```
 
-
-
 （4）setting NPM
 
 ```
@@ -131,8 +119,6 @@ npm config set registry https://registry.npmmirror.com
 
 npm config set sass_binary_site https://registry.npmmirror.com/binary.html?path=node-sass/
 ```
-
-
 
 （5）Compiler front-end
 
@@ -143,10 +129,8 @@ yarn
 
 yarn build
 
-yarn 
+yarn
 ```
-
-
 
 **6.Compile linkis**
 
@@ -170,10 +154,6 @@ yarn
 ./mvnw clean install -Pdocker -Dmaven.javadoc.skip=true -Dmaven.test.skip=true -Dlinkis.build.web=true
 ```
 
-
-
-
-
 **7.Create the cluster**
 
 ```
@@ -182,19 +162,11 @@ dos2unix ./linkis-dist/helm/scripts/*.sh
 ./linkis-dist/helm/scripts/create-test-kind.sh
 ```
 
-
-
-
-
 **8.install the helm charts**
 
 ```
  ./scripts/install-charts.sh linkis linkis-demo
 ```
-
-
-
-
 
 **9.Visit the Linkis page**
 
@@ -204,18 +176,12 @@ kubectl port-forward -n linkis  --address=0.0.0.0 service/linkis-demo-web 8087:8
 http://10.0.2.101:8087
 ```
 
-
-
-
-
 **10.Test using the Linkis client**
 
 ```
 kubectl -n linkis exec -it linkis-demo-ps-publicservice-77d7685d9-f59ht -- bash
 ./linkis-cli -engineType shell-1 -codeType shell -code "echo \"hello\" "  -submitUser hadoop -proxyUser hadoop
 ```
-
-
 
 **11.install the kubectl**
 
@@ -236,4 +202,3 @@ kubectl config view  
 kubectl config get-contexts  
 kubectl cluster-info  
 ```
-

@@ -7,26 +7,25 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;  首先，Linkis1.0 架构下的 Entrance 和 EngineConnManager（原EngineManager）服务与 **引擎** 已完全无关，即：
                              在 Linkis1.0 架构下，每个引擎无需再配套实现并启动对应的 Entrance 和 EngineConnManager，Linkis1.0 的每个 Entrance 和 EngineConnManager 都可以给所有引擎共用。
-                          
+
 &nbsp;&nbsp;&nbsp;&nbsp;  其次，Linkis1.0 新增了Linkis-Manager服务用于对外提供 AppManager（应用管理）、ResourceManager（资源管理，原ResourceManager服务）和 LabelManager（标签管理）的能力。
 
 &nbsp;&nbsp;&nbsp;&nbsp;  然后，为了降低大家实现和部署一个新引擎的难度，Linkis 1.0 重新架构了一个叫 EngineConnPlugin 的模块，每个新引擎只需要实现 EngineConnPlugin 接口即可，
 Linkis EngineConnPluginServer 支持以插件的形式动态加载 EngineConnPlugin（新引擎），一旦 EngineConnPluginServer 加载成功，EngineConnManager 便可为用户快速启动一个该引擎实例。
-                          
+
 &nbsp;&nbsp;&nbsp;&nbsp;  最后，对Linkis的所有微服务进行了归纳分类，总体分为了三个大层次：公共增强服务、计算治理服务和微服务治理服务，从代码层级结构、微服务命名和安装目录结构等多个方面来规范Linkis1.0的微服务体系。
 
+## 2. 主要特点
 
-##  2. 主要特点
+1. **强化计算治理**，Linkis1.0主要从引擎管理、标签管理、ECM管理和资源管理等几个方面，全面强化了计算治理的综合管控能力，基于标签化的强大管控设计理念，使得Linkis1.0向多IDC化、多集群化、多容器化，迈出了坚实的一大步。
 
-1.  **强化计算治理**，Linkis1.0主要从引擎管理、标签管理、ECM管理和资源管理等几个方面，全面强化了计算治理的综合管控能力，基于标签化的强大管控设计理念，使得Linkis1.0向多IDC化、多集群化、多容器化，迈出了坚实的一大步。
+2. **简化用户实现新引擎**，EnginePlugin用于将原本实现一个新引擎，需要实现的相关接口和类，以及需要拆分的Entrance-EngineManager-Engine三层模块体系，融合到了一个接口之中，简化用户实现新引擎的流程和代码，真正做到只要实现一个类，就能接入一个新引擎。
 
-2.  **简化用户实现新引擎**，EnginePlugin用于将原本实现一个新引擎，需要实现的相关接口和类，以及需要拆分的Entrance-EngineManager-Engine三层模块体系，融合到了一个接口之中，简化用户实现新引擎的流程和代码，真正做到只要实现一个类，就能接入一个新引擎。
+3. **全栈计算存储引擎支持**，实现对计算请求场景（如Spark）、存储请求场景（如HBase）和常驻集群型服务（如SparkStreaming）的全面覆盖支持。
 
-3.  **全栈计算存储引擎支持**，实现对计算请求场景（如Spark）、存储请求场景（如HBase）和常驻集群型服务（如SparkStreaming）的全面覆盖支持。
+4. **高级计算策略能力改进**，新增Orchestrator实现丰富计算任务管理策略，且支持基于标签的解析和编排。
 
-4.  **高级计算策略能力改进**，新增Orchestrator实现丰富计算任务管理策略，且支持基于标签的解析和编排。
-
-5.  **安装部署改进**  优化一键安装脚本，支持容器化部署，简化用户配置。
+5. **安装部署改进**  优化一键安装脚本，支持容器化部署，简化用户配置。
 
 ## 3. 服务对比
 
@@ -88,14 +87,14 @@ Linkis EngineConnPluginServer 支持以插件的形式动态加载 EngineConnPlu
 
 &nbsp;&nbsp;&nbsp;&nbsp;  Linkis1.0 的 EngineConn 主要由 EngineConn 和 Executor构成。其中：
 
-a)	EngineConn 为连接器，包含引擎与具体集群的会话信息。它只是起到一个连接，一个客户端的作用，并不真正的去执行计算。
+a) EngineConn 为连接器，包含引擎与具体集群的会话信息。它只是起到一个连接，一个客户端的作用，并不真正的去执行计算。
 
-b)	Executor 为执行器，作为真正的计算场景执行器，是实际的计算逻辑执行单元，也对引擎各种具体能力的抽象，例如提供加锁、访问状态、获取日志等多种不同的服务。
+b) Executor 为执行器，作为真正的计算场景执行器，是实际的计算逻辑执行单元，也对引擎各种具体能力的抽象，例如提供加锁、访问状态、获取日志等多种不同的服务。
 
-c)	Executor 通过 EngineConn 中的会话信息进行创建，一个引擎类型可以支持多种不同种类的计算任务，每种对应一个 Executor 的实现，计算任务将被提交到对应的 Executor 进行执行。
+c) Executor 通过 EngineConn 中的会话信息进行创建，一个引擎类型可以支持多种不同种类的计算任务，每种对应一个 Executor 的实现，计算任务将被提交到对应的 Executor 进行执行。
 这样，同一个引擎能够根据不同的计算场景提供不同的服务。比如常驻式引擎启动后不需要加锁，一次性引擎启动后不需要支持 Receiver 和访问状态等。
 
-d)	采用 Executor 和 EngineConn 分离的方式的好处是，可以避免 Receiver 耦合业务逻辑，本身只保留 RPC 通信功能。将服务分散在多个 Executor 模块中，并且抽象成几大类引擎：交互式计算引擎、流式引擎、一次性引擎等等可能用到的，构建成统一的引擎框架，便于后期的扩充。
+d) 采用 Executor 和 EngineConn 分离的方式的好处是，可以避免 Receiver 耦合业务逻辑，本身只保留 RPC 通信功能。将服务分散在多个 Executor 模块中，并且抽象成几大类引擎：交互式计算引擎、流式引擎、一次性引擎等等可能用到的，构建成统一的引擎框架，便于后期的扩充。
 这样不同类型引擎可以根据需要分别加载其中需要的能力，大大减少引擎实现的冗余。
 
 &nbsp;&nbsp;&nbsp;&nbsp;  如下图所示：

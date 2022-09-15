@@ -10,7 +10,7 @@ sidebar_position: 3
 
 ![](/Images-zh/Architecture/linkis-engineConnPlugin-01.png)
 
-二级模块介绍：
+二级模块介绍
 ==============
 
 EngineConn-Plugin-Server
@@ -24,7 +24,6 @@ Manager等其他服务通过RPC请求调用Plugin Server里对应插件的逻辑
 | EngineConnLaunchService          | 负责构建引擎连接器启动请求            |
 | EngineConnResourceFactoryService | 负责生成引擎资源                      |
 | EngineConnResourceService        | 负责从BML下载引擎连接器使用的资源文件 |
-
 
 EngineConn-Plugin-Loader 引擎连接器插件加载器
 ---------------------------------------
@@ -70,4 +69,3 @@ EngineConn-Plugins:引擎连接插件集合
 | engineplugin-shell  | shell引擎连接器  |
 | engineplugin-spark  | spark引擎连接器  |
 | engineplugin-python | python引擎连接器 |
-

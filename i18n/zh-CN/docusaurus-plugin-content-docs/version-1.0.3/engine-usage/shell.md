@@ -50,9 +50,11 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
 ### 3.2 通过Linkis-cli进行任务提交
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Shell的使用如下：
+
 ```shell
 sh ./bin/linkis-cli -engineType shell-1 -codeType shell -code "echo \"hello\" "  -submitUser hadoop -proxyUser hadoop
 ```
+
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式

@@ -4,12 +4,13 @@ sidebar_position: 9
 ---
 每次版本发布前，需要由发布经理或则开发者，整理好本次版本的release-notes，来简要地描述了新版本更新中包含的特定更改。
 
-为保持统一和方便编写，制定如下规范: 
+为保持统一和方便编写，制定如下规范:
+
 - 需要有版本的总结，几句话总结性的描述本版本的核心主要变动点
 - 按变化的功能点 以 新特性/增强点/修复功能/其他 四大类进行分类罗列
 - 包含致谢栏:有参与本此版本贡献的同学，除了issue/pr外，以及任何参与到此次版本讨论/社群答疑/意见建议的同学
 - 每条note的规范:`[服务名缩写-L1 maven module名][Linkis-pr/issues序号] 本次变动简要描述信息，能通过描述信息，大体知道这个功能的变化` `[服务名缩写-L1 maven module名]`作为一个标签,示例如下
-- 同一类别（新特性/增强点/修复功能/其他）下， 服务名相同的放在一起，按pr/issues序号升序排列 
+- 同一类别（新特性/增强点/修复功能/其他）下， 服务名相同的放在一起，按pr/issues序号升序排列
 - 需要有对应的英文文档
 
 ```
@@ -20,9 +21,10 @@ EG:[EC-Jdbc][[Linkis-1851]](https://github.com/apache/incubator-linkis/issues/18
 ```
 
 ## 常见的notes 标签
+
 ```html
-linkis-mg-eureka              Eureka 
-linkis-mg-gateway             Gataway 
+linkis-mg-eureka              Eureka
+linkis-mg-gateway             Gataway
 linkis-cg-linkismanager       LM
 linkis-cg-engineconnplugin    ECP
 linkis-cg-engineconnmanager   ECM

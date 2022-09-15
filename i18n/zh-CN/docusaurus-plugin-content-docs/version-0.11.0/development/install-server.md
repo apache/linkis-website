@@ -11,13 +11,13 @@ sidebar_position: 1
 
 ````bash
  ## 1. 解压安装包
-tar -xvzf wedatasphere-linkis-0.11.0-dist.tar.gz 
-cd wedatasphere-linkis-0.11.0-dist 
+tar -xvzf wedatasphere-linkis-0.11.0-dist.tar.gz
+cd wedatasphere-linkis-0.11.0-dist
  ## 2. 选择对应的服务安装包,到对应的安装目录：$SERVER_HOME
 cp wedatasphere-linkis-0.11.0-dist/share/linkis/linkis-publicservice/linkis-publicservice.zip  $SERVER_HOME
  ## 3. 拷贝安装包到对应的安装目录比如：publicservice  需要拷贝 linkis-publicservice.zip
  ##    解压对应的服务
-unzip $SERVERNAME.zip 
+unzip $SERVERNAME.zip
  ## 4. module包是公共包，除了gateway和Eureka不需要其他的都需要拷贝
 cp ${workDir}/share/linkis/module/module.zip $SERVER_HOME
  ## 5. 解压module包
@@ -61,7 +61,7 @@ eureka:
     wds.linkis.server.mybatis.datasource.url=jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?characterEncoding=UTF-8
     wds.linkis.server.mybatis.datasource.username=$MYSQL_USER
     wds.linkis.server.mybatis.datasource.password=$MYSQL_PASSWORD
-    
+
     wds.linkis.workspace.filesystem.localuserrootpath=$WORKSPACE_USER_ROOT_PATH ##工作空间目录
     wds.linkis.workspace.filesystem.hdfsuserrootpath.prefix=$HDFS_USER_ROOT_PATH ##HDFS的用户根目录
 ```
@@ -95,7 +95,7 @@ eureka:
 
 ```properties
     ##用户切换脚本
-    wds.linkis.enginemanager.sudo.script=$SERVER_HOME/$SERVERNAME/bin/rootScript.sh 
+    wds.linkis.enginemanager.sudo.script=$SERVER_HOME/$SERVERNAME/bin/rootScript.sh
 
 ```
 
@@ -105,5 +105,5 @@ eureka:
     ## 配置engine的jar
     wds.linkis.enginemanager.core.jar=$SERVER_HOME/$SERVERNAME/lib/linkis-ujes-spark-engine-version.jar
     ##配置main jar
-    wds.linkis.spark.driver.conf.mainjar=$SERVER_HOME/$SERVERNAME/conf:$SERVER_HOME/$SERVERNAME/lib/* 
+    wds.linkis.spark.driver.conf.mainjar=$SERVER_HOME/$SERVERNAME/conf:$SERVER_HOME/$SERVERNAME/lib/*
 ```

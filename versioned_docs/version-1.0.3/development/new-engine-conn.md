@@ -13,9 +13,9 @@ Implementing a new engine is actually implementing a new EngineConnPlugin (ECP) 
 
 ```xml
 <dependency>
-	<groupId>org.apache.linkis</groupId>
-	<artifactId>linkis-engineconn-plugin-core</artifactId>
-	<version>${linkis.version}</version>
+ <groupId>org.apache.linkis</groupId>
+ <artifactId>linkis-engineconn-plugin-core</artifactId>
+ <version>${linkis.version}</version>
 </dependency>
 <!-- and some other required maven configurations -->
 ```
@@ -94,7 +94,7 @@ def mapStringToEngineType(str: String): EngineType = str match {
 
 // RunType.scla中
 object RunType extends Enumeration {
-	val JDBC = Value("jdbc")
+ val JDBC = Value("jdbc")
 }
 ```
 
@@ -182,7 +182,7 @@ methods: {
   // 图标过滤
   supportIcon(item) {
      const supportTypes = [
-       	 ......
+         ......
         { rule: 'jdbc', logo: 'fi-jdbc' },
       ];
   }
@@ -242,7 +242,6 @@ Don't forget to delete out.zip after decompression, so far the engine compilatio
 Select Add Engine in the console
 
 ![添加引擎](/Images/EngineConnNew/add_engine_conf.png)
-
 
 If you want to support engine parameter configuration on the management console, you can modify the database according to the JDBC engine SQL example.
 
@@ -418,7 +417,7 @@ methods: {
   // 图标过滤
   supportIcon(item) {
      const supportTypes = [
-				......
+    ......
         { rule: 'jdbc', logo: 'fi-jdbc' },
       ];
   }
@@ -477,7 +476,7 @@ const NODETYPE = {
 }
 
 const ext = {
-	......
+ ......
   [NODETYPE.JDBC]: 'jdbc',
 }
 
@@ -498,6 +497,3 @@ Also when contributing to the community, please consider the lincese or copyrigh
 ## 3. Chapter Summary
 
 The above content records the implementation process of the new engine, as well as some additional engine configurations that need to be done. At present, the expansion process of a new engine is still relatively cumbersome, and it is hoped that the expansion and installation of the new engine can be optimized in subsequent versions.
-
-
-

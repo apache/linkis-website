@@ -30,17 +30,17 @@ WebSocket路由转发器，向上对接客户端的WebSocket请求，向下对�
 
 ![WebSocket路由转发器架构图](../images/ch4/gateway/websocket.png)
 
-###	4.1 WebSocket接收器
+### 4.1 WebSocket接收器
 
-1)	WebSocket接收器是Spring Cloud Gateway的一个全局过滤器，用于接收客户端的WebSocket连接请求，创建客户端与Spring Cloud Gateway的1对1WebSocket通信通道。
+1) WebSocket接收器是Spring Cloud Gateway的一个全局过滤器，用于接收客户端的WebSocket连接请求，创建客户端与Spring Cloud Gateway的1对1WebSocket通信通道。
 
-2)	同时，会监听该WebSocket通道，将客户端发送过来的请求，获取必要的基本信息（如请求address、uri和user等），进行简单的封装，传递给规则器进行处理。
+2) 同时，会监听该WebSocket通道，将客户端发送过来的请求，获取必要的基本信息（如请求address、uri和user等），进行简单的封装，传递给规则器进行处理。
 
 ### 4.2 规则器
 
-1)	规则器接收到WebSocket接收器的通知，开始使用规则进行处理
+1) 规则器接收到WebSocket接收器的通知，开始使用规则进行处理
 
-2)	URL规则器。
+2) URL规则器。
 
 Linkis规定客户端请求的文本帧（TextWebSocketFrame）的格式为JSON格式的字符串，例如下：
 
@@ -56,15 +56,15 @@ Linkis规定客户端请求的文本帧（TextWebSocketFrame）的格式为JSON�
 
  通过解析method，获取到service信息，传给第4步。
 
-3)	如果客户端请求的文本帧（TextWebSocketFrame）不符合URL规则器的标准格式，或URL规则器不能解析出service信息，这时会加载用户自定义规则器进行解析service，如果所有的自定义规则器都不能解析出service信息，则直接抛出一个解析错误给到客户端；否则直接将service信息传递给下一步
+3) 如果客户端请求的文本帧（TextWebSocketFrame）不符合URL规则器的标准格式，或URL规则器不能解析出service信息，这时会加载用户自定义规则器进行解析service，如果所有的自定义规则器都不能解析出service信息，则直接抛出一个解析错误给到客户端；否则直接将service信息传递给下一步
 
-4)	通过步骤2或步骤3，获取到service信息，此时规则器会从服务发现服务（如Eureka）中，拿到所有健康状态为正常的微服务列表，找到所有的该微服务service实例，通过负载均衡的方式，选择其中一个负载最小的实例，将该微服务service实例传递给WebSocket转发器。
+4) 通过步骤2或步骤3，获取到service信息，此时规则器会从服务发现服务（如Eureka）中，拿到所有健康状态为正常的微服务列表，找到所有的该微服务service实例，通过负载均衡的方式，选择其中一个负载最小的实例，将该微服务service实例传递给WebSocket转发器。
 
-###	4.3 WebSocket转发器
+### 4.3 WebSocket转发器
 
 WebSocket转发器分为WebSocket管理器和WebSocket请求转发器。
 
-1)	WebSocket管理器
+1) WebSocket管理器
 
 WebSocket管理器负责管理客户端与WebSocket接收器的1对1WebSocket连接通道，和WebSocket转发器与后端微服务实例的1对多WebSocket连接通道。
 
@@ -72,7 +72,7 @@ WebSocket管理器负责管理客户端与WebSocket接收器的1对1WebSocket连
 
 同时，为了保持所有WebSocket转发器与后端微服务实例的1对多WebSocket连接通道不会因为空闲而被释放， WebSocket管理器会定时发送心跳请求（PingWebSocketFrame）给对应的后端微服务实例。
 
-2)	WebSocket请求转发器
+2) WebSocket请求转发器
 
 WebSocket请求转发器从规则器获取微服务service实例信息
 

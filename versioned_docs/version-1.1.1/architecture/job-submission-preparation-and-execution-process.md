@@ -31,6 +31,7 @@ The submission phase is mainly the interaction of Client -> Linkis Gateway -> En
 ![Flow chart of submission phase](/Images/Architecture/Job_submission_preparation_and_execution_process/submission.png)
 
 1. First, the Client (such as the front end or the client) initiates a Job request, and the job request information is simplified as follows (for the specific usage of Linkis, please refer to [How to use Linkis](../user-guide/how-to-use.md)):
+
 ```
 POST /api/rest_j/v1/entrance/submit
 ```
@@ -54,7 +55,7 @@ POST /api/rest_j/v1/entrance/submit
 
 ## 2. Preparation Stage
 
-There are two main processes in the preparation phase. One is to apply for an available EngineConn from LinkisManager to submit and execute the following computing tasks. The other is Orchestrator to orchestrate the computing tasks submitted by Entrance, and to convert a user's computing request into a physical execution tree and handed over to the execution phase where a computing task actually being executed. 
+There are two main processes in the preparation phase. One is to apply for an available EngineConn from LinkisManager to submit and execute the following computing tasks. The other is Orchestrator to orchestrate the computing tasks submitted by Entrance, and to convert a user's computing request into a physical execution tree and handed over to the execution phase where a computing task actually being executed.
 
 #### 2.1 Apply to LinkisManager for available EngineConn
 
@@ -143,4 +144,3 @@ The specific process is as follows:
 3. Initiate a query file content request to PublicService through the result set path, and obtain the content of the result set.
 
 Since then, the entire process of  job submission -> preparation -> execution have been completed.
-

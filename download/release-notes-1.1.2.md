@@ -5,10 +5,10 @@ sidebar_position: 6
 
 Apache Linkis(incubating) 1.1.2 includes all of [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20).
 
-
 This release mainly supports simplified deployment in an environment without HDFS (supports some engines), which is convenient for more lightweight learning, use and debugging; new support for data migration tool Sqoop engine; exception handling log optimization; some security vulnerabilities Component upgrades, etc.; fix known bugs reported by the community
 
 The main functions are as follows:
+
 * Supports simplified deployment in an environment without HDFS (supports some engines), which is convenient for more lightweight learning, use and debugging
 * Added support for data migration tool Sqoop engine
 * Optimize logs, etc. to improve the efficiency of troubleshooting
@@ -16,6 +16,7 @@ The main functions are as follows:
 * Some dependency package upgrades and community-known bug fixes
 
 Abbreviations:
+
 - COMMON: Linkis Common
 - EC: Engineconn
 - ECM: EngineConnManager
@@ -27,10 +28,13 @@ Abbreviations:
 - PE: Linkis Public Enhancement
 - RPC: Linkis Common RPC
 - CG: Linkis Computation Governance
+
 -
 
 ---
+
 ## New Feature
+
 * \[Deployment][[Linkis-1804,1811,1841,1843,1846,1933]](https://github.com/apache/incubator-linkis/pull/1804) Support for downsizing without HDFS Deployment (supports some engines), which is convenient for more lightweight learning, use and debugging.
 * \[PS][[Linkis-1949]](https://github.com/apache/incubator-linkis/pull/1949) Add the list interface (/listundone) of unfinished jobs, and optimize query performance by timing scheduling
 * \[BML][[Linkis-1811,1843]](https://github.com/apache/incubator-linkis/pull/1843) BML material service adds support for local file system storage mode deployment
@@ -40,6 +44,7 @@ Abbreviations:
 * \[Engine][[Linkis-2109]](https://github.com/apache/incubator-linkis/pull/2109) Added support for data migration tool Sqoop engine
 
 ## Enhancement
+
 * \[ECP][[Linkis-2074]](https://github.com/apache/incubator-linkis/issues/2074) Flink engine supports custom configuration
 * \[Deployment][[Linkis-1841]](https://github.com/apache/incubator-linkis/pull/1841) Support user deployment to disable Spark/Hive/HDFS environment detection
 * \[Deployment][[Linkis-1971]](https://github.com/apache/incubator-linkis/pull/1989) Fix the problem of automatically getting ip error when deploying on multiple NIC machines
@@ -56,6 +61,7 @@ Abbreviations:
 * \[Gateway][[Linkis-2071]](https://github.com/apache/incubator-linkis/issues/2071) Add GatewayURL attribute value to HTTP request Header
 
 ## Bugs Fix
+
 * \[Engine][[Linkis-1931]](https://github.com/apache/incubator-linkis/pull/1931) Fix Python error loading is the function of Pyspark, not the function problem of stand-alone Python itself
 * \[Deployment][[Linkis-1853]](https://github.com/apache/incubator-linkis/pull/1853) Fix the problem of DDL error during installation initialization
 * \[UDF][[Linkis-1893]](https://github.com/apache/incubator-linkis/pull/1893) Add user permission check for udf related interfaces
@@ -75,13 +81,14 @@ Abbreviations:
 * \[CG][[Linkis-2034]](https://github.com/apache/incubator-linkis/pull/2034) fix for mismatched descriptions of timed out tasks
 * \[CG][[Linkis-2100]](https://github.com/apache/incubator-linkis/pull/2100) Optimize db deadlock problem under high concurrency
 
-
 ## Security related
+
 * \[UDF][[Linkis-1893]](https://github.com/apache/incubator-linkis/pull/1893) Fix some udf interfaces (/udf/list, /udf/tree/add, /udf /tree/update) user override problem
 * \[PS][[Linkis-1869]](https://github.com/apache/incubator-linkis/pull/1869) Fix Linkis PlublicService related interface override issue
 * \[PS][[Linkis-2086]](https://github.com/apache/incubator-linkis/pull/2086) The method /updateCategoryInfo adds permission check
 
 ## Dependency changes
+
 * \[MDS][[Linkis-1947]](https://github.com/apache/incubator-linkis/pull/1947) mysql-connector-java upgraded from 5.1.34 to 8.0.16
 * \[ECP][[Linkis-1951]](https://github.com/apache/incubator-linkis/pull/1951) hive-jdbc upgraded from 1.2.1 to 2.3.3
 * \[ECP][[Linkis-1968]](https://github.com/apache/incubator-linkis/pull/1974) protobuf-java version upgrade to 3.15.8
@@ -90,4 +97,5 @@ Abbreviations:
 * \[Web][[Linkis-2336]](https://github.com/apache/incubator-linkis/pull/2336) Introduce the dependency of the web component jsencrypt-3.2.1 as a login password encryption and decryption tool
 
 ## Thanks
+
 The release of Apache Linkis(incubating) 1.1.2 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order): Alexyang, Casion, David hua, GodfreyGuo, Jack Xu , Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, Li Wei

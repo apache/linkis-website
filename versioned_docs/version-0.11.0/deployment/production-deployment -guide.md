@@ -15,9 +15,9 @@ sidebar_position: 4
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The following is a detailed description of the number of simultaneous users. Assuming that users prefer spark the most, hive is the second, and it is recommended that the server host memory is 64G or more.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**On the machine where EngineManager is installed, because the user's engine process will be started, the machine's memory load will be relatively high, and other types of microservices will affect the machine The load is relatively low. **
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**On the machine where EngineManager is installed, because the user's engine process will be started, the machine's memory load will be relatively high, and other types of microservices will affect the machine The load is relatively low.**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**We generally recommend to reserve about 20G on the server where EM is installed for use by the Linux system, EM's own process and other processes, such as 128G memory For the server, after removing the 20G memory, there is still 100G of memory that can be used to start the engine process. For example, if a Spark Driver has 4G memory, then the server can start up to 25 spark engines. **
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**We generally recommend to reserve about 20G on the server where EM is installed for use by the Linux system, EM's own process and other processes, such as 128G memory For the server, after removing the 20G memory, there is still 100G of memory that can be used to start the engine process. For example, if a Spark Driver has 4G memory, then the server can start up to 25 spark engines.**
 
 The formula for calculating the total resources used: Total resources used by Linkis = total memory + total number of cores =
 
@@ -27,7 +27,7 @@ For example, if there are 50 people using at the same time, Spark's Driver memor
 
 **Convention before parameter configuration (must see):**
 
-**1. The parameters are generally configured in linkis.properties of the conf directory in the microservice installation directory, and configured in the form of key=value, such as wds.linkis.enginemanager.cores.max=20. The only exception is that the configuration of engine microservices needs to be configured in linkis-engine.properties. **
+**1. The parameters are generally configured in linkis.properties of the conf directory in the microservice installation directory, and configured in the form of key=value, such as wds.linkis.enginemanager.cores.max=20. The only exception is that the configuration of engine microservices needs to be configured in linkis-engine.properties.**
 
 **2. After the parameter configuration, the microservice needs to be restarted to take effect. After the engine parameter configuration, after the engine manager of the page is killed, restart the engine to take effect**
 
@@ -62,7 +62,7 @@ a) Entrance microservice
 
 b) EngineManager microservice
 
-**Note: Linkis defines the concept of protecting resources. The purpose of protecting resources is to reserve a certain amount of resources. EM will not use up the maximum resources and activate the role of protecting the machine. **
+**Note: Linkis defines the concept of protecting resources. The purpose of protecting resources is to reserve a certain amount of resources. EM will not use up the maximum resources and activate the role of protecting the machine.**
 
 | Parameter name | Parameter function | Suggested parameter value |
 | --- | --- | --- |
@@ -245,9 +245,6 @@ Engine microservices are available at any time, including spark, hive and python
 | Parameter name | Parameter function | Suggested parameter value |
 | --- | --- | --- |
 | wds.linkis.engine.max.free.time | Used to specify how long an engine will be killed if idle | 3h (meaning that an engine will be automatically killed after three hours of not performing a task) |
-
-
-
 
 ### 4 Summary
 

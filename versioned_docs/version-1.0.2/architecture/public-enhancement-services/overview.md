@@ -10,7 +10,7 @@ PublicEnhancementService (PS): Public enhancement service, a module that provide
 
 ![](/Images/Architecture/PublicEnhencementArchitecture.png)
 
-Introduction to the second-level module:
+Introduction to the second-level module
 ==============
 
 BML material library

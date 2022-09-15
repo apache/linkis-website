@@ -25,11 +25,12 @@ Do you want to clear Linkis table information in the database?
 
 Please input the choice: ## choice 1
 ```
+
 ## 3. 数据库升级
 
 &nbsp;&nbsp;&nbsp;&nbsp;  服务安装完成后，需要对数据库进行结构修改，包括进行表结构变更和新增表和数据：
 
-### 3.1 表结构修改部分：
+### 3.1 表结构修改部分
 
 &nbsp;&nbsp;&nbsp;&nbsp;  linkis_task 表新增了submit_user和label_json字段，更新语句是：
 
@@ -38,7 +39,7 @@ Please input the choice: ## choice 1
     ALTER TABLE linkis_task ADD `label_json` varchar(200) DEFAULT NULL COMMENT 'label json';
 ```
 
-### 3.2 需要新执行的sql：
+### 3.2 需要新执行的sql
 
 ```mysql-sql
     cd db/module

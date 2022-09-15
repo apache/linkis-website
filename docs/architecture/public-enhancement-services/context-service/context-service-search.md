@@ -4,6 +4,7 @@ sidebar_position: 6
 ---
 
 ## **CSSearch Architecture**
+
 ### **Overall architecture**
 
 As shown below:
@@ -115,7 +116,6 @@ Provide a search interface, receive Map as a parameter, and filter out the corre
 2. For non-leaf nodes, Cost = the sum of Cost×Weight of all child nodes; the weight assignment logic is consistent with that of leaf nodes.
 
 > Taking tree A and tree B as examples, calculate the costs of these two trees respectively, as shown in the figure below, the number in the node is Cost\|Weight, assuming that the cost of the 5 simple conditions of ABCDE is 10, 100, 50 , 10, and 100. It can be concluded that the cost of tree B is less than that of tree A, which is a better solution.
-
 
 <center>
     <img src="/Images/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-search-06.png" width="300"/> <img src="/Images/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-search-07.png" width="300"/>

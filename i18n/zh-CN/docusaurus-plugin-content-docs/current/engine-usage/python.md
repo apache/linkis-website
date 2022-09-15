@@ -22,7 +22,6 @@ sidebar_position: 5
 Python是支持python2 和
 python3的，您可以简单更改配置就可以完成Python版本的切换，不需要重新编译python的引擎版本，具体配置如下。
 
-
 ```
 #1：cli的方式提交任务进行版本切换,命令末端设置版本 python.version=python3 (python3：创建软连接时生成文件的名称，可自定义命名)
 sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python.version=python3
@@ -31,6 +30,7 @@ sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"h
 sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python.version=/usr/bin/python
 
 ```
+
 页面配置：
 ![](/Images/EngineUsage/python-configure.png)
 
@@ -53,15 +53,17 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
         Map<String, Object> labels = new HashMap<String, Object>();
         labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "python-python2"); // required engineType Label
         labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
-        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "python"); // required codeType 
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "python"); // required codeType
 ```
 
 ### 3.2 通过Linkis-cli进行任务提交
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Python的使用如下：
+
 ```shell
 sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop
 ```
+
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式

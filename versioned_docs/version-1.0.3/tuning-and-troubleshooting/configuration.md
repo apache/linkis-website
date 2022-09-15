@@ -88,7 +88,6 @@ sidebar_position: 1
 | wds.linkis.shell.white.usage | cd,ls | Shell whitelist syntax |
 | wds.linkis.sql.default.limit | 5000 | SQL default maximum return result set rows |
 
-
 #### 2.2 EngineConn configuration parameters
 
 | Parameter name | Default value | Description |
@@ -101,7 +100,6 @@ sidebar_position: 1
 | wds.linkis.engineconn.pass.words | org.apache.hadoop.hive.ql.exec.Task | The log that must be pushed by default when the Engine pushes logs to the Entrance side |
 | wds.linkis.engineconn.heartbeat.time | 3m | Default heartbeat interval from EngineConn to LinkisManager |
 | wds.linkis.engineconn.max.free.time | 1h | EngineConn's maximum free time |
-
 
 #### 2.3 EngineConnManager configuration parameters
 
@@ -138,7 +136,6 @@ sidebar_position: 1
 | wds.linkis.jdbc.support.dbs | mysql=>com.mysql.jdbc.Driver,postgresql=>org.postgresql.Driver,oracle=>oracle.jdbc.driver.OracleDriver,hive2=>org.apache.hive .jdbc.HiveDriver,presto=>com.facebook.presto.jdbc.PrestoDriver | Drivers supported by JDBC engine |
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | Maximum number of concurrent SQL executions |
 
-
 #### 3.2 Python engine configuration parameters
 
 | Parameter name | Default value | Description |
@@ -164,7 +161,7 @@ sidebar_position: 1
 | wds.linkis.bml.auth.token.key | Validation-Code | Password-free token-key for BML request |
 | wds.linkis.bml.auth.token.value | BML-AUTH | Password-free token-value requested by BML |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | The prefix file path of the BML file stored on hdfs |
- 
+
 #### 4.2 Metadata configuration parameters
 
 | Parameter name | Default value | Description |
@@ -175,13 +172,11 @@ sidebar_position: 1
 | hive.meta.user | None | User of the HiveMetaStore database |
 | hive.meta.password | None | Password of the HiveMetaStore database |
 
-
 #### 4.3 JobHistory configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
 | wds.linkis.jobhistory.admin | None | The default Admin account is used to specify which users can view the execution history of everyone |
-
 
 #### 4.4 FileSystem configuration parameters
 

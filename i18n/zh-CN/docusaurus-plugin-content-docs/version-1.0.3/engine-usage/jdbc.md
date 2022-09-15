@@ -34,8 +34,9 @@ JDBC引擎不需要用户自行编译，直接使用编译好的JDBC引擎插件
 图3-1 JDBC配置信息
 
 您也可以才提交任务接口中的RuntimeMap进行修改即可
+
 ```shell
-wds.linkis.jdbc.connect.url 
+wds.linkis.jdbc.connect.url
 wds.linkis.jdbc.username
 wds.linkis.jdbc.password
 ```
@@ -55,9 +56,11 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
 ### 3.2 通过Linkis-cli进行任务提交
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，JDBC的使用如下：
+
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
+
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式

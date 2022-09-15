@@ -5,7 +5,6 @@ sidebar_position: 0.18
 
 Apache Linkis(incubating) 1.2.0 includes all of [Project Linkis-1.2.0](https://github.com/apache/incubator-linkis/projects/12).
 
-
 This release mainly supports Presto and ElasticSearch engines for Linkis 1.X architecture, enhances JDBC engine to support configuration multiple data source, supports displaying historical engine information on web, reduced and optimized Linkis modules, improved test cases for some engines, and made a lot of bug fixes and feature improvements.
 
 The main functions are as follows:
@@ -17,6 +16,7 @@ The main functions are as follows:
 * Data source module interface optimization
 
 Abbreviations:
+
 - COMMON: Linkis Common
 - EC: Engineconn
 - ECM: EngineConnManager
@@ -30,7 +30,9 @@ Abbreviations:
 - CG: Linkis Computation Governance
 
 ---
+
 ## New Feature
+
 + \[ECP-PRESTO][[LINKIS-1631]](https://github.com/apache/incubator-linkis/issues/1631) Enhance PrestoEngine, adatps to Linkis1.X architecture
 + \[ECP-ES][[LINKIS-1632]](https://github.com/apache/incubator-linkis/issues/1632) Enhance ElasticSearchEngine, adatps to Linkis1.X architecture
 + \[ECP-JDBC][[LINKIS-2092]](https://github.com/apache/incubator-linkis/issues/2092) Linkis jdbc engine supports multiple data source links
@@ -50,6 +52,7 @@ Abbreviations:
 + \[COMMON][[LINKIS-2415]](https://github.com/apache/incubator-linkis/pull/2415) Support variable operation
 
 ## Enhancement
+
 + \[COMMON][[LINKIS-1411]](https://github.com/apache/incubator-linkis/issues/1411) Remove sun.misc.BASE64
 + \[COMMON][[LINKIS-1475]](https://github.com/apache/incubator-linkis/issues/1475) Optimize code style
 + \[LM][[LINKIS-1763]](https://github.com/apache/incubator-linkis/issues/1763) Add non empty validation to the applicationlist interface
@@ -99,6 +102,7 @@ Abbreviations:
 + \[ECP-JDBC][[LINKIS-2743]](https://github.com/apache/incubator-linkis/issues/2743) Jdbc data source configuration priority definition.
 
 ## Bugs Fix
+
 + \[PS-RM][[LINKIS-1850]](https://github.com/apache/incubator-linkis/pull/1850) Fix NullPointerException
 + \[PE][[LINKIS-1879]](https://github.com/apache/incubator-linkis/issues/1879) FileWriter and BufferedWriter are not closed in finally clause
 + \[CG][[LINKIS-1911]](https://github.com/apache/incubator-linkis/issues/1911) Fix linkis-computation-client failed to submit jobs
@@ -137,15 +141,18 @@ Abbreviations:
 + \[TOOL][[LINKIS-2701]](https://github.com/apache/incubator-linkis/issues/2701) Fix github repos page License display with Unknown licenses found
 
 ## Security related
+
 + \[SPRING][[LINKIS-2395]](https://github.com/apache/incubator-linkis/issues/2395) SynchronossPartHttpMessageReader should only create temp directory when needed (CVE-2022-2296)
 
 ## Dependency changes
+
 + \[COMMON]\[CG]\[ECP][[LINKIS-2301]](https://github.com/apache/incubator-linkis/pull/2301) Update dependency to fix CVEs
 + \[CG][[LINKIS-2452]](https://github.com/apache/incubator-linkis/issues/2452) Upgrade oshi-core version
 
 ## Thanks
-The release of Apache Linkis(incubating) 1.2.0 is inseparable from the contributors of the Linkis community. 
-Thanks to all the community contributors, including but not limited to the following Contributors 
+
+The release of Apache Linkis(incubating) 1.2.0 is inseparable from the contributors of the Linkis community.
+Thanks to all the community contributors, including but not limited to the following Contributors
 (in no particular order): CCweixiao, Dlimeng, QuintinTao, WenxiangFan, aiceflower, barry8023, binbinCheng,
- casionone, duhanmin, gabeng1996, huangKai-2323, huapan123456, huiyuanjjjjuice, hunter-cloud09, jackxu2011, 
+ casionone, duhanmin, gabeng1996, huangKai-2323, huapan123456, huiyuanjjjjuice, hunter-cloud09, jackxu2011,
  legendtkl, liangqilang, liuyou2, mindflow94, peacewong, ruY9527, seedscoder, wForget, yyuser5201314

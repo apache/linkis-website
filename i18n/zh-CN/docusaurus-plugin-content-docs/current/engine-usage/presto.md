@@ -12,12 +12,12 @@ sidebar_position: 11
 ## 2. 部署和配置
 
 ### 2.1 版本的选择和编译
-注意: 编译 Presto 引擎之前需要进行 Linkis 项目全量编译发布的安装部署包中默认不包含此引擎插件， 你可以按此指引部署安装 
-https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+
+注意: 编译 Presto 引擎之前需要进行 Linkis 项目全量编译发布的安装部署包中默认不包含此引擎插件， 你可以按此指引部署安装
+<https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin>
 或者按以下流程，手动编译部署
 
-
-单独编译 Presto 引擎 
+单独编译 Presto 引擎
 
 ```
 ${linkis_code_dir}/linkis-engineconn-plugins/presto/
@@ -27,14 +27,19 @@ mvn clean install
 ### 2.2 物料的部署和加载
 
 将 2.1 步编译出来的引擎包,位于
+
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/jdbc/target/out/presto
 ```
+
 上传到服务器的引擎目录下
-```bash 
+
+```bash
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
+
 并重启linkis-engineplugin（或则通过引擎接口进行刷新）
+
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
@@ -43,7 +48,7 @@ sh linkis-daemon.sh restart cg-engineplugin
 检查引擎是否刷新成功：可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。
 
 ```sql
-#登陆到linkis的数据库 
+#登陆到linkis的数据库
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 
@@ -85,7 +90,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 
 | 配置                                   | 默认值                | 说明                                        | 是否必须 |
 | -------------------------------------- | --------------------- | ------------------------------------------- | -------- |
-| wds.linkis.presto.url                  | http://127.0.0.1:8080 | Presto 集群连接                             | true |
+| wds.linkis.presto.url                  | <http://127.0.0.1:8080> | Presto 集群连接                             | true |
 | wds.linkis.presto.username             | default               | Presto 集群用户名                           | false |
 | wds.linkis.presto.password             | 无                    | Presto 集群密码                             | false |
 | wds.linkis.presto.catalog              | system                | 查询的 Catalog                              | true |
@@ -107,10 +112,11 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 ![](/Images-zh/EngineUsage/presto-console.png)
 
 #### 3.1.2 任务接口配置
+
 提交任务接口，通过参数params.configuration.runtime进行配置
 
 ```shell
-http 请求参数示例 
+http 请求参数示例
 {
     "executionContent": {"code": "show teblas;", "runType":  "psql"},
     "params": {
@@ -133,15 +139,16 @@ http 请求参数示例
 ```
 
 #### 3.1.3 文件配置
+
 通过修改目录 install path/lib/linkis-engineconn-plugins/presto/dist/v0.234/conf/ 中的linkis-engineconn.properties 文件进行配置，如下图：
 
 ![](/Images-zh/EngineUsage/presto-file.png)
 
-### 3.2 通过Linkis-cli进行任务提交 
+### 3.2 通过Linkis-cli进行任务提交
 
 通过linkis-cli的方式提交任务，需要指定对应的EngineConn和CodeType标签类型，presto的使用如下：
 
-- 注意 `engineType presto-0.234` 引擎版本设置是有前缀的  如 `presto` 版本为`0.234` 则设置为 ` presto-0.234`
+- 注意 `engineType presto-0.234` 引擎版本设置是有前缀的  如 `presto` 版本为`0.234` 则设置为 `presto-0.234`
 
 ```shell
  sh ./bin/linkis-cli -engineType presto-0.234 -codeType  psql -code 'show tables;'   -submitUser hadoop -proxyUser hadoop

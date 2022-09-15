@@ -35,8 +35,9 @@ You need to configure JDBC connection information, including connection address 
 Figure 3-1 JDBC configuration information
 
 You can also specify in the RuntimeMap of the submitted task
+
 ```shell
-wds.linkis.jdbc.connect.url 
+wds.linkis.jdbc.connect.url
 wds.linkis.jdbc.username
 wds.linkis.jdbc.password
 ```
@@ -45,6 +46,7 @@ wds.linkis.jdbc.password
 
 Linkis provides a client method to call jdbc tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
 If you use Hive, you only need to make the following changes:
+
 ```java
         Map<String, Object> labels = new HashMap<String, Object>();
         labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "jdbc-4"); // required engineType Label
@@ -55,9 +57,11 @@ If you use Hive, you only need to make the following changes:
 ### 3.2 How to use Linkis-cli
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of JDBC is as follows:
+
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
+
 The specific usage can refer to [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 How to use Scriptis

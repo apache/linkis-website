@@ -220,5 +220,3 @@ In particular, the interaction between Entrance and Engineering.Entrance sends u
 ### 5.1 Traditional modes of deployment
 
 Please view the[rapid deployment document](deployment/quick-deploy.md).
-
-

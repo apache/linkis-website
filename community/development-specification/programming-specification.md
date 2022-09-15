@@ -3,6 +3,7 @@ title: Programming Specification
 sidebar_position: 1
 ---
 ## 1. Naming Convention
+
 1. [**Mandatory**] Do not use Chinese pinyin and unintelligible abbreviations
 2. For basic Java naming conventions, please refer to [naming-conventions](https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#naming-conventions)
 3. [Constraints] There is a scalastyle style configuration file in linkis, if it does not conform to the specification, you need to rename it according to the scalastyle style
@@ -17,5 +18,6 @@ sidebar_position: 1
 |Configuration Key Naming|Separated by lowercase'.'| linkis+module name+keyName| linkis.bml.hdfs.prefix|
 
 ## 2. Annotation Protocol
+
 1. [**Mandatory**] The class, class attribute, interface method must be commented, and the comment must use the Javadoc specification, using the format of `/**content*/`
 2. [**Mandatory**] All abstract methods (including methods in interfaces) must be annotated with Javadoc. In addition to return values, parameters, and exception descriptions, they must also indicate what the method does and what functions it implements

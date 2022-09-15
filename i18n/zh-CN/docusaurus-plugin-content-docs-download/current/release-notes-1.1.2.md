@@ -5,10 +5,10 @@ sidebar_position: 6
 
 Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20)。
 
-
 本次发布主要 支持在无HDFS的环境下进行精简化部署（支持部分引擎），方便更轻量化的学习使用和调试；新增对数据迁移工具 Sqoop 引擎的支持；异常处理日志优化；部分安全漏洞组件升级等；修复社区反馈的已知 bug
 
 主要功能如下：
+
 * 支持在无HDFS的环境下进行精简化部署（支持部分引擎），方便更轻量化的学习使用和调试
 * 新增对数据迁移工具 Sqoop 引擎的支持
 * 优化日志等，提高问题排查效率
@@ -16,6 +16,7 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * 部分依赖包的升级和社区已知问题修复
 
 缩写：
+
 - COMMON: Linkis Common
 - EC: Engineconn
 - ECM: EngineConnManager
@@ -27,10 +28,13 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 - PE: Linkis Public Enhancement
 - RPC: Linkis Common RPC
 - CG: Linkis Computation Governance
-- 
+
+-
 
 ---
+
 ## 新特性
+
 * \[Deployment][[Linkis-1804,1811,1841,1843,1846,1933]](https://github.com/apache/incubator-linkis/pull/1804) 支持在无HDFS的环境下进行精简化部署（支持部分引擎），方便更轻量化的学习使用和调试。
 * \[PS][[Linkis-1949]](https://github.com/apache/incubator-linkis/pull/1949) 增加未完成作业的列表接口 (/listundone)，并利用定时调度优化查询性能
 * \[BML][[Linkis-1811,1843]](https://github.com/apache/incubator-linkis/pull/1843) BML物料服务新增对本地文件系统存储模式部署的支持
@@ -40,6 +44,7 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * \[Engine][[Linkis-2109]](https://github.com/apache/incubator-linkis/pull/2109) 新增对数据迁移工具 Sqoop 引擎的支持
 
 ## 增强点
+
 * \[ECP][[Linkis-2074]](https://github.com/apache/incubator-linkis/issues/2074) Flink 引擎支持自定义配置
 * \[Deployment][[Linkis-1841]](https://github.com/apache/incubator-linkis/pull/1841) 支持用户部署时关闭对 Spark/Hive/HDFS 环境检测
 * \[Deployment][[Linkis-1971]](https://github.com/apache/incubator-linkis/pull/1989) 修复在多块网卡机器部署时，自动获取ip错误的问题
@@ -57,6 +62,7 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * \[Gateway][[Linkis-2071]](https://github.com/apache/incubator-linkis/issues/2071) HTTP请求Header中增加 GatewayURL属性值
 
 ## 修复功能
+
 * \[Engine][[Linkis-1931]](https://github.com/apache/incubator-linkis/pull/1931) 修复 Python 错误加载的是Pyspark的函数，非单机Python本身的函数问题
 * \[Deployment][[Linkis-1853]](https://github.com/apache/incubator-linkis/pull/1853) 修复安装初始化 DDL 报错的问题
 * \[UDF][[Linkis-1893]](https://github.com/apache/incubator-linkis/pull/1893) 为 udf 相关接口增加用户权限校验
@@ -76,13 +82,14 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * \[CG][[Linkis-2034]](https://github.com/apache/incubator-linkis/pull/2034) 对超时任务的描述信息不匹配的修复
 * \[CG][[Linkis-2100]](https://github.com/apache/incubator-linkis/pull/2100) 优化高并发下的 db 死锁问题
 
-
 ## 安全相关
+
 * \[UDF][[Linkis-1893]](https://github.com/apache/incubator-linkis/pull/1893) 修复 udf 部分接口（/udf/list，/udf/tree/add，/udf/tree/update）的用户越权问题
 * \[PS][[Linkis-1869]](https://github.com/apache/incubator-linkis/pull/1869) 修复 Linkis PlublicService 相关接口越权问题
 * \[PS][[Linkis-2086]](https://github.com/apache/incubator-linkis/pull/2086) 方法 /updateCategoryInfo 增加权限校验
 
 ## 依赖变更
+
 * \[MDS][[Linkis-1947]](https://github.com/apache/incubator-linkis/pull/1947) mys2168ql-connector-java 从 5.1.34 升级到 8.0.16
 * \[ECP][[Linkis-1951]](https://github.com/apache/incubator-linkis/pull/1951) hive-jdbc 从 1.2.1 升级至 2.3.3
 * \[ECP][[Linkis-1968]](https://github.com/apache/incubator-linkis/pull/1974) protobuf-java 版本升级至 3.15.8
@@ -90,6 +97,6 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 * \[RPC][[Linkis-2018]](https://github.com/apache/incubator-linkis/pull/2018) 统一 json4s 的版本
 * \[Web][[Linkis-2336]](https://github.com/apache/incubator-linkis/pull/2336) 引入web组件jsencrypt-3.2.1的依赖，作为登陆密码加解密工具
 
-
 ## 致谢
+
 Apache Linkis(incubating) 1.1.2的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexyang, Casion, David hua, GodfreyGuo, Jack Xu, Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, 李为

@@ -27,7 +27,7 @@ The BML architecture diagram is as follows:
 
 ![BML Architecture](/Images/Architecture/Public_Enhancement_Service/engine_bml/bml-jiagou.png)
 
-For the above overview of the BML architecture, please refer to the official website document: https://linkis.apache.org/zh-CN/docs/latest/architecture/public-enhancement-services/bml
+For the above overview of the BML architecture, please refer to the official website document: <https://linkis.apache.org/zh-CN/docs/latest/architecture/public-enhancement-services/bml>
 
 ## 2. BML material library service underlying table model
 
@@ -130,15 +130,15 @@ The code details of the three files EngineConnBmlResourceGenerator, AbstractEngi
 Go back to the refreshAll method in the `DefaultEngineConnResourceService` class, and continue to look at the core process of the refreshTask thread:
 
 ```scala
-engineConnBmlResourceGenerator.getEngineConnTypeListFromDisk foreach { engineConnType => 
+engineConnBmlResourceGenerator.getEngineConnTypeListFromDisk foreach { engineConnType =>
     Utils.tryCatch {
-           	engineConnBmlResourceGenerator.generate(engineConnType).foreach { 
+            engineConnBmlResourceGenerator.generate(engineConnType).foreach {
               case (version, localize) =>
-             		logger.info(s" Try to initialize ${engineConnType}EngineConn-$version.")
-             		refresh(localize, engineConnType, version)
+               logger.info(s" Try to initialize ${engineConnType}EngineConn-$version.")
+               refresh(localize, engineConnType, version)
       }
-    } 
-    					......
+    }
+         ......
 }
 ```
 
@@ -153,8 +153,6 @@ val engineConnBmlResources = asScalaBuffer(engineConnBmlResourceDao.getAllEngine
 ````
 
 ![ec data](/Images/Architecture/Public_Enhancement_Service/engine_bml/ec-data.png)
-
-
 
 #### 4.2.1 Engine material upload process
 
@@ -219,8 +217,6 @@ After the above process is successfully executed, the material data is truly com
 
 ![resource-task](/Images/Architecture/Public_Enhancement_Service/engine_bml/resource-task.png)
 
-
-
 #### 4.2.2 Engine material update process
 
 **Engine material update process sequence diagram**
@@ -259,7 +255,7 @@ After the above two checks are passed, a ResourceUpdateTask will be created to c
 ```scala
 ResourceTask resourceTask = null;
 synchronized (resourceId.intern()) {
-	resourceTask = taskService.createUpdateTask(resourceId, user, file, properties);
+ resourceTask = taskService.createUpdateTask(resourceId, user, file, properties);
 }
 ```
 

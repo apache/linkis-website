@@ -12,7 +12,7 @@ EngineConn architecture diagram
 
 ![EngineConn](/Images/Architecture/EngineConn/engineconn-01.png)
 
-Introduction to the second-level module:
+Introduction to the second-level module
 ==============
 
 linkis-computation-engineconn interactive engine connector
@@ -61,7 +61,7 @@ Defines the logic of how to start EngineConn.
 The core logic of the linkis-executor-core executor
 ------------------------------------
 
->   Defines the core classes related to the actuator. The executor is a real computing scene executor, responsible for submitting user code to EngineConn.
+> Defines the core classes related to the actuator. The executor is a real computing scene executor, responsible for submitting user code to EngineConn.
 
 | Core class                 | Core function                                                   |
 |----------------------------|------------------------------------------------------------|
@@ -87,7 +87,6 @@ linkis-accessible-executor can be accessed executor
 --------------------------------------------
 
 Executor that can be accessed. You can interact with it through RPC requests to get its status, load, concurrency and other basic indicators Metrics data.
-
 
 | Core Class               | Core Function                                   |
 |--------------------------|-------------------------------------------------|

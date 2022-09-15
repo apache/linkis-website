@@ -68,7 +68,6 @@ When the user needs to store the contents of a file (for example: table) in a Do
 
 7. Write the length of PostData to complete the write operation.
 
-
 ### 3.2 Read Dolphin file
 
 The steps for users to read the contents of the Dolphin file are as follows:
@@ -78,7 +77,7 @@ The steps for users to read the contents of the Dolphin file are as follows:
 2. If the user only needs to read Statistical information, read the length of PostData, and obtain PostData according to the length.
 
  Through PostData, the basic information is parsed into corresponding Type, Codec, MetaData, and Statistical information.
- 
+
  Return to complete this reading operation.
 
 3. If the user wants to read data, first read the data type Type.

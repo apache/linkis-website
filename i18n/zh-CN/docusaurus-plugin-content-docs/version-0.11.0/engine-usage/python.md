@@ -31,7 +31,7 @@ Python引擎的启动，需要依赖以下的Linkis微服务:
 - 3)、Linkis-publicService: 提供持久化、udf等基础功能。
 - 4)、Linkis-ResourceManager:提供Linkis的资源管理功能。
 
-### 1.3	自定义参数配置
+### 1.3 自定义参数配置
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis开放了接口，可以让用户设置引擎的相关参数，以便更自由地根据集群信息进行配置。
 
@@ -76,7 +76,6 @@ python.script=${真实的python解析器路径,如/usr/bin/python}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中执行模块的实现是采用了py4j框架，让python执行器与JVM进行交互，当用户提交代码之后，JVM通过py4j框架将代码提交到python解释器进行执行，并从python进程中得到输出的结果或者错误信息。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的，可以查看python执行源代码中的python.py源代码，里面有Linkis定义的若干用于进程交互的python方法。
-
 
 ## 3 未来的目标
 

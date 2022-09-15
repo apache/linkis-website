@@ -5,6 +5,7 @@ sidebar_position: 11
 ## Introduction to service
 
 Linkis is developed based on the microservice architecture, and its services can be divided into 3 types of service groups (groups): computing governance service group, public enhancement service group and microservice governance service group.
+
 - Computation Governance Services: The core service for processing tasks, supporting the 3 main stages of the computing task/request processing flow (submit->prepare->execute);
 - Public Enhancement Services: Provide basic support services, including context services, engine/udf material management services, historical tasks and other public services and data source management services;
 - Microservice Governance Services: Customized Spring Cloud Gateway, Eureka. Provides a base for microservices.
@@ -25,8 +26,8 @@ The microservices included in each service group (group) are as follows:
 | PES | linkis-ps-metadatamanager| Only provides metadata query service Provides the basic query function of database data metadata, provides http interface externally, and provides rpc service internally, which is convenient for the data source management module to call through rpc to conduct Data source connection test |
 | PES | linkis-ps-data-source-manager | Data source management service Perform basic management of data sources, and provide http interfaces such as adding, querying, modifying, and connection testing of external data sources. The rpc service is provided internally, which is convenient for the data element management module to call through rpc and query the necessary information needed to establish a connection to the database|
 
-
 ## Basic terms explained
+
 | Introduction | Full name in English | Full name in Chinese |
 |--------- |------------------------- |--------------- -------|
 | CG/cg | Computation Governance | Computation Governance |

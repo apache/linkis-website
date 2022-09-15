@@ -9,7 +9,6 @@ This article mainly introduces the configuration, deployment and use of the open
 
 If you want to deploy the openlookeng engine, you need to prepare an available openlookeng environment.
 
-
 ## 2 Configuration and Deployment
 
 ### 2.1 version selection and compilation
@@ -17,9 +16,8 @@ If you want to deploy the openlookeng engine, you need to prepare an available o
 Currently the openlookeng engine, the default version used by the client is `io.hetu.core:presto-client:1.5.0`
 
 This engine plug-in is not included in the released installation deployment package by default.
-You can follow this guide to deploy and install https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+You can follow this guide to deploy and install <https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin>
 , or follow the process below to manually compile and deploy
-
 
 Compile openlookeng separately
 
@@ -31,18 +29,24 @@ mvn clean install
 ### 2.2 Deployment and loading of materials
 
 The engine package compiled in step 2.1 is located in
+
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/openlookeng/target/out/openlookeng
 ````
+
 Upload to the engine directory of the server
+
 ```bash
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ````
+
 And restart linkis-engineplugin (or refresh through the engine interface)
+
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon restart cg-engineplugin
 ````
+
 ### 2.3 Engine tags
 
 Linkis1.X is done through tags, so we need to insert data into our database, and the insertion method is as follows.
@@ -97,7 +101,9 @@ For the openlookeng task, you only need to modify the EngineConnType and CodeTyp
 ### 3.2 Task submission via Linkis-cli
 
 After Linkis 1.0, the cli method is provided to submit tasks. We only need to specify the corresponding EngineConn and CodeType tag types. The use of openlookeng is as follows:
+
 ```shell
 sh ./bin/linkis-cli -engineType openlookeng-1.5.0 -codeType sql -code 'show databases;' -submitUser hadoop -proxyUser hadoop
 ````
+
 For specific usage, please refer to: [Linkis CLI Manual](../user-guide/linkiscli-manual.md).

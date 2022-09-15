@@ -9,6 +9,7 @@ Linkis在1.0提供了单独的前端管理台功能，提供了展示Linis的全
 
 1. 在linkis的安装包（wedatasphere-linkis-x.x.x-combined-package-dist.tar.gz）中解压后会有前端的压缩包：wedatasphere-linkis-web-1.0.0.zip
 2. 需要手动解压：unzip wedatasphere-linkis-web-1.0.0.zip，解压后目录为：
+
 ```
 config.sh
 dist
@@ -16,10 +17,12 @@ install.sh
 ```
 
 ## 2、部署
+
 &nbsp;&nbsp;&nbsp;&nbsp;分为两种部署方式，自动化部署和手动部署
 
 ### 2.1 自动化部署
-&nbsp;&nbsp;&nbsp;&nbsp;进入解压的前端目录，在该目录下编辑 ```vi config.sh ```
+
+&nbsp;&nbsp;&nbsp;&nbsp;进入解压的前端目录，在该目录下编辑 ```vi config.sh```
 更改前端端口和后端接口地址,后端接口地址为linkis的gateway地址
 
 ```$xslt
@@ -33,17 +36,19 @@ linkis_url="http://localhost:9001"
 linkis_ipaddr=$(ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}')
 ```
 
-修改完后在该目录下执行,需要使用sudo执行：```sudo sh install.sh ```
+修改完后在该目录下执行,需要使用sudo执行：```sudo sh install.sh```
 
 执行完后可以直接通过在谷歌浏览器访问：```http://linkis_ipaddr:linkis_port``` 其中linkis_port为config.sh里面配置的端口，linkis_ipaddr为安装机器的IP
 
 如果访问失败：可以通过查看安装日志哪一步出错
 
 ### 2.2 手动部署
+
 1.安装Nginx:```sudo yum install nginx -y```
 
 2.修改配置文件：sudo vi /etc/nginx/conf.d/linkis.conf
 添加如下内容：
+
 ```
 server {
             listen       8080;# 访问端口
@@ -54,7 +59,7 @@ server {
             root   /appcom/Install/linkis/dist; # 前端包解压的目录
             index  index.html index.html;
             }
-          
+
             location /api {
             proxy_pass http://192.168.xxx.xxx:9001; # linkis-gateway服务的ip端口
             proxy_set_header Host $host;
@@ -80,7 +85,7 @@ server {
 
 ```
 
-3.将前端包拷贝到对应的目录:```/appcom/Install/linkis/dist; # 前端包解压的目录 ```
+3.将前端包拷贝到对应的目录:```/appcom/Install/linkis/dist; # 前端包解压的目录```
 
 4.启动服务```sudo systemctl restart nginx```
 
@@ -106,10 +111,8 @@ client_max_body_size 200m
 sudo vi /etc/nginx/conf.d/linkis.conf
 ```
 
-
 更改接口超时时间
 
 ```
 proxy_read_timeout 600s
 ```
-

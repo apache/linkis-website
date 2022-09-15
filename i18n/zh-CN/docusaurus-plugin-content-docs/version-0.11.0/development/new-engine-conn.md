@@ -29,17 +29,17 @@ sidebar_position: 3
 #### 2.1.2 需要实现的接口
 
  Entrance没有必须要实例化的接口，以下接口可以根据需要进行实现：
- 
+
 - EntranceParser。用于将前端传递过来的一个请求，一般是Json体，转换成一个可被持久化的Task。该类已提供了AbstractEntranceParser，用户只需实现parseToTask方法即可，系统默认提供了CommonEntranceParser实现。
- 
+
  ![CommonEntranceParser](../images/ch6/CommonEntranceParser.png)<br/>
 
 - EngineRequester。用于获得一个RequestEngine类，该类用于向EngineManager微服务请求一个新的Engine。Linkis已经有一个实现类。
- 
+
  ![EngineRequesterImpl](../images/ch6/EngineRequesterImpl.png)<br/>
 
 - Scheduler。用于实现调度，默认已实现了多用户并发、单个用户内FIFO执行的调度模式。
- 
+
  ![FIFOScheduler](../images/ch6/FIFOScheduler.png)<br/>
 
 ### 2.2 EngineManager的接入
@@ -67,19 +67,18 @@ sidebar_position: 3
  ![AbstractEngineCreator](../images/ch6/AbstractEngineCreator.png)<br/>
 
 - EngineResourceFactory，已存在AbstractEngineResourceFactory，需实现getRequestResource方法，用于拿到用户的个性化资源请求。
- 
+
  ![EngineResourceFactory](../images/ch6/EngineResourceFactory.png)<br/>
 
 - hooks，这是一个spring实体bean，主要用于在创建并启动Engine的前后，加前置和后置hook，需要用户提供一个Array[EngineHook]，以供依赖注入。
- 
+
  ![hooks](../images/ch6/hooks.png)<br/>
- 
+
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体实例可以参看Hive EngineManager的实现。
 
 - resources，这是一个spring实体bean，主要用于像RM注册资源，resources是ModuleInfo的实例，需要用户提供一个，以供依赖注入。
- 
- ![resources](../images/ch6/resources_bean.png)<br/>
 
+ ![resources](../images/ch6/resources_bean.png)<br/>
 
 ### 2.3 Engine的接入
 
@@ -105,7 +104,6 @@ sidebar_position: 3
 
 ![EngineExecutor](../images/ch6/EngineExecutor.png)<br/>
 
-
 2. Engine非必须实现的接口或bean如下:
 
 - engineHooks: Array[EngineHook]，是一个spring bean。EngineHook是engine创建的前置和后置hook，目前系统已提供了2个hook：CodeGeneratorEngineHook用于加载UDF和函数，ReleaseEngineHook用于释放空闲的engine，如果不指定，系统默认会提供engineHooks=Array(ReleaseEngineHook)
@@ -119,7 +117,6 @@ sidebar_position: 3
 - EngineParser，用于将一个RequestTask转换成可提交给Scheduler的Job，如果没有指定，系统会默认提供一个将RequestTask转换成CommonEngineJob的EngineParser。
 
 ![EngineParser](../images/ch6/engineParser_bean.png)<br/>
-
 
 ## 3 参考实例
 
@@ -146,7 +143,7 @@ sidebar_position: 3
 - 3.AbstractEngineResourceFactory接口实现
 
 ![HiveEngineResourceFactory](../images/ch6/hive_engineResourceFactory_bean.png)<br/>
-   
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这个实例中，我们可以将用户每次请求引擎的时候，希望获取的CPU核数、内存大小、实例数通知到ResourceManager
 
 - 4.resources 和 hooks bean的注入
@@ -158,7 +155,7 @@ sidebar_position: 3
 ### 3.3 HiveEngine 的接入
 
 - 1.EngineExecutorFactory 接口实现
-   
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HiveEngine模块中有一个HiveEngineExecutorFactory，在createExecutor方法最后，返回了HiveEngineExecutor。
 
 ![HiveEngineExecutorFactory](../images/ch6/HiveEngineExecutorFactory.png)<br/>
@@ -176,5 +173,5 @@ sidebar_position: 3
 ## 4 常见问题
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎大家加群提问。
- 
+
 ![微信及QQ群](../images/ch6/group.png)<br/>

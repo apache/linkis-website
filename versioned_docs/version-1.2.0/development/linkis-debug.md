@@ -45,6 +45,7 @@ At present, the services that rely on mysql and the corresponding pom.xml paths 
 - linkis-cg-engineplugin: linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
 
 The way to add to the dependency is as follows, modify the pom.xml file of the corresponding service to add the mysql dependency,
+
 ````xml
 <dependency>
       <groupId>mysql</groupId>
@@ -76,6 +77,7 @@ Only the configuration content that needs to be added is posted here.
     </loggers>
 </configuration>
 ````
+
 __Note:__linkis.properties needs to modify the parameters of the corresponding jdbc
 
 ### 3.3 Start the eureka service
@@ -122,7 +124,7 @@ server:
   port: 8080 ##Starting port
 ````
 
-After the above settings are completed, run the Application directly. After successful startup, you can view the eureka service list through http://localhost:20303/.
+After the above settings are completed, run the Application directly. After successful startup, you can view the eureka service list through <http://localhost:20303/>.
 
 ![eureka-web](/Images/development/debug/eureka-web.png)
 
@@ -191,6 +193,7 @@ When starting publicservice directly, you may encounter the following errors:
 
 You need to add the publicly dependent modules to the classpath of the linkis-public-enhancements module, and modify the pom of pes to add the following dependencies:
 linkis-public-enhancements/pom.xml
+
 ````xml
  <dependency>
       <groupId>org.apache.linkis</groupId>
@@ -283,6 +286,7 @@ When starting engineplugin, you may encounter the following error:
 
 You need to add the publicly dependent modules to the classpath of the ecp module, and modify the pom of pes to add the following dependencies:
 linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
+
 ````xml
  <dependency>
       <groupId>org.apache.linkis</groupId>
@@ -402,7 +406,7 @@ First visit the login interface to generate a cookie:
 
 Then submit the shell code for execution
 
-POST: http://127.0.0.1:9001/api/rest_j/v1/entrance/submit
+POST: <http://127.0.0.1:9001/api/rest_j/v1/entrance/submit>
 
 body parameter:
 
@@ -447,7 +451,7 @@ Results of the:
 
 Finally, check the running status of the task and get the running result set:
 
-GET http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0/progress
+GET <http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0/progress>
 
 ````json
 {
@@ -462,9 +466,9 @@ GET http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance
 }
 ````
 
-GET http://127.0.0.1:9001/api/rest_j/v1/jobhistory/1/get
+GET <http://127.0.0.1:9001/api/rest_j/v1/jobhistory/1/get>
 
-GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/leojie/software/linkis/data/resultSetDir/leojie/linkis/2022-07-16/ 214859/IDE/1/1_0.dolphin
+GET <http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/leojie/software/linkis/data/resultSetDir/leojie/linkis/2022-07-16/> 214859/IDE/1/1_0.dolphin
 
 ````json
 {
@@ -493,6 +497,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 Identify the service where the package that needs to be debugged is located, and determine the service to which it belongs according to the location of the code to be debugged
 
 ### 4.2 Enter {LINKIS_HOME}/sbin/ext, modify the module configuration file to open the remote call port
+
 ![c-port](https://user-images.githubusercontent.com/29391030/167364775-4f5d2774-b6b9-4a65-b69c-69319db870c4.png)
 
 ### 4.3 Restart the service that needs to be debugged

@@ -4,7 +4,6 @@ sidebar_position: 1
 ---
 >How to realize the docking of multiple file systems
 
-
 ## 1 Background
 
 Many systems face the need to access multiple file systems. For example, to use the local file system and the HDFS file system, users need to understand the Java SDK of the two file systems, which has a great learning cost.
@@ -21,11 +20,11 @@ Provide a common file system Java SDK, users create FileSystem by calling FSFact
 
 ## 3 Implementation
 
-**(1)** 
+**(1)**
 The user obtains an Fs through the file system factory (FSFactory) and by passing in the FsPath.
 When FsPath is instantiated, different file system types can be distinguished by schema, such as: local:///tmp/test.txt and hdfs:///tmp/test.txt, FsFactory can use the schema header (such as: local or hdfs). Obtain the FileSystem object corresponding to the file system;
 
-**(2)** 
+**(2)**
 The FileSystem object provides a common interface, such as: obtaining the size of a file (folder), creating and deleting a file (folder), reading and writing files, etc.
 The user only needs to call the method in the FileSystem object to complete the operation of the corresponding file system.
 

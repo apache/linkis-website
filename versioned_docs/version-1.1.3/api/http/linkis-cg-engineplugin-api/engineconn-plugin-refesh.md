@@ -8,18 +8,13 @@ sidebar_position: 0.1
 
 **Interface address**:`/api/rest_j/v1/engineplugin/refesh`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
 
-
 **Interface description**: Update the material resources of the specified engine
-
 
 **Request Parameters**:
 
@@ -28,9 +23,7 @@ sidebar_position: 0.1
 |ecType|Engine Type|query|true|string||
 |version|version can be empty or *|query|false|string||
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -39,8 +32,8 @@ sidebar_position: 0.1
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "method": null,
@@ -52,30 +45,22 @@ sidebar_position: 0.1
 }
 ````
 
-
-##refeshAll
-
+## refeshAll
 
 **Interface address**:`/api/rest_j/v1/engineplugin/refeshAll`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
 
-
 **Interface description**: Update material resources of all engines
-
 
 **Request Parameters**:
 none
 
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -84,8 +69,8 @@ none
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "method": null,

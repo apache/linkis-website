@@ -4,21 +4,28 @@ sidebar_position: 4
 ---
 
 ## 1. General
+
 ### Requirements Background
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now LinkisManager only records the information and resource usage of the running EengineConn, but this information is lost after the task ends. It is inconvenient to do some statistics and view of historical ECs, or to view logs of ECs that have ended. It is more important to record the historical EC.
+
 ### Target
+
 1. Complete the persistence of EC information and resource information to DB storage
 2. Support the viewing and searching of historical EC information through restful
 3. Support to view the logs of EC that has ended
 
 ## 2. Design
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The main modification of this feature is the RM and AM modules under LinkisManager, and a new information record table is added. It will be described in detail below.
 
 ### 2.1 Technical Architecture
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Because this implementation needs to record EC information and resource information, and resource information is divided into three concepts, such as requesting resources, actual use of resources, and release of resources, and all need to be recorded. Therefore, this implementation is based on the life cycle of the EC in the ResourceManager. When the EC completes the above three stages, the update operation of the EC information is added. The whole is shown in the figure below
 ![arc](/Images/Architecture/LinkisManager/ecHistoryArc.png)
 
 ### 2.2 Business Architecture
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This feature is mainly to complete the information recording of historical EC and support the log viewing of historical technical EC. The modules designed by the function point are as follows:
 
 | Component name | First-level module | Second-level module | Function point |
@@ -27,14 +34,16 @@ sidebar_position: 4
 | Linkis | LinkisManager | AppManager| Provides an interface to list and search all historical EC information|
 
 ## 3. Module Design
+
 ### Core execution flow
+
 [Input] The input is mainly the information input when creating the engine, requesting resources, reporting the actual use of resources after the engine starts, and releasing resources when the engine exits, mainly including the requested label, resource, ec unique ticketid, and resource type.
 [Processing process] The information recording service processes the input data, and parses the corresponding engine information, user, creator, and log path through tags. Confirm the resource request, use, and release by the resource type. Then talk about the information stored in the DB.
 The call sequence diagram is as follows:
 ![Time](/Images/Architecture/LinkisManager/ecHistoryTime.png)
 
+## 4. DDL
 
-## 4. DDL:
 ```sql
 # EC information resource record table
 DROP TABLE IF EXISTS `linkis_cg_ec_resource_info_record`;
@@ -60,20 +69,26 @@ CREATE TABLE `linkis_cg_ec_resource_info_record` (
     UNIQUE KEY `label_value_ticket_id` (`ticket_id`, `label_value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 ````
-## 5. Interface design:
-The API interface of the engine history management page, refer to the document Management console to add a history engine page
-https://linkis.apache.org/docs/latest/api/http/linkis-cg-linkismanager-api/ec-resource-management-api
 
-## 6. Non-functional design:
+## 5. Interface design
+
+The API interface of the engine history management page, refer to the document Management console to add a history engine page
+<https://linkis.apache.org/docs/latest/api/http/linkis-cg-linkismanager-api/ec-resource-management-api>
+
+## 6. Non-functional design
 
 ### 6.1 Security
+
 No security issues are involved, restful requires login authentication
 
 ### 6.2 Performance
+
 Less impact on engine life cycle performance
 
 ### 6.3 Capacity
+
 Requires regular cleaning
 
 ### 6.4 High Availability
+
 not involving

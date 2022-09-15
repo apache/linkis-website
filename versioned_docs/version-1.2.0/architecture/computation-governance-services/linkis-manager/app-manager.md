@@ -4,7 +4,9 @@ sidebar_position: 1
 ---
 
 ## 1. Background
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Entrance module of the old version of Linkis is responsible for too much responsibilities, the management ability of the Engine is weak, and it is not easy to follow-up expansion, the AppManager module is newly extracted to complete the following responsibilities:  
+
 1. Add the AM module to move the engine management function previously done by Entrance to the AM module.
 2. AM needs to support operating Engine, including: adding, multiplexing, recycling, preheating, switching and other functions.
 3. Need to connect to the Manager module to provide Engine management functions: including Engine status maintenance, engine list maintenance, engine information, etc.
@@ -12,13 +14,17 @@ sidebar_position: 1
 5. AM needs to be connected to the Label module, including the addition and deletion of EM/Engine, the label manager needs to be notified to update the label.
 6. AM also needs to dock the label module for label analysis, and need to obtain a list of serverInstances with a series of scores through a series of labels (How to distinguish between EM and Engine? the labels are completely different).
 7. Need to provide external basic interface: including the addition, deletion and modification of engine and engine manager, metric query, etc.  
+
 ## Architecture diagram
+
 ![AppManager03](/Images/Architecture/AppManager-03.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As shown in the figure above: AM belongs to the AppManager module in LinkisMaster and provides services.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New engine application flow chart:  
 ![AppManager02](/Images/Architecture/AppManager-02.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From the above engine life cycle flow chart, it can be seen that Entrance is no longer doing the management of the Engine, and the startup and management of the engine are controlled by AM.  
+
 ## Architecture description
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppManager mainly includes engine service and EM service:
 Engine service includes all operations related to EngineConn, such as engine creation, engine reuse, engine switching, engine recycling, engine stopping, engine destruction, etc.
 EM service is responsible for information management of all EngineConnManager, and can perform service management on ECM online, including tag modification, suspension of ECM service, obtaining ECM instance information, obtaining ECM running engine information, killing ECM operation, and also according to EM Node information Query all EngineNodes, and also support searching by user, saving EM Node load information, node health information, resource usage information, etc.

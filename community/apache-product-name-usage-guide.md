@@ -2,7 +2,7 @@
 title: Apache Product Name Usage Guide
 sidebar_position: 6
 ---
-> See https://www.apache.org/foundation/marks/guide for detailed and complete instructions
+> See <https://www.apache.org/foundation/marks/guide> for detailed and complete instructions
 
 The first and most prominent mentions must use the full form: "Apache Linkis" of the name for any individual usage (webpage, handout, slides, etc.) Depending on the context and writing style, you should use the full form of the name sufficiently often to ensure that readers clearly understand the association of both the Linkis project and the Linkis software product to the ASF as the parent organization.
 
@@ -37,4 +37,3 @@ The full form of the name must be used in at least these cases:
 - For personal bloggers or individuals: We appreciate the use of the full form of the name in titles and the first and most prominent uses in running or body text.
 
 - Uses of Apache brands in domain names or event names and brands are covered in their own policies.
-

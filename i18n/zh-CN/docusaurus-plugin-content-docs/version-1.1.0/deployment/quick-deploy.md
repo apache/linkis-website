@@ -9,10 +9,9 @@ sidebar_position: 1
 
 因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包，安装部署时需要添加依赖到对应的lib包中。
 
-安装过程中遇到的问题，可以参考[排障指引](https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)  https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy
+安装过程中遇到的问题，可以参考[排障指引](https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy)  <https://linkis.apache.org/zh-CN/blog/2022/02/21/linkis-deploy>
 
 </font>
-
 
 **如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference-between-1.0-and-0.x.md)**。
 
@@ -36,6 +35,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 | TiSpark | **1.0未适配** | **不包含** |
 
 ## 2. 确定您的安装环境
+
 这里给出每个引擎的依赖信息列表：
 
 | 引擎类型 | 依赖环境 | 特殊说明 |
@@ -70,7 +70,6 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 - MySQL (5.5+)，[如何安装MySQL](https://www.runoob.com/mysql/mysql-install.html)
 - JDK (1.8.0_141以上)，[如何安装JDK](https://www.runoob.com/java/java-environment-setup.html)
 
- 
 ### 3.2 创建用户
 
 例如: **部署用户是hadoop账号**
@@ -80,6 +79,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 ```bash
     sudo useradd hadoop  
 ```
+
 2. 因为Linkis的服务是以 sudo -u ${linux-user} 方式来切换引擎，从而执行作业，所以部署用户需要有 sudo 权限，而且是免密的。
 
 ```bash
@@ -94,7 +94,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
   
    修改安装用户的.bash_rc，命令如下：
 
-```bash     
+```bash
     vim /home/hadoop/.bash_rc  ##以部署用户Hadoop为例
 ```
 
@@ -129,18 +129,17 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
 先解压安装包到安装目录，并对解压后的文件进行配置修改。
 
-```bash   
+```bash
     #version >=1.0.3
     tar -xvf  apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
-
 
 ### 3.4 依赖HDFS/Hive/Spark的基础配置修改
 
 ```bash
      vi deploy-config/linkis-env.sh
 ```
-        
+
 ```properties
     SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
     deployUser=hadoop      #指定部署用户
@@ -156,16 +155,16 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     HIVE_META_URL=jdbc://...   # HiveMeta元数据库的URL
     HIVE_META_USER=   # HiveMeta元数据库的用户
     HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
-    
-    # 配置hadoop/hive/spark的配置目录 
+
+    # 配置hadoop/hive/spark的配置目录
     HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop的conf目录
     HIVE_CONF_DIR=/appcom/config/hive-config   #hive的conf目录
     SPARK_CONF_DIR=/appcom/config/spark-config #spark的conf目录
 
     ## LDAP配置，默认Linkis只支持部署用户登录，如果需要支持多用户登录可以使用LDAP，需要配置以下参数：
-    #LDAP_URL=ldap://localhost:1389/ 
+    #LDAP_URL=ldap://localhost:1389/
     #LDAP_BASEDN=
-    
+
     ##如果spark不是2.4.3的版本需要修改参数：
     #SPARK_VERSION=3.1.1
 
@@ -173,13 +172,13 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     #HIVE_VERSION=2.3.3
 ```
 
-###  3.5 修改数据库配置 
+### 3.5 修改数据库配置
 
-```bash   
-    vi deploy-config/db.sh 
+```bash
+    vi deploy-config/db.sh
 ```
-            
-```properties    
+
+```properties
 
     # 设置数据库的连接信息
     # 包括IP地址、数据库名称、用户名、端口
@@ -190,14 +189,15 @@ Linkis1.0.3 默认已适配的引擎列表如下：
     MYSQL_USER=
     MYSQL_PASSWORD=
  ```
- 
+
 ## 4. 安装和启动
 
-### 4.1 执行安装脚本：
+### 4.1 执行安装脚本
 
 ```bash
     sh bin/install.sh
 ```
+
 >linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{installPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)
 
 ### 4.2 安装步骤
@@ -214,7 +214,7 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade-from-0.X-to-1.0-guide.md)**。
 
-### 4.3 是否安装成功：
+### 4.3 是否安装成功
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过查看控制台打印的日志信息查看是否安装成功。
 
@@ -228,39 +228,40 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包，安装部署时需要自行添加依赖到对应的lib包中
 :::
 
-下载mysql驱动 以5.1.49版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar) https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar
+下载mysql驱动 以5.1.49版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar) <https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar>
 
-拷贝mysql 驱动包至lib包下 
+拷贝mysql 驱动包至lib包下
+
 ```
 cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
 cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
 
-
 ### 4.5 快速启动Linkis
 
-#### (1)、启动服务：
+#### (1)、启动服务
   
-  在安装目录执行以下命令，启动所有服务：    
+  在安装目录执行以下命令，启动所有服务：
 
 ```bash  
   sh sbin/linkis-start-all.sh
 ```
-        
+
 #### (2)、查看是否启动成功
-    
+
   可以在Eureka界面查看服务启动成功情况，查看方法：
-    
-  使用http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, 在浏览器中打开，查看服务是否注册成功。
-    
-  如果您没有在config.sh指定EUREKA_INSTALL_IP和EUREKA_INSTALL_IP，则HTTP地址为：http://127.0.0.1:20303
-    
+
+  使用<http://${EUREKA_INSTALL_IP}:${EUREKA_PORT>}, 在浏览器中打开，查看服务是否注册成功。
+
+  如果您没有在config.sh指定EUREKA_INSTALL_IP和EUREKA_INSTALL_IP，则HTTP地址为：<http://127.0.0.1:20303>
+
   如下图，如您的Eureka主页出现以下微服务，则表示服务都启动成功，可以正常对外提供服务了：
 
   默认会启动8个Linkis微服务，其中图下linkis-cg-engineconn服务为运行任务才会启动
-   
+
 ![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
 
 #### (3)、查看服务是否正常
-1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web-install.md) 
+
+1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web-install.md)
 2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](../user-guide/overview.md)

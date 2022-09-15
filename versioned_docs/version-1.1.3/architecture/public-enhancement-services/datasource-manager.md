@@ -16,7 +16,7 @@ This article mainly involves the DataSource Manager Server data source managemen
 
 4）、Provide full life cycle management of data sources, including new, query, update, test, and expiration management.
 
-5）、Multi-version data source management, historical data sources will be saved in the database, and data source expiration management is provided. 
+5）、Multi-version data source management, historical data sources will be saved in the database, and data source expiration management is provided.
 
 6）、The Restful interface provides functions, a detailed list: data source type query, data source detailed information query, data source information query based on version, data source version query, get data source parameter list, multi-dimensional data source search, get data source environment query and Update, add data source, data source parameter configuration, data source expiration setting, data source connectivity test.
 
@@ -55,11 +55,11 @@ This article mainly involves the DataSource Manager Server data source managemen
 
 ## **Database Design**
 
-##### Database Diagram：
+##### Database Diagram
 
 ![](/Images-zh/Architecture/datasource/dn-db.png)
 
-##### Data Table Definition：
+##### Data Table Definition
 
 Table：linkis_ps_dm_datatsource <-->Object：DataSource
 
@@ -137,4 +137,3 @@ Table：linkis_ps_dm_datasource_version <-->Object：DatasourceVersion
 | 4             | comment       | comment                                  |
 | 5             | create_time   | Create Time                              |
 | 6             | create_user   | Create User                              |
-

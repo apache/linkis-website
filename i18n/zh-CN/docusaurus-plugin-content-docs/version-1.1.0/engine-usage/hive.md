@@ -35,13 +35,13 @@ on Tez，需要您按照此pr进行一下修改。
 
 如果您已经编译完了您的hive引擎的插件已经编译完成，那么您需要将新的插件放置到指定的位置中才能加载，具体可以参考下面这篇文章
 
-[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation)
 
 ### 2.3 hive引擎的标签
 
 Linkis1.0是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/engine-conn-plugin-installation)
 
 ## 3.hive引擎的使用
 
@@ -70,9 +70,11 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
 ### 3.2 通过Linkis-cli进行任务提交
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Hive的使用如下：
+
 ```shell
 sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
+
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式
@@ -94,35 +96,44 @@ hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来
 图4-1 hive的用户自定义配置管理台
 
 ## 5.Hive修改日志展示
+
 默认的日志界面是不显示application_id以及task完成数量的,用户可以根据需要输出该日志
 引擎内的log4j2-engineconn.xml/log4j2.xml配置文件中需要修改的代码块如下
 1.appenders组件下需要添加
+
 ```xml
         <Send name="SendPackage" >
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} %L %M - %msg%xEx%n"/>
         </Send>
 ```
+
 2.root组件下需要添加
+
 ```xml
         <appender-ref ref="SendPackage"/>
 ```
+
 3.loggers组件下需要添加
+
 ```xml
         <logger name="org.apache.hadoop.hive.ql.exec.StatsTask" level="info" additivity="true">
             <appender-ref ref="SendPackage"/>
         </logger>
 ```
+
 进行如上相关修改后日志可以增加任务task进度信息，显示为如下样式
+
 ```
 2022-04-08 11:06:50.228 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Status: Running (Executing on YARN cluster with App id application_1631114297082_432445)
-2022-04-08 11:06:50.248 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: -/-	Reducer 2: 0/1	
-2022-04-08 11:06:52.417 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 0/1	Reducer 2: 0/1	
-2022-04-08 11:06:55.060 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 0(+1)/1	Reducer 2: 0/1	
-2022-04-08 11:06:57.495 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1	Reducer 2: 0(+1)/1	
-2022-04-08 11:06:57.899 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1	Reducer 2: 1/1	
+2022-04-08 11:06:50.248 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: -/- Reducer 2: 0/1 
+2022-04-08 11:06:52.417 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 0/1 Reducer 2: 0/1 
+2022-04-08 11:06:55.060 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 0(+1)/1 Reducer 2: 0/1 
+2022-04-08 11:06:57.495 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1 Reducer 2: 0(+1)/1 
+2022-04-08 11:06:57.899 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1 Reducer 2: 1/1 
 ```
 
 完整xml配置文件范例如下：
+
 ```xml
 <!--
   ~ Copyright 2019 WeBank

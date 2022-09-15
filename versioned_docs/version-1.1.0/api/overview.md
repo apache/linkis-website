@@ -4,6 +4,7 @@ sidebar_position: 0
 ---
 
 ## 1. Document description
+
 Linkis1.0 has been refactored and optimized on the basis of Linkix0.x, and it is also compatible with the 0.x interface. However, in order to prevent compatibility problems when using version 1.0, you need to read the following documents carefully:
 
 1. When using Linkis1.0 for customized development, you need to use Linkis's authorization authentication interface. Please read [Login API Document](login-api.md) carefully.

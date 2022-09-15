@@ -3,9 +3,10 @@ title: History Job Interface
 sidebar_position: 3
 ---
 
-** QueryRestfulApi class **
+**QueryRestfulApi class**
 
 ## governanceStationAdmin
+
 **Interface address**:`/api/rest_j/v1/jobhistory/governanceStationAdmin`
 
 **Request method**: `GET`
@@ -32,8 +33,8 @@ none
 }
 ````
 
-
 ## getHistoryTask
+
 **Interface address**:`/api/rest_j/v1/jobhistory/{id}/get`
 
 **Request method**: `GET`
@@ -51,6 +52,7 @@ none
 |id|id|path|true|string||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,
@@ -85,6 +87,7 @@ none
 ````
 
 ## listHistoryTask
+
 **Interface address**:`/api/rest_j/v1/jobhistory/list`
 
 **Request method**: `GET`
@@ -111,6 +114,7 @@ none
 |isAdminView|isAdminView|path|false|Boolean||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,
@@ -169,6 +173,7 @@ none
 ````
 
 ## listUndoneHistoryTask
+
 **Interface address**:`/api/rest_j/v1/jobhistory/listundone`
 
 **Request method**: `GET`
@@ -193,6 +198,7 @@ none
 |creator|creator|path|false|string||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,

@@ -10,7 +10,9 @@ To subscribe to the mailing list, please refer to this [Subscription Guidelines]
 Linkis' archived mail can be viewed here [archived mail](https://lists.apache.org/list.html?dev@linkis.apache.org)
 
 ## 1. Themes
+
 The subject of the email can be roughly divided into the following types
+
 - **\[DISCUSS]** Discussion on a feature/function/logic modification/CI/CD, which can be implementation/design/optimization suggestion, etc.
 - **\[PROPOSAL]** Proposals, such as adding/removing certain features, are not much different from \[DISCUSS]
 - **\[VOTE]** Vote for changes/elect Committer/elect new PPMC members, etc., such as version release, each version will be voted on in the community dev mailing list; you can also choose multiple options ,Poll.
@@ -19,18 +21,18 @@ The subject of the email can be roughly divided into the following types
 - **\[HELP]** Ask for help, because there are many git code notifications, and sometimes it is impossible to check them in time; in addition, github network access is limited, and some students may not be able to submit issues through github smoothly. Initiated by email, it is easier to identify and be perceived.
 - **\[VOTE]\[RESULT]** Announce the results of the release vote
 
-
-
 ## 2. Mail Specifications
+
 :::caution general specification
+
 - Whenever possible do not send plain HTML messages, but plain text. If you use QQ mailbox, its email content is in html format by default. Please switch to plain text text format when writing. For detailed switching instructions, see the appendix of this article.
 - Developers/community users/PPMC members initiate email discussions/needs for help/notifications for the content of the above scenarios, please send them to dev@linkis.apache.org
 - Please put the corresponding type prefix before the email subject: such as `[HELP] XXXXXXX`, `[DISCUSS] XXXXXXX`
 
-For more information, please refer to the official [Mail Etiquette](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips
+For more information, please refer to the official [Mail Etiquette](https://infra.apache.org/contrib-email-tips) <https://infra.apache.org/contrib-email-tips>
 :::
 
-** \[DISCUSS/Proposal] Mail **
+**\[DISCUSS/Proposal] Mail**
 
 - Title `[DISCUSS][module name] XXXX` (if it is a specific module, it is recommended to bring the module name)
 - Generally, create a corresponding issue on Github's [issues column](https://github.com/apache/incubator-linkis/issues), and then initiate an email discussion
@@ -39,8 +41,9 @@ For more information, please refer to the official [Mail Etiquette](https://infr
 - Graphical and textual information such as relevant design instructions can be placed in the corresponding issue for easy modification, and the link can be quoted in the email.
 - The corresponding Chinese translation can be attached
 
-** \[HELP] Mail**
-- Please confirm [QA documentation](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)/[issues](https://github.com/apache/incubator-linkis/issues) and [archived mail]( Is this question not included in https://lists.apache.org/list.html?dev@linkis.apache.org)
+**\[HELP] Mail**
+
+- Please confirm [QA documentation](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)/[issues](https://github.com/apache/incubator-linkis/issues) and [archived mail]( Is this question not included in <https://lists.apache.org/list.html?dev@linkis.apache.org>)
 - Detailed description of the problems encountered
 - How to reproduce this problem
 - You can create a corresponding issue on git
@@ -48,39 +51,42 @@ For more information, please refer to the official [Mail Etiquette](https://infr
 
 ## 3. Sample reference
 
-** \[DISCUSS/Proposal] Example**
-- k8 is supported discussion: https://lists.apache.org/thread/3o61h3439sjnqt8wvmdolg90o635w303
-- Some feature change discussion email example: https://lists.apache.org/thread/lxdsvo2q0gbzllx04wkq547qxlgp5k5z
-- Sample proposal email for community building: https://lists.apache.org/thread/t3cbmrzcpgv9j39f5c3zz8xjfdd3fzsv
+**\[DISCUSS/Proposal] Example**
 
-** \[VOTE] Example**
-- Release voting for new versions: https://lists.apache.org/thread/9nhsj61oo338g0oql9rlrnfh8jwx64cl
+- k8 is supported discussion: <https://lists.apache.org/thread/3o61h3439sjnqt8wvmdolg90o635w303>
+- Some feature change discussion email example: <https://lists.apache.org/thread/lxdsvo2q0gbzllx04wkq547qxlgp5k5z>
+- Sample proposal email for community building: <https://lists.apache.org/thread/t3cbmrzcpgv9j39f5c3zz8xjfdd3fzsv>
 
-** \[ANNOUNCE] Example**
+**\[VOTE] Example**
 
-- The new version is released: https://lists.apache.org/thread/dmdtgrgozjn1m1mz6ss7999qq387mq0w
-- New committer elected: https://lists.apache.org/thread/s8p9nr9gsqxl2tt7o3vxo3jxzrzjm5vf
-- New PMC elected: https://lists.apache.org/thread/gqrczn8pw4tq3g4mwh1mf6s0k6r206jn
+- Release voting for new versions: <https://lists.apache.org/thread/9nhsj61oo338g0oql9rlrnfh8jwx64cl>
 
-** \[NOTICE] Example**
+**\[ANNOUNCE] Example**
 
-- Notice of regular meeting: https://lists.apache.org/thread/2wtn55wkzh27373k9y8qq09843xs9oxn
-- Service status notification: https://lists.apache.org/thread/bzsc3mnkcl5gz4h3hp9qh9ofpykbr28f
+- The new version is released: <https://lists.apache.org/thread/dmdtgrgozjn1m1mz6ss7999qq387mq0w>
+- New committer elected: <https://lists.apache.org/thread/s8p9nr9gsqxl2tt7o3vxo3jxzrzjm5vf>
+- New PMC elected: <https://lists.apache.org/thread/gqrczn8pw4tq3g4mwh1mf6s0k6r206jn>
 
+**\[NOTICE] Example**
 
-** \[HELP] Example**
-- For help: https://lists.apache.org/thread/br03lmd3n73lbc6n0lzcmqjbvy960wvf
+- Notice of regular meeting: <https://lists.apache.org/thread/2wtn55wkzh27373k9y8qq09843xs9oxn>
+- Service status notification: <https://lists.apache.org/thread/bzsc3mnkcl5gz4h3hp9qh9ofpykbr28f>
+
+**\[HELP] Example**
+
+- For help: <https://lists.apache.org/thread/br03lmd3n73lbc6n0lzcmqjbvy960wvf>
 
 ## 4. Mail usage of PPMC
 
 From the determination of a version to the release, it may involve specific common scenarios of using email
+
 1. The new version needs to organize PMC and developers to discuss, record the minutes of the meeting, determine the function points of this version, the general release time of the plan, and the release manager of this time, etc., and send the meeting minutes private@linkis.apache.org Email list.
 2. For the scope of the feature list of the new version, you need to send a voting email to dev@linkis.apache.org, and 3+ PMCs are required to agree and the yes votes are greater than the negative votes.
 3. For the weekly regular meeting hosted, the meeting invitation reminder email needs to be released before the meeting / the meeting minutes email should be sent to the dev@linkis.apache.org mailbox after the meeting
-4. New committer/ppmc votes need to be sent to private@linkis.apache.org. See https://community.apache.org/newcommitter.html for the new committee/ppmc selection process
-
+4. New committer/ppmc votes need to be sent to private@linkis.apache.org. See <https://community.apache.org/newcommitter.html> for the new committee/ppmc selection process
 
 ## 5. How to Reply to Version Release Voting Emails
+
 If a release vote is initiated, after verification (see [How to verify](how-to-verify.md) for the detailed verification process), you can refer to this reply example for email reply
 
 If you initiate a posting vote, you can refer to this response example to reply to the email after verification
@@ -91,6 +97,7 @@ PPMC/IPMC member voting is best with the binding suffix, indicating a binding vo
 </font>
 
 Non-PPMC/Non-IPMC member
+
 ```html
 +1 (non-binding)
 I checked:
@@ -102,6 +109,7 @@ I checked:
 ````
 
 PPMC/IPMC member
+
 ```html
 +1 (binding)
 I checked:
@@ -113,6 +121,6 @@ I checked:
 ````
 
 ## 6. Appendix
-** QQ mailbox switch to plain text format **
+**QQ mailbox switch to plain text format**
 
 ![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)

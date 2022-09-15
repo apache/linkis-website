@@ -4,7 +4,7 @@ sidebar_position: 3
 ---
 > 元数据查询接口优化之后的新接口，已废弃的旧接口见[元数据查询API](./metadatamanager-api.md)，相对于旧接口，主要调整请求的路径和接口参数命名
 
-** MetadataQueryRestful 类 **
+**MetadataQueryRestful 类**
 
 ## getColumns
 
@@ -59,8 +59,8 @@ sidebar_position: 3
 }
 ```
 
-
 ## getDatabases
+
 **接口地址**:`/api/rest_j/v1//metadataQuery/getDatabases`
 
 **请求方式**:`GET`
@@ -79,6 +79,7 @@ sidebar_position: 3
 |system|system|query|true|string||
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -93,7 +94,6 @@ sidebar_position: 3
     }
 }
 ```
-
 
 ## getPartitions
 
@@ -120,6 +120,7 @@ sidebar_position: 3
 |traverse|traverse|query|false|boolean||
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -137,6 +138,7 @@ sidebar_position: 3
 ```
 
 ## getTableProps
+
 **接口地址**:`/api/rest_j/v1//metadataQuery/getTableProps`
 
 **请求方式**:`GET`
@@ -146,7 +148,6 @@ sidebar_position: 3
 **响应数据类型**:`application/json`
 
 **接口描述**:
-
 
 **请求参数**:
 
@@ -158,6 +159,7 @@ sidebar_position: 3
 |table|table|path|true|string||
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -189,8 +191,8 @@ sidebar_position: 3
 }
 ```
 
-
 ## getPartitionProps
+
 **接口地址**:`/api/rest_j/v1//metadataQuery/getPartitionProps`
 
 **请求方式**:`GET`
@@ -211,19 +213,19 @@ sidebar_position: 3
 |system|system|query|true|string||
 |table|table|path|true|string||
 
-
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```
 
-
 ## getTables
+
 **接口地址**:`/api/rest_j/v1//metadataQuery/getTables`
 
 **请求方式**:`GET`
@@ -243,6 +245,7 @@ sidebar_position: 3
 |system|system|query|true|string||
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,

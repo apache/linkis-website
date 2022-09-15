@@ -88,7 +88,6 @@ sidebar_position: 1
 | wds.linkis.shell.white.usage | cd,ls | Shell whitelist syntax |
 | wds.linkis.sql.default.limit | 5000 | SQL default maximum return result set rows |
 
-
 #### 2.2 EngineConn configuration parameters
 
 | Parameter name | Default value | Description |
@@ -101,7 +100,6 @@ sidebar_position: 1
 | wds.linkis.engineconn.pass.words | org.apache.hadoop.hive.ql.exec.Task | The log that must be pushed by default when the Engine pushes logs to the Entrance side |
 | wds.linkis.engineconn.heartbeat.time | 3m | Default heartbeat interval from EngineConn to LinkisManager |
 | wds.linkis.engineconn.max.free.time | 1h | EngineConn's maximum free time |
-
 
 #### 2.3 EngineConnManager configuration parameters
 
@@ -137,7 +135,6 @@ sidebar_position: 1
 | wds.linkis.jdbc.default.limit | 5000 | The default maximum return result set rows |
 | wds.linkis.jdbc.support.dbs | mysql=>com.mysql.jdbc.Driver,postgresql=>org.postgresql.Driver,oracle=>oracle.jdbc.driver.OracleDriver,hive2=>org.apache.hive .jdbc.HiveDriver,presto=>com.facebook.presto.jdbc.PrestoDriver | Drivers supported by JDBC engine |
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | Maximum number of concurrent SQL executions |
-
 
 #### 3.2 Python engine configuration parameters
 
@@ -175,13 +172,11 @@ sidebar_position: 1
 | hive.meta.user | None | User of the HiveMetaStore database |
 | hive.meta.password | None | Password of the HiveMetaStore database |
 
-
 #### 4.3 JobHistory configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
 | wds.linkis.jobhistory.admin | None | The default Admin account is used to specify which users can view the execution history of everyone |
-
 
 #### 4.4 FileSystem configuration parameters
 

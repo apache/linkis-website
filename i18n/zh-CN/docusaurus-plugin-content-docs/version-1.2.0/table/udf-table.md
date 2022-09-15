@@ -21,8 +21,8 @@ udf函数的基本信息表，存储udf名称/类型等基础信息
 | 10 | `is_expire` | 是否过期 | bit(1) |  | YES |  |  |
 | 11 | `is_shared` | 是否被分享 | bit(1) |  | YES |  |  |
 
-
 udf_type
+
 ```
 udf_type 0：udf函数-通用
 udf_type 2: udf函数-spark
@@ -92,7 +92,6 @@ udf的版本信息表
 | 9 | `description` | 版本描述 | varchar(255) |  | NO |  |  |
 | 10 | `create_time` |  | timestamp |  | NO | on update CURRENT_TIMESTAMP | CURRENT_TIMESTAMP |
 | 11 | `md5` |  | varchar(100) |  | YES |  |  |
-
 
 ## ER图
 

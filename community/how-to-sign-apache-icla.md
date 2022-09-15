@@ -4,7 +4,8 @@ sidebar_position: 7
 ---
 
 ## Apache Sign ICLA Guide {#apache-sign-icla-guide}
-Note: This article refers to the Apache icla signing process guide document of the incubator-shenyu-website project https://shenyu.apache.org/community/icla
+
+Note: This article refers to the Apache icla signing process guide document of the incubator-shenyu-website project <https://shenyu.apache.org/community/icla>
 
 Apache CLA short for Apache Contributor License Agreement, the purpose of this agreement is to clearly define the terms under which intellectual property has been contributed to the ASF and thereby allow us to defend the project should there be a legal dispute regarding the software at some future time.
 A signed ICLA is required to be on file before an individual is given commit rights to any ASF project.
@@ -22,6 +23,7 @@ The process of submitting ICLA are:
 **3. Open the PDF, and fill in the following columns in English.**
 
 > To be noticed:
+>
 > - Leave a space between family name and last name, remember capitalize the first letter, please write family name at first.
 > - Preferred Apache id(s) is a required field for committers.
 
@@ -40,8 +42,8 @@ Subject: Accept to become a linkis committer
 Content:
 
 Hello Apache Incubator:
-    I have accepted the Apache Linkis(Incubator) PPMC 
-invitation to become linkis committer, the attachment 
+    I have accepted the Apache Linkis(Incubator) PPMC
+invitation to become linkis committer, the attachment
 is my ICLA information.
 Thanks!
 ```
@@ -55,14 +57,15 @@ Here is a specific example:
 ## Manual signature and PDF software signature Demo {#manual-signature-and-pdf-software-signature-demo}
 
 > PDF online signature
+>
 > - Download the PDF source file
 > - Fill in items and personal information
 > - Open PDF and sign URL online
 > - Signature
 > - Save and download signed pdf fils
 > - Send to the specified mailbox
-
 > Handwritten signature
+>
 > - Download the PDF source file
 > - Fill in items and personal information
 > - Print documents

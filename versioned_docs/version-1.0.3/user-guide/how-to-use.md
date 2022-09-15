@@ -3,13 +3,14 @@ title: How to Use
 sidebar_position: 1
 ---
 
-# How to use Linkis?
+# How to use Linkis
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to meet the needs of different usage scenarios, Linkis provides a variety of usage and access methods, which can be summarized into three categories, namely Client-side use, Scriptis-side use, and DataSphere It is used on the Studio side, among which Scriptis and DataSphere Studio are the open source data analysis platforms of the WeBank Big Data Platform Room. Since these two projects are essentially compatible with Linkis, it is easiest to use Linkis through Scriptis and DataSphere Studio.
 
 ## 1. Client side usage
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you need to connect to other applications on the basis of Linkis, you need to develop the interface provided by Linkis. Linkis provides a variety of client access interfaces. For detailed usage introduction, please refer to the following:
+
 - [**Restful API Usage**](api/linkis-task-operator.md)
 - [**JDBC API Usage**](api/jdbc-api.md)
 - [**How ​​to use Java SDK**](../user-guide/sdk-manual.md)

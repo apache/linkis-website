@@ -13,9 +13,9 @@ Implementing a new engine is actually implementing a new EngineConnPlugin (ECP) 
 
 ```xml
 <dependency>
-	<groupId>org.apache.linkis</groupId>
-	<artifactId>linkis-engineconn-plugin-core</artifactId>
-	<version>${linkis.version}</version>
+ <groupId>org.apache.linkis</groupId>
+ <artifactId>linkis-engineconn-plugin-core</artifactId>
+ <version>${linkis.version}</version>
 </dependency>
 <!-- and some other required maven configurations -->
 ```
@@ -25,9 +25,9 @@ Implementing a new engine is actually implementing a new EngineConnPlugin (ECP) 
 - **EngineConnPlugin：** When starting EngineConn, first find the corresponding EngineConnPlugin class, and use this as the entry point to obtain the implementation of other core interfaces, which is the main interface that must be implemented.
 
 - **EngineConnFactory：** Implementing the logic of how to start an engine connector and how to start an engine executor is an interface that must be implemented.
-    - Implement the createEngineConn method: return an EngineConn object, where getEngine returns an object that encapsulates the connection information with the underlying engine, and also contains the Engine type information.
-    - For engines that only support a single computing scenario, inherit SingleExecutorEngineConnFactory, implement createExecutor, and return the corresponding Executor.
-    - For engines that support multi-computing scenarios, you need to inherit MultiExecutorEngineConnFactory and implement an ExecutorFactory for each computation type. EngineConnPlugin will obtain all ExecutorFactory through reflection, and return the corresponding Executor according to the actual situation.
+  - Implement the createEngineConn method: return an EngineConn object, where getEngine returns an object that encapsulates the connection information with the underlying engine, and also contains the Engine type information.
+  - For engines that only support a single computing scenario, inherit SingleExecutorEngineConnFactory, implement createExecutor, and return the corresponding Executor.
+  - For engines that support multi-computing scenarios, you need to inherit MultiExecutorEngineConnFactory and implement an ExecutorFactory for each computation type. EngineConnPlugin will obtain all ExecutorFactory through reflection, and return the corresponding Executor according to the actual situation.
 - **EngineConnResourceFactory：** It is used to limit the resources required to start an engine. Before the engine starts, it will apply for resources from Linkis Manager based on this. Not required, GenericEngineResourceFactory can be used by default.
 - **EngineLaunchBuilder：** It is used to encapsulate the necessary information that EngineConnManager can parse into startup commands. Not required, you can directly inherit JavaProcessEngineConnLaunchBuilder.
 
@@ -36,8 +36,8 @@ Implementing a new engine is actually implementing a new EngineConnPlugin (ECP) 
 Executor is an executor. As a real computing scene executor, it is an actual computing logic execution unit and an abstraction of various specific capabilities of the engine. It provides various services such as locking, accessing status, and obtaining logs. And according to the actual needs, Linkis provides the following derived Executor base classes by default. The class names and main functions are as follows:
 
 - **SensibleExecutor:**
-    - Executor has multiple states, allowing Executor to switch states
-    - After the Executor switches states, operations such as notifications are allowed
+  - Executor has multiple states, allowing Executor to switch states
+  - After the Executor switches states, operations such as notifications are allowed
 - **YarnExecutor:** Refers to the Yarn type engine, which can obtain applicationId, applicationURL and queue.
 - **ResourceExecutor:** means that the engine has the ability to dynamically change resources, and provides the requestExpectedResource method, which is used to apply for a new resource from the RM every time you want to change the resource; and the resourceUpdate method, which is used each time the engine actually uses the resource When changes occur, report the resource situation to RM.
 - **AccessibleExecutor:** is a very important Executor base class. If the user's Executor inherits this base class, it means that the Engine can be accessed. Here, it is necessary to distinguish between the state() of SensibleExecutor and the getEngineStatus() method of AccessibleExecutor: state() is used to obtain the engine status, and getEngineStatus() will obtain the Metric data of basic indicators such as the status, load, and concurrency of the engine.
@@ -94,7 +94,7 @@ def mapStringToEngineType(str: String): EngineType = str match {
 
 // RunType.scla中
 object RunType extends Enumeration {
-	val JDBC = Value("jdbc")
+ val JDBC = Value("jdbc")
 }
 ```
 
@@ -131,14 +131,13 @@ If this operation is not done, the variables in the JDBC script cannot be stored
 
 ![变量解析](/Images/EngineConnNew/variable_resolution.png)
 
-
 ```scala
 // Maintain the variable relationship between codeType and runType through CODE_TYPE_AND_RUN_TYPE_RELATION in the CodeAndRunTypeUtils tool class
 
 val CODE_TYPE_AND_RUN_TYPE_RELATION = CommonVars("wds.linkis.codeType.runType.relation", "sql=>sql|hql|jdbc|hive|psql|fql,python=>python|py|pyspark,java=>java,scala=>scala,shell=>sh|shell")
 ```
 
-Refer to PR：https://github.com/apache/incubator-linkis/pull/2047
+Refer to PR：<https://github.com/apache/incubator-linkis/pull/2047>
 
 ### 2.6 Add JDBC engine text prompts or icons to the Linkis administrator console interface engine manager
 
@@ -156,7 +155,7 @@ methods: {
   // 图标过滤
   supportIcon(item) {
      const supportTypes = [
-       	 ......
+         ......
         { rule: 'jdbc', logo: 'fi-jdbc' },
       ];
   }
@@ -216,7 +215,6 @@ Don't forget to delete out.zip after decompression, so far the engine compilatio
 Select Add Engine in the console
 
 ![添加引擎](/Images/EngineConnNew/add_engine_conf.png)
-
 
 If you want to support engine parameter configuration on the management console, you can modify the database according to the JDBC engine SQL example.
 
@@ -392,7 +390,7 @@ methods: {
   // 图标过滤
   supportIcon(item) {
      const supportTypes = [
-				......
+    ......
         { rule: 'jdbc', logo: 'fi-jdbc' },
       ];
   }
@@ -451,7 +449,7 @@ const NODETYPE = {
 }
 
 const ext = {
-	......
+ ......
   [NODETYPE.JDBC]: 'jdbc',
 }
 
@@ -472,6 +470,3 @@ Also when contributing to the community, please consider the lincese or copyrigh
 ## 3. Chapter Summary
 
 The above content records the implementation process of the new engine, as well as some additional engine configurations that need to be done. At present, the expansion process of a new engine is still relatively cumbersome, and it is hoped that the expansion and installation of the new engine can be optimized in subsequent versions.
-
-
-

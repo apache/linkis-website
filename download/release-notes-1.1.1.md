@@ -5,16 +5,17 @@ sidebar_position: 7
 
 Apache Linkis(incubating) 1.1.1 includes all of [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18).
 
-
 This release mainly supports the functions of UDF multi-version control and UDF storage to BML; the submission task supports the collection and viewing of Yarn queue resource usage statistics; new support for the data virtualization engine OpenLooKeng; and known bugs reported by the community are fixed.
 
 The following key features have been added:
+
 * Support proxy user mode, user A can perform tasks on behalf of user B, one proxy user can proxy multiple users
 * Support UDF multi-version control and UDF storage to BML features
 * Submission of tasks supports the collection of Yarn queue resource usage statistics and the visual view of the management console page
 * Added support for data virtualization engine OpenLooKeng
 
 abbreviation:
+
 - EC: Engineconn
 - ECM: EngineConnManager
 - ECP: EngineConnPlugin
@@ -47,7 +48,6 @@ abbreviation:
 * \[Web][[Linkis-1596]](https://github.com/apache/incubator-linkis/issues/1596) Optimize the use of the interface for viewing the task log of the management console, and fix the log cannot be used for the running job Timely refresh display issues
 * \[Web][[Linkis-1650]](https://github.com/apache/incubator-linkis/issues/1650) linkis console - global history page, support to filter historical task data by creator information search
 
-
 ## Bugs Fix
 
 * \[Entrance][[Linkis-1623]](https://github.com/apache/incubator-linkis/issues/1623) Fix LogPath and ResultSetPath incorrectly use submitUser as executeUser
@@ -71,12 +71,12 @@ abbreviation:
 * \[EC-JDBC][[Linkis-1961]](https://github.com/apache/incubator-linkis/issues/1851) Fix the problem that the log cannot be printed normally due to the SLF4J dependency problem when the jdbc engine starts
 * \[Gateway][[Linkis-1898]](https://github.com/apache/incubator-linkis/pull/1898) Fix the problem that the initial domain name cannot be set when the GatewaySSOUtils user successfully logs in to generate a cookie
 
-## Others 
+## Others
+
 * \[License][[Linkis-2110]](https://github.com/apache/incubator-linkis/issues/2110) Removed the binary file .mvn/wrapper/maven-wrapper.jar in the source code, and adjusted the LICENSE content related to .mvn/*
 * \[License][[Linkis-2113]](https://github.com/apache/incubator-linkis/pull/2113) Upgrade py4j-0.10.7-src.zip to py4j-0.10.9.5-src.zip, update the license files of py4j-*.src and adjust it location, from linkis-engineconn-plugins/engineconn-plugins/python /src/main/py4j/LICENSE-py4j-0.10.7-src.txt moved to licenses/LICENSE-py4j-0.10.9.5-src.txt for easy viewing
 * Fixed the issue of using Window's line endings format CTRL in the release source code of shell script:mvnw
 
-
-## Credits 
+## Credits
 
 The release of Apache Linkis(incubating) 1.1.1 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors: AbnerHung, Alexkun, barry8023, CCweixiao, Davidhua1996, Fuu3214, Liveipool, casinoone, demonray , husofskyzy, jackxu2011, legendtkl, lizheng920625, maidangdang44, peacewong, seedscoder

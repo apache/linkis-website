@@ -8,7 +8,6 @@ sidebar_position: 2
 
 <h4><font color="red">Before version 1.0.3, linkis has not yet entered apache incubation. The organization still belongs to webank. The package name of the main class is `org.apache.linkis`. Pay attention to the distinction when debugging. </font></h4>
 
-
 ## 1. Code debugging environment
 
 - jdk1.8
@@ -111,7 +110,7 @@ server:
    port: 8080 ##Starting port
 ````
 
-After the above settings are completed, run the Application directly. After successful startup, you can view the eureka service list through http://localhost:20303/.
+After the above settings are completed, run the Application directly. After successful startup, you can view the eureka service list through <http://localhost:20303/>.
 
 ![eureka-web](/Images/development/debug/eureka-web.png)
 
@@ -166,7 +165,7 @@ linkis-ps-publicservice
 linkis-public-enhancements
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.filesystem.LinkisPublicServiceApp
@@ -207,7 +206,7 @@ linkis-ps-cs
 linkis-cs-server
 
 [VM Opitons]
--DserviceName=linkis-ps-cs -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-ps-cs -Xbootclasspath/a:/Users/leojie/other_project/apache/linkis/incubator-linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.cs.server.LinkisCSApplication
@@ -324,7 +323,7 @@ Debugging for linkis-cg-engineplugin module only supports Mac OS
 
 The above operation only completes the configuration of the application startup of each Linkis microservice. In addition, in the configuration file loaded when the Linkis service starts, some key configurations also need to be modified in a targeted manner, otherwise the process of starting the service or script execution Some errors will be encountered. The key configuration modifications are summarized as follows:
 
-####  3.11.1 conf/linkis.properties
+#### 3.11.1 conf/linkis.properties
 
 ```properties
 # linkis underlying database connection parameter configuration
@@ -397,7 +396,7 @@ First visit the login interface to generate a cookie:
 
 Then submit the shell code for execution
 
-POST: http://127.0.0.1:9001/api/rest_j/v1/entrance/submit
+POST: <http://127.0.0.1:9001/api/rest_j/v1/entrance/submit>
 
 body parameter:
 
@@ -442,7 +441,7 @@ Results of the:
 
 Finally, check the running status of the task and get the running result set:
 
-GET http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0/progress
+GET <http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0/progress>
 
 ```json
 {
@@ -457,9 +456,9 @@ GET http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance
 }
 ```
 
-GET http://127.0.0.1:9001/api/rest_j/v1/jobhistory/1/get
+GET <http://127.0.0.1:9001/api/rest_j/v1/jobhistory/1/get>
 
-GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/leojie/software/linkis/data/resultSetDir/leojie/linkis/2022-07-16/214859/IDE/1/1_0.dolphin
+GET <http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/leojie/software/linkis/data/resultSetDir/leojie/linkis/2022-07-16/214859/IDE/1/1_0.dolphin>
 
 ```json
 {
@@ -488,6 +487,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 Identify the service where the package that needs to be debugged is located, and determine the service to which it belongs according to the location of the code to be debugged
 
 ### 4.2 Enter {LINKIS_HOME}/sbin/ext, modify the module configuration file to open the remote call port
+
 ![c-port](https://user-images.githubusercontent.com/29391030/167364775-4f5d2774-b6b9-4a65-b69c-69319db870c4.png)
 
 ### 4.3 Restart the service that needs to be debugged

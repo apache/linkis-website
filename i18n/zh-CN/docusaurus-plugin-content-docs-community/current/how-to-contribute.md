@@ -31,6 +31,7 @@ sidebar_position: 2
 Linkis 文档位于[Linkis官网](https://linkis.apache.org/zh-CN/docs/latest/introduction/) ，文档的补充完善对于Linkis 的发展也至关重要。
 
 ### 1.5 其他
+
 包括参与和帮助组织社区交流、社区运营活动等，其他能够帮助Linkis 项目和社区的活动。
 
 ---
@@ -40,16 +41,19 @@ Linkis 文档位于[Linkis官网](https://linkis.apache.org/zh-CN/docs/latest/in
 ### 2.1 分支结构
 
 Linkis 源码可能会产生一些临时分支，但真正有明确意义的只有以下三个分支：  
+
 - master: 最近一次稳定 release 的源码，偶尔会多几次 hotfix 提交；
-- release-*: 稳定的release 版本； 
+- release-*: 稳定的release 版本；
 - dev-*: 主要开发分支；
 - feature-*: 针对某些较大、需要社区联合开发的新特性的开发分支
 
-#### 2.1.1 概念 
-原仓库:https://github.com/apache/incubator-linkis linkis的apache仓库文中称为原仓库   
-fork库: 从https://github.com/apache/incubator-linkis fork到自己个人仓库 成为fork库  
+#### 2.1.1 概念
 
-#### 2.1.2 同步原仓库分支最新代码到自己的fork库   
+原仓库:<https://github.com/apache/incubator-linkis> linkis的apache仓库文中称为原仓库
+fork库: 从<https://github.com/apache/incubator-linkis> fork到自己个人仓库 成为fork库  
+
+#### 2.1.2 同步原仓库分支最新代码到自己的fork库
+
 1.进入用户项目页面,选中要更新的分支  
 2.点击code下载按钮下方的Fetch upstream,选择Fetch and merge (如自己的fork库该分支不小心污染了，可以删除该分支后，同步原仓库新分支到自己的fork库，参见指引[同步原仓库分支最新代码到自己的fork库](#213-同步原仓库新分支到自己的fork库))
 ![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
@@ -65,49 +69,59 @@ fork库: 从https://github.com/apache/incubator-linkis fork到自己个人仓库
 ```
 git remote add apache git@github.com:apache/incubator-linkis.git
 ```
+
 2. 拉去apache镜像信息到本地  
 
 ```
 git fetch apache
 ```
+
 3. 根据需要同步的新分支来创建本地分支
 
 ```
 git checkout -b dev-1.1.4 apache/dev-1.1.4
 ```
+
 4. 把本地分支push到自己的仓库,如果自己的仓库没有dev-1.1.4分支则会创建dev-1.1.4分支  
+
 ```
 git push origin dev-1.1.4:dev-1.1.4
 ```
+
 5. 删除upstream的分支
+
 ```
 git remote remove apache
 ```
+
 6. 更新分支
+
 ```
 git pull
 ```
 
-#### 2.1.4 一个pr的流程 
+#### 2.1.4 一个pr的流程
 
 1. 确认当前开发的基础分支（一般是当前进行的中版本，如当前社区开发中的版本1.1.0，那么分支就是dev-1.1.0，不确定的话可以在社区群里问下或则在issue中@相关同学）
 
 2. 同步原仓库分支最新代码到自己的fork仓库分支,参见指引[同步原仓库分支最新代码到自己的fork库](#213-同步原仓库新分支到自己的fork库)
 
 3. 基于开发分支，拉取新fix/feature分支(不要直接在原分支上修改，如果后续pr以squash方式merge后，提交的commit记录会被合并成一个)
+
 ```
 git checkout -b dev-1.1.4-fix  dev-1.1.4
 git push origin dev-1.1.4-fix:dev-1.1.4-fix
 ```
-4. 进行开发
-5. 提交pr(如果是正在进行中,开发还未完全结束，请在pr标题上加上WIP标识 如 `[WIP] Dev 1.1.1 Add junit test code for [linkis-common] ` ;关联对应的issue等)
-6. 等待被合并
-7. 删除fix/future分支(可以在github页面上进行操作) 
-```
-git branch -d dev-1.1.4-fix 
-git push 
-```
 
+4. 进行开发
+5. 提交pr(如果是正在进行中,开发还未完全结束，请在pr标题上加上WIP标识 如 `[WIP] Dev 1.1.1 Add junit test code for [linkis-common]` ;关联对应的issue等)
+6. 等待被合并
+7. 删除fix/future分支(可以在github页面上进行操作)
+
+```
+git branch -d dev-1.1.4-fix
+git push
+```
 
 请注意：大特性的dev分支，在命名时除了版本号，还会加上相应的命名说明，如：dev-0.10.0-flink，指0.10.0的flink特性开发分支。
 
@@ -150,7 +164,7 @@ git push origin dev-fix dev-fix
 ```
 
 3. 代码目录结构
-   
+
    详见 [Linkis代码目录结构](https://linkis.apache.org/zh-CN/docs/latest/deployment/sourcecode_hierarchical_structure)
 
 4. 日志目录
@@ -178,6 +192,7 @@ git push origin dev-fix dev-fix
 2. 打 每个模块 的包可直接在 模块目录下执行 `mvn clean package`。
 
 ### 2.3 Issue 提交指引
+
 - 如果您还不知道怎样向开源项目发起 PR，请参考[About issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues)
 - Issue 名称，应一句话简单描述您的问题或建议；为了项目的国际化推广，请用英文，或中英文双语书写 issue.
 - 每个Issue，请至少带上component 和type 两个label，如component=Computation Governance/EngineConn，type=Improvement.参考:[issue #590](https://github.com/apache/incubator-linkis/issues/590)

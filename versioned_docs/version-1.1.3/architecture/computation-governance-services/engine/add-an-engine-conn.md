@@ -37,7 +37,7 @@ ECM selection is mainly to complete the Label passed through the client to selec
 
 1. After obtaining the assigned ECM, AM will then request how many resources will be used by the client's engine creation request by calling the EngineConnPluginServer service. Here, the resource request will be encapsulated, mainly including Label, the EngineConn startup parameters passed by the Client, and the user configuration parameters obtained from the Configuration module. The resource information is obtained by calling the ECP service through RPC.
 
-2. After the EngineConnPluginServer service receives the resource request, it will first find the corresponding engine tag through the passed tag, and select the EngineConnPlugin of the corresponding engine through the engine tag. Then use EngineConnPlugin's resource generator to calculate the engine startup parameters passed in by the client, calculate the resources required to apply for a new EngineConn this time, and then return it to LinkisManager. 
+2. After the EngineConnPluginServer service receives the resource request, it will first find the corresponding engine tag through the passed tag, and select the EngineConnPlugin of the corresponding engine through the engine tag. Then use EngineConnPlugin's resource generator to calculate the engine startup parameters passed in by the client, calculate the resources required to apply for a new EngineConn this time, and then return it to LinkisManager.
 
    **Glossary:**
 
@@ -45,6 +45,7 @@ ECM selection is mainly to complete the Label passed through the client to selec
 - EngineConnPluginServer: It is a microservice that loads all the EngineConnPlugins and provides externally the required resource generation capabilities of EngineConn and EngineConn's startup command generation capabilities.
 - EngineConnResourceFactory: Calculate the total resources needed when EngineConn starts this time through the parameters passed in.
 - EngineConnLaunchBuilder: Through the incoming parameters, a startup command of the EngineConn is generated to provide the ECM to start the engine.
+
 3. After AM obtains the engine resources, it will then call the RM service to apply for resources. The RM service will use the incoming Label, ECM, and the resources applied for this time to make resource judgments. First, it will judge whether the resources of the client corresponding to the Label are sufficient, and then judge whether the resources of the ECM service are sufficient, if the resources are sufficient, the resource application is approved this time, and the resources of the corresponding Label are added or subtracted.
 
 ### 4. Request ECM for engine creation
@@ -60,11 +61,11 @@ ECM selection is mainly to complete the Label passed through the client to selec
 - EngineConnBuildRequest: The start engine command passed by LinkisManager to ECM, which encapsulates all tag information, required resources and some parameter configuration information of the engine.
 - EngineConnLaunchRequest: Contains the BML materials, environment variables, ECM required local environment variables, startup commands and other information required to start an EngineConn, so that ECM can build a complete EngineConn startup script based on this.
 
-After ECM receives the EngineConnBuildRequest command passed by LinkisManager, it is mainly divided into three steps to start EngineConn: 
+After ECM receives the EngineConnBuildRequest command passed by LinkisManager, it is mainly divided into three steps to start EngineConn:
 
-1. Request EngineConnPluginServer to obtain EngineConnLaunchRequest encapsulated by EngineConnPluginServer. 
-2.  Parse EngineConnLaunchRequest and encapsulate it into EngineConn startup script.
-3.  Execute startup script to start EngineConn.
+1. Request EngineConnPluginServer to obtain EngineConnLaunchRequest encapsulated by EngineConnPluginServer.
+2. Parse EngineConnLaunchRequest and encapsulate it into EngineConn startup script.
+3. Execute startup script to start EngineConn.
 
 ### 2.1 EngineConnPluginServer encapsulates EngineConnLaunchRequest
 
@@ -106,4 +107,3 @@ At this point, The process of how to add a new EngineConn is basically over. Fin
 - LinkisManager checks the legitimacy of the parameters, first selects the appropriate ECM according to the label, then confirms the resources required for this new EngineConn according to the user's request, applies for resources from the RM module of LinkisManager, and requires ECM to start a new EngineConn as required after the application is passed.
 - ECM first requests EngineConnPluginServer to obtain an EngineConnLaunchRequest containing BML materials, environment variables, ECM required local environment variables, startup commands and other information needed to start an EngineConn, and then encapsulates the startup script of EngineConn, and finally executes the startup script to start the EngineConn.
 - EngineConn initializes the EngineConn of a specific engine, and then initializes the corresponding Executor according to the actual usage scenario, and provides service capabilities for subsequent users. Finally, report the heartbeat to LinkisManager regularly, and wait for the normal end or termination by the user.
-

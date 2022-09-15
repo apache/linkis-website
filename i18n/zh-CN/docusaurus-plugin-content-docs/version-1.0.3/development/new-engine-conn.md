@@ -13,9 +13,9 @@ sidebar_position: 3
 
 ```xml
 <dependency>
-	<groupId>org.apache.linkis</groupId>
-	<artifactId>linkis-engineconn-plugin-core</artifactId>
-	<version>${linkis.version}</version>
+ <groupId>org.apache.linkis</groupId>
+ <artifactId>linkis-engineconn-plugin-core</artifactId>
+ <version>${linkis.version}</version>
 </dependency>
 <!-- 以及一些其他所需依赖的maven配置 -->
 ```
@@ -94,7 +94,7 @@ def mapStringToEngineType(str: String): EngineType = str match {
 
 // RunType.scla中
 object RunType extends Enumeration {
-	val JDBC = Value("jdbc")
+ val JDBC = Value("jdbc")
 }
 ```
 
@@ -109,7 +109,7 @@ public class LabelCommonConfig {
 // 在EngineTypeLabelCreator的init方法中补充jdbc的匹配逻辑
 // 如果这一步不做，代码提交到引擎上时，引擎标签信息中会缺少版本号
 public class EngineTypeLabelCreator {
-	private static void init() {
+ private static void init() {
     defaultVersion.put(EngineType.JDBC().toString(), LabelCommonConfig.JDBC_ENGINE_VERSION.getValue());
   }
 }
@@ -182,14 +182,12 @@ methods: {
   // 图标过滤
   supportIcon(item) {
      const supportTypes = [
-       	 ......
+         ......
         { rule: 'jdbc', logo: 'fi-jdbc' },
       ];
   }
 }
 ```
-
-
 
 最终呈现给用户的效果：
 
@@ -244,8 +242,6 @@ mvn clean install -DskipTests
 在管理台选择添加引擎
 
 ![添加引擎](/Images-zh/EngineConnNew/add_engine_conf.png)
-
-
 
 如果您希望在管理台支持引擎参数配置，可以按照JDBC引擎SQL示例修改数据库。
 
@@ -421,7 +417,7 @@ methods: {
   // 图标过滤
   supportIcon(item) {
      const supportTypes = [
-				......
+    ......
         { rule: 'jdbc', logo: 'fi-jdbc' },
       ];
   }
@@ -439,8 +435,6 @@ web/src/dss/assets/projectIconFont/iconfont.css
 此处控制的应该是：
 
 ![引擎图标](/Images-zh/EngineConnNew/jdbc_engine_logo.png)
-
-
 
 找一个引擎图标的svg文件
 
@@ -482,7 +476,7 @@ const NODETYPE = {
 }
 
 const ext = {
-	......
+ ......
   [NODETYPE.JDBC]: 'jdbc',
 }
 

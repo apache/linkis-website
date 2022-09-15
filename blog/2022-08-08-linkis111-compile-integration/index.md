@@ -31,7 +31,6 @@ tags: [blog,linki1.1.1,hadoop3.1.1,spark3.0.1,hive3.1.2,flink1.13.2]
 | Streamis         | 0.2.0   | Streaming development and Application Center                 |
 | Visualis         | 1.0.0   | Visual report display, can share external links              |
 
-
 ## Deployment sequence
 
   You can select and adjust the sequence after serial number 3 However, one thing to pay attention to when deploying exchangis is to copy the sqoop engine plug-in of exchangis to the engine plug-in package under lib of linkis
@@ -77,7 +76,7 @@ Since spark uses version 3. X, Scala also needs to be upgraded to version 12
 #### The pom file of linkis-hadoop-common
 
 ```xml
-       <!-- Notice here <version>${hadoop.version}</version> , adjust according to whether you have encountered any errors --> 
+       <!-- Notice here <version>${hadoop.version}</version> , adjust according to whether you have encountered any errors -->
        <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs-client</artifactId>
@@ -223,7 +222,7 @@ Overwrite the contents of the following directories from the master branch, or b
        <spark.version>3.0.1</spark.version>
 ```
 
-####  azkaban-jobtype
+#### azkaban-jobtype
 
 Download the jobtype file of the corresponding version (note the corresponding version): [Download address:](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
 After downloading, put the entire jobtypes under jobtypes
@@ -275,7 +274,7 @@ Linkis engineplug sqoop needs to be put into linkis (lib/linkis enginecon plugin
 Exchangis-appconn.zip needs to be put into DSS (DSS appconns)
 
 ```xml
-mvn clean install 
+mvn clean install
 ```
 
 ![image.png](./img/exchangis1.png)
@@ -433,8 +432,6 @@ wds.linkis.flink.engine.version=1.13.2
 
 ![1ca32f79d940016d72bf1393e4bccc8.jpg](./img/deploy5.jpg)
 
-
-
 ### Considerations for DSS deployment
 
 [Official installation document](https://github.com/WeBankFinTech/DataSphereStudio-Doc/tree/main/zh_CN)
@@ -483,7 +480,6 @@ Exchangis, qualitis, streamis and visualis should be obtained from the projects 
 - Hostname and IP. If IP access is used, make sure it is IP when executing appconn-install.sh installation Otherwise, when accessing other components, you will be prompted that you do not have login or permission
 
 ![ec4989a817646f785c59f6802d0fab2.jpg](./img/deploy6.jpg)
-
 
 ### Schedulis deployment considerations
 
@@ -738,4 +734,3 @@ server {
     }
 }
 ```
-

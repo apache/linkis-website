@@ -26,6 +26,7 @@ sidebar_position: 1
 ## 2.Spark引擎的配置和部署
 
 ### 2.1 spark版本的选择和编译
+
 注意: 编译spark引擎之前需要进行linkis项目全量编译
 理论上Linkis1.X支持的spark2.x以上的所有版本。默认支持的版本为Spark2.4.3。如果您想使用其他的spark版本，如spark2.1.0，则您仅仅需要将插件spark的版本进行修改，然后进行编译即可。具体的，您可以找到linkis-engineplugin-spark模块，将maven依赖中"spark.version"标签的值改成2.1.0，然后单独编译此模块即可。
 
@@ -33,19 +34,19 @@ sidebar_position: 1
 
 如果您已经编译完了您的spark引擎的插件，那么您需要将新的插件放置到指定的位置中才能加载，具体可以参考下面这篇文章
 
-[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation)
 
 ### 2.3 spark引擎的标签
 
 Linkis1.X是通过标签配置来区分引擎版本的，所以需要我们在数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/engine-conn-plugin-installation)
 
 ## 3.spark引擎的使用
 
 ### 准备操作，队列设置
 
-因为spark的执行需要队列的资源，所以用户在执行之前，必须要设置自己能够执行的队列。    
+因为spark的执行需要队列的资源，所以用户在执行之前，必须要设置自己能够执行的队列。
 
 ![yarn](https://user-images.githubusercontent.com/29391030/168044322-ce057ec0-8891-4691-9454-8fba45b2c631.png)  
 
@@ -67,6 +68,7 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
 ### 3.2 通过Linkis-cli进行任务提交
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Spark的使用如下：
+
 ```shell
 # codeType对应关系 py-->pyspark  sql-->sparkSQL scala-->Spark scala
 sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables"  -submitUser hadoop -proxyUser hadoop
@@ -74,6 +76,7 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables"  -
 # 可以在提交参数通过-confMap wds.linkis.yarnqueue=dws  来指定yarn 队列
 sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
+
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式

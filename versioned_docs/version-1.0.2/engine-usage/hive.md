@@ -33,13 +33,13 @@ Other hive operating modes are similar, just copy the corresponding dependencies
 
 If you have already compiled your hive engineConn plug-in has been compiled, then you need to put the new plug-in in the specified location to load, you can refer to the following article for details
 
-[EngineConnPlugin Installation](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin Installation](../deployment/engine-conn-plugin-installation)
 
 ### 2.3 Linkis adds Hive console parameters(optional)
 
 Linkis can configure the corresponding EngineConn parameters on the management console. If your newly added EngineConn needs this feature, you can refer to the following documents:
 
-[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine-conn-plugin-installation)
 
 ## 3. Use of hive engineConn
 
@@ -57,6 +57,7 @@ You can also add the queue value in the StartUpMap of the submission parameter: 
 
 Linkis  provides a client method to call hive tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
 If you use Hive, you only need to make the following changes:
+
 ```java
         Map<String, Object> labels = new HashMap<String, Object>();
         labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-2.3.3"); // required engineType Label
@@ -67,9 +68,11 @@ If you use Hive, you only need to make the following changes:
 ### 3.2 How to use Linkis-cli
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of Hive is as follows:
+
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
+
 The specific usage can refer to [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 How to use Scriptis
@@ -91,35 +94,44 @@ In addition to the above engineConn configuration, users can also make custom se
 Figure 4-1 User-defined configuration management console of hive
 
 ## 5.Hive modification log display
+
 The default log interface does not display the application_id and the number of tasks completed, the user can output the log as needed
 The code blocks that need to be modified in the log4j2-engineconn.xml/log4j2.xml configuration file in the engine are as follows
 1.Need to add under the appenders component
+
 ```xml
         <Send name="SendPackage" >
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} %L %M - %msg%xEx%n"/>
         </Send>
 ```
+
 2.Need to add under the root component
+
 ```xml
         <appender-ref ref="SendPackage"/>
 ```
+
 3.Need to add under the loggers component
+
 ```xml
         <logger name="org.apache.hadoop.hive.ql.exec.StatsTask" level="info" additivity="true">
             <appender-ref ref="SendPackage"/>
         </logger>
 ```
+
 After making the above relevant modifications, the log can add task progress information, which is displayed in the following style
+
 ```
 2022-04-08 11:06:50.228 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Status: Running (Executing on YARN cluster with App id application_1631114297082_432445)
-2022-04-08 11:06:50.248 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: -/-	Reducer 2: 0/1	
-2022-04-08 11:06:52.417 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 0/1	Reducer 2: 0/1	
-2022-04-08 11:06:55.060 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 0(+1)/1	Reducer 2: 0/1	
-2022-04-08 11:06:57.495 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1	Reducer 2: 0(+1)/1	
-2022-04-08 11:06:57.899 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1	Reducer 2: 1/1	
+2022-04-08 11:06:50.248 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: -/- Reducer 2: 0/1 
+2022-04-08 11:06:52.417 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 0/1 Reducer 2: 0/1 
+2022-04-08 11:06:55.060 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 0(+1)/1 Reducer 2: 0/1 
+2022-04-08 11:06:57.495 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1 Reducer 2: 0(+1)/1 
+2022-04-08 11:06:57.899 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1 Reducer 2: 1/1 
 ```
 
 An example of a complete xml configuration file is as follows:
+
 ```xml
 <!--
   ~ Copyright 2019 WeBank

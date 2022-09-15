@@ -4,13 +4,15 @@ sidebar_position: 0.1
 ---
 
 > Note: This article applies to Apache projects only.
->This article refers to the Dolphinscheduler project's License Instructions document https://dolphinscheduler.apache.org/zh-cn/community/development/DS-License.html
+>This article refers to the Dolphinscheduler project's License Instructions document <https://dolphinscheduler.apache.org/zh-cn/community/development/DS-License.html>
 
 The open source projects under the ASF (Apache Foundation) have extremely strict requirements for the license. When you contribute code to Linkis, you must follow the Apache rules. In order to avoid the contributors wasting too much time on the license,
 This article will explain the ASF-License and how to avoid the license risk when participating in the Linkis project development.
 
 ## License file directory description
+
 [Linkis source code](https://github.com/apache/incubator-linkis) The directory related to the license is as follows
+
 ```shell script
 # in the outermost directory
 
@@ -24,7 +26,6 @@ This article will explain the ASF-License and how to avoid the license risk when
 |-- licenses-binary-ui //The license file that the front-end web compilation package depends on in detail
 
 ````
-
 
 ## How to legally use third-party open source software on Linkis
 
@@ -40,25 +41,28 @@ We need to know the NOTICE/LICENSE of the files introduced by our project or jar
 copyright notice that is included in or attached to the work.
 
 ### Example Scenario 1
+
 For example, the third-party file `linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip` is introduced into the source code
 
 Find the source branch of the version corresponding to py4j-0.10.7-src.zip, if there is no `LICENSE/NOTICE` file in the corresponding version branch, select the main branch
-- The project source code is located at: https://github.com/bartdag/py4j/tree/0.10.7/py4j-python
-- LICENSE file: https://github.com/bartdag/py4j/blob/0.10.7/py4j-python/LICENSE.txt
+
+- The project source code is located at: <https://github.com/bartdag/py4j/tree/0.10.7/py4j-python>
+- LICENSE file: <https://github.com/bartdag/py4j/blob/0.10.7/py4j-python/LICENSE.txt>
 - NOTICE file: none
 
 The license information of `py4j-0.10.7-src.zip` needs to be specified in the `linkis/LICENSE` file.
 The detailed license.txt file corresponding to `py4j-0.10.7-src.zip` is placed in the same level directory `linkis-engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10 .7-src.txt`
-Since https://github.com/bartdag/py4j/tree/0.10.7/py4j-python does not have a NOTICE file, there is no need to append to the `linkis/NOTICE` file.
+Since <https://github.com/bartdag/py4j/tree/0.10.7/py4j-python> does not have a NOTICE file, there is no need to append to the `linkis/NOTICE` file.
 
 ### Example Scene 2
 
-The compilation of the project depends on `org.apache.ant:ant:1.9.1`, and ant-1.9.1.jar will be compiled and installed in the final package `target/apache-linkis-xxx-incubating-bin/linkis-package/lib `medium
+The compilation of the project depends on `org.apache.ant:ant:1.9.1`, and ant-1.9.1.jar will be compiled and installed in the final package `target/apache-linkis-xxx-incubating-bin/linkis-package/lib`medium
 You can decompress ant-1.9.1.jar and extract the LICENSE/NOTICE file from the jar package. If not, you need to find the corresponding version source code
 Find the source branch of the version corresponding to py4j-0.10.7-src.zip, if the corresponding version branch is not available, select the main branch
-- The project source code is located at: https://github.com/apache/ant/tree/rel/1.9.1
-- LICENSE file: https://github.com/apache/ant/blob/rel/1.9.1/LICENSE
-- NOTICE file: https://github.com/apache/ant/blob/rel/1.9.1/NOTICE
+
+- The project source code is located at: <https://github.com/apache/ant/tree/rel/1.9.1>
+- LICENSE file: <https://github.com/apache/ant/blob/rel/1.9.1/LICENSE>
+- NOTICE file: <https://github.com/apache/ant/blob/rel/1.9.1/NOTICE>
 
 The license information of `ant-1.9.1.jar` needs to be specified in the `linkis/LICENSE-binary` file.
 The detailed license.txt file corresponding to `ant-1.9.1.jar` is placed in `licenses-binary/LICENSE-ant.txt`
@@ -67,6 +71,7 @@ The detailed notice.txt corresponding to `ant-1.9.1.jar` is appended to the `NOT
 Regarding the specific open source protocol usage protocols, I will not introduce them one by one here. If you are interested, you can check them yourself.
 
 ## License detection rules
+
 We build a license-check script for our own project to ensure that we can avoid license problems as soon as we use it.
 
 When we need to add new Jars or other external resources, we need to follow these steps:
@@ -77,15 +82,16 @@ When we need to add new Jars or other external resources, we need to follow thes
 
 :::caution Note
 If the scenario is to remove, then the corresponding reverse operation of the above steps needs to remove the corresponding LICENSE/NOTICE content in the corresponding file. In short, it is necessary to ensure that these files are consistent with the data of the actual source code/compiled package
+
 - known-dependencies.txt
 - LICENSE/LICENSE-binary/LICENSE-binary-ui
 - NOTICE/NOTICE-binary/NOTICE-binary-ui
 :::
 
-
-** check dependency license fail**
+**check dependency license fail**
 
 After compiling, execute the tool/dependencies/diff-dependenies.sh script to verify
+
 ````
 --- /dev/fd/63 2020-12-03 03:08:57.191579482 +0000
 +++ /dev/fd/62 2020-12-03 03:08:57.191579482 +0000
@@ -97,18 +103,20 @@ After compiling, execute the tool/dependencies/diff-dependenies.sh script to ver
 +mchange-commons-java-0.2.11.jar
 Error: Process completed with exit code 1.
 ````
+
 Generally speaking, the work of adding a jar is often not so easy to end, because it often depends on various other jars, and we also need to add corresponding licenses for these jars.
 In this case, we will get the error message of check dependency license fail in check. As above, we are missing the license statement of HikariCP-java6-2.3.13, c3p0, etc.
 Follow the steps to add jar to add it.
 
-
 ## Appendix
+
 Attachment: Mail format of new jar
+
 ````
 [VOTE][New/Remove Jar] jetcd-core(registry plugin support etcd3 )
 
 
-(state the purpose, and what the jar needs to be added) 
+(state the purpose, and what the jar needs to be added)
 Hi, the registry SPI will provide the implementation of etcd3. Therefore, we need to introduce a new jar (jetcd-core, jetcd-launcher (test)), which complies with the Apache-2.0 License. I checked his related dependencies to make sure it complies with the license of the Apache project.
 
 new or remove jar :
@@ -138,5 +146,6 @@ https://mvnrepository.com/artifact/io.etcd/jetcd-launcher
 ````
 
 ## Reference articles
+
 * [COMMUNITY-LED DEVELOPMENT "THE APACHE WAY"](https://apache.org/dev/licensing-howto.html)
 * [ASF 3RD PARTY LICENSE POLICY](https://apache.org/legal/resolved.html)

@@ -6,6 +6,7 @@ sidebar_position: 2
 > Linkis provides a convenient interface for calling JAVA and SCALA. It can be used only by introducing the linkis-computation-client module. After 1.0, the method of submitting with Label is added. The following will introduce both ways that compatible with 0.X and newly added in 1.0.
 
 ## 1. Introduce dependent modules
+
 ```
 <dependency>
    <groupId>org.apache.linkis</groupId>
@@ -109,7 +110,7 @@ public class LinkisClientTest {
         IOUtils.closeQuietly(client);
     }
 
-   
+
     private static JobExecuteResult toSubmit(String user, String code) {
         // 1. build  params
         // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
@@ -141,6 +142,7 @@ public class LinkisClientTest {
 Run the above code to interact with Linkis
 
 ## 3. Scala test code
+
 Create the Scala test class LinkisClientTest. Refer to the comments to understand the purposes of those interfaces:
 
 ```scala

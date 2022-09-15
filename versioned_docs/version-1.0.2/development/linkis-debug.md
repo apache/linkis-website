@@ -24,9 +24,6 @@ mvn clean install
 
 For the configuration file under incubator-linkis/assembly-combined-package/assembly-combined/conf/, you need to configure the database and hive meta and other necessary startup parameters.
 
-
-
-
 ## step3 Adjust log4j.xml configuration
 
 In order to facilitate the printing of logs to the console during debugging, you need to modify the default log4j2.xml file and modify the appender to default to console. You need to remove the append of the default RollingFile and add the appender of the console, as shown below:
@@ -43,7 +40,7 @@ log4j2.xml path incubator-linkis/assembly-combined-package/assembly-combined/con
         <SizeBasedTriggeringPolicy size="100MB"/>
         <DefaultRolloverStrategy max="10"/>
     </RollingFile>
-    
+
     <Console name="Console" target="SYSTEM_OUT">
         <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
         <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} %L %M-%msg%xEx%n"/>
@@ -59,6 +56,7 @@ log4j2.xml path incubator-linkis/assembly-combined-package/assembly-combined/con
 ```
 
 ## step 4 Overall debugging plan
+
 Both Linkis and DSS services rely on Eureka, so you need to start the Eureka service first, and the Eureka service can also use the Eureka you have started. After Eureka is started, other services can be started.
 
 Because linkis internally uses the -DserviceName parameter to set the application name and the configuration file used, so -DserviceName is a necessary startup VM parameter
@@ -84,13 +82,16 @@ org.apache.linkis.eureka.SpringCloudEurekaApplication
 [User classpath of module]
 linkis-eureka
 ```
+
 If you don’t want the default port 20303, you can modify the port configuration:
+
 ```yml
 File path: conf/application-eureka.yml
 Modify the port:
 server:
   port: 8080 ##Started port
 ```
+
 The specific configuration is as follows
 ![](/Images/development/debug_application.png)
 
@@ -110,10 +111,12 @@ org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 linkis-gateway-server-support
 
 ```
+
 Note If there is a problem of'org.apache.logging.log4j.LoggingException: log4j-slf4j-impl cannot be present with log4j-to-slf4j'
 Please exclude, the dependency on spring-boot-starter-logging
 
 **Public Enhancement Services component**
+
 ### Linkis-ps-publicservice startup configuration
 
 ```plain
@@ -142,6 +145,7 @@ linkis-cs-server
 ```
 
 **Computation Governance Services component**
+
 ### linkis-cg-linkismanager start
 
 ```plain
@@ -154,7 +158,9 @@ org.apache.linkis.manager.am.LinkisManagerApplication
 [User classpath of module]
 linkis-application-manager
 ```
+
 ### linkis-cg-entrance start
+
 ```plain
 [main Class]
 org.apache.linkis.entrance.LinkisEntranceApplication

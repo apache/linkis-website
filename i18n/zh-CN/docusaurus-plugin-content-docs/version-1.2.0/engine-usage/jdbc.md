@@ -12,11 +12,11 @@ sidebar_position: 7
 ## 2. 部署和配置
 
 ### 2.1 版本的选择和编译
+
 注意: 编译jdbc引擎之前需要进行linkis项目全量编译  
 发布的安装部署包中默认不包含此引擎插件，
-你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+你可以按此指引部署安装 <https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin>
 ，或者按以下流程，手动编译部署
-
 
 单独编译jdbc引擎
 
@@ -28,24 +28,29 @@ mvn clean install
 ### 2.2 物料的部署和加载
 
 将 2.1 步编译出来的引擎包,位于
+
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/jdbc/target/out/jdbc
 ```
+
 上传到服务器的引擎目录下
-```bash 
+
+```bash
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
+
 并重启linkis-engineplugin（或则通过引擎接口进行刷新）
+
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
+
 ### 2.3 引擎的标签
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
 [EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation)
-
 
 ## 3.JDBC引擎的使用
 
@@ -58,6 +63,7 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 图3-1 JDBC配置信息
 
 您也可以再提交任务接口中的params.configuration.runtime进行修改即可
+
 ```shell
 wds.linkis.jdbc.connect.url
 wds.linkis.jdbc.driver
@@ -68,7 +74,7 @@ wds.linkis.jdbc.password
 您也可以在提交任务接口，通过参数进行配置
 
 ```shell
-http 请求参数示例 
+http 请求参数示例
 {
     "executionContent": {"code": "show databases;", "runType":  "jdbc"},
     "params": {
@@ -90,7 +96,6 @@ http 请求参数示例
 }
 ```
 
-
 ### 3.1 通过Linkis SDK进行使用
 
 Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
@@ -106,9 +111,11 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
 ### 3.2 通过Linkis-cli进行任务提交
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，JDBC的使用如下：
+
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
+
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式
@@ -122,6 +129,7 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 图3-2 JDBC的执行效果截图
 
 ### 3.4 多数据源支持
+
 从Linkis 1.2.0开始，提供了JDBC引擎多数据源的支持，我们首先可以在控制台管理不同的数据源。地址：登陆管理台-->数据源管理-->新增数据源
 
 ![](/Images-zh/EngineUsage/datasourcemanage.png)
@@ -137,14 +145,15 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 ![](/Images-zh/EngineUsage/muti-data-source.png)
 
 参数示例：
+
 ```json
 {
     "executionContent": {"code": "show databases", "runType":  "jdbc"},
-    "params": {"variable": {}, "configuration": {"startup":{}, 
-    "runtime": 
-    	{ 
-    		"dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
-    	}
+    "params": {"variable": {}, "configuration": {"startup":{},
+    "runtime":
+     {
+      "dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
+     }
     }}},
     "source":  {"scriptPath": ""},
     "labels": {
@@ -159,8 +168,7 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 2、通过DSS的Scripts代码提交入口下拉筛选需要提交的数据源，如下图：
 ![](/Images-zh/EngineUsage/muti-data-source-usage.png)
 当前dss-1.1.0还暂不支持下拉选择数据源名称，PR在开发中，可以等后续发版或关注相关PR：
-（https://github.com/WeBankFinTech/DataSphereStudio/issues/940）
-
+（<https://github.com/WeBankFinTech/DataSphereStudio/issues/940>）
 
 多数据源的功能说明：
 
@@ -173,7 +181,6 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 3）多数据源管理中设置的数据源，只有发布之后，并且没有过期的数据源才能被JDBC引擎加载到，否则会反馈给用户不同类型的异常提示。
 
 4）jdbc引擎参数的加载优先级为：任务提交传参 > 选择数据源的参数 > 控制台JDBC引擎的参数
-
 
 ## 4.JDBC引擎的用户设置
 

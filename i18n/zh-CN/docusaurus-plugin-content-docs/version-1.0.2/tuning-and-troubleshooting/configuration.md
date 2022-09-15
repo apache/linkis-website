@@ -34,7 +34,7 @@ sidebar_position: 1
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
-| wds.linkis.hadoop.root.user | hadoop | HDFS super 用户 | 
+| wds.linkis.hadoop.root.user | hadoop | HDFS super 用户 |
 | wds.linkis.filesystem.hdfs.root.path | 无 | 用户的HDFS默认根路径 |
 | wds.linkis.keytab.enable | false | 是否打开kerberos |
 | wds.linkis.keytab.file | /appcom/keytab | kerberos的keytab路径，仅wds.linkis.keytab.enable=true时生效 |
@@ -55,7 +55,7 @@ sidebar_position: 1
 | wds.linkis.rpc.receiver.asyn.consumer.freeTime.max | 2m | Receiver Consumer最大空闲时间 |
 | wds.linkis.rpc.receiver.asyn.queue.size.max | 1000 | Receiver 消费队列最大缓存数（**如果在线用户多，建议适当调大该参数**） |
 | wds.linkis.rpc.sender.asyn.consumer.thread.max", 5 | Sender Consumer最大线程数量 |
-| wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer最大空闲时间 | 
+| wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer最大空闲时间 |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Sender 消费队列最大缓存数 |
 
 ### 2. 计算治理配置参数
@@ -86,7 +86,6 @@ sidebar_position: 1
 | wds.linkis.shell.white.usage | cd,ls | Shell白名单语法 |
 | wds.linkis.sql.default.limit | 5000 | SQL默认的最大返回结果集行数 |
 
-
 #### 2.2 EngineConn配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -99,7 +98,6 @@ sidebar_position: 1
 | wds.linkis.engineconn.pass.words | org.apache.hadoop.hive.ql.exec.Task | Engine向Entrance端推送日志时，默认必须推送的日志 |
 | wds.linkis.engineconn.heartbeat.time | 3m | EngineConn向LinkisManager的默认心跳间隔 |
 | wds.linkis.engineconn.max.free.time | 1h | EngineConn的最大空闲时间 |
-
 
 #### 2.3 EngineConnManager的配置参数
 
@@ -126,7 +124,6 @@ sidebar_position: 1
 | wds.linkis.rm.yarnqueue.memory.max | 450g | 每个用户在每个引擎的使用队列的最大内存数 |
 | wds.linkis.rm.yarnqueue.instance.max | 30 | 每个用户在每个引擎的队列中最多启动的应用数 |
 
-
 ### 3. 各引擎配置参数
 
 #### 3.1 JDBC引擎配置参数
@@ -136,7 +133,6 @@ sidebar_position: 1
 | wds.linkis.jdbc.default.limit | 5000 | 默认的最大返回结果集行数 |
 | wds.linkis.jdbc.support.dbs | mysql=>com.mysql.jdbc.Driver,postgresql=>org.postgresql.Driver,oracle=>oracle.jdbc.driver.OracleDriver,hive2=>org.apache.hive.jdbc.HiveDriver,presto=>com.facebook.presto.jdbc.PrestoDriver | JDBC引擎支持的驱动 |
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | 最大并行SQL执行数 |
-
 
 #### 3.2 Python引擎配置参数
 
@@ -152,7 +148,6 @@ sidebar_position: 1
 | wds.linkis.engine.spark.language-repl.init.time | 30s | Scala和Python命令解释器的最大初始化时间 |
 | PYSPARK_DRIVER_PYTHON | python | Python命令路径 |
 | wds.linkis.server.spark-submit | spark-submit | spark-submit命令路径 |
- 
 
 ### 4. PublicEnhancements配置参数
 
@@ -164,7 +159,7 @@ sidebar_position: 1
 | wds.linkis.bml.auth.token.key | Validation-Code | BML请求的免密token-key |
 | wds.linkis.bml.auth.token.value | BML-AUTH | BML请求的免密token-value |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | BML文件存储在hdfs上的前缀文件路径 |
- 
+
 #### 4.2 Metadata配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -175,13 +170,11 @@ sidebar_position: 1
 | hive.meta.user | 无 | HiveMetaStore数据库的user |
 | hive.meta.password | 无 | HiveMetaStore数据库的password |
 
-
 #### 4.3 JobHistory配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.jobhistory.admin | 无 | 默认的Admin账号，用于指定哪些用户可以查看所有人的执行历史 |
-
 
 #### 4.4 FileSystem配置参数
 
@@ -189,9 +182,9 @@ sidebar_position: 1
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.filesystem.root.path | file:///tmp/linkis/ | 用户的Linux本地根目录 |
 | wds.linkis.filesystem.hdfs.root.path | hdfs:///tmp/ | 用户的HDFS根目录 |
-| wds.linkis.workspace.filesystem.hdfsuserrootpath.suffix | /linkis/ | 用户的HDFS根目录后的一级前缀，用户实际根目录为：${hdfs.root.path}\${user}\${hdfsuserrootpath.suffix} | 
-| wds.linkis.workspace.resultset.download.is.limit | true | Client下载结果集时，是否限制下载条数 | 
-| wds.linkis.workspace.resultset.download.maxsize.csv | 5000 | 当结果集下载为CSV文件时，限制的下载条数 | 
+| wds.linkis.workspace.filesystem.hdfsuserrootpath.suffix | /linkis/ | 用户的HDFS根目录后的一级前缀，用户实际根目录为：${hdfs.root.path}\${user}\${hdfsuserrootpath.suffix} |
+| wds.linkis.workspace.resultset.download.is.limit | true | Client下载结果集时，是否限制下载条数 |
+| wds.linkis.workspace.resultset.download.maxsize.csv | 5000 | 当结果集下载为CSV文件时，限制的下载条数 |
 | wds.linkis.workspace.resultset.download.maxsize.excel | 5000 | 当结果集下载为Excel文件时，限制的下载条数 |
 | wds.linkis.workspace.filesystem.get.timeout | 2000L | 请求底层文件系统的最大超时时间。（**如果您的HDFS或Linux机器性能较低，建议适当调大该查数**） |
 
@@ -207,17 +200,16 @@ sidebar_position: 1
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
-| wds.linkis.gateway.conf.enable.proxy.user | false | 是否开启代理用户模式，如果开启，则登录用户的请求都会代理到代理用户去执行 | 
+| wds.linkis.gateway.conf.enable.proxy.user | false | 是否开启代理用户模式，如果开启，则登录用户的请求都会代理到代理用户去执行 |
 | wds.linkis.gateway.conf.proxy.user.config | proxy.properties | 代理规则的存储文件 |
 | wds.linkis.gateway.conf.proxy.user.scan.interval | 600000 | 代理文件的刷新间隔 |
-| wds.linkis.gateway.conf.enable.token.auth | false | 是否开启Token登录模式，如果开启，则允许以token的方式访问Linkis | 
-| wds.linkis.gateway.conf.token.auth.config | token.properties | Token规则的存储文件 | 
-| wds.linkis.gateway.conf.token.auth.scan.interval | 600000 | Token文件的刷新间隔 | 
-| wds.linkis.gateway.conf.url.pass.auth | /dws/ | 默认放行、不作登录校验的请求 | 
-| wds.linkis.gateway.conf.enable.sso | false | 是否开启SSO用户登录模式 | 
+| wds.linkis.gateway.conf.enable.token.auth | false | 是否开启Token登录模式，如果开启，则允许以token的方式访问Linkis |
+| wds.linkis.gateway.conf.token.auth.config | token.properties | Token规则的存储文件 |
+| wds.linkis.gateway.conf.token.auth.scan.interval | 600000 | Token文件的刷新间隔 |
+| wds.linkis.gateway.conf.url.pass.auth | /dws/ | 默认放行、不作登录校验的请求 |
+| wds.linkis.gateway.conf.enable.sso | false | 是否开启SSO用户登录模式 |
 | wds.linkis.gateway.conf.sso.interceptor | 无 | 如果开启了SSO登录模式，则需要用户实现SSOInterceptor，用于跳转SSO登录页面 |
 | wds.linkis.admin.user | hadoop | 管理员用户列表 |
-| wds.linkis.login_encrypt.enable | false | 用户登录时，密码是否开启RSA加密传输 | 
-| wds.linkis.enable.gateway.auth | false | 是否开启Gateway IP白名单机制 | 
-| wds.linkis.gateway.auth.file | auth.txt | IP白名单存储文件 | 
-
+| wds.linkis.login_encrypt.enable | false | 用户登录时，密码是否开启RSA加密传输 |
+| wds.linkis.enable.gateway.auth | false | 是否开启Gateway IP白名单机制 |
+| wds.linkis.gateway.auth.file | auth.txt | IP白名单存储文件 |

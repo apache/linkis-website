@@ -6,6 +6,7 @@ sidebar_position: 3
 # MetadataCoreRestful
 
 ## getColumns
+
 **Interface address**: `/api/rest_j/v1/metadatamanager/columns/{dataSourceId}/db/{database}/table/{table}`
 
 **Request method**: `GET`
@@ -129,8 +130,8 @@ sidebar_position: 3
 }
 ````
 
-
 ## getDatabases
+
 **Interface address**:`/api/rest_j/v1/metadatamanager/dbs/{dataSourceId}`
 
 **Request method**: `GET`
@@ -149,6 +150,7 @@ sidebar_position: 3
 |system|system|query|true|string||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,
@@ -164,8 +166,8 @@ sidebar_position: 3
 }
 ````
 
-
 ## getPartitions
+
 **Interface address**:`/api/rest_j/v1/metadatamanager/partitions/{dataSourceId}/db/{database}/table/{table}`
 
 **Request method**: `GET`
@@ -187,6 +189,7 @@ sidebar_position: 3
 |traverse|traverse|query|false|boolean||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,
@@ -204,6 +207,7 @@ sidebar_position: 3
 ````
 
 ## getTableProps
+
 **Interface address**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}`
 
 **Request method**: `GET`
@@ -213,7 +217,6 @@ sidebar_position: 3
 **Response data type**: `application/json`
 
 **Interface description**:
-
 
 **Request Parameters**:
 
@@ -225,6 +228,7 @@ sidebar_position: 3
 |table|table|path|true|string||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,

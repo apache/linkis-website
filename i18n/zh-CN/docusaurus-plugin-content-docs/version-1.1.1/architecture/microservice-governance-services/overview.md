@@ -23,5 +23,5 @@ Provider和Service Consumer。Eureka Server 提供服务注册和发现，Servic
 Consumer服务消费方，从Eureka获取注册服务列表，从而能够消费服务。
 
 3. Linkis基于Feign实现了一套自己的底层RPC通信方案。Linkis RPC作为底层的通信方案，将提供SDK集成到有需要的微服务之中。一个微服务既可以作为请求调用方，也可以作为请求接收方。作为请求调用方时，将通过Sender请求目标接收方微服务的Receiver，作为请求接收方时，将提供Receiver用来处理请求接收方Sender发送过来的请求，以便完成同步响应或异步响应。
-   
+
    ![](/Images-zh/Architecture/linkis-microservice-gov-03.png)

@@ -12,11 +12,12 @@ sidebar_position: 11
 ## 2. 部署和配置
 
 ### 2.1 版本的选择和编译
+
 注意: 编译 ElasticSearch 引擎之前需要进行 Linkis 项目全量编译  
 发布的安装部署包中默认不包含此引擎插件，
 你可以按[Linkis引擎安装指引](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)部署安装 ，或者按以下流程，手动编译部署
 
-单独编译 ElasticSearch 引擎 
+单独编译 ElasticSearch 引擎
 
 ```
 ${linkis_code_dir}/linkis-engineconn-plugins/elasticsearch/
@@ -26,18 +27,24 @@ mvn clean install
 ### 2.2 物料的部署和加载
 
 将 2.1 步编译出来的引擎包,位于
+
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/jdbc/target/out/elasticsearch
 ```
+
 上传到服务器的引擎目录下
-```bash 
+
+```bash
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
+
 并重启linkis-engineplugin（或者通过引擎接口进行刷新）
+
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
+
 ### 2.3 引擎的标签
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
@@ -108,7 +115,9 @@ INNER JOIN `linkis_cg_manager_label` label ON relation.engine_type_label_id = la
 | linkis.engineconn.concurrent.limit | 100|否 | 引擎最大并发 |
 
 ## 3. ElasticSearch引擎使用
+
 ### 3.1 准备操作
+
 您需要配置ElasticSearch的连接信息，包括连接地址信息或用户名密码(如果启用)等信息。
 
 ![ElasticSearch](https://user-images.githubusercontent.com/22620332/182787195-8051bf25-1e1e-47e5-ad88-4896278857f2.png)  
@@ -116,15 +125,18 @@ INNER JOIN `linkis_cg_manager_label` label ON relation.engine_type_label_id = la
 图3-1 ElasticSearch配置信息
 
 您也可以再提交任务接口中的params.configuration.runtime进行修改即可
+
 ```shell
 linkis.es.cluster
 linkis.es.datasource
-linkis.es.username               
+linkis.es.username
 linkis.es.password
 ```
 
 ### 3.2 通过Linkis-cli进行任务提交
+
 **-codeType 参数说明**
+
 - essql：通过SQL脚本的方式执行ElasticSearch引擎任务
 - esjson：通过JSON脚本的方式执行ElasticSearch引擎任务
 
@@ -134,18 +146,19 @@ Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的E
 
 **essql方式示例**
 
-**注意：** 使用这种形式，ElasticSearch服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
+**注意：** 使用这种形式，ElasticSearch服务必须安装SQL插件，安装方式参考：<https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762>
+
 ```shell
  sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType essql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
 **esjson方式示例**
+
 ```shell
 sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
-
 
 ## 4. ElasticSearch引擎的用户设置
 

@@ -3,10 +3,13 @@ title: Linkis built-in time variable introduction
 sidebar_position: 7
 ---
 ## 1. General
+
 ### Requirements Background
+
 Users hope that when writing code, the time format requirements are ever-changing, and the existing [Linkis custom variables](https://linkis.apache.org/docs/latest/architecture/commons/variable/) is currently not enough to support these requirements. In addition, some of the existing time operation -1 means minus one month, and some minus one day, which is easy for users to confuse
 
 ### Target
+
 * Other date built-in variables are calculated relative to run_date
 * Support Pattern format time and users can specify at will
 * Support ±y/±M/±d/±H etc.
@@ -39,13 +42,16 @@ Z |Time zone |RFC 822 time zone |-0800
 X |Time zone |ISO 8601 time zone |-08; -0800; -08:00
 
 ## 2. Overall Design
+
 The overall design and technical architecture refer to [Linkis Custom Variables](https://linkis.apache.org/docs/latest/architecture/commons/variable/)
 
 ## 3. Function introduction
+
 * The variable types supported by Linkis are divided into custom variables (not to be repeated) and system built-in variables. The custom variable date supports +-.
 * Among them, +- is to perform operation on the built-in parameter run_date of linkis, and then replace the pattern field before %. Non-pattern characters do not support operation replacement.
 
 ### 3.1 Examples of built-in variables
+
 You can define parameters that need to be dynamically rendered according to your own preferences/business actual situation
 
 variable | result
@@ -62,26 +68,33 @@ variable | result
 ### 3.2 Custom Variable Usage Example
 
 * Example 1: sql
+
 ```sql
 SELECT * FROM hive.tmp.fund_nav_histories
 WHERE dt <= DATE_FORMAT(DATE_ADD('day', -1, DATE(Date_parse('&{yyyyMMdd%-1d}', '%Y%m%d'))), '%Y%m%d')
 ````
+
 after rendering
+
 ```sql
 SELECT * FROM hive.tmp.fund_nav_histories
 WHERE dt <= DATE_FORMAT(DATE_ADD('day', -1, DATE(Date_parse('20220705', '%Y%m%d'))), '%Y%m%d')
 ````
 
 * Example 2: shell
+
 ```shell
 aws s3 ls s3://***/ads/tmp/dws_member_active_detail_d_20210601_20211231/pt=&{yyyyMMdd%-1d}/
 ````
+
 after rendering
+
 ```shell
 aws s3 ls s3://***/ads/tmp/dws_member_active_detail_d_20210601_20211231/pt=20220705/
 ````
 
 * Example 3: datax json
+
 ````json
 {
   "job": {
@@ -125,7 +138,9 @@ aws s3 ls s3://***/ads/tmp/dws_member_active_detail_d_20210601_20211231/pt=20220
   }
 }
 ````
+
 after rendering
+
 ````json
 {
   "job": {
@@ -169,11 +184,15 @@ after rendering
   }
 }
 ````
+
 * Example 4: python
+
 ````python
 print(&{yyyyMMdd%-1d})
 ````
+
 after rendering
+
 ````
  20220705
 ````

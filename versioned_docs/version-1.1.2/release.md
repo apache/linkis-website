@@ -9,8 +9,7 @@ sidebar_position: 0.1
 - [Installation And Deployment of Tool Scriptis](/deployment/linkis-scriptis-install.md)
 - [Release-Notes](/download/release-notes-1.1.2)
 
-## Configuration Item 
-
+## Configuration Item
 
 | Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
@@ -34,4 +33,5 @@ sidebar_position: 0.1
 |ec-sqoop | New | sqoop.fetch.status.interval |5s| Sets the interval for obtaining sqoop execution status |
 
 ## DB Table Changes
+
 no change

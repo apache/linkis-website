@@ -17,37 +17,37 @@ Idea enhancement plugin
 
 ```properties
 
-######################################################################################## 
-## 
-## Available variables: 
-##         $entryList.methodList - List of method composites 
-##         $entryList.privateMethodList - List of private method composites 
-##         $entryList.fieldList - ArrayList of class scope field names 
-##         $entryList.className - class name 
-##         $entryList.packageName - package name 
-##         $today - Todays date in MM/dd/yyyy format 
-## 
-##            MethodComposite variables: 
-##                $method.name - Method Name 
-##                $method.signature - Full method signature in String form 
-##                $method.reflectionCode - list of strings representing commented out reflection code to access method (Private Methods) 
-##                $method.paramNames - List of Strings representing the method's parameters' names 
-##                $method.paramClasses - List of Strings representing the method's parameters' classes 
-## 
-## You can configure the output class name using "testClass" variable below. 
-## Here are some examples: 
-## Test${entry.ClassName} - will produce TestSomeClass 
-## ${entry.className}Test - will produce SomeClassTest 
-## 
-######################################################################################## 
-## 
-## title case 
-#macro (cap $strIn)$strIn.valueOf($strIn.charAt(0)).toUpperCase()$strIn.substring(1)#end 
+########################################################################################
+##
+## Available variables:
+##         $entryList.methodList - List of method composites
+##         $entryList.privateMethodList - List of private method composites
+##         $entryList.fieldList - ArrayList of class scope field names
+##         $entryList.className - class name
+##         $entryList.packageName - package name
+##         $today - Todays date in MM/dd/yyyy format
+##
+##            MethodComposite variables:
+##                $method.name - Method Name
+##                $method.signature - Full method signature in String form
+##                $method.reflectionCode - list of strings representing commented out reflection code to access method (Private Methods)
+##                $method.paramNames - List of Strings representing the method's parameters' names
+##                $method.paramClasses - List of Strings representing the method's parameters' classes
+##
+## You can configure the output class name using "testClass" variable below.
+## Here are some examples:
+## Test${entry.ClassName} - will produce TestSomeClass
+## ${entry.className}Test - will produce SomeClassTest
+##
+########################################################################################
+##
+## title case
+#macro (cap $strIn)$strIn.valueOf($strIn.charAt(0)).toUpperCase()$strIn.substring(1)#end
 ## Initial lowercase custom down
 #macro (down $strIn)$strIn.valueOf($strIn.charAt(0)).toLowerCase()$strIn.substring(1)#end
-## Iterate through the list and generate testcase for every entry. 
-#foreach ($entry in $entryList) 
-#set( $testClass="${entry.className}Test") 
+## Iterate through the list and generate testcase for every entry.
+#foreach ($entry in $entryList)
+#set( $testClass="${entry.className}Test")
 ##
 
 /*
@@ -67,55 +67,55 @@ Idea enhancement plugin
  * limitations under the License.
  */
 
-package $entry.packageName; 
- 
+package $entry.packageName;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-/** 
+/**
  * ${entry.className} Tester
-*/ 
-public class $testClass { 
- 
+*/
+public class $testClass {
+
     @Autowired
     private ${entry.className} #down(${entry.className});
- 
+
     @BeforeEach
     @DisplayName("Each unit test method is executed once before execution")
     public void before() throws Exception {
     }
- 
+
     @AfterEach
     @DisplayName("Each unit test method is executed once before execution")
     public void after() throws Exception {
     }
- 
-#foreach($method in $entry.methodList) 
- 
-    @Test
-    @DisplayName("Method description: ...")
-    public void test#cap(${method.name})() throws Exception { 
-        //TODO: Test goes here... 
-    } 
- 
-#end 
- 
-#foreach($method in $entry.privateMethodList) 
+
+#foreach($method in $entry.methodList)
 
     @Test
     @DisplayName("Method description: ...")
-    public void test#cap(${method.name})() throws Exception { 
-        //TODO: Test goes here... 
-    #foreach($string in $method.reflectionCode) 
-    $string 
-    #end 
-    } 
- 
-#end 
-} 
+    public void test#cap(${method.name})() throws Exception {
+        //TODO: Test goes here...
+    }
+
+#end
+
+#foreach($method in $entry.privateMethodList)
+
+    @Test
+    @DisplayName("Method description: ...")
+    public void test#cap(${method.name})() throws Exception {
+        //TODO: Test goes here...
+    #foreach($string in $method.reflectionCode)
+    $string
+    #end
+    }
+
+#end
+}
 #end
 
 ```
@@ -133,8 +133,6 @@ public class $testClass {
 2. Select class -> right click -> generate -> JUnit test to generate a test class
 
    ![test-2]( https://user-images.githubusercontent.com/29391030/155080650-4fa68c66-5d7c-4e9f-ba63-0c7fc62d9df2.png )
-
-
 
 ## Unit Test Criteria
 
@@ -173,7 +171,7 @@ public class $testClass {
 - 5. For unit testing, it is necessary to ensure that the test granularity is small enough to help accurately locate the problem. Single test granularity is generally at the method level (very few scenarios such as tool classes or enumeration classes can be at the class level).  
      Note: only with small test granularity can we locate the error location as soon as possible. Single test is not responsible for checking cross class or cross system interaction logic, which is the field of integration testing.
 
-## Use of Assertions    
+## Use of Assertions
 
     The result verification of all test cases must use the assertion pattern     
         use Assertions.assertEquals
@@ -184,23 +182,23 @@ public class $testClass {
         Asserting the usingrecursive comparison pattern using assertj's assertThat
         Assertions.assertThat(actualObject).usingRecursiveComparison().isEqualTo(expectedObject);
 
-
 ### Junit5 General Assertion
 
 | Method | description    | remarks |
 |--------|-------------|-------------|
-|Assertequals | judge whether two objects or two original types are equal|        | 
-|Assertnotequals | judge whether two objects or two original types are not equal|        | 
-|Asserttrue | judge whether the given Boolean value is true|        | 
-|Assertfalse | judge whether the given Boolean value is false|        | 
-|AssertNull | judge whether the given object reference is null|        | 
-|AssertNotNull | judge whether the given object reference is not null|        | 
-|Assert all | multiple judgment logics are processed together. As long as one error is reported, the overall test will fail|        | 
+|Assertequals | judge whether two objects or two original types are equal|        |
+|Assertnotequals | judge whether two objects or two original types are not equal|        |
+|Asserttrue | judge whether the given Boolean value is true|        |
+|Assertfalse | judge whether the given Boolean value is false|        |
+|AssertNull | judge whether the given object reference is null|        |
+|AssertNotNull | judge whether the given object reference is not null|        |
+|Assert all | multiple judgment logics are processed together. As long as one error is reported, the overall test will fail|        |
 
 ### Junit5 Combined Assertion and Exception Assertion
 
 **Composite assertion**
 The assertall method can process multiple judgment logics together. As long as one error is reported, the overall test will fail:
+
   ```java
     @Test
     @DisplayName("assert all")
@@ -215,8 +213,8 @@ The assertall method can process multiple judgment logics together. As long as o
 
 **Exception assertion**
 
-Assertions. The assertthrows method is used to test whether the executable instance throws an exception of the specified type when executing the execute method;    
-If the execute method does not throw an exception during execution, or the exception thrown is inconsistent with the expected type, the test will fail;    
+Assertions. The assertthrows method is used to test whether the executable instance throws an exception of the specified type when executing the execute method;
+If the execute method does not throw an exception during execution, or the exception thrown is inconsistent with the expected type, the test will fail;
 Example:  
 
   ```java
@@ -278,8 +276,8 @@ It can be roughly classified according to the major functions of the class
 -Enum class
 -Entity class is used for DB interaction and parameter VO object and other entity classes processed by methods (if there are other user-defined functions besides normal get set, unit test is required)
 
-
 ### Unit Test of Controller class
+
 Using mockmvc
 
 It mainly verifies the requestmethod method of interface request, basic parameters and expected return results.  
@@ -316,6 +314,7 @@ Main scenarios: scenarios with and without unnecessary parameters are abnormal
 ```
 
 ### Unit Test of Server class
+
    //todo
 
 ### Unit Test of Dao class

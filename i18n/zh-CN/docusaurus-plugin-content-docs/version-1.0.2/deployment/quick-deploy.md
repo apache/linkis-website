@@ -63,7 +63,6 @@ Linkis1.0 默认已适配的引擎列表如下：
 - MySQL (5.5+)，[如何安装MySQL](https://www.runoob.com/mysql/mysql-install.html)
 - JDK (1.8.0_141以上)，[如何安装JDK](https://www.runoob.com/java/java-environment-setup.html)
 
- 
 ### b. 创建用户
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如: **部署用户是hadoop账号**
@@ -73,6 +72,7 @@ Linkis1.0 默认已适配的引擎列表如下：
 ```bash
     sudo useradd hadoop  
 ```
+
 2. 因为Linkis的服务是以 sudo -u ${linux-user} 方式来切换引擎，从而执行作业，所以部署用户需要有 sudo 权限，而且是免密的。
 
 ```bash
@@ -87,7 +87,7 @@ Linkis1.0 默认已适配的引擎列表如下：
   
    修改安装用户的.bash_rc，命令如下：
 
-```bash     
+```bash
     vim /home/hadoop/.bash_rc ##以部署用户Hadoop为例
 ```
 
@@ -122,16 +122,16 @@ Linkis1.0 默认已适配的引擎列表如下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先解压安装包到安装目录，并对解压后的文件进行配置修改。
 
-```bash   
+```bash
     tar -xvf  wedatasphere-linkis-x.x.x-combined-package-dist.tar.gz
 ```
-      
+
 ### d. 不依赖HDFS的基础配置修改
 
 ```bash
     vi config/linkis-env.sh
 ```
-        
+
 ```properties
 
     #SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
@@ -142,15 +142,16 @@ Linkis1.0 默认已适配的引擎列表如下：
     ENGINECONN_ROOT_PATH=/appcom/tmp #存放ECP的安装路径，需要部署用户有写权限的本地目录
     ENTRANCE_CONFIG_LOG_PATH=file:///tmp/linkis/  #ENTRANCE的日志路径
     ## LDAP配置，默认Linkis只支持部署用户登录，如果需要支持多用户登录可以使用LDAP，需要配置以下参数：
-    #LDAP_URL=ldap://localhost:1389/ 
+    #LDAP_URL=ldap://localhost:1389/
     #LDAP_BASEDN=dc=webank,dc=com
 ```
+
 ### e. 依赖HDFS/Hive/Spark的基础配置修改
 
 ```bash
      vi config/linkis-env.sh
 ```
-        
+
 ```properties
     SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
     deployUser=hadoop      #指定部署用户
@@ -166,16 +167,16 @@ Linkis1.0 默认已适配的引擎列表如下：
     HIVE_META_URL=jdbc://...   # HiveMeta元数据库的URL
     HIVE_META_USER=   # HiveMeta元数据库的用户
     HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
-    
-    # 配置hadoop/hive/spark的配置目录 
+
+    # 配置hadoop/hive/spark的配置目录
     HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop的conf目录
     HIVE_CONF_DIR=/appcom/config/hive-config   #hive的conf目录
     SPARK_CONF_DIR=/appcom/config/spark-config #spark的conf目录
 
     ## LDAP配置，默认Linkis只支持部署用户登录，如果需要支持多用户登录可以使用LDAP，需要配置以下参数：
-    #LDAP_URL=ldap://localhost:1389/ 
+    #LDAP_URL=ldap://localhost:1389/
     #LDAP_BASEDN=dc=webank,dc=com
-    
+
     ##如果spark不是2.4.3的版本需要修改参数：
     #SPARK_VERSION=3.1.1
 
@@ -183,13 +184,13 @@ Linkis1.0 默认已适配的引擎列表如下：
     #HIVE_VERSION=2.3.3
 ```
 
-### f. 修改数据库配置 
+### f. 修改数据库配置
 
-```bash   
-    vi config/db.sh 
+```bash
+    vi config/db.sh
 ```
-            
-```properties    
+
+```properties
 
     # 设置数据库的连接信息
     # 包括IP地址、数据库名称、用户名、端口
@@ -200,10 +201,10 @@ Linkis1.0 默认已适配的引擎列表如下：
     MYSQL_USER=
     MYSQL_PASSWORD=
  ```
- 
+
 ## 三、安装和启动
 
-### 1. 执行安装脚本：
+### 1. 执行安装脚本
 
 ```bash
     sh bin/install.sh
@@ -223,7 +224,7 @@ Linkis1.0 默认已适配的引擎列表如下：
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**请注意：如果您是升级已有环境的 Linkis0.X 到 Linkis1.0，请不要直接选是，请先参考 [Linkis1.0升级指南](upgrade/upgrade-from-0.X-to-1.0-guide.md)**。
 
-### 3. 是否安装成功：
+### 3. 是否安装成功
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过查看控制台打印的日志信息查看是否安装成功。
 
@@ -233,28 +234,29 @@ Linkis1.0 默认已适配的引擎列表如下：
 
 ### 4. 快速启动Linkis
 
-#### (1)、启动服务：
+#### (1)、启动服务
   
-  在安装目录执行以下命令，启动所有服务：    
+  在安装目录执行以下命令，启动所有服务：
 
 ```bash  
   sh sbin/linkis-start-all.sh
 ```
-        
+
 #### (2)、查看是否启动成功
-    
+
   可以在Eureka界面查看服务启动成功情况，查看方法：
-    
-  使用http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, 在浏览器中打开，查看服务是否注册成功。
-    
-  如果您没有在config.sh指定EUREKA_INSTALL_IP和EUREKA_INSTALL_IP，则HTTP地址为：http://127.0.0.1:20303
-    
+
+  使用<http://${EUREKA_INSTALL_IP}:${EUREKA_PORT>}, 在浏览器中打开，查看服务是否注册成功。
+
+  如果您没有在config.sh指定EUREKA_INSTALL_IP和EUREKA_INSTALL_IP，则HTTP地址为：<http://127.0.0.1:20303>
+
   如下图，如您的Eureka主页出现以下微服务，则表示服务都启动成功，可以正常对外提供服务了：
 
   默认会启动8个Linkis微服务，其中图下linkis-cg-engineconn服务为运行任务才会启动
-   
+
 ![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
 
 #### (3)、查看服务是否正常
+
 1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web-install.md)
 2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](../user-guide/overview.md)

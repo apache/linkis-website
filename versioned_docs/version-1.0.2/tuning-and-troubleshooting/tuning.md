@@ -9,7 +9,7 @@ sidebar_position: 2
 
 This document will introduce several tuning methods based on production experience, namely the selection of Jvm heap size during deployment in production, the setting of concurrency for task submission, and the introduction of task running resource application parameters. The parameter settings described in the document are not recommended parameter values. Users need to select the parameters according to their actual production environment.
 
-## 2. Jvm heap size tuning 
+## 2. Jvm heap size tuning
 
 When installing Linkis, you can find the following variables in linkis-env.sh:
 
@@ -63,4 +63,3 @@ Part of the Spark configuration in linkis-engineconn-plugins/engineconn-plugins,
     "spark.executor.instances" = 3
     "wds.linkis.rm.yarnqueue" = "default"
 ```
-

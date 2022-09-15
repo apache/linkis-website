@@ -7,10 +7,10 @@ Installation directory structure
 
 The directory structure of Linkis 1.0 is very different from the 0.X version. Each microservice in 0.X has a root directory that exists independently. The main advantage of this directory structure is that it is easy to distinguish microservices and facilitate individual Microservices are managed, but there are some obvious problems:
 
-1.	The microservice catalog is too complicated and it is not convenient to switch catalog management
-2.	There is no unified startup script, which makes it more troublesome to start and stop microservices
-3.	There are a large number of duplicate service configurations, and the same configuration often needs to be modified in many places
-4.	There are a large number of repeated Lib dependencies, which increases the size of the installation package and the risk of dependency conflicts
+1. The microservice catalog is too complicated and it is not convenient to switch catalog management
+2. There is no unified startup script, which makes it more troublesome to start and stop microservices
+3. There are a large number of duplicate service configurations, and the same configuration often needs to be modified in many places
+4. There are a large number of repeated Lib dependencies, which increases the size of the installation package and the risk of dependency conflicts
 
 Therefore, in Linkis 1.0, we have greatly optimized and adjusted the installation directory structure, reducing the number of microservice directories, reducing the jar packages that are repeatedly dependent, and reusing configuration files and microservice management scripts as much as possible. Mainly reflected in the following aspects:
 
@@ -36,7 +36,7 @@ The simplified directory structure of Linkis 1.0 is as follows.
 │ ├── install-io.sh ── Used for dependency replacement during installation
 │ └── install.sh ── Main script of Linkis installation
 ├── conf ──configuration directory
-│ ├── application-eureka.yml 
+│ ├── application-eureka.yml
 │ ├── application-linkis.yml    ──Microservice general yml
 │ ├── linkis-cg-engineconnmanager-io.properties
 │ ├── linkis-cg-engineconnmanager.properties
@@ -141,6 +141,7 @@ After modifying the configuration items, you can start the microservice in the s
 ├── linkis-ps-datasource  ──data source service
 └── linkis-ps-publicservice  ──public service
 ````
+
 **Microservice abbreviation**:
 
 | Abbreviation | Full English Name | Full Chinese Name |
@@ -166,37 +167,49 @@ sh linkis-stop-all.sh
 ````
 
 3.Start a single microservice (the service name needs to be removed from the Linkis prefix, such as mg-eureka)
+
 ````
 sh linkis-daemon.sh start service-name
 ````
-For example: 
+
+For example:
+
 ````
 sh linkis-daemon.sh start mg-eureka
 ````
 
 4.Shut down a single microservice
+
 ````
 sh linkis-daemon.sh stop service-name
 ````
-For example: 
+
+For example:
+
 ````
 sh linkis-daemon.sh stop mg-eureka
 ````
 
 5.Restart a single microservice
+
 ````
 sh linkis-daemon.sh restart service-name
 ````
-For example: 
+
+For example:
+
 ````
 sh linkis-daemon.sh restart mg-eureka
 ````
 
 6.View the status of a single microservice
+
 ````
 sh linkis-daemon.sh status service-name
 ````
-For example: 
+
+For example:
+
 ````
 sh linkis-daemon.sh status mg-eureka
 ````

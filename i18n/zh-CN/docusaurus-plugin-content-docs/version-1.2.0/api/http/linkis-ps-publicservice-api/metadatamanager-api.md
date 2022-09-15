@@ -4,9 +4,10 @@ sidebar_position: 3
 ---
 > 本接口为已废弃的老接口，请使用新接口[元数据查询新API](./metadatamanager-api.md)
 
-** MetadataCoreRestful 类 ** 
+** MetadataCoreRestful 类 **
 
 ## getColumns
+
 **接口地址**:`/api/rest_j/v1/metadatamanager/columns/{dataSourceId}/db/{database}/table/{table}`
 
 **请求方式**:`GET`
@@ -130,8 +131,8 @@ sidebar_position: 3
 }
 ```
 
-
 ## getDatabases
+
 **接口地址**:`/api/rest_j/v1/metadatamanager/dbs/{dataSourceId}`
 
 **请求方式**:`GET`
@@ -150,6 +151,7 @@ sidebar_position: 3
 |system|system|query|true|string|
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -165,8 +167,8 @@ sidebar_position: 3
 }
 ```
 
-
 ## getPartitions
+
 **接口地址**:`/api/rest_j/v1/metadatamanager/partitions/{dataSourceId}/db/{database}/table/{table}`
 
 **请求方式**:`GET`
@@ -188,6 +190,7 @@ sidebar_position: 3
 |traverse|traverse|query|false|boolean|
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -205,6 +208,7 @@ sidebar_position: 3
 ```
 
 ## getTableProps
+
 **接口地址**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}`
 
 **请求方式**:`GET`
@@ -214,7 +218,6 @@ sidebar_position: 3
 **响应数据类型**:`application/json`
 
 **接口描述**:
-
 
 **请求参数**:
 
@@ -226,6 +229,7 @@ sidebar_position: 3
 |table|table|path|true|string|
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -257,8 +261,8 @@ sidebar_position: 3
 }
 ```
 
-
 ## getPartitionProps
+
 **接口地址**:`/api/rest_j/v1/metadatamanager/props/{dataSourceId}/db/{database}/table/{table}/partition/{partition}`
 
 **请求方式**:`GET`
@@ -279,19 +283,19 @@ sidebar_position: 3
 |system|system|query|true|string|
 |table|table|path|true|string|
 
-
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```
 
-
 ## getTables
+
 **接口地址**:`/api/rest_j/v1/metadatamanager/tables/{dataSourceId}/db/{database}`
 
 **请求方式**:`GET`
@@ -311,6 +315,7 @@ sidebar_position: 3
 |system|system|query|true|string|
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,

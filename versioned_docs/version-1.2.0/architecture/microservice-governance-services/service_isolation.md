@@ -4,27 +4,34 @@ sidebar_position: 2
 ---
 
 ## 1. General
+
 ### Requirements Background
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis now performs load balancing based on the ribbon when it forwards services in the Gateway, but in some cases, there are some important business tasks that want to achieve service level isolation, if the service is based on the ribbon There will be problems in equilibrium. For example, tenant A wants his tasks to be routed to a specific Linkis-CG-Entrance service, so that when other instances are abnormal, the Entrance of service A will not be affected.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In addition, tenants and isolation of support services can also quickly isolate an abnormal service and support scenarios such as grayscale upgrades.
 
 ### Target
+
 1. Support forwarding the service according to the routing label by parsing the label of the request
 2. Tag Registration and Modification of Support Services
 
 ## 2. Design
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This feature adds two modules, linkis-mg-gateway and instance-label, which are mainly modified points, designed to add the forwarding logic of Gateway, and instance-label to support services and labels register.
 
 ### 2.1 Technical Architecture
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The overall technical architecture mainly modifies the point. The RestFul request needs to carry label parameter information such as routing label, and then the corresponding label will be parsed when the Gateway forwards to complete the route forwarding of the interface. The whole is shown in the figure below
 ![arc](/Images/Architecture/Gateway/service_isolation_arc.png)
 
 A few notes:
+
 1. If there are multiple corresponding services marked with the same roteLabel, it will be forwarded randomly
 2. If the corresponding routeLabel does not have a corresponding service, the interface fails directly
 3. If the interface does not have a routeLabel, based on the original forwarding logic, it will not route to the service marked with a specific label
 
 ### 2.2 Business Architecture
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This feature is mainly to complete the Restful tenant isolation and forwarding function. The modules designed by the function point are as follows:
 
 | Component name | First-level module | Second-level module | Function point |
@@ -33,16 +40,17 @@ A few notes:
 | Linkis | PS | InstanceLabel| InstanceLabel service, completes the association between services and labels|
 
 ## 3. Module Design
+
 ### Core execution flow
+
 [Input] The input is the restful request requesting Gatway, and only the request with the roure label to be used in the parameter will be processed.
 [Processing process] The Gateway will determine whether the request has a corresponding RouteLabel, and if it exists, it will be forwarded based on the RouteLabel.
 The call sequence diagram is as follows:
 
 ![Time](/Images/Architecture/Gateway/service_isolation_time.png)
 
+## 4. DDL
 
-
-## 4. DDL:
 ```sql
 DROP TABLE IF EXISTS `linkis_ps_instance_label`;
 CREATE TABLE `linkis_ps_instance_label` (
@@ -79,7 +87,8 @@ CREATE TABLE `linkis_ps_instance_label_relation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 ````
-## 5. How to use:
+
+## 5. How to use
 
 ### add route label for entrance
 
@@ -91,7 +100,9 @@ sh $LINKIS_HOME/sbin/linkis-damemon.sh restart cg-entrance
 ![Time](/Images/Architecture/Gateway/service_isolation_time.png)
 
 ### Use route label
+
 submit task:
+
 ````
 url:/api/v1/entrance/submit
 {
@@ -105,7 +116,9 @@ url:/api/v1/entrance/submit
     }
 }
 ````
+
 will be routed to a fixed service:
+
 ````
 {
     "method": "/api/entrance/submit",
@@ -125,7 +138,9 @@ sh bin/linkis-cli -submitUser hadoop -engineType shell-1 -codeType shell -code "
 ````
 
 ### Use non-existing label
+
 submit task:
+
 ````
 url:/api/v1/entrance/submit
 {
@@ -141,6 +156,7 @@ url:/api/v1/entrance/submit
 ````
 
 will get the error
+
 ````
 {
     "method": "/api/rest_j/v1/entrance/submit",
@@ -153,7 +169,9 @@ will get the error
 ````
 
 ### without label
+
 submit task:
+
 ````
 url:/api/v1/entrance/submit
 {
@@ -182,16 +200,20 @@ will route to untagged entranceservices
 
 ````
 
-## 6. Non-functional design:
+## 6. Non-functional design
 
 ### 6.1 Security
+
 No security issues are involved, restful requires login authentication
 
 ### 6.2 Performance
+
 It has little impact on Gateway forwarding performance, and caches the corresponding label and instance data
 
 ### 6.3 Capacity
+
 not involving
 
 ### 6.4 High Availability
+
 not involving

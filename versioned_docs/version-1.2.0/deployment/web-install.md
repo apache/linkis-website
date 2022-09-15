@@ -6,6 +6,7 @@ sidebar_position: 6
 The linkis web service uses nginx as a static resource server. The access request process is as follows :
 Linkis Management Console request -> Nginx ip:port-> Linkis-gateway ip:port-> Other services
 ```
+
 Linkis 1.0 provides a Linkis Console, which provides functions such as displaying Linkis' global history, modifying user parameters, managing ECM and microservices, etc. Before deploying the front-end management console, you need to deploy the Linkis back-end. Linkis deployment manual See: [Linkis Deployment Manual](quick-deploy.md)
 
 ## 1. Preparation
@@ -14,6 +15,7 @@ Linkis 1.0 provides a Linkis Console, which provides functions such as displayin
 Manually decompress: tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz
 
 The decompression directory is as follows.
+
 ```
 ├── config.sh
 ├── DISCLAIMER
@@ -25,9 +27,11 @@ The decompression directory is as follows.
 ```
 
 ## 2. Deployment
+
 &nbsp;&nbsp;&nbsp;&nbsp;There are two deployment methods, automated deployment and manual deployment
 
 ### 2.1 Automated deployment
+
 #### 2.1.1 modify config.sh file (use vim or nano)
 
 ```$xslt
@@ -45,7 +49,7 @@ linkis_ipaddr=$(ip addr | awk'/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)
 
  ```shell
     #sudo permission is required to install nginx
-    sudo sh install.sh 
+    sudo sh install.sh
  ```
 
 After execution, you can directly access it in Google browser: ```http://linkis_ipaddr:linkis_port``` where linkis_port is the port configured in config.sh, and linkis_ipaddr is the IP of the installation machine
@@ -53,10 +57,12 @@ After execution, you can directly access it in Google browser: ```http://linkis_
 If the access fails: You can check the installation log which step went wrong
 
 ### 2.2 Manual deployment
+
 1. Install Nginx: ```sudo yum install nginx -y```
 
 2. Modify the configuration file: sudo vi /etc/nginx/conf.d/linkis.conf
 Add the following content:
+
 ```
 server {
             listen 8080;# access port
@@ -67,7 +73,7 @@ server {
             root /appcom/Install/linkis/dist; # The directory where the front-end package is decompressed
             index index.html index.html;
             }
-          
+
             location /api {
             proxy_pass http://192.168.xxx.xxx:9001; # ip port of linkis-gateway service
             proxy_set_header Host $host;
@@ -93,7 +99,7 @@ server {
 
 ```
 
-3. Copy the front-end package to the corresponding directory: ```/appcom/Install/linkis/dist; # The directory where the front-end package is decompressed ```
+3. Copy the front-end package to the corresponding directory: ```/appcom/Install/linkis/dist; # The directory where the front-end package is decompressed```
 
 4. Start the service ```sudo systemctl restart nginx```
 
@@ -118,7 +124,6 @@ client_max_body_size 200m
 ```
 sudo vi /etc/nginx/conf.d/linkis.conf
 ```
-
 
 Change interface timeout
 

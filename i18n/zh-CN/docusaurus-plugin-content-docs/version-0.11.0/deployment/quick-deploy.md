@@ -2,7 +2,7 @@
 title: 快速部署
 sidebar_position: 1
 ---
-####  温馨提示：如果您想体验LINKIS全家桶：DSS + Linkis + Qualitis + Visualis + Azkaban，请访问[DSS一键部署](https://github.com/WeBankFinTech/DataSphereStudio/blob/master/docs/zh_CN/ch2/DSS_LINKIS_Quick_Install.md)	
+#### 温馨提示：如果您想体验LINKIS全家桶：DSS + Linkis + Qualitis + Visualis + Azkaban，请访问[DSS一键部署](https://github.com/WeBankFinTech/DataSphereStudio/blob/master/docs/zh_CN/ch2/DSS_LINKIS_Quick_Install.md) 
 
 ## 1 确定安装环境
 
@@ -16,7 +16,6 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意：精简版只允许用户提交Python脚本。
 
-
 ----
 
 **简单版**：
@@ -24,7 +23,6 @@ sidebar_position: 1
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;依赖Python、Hadoop和Hive，分布式安装模式，包含Python引擎和Hive引擎，需要用户的Linux环境先安装好了Hadoop和Hive。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简单版允许用户提交HiveQL和Python脚本。
-
 
 ----
 
@@ -34,7 +32,6 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标准版允许用户提交Spark脚本（包含SparkSQL、Pyspark和Scala）、HiveQL和Python脚本。
 **请注意：安装标准版需要机器内存在10G以上** 如果机器内存不够，需要添加或者修改环境变量：`export SERVER_HEAP_SIZE="512M"`
-
 
 ----
 
@@ -47,7 +44,7 @@ sidebar_position: 1
 - MySQL (5.5+)，[如何安装MySQL](https://www.runoob.com/mysql/mysql-install.html)
 - JDK (1.8.0_141以上)，[如何安装JDK](https://www.runoob.com/java/java-environment-setup.html)
 - Python(2.x和3.x都支持)，[如何安装Python](https://www.runoob.com/python/python-install.html)
- 
+
 ### 2.2 创建用户
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如: **部署用户是hadoop账号**
@@ -57,7 +54,7 @@ sidebar_position: 1
 ```bash
     sudo useradd hadoop  
 ```
-        
+
 2. 因为Linkis的服务是以 sudo -u ${linux-user} 方式来切换引擎，从而执行作业，所以部署用户需要有 sudo 权限，而且是免密的。
 
 ```bash
@@ -70,7 +67,7 @@ sidebar_position: 1
 
 ```bash
     python -m pip install matplotlib
-```       
+```
 
 ### 2.3 安装包准备
 
@@ -78,16 +75,16 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先解压安装包到安装目录，并对解压后的文件进行配置修改。
 
-```bash   
+```bash
     tar -xvf  wedatasphere-linkis-x.x.x-dist.tar.gz
 ```
-      
+
    （1）修改基础配置  
 
 ```bash
-    vi conf/config.sh   
+    vi conf/config.sh
 ```
-        
+
 ```properties
     SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
     deployUser=hadoop      #指定部署用户
@@ -96,14 +93,14 @@ sidebar_position: 1
     RESULT_SET_ROOT_PATH=file:///tmp/linkis   # 结果集文件路径，用于存储Job的结果集文件
     #HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis   #精简版安装需要注释该参数
 ```
-        
-   （2）修改数据库配置 
 
-```bash   
-    vi conf/db.sh 
+   （2）修改数据库配置
+
+```bash
+    vi conf/db.sh
 ```
-            
-```properties         
+
+```properties
     # 设置数据库的连接信息
     # 包括IP地址、数据库名称、用户名、端口
     # 主要用于存储用户的自定义变量、配置参数、UDF和小函数，以及提供JobHistory的底层存储
@@ -113,9 +110,8 @@ sidebar_position: 1
     MYSQL_USER=
     MYSQL_PASSWORD=
  ```
- 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;环境准备完毕，点我进入 [5-安装部署](#5-安装部署)
-   
 
 ## 3 简单版Linkis环境准备
 
@@ -126,19 +122,19 @@ sidebar_position: 1
 - MySQL (5.5+)，[如何安装MySQL](https://www.runoob.com/mysql/mysql-install.html)
 - JDK (1.8.0_141以上)，[如何安装JDK](https://www.runoob.com/java/java-environment-setup.html)
 - Python(2.x和3.x都支持)，[如何安装Python](https://www.runoob.com/python/python-install.html)
-- Hadoop(**社区版和CDH3.0以下版本都支持**) 
+- Hadoop(**社区版和CDH3.0以下版本都支持**)
 - Hive(1.2.1，**2.0和2.0以上版本，可能存在兼容性问题**)
 
 ### 3.2 创建用户
-        
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如: **部署用户是hadoop账号**
-   
+
 1. 在所有需要部署的机器上创建部署用户，用于安装
 
 ```bash
     sudo useradd hadoop
 ```  
-        
+
 2. 因为Linkis的服务是以 sudo -u ${linux-user} 方式来切换引擎，从而执行作业，所以部署用户需要有 sudo 权限，而且是免密的。
 
 ```bash
@@ -146,12 +142,12 @@ sidebar_position: 1
 ```
 
          hadoop  ALL=(ALL)       NOPASSWD: NOPASSWD: ALL
-         
+
 3. **在每台安装节点设置如下的全局环境变量，以便Linkis能正常使用Hadoop和Hive**
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改安装用户的.bash_rc，命令如下：
 
-```bash     
+```bash
     vim /home/hadoop/.bash_rc
 ```
 
@@ -182,18 +178,18 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先解压安装包到安装目录，并对解压后的文件进行配置修改。
 
-```bash   
+```bash
     tar -xvf  wedatasphere-linkis-x.x.x-dist.tar.gz
 ```
-      
+
    （1）修改基础配置  
 
 ```bash
-    vi /conf/config.sh   
+    vi /conf/config.sh
 ```
-        
+
 ```properties
-   
+
     deployUser=hadoop      #指定部署用户
     LINKIS_HOME=/appcom/Install/Linkis    # 指定安装目录
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop    # 指定用户根目录，一般用于存储用户的脚本文件和日志文件等，是用户的工作空间。
@@ -204,18 +200,18 @@ sidebar_position: 1
     HIVE_META_USER=   # HiveMeta元数据库的用户
     HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
 
-    # 配置hadoop/hive/spark的配置目录 
+    # 配置hadoop/hive/spark的配置目录
     HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop的conf目录
     HIVE_CONF_DIR=/appcom/config/hive-config   #hive的conf目录
 ```
-        
-   （2）修改数据库配置 
 
-```bash   
-       vi conf/db.sh 
+   （2）修改数据库配置
+
+```bash
+       vi conf/db.sh
 ```
-            
-```properties    
+
+```properties
 
     # 设置数据库的连接信息
     # 包括IP地址、数据库名称、用户名、端口
@@ -226,10 +222,9 @@ sidebar_position: 1
     MYSQL_USER=
     MYSQL_PASSWORD=
  ```
- 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;环境准备完毕，点我进入  [5-安装部署](#5-安装部署)
- 
- 
+
 ## 4 标准版Linkis环境准备
 
 ### 4.1 基础软件安装
@@ -239,21 +234,20 @@ sidebar_position: 1
 - MySQL (5.5+)，[如何安装MySQL](https://www.runoob.com/mysql/mysql-install.html)
 - JDK (1.8.0_141以上)，[如何安装JDK](https://www.runoob.com/java/java-environment-setup.html)
 - Python(2.x和3.x都支持)，[如何安装Python](https://www.runoob.com/python/python-install.html)
-- Hadoop(**社区版和CDH3.0以下版本都支持**) 
+- Hadoop(**社区版和CDH3.0以下版本都支持**)
 - Hive(1.2.1，**2.0和2.0以上版本，可能存在兼容性问题**)
-- Spark(**Linkis release0.7.0开始，支持Spark2.0以上所有版本**) 
-
+- Spark(**Linkis release0.7.0开始，支持Spark2.0以上所有版本**)
 
 ### 4.2 创建用户
-        
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如: **部署用户是hadoop账号**
-   
+
 1. 在所有需要部署的机器上创建部署用户，用于安装
 
 ```bash
     sudo useradd hadoop
 ```  
-        
+
 2. 因为Linkis的服务是以 sudo -u ${linux-user} 方式来切换引擎，从而执行作业，所以部署用户需要有 sudo 权限，而且是免密的。
 
 ```bash
@@ -268,7 +262,7 @@ sidebar_position: 1
   
     修改安装用户的.bash_rc，命令如下：
 
-```bash     
+```bash
     vim /home/hadoop/.bash_rc
 ```
 
@@ -309,16 +303,16 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先解压安装包到安装目录，并对解压后的文件进行配置修改。
 
-```bash   
+```bash
     tar -xvf  wedatasphere-linkis-x.x.0-dist.tar.gz
 ```
-      
+
    （1）修改基础配置  
 
 ```bash
-    vi conf/config.sh   
+    vi conf/config.sh
 ```
-        
+
 ```properties
     SSH_PORT=22        #指定SSH端口，如果单机版本安装可以不配置
     deployUser=hadoop      #指定部署用户
@@ -330,20 +324,20 @@ sidebar_position: 1
     HIVE_META_URL=jdbc://...   # HiveMeta元数据库的URL
     HIVE_META_USER=   # HiveMeta元数据库的用户
     HIVE_META_PASSWORD=    # HiveMeta元数据库的密码
-    
-    # 配置hadoop/hive/spark的配置目录 
+
+    # 配置hadoop/hive/spark的配置目录
     HADOOP_CONF_DIR=/appcom/config/hadoop-config  #hadoop的conf目录
     HIVE_CONF_DIR=/appcom/config/hive-config   #hive的conf目录
     SPARK_CONF_DIR=/appcom/config/spark-config #spark的conf目录
 ```
 
-   （2）修改数据库配置 
+   （2）修改数据库配置
 
-```bash   
-    vi conf/db.sh 
+```bash
+    vi conf/db.sh
 ```
-            
-```properties    
+
+```properties
 
     # 设置数据库的连接信息
     # 包括IP地址、数据库名称、用户名、端口
@@ -354,10 +348,10 @@ sidebar_position: 1
     MYSQL_USER=
     MYSQL_PASSWORD=
  ```
- 
+
 ## 5 安装部署
 
-### 5.1 执行安装脚本：
+### 5.1 执行安装脚本
 
 ```bash
     sh bin/install.sh
@@ -375,37 +369,35 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**第一次安装**必须选是。
 
-### 5.3 是否安装成功：
+### 5.3 是否安装成功
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过查看控制台打印的日志信息查看是否安装成功。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果有错误信息，可以查看具体报错原因。
 
-
 ### 5.4 快速启动Linkis
 
-#### (1)、启动服务：
+#### (1)、启动服务
   
-  在安装目录执行以下命令，启动所有服务：    
+  在安装目录执行以下命令，启动所有服务：
 
 ```bash  
   ./bin/start-all.sh > start.log 2>start_error.log
 ```
-        
+
 #### (2)、查看是否启动成功
-    
+
   可以在Eureka界面查看服务启动成功情况，查看方法：
-    
-  使用http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, 在浏览器中打开，查看服务是否注册成功。
-    
-  如果您没有在config.sh指定EUREKA_INSTALL_IP和EUREKA_INSTALL_IP，则HTTP地址为：http://127.0.0.1:20303
-    
+
+  使用<http://${EUREKA_INSTALL_IP}:${EUREKA_PORT>}, 在浏览器中打开，查看服务是否注册成功。
+
+  如果您没有在config.sh指定EUREKA_INSTALL_IP和EUREKA_INSTALL_IP，则HTTP地址为：<http://127.0.0.1:20303>
+
   如下图，如您的Eureka主页出现以下微服务，则表示服务都启动成功，可以正常对外提供服务了：
 
   __注意:__ 其中标红的为DSS服务，其余为Linkis服务，如果只使用linkis可以忽略标红的部分
-    
- ![Eureka](../images/ch1/Eureka_homepage.png)
 
+ ![Eureka](../images/ch1/Eureka_homepage.png)
 
 ## 6. 快速使用Linkis
 
@@ -420,16 +412,15 @@ sidebar_position: 1
 ```
     com.webank.wedatasphere.linkis.ujes.client.UJESClientImplTestJ # 基于Java实现的测试类
     com.webank.wedatasphere.linkis.ujes.client.UJESClientImplTest # 基于Scala实现的测试类
-    
-```        
+
+```
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果您clone了Linkis的源代码，可以直接运行这两个测试类。
-   
 
 ### 6.3 快速实现
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**下面具体介绍如何快速实现一次对Linkis的代码提交执行。**
-   
+
 #### 6.3.1 maven依赖
 
 ```xml
@@ -477,7 +468,7 @@ public class UJESClientImplTestJ{
                 .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis认证方式
                 .setAuthTokenKey("johnnwang").setAuthTokenValue("Abcd1234")))  //认证key，一般为用户名;  认证value，一般为用户名对应的密码
                 .setDWSVersion("v1").build();  //Linkis后台协议的版本，当前版本为v1
-        
+
         // 2. 通过DWSClientConfig获取一个UJESClient
         UJESClient client = new UJESClientImpl(clientConfig);
 
@@ -489,7 +480,7 @@ public class UJESClientImplTestJ{
                 .setUser("johnnwang")   //User，请求用户；用于做用户级多租户隔离
                 .build());
         System.out.println("execId: " + jobExecuteResult.getExecID() + ", taskId: " + jobExecuteResult.taskID());
-        
+
         // 4. 获取脚本的执行状态
         JobStatusResult status = client.status(jobExecuteResult);
         while(!status.isCompleted()) {
@@ -498,7 +489,7 @@ public class UJESClientImplTestJ{
             Utils.sleepQuietly(500);
             status = client.status(jobExecuteResult);
         }
-        
+
         // 6. 获取脚本的Job信息
         JobInfoResult jobInfo = client.getJobInfo(jobExecuteResult);
         // 7. 获取结果集列表（如果用户一次提交多个SQL，会产生多个结果集）

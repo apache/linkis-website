@@ -25,11 +25,12 @@ other: exit
 
 Please input the choice: ## choice 1
 ```
+
 ## 3. Database upgrade
 
 &nbsp;&nbsp;&nbsp;&nbsp;  After the service is installed, the database structure needs to be modified, including table structure changes and new tables and data:
 
-### 3.1 Table structure modification part:
+### 3.1 Table structure modification part
 
 &nbsp;&nbsp;&nbsp;&nbsp;  linkis_task: The submit_user and label_json fields are added to the table. The update statement is：
 
@@ -38,7 +39,7 @@ ALTER TABLE linkis_task ADD submit_user varchar(50) DEFAULT NULL COMMENT 'submit
 ALTER TABLE linkis_task ADD `label_json` varchar(200) DEFAULT NULL COMMENT 'label json';
 ```
 
-### 3.2 Need newly executed sql：
+### 3.2 Need newly executed sql
 
 ```mysql-sql
 cd db/module

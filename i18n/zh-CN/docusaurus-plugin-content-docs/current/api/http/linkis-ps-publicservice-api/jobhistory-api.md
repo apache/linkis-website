@@ -3,9 +3,10 @@ title: 历史作业API
 sidebar_position: 1
 ---
 
-** QueryRestfulApi 类 **
+**QueryRestfulApi 类**
 
 ## 判断用户是否是管理员
+
 **接口地址**:`/api/rest_j/v1/jobhistory/governanceStationAdmin`
 
 **请求方式**:`GET`
@@ -32,8 +33,8 @@ sidebar_position: 1
 }
 ```
 
-
 ## 获取数据源的数据库名称列表
+
 **接口地址**:`/api/rest_j/v1/jobhistory/{id}/get`
 
 **请求方式**:`GET`
@@ -51,6 +52,7 @@ sidebar_position: 1
 |id|id|path|true|string||
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -58,7 +60,7 @@ sidebar_position: 1
     "message": "OK",
     "data": {
         "task": {
-                "taskID": 1, 
+                "taskID": 1,
                 "instance": "xxx",
                 "execId": "exec-id-xxx",
                 "umUser": "test",
@@ -85,6 +87,7 @@ sidebar_position: 1
 ```
 
 ## 历史任务列表
+
 **接口地址**:`/api/rest_j/v1/jobhistory/list`
 
 **请求方式**:`GET`
@@ -111,6 +114,7 @@ sidebar_position: 1
 |isAdminView|isAdminView|path|false|Boolean||
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -169,6 +173,7 @@ sidebar_position: 1
 ```
 
 ## 未完成的历史任务列表
+
 **接口地址**:`/api/rest_j/v1/jobhistory/listundone`
 
 **请求方式**:`GET`
@@ -193,6 +198,7 @@ sidebar_position: 1
 |creator|creator|path|false|string||
 
 **响应示例**:
+
 ```javascript
 {
     "method": null,

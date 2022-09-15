@@ -2,46 +2,49 @@
 title: 如何编写单元测试代码
 sidebar_position: 10
 ---
-## 框架选型 
-Junit5+Mockito+jacoco+h2本地数据库 
-Idea增强插件 
+## 框架选型
+
+Junit5+Mockito+jacoco+h2本地数据库
+Idea增强插件
+
 - JUnitGenerator V2.​0  用于生成测试用例的标准模块
 - GenerateAllSet   用于快速new创建对象，并设置默认值
 - MybatisX  dao与mapper的关联映射 方便查看
 
-### 配置IDEA的Junit的模板 
+### 配置IDEA的Junit的模板
+
 ```properties
-######################################################################################## 
-## 
-## Available variables: 
-##         $entryList.methodList - List of method composites 
-##         $entryList.privateMethodList - List of private method composites 
-##         $entryList.fieldList - ArrayList of class scope field names 
-##         $entryList.className - class name 
-##         $entryList.packageName - package name 
-##         $today - Todays date in MM/dd/yyyy format 
-## 
-##            MethodComposite variables: 
-##                $method.name - Method Name 
-##                $method.signature - Full method signature in String form 
-##                $method.reflectionCode - list of strings representing commented out reflection code to access method (Private Methods) 
-##                $method.paramNames - List of Strings representing the method's parameters' names 
-##                $method.paramClasses - List of Strings representing the method's parameters' classes 
-## 
-## You can configure the output class name using "testClass" variable below. 
-## Here are some examples: 
-## Test${entry.ClassName} - will produce TestSomeClass 
-## ${entry.className}Test - will produce SomeClassTest 
-## 
-######################################################################################## 
-## 
-## 首字母大写 
-#macro (cap $strIn)$strIn.valueOf($strIn.charAt(0)).toUpperCase()$strIn.substring(1)#end 
+########################################################################################
+##
+## Available variables:
+##         $entryList.methodList - List of method composites
+##         $entryList.privateMethodList - List of private method composites
+##         $entryList.fieldList - ArrayList of class scope field names
+##         $entryList.className - class name
+##         $entryList.packageName - package name
+##         $today - Todays date in MM/dd/yyyy format
+##
+##            MethodComposite variables:
+##                $method.name - Method Name
+##                $method.signature - Full method signature in String form
+##                $method.reflectionCode - list of strings representing commented out reflection code to access method (Private Methods)
+##                $method.paramNames - List of Strings representing the method's parameters' names
+##                $method.paramClasses - List of Strings representing the method's parameters' classes
+##
+## You can configure the output class name using "testClass" variable below.
+## Here are some examples:
+## Test${entry.ClassName} - will produce TestSomeClass
+## ${entry.className}Test - will produce SomeClassTest
+##
+########################################################################################
+##
+## 首字母大写
+#macro (cap $strIn)$strIn.valueOf($strIn.charAt(0)).toUpperCase()$strIn.substring(1)#end
 ## 首字母小写 自定义down
 #macro (down $strIn)$strIn.valueOf($strIn.charAt(0)).toLowerCase()$strIn.substring(1)#end
-## Iterate through the list and generate testcase for every entry. 
-#foreach ($entry in $entryList) 
-#set( $testClass="${entry.className}Test") 
+## Iterate through the list and generate testcase for every entry.
+#foreach ($entry in $entryList)
+#set( $testClass="${entry.className}Test")
 ##
 
 /*
@@ -61,59 +64,60 @@ Idea增强插件
  * limitations under the License.
  */
 
-package $entry.packageName; 
- 
+package $entry.packageName;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-/** 
+/**
  * ${entry.className} Tester
-*/ 
-public class $testClass { 
- 
+*/
+public class $testClass {
+
     @Autowired
     private ${entry.className} #down(${entry.className});
- 
+
     @BeforeEach
     @DisplayName("Each unit test method is executed once before execution")
     public void before() throws Exception {
     }
- 
+
     @AfterEach
     @DisplayName("Each unit test method is executed once before execution")
     public void after() throws Exception {
     }
- 
-#foreach($method in $entry.methodList) 
- 
-    @Test
-    @DisplayName("Method description: ...")
-    public void test#cap(${method.name})() throws Exception { 
-        //TODO: Test goes here... 
-    } 
- 
-#end 
- 
-#foreach($method in $entry.privateMethodList) 
+
+#foreach($method in $entry.methodList)
 
     @Test
     @DisplayName("Method description: ...")
-    public void test#cap(${method.name})() throws Exception { 
-        //TODO: Test goes here... 
-    #foreach($string in $method.reflectionCode) 
-    $string 
-    #end 
-    } 
- 
-#end 
-} 
+    public void test#cap(${method.name})() throws Exception {
+        //TODO: Test goes here...
+    }
+
+#end
+
+#foreach($method in $entry.privateMethodList)
+
+    @Test
+    @DisplayName("Method description: ...")
+    public void test#cap(${method.name})() throws Exception {
+        //TODO: Test goes here...
+    #foreach($string in $method.reflectionCode)
+    $string
+    #end
+    }
+
+#end
+}
 #end
 
 ```
-![test-0](https://user-images.githubusercontent.com/29391030/155080741-7e6b89db-0ee6-48e1-a858-4123d5bbf2f0.png) 
+
+![test-0](https://user-images.githubusercontent.com/29391030/155080741-7e6b89db-0ee6-48e1-a858-4123d5bbf2f0.png)
 
 1.配置配置测试类生成路径  
 原配置：${SOURCEPATH}/test/${PACKAGE}/${FILENAME}
@@ -124,10 +128,11 @@ public class $testClass {
 ![test-2](https://user-images.githubusercontent.com/29391030/155080650-4fa68c66-5d7c-4e9f-ba63-0c7fc62d9df2.png)
 
 ## 单元测试准则
+
 ### 目录以及命名准则
 
 - 1.单元测试代码目录
-    必须写在如下工程目录：src/test/java，不允许写在业务代码目录下。   
+    必须写在如下工程目录：src/test/java，不允许写在业务代码目录下。
     说明：源码编译时会跳过此目录，而单元测试框架默认是扫描此目录，测试的配置文件必须放在:src/test/resources文件下
 
 - 2.测试类所在的包名应该和被测试类所在的包名保持一致  
@@ -139,28 +144,28 @@ public class $testClass {
     测试类的命名如下：  
     被测试的业务+Test、被测试的接口+Test、被测试的类+Test
 
-- 4.测试用例的命名定义规范：使用test作为方法名的前缀    
+- 4.测试用例的命名定义规范：使用test作为方法名的前缀
     测试用例的命名规则是：test+方法名。避免使用test1、test2没有含义的名称，其次需要有必要的函数方法注释。
 
-
 ### 编写准则
+
 - 1.单元测试中不准使用 System.out 来进行人肉验证，或则if判断来验证（可以使用log进行关键日志输出），必须使用断言 assert 来验证。
 
-- 2.保持单元测试的独立性。为了保证单元测试稳定可靠且便于维护，单元测试用例之间决不能互相调用，也不能依赖执行的先后次序。   
+- 2.保持单元测试的独立性。为了保证单元测试稳定可靠且便于维护，单元测试用例之间决不能互相调用，也不能依赖执行的先后次序。
     反例：method2 需要依赖 method1 的执行，将执行结果作为 method2 的输入
 
-- 3.单元测试必须可以重复执行的，不能受到外界环境的影响。 
-    说明：单元测试通常会被放到持续集成中，每次有代码 check in 时单元测试都会被执行。如果单测对外部环境（网络、服务、中间件等）有依赖，容易导致持续集成机制的不可用。   
+- 3.单元测试必须可以重复执行的，不能受到外界环境的影响。
+    说明：单元测试通常会被放到持续集成中，每次有代码 check in 时单元测试都会被执行。如果单测对外部环境（网络、服务、中间件等）有依赖，容易导致持续集成机制的不可用。
     正例：为了不受外界环境影响，要求设计代码时就把被测类的相关依赖改成注入，在测试时用 spring 这样的依赖注入框架注入一个本地（内存）实现或者 Mock 实现。
 
-- 4.增量代码确保单元测试通过。   
+- 4.增量代码确保单元测试通过。
     说明：新增代码必须补充单元测试，如果新增代码影响了原有单元测试，请修正
 
-- 5.对于单元测试，要保证测试粒度足够小，有助于精确定位问题。单测粒度一般都是方法级别(工具类或则枚举类等极少场景可以是类级别)。   
+- 5.对于单元测试，要保证测试粒度足够小，有助于精确定位问题。单测粒度一般都是方法级别(工具类或则枚举类等极少场景可以是类级别)。
     说明：只有测试粒度小才能在出错时尽快定位到出错位置。单测不负责检查跨类或者跨系统的交互逻辑，那是集成测试的领域。
 
+## 断言的使用
 
- ## 断言的使用
 所有的测试用例的结果验证都必须使用断言模式
 优先使用Junit5的Assertions断言，极少数场景允许使用AssertJ的断言  
 
@@ -168,16 +173,19 @@ public class $testClass {
 
 | 方法 | 说明    | 备注 |
 |--------|-------------|-------------|
-|assertEquals | 判断两个对象或两个原始类型是否相等|        | 
-|assertNotEquals| 判断两个对象或两个原始类型是否不相等|        | 
-|assertTrue| 判断给定的布尔值是否为 true|        | 
-|assertFalse| 判断给定的布尔值是否为 false   |       | 
-|assertNull| 判断给定的对象引用是否为 null|         | 
-|assertNotNull| 判断给定的对象引用是否不为 null |        | 
-|assertAll| 将多个判断逻辑放在一起处理，只要有一个报错就会导致整体测试不通过 |        | 
+|assertEquals | 判断两个对象或两个原始类型是否相等|        |
+|assertNotEquals| 判断两个对象或两个原始类型是否不相等|        |
+|assertTrue| 判断给定的布尔值是否为 true|        |
+|assertFalse| 判断给定的布尔值是否为 false   |       |
+|assertNull| 判断给定的对象引用是否为 null|         |
+|assertNotNull| 判断给定的对象引用是否不为 null |        |
+|assertAll| 将多个判断逻辑放在一起处理，只要有一个报错就会导致整体测试不通过 |        |
+
 ### Junit5组合断言和异常断言
+
 **组合断言**
 assertAll方法可以将多个判断逻辑放在一起处理，只要有一个报错就会导致整体测试不通过：
+
 ```java
     @Test
     @DisplayName("assert all")
@@ -189,10 +197,11 @@ assertAll方法可以将多个判断逻辑放在一起处理，只要有一个�
      );
     }
 ```
-**异常断言 **
+**异常断言**
 Assertions.assertThrows方法，用来测试Executable实例执行execute方法时是否抛出指定类型的异常；
 如果execute方法执行时不抛出异常，或者抛出的异常与期望类型不一致，都会导致测试失败；
 示例:
+
 ```java
     @Test
     @DisplayName("异常的断言")
@@ -203,30 +212,33 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
         log.info("assertThrows通过后，返回的异常实例：{}", exception.getMessage());
     }
 ```
+
 ### 断言使用准则
+
 **对象实例是否相等断言**  
 1.是否是同一个对象实例
+
   ```html
     使用Junitd的Assertions.assertEquals
     Assertions.assertEquals(expectedJobDetail, actualJobDetail)
   ```
 
-
   不是同一个实例，但是比较实例的属性值是否完全相等
   AssertJ
+
   ```html
     常用场景 数据库更新操作前/后的对象比较
     使用AssertJ的assertThat断言usingRecursiveComparison模式
     Assertions.assertThat(actualObject).usingRecursiveComparison().isEqualTo(expectedObject);
   ```
 
-
-2.list等集合结果的断言 
-  结果集集合的大小需要断言 
-  范围或则具体大size 
+2.list等集合结果的断言
+  结果集集合的大小需要断言
+  范围或则具体大size
 
   结果集集合中的每个对象需要断言,推荐结合stream模式的Predicate进行使用
   示例:
+
   ```java
     ArrayList<JobRespProtocol> jobRespProtocolArrayList=service.batchChange(jobDetailReqBatchUpdate);
     //list配和stream的predicate进行断言判断
@@ -235,19 +247,22 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
     assertTrue(jobRespProtocolArrayList.stream().anyMatch(statusPrecate));
   ```
 
-
 ## 单元测试的编写
+
 ### 类的划分
+
 按类的大功能可以大体分类
-- Controller  提供http服务的controller 配合mockmvc做单元测试 
+
+- Controller  提供http服务的controller 配合mockmvc做单元测试
 - Service   业务逻辑代码的service层
 - Dao 与数据库操作的Dao层
 - util工具功能类 常用的功能工具
 - exception类  自定义的异常类
-- enum类 枚举类   
+- enum类 枚举类
 - entity类  用于DB交互以及方法处理的参数VO对象等实体类（若除了正常得get set外还有其他自定义函数的需要进行单元测试）
 
 ### Controller类的单元测试
+
 使用Mockmvc
 主要验证 接口请求RequestMethod方式，基本参数，以及返回结果预期。
 主要场景:带上非必要参数和不带非必要参数的场景 异常
@@ -281,9 +296,13 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
     }
 
 ```
+
 ### Server 类的单元测试
+
     //todo
+
 ### Dao 类的单元测试
+
 使用H2数据库，配置文件中application.properties中需要配置H2数据库的基本信息，以及mybatis的相关路径信息
 
 ```properties
@@ -314,16 +333,10 @@ mybatis-plus.type-aliases-package=org.apache.linkis.jobhistory.entity
 mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 ```
 
-编写规范 
+编写规范
+
 1. 使用@Transactional以及@Rollback 实现数据回滚，避免数据污染
 2. 每一个DaoTest应该有一个创建初始化数据公共方法（或导入数据的方式csv）来准备数据,相关的查询，更新，删除等操作都应该先调用该公共方法进行数据的准备
 3. 创建测试的数据，如果某属性值是自增id，则不应该进行赋值
 4. 创建的测试数据，应尽可能和实际样例数据保持一致
 5. 更新数据测试时，如果字段允许，请带上`modify-原始值`前缀
-
-
-
-
-
-
-

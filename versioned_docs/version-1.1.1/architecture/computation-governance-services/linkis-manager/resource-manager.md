@@ -4,17 +4,23 @@ sidebar_position: 3
 ---
 
 ## 1. Background
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResourceManager (RM for short) is the computing resource management module of Linkis. All EngineConn (EC for short), EngineConnManager (ECM for short), and even external resources including Yarn are managed by RM. RM can manage resources based on users, ECM, or other granularities defined by complex tags.  
+
 ## 2. The role of RM in Linkis
+
 ![01](/Images/Architecture/rm-01.png)
 ![02](/Images/Architecture/rm-02.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As a part of Linkis Manager, RM mainly functions as follows: maintain the available resource information reported by ECM, process the resource application submitted by ECM, record the actual resource usage information reported by EC in real time during the life cycle after successful application, and provide query current resource usage The relevant interface of the situation.  
 In Linkis, other services that interact with RM mainly include:  
+
 1. Engine Manager, ECM for short: Processes the microservices that start the engine connector request. As a resource provider, ECM is responsible for registering and unregistering resources with RM. At the same time, as the manager of the engine, ECM is responsible for applying for resources from RM instead of the new engine connector that is about to start. For each ECM instance, there is a corresponding resource record in the RM, which contains information such as the total resources and protection resources it provides, and dynamically updates the used resources.  
 ![03](/Images/Architecture/rm-03.png)  
 2. The engine connector, referred to as EC, is the actual execution unit of user operations. At the same time, as the actual user of the resource, the EC is responsible for reporting the actual use of the resource to the RM. Each EC has a corresponding resource record in the RM: during the startup process, it is reflected as a locked resource; during the running process, it is reflected as a used resource; after being terminated, the resource record is subsequently deleted.  
 ![04](/Images/Architecture/rm-04.png)  
+
 ## 3. Resource type and format
+
 ![05](/Images/Architecture/rm-05.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As shown in the figure above, all resource classes implement a top-level Resource interface, which defines the calculation and comparison methods that all resource classes need to support, and overloads the corresponding mathematical operators to enable resources to be Directly calculated and compared like numbers.  
 
@@ -39,8 +45,10 @@ In Linkis, other services that interact with RM mainly include:
 | SpecialResource | Other custom resources |  
 
 ## 4. Available resource management
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The available resources in the RM mainly come from two sources: the available resources reported by the ECM, and the resource limits configured according to tags in the Configuration module.  
 **ECM resource report**:  
+
 1. When the ECM is started, it will broadcast the ECM registration message. After receiving the message, the RM will register the resource according to the content contained in the message. The resource-related content includes:
 
      1. Total resources: the total number of resources that the ECM can provide.
@@ -61,7 +69,9 @@ In Linkis, other services that interact with RM mainly include:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The RM queries the Configuration module for resource information through the RPC message, using the combined tag as the query condition, and converts it into a Resource object to participate in subsequent comparison and recording.  
 
 ## 5. Resource Usage Management  
+
 **Receive user's resource application:**  
+
 1. When LinkisManager receives a request to start EngineConn, it will call RM's resource application interface to apply for resources. The resource application interface accepts an optional time parameter. When the waiting time for applying for a resource exceeds the limit of the time parameter, the resource application will be automatically processed as a failure.  
 **Judging whether there are enough resources:**  
 That is, to determine whether the remaining available resources are greater than the requested resources, if greater than or equal to, the resources are sufficient; otherwise, the resources are insufficient.
@@ -117,6 +127,7 @@ That is, to determine whether the remaining available resources are greater than
 5. The unlocking each tag
 
 ## 6. External resource management
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In RM, in order to classify resources more flexibly and expansively, support multi-cluster resource management and control, and at the same time make it easier to access new external resources, the following considerations have been made in the design:
 
 1. Unified management of resources through tags. After the resource is registered, it is associated with the tag, so that the attributes of the resource can be expanded infinitely. At the same time, resource applications are also tagged to achieve flexible matching.

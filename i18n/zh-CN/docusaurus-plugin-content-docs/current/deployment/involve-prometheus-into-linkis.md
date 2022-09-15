@@ -8,7 +8,6 @@ sidebar_position: 11
 
 ### 1.1 Prometheus是什么
 
-
 Prometheus 是一个云原生计算基金会项目，是一个系统和服务监控系统。它以给定的时间间隔从配置的目标收集指标，评估规则表达式，显示结果，并在观察到指定条件时触发警报。
 
 在微服务上下文中，它提供了服务发现功能，可以从服务注册中心动态查找目标，如 Eureka、Consul 等，并通过 http 协议从 API 端点拉取指标。
@@ -78,6 +77,7 @@ wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ```
 
 如果在引擎内部，如 spark、flink 或 hive，都需要手动添加相同的配置。
+
 ```yaml
 ## linkis-engineconn.properties  ##
 ...
@@ -85,10 +85,12 @@ wds.linkis.prometheus.enable=true
 wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
 ```
+
 ### 2.2 已经安装后 启用 Prometheus
 
 修改`${LINKIS_HOME}/conf/application-linkis.yml`
 endpoints配置修改 增加`prometheus`
+
 ```yaml
 ## application-linkis.yml  ##
 management:
@@ -123,19 +125,18 @@ wds.linkis.prometheus.enable=true
 ### 2.3 启动Linkis
 
 ```bash
-$ bash linkis-start-all.sh
+bash linkis-start-all.sh
 ````
 
-Linkis启动后，各个微服务的prometheus端点是可以直接被访问的，例如http://linkishost:9103/api/rest_j/v1/actuator/prometheus
+Linkis启动后，各个微服务的prometheus端点是可以直接被访问的，例如<http://linkishost:9103/api/rest_j/v1/actuator/prometheus>
 :::caution 注意
-gateway/eureka 服务prometheus端点是没有`api/rest_j/v1`前缀的   http://linkishost:9001/actuator/prometheus
+gateway/eureka 服务prometheus端点是没有`api/rest_j/v1`前缀的   <http://linkishost:9001/actuator/prometheus>
 :::
-
 
 ## 3. 部署 Prometheus,Alertmanager和 Grafana 示例
 
 :::caution 注意
-gateway/eureka 服务prometheus端点是没有`api/rest_j/v1`前缀的   http://linkishost:9001/actuator/prometheus
+gateway/eureka 服务prometheus端点是没有`api/rest_j/v1`前缀的   <http://linkishost:9001/actuator/prometheus>
 :::
 
 通常来说，云原生应用程序的监控设置将部署在具有服务发现和高可用性的 Kubernetes 上（例如，使用像 Prometheus Operator 这样的 Kubernetes Operator）。
@@ -274,6 +275,7 @@ groups:
 - 应用指标端口的连接信息。
 
 这是 Linkis 的示例配置文件:
+
 ````yaml
 ## prometheus.yml ##
 # my global config
@@ -306,7 +308,9 @@ scrape_configs:
         target_label: __metrics_path__
         regex: (.+)
 ````
+
 第四点，下面的配置定义了警报将如何发送到外部webhook。
+
 ```yaml
 ## alertmanager.yml ##
 global:
@@ -315,7 +319,7 @@ global:
 route:
   receiver: 'webhook'
   group_by: ['alertname']
-   
+
   # How long to wait to buffer alerts of the same group before sending a notification initially.
   group_wait: 1m
   # How long to wait before sending an alert that has been added to a group for which there has already been a notification.
@@ -334,6 +338,7 @@ receivers:
 最后，在定义完所有配置文件以及 docker compose 文件后，我们可以使用 docker-compose up启动监控套件
 
 ## 4. 结果展示
+
 在 Prometheus 页面上，预计会看到所有 Linkis 服务实例，如下所示：
 ![](/Images/deployment/monitoring/prometheus_screenshot.jpg)
 

@@ -61,7 +61,7 @@ The linkis.properties modification of each service is different, now all service
     wds.linkis.server.mybatis.datasource.url=jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?characterEncoding=UTF-8
     wds.linkis.server.mybatis.datasource.username=$MYSQL_USER
     wds.linkis.server.mybatis.datasource.password=$MYSQL_PASSWORD
-    
+
     wds.linkis.workspace.filesystem.localuserrootpath=$WORKSPACE_USER_ROOT_PATH ##Workspace directory
     wds.linkis.workspace.filesystem.hdfsuserrootpath.prefix=$HDFS_USER_ROOT_PATH ##HDFS user root directory
 ```

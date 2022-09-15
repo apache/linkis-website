@@ -12,7 +12,7 @@ sidebar_position: 0.1
 - [开启SkyWalking功能](/deployment/involve-skywalking-into-linkis.md)
 - [版本的release-notes](/download/release-notes-1.1.0)
 
-## 参数变化 
+## 参数变化
 
 | 模块名(服务名)| 类型  |     参数名                                                | 默认值                                                | 描述                                                    |
 | ----------- | ----- | -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
@@ -32,6 +32,6 @@ sidebar_position: 0.1
 |ps-data-source-manager| 新增  | wds.linkis.server.dsm.auth.admin                      | hadoop                                                | datasourcemanager 部分接口权限验证用户  |
 |cg-engineconnmanager| 修改  | wds.linkis.engineconn.max.free.time                     | 1h -> 0.5h                                           | EngineConn的最大空闲时间 从1h调至0.5h |
 
-## 数据库表变化 
+## 数据库表变化
 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.0_schema`文件
+详细见代码仓库(<https://github.com/apache/incubator-linkis>) 对应分支中的升级schema`db/upgrade/1.1.0_schema`文件

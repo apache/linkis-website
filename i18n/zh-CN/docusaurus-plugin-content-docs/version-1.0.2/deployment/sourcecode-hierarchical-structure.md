@@ -7,7 +7,6 @@ sidebar_position: 5
 
 > Linkis代码层级目录结构说明，如果您想详细了解Linkis各个模块，请查看[Linkis的相关架构设计](architecture/overview.md)
 
-
 ```html
 
 |-- assembly-combined-package //编译整个项目的模块
@@ -36,11 +35,11 @@ sidebar_position: 5
 |        |-- linkis-entrance-client
 |        |-- linkis-jdbc-driver
 |        |-- linkis-manager
-|    
+|
 |-- linkis-engineconn-plugins
 |        |-- engineconn-plugins
 |        |-- linkis-engineconn-plugin-framework
-|    
+|
 |-- linkis-extensions
 |        |-- linkis-io-file-client
 |-- linkis-orchestrator

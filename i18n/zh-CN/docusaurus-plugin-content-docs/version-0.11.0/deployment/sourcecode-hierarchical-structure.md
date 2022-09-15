@@ -48,7 +48,7 @@ sidebar_position: 5
 │  │  └─io-entrance   //远程存储的请求入口
 │  └─storage    //统一存储的对外统一接口
 └─ujes    //统一作业执行服务
-│  ├─client    //Java SDK，用户通过Client可直接访问Linkis   
+│  ├─client    //Java SDK，用户通过Client可直接访问Linkis
 │  ├─definedEngines    //已经实现的引擎  
 │  │  ├─hive    //Hive引擎
 │  │  │  ├─engine    //实际对接底层Hive的engine执行端
@@ -64,10 +64,10 @@ sidebar_position: 5
 │  │  │  └─entrance
 │  │  ├─spark    //spark引擎
 │  │  │  ├─engine    //实际对接底层Spark的engine执行端
-│  │  │  ├─enginemanager   
-│  │  │  └─entrance   
+│  │  │  ├─enginemanager
+│  │  │  └─entrance
 │  │  └─tispark    //TiSpark引擎，实际对接TiSpark的engine端
-│  ├─engine    //通用底层engine模块   
+│  ├─engine    //通用底层engine模块
 │  ├─enginemanager    //通用底层enginemanager模块  
 │  ├─entrance    //通用底层entrance模块  
 │  └─entranceclient    //简化版的entrance

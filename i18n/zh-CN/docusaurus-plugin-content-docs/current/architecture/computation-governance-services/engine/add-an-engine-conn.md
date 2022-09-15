@@ -37,8 +37,9 @@ EngineConn的新增，是Linkis计算治理的计算任务准备阶段的核心�
 1. 在获取到分配的ECM后，AM接着会通过调用EngineConnPluginServer服务请求本次客户端的引擎创建请求会使用多少的资源，这里会通过封装资源请求，主要包含Label、Client传递过来的EngineConn的启动参数、以及从Configuration模块获取到用户配置参数，通过RPC调用ECP服务去获取本次的资源信息。
 
 2. EngineConnPluginServer服务在接收到资源请求后，会先通过传递过来的标签找到对应的引擎标签，通过引擎标签选择对应引擎的EngineConnPlugin。然后通过EngineConnPlugin的资源生成器，对客户端传入的引擎启动参数进行计算，算出本次申请新EngineConn所需的资源，然后返回给LinkisManager。
-   
+
    **名词解释：**
+
 - EgineConnPlugin：是Linkis对接一个新的计算存储引擎必须要实现的接口，该接口主要包含了这种EngineConn在启动过程中必须提供的几个接口能力，包括EngineConn资源生成器、EngineConn启动命令生成器、EngineConn引擎连接器。具体的实现可以参考Spark引擎的实现类：[SparkEngineConnPlugin](https://github.com/apache/incubator-linkis/blob/master/linkis-engineconn-plugins/spark/src/main/scala/com/webank/wedatasphere/linkis/engineplugin/spark/SparkEngineConnPlugin.scala)。
 
 - EngineConnPluginServer：是加载了所有的EngineConnPlugin，对外提供EngineConn的所需资源生成能力和EngineConn的启动命令生成能力的微服务。
@@ -46,6 +47,7 @@ EngineConn的新增，是Linkis计算治理的计算任务准备阶段的核心�
 - EngineConnPlugin资源生成器（EngineConnResourceFactory）：通过传入的参数，计算出本次EngineConn启动时需要的总资源。
 
 - EngineConn启动命令生成器（EngineConnLaunchBuilder）：通过传入的参数，生成该EngineConn的启动命令，以提供给ECM去启动引擎。
+
 3. AM在获取到引擎资源后，会接着调用RM服务去申请资源，RM服务会通过传入的Label、ECM、本次申请的资源，去进行资源判断。首先会判断客户端对应Label的资源是否足够，然后再会判断ECM服务的资源是否足够,如果资源足够，则本次资源申请通过，并对对应的Label进行资源的加减。
 
 ### 1.4 请求ECM创建引擎

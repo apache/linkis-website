@@ -3,28 +3,21 @@ title: UDF Operations Management
 sidebar_position: 16
 ---
 
-** UDFApi class **
+**UDFApi class**
 
 ## new
 
 **Interface address**:`/api/rest_j/v1/udf/add`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Added</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -45,9 +38,7 @@ sidebar_position: 16
 |updateTime|Update time|false|Date|Date|
 |useFormat|Use Format|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -57,9 +48,7 @@ sidebar_position: 16
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -68,8 +57,8 @@ sidebar_position: 16
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -79,37 +68,26 @@ sidebar_position: 16
 }
 ````
 
-
 ## udf tree menu
-
 
 **Interface address**:`/api/rest_j/v1/udf/all`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Get detailed information of udf tree menu</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |path|Request Path|false|String|String|
 |jsonString|jsonString|false|string|string|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -119,9 +97,7 @@ sidebar_position: 16
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -130,8 +106,8 @@ sidebar_position: 16
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -140,29 +116,20 @@ sidebar_position: 16
 "status": 0
 }
 ````
-
 
 ## Get udf user list
 
-
 **Interface address**:`/api/rest_j/v1/udf/allUdfUsers`
-
 
 **Request method**: `GET`
 
-
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Get udf user list</p>
 
-
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -171,9 +138,7 @@ sidebar_position: 16
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -182,8 +147,8 @@ sidebar_position: 16
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -192,35 +157,24 @@ sidebar_position: 16
 "status": 0
 }
 ````
-
 
 ## confirmed
 
-
 **Interface address**: `/api/rest_j/v1/udf/authenticate`
-
 
 **Request method**: `POST`
 
-
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Prove...is real</p>
 
-
-
 **Request Parameters**:
-
 
 No
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -230,9 +184,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -241,8 +193,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -254,33 +206,23 @@ No
 
 ## delete
 
-
 **Interface address**:`/api/rest_j/v1/udf/delete/{id}`
-
 
 **Request method**: `POST`
 
-
 **Request data type**: `application/json`
-
 
 **Response data type**: `*/*`
 
-
 **Interface description**:<p>Delete</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |id|id|false|integer|integer(int64)|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -290,9 +232,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -301,8 +241,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -311,38 +251,27 @@ No
 "status": 0
 }
 ````
-
 
 ## udf file download to local
 
-
 **Interface address**:`/api/rest_j/v1/udf/downloadToLocal`
-
 
 **Request method**: `POST`
 
-
 **Request data type**: `application/json`
-
 
 **Response data type**: `*/*`
 
-
 **Interface description**:<p>Download UDF file to local according to version parameters</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |udfId|udfId|false|integer|
 |version|version|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -352,9 +281,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -363,8 +290,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -374,37 +301,26 @@ No
 }
 ````
 
-
 ## UDF View source code
-
 
 **Interface address**:`/api/rest_j/v1/udf/downloadUdf`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p> UDF view source code</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |udfId|udfId|false|integer|
 |version|version|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -414,9 +330,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -425,8 +339,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -438,33 +352,23 @@ No
 
 ## delete
 
-
 **Interface address**:`/api/rest_j/v1/udf/delete/{id}`
-
 
 **Request method**: `POST`
 
-
 **Request data type**: `application/json`
-
 
 **Response data type**: `*/*`
 
-
 **Interface description**:<p>Delete</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |id|id|false|integer|integer(int64)|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -474,9 +378,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -485,8 +387,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -495,38 +397,27 @@ No
 "status": 0
 }
 ````
-
 
 ## udf file download to local
 
-
 **Interface address**:`/api/rest_j/v1/udf/downloadToLocal`
-
 
 **Request method**: `POST`
 
-
 **Request data type**: `application/json`
-
 
 **Response data type**: `*/*`
 
-
 **Interface description**:<p>Download UDF file to local according to version parameters</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |udfId|udfId|false|integer|
 |version|version|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -536,9 +427,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -547,8 +436,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -558,37 +447,26 @@ No
 }
 ````
 
-
 ## UDF View source code
-
 
 **Interface address**:`/api/rest_j/v1/udf/downloadUdf`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p> UDF view source code</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |udfId|udfId|false|integer|
 |version|version|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -598,9 +476,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -609,8 +485,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -622,34 +498,24 @@ No
 
 ## Publish
 
-
 **Interface address**:`/api/rest_j/v1/udf/publish`
-
 
 **Request method**: `POST`
 
-
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>UDF version released</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |udfId|udfId|false|integer|
 |version|version|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -659,9 +525,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -670,8 +534,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -680,38 +544,27 @@ No
 "status": 0
 }
 ````
-
 
 ## fallback version
 
-
 **Interface address**:`/api/rest_j/v1/udf/rollback`
-
 
 **Request method**: `POST`
 
-
 **Request data type**: `application/json`
-
 
 **Response data type**: `*/*`
 
-
 **Interface description**:<p>Back to version</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |udfId|udfId|false|integer|
 |version|version|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -721,9 +574,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -732,8 +583,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -743,36 +594,25 @@ No
 }
 ````
 
-
 ## set expiration
-
 
 **Interface address**:`/api/rest_j/v1/udf/setExpire`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Setting expired</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |udfId|udfId|false|Long|Long|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -782,9 +622,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -793,8 +631,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -804,37 +642,26 @@ No
 }
 ````
 
-
 ## UDF sharing
-
 
 **Interface address**: `/api/rest_j/v1/udf/shareUDF`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>UDF sharing</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |sharedUsers|sharedUsers|false|List|List|
 |udfInfo|udfInfo|false|UDFInfo|UDFInfo|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -844,9 +671,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -855,8 +680,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -866,28 +691,19 @@ No
 }
 ````
 
-
 ## tree new
-
 
 **Interface address**:`/api/rest_j/v1/udf/tree/add`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>tree added</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -903,9 +719,7 @@ No
 |updateTime|updateTime|false|Date|Date|
 |userName|userName|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -915,9 +729,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -926,8 +738,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -939,33 +751,23 @@ No
 
 ## tree delete
 
-
 **Interface address**:`/api/rest_j/v1/udf/tree/delete/{id}`
-
 
 **Request method**: `GET`
 
-
 **Request data type**: `application/x-www-form-urlencoded`
-
 
 **Response data type**: `*/*`
 
-
 **Interface description**:<p>tree delete</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |id|id|false|integer|integer(int64)|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -974,9 +776,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -985,8 +785,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -996,28 +796,19 @@ No
 }
 ````
 
-
 ## tree update
-
 
 **Interface address**:`/api/rest_j/v1/udf/tree/update`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>tree update</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -1033,9 +824,7 @@ No
 |updateTime|updateTime|false|Date|Date|
 |userName|userName|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -1045,9 +834,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -1056,8 +843,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -1067,28 +854,19 @@ No
 }
 ````
 
-
 ## renew
-
 
 **Interface address**:`/api/rest_j/v1/udf/update`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>UDF modification</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -1101,9 +879,7 @@ No
 |udfType|udfType|false|Integer|Integer|
 |useFormat|Use Format|false|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -1113,9 +889,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -1124,8 +898,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -1135,36 +909,25 @@ No
 }
 ````
 
-
 ## Get user directory
-
 
 **Interface address**: `/api/rest_j/v1/udf/userDirectory`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Get the first-level classification of the user's personal function</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |category|Get the user directory of the specified collection type, if the type is UDF, get the user directory under this type |false|string|string|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -1173,9 +936,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -1184,8 +945,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -1195,36 +956,25 @@ No
 }
 ````
 
-
 ## version list
-
 
 **Interface address**:`/api/rest_j/v1/udf/versionList`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>View version list</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |udfId|udfId|false|integer|integer(int64)|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -1233,9 +983,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -1244,8 +992,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},

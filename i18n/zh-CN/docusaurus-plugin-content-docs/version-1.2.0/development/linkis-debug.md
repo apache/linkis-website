@@ -45,6 +45,7 @@ mvn clean install -DskipTests
 - linkis-cg-engineplugin: linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
 
 增加到依赖的方式如下，修改对应服务的pom.xml文件讲mysql依赖加入进去，
+
 ```xml
 <dependency>
       <groupId>mysql</groupId>
@@ -76,6 +77,7 @@ mvn clean install -DskipTests
     </loggers>
 </configuration>
 ```
+
 __注意：__ linkis.properties需要修改对应的jdbc的参数
 
 ### 3.3 启动eureka服务
@@ -122,7 +124,7 @@ server:
   port: 8080 ##启动的端口
 ```
 
-上述设置完成之后，直接运行此Application，成功启动后可以通过http://localhost:20303/ 查看eureka服务列表。
+上述设置完成之后，直接运行此Application，成功启动后可以通过<http://localhost:20303/> 查看eureka服务列表。
 
 ![eureka-web](/Images/development/debug/eureka-web.png)
 
@@ -176,7 +178,7 @@ linkis-ps-publicservice
 linkis-public-enhancements
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.filesystem.LinkisPublicServiceApp
@@ -191,6 +193,7 @@ org.apache.linkis.filesystem.LinkisPublicServiceApp
 
 需要把公共依赖的模块加到linkis-public-enhancements模块的classpath下，修改pes的pom增加以下依赖：
 linkis-public-enhancements/pom.xml
+
 ```xml
  <dependency>
       <groupId>org.apache.linkis</groupId>
@@ -283,6 +286,7 @@ org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
 
 需要把公共依赖的模块加到ecp模块的classpath下，修改pes的pom增加以下依赖：
 linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
+
 ```xml
  <dependency>
       <groupId>org.apache.linkis</groupId>
@@ -325,14 +329,11 @@ org.apache.linkis.ecm.server.LinkisECMApplication
 
 针对linkis-cg-engineconnmanager模块调试暂只支持Mac OS 和 Linux系统
 
-
-
-
 ### 3.10 关键配置修改
 
 以上操作只是完成了对Linkis各个微服务启动Application的配置，除此之外，Linkis服务启动时所加载的配置文件中，有些关键配置也需要做针对性地修改，否则启动服务或脚本执行的过程中会遇到一些报错。关键配置的修改归纳如下：
 
-####  3.10.1 conf/linkis.properties
+#### 3.10.1 conf/linkis.properties
 
 ```properties
 # linkis底层数据库连接参数配置
@@ -405,7 +406,7 @@ sudo visudo
 
 然后提交执行shell代码
 
-POST: http://127.0.0.1:9001/api/rest_j/v1/entrance/submit
+POST: <http://127.0.0.1:9001/api/rest_j/v1/entrance/submit>
 
 body参数：
 
@@ -450,7 +451,7 @@ body参数：
 
 最后检查任务运行状态和获取运行结果集：
 
-GET http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0/progress
+GET <http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0/progress>
 
 ```json
 {
@@ -465,9 +466,9 @@ GET http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance
 }
 ```
 
-GET http://127.0.0.1:9001/api/rest_j/v1/jobhistory/1/get
+GET <http://127.0.0.1:9001/api/rest_j/v1/jobhistory/1/get>
 
-GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/leojie/software/linkis/data/resultSetDir/leojie/linkis/2022-07-16/214859/IDE/1/1_0.dolphin
+GET <http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/leojie/software/linkis/data/resultSetDir/leojie/linkis/2022-07-16/214859/IDE/1/1_0.dolphin>
 
 ```json
 {
@@ -496,6 +497,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 明确需要调试的包所在的服务，并根据需要调试的代码位置,确定其所属的服务
 
 ### 4.2 进入{LINKIS_HOME}/sbin/ext,修改模块配置文件开启远程调用端口
+
 ![c-port](https://user-images.githubusercontent.com/29391030/167364775-4f5d2774-b6b9-4a65-b69c-69319db870c4.png)
 
 ### 4.3 重启需要调试的服务

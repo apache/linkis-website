@@ -5,6 +5,7 @@ sidebar_position: 9
 Before each version is released, the release-notes for this version need to be organized by the release manager or developer to briefly describe the specific changes included in the new version update.
 
 In order to maintain uniformity and facilitate writing, the following specifications are formulated:
+
 - A summary of the version is required, a few sentences summarizing the core main changes of this version
 - According to the changed function points, it is classified into four categories: new features/enhancement points/fixed functions/others
 - Include a thank you column: students who have contributed to this version, in addition to issue/pr, and any students who have participated in this version discussion/community Q&A/comment suggestion
@@ -20,6 +21,7 @@ If the L1-module does not exist, or it is the adjustment of the entire service l
 ````
 
 ## Common notes tags
+
 ```html
 linkis-mg-eureka Eureka
 linkis-mg-gateway Gateway

@@ -35,6 +35,7 @@ You need to configure JDBC connection information, including connection address 
 Figure 3-1 JDBC configuration information
 
 You can also specify in the RuntimeMap of the submitted task
+
 ```shell
 wds.linkis.jdbc.connect.url
 wds.linkis.jdbc.driver
@@ -46,7 +47,7 @@ wds.linkis.jdbc.password
 You can also set parameters on the task submission interface.
 
 ```shell
-http request params example 
+http request params example
 {
     "executionContent": {"code": "show databases;", "runType":  "jdbc"},
     "params": {
@@ -72,6 +73,7 @@ http request params example
 
 Linkis provides a client method to call jdbc tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
 If you use Hive, you only need to make the following changes:
+
 ```java
         Map<String, Object> labels = new HashMap<String, Object>();
         labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "jdbc-4"); // required engineType Label
@@ -82,9 +84,11 @@ If you use Hive, you only need to make the following changes:
 ### 3.2 How to use Linkis-cli
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of JDBC is as follows:
+
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
+
 The specific usage can refer to [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 How to use Scriptis
@@ -98,6 +102,7 @@ The execution principle of JDBC is to load the JDBC Driver and submit sql to the
 Figure 3-2 Screenshot of the execution effect of JDBC
 
 ### 3.4 DataSource Manage
+
 Linkis provides data source management function after 1.2.0, we can manage different data sources in the console. Address: Login management desktop --> DataSource Manage --> Add Source
 
 ![](/Images/EngineUsage/datasourcemanage.png)
@@ -109,18 +114,20 @@ Figure 3-3 DataSource Manage
 Figure 3-4 DataSource Conn Test
 
 After the data source is completed, you can use the JDBC multi-data source switch to add, there are functional methods:
+
 1. Specify the data source name parameter through the interface parameter, as shown below:
 ![](/Images/EngineUsage/muti-data-source.png)
 
 Parameter example:
+
 ```json
 {
     "executionContent": {"code": "show databases", "runType":  "jdbc"},
-    "params": {"variable": {}, "configuration": {"startup":{}, 
-    "runtime": 
-    	{ 
-    		"dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
-    	}
+    "params": {"variable": {}, "configuration": {"startup":{},
+    "runtime":
+     {
+      "dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
+     }
     }}},
     "source":  {"scriptPath": ""},
     "labels": {
@@ -136,7 +143,7 @@ Parameter: wds.linkis.engine.runtime.datasource is a configuration with a fixed 
    ![](/Images/EngineUsage/muti-data-source-usage.png)
 
 Currently dss-1.1.0 does not yet support drop-down selection of data source name, PR is under development, you can wait for subsequent releases or pay attention to related PRs:
-(https://github.com/WeBankFinTech/DataSphereStudio/issues/940)
+(<https://github.com/WeBankFinTech/DataSphereStudio/issues/940>)
 
 Function description of multiple data sources:
 

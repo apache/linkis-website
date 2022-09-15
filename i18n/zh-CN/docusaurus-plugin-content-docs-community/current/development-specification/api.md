@@ -5,7 +5,7 @@ sidebar_position: 4
 
 > Contributor为Linkis贡献新的Restful接口时，需遵循如下接口规范进行接口开发。
 
-## 1. HTTP or WebSocket ?
+## 1. HTTP or WebSocket
 
 Linkis目前提供了两种接口方式：HTTP和WebSocket。
 
@@ -34,26 +34,26 @@ WebSocket相比于HTTP的优势：
 
 **约定**：
 
- - rest_j表示接口符合Jersey规范
- - rest_s表示接口符合springMVC Rest规范
- - v1为服务的版本号，**版本号会随着Linkis版本进行升级**
- - {applicationName}为微服务名
+- rest_j表示接口符合Jersey规范
+- rest_s表示接口符合springMVC Rest规范
+- v1为服务的版本号，**版本号会随着Linkis版本进行升级**
+- {applicationName}为微服务名
 
 ## 3. 接口请求格式
 
 ```json
 {
- 	"method":"/api/rest_j/v1/entrance/execute",
- 	"data":{},
-	"websocketTag":"37fcbd8b762d465a0c870684a0261c6e"  // WebSocket请求的必需参数，HTTP请求可忽略
+  "method":"/api/rest_j/v1/entrance/execute",
+  "data":{},
+ "websocketTag":"37fcbd8b762d465a0c870684a0261c6e"  // WebSocket请求的必需参数，HTTP请求可忽略
 }
 ```
 
 **约定**：
 
- - method：请求的Restful API URL。
- - data：请求的具体数据。
- - websocketTag：某一次WebSocket请求的唯一标识，后台也会带回该参数用于给前端进行识别。
+- method：请求的Restful API URL。
+- data：请求的具体数据。
+- websocketTag：某一次WebSocket请求的唯一标识，后台也会带回该参数用于给前端进行识别。
 
 ## 4. 接口返回格式
 
@@ -63,15 +63,15 @@ WebSocket相比于HTTP的优势：
 
 **约定**：
 
- - method：返回请求的Restful API URL，主要是websocket模式需要使用。
- - status：返回状态信息，其中：-1表示没有登录，0表示成功，1表示错误，2表示验证失败，3表示没该接口的访问权限。
- - data：返回具体的数据。
- - message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。 
+- method：返回请求的Restful API URL，主要是websocket模式需要使用。
+- status：返回状态信息，其中：-1表示没有登录，0表示成功，1表示错误，2表示验证失败，3表示没该接口的访问权限。
+- data：返回具体的数据。
+- message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。
 
 另：根据status的不同，HTTP请求的状态码也不一样，一般情况下：
 
- - 当status为0时，HTTP的状态码为200
- - 当status为-1时，HTTP的状态码为401
- - 当status为1时，HTTP的状态码为400
- - 当status为2时，HTTP的状态码为412
- - 当status为3时，HTTP的状态码为403
+- 当status为0时，HTTP的状态码为200
+- 当status为-1时，HTTP的状态码为401
+- 当status为1时，HTTP的状态码为400
+- 当status为2时，HTTP的状态码为412
+- 当status为3时，HTTP的状态码为403

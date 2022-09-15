@@ -12,6 +12,7 @@ sidebar_position: 3
 为了方便 EngineConnManager 能够通过标签加载到对应的引擎插件，需要按照如下目录结构进行打包(以hive为例)：
 
 **请注意： 因为现在标签是通过-来进行拆分值的所以版本里面不能出现-如果出现可以通过用其他符号代替，比如engineType：hive-cdh-2.3.3，会拆分错，您可以直接使用这个：hive-2.3.3，**
+
 ```
 hive:引擎主目录，必须为引擎的名字
     └── dist  # 引擎启动需要的依赖和配置，引擎不同的版本需要在该目录放置对应的版本目录
@@ -54,7 +55,7 @@ ${LINKIS_HOME}/lib/linkis-engineconn-plugins/dist:
    └── dist
 └── spark
    └── dist
- 
+
 ## plugin 目录
 ${LINKIS_HOME}/lib/linkis-engineconn-plugins/plugin:
 └── hive
@@ -107,12 +108,13 @@ sh linkis-daemon.sh restart cg-engineplugin
 ```
 
 3. 检查引擎是否刷新成功：如果在刷新过程中遇到问题，需要确认是否刷新成功，则可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。
+
 ```sql
-#登陆到linkis的数据库 
+#登陆到linkis的数据库
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 
-正常如下： 
+正常如下：
 ![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。

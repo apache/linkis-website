@@ -15,5 +15,3 @@ sidebar_position: 0
 - [版本和新特性规范](version-feature-specifications.md)
 
 **说明**：Linkis1.0 初始版本的开发规范较为精简，后续会随着 Linkis 的版本迭代不断补充和完善，欢迎各位 Contributor 提出自己的见解和意见。
-
-

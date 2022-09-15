@@ -9,8 +9,6 @@ Provide users with a lightweight client that submits tasks to Linkis for executi
 
 ![img](/Images/Architecture/linkis-client-01.png)
 
-
-
 #### Second-level module introduction
 
 ##### Linkis-Computation-Client
@@ -22,8 +20,6 @@ Provides an interface for users to submit execution tasks to Linkis in the form 
 | Action | Defines the requested attributes, methods and parameters included |
 | Result | Defines the properties of the returned result, the methods and parameters included |
 | UJESClient | Responsible for request submission, execution, status, results and related parameters acquisition |
-
- 
 
 ##### Linkis-Cli
 

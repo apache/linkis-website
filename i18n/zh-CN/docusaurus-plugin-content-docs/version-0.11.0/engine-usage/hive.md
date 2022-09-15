@@ -3,6 +3,7 @@ title: Hive 引擎
 sidebar_position: 2
 ---
 ## 1 Hive引擎的使用
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis实现的Hive执行引擎现在支持HiveQL的提交，用户通过Linkis使用文档中的三种接口方式(SDK, HTTP, WebSocket)提交自己的执行代码，就可以将自己的HiveQL提交到的集群中进行执行。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;想要使用Linkis系统执行HiveQL程序，需要下载Linkis的release安装包并配置、安装并启动指定的指定的微服务。
@@ -29,7 +30,7 @@ Hive引擎的启动，需要依赖以下的Linkis微服务:
 - 3)、Linkis-publicService: 提供持久化、udf等基础功能。
 - 4)、Linkis-ResourceManager:提供Linkis的资源管理功能。
 
-### 1.3	自定义参数配置
+### 1.3 自定义参数配置
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正常使用hive，还需要启动HiveEntrance 和 HiveEngineManager。
 
@@ -78,6 +79,7 @@ Hive引擎的启动，需要依赖以下的Linkis微服务:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;还有一点，Linkis的hive引擎还实现了进度功能。具体是通过HadoopJobExecHelper的runningJobs字段，获取正在运行的MR任务，然后这些MR任务都有相应map和reduce的进度，将他们做一个数学计算就可以获得任务的总进度，需要注意的是runningJobs是正在运行的MR job，一旦执行完就会从List中删除，所以最开始还需要获取sql的执行计划，具体可以参看代码的实现。
 
 ## 3 适配自己的hive版本
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于Linkis现在的版本是支持1.2.1的apache版本，很多用户的集群可能并不和我们公司一致，所以需要自己重新编译Hive执行引擎。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;举一个例子，如果用户使用的是1.1.0的cdh版本，他需要在顶层的pom.xml将hive.version改成指定的版本然后进行编译。

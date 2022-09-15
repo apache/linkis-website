@@ -7,7 +7,6 @@ sidebar_position: 10
 
 > After Apache Linkis >= 1.1.1 and DSS >= 1.1.0, scriptis can be deployed separately and used in conjunction with Linkis. Using the interactive analysis function of scriptis, you can write SQL, Pyspark, HiveQL, etc. online on web pages Scripts are submitted to Linkis for execution and support features such as UDFs, functions, resource management and custom variables. This article will introduce how to deploy the web component-scriptis separately, and use  Apache Linkis through the scriptis web page.
 
-
 Prerequisite: The Linkis service (backend and management desk service) has been successfully installed and can be used normally. The deployment process of Linkis can be found in [Quick Deployment of Apache Linkis](quick-deploy.md)
 
 Example description:
@@ -20,17 +19,22 @@ Example description:
 > Requires installation on first use
 
 ### 2.1 Install node.js
+
 ```shell script
 Download node.js and install it. Download address: http://nodejs.cn/download/ (It is recommended to use node v14 version) This step only needs to be executed for the first time
 ````
+
 ### 2.2 Install learn
+
 ```shell script
 #Wait for the installation to complete, the installation of liarn only needs to be executed when it is used for the first time
 npm install lerna -g
 ````
 
 ## 3 Compile and deploy
+
 ### 3.1 Get scriptis code
+
 > scriptis is a pure front-end project, integrated as a component in the DSS web code component, we only need to compile the DSS web project with a separate scriptis module
 
 ```shell script
@@ -54,11 +58,13 @@ lerna bootstrap
 
 If you start the service locally, you need to configure the backend linkis-gateway service address in the code, in the `.env` file in the `web/packages/dss/` directory,
 No configuration is required when packaging and deploying
+
 ```shell script
 // Backend linkis-gatway service address
 VUE_APP_HOST=http://10.10.10.10:9001
 VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
 ````
+
 #### 3.2.2 Running the scriptis module
 
 ```shell script
@@ -69,10 +75,10 @@ npm run serve --module=scriptis
 
 Open the browser and access the application script through the link `http://localhost:8080` (the default port for local requests is 8080), because it will request the remote linkis-gatway service interface, which will cause cross-domain problems, chrome browser To solve cross-domain problems, please refer to [Solving Chrome Cross-Domain Problems](https://www.jianshu.com/p/56b1e01e6b6a)
 
-
 ## 4 Packaging & deploying scriptis
 
 ### 4.1 Packaging
+
 ```shell script
 #Specify scriptis module
 cd DataSphereStudio/web
@@ -139,6 +145,7 @@ location /api {
         }
 
 ````
+
 After modifying the configuration, reload the nginx configuration
 
 ```shell script
@@ -146,6 +153,7 @@ sudo nginx -s reload
 ````
 
 Note the difference between root and alias in the location configuration block in nginx
+
 - The processing result of root is: root path + location path.
 - The result of alias processing is: replace the location path with the alias path.
 - alias is the definition of a directory alias, root is the definition of the topmost directory
@@ -153,10 +161,12 @@ Note the difference between root and alias in the location configuration block i
 ## 5 scriptis usage steps
 
 ### 5.1 Log in to Linkis console normally
+
 ```shell script
 #http://10.10.10.10:8080/#/
 http://nginxIp:port/#/
 ````
+
 Because access to scriptis requires login verification, you need to log in first, obtain and cache cookies.
 
 ### 5.2 Access the scriptis page after successful login
@@ -165,12 +175,12 @@ Because access to scriptis requires login verification, you need to log in first
 #http://10.10.10.10:8080/scriptis/#/home
 http://nginxIp:port/scriptis/#/home
 ````
+
 `nginxIp`: The ip of the nginx server deployed by the Linkis console, `port`: the port number of the nginx configuration startup, `scriptis` is the location address of the nginx configuration for requesting the static files of the scriptis project (can be customized)
 
 ### 4.3 Using scriptis
 
 Take creating a new sql query task as an example.
-
 
 step1 Create a new script Select the script type as sql type
 
@@ -183,7 +193,6 @@ step2 Enter the statement to be queried
 step3 run
 
 ![Rendering](/Images-zh/deployment/scriptis/running_results.png)
-
 
 shep4 View Results
 

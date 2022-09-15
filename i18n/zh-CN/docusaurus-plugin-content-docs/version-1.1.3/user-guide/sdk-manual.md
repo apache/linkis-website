@@ -6,6 +6,7 @@ sidebar_position: 3
 > Linkis 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-computation-client的模块就可以进行使用，1.0后新增支持带Label提交的方式，下面将对兼容0.X的方式和1.0新增的方式进行介绍
 
 ## 1. 引入依赖模块
+
 ```
 <dependency>
   <groupId>org.apache.linkis</groupId>
@@ -21,7 +22,9 @@ sidebar_position: 3
 ```
 
 ## 2. Java测试代码
+
 建立Java的测试类LinkisClientTest，具体接口含义可以见注释：
+
 ```java
 package org.apache.linkis.client.test;
 
@@ -172,7 +175,8 @@ public class LinkisClientTest {
 
 运行上述的代码即可以完成任务提交/执行/日志/结果集获取等
 
-## 3. Scala测试代码：
+## 3. Scala测试代码
+
 ```scala
 package org.apache.linkis.client.test
 

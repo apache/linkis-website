@@ -5,7 +5,6 @@ sidebar_position: 2
 
 ## **CSClient design ideas and implementation**
 
-
 CSClient is a client that interacts with each microservice and CSServer group. CSClient needs to meet the following functions.
 
 1. The ability of microservices to apply for a context object from cs-server
@@ -58,7 +57,6 @@ For a client, sometimes you want to know that a certain csid and cskey have chan
 ![](/Images/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-client-02.png)
 
 ## **Implementation of GatewayRouter**
-
 
 The Gateway plug-in implements Context forwarding. The forwarding logic of the Gateway plug-in is carried out through the GatewayRouter. It needs to be divided into two ways. The first is to apply for a context object. At this time, the information carried by the CSClient does not contain csid. For the information, the judgment logic at this time should be through the registration information of eureka, and the first request sent will randomly enter a microservice instance.
 The second case is that the content of the ContextID is carried. We need to parse the csid. The way of parsing is to obtain the information of each instance through the method of string cutting, and then use eureka to determine whether this micro-channel still exists through the instance information. Service, if it exists, send it to this microservice instance

@@ -6,7 +6,6 @@ sidebar_position: 0
 
 > 建议的排查基本优先级可以按照：**社区issue专栏搜索关键词—\>在社区查阅《Q\&A问题总结》文档—\>定位系统日志—\>社区用户群咨询交流—\>定位源码远程debug**
 
-
 ## 1. 社区Issue搜索关键词
 
 在[issue专栏](https://github.com/apache/incubator-linkis/issues), filter过滤器中搜索关键词。如：
@@ -22,24 +21,26 @@ filter:`is:issue spark3`
 
 将issue中常见的问题以及解决方案整理成文档，放在了官网页面《 [常见问题](/faq/main) 》
 
+## 3. 如何定位错误
 
-## 3. 如何定位错误 
+### 3.1 编译阶段异常排查
 
-### 3.1 编译阶段异常排查 
 > 如果是自行编译
 
 通常会出现的问题:
-- 编译前，未执行`mvn -N install`, 导致linkis自身依赖没法获取
-- 升级部分依赖组件后，导致函数报错  如使用spark3 
 
-定位异常的手段: 
+- 编译前，未执行`mvn -N install`, 导致linkis自身依赖没法获取
+- 升级部分依赖组件后，导致函数报错  如使用spark3
+
+定位异常的手段:
 可以在mvn 运行命令后面加上 -e 参数 如`mvn clean install -e`
- 
+
 ### 3.2 安装阶段异常排查
 
 如果出现报错，又不清楚具体是执行什么命令报错，可以加 -x 参数`sh -x bin/install.sh`，将shell脚本执行过程日志打印出来，方便定位问题
 
 ### 3.3 启动微服务阶段异常排查
+
 所有微服务的日志文件统一放入了logs目录，日志目录层级如下：
 
 ```html
@@ -84,15 +85,14 @@ filter:`is:issue spark3`
 
 通常情况下，启动某个微服务出错时，可以在log目录查看对应服务 查看详细日志排查问题
 
-但因为服务之间是存在相互调用，linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式，拉取关键异常信息，进行排查 
+但因为服务之间是存在相互调用，linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式，拉取关键异常信息，进行排查
 
 ```shell script
 tail -f log/* |grep -5n exception(或则tail -f log/* |grep -5n ERROR)  
 less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)  
 ```
 
-
-### 3.4 运行阶段 
+### 3.4 运行阶段
 
 #### 3.4.1 接口异常排查
 
@@ -124,9 +124,9 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 
 #### 3.4.2 执行引擎任务的异常排查
 
-** step1:找到EngineConn的启动部署目录 **  
+**step1:找到EngineConn的启动部署目录**  
 
-- 方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
+- 方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:
 ![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
 - 方式2:如果方式1中没有找到，可以通过找到`conf/linkis-cg-engineconnmanager.properties`配置的`wds.linkis.engineconn.root.dir`的参数，该值就是引擎启动部署的目录，子目录按执行引擎的用户进行了隔离
 
@@ -137,7 +137,8 @@ cd /appcom/tmp/${执行的用户}/${日期}/${引擎}/${taskId}
 /appcom/tmp/hadoop/20210824/spark/6a09d5fb-81dd-41af-a58b-9cb5d5d81b5a
 ```
 
-目录大体如下 
+目录大体如下
+
 ```shell script
 conf -> /appcom/tmp/engineConnPublickDir/6a09d5fb-81dd-41af-a58b-9cb5d5d81b5a/v000002/conf #引擎的配置文件  
 engineConnExec.sh #生成的引擎的启动脚本  
@@ -145,26 +146,26 @@ lib -> /appcom/tmp/engineConnPublickDir/45bf0e6b-0fa5-47da-9532-c2a9f3ec764d/v00
 logs #引擎启动执行的相关日志  
 ```
 
-** step2：查看引擎的日志 **
+**step2：查看引擎的日志**
+
 ```shell script
 less logs/stdout  
 less logs/stderr
 ```
 
-** step3：尝试手动执行脚本(如果需要) **  
+**step3：尝试手动执行脚本(如果需要)**  
 可以通过尝试手动执行脚本，进行调试
-``` 
+
+```
 sh -x engineConnExec.sh  
 ```
 
-### 4. 问题反馈 
+### 4. 问题反馈
 
-对于按上述排查方式排查后，仍然没解决的问题，可以通过[需求帮助](/community/how-to-ask-for-help)指引方式进行反馈和需求帮助 
-
+对于按上述排查方式排查后，仍然没解决的问题，可以通过[需求帮助](/community/how-to-ask-for-help)指引方式进行反馈和需求帮助
 
 ### 5. 定位源码远程debug
 
 通常情况下，对源码远程debug是定位问题最有效的方式，但相对查阅文档来说，需要用户对源码结构有一定的了解，
 这里建议您在远程debug前查阅《 [Linkis源码层级结构详解](deployment/sourcecode-hierarchical-structure.md) 》,对项目的源码结构进行初步的了解，
 有一定程度上的熟悉之后，可以参考《 [如何DebugLinkis](development/linkis-debug.md) 》一文 调试对应微服务下的代码。
-

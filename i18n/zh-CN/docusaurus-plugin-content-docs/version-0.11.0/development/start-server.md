@@ -29,8 +29,8 @@ sidebar_position: 1
 
 在Eureka界面查看服务启动成功情况，查看方法：
 
-使用http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, 在浏览器中打开，查看服务是否注册成功。
+使用<http://${EUREKA_INSTALL_IP}:${EUREKA_PORT>}, 在浏览器中打开，查看服务是否注册成功。
 
-如下图，如您的Eureka主页出现了相应的微服务，则表示服务启动成功，可以正常对外提供服务了： 
+如下图，如您的Eureka主页出现了相应的微服务，则表示服务启动成功，可以正常对外提供服务了：
 
  ![Eureka](../images/ch1/Eureka_homepage.png)

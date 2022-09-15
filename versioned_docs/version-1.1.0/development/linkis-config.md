@@ -6,16 +6,17 @@ sidebar_position: 1
 ## 1. Parameter classification
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis parameters are mainly divided into the following three parts:
+
 1. Linkis server parameters, mainly including the parameters of Linkis itself and the parameters of Spring
 2. Parameters submitted by client calls such as Linkis SDK and Restful
 3. Linkis console parameters
-
 
 ## 2. Linkis server parameters
 
 1. Parameters of Linkis itself
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The parameters of linkis itself can be set in the configuration file, or through environment variables and system properties. It is recommended to use the configuration file to set.
    The Linkis configuration file format is as follows:
+
 ```shell
 ├── conf configuration directory
 │ ├── application-eureka.yml
@@ -32,6 +33,7 @@ sidebar_position: 1
 │ ├── linkis-ps-publicservice.properties
 │ ├── log4j2.xml
 ````
+
 Each service loads two property configuration files, a common main configuration file linkis.properties, and a service configuration file linkis-serviceName.properties. The priority of settings is that the service profile is higher than the main profile
 It is recommended that common parameters be placed in the main configuration file, and individual configuration files are placed in the service configuration file
 
@@ -47,7 +49,9 @@ spring.server.port=9102
 ````
 
 ## 3. Linkis client parameters
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis client parameters mainly refer to the parameters when the task is submitted, mainly the parameters specified in the submission interface.
+
 1. How restful sets parameters:
 
 ```shell
@@ -75,6 +79,7 @@ spring.server.port=9102
     }
 }
 ````
+
 2. How to set parameters in SDK:
 
 ````java
@@ -88,6 +93,7 @@ JobSubmitAction jobSubmitAction = JobSubmitAction.builder()
                 .addExecuteUser(user) // execute user
                 .build();
 ````
+
 3. How linkis-cli sets parameters
 
 ```shell
@@ -97,6 +103,7 @@ linkis-cli -runtieMap key1=value -runtieMap key2=value
           -startUpMap key1=value
 
 ````
+
 Note: When submitting client parameters, only engine-related parameters, tag parameters, and Yarn queue settings can take effect. Other Linkis server-side parameters and resource limit parameters, such as task and engine concurrency parameters wds.linkis.rm.instances do not support task settings
 
 4. Common label parameters:
@@ -114,11 +121,13 @@ Note: When submitting client parameters, only engine-related parameters, tag par
 ````
 
 ## 4. Linkis console parameters
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis management console parameters are convenient for users to specify resource limit parameters and default task parameters. The web interface provided is as follows:
 Global configuration parameters:
 ![](/Images/development/linkis_global_conf.png)
 It mainly includes the global queue parameter [wds.linkis.rm.yarnqueue], the Yarn queue used by the task by default, which can be specified in the client StartUPMap.
 Resource limit parameters, these parameters do not support task settings, but can be adjusted by the management console.
+
 ```shell
 Queue CPU usage upper limit [wds.linkis.rm.yarnqueue.cores.max], currently only supports limit the usage of total queue resources for Spark type tasks
 Queue memory usage limit [wds.linkis.rm.yarnqueue.memory.max]
@@ -126,6 +135,7 @@ The upper limit of the global memory usage of each engine [wds.linkis.rm.client.
 The maximum number of global engine cores [wds.linkis.rm.client.core.max] This parameter does not refer to the total number of CPUs that can only be used, but specifies the total memory usage of a specific engine of a Creator, such as limiting IDE-SPARK tasks Can only use 10Cores
 The maximum concurrent number of each engine in the world [wds.linkis.rm.instance], this parameter has two meanings, one is to limit how many a Creator-specific engine can start in total, and to limit the tasks that a Creator-specific engine task can run at the same time number
 ````
+
 Engine configuration parameters:
 ![](/Images/development/linkis_creator_ec_conf.png)
 It mainly specifies the startup parameters and runtime parameters of the engine. These parameters can be set on the client side. It is recommended to use the client side for personalized submission settings. Only the default values ​​are set on the page.

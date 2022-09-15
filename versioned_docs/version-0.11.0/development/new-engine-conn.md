@@ -28,17 +28,17 @@ sidebar_position: 3
 #### 2.1.2 Interfaces to be implemented
 
  Entrance has no interfaces that must be instantiated. The following interfaces can be implemented as needed:
- 
+
 - EntranceParser. Used to transfer a request from the front end, usually a Json body, into a task that can be persisted. This class has provided AbstractEntranceParser, users only need to implement the parseToTask method, and the system provides CommonEntranceParser implementation by default.
- 
+
  ![CommonEntranceParser](../images/ch6/CommonEntranceParser.png)<br/>
 
 - EngineRequester. Used to obtain a RequestEngine class, which is used to request a new Engine from the EngineManager microservice. Linkis already has an implementation class.
- 
+
  ![EngineRequesterImpl](../images/ch6/EngineRequesterImpl.png)<br/>
 
 - Scheduler. It is used to implement scheduling. By default, the scheduling mode of multi-user concurrency and FIFO execution within a single user has been implemented.
- 
+
  ![FIFOScheduler](../images/ch6/FIFOScheduler.png)<br/>
 
 ### 2.2 EngineManager access
@@ -66,19 +66,18 @@ sidebar_position: 3
  ![AbstractEngineCreator](../images/ch6/AbstractEngineCreator.png)<br/>
 
 - EngineResourceFactory, AbstractEngineResourceFactory already exists, and the getRequestResource method needs to be implemented to get the user's personalized resource request.
- 
+
  ![EngineResourceFactory](../images/ch6/EngineResourceFactory.png)<br/>
 
 - hooks, this is a spring entity bean, mainly used to add pre and post hooks before and after the engine is created and started. The user needs to provide an Array[EngineHook] for dependency injection.
- 
+
  ![hooks](../images/ch6/hooks.png)<br/>
- 
+
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For specific examples, please refer to the implementation of Hive EngineManager.
 
 - resources, this is a spring entity bean, mainly used for registering resources like RM. Resources are instances of ModuleInfo, which need to be provided by the user for dependency injection.
- 
- ![resources](../images/ch6/resources_bean.png)<br/>
 
+ ![resources](../images/ch6/resources_bean.png)<br/>
 
 ### 2.3 Engine access
 
@@ -104,7 +103,6 @@ sidebar_position: 3
 
 ![EngineExecutor](../images/ch6/EngineExecutor.png)<br/>
 
-
 2. The interfaces or beans that the Engine does not have to implement are as follows:
 
 - engineHooks: Array[EngineHook], is a spring bean. EngineHook is the pre- and post-hook created by the engine. At present, the system has provided two hooks: CodeGeneratorEngineHook is used to load UDFs and functions, and ReleaseEngineHook is used to release idle engines. If not specified, the system will provide engineHooks=Array(ReleaseEngineHook by default )
@@ -118,7 +116,6 @@ sidebar_position: 3
 - EngineParser, used to convert a RequestTask into a Job that can be submitted to the Scheduler. If not specified, the system will provide an EngineParser that converts the RequestTask into a CommonEngineJob by default.
 
 ![EngineParser](../images/ch6/engineParser_bean.png)<br/>
-
 
 ## 3 Reference examples
 
@@ -145,7 +142,7 @@ sidebar_position: 3
 -3. AbstractEngineResourceFactory interface implementation
 
 ![HiveEngineResourceFactory](../images/ch6/hive_engineResourceFactory_bean.png)<br/>
-   
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this instance, we can notify the ResourceManager of the number of CPU cores, memory size, and number of instances that the user wants to obtain each time the user requests the engine
 
 -4. Injection of resources and hooks bean
@@ -159,7 +156,7 @@ Configuration, inject two beans, resources and hooks, UJES framework itself will
 ### 3.3 HiveEngine access
 
 -1. EngineExecutorFactory interface implementation
-   
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There is a HiveEngineExecutorFactory in the HiveEngine module. At the end of the createExecutor method, the HiveEngineExecutor is returned.
 
 ![HiveEngineExecutorFactory](../images/ch6/HiveEngineExecutorFactory.png)<br/>
@@ -177,5 +174,5 @@ Configuration, inject two beans, resources and hooks, UJES framework itself will
 ## 4 FAQ
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome to add group questions.
- 
+
 ![WeChat group](../images/ch6/group.png)<br/>

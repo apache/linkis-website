@@ -33,14 +33,14 @@
     "runType": "sql"
   },
   "params": {
-    "variable": {// task variable 
+    "variable": {// task variable
       "testvar": "hello"
     },
     "configuration": {
-      "runtime": {// task runtime params 
+      "runtime": {// task runtime params
         "jdbc.url": "XX"
       },
-      "startup": { // ec start up params 
+      "startup": { // ec start up params
         "spark.executor.cores": "4"
       }
     }
@@ -72,7 +72,6 @@
 - execID是用户任务提交到 Linkis 之后，为该任务生成的唯一标识执行ID，为 String 类型，这个ID只在任务运行时有用，类似PID的概念。ExecID 的设计为`(requestApplicationName长度)(executeAppName长度)(Instance长度)${requestApplicationName}${executeApplicationName}${entranceInstance信息ip+port}${requestApplicationName}_${umUser}_${index}`
 
 - taskID 是表示用户提交task的唯一ID，这个ID由数据库自增生成，为 Long 类型
-
 
 ### 2. 获取状态
 
@@ -111,8 +110,8 @@
   "message": "返回日志信息",
   "data": {
     "execID": "${execID}",
-	"log": ["error日志","warn日志","info日志", "all日志"],
-	"fromLine": 56
+ "log": ["error日志","warn日志","info日志", "all日志"],
+ "fromLine": 56
   }
 }
 ```
@@ -132,23 +131,23 @@
   "message": "返回进度信息",
   "data": {
     "execID": "${execID}",
-	"progress": 0.2,
-	"progressInfo": [
-		{
-			"id": "job-1",
-			"succeedTasks": 2,
-			"failedTasks": 0,
-			"runningTasks": 5,
-			"totalTasks": 10
-		},
-		{
-			"id": "job-2",
-			"succeedTasks": 5,
-			"failedTasks": 0,
-			"runningTasks": 5,
-			"totalTasks": 10
-		}
-	]
+ "progress": 0.2,
+ "progressInfo": [
+  {
+   "id": "job-1",
+   "succeedTasks": 2,
+   "failedTasks": 0,
+   "runningTasks": 5,
+   "totalTasks": 10
+  },
+  {
+   "id": "job-2",
+   "succeedTasks": 5,
+   "failedTasks": 0,
+   "runningTasks": 5,
+   "totalTasks": 10
+  }
+ ]
   }
 }
 ```
@@ -183,7 +182,6 @@
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |id|id|path|true|string||
-
 
 - 返回示例
 
@@ -233,7 +231,6 @@
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |path|结果集目录路径|query|true|string||
-
 
 - 返回示例
 
@@ -292,7 +289,6 @@
 |charset|字符集|query|false|string||
 |page|页码|query|false|ref||
 |pageSize|页面大小|query|false|ref||
-
 
 - 返回示例
 
@@ -361,14 +357,14 @@
     "requestApplicationName": "dss", //Client service type
     "executionCode": "show tables",
     "params": {
-      "variable": {// task variable 
+      "variable": {// task variable
         "testvar": "hello"
       },
       "configuration": {
-        "runtime": {// task runtime params 
+        "runtime": {// task runtime params
           "jdbc.url": "XX"
         },
-        "startup": { // ec start up params 
+        "startup": { // ec start up params
           "spark.executor.cores": "4"
         }
       }

@@ -3,6 +3,7 @@ title: Hive Engine
 sidebar_position: 2
 ---
 ## 1 Use of Hive Engine
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Hive execution engine implemented by Linkis now supports HiveQL submission, and users submit their own execution through Linkis using the three interface methods in the document (SDK, HTTP, WebSocket) Code, you can submit your HiveQL to the cluster for execution.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to use the Linkis system to execute the HiveQL program, you need to download the Linkis release installation package and configure, install and start the specified specified microservice.
@@ -78,6 +79,7 @@ Figure 2 Hive running effect Figure 2
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;One more thing, Linkis's hive engine also implements a progress function. Specifically, the runningJobs field of HadoopJobExecHelper is used to obtain the running MR tasks, and then these MR tasks have corresponding map and reduce progress. You can get the total progress of the task by doing a mathematical calculation. It should be noted that runningJobs is running The MR job will be deleted from the List once it is executed, so it is necessary to get the execution plan of SQL at the beginning. For details, please refer to the implementation of the code.
 
 ## 3 Adapt your own hive version
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Because the current version of Linkis is the apache version that supports 1.2.1, many users' clusters may not be consistent with our company, so you need to recompile the Hive execution engine by yourself .
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example, if the user is using the 1.1.0 cdh version, he needs to change the hive.version to the specified version in the top-level pom.xml and then Compile.

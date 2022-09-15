@@ -8,18 +8,13 @@ sidebar_position: 2
 
 **接口地址**:`/api/rest_j/v1/engineplugin/refesh`
 
-
 **请求方式**:`GET`
-
 
 **请求数据类型**:`application/x-www-form-urlencoded`
 
-
 **响应数据类型**:`*/*`
 
-
 **接口描述**:更新指定引擎的物料资源
-
 
 **请求参数**:
 
@@ -28,19 +23,17 @@ sidebar_position: 2
 |ecType|引擎类型|query|true|string||
 |version|版本 可以为空或则*|query|false|string||
 
-
 **响应参数**:
 
-
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-
 **响应示例**:
+
 ```javascript
 {
     "method": null,
@@ -52,40 +45,32 @@ sidebar_position: 2
 }
 ```
 
-
 ## refeshAll
-
 
 **接口地址**:`/api/rest_j/v1/engineplugin/refeshAll`
 
-
 **请求方式**:`GET`
-
 
 **请求数据类型**:`application/x-www-form-urlencoded`
 
-
 **响应数据类型**:`*/*`
 
-
 **接口描述**:更新所有引擎的物料资源
-
 
 **请求参数**:
 无
 
 **响应参数**:
 
-
 | 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
+| -------- | -------- | ----- |----- |
 |data||object||
 |message||string||
 |method||string||
 |status||integer(int32)|integer(int32)|
 
-
 **响应示例**:
+
 ```javascript
 {
     "method": null,

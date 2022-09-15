@@ -14,7 +14,7 @@ The plug-in interface disassembles the definition of the engine, including param
 
 ![](/Images/Architecture/linkis-engineConnPlugin-01.png)
 
-Introduction to the second-level module:
+Introduction to the second-level module
 ==============
 
 EngineConn-Plugin-Server
@@ -28,7 +28,6 @@ Other services such as Manager call the logic of the corresponding plug-in in Pl
 | EngineConnLaunchService          | Responsible for building the engine connector launch request            |
 | EngineConnResourceFactoryService | Responsible for generating engine resources                      |
 | EngineConnResourceService        | Responsible for downloading the resource files used by the engine connector from BML |
-
 
 EngineConn-Plugin-Loader Engine Connector Plugin Loader
 ---------------------------------------
@@ -74,4 +73,3 @@ The engine connection plug-in collection is used to place the default engine con
 | engineplugin-shell  | Shell engine connector  |
 | engineplugin-spark  | spark engine connector  |
 | engineplugin-python | python engine connector |
-

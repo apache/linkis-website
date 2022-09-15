@@ -1,6 +1,7 @@
-# DataSourceAdminRestfulApi 
+# DataSourceAdminRestfulApi
 
 ## queryDataSourceEnv
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/env`
 
 **Request method**: `GET`
@@ -30,6 +31,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/env",
@@ -68,7 +70,9 @@
     }
 }
 ````
+
 ## getAllEnvListByDataSourceType
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/env-list/all/type/{typeId}`
 
 **Request method**: `GET`
@@ -95,6 +99,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/env-list/all/type/4",
@@ -118,7 +123,9 @@
     }
 }
 ````
+
 ## insertJsonEnv
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/env/json`
 
 **Request method**: `POST`
@@ -130,6 +137,7 @@
 **Interface description**:
 
 **Request example**:
+
 ````javascript
 {
   "connectParams": {},
@@ -186,6 +194,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -194,7 +203,9 @@
 "status": 0
 }
 ````
+
 ## getEnvEntityById
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/env/{envId}`
 
 **Request method**: `GET`
@@ -221,6 +232,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/env/1",
@@ -243,7 +255,9 @@
     }
 }
 ````
+
 ## removeEnvEntity
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/env/{envId}`
 
 **Request method**: `DELETE`
@@ -270,6 +284,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/env/4",
@@ -280,7 +295,8 @@
     }
 }
 ````
-##updateJsonEnv
+
+## updateJsonEnv
 **Interface address**: `/api/rest_j/v1/data-source-manager/env/{envId}/json`
 
 **Request method**: `PUT`
@@ -292,6 +308,7 @@
 **Interface description**:
 
 **Request example**:
+
 ````javascript
 {
   "connectParams": {},
@@ -349,6 +366,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -357,9 +375,11 @@
 "status": 0
 }
 ````
+
 # DataSourceCoreRestfulApi
 
 ## queryDataSource
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/info`
 
 **Request method**: `GET`
@@ -391,6 +411,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/info",
@@ -433,12 +454,14 @@
                     "layers": 0
                 }
             }
-          
+
         ]
     }
 }
 ````
+
 ## removeDataSource
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/info/delete/{dataSourceId}`
 
 **Request method**: `DELETE`
@@ -465,6 +488,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/info/delete/1",
@@ -475,7 +499,9 @@
     }
 }
 ````
+
 ## insertJsonInfo
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/info/json`
 
 **Request method**: `POST`
@@ -487,6 +513,7 @@
 **Interface description**:
 
 **Request example**:
+
 ````javascript
 {
   "connectParams": {},
@@ -614,6 +641,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -622,7 +650,9 @@
 "status": 0
 }
 ````
+
 ## getInfoByDataSourceName
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/info/name/{dataSourceName}`
 
 **Request method**: `GET`
@@ -649,6 +679,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/info/name/hive-test",
@@ -679,7 +710,9 @@
     }
 }
 ````
+
 ## getInfoByDataSourceId
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}`
 
 **Request method**: `GET`
@@ -706,6 +739,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/info/1",
@@ -740,7 +774,9 @@
     }
 }
 ````
+
 ## expireDataSource
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/info/{dataSourceId}/expire`
 
 **Request method**: `PUT`
@@ -767,6 +803,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/info/1/expire",
@@ -777,7 +814,8 @@
     }
 }
 ````
-##updateDataSourceInJson
+
+## updateDataSourceInJson
 **Interface address**: `/api/rest_j/v1/data-source-manager/info/{dataSourceId}/json`
 
 **Request method**: `PUT`
@@ -789,6 +827,7 @@
 **Interface description**:
 
 **Request example**:
+
 ````javascript
 {
   "connectParams": {},
@@ -917,6 +956,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -925,7 +965,9 @@
 "status": 0
 }
 ````
+
 ## getInfoByDataSourceIdAndVersion
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/info/{dataSourceId}/{version}`
 
 **Request method**: `GET`
@@ -953,6 +995,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/info/1/1",
@@ -987,7 +1030,9 @@
     }
 }
 ````
+
 ## getKeyDefinitionsByType
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/key-define/type/{typeId}`
 
 **Request method**: `GET`
@@ -1014,6 +1059,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/key-define/type/4",
@@ -1043,7 +1089,9 @@
     }
 }
 ````
+
 ## getConnectParams
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/name/{dataSourceName}/connect-params`
 
 **Request method**: `GET`
@@ -1070,6 +1118,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/name/linkis_test256/connect-params",
@@ -1085,7 +1134,9 @@
     }
 }
 ````
+
 ## insertJsonParameter
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/parameter/{dataSourceId}/json`
 
 **Request method**: `POST`
@@ -1113,6 +1164,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -1121,7 +1173,9 @@
 "status": 0
 }
 ````
+
 ## publishByDataSourceId
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/publish/{dataSourceId}/{versionId}`
 
 **Request method**: `POST`
@@ -1149,6 +1203,7 @@
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/publish/3/2",
@@ -1157,7 +1212,9 @@
     "data": {}
 }
 ````
+
 ## getAllDataSourceTypes
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/type/all`
 
 **Request method**: `GET`
@@ -1180,6 +1237,7 @@ No
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/type/all",
@@ -1196,7 +1254,7 @@ No
                 "icon": "https://uat.dongcha.weoa.com/static/img/logo.770c1525.png",
                 "layers": 3
             },
-            
+
             {
                 "id": "4",
                 "name": "hive",
@@ -1205,12 +1263,14 @@ No
                 "classifier": "Big Data Storage",
                 "layers": 3
             }
-            
+
         ]
     }
 }
 ````
+
 ## getConnectParams
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/{dataSourceId}/connect-params`
 
 **Request method**: `GET`
@@ -1236,6 +1296,7 @@ No
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/3/connect-params",
@@ -1251,7 +1312,9 @@ No
     }
 }
 ````
+
 ## getVersionList
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/{dataSourceId}/versions`
 
 **Request method**: `GET`
@@ -1278,6 +1341,7 @@ No
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/1/versions",
@@ -1302,7 +1366,9 @@ No
     }
 }
 ````
+
 ## connectDataSource
+
 **Interface address**: `/api/rest_j/v1/data-source-manager/{dataSourceId}/{version}/op/connect`
 
 **Request method**: `PUT`
@@ -1330,6 +1396,7 @@ No
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/data-source-manager/1/1/op/connect",
@@ -1340,8 +1407,11 @@ No
     }
 }
 ````
+
 # data-source-operate-restful-api
+
 ## connect
+
 **Interface address**:`/api/rest_j/v1/data-source-manager/op/connect/json`
 
 **Request method**: `POST`
@@ -1353,6 +1423,7 @@ No
 **Interface description**:
 
 **Request example**:
+
 ````javascript
 {
   "connectParams": {},
@@ -1480,6 +1551,7 @@ No
 |status||integer(int32)|integer(int32)|
 
 **Sample Response**:
+
 ````javascript
 {
 "data": {},

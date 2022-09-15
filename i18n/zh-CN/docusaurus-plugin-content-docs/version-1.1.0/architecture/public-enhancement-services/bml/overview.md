@@ -40,20 +40,20 @@ BML（物料库服务）是linkis的物料管理系统，主要用来存储用�
 
 **上传文件：**
 
-1.  判断用户上传文件的操作类型，属于首次上传还是更新上传，如果是首次上传需要新增一条资源信息记录，系统已经为这个资源生成了一个全局唯一标识的resource_id和一个资源放置的位置resource_location。资源A的第一个版本A1需要在HDFS文件系统中resource_location位置进行存储。存储完之后，就可以得到第一个版本记为V00001，如果是更新上传需要查找上次最新的版本。
+1. 判断用户上传文件的操作类型，属于首次上传还是更新上传，如果是首次上传需要新增一条资源信息记录，系统已经为这个资源生成了一个全局唯一标识的resource_id和一个资源放置的位置resource_location。资源A的第一个版本A1需要在HDFS文件系统中resource_location位置进行存储。存储完之后，就可以得到第一个版本记为V00001，如果是更新上传需要查找上次最新的版本。
 
-2.  上传文件流到指定的HDFS文件，如果是更新则采用文件追加的方式加到上次内容的末尾。
+2. 上传文件流到指定的HDFS文件，如果是更新则采用文件追加的方式加到上次内容的末尾。
 
-3.  新增一条版本记录，每次上传都会产生一条新的版本记录。除了记录这个版本的元数据信息外，最重要的是记录了该版本的文件的存储位置，包括文件路径，起始位置，结束位置。
+3. 新增一条版本记录，每次上传都会产生一条新的版本记录。除了记录这个版本的元数据信息外，最重要的是记录了该版本的文件的存储位置，包括文件路径，起始位置，结束位置。
 
 **下载文件：**
 
-1.  用户下载资源的时候，需要指定两个参数一个是resource_id，另外一个是版本version，如果不指定version的话，默认下载最新版本。
+1. 用户下载资源的时候，需要指定两个参数一个是resource_id，另外一个是版本version，如果不指定version的话，默认下载最新版本。
 
-2.  用户传入resource_id和version两个参数到系统之后，系统查询resource_version表，查到对应的resource_location和start_byte和end\_byte进行下载，通过流处理的skipByte方法，将resource\_location的前(start_byte-1)个字节跳过，然后读取到end_byte
+2. 用户传入resource_id和version两个参数到系统之后，系统查询resource_version表，查到对应的resource_location和start_byte和end\_byte进行下载，通过流处理的skipByte方法，将resource\_location的前(start_byte-1)个字节跳过，然后读取到end_byte
     字节数。读取成功之后，将流信息返回给用户。
 
-3.  在resource_download_history中插入一条下载成功的记录
+3. 在resource_download_history中插入一条下载成功的记录
 
 ## 数据库设计
 

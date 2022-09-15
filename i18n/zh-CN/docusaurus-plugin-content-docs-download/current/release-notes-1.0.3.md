@@ -8,17 +8,20 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 该版本是Linkis进入Apache孵化的第一个版本。主要完成ASF基础设施建设，包括License完善/包名修改等，增加EngineConn对Operator的支持等功能，修复社区反馈的1.0.2版本中的bug。
 
 添加了以下主要功能：
+
 * http restful api风格使用springmvc替换jersey
 * 用 fastxml json 替换 codehaus json
 * 支持EngineConn/OnceEngineConn通用operator，提供对接流式计算引擎的基础能力
 * 支持使用kerberos代理用户模式
 
 缩写：
+
 - CGS: Computation Governance Services
 - PES: Public Enhancement Services
 - MGS: Microservice Governance Services
 - EC: Engineconn
 - ECM: EngineConnManager
+
 ---
 
 ## 新特性
@@ -31,10 +34,10 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[CGS-LinkisOnceEngineconn][[Linkis-946]](https://github.com/apache/incubator-linkis/pull/946) 支持hostname和IP地址来进行eureka服务发现和服务调用，以满足k8s等容器化部署的场景
 * \[CGS-LinkisOnceEngineconn][[Linkis-1078]](https://github.com/apache/incubator-linkis/pull/1078) 支持EngineConn/OnceEngineConn通用operator，提供对接流式计算引擎的基础能力
 
-
 ---
 
 ## 增强点
+
 * \[Commons][[Linkis-1026]](https://github.com/apache/incubator-linkis/pull/1026) 数据导出到excel的优化，对数字类型的字段更好的支持
 * \[Commons][[Linkis-1036]](https://github.com/apache/incubator-linkis/pull/1036) 共享文件系统在LocalFileSystem模式下的文件权限优化
 * \[Commons][[Linkis-1185]](https://github.com/apache/incubator-linkis/pull/1185) 添加一些scala代码规范检查规则，自动检测scala代码格式
@@ -56,7 +59,9 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[PES-Metadata][[Linkis-1224]](https://github.com/apache/incubator-linkis/pull/1224) 优化datasource/dbs http接口查询结果与登录用户关联限制，可以通过配置文件进行开启与关闭
 
 ---
+
 ## 修复功能
+
 * \[DB][[Linkis-1053]](https://github.com/apache/incubator-linkis/pull/1053) 修复由于数据库表字段长度过长导致数据插入可能失败的问题
 * \[DB][[Linkis-1087]](https://github.com/apache/incubator-linkis/pull/1087) 删除重复的DDL语句
 * \[Commons][[Linkis-1058]](https://github.com/apache/incubator-linkis/pull/1058) 修复物料上传时，存在子目录时无法压缩导致上传失败的问题
@@ -91,8 +96,9 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 * \[Console][[Linkis-1121]](https://github.com/apache/incubator-linkis/pull/1121) 从当前请求中获取协议，删除'http'的硬编码方式
 
 ## 其他
-*  ⚠ \[Commons&MGS-LinkisServiceGateway][[Linkis-1192]](https://github.com/apache/incubator-linkis/pull/1092) 第三方依赖mysql-connector-java违反了Apache 许可政策。所以从1.0.3开始移除了对 mysql-connector-java 的依赖，如果只为自己的项目使用，可以自行在项目中增加 mysql-connector-java 依赖。
-* \[Commons&MGS-LinkisEureka][[Linkis-1291]](https://github.com/apache/incubator-linkis/pull/1291) 移除license归属类别不明确的jar包 io.github.x-stream:mxparser 
+
+* ⚠ \[Commons&MGS-LinkisServiceGateway][[Linkis-1192]](https://github.com/apache/incubator-linkis/pull/1092) 第三方依赖mysql-connector-java违反了Apache 许可政策。所以从1.0.3开始移除了对 mysql-connector-java 的依赖，如果只为自己的项目使用，可以自行在项目中增加 mysql-connector-java 依赖。
+* \[Commons&MGS-LinkisEureka][[Linkis-1291]](https://github.com/apache/incubator-linkis/pull/1291) 移除license归属类别不明确的jar包 io.github.x-stream:mxparser
 * \[Commons][[Linkis-1287]](https://github.com/apache/incubator-linkis/pull/1287) 拆分二进制发布包和源码的LICENSE/NOTICE等文件
 * \[Console][[Linkis-1301]](https://github.com/apache/incubator-linkis/pull/1301) 移除license授权未知的字体文件以及未使用到的图片图标等前端资源文件
 * \[CGS-EngineConnPlugins-Python][[Linkis-1281]](https://github.com/apache/incubator-linkis/pull/1281) 移除源码中的pyspark.zip，添加py4j的LICENSE.txt文件
@@ -100,4 +106,5 @@ Apache Linkis(incubating) 1.0.3 包含所有 [Project Linkis-1.0.3](https://gith
 ---------
 
 ## 致谢
+
 Apache Linkis(incubating) 1.0.3的发布离不开Linkis社区的贡献者。感谢所有的社区贡献者！

@@ -9,7 +9,7 @@ sidebar_position: 0.1
 - [ContextService 清理接口特性](/architecture/public-enhancement-services/context-service/content-service-cleanup.md)
 - [版本的Release-Notes](/download/release-notes-1.1.3)
 
-## 参数变化 
+## 参数变化
 
 | 模块名(服务名)| 类型  |     参数名                                                | 默认值             | 描述                                                    |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
@@ -20,5 +20,6 @@ sidebar_position: 0.1
 |common  | 修改  | wds.linkis.server.user.restful.uri.pass.auth               | /api/rest_j/v1/actuator/prometheus|                                 |
 |common | 修改  | spring.spring.cloud.config.enabled                   | false|                                |
 
-## 数据库表变化 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.3_schema`文件
+## 数据库表变化
+
+详细见代码仓库(<https://github.com/apache/incubator-linkis>) 对应分支中的升级schema`db/upgrade/1.1.3_schema`文件

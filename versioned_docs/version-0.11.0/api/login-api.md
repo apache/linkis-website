@@ -18,7 +18,7 @@ Enter the linkis-gateway/conf directory and execute the command:
 ```bash
     vim linkis.properties
 ```
-    
+
 Turn on the test mode, the parameters are as follows:
 
 ```properties
@@ -30,10 +30,9 @@ Turn on the test mode, the parameters are as follows:
 
 We provide the following login-related interfaces:
 
- - Log in
- - Sign out
+- Log in
+- Sign out
  -Heartbeat
- 
 
 ## 4 Interface details
 
@@ -67,6 +66,7 @@ We provide the following login-related interfaces:
 ```
 
 ### 4.2 Logout
+
 - Interface `/api/rest_j/v1/user/logout`
 
 - Submission method `POST`

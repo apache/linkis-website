@@ -27,7 +27,7 @@ BML架构图如下：
 
 ![BML架构](/Images/Architecture/Public_Enhancement_Service/engine_bml/bml-jiagou.png)
 
-上述关于BML架构的概述，有参考官网文档：https://linkis.apache.org/zh-CN/docs/latest/architecture/public-enhancement-services/bml
+上述关于BML架构的概述，有参考官网文档：<https://linkis.apache.org/zh-CN/docs/latest/architecture/public-enhancement-services/bml>
 
 ## 2. BML物料库服务底层表模型
 
@@ -130,15 +130,15 @@ EngineConnBmlResourceGenerator、AbstractEngineConnBmlResourceGenerator、Defaul
 再重新回到`DefaultEngineConnResourceService`类中的refreshAll方法内，继续看refreshTask线程的核心流程：
 
 ```scala
-engineConnBmlResourceGenerator.getEngineConnTypeListFromDisk foreach { engineConnType => 
+engineConnBmlResourceGenerator.getEngineConnTypeListFromDisk foreach { engineConnType =>
     Utils.tryCatch {
-           	engineConnBmlResourceGenerator.generate(engineConnType).foreach { 
+            engineConnBmlResourceGenerator.generate(engineConnType).foreach {
               case (version, localize) =>
-             		logger.info(s" Try to initialize ${engineConnType}EngineConn-$version.")
-             		refresh(localize, engineConnType, version)
+               logger.info(s" Try to initialize ${engineConnType}EngineConn-$version.")
+               refresh(localize, engineConnType, version)
       }
-    } 
-    					......
+    }
+         ......
 }
 ```
 
@@ -153,8 +153,6 @@ val engineConnBmlResources = asScalaBuffer(engineConnBmlResourceDao.getAllEngine
 ```
 
 ![ec数据](/Images/Architecture/Public_Enhancement_Service/engine_bml/ec-data.png)
-
-
 
 #### 4.2.1 引擎物料上传流程
 
@@ -219,8 +217,6 @@ versionDao.insertNewVersion(resourceVersion);
 
 ![resource-task](/Images/Architecture/Public_Enhancement_Service/engine_bml/resource-task.png)
 
-
-
 #### 4.2.2 引擎物料更新流程
 
 **引擎物料更新流程时序图**
@@ -259,7 +255,7 @@ getNewestVersion方法是为了在表`linkis_ps_bml_resources_version`中获取�
 ```scala
 ResourceTask resourceTask = null;
 synchronized (resourceId.intern()) {
-	resourceTask = taskService.createUpdateTask(resourceId, user, file, properties);
+ resourceTask = taskService.createUpdateTask(resourceId, user, file, properties);
 }
 ```
 

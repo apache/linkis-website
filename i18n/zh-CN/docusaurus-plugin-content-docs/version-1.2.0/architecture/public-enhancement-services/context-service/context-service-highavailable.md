@@ -12,13 +12,13 @@ sidebar_position: 3
 
 #### （2）要解决的问题
 
--   Context instance对象的HA
+- Context instance对象的HA
 
--   Client创建工作流时生成CSID请求
+- Client创建工作流时生成CSID请求
 
--   CS Server的别名列表
+- CS Server的别名列表
 
--   CSID统一的生成和解析规则
+- CSID统一的生成和解析规则
 
 #### （3）主要设计思路
 

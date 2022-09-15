@@ -40,6 +40,7 @@ Before submitting python on linkis, you only need to make sure that there is pyt
 
 Linkis  provides a client method to call python tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
 If you use Hive, you only need to make the following changes:
+
 ```java
         Map<String, Object> labels = new HashMap<String, Object>();
         labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "python-python2"); // required engineType Label
@@ -50,9 +51,11 @@ If you use Hive, you only need to make the following changes:
 ### 3.2 How to use Linkis-cli
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of Python is as follows:
+
 ```shell
 sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop
 ```
+
 The specific usage can refer to [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 How to use Scriptis

@@ -8,6 +8,7 @@ sidebar_position: 4
 > ```
 
 ## 1. import dependent modules
+
 ```
  <dependency>
    <groupId>org.apache.linkis</groupId>
@@ -23,7 +24,9 @@ sidebar_position: 4
 ```
 
 ## 2. Scala Test Code
+
 Create a Scala test class LinkisDataSourceClientTest, the specific interface meaning can be seen in the comments：
+
 ```java
 
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -56,7 +59,7 @@ object LinkisDataSourceClientTest {
       .setAuthTokenValue("xxx") // set passwd or token
       .setDWSVersion("v1") //linkis rest version v1
       .build
-     //init datasource remote client   
+     //init datasource remote client
      val dataSourceClient = new LinkisDataSourceRemoteClient(clientConfig)
      //init metadata remote client
      val metaDataClient = new LinkisMetaDataRemoteClient(clientConfig)
@@ -142,4 +145,3 @@ def testUpdateDataSourceParameterForEs(client:LinkisDataSourceRemoteClient): Uni
   }
 }
 ```
-

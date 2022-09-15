@@ -10,7 +10,6 @@ As a computation middleware, Linkis provides powerful connectivity, reuse, orche
 
 Since the first release of Linkis in 2019, it has accumulated more than **700** trial companies and **1000+** sandbox trial users, which involving diverse industries, from finance, banking, tele-communication, to manufactory, internet companies and so on. Lots of companies have already used Linkis as a unified entrance for the underlying computation and storage engines of the big data platform.
 
-
 ![linkis-intro-01](https://user-images.githubusercontent.com/11496700/84615498-c3030200-aefb-11ea-9b16-7e4058bf6026.png)
 
 ![linkis-intro-03](https://user-images.githubusercontent.com/11496700/84615483-bb435d80-aefb-11ea-81b5-67f62b156628.png)
@@ -18,8 +17,8 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 ## Features
 
 - **Support for diverse underlying computation storage engines**.  
-    Currently supported computation/storage engines: Spark, Hive, Python, Presto, ElasticSearch, MLSQL, TiSpark, JDBC, Shell, etc;      
-    Computation/storage engines to be supported: Flink(Supported in version >=1.0.2), Impala, etc;      
+    Currently supported computation/storage engines: Spark, Hive, Python, Presto, ElasticSearch, MLSQL, TiSpark, JDBC, Shell, etc;
+    Computation/storage engines to be supported: Flink(Supported in version >=1.0.2), Impala, etc;
     Supported scripting languages: SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala and JDBC, etc.  
   
 - **Powerful task/request governance capabilities**. With services such as Orchestrator, Label Manager and customized Spring Cloud Gateway, Linkis is able to provide multi-level labels based, cross-cluster/cross-IDC fine-grained routing, load balance, multi-tenancy, traffic control, resource control, and orchestration strategies like dual-active, active-standby, etc.  
@@ -36,7 +35,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 | **Engine** | **Supported Version** | **Linkis 0.X version requirement**| **Linkis 1.X version requirement** | **Description** |
 |:---- |:---- |:---- |:---- |:---- |
-|Flink |1.12.2|\>=dev-0.12.0, PR #703 not merged yet.|>=1.0.2|	Flink EngineConn. Supports FlinkSQL code, and also supports Flink Jar to Linkis Manager to start a new Yarn application.|
+|Flink |1.12.2|\>=dev-0.12.0, PR #703 not merged yet.|>=1.0.2| Flink EngineConn. Supports FlinkSQL code, and also supports Flink Jar to Linkis Manager to start a new Yarn application.|
 |Impala|\>=3.2.0, CDH >=6.3.0"|\>=dev-0.12.0, PR #703 not merged yet.|ongoing|Impala EngineConn. Supports Impala SQL.|
 |Presto|\>= 0.180|\>=0.11.0|ongoing|Presto EngineConn. Supports Presto SQL.|
 |ElasticSearch|\>=6.0|\>=0.11.0|ongoing|ElasticSearch EngineConn. Supports SQL and DSL code.|
@@ -54,10 +53,12 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/releases) to download a compiled distribution or a source code package of Linkis.
 
 ## Compile and deploy
+
 Please follow [Compile Guide](development/linkis-compile-and-package.md) to compile Linkis from source code.  
-Please refer to [Deployment_Documents](deployment/quick-deploy.md) to do the deployment. 
+Please refer to [Deployment_Documents](deployment/quick-deploy.md) to do the deployment.
 
 ## Examples and Guidance
+
 You can find examples and guidance for how to use and manage Linkis in [User_Manual](user-guide/overview.md), [engine-usage_Documents](engine-usage/overview.md) and [API_Documents](api/overview.md).
 
 ## Documentation
@@ -65,7 +66,9 @@ You can find examples and guidance for how to use and manage Linkis in [User_Man
 The documentation of linkis is in [Linkis-WebSite](https://github.com/apache/incubator-linkis-website)
 
 ## Architecture
+
 Linkis services could be divided into three categories: computation governance services, public enhancement services and microservice governance services.  
+
 - The computation governance services, support the 3 major stages of processing a task/request: submission -> preparation -> execution;  
 - The public enhancement services, including the material library service, context service, and data source service;  
 - The microservice governance services, including Spring Cloud Gateway, Eureka and Open Feign.

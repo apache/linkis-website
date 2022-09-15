@@ -6,7 +6,7 @@ tags: [github]
 
 ## 1. 依赖版本
 
-- kind github：https://github.com/kubernetes-sigs/kind
+- kind github：<https://github.com/kubernetes-sigs/kind>
 
 - kind官网：[kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
 
@@ -44,8 +44,6 @@ systemctl start docker
 systemctl enable docker
 ```
 
-
-
 ### 2.2 设置国内镜像
 
 ```
@@ -60,13 +58,11 @@ vi /etc/docker/daemon.json
 }
 ```
 
-
-
 ## 3. 安装kind
 
 （1）手工下载kind二进制
 
-https://github.com/kubernetes-sigs/kind/releases
+<https://github.com/kubernetes-sigs/kind/releases>
 
 （2）安装kind二进制
 
@@ -76,9 +72,7 @@ chmod +x ./kind
 mv kind-linux-amd64 /usr/bin/kind
 ```
 
-
-
-## 4. 安装JDK 和 Maven 
+## 4. 安装JDK 和 Maven
 
 （1）参考通用安装教程，安装如下组件
 
@@ -108,8 +102,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
-
-
 （3）安装nodejs
 
 ```
@@ -118,8 +110,6 @@ nvm ls-remote
 nvm install v14.19.3
 ```
 
-
-
 （4）配置NPM
 
 ```
@@ -127,8 +117,6 @@ npm config set registry https://registry.npmmirror.com
 
 npm config set sass_binary_site https://registry.npmmirror.com/binary.html?path=node-sass/
 ```
-
-
 
 （5）编译前端
 
@@ -139,10 +127,8 @@ yarn
 
 yarn build
 
-yarn 
+yarn
 ```
-
-
 
 ## 6. 编译linkis
 
@@ -166,30 +152,19 @@ yarn
 ./mvnw clean install -Pdocker -Dmaven.javadoc.skip=true -Dmaven.test.skip=true -Dlinkis.build.web=true
 ```
 
+## 7. 创建集群
 
-
-
-
-## 7. 创建集群 
 ```
 dos2unix ./linkis-dist/helm/scripts/*.sh
 
 ./linkis-dist/helm/scripts/create-test-kind.sh
 ```
 
-
-
-
-
 ## 8. 安装helm charts
 
 ```
  ./scripts/install-charts.sh linkis linkis-demo
 ```
-
-
-
-
 
 ## 9.访问linkis页面
 
@@ -199,18 +174,12 @@ kubectl port-forward -n linkis  --address=0.0.0.0 service/linkis-demo-web 8087:8
 http://10.0.2.101:8087
 ```
 
-
-
-
-
 ## 10.使用Linkis客户端测试
 
 ```
 kubectl -n linkis exec -it linkis-demo-ps-publicservice-77d7685d9-f59ht -- bash
 ./linkis-cli -engineType shell-1 -codeType shell -code "echo \"hello\" "  -submitUser hadoop -proxyUser hadoop
 ```
-
-
 
 ## 11.安装kubectl
 
@@ -231,4 +200,3 @@ kubectl config view  查看集群信息
 kubectl config get-contexts  得到所有集群context对象信息
 kubectl cluster-info  查看当前集群情况
 ```
-

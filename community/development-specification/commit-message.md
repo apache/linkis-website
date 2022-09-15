@@ -2,7 +2,7 @@
 title: Commit Message Notice
 sidebar_position: 2
 ---
->This article is quoted from https://dolphinscheduler.apache.org/en-us/docs/dev/user_doc/contribute/join/commit-message.html
+>This article is quoted from <https://dolphinscheduler.apache.org/en-us/docs/dev/user_doc/contribute/join/commit-message.html>
 
 ### Preface
 

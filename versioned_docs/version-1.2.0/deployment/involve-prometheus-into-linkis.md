@@ -33,6 +33,7 @@ Modify the configuration item `PROMETHEUS_ENABLE` in linkis-env.sh of Linkis.
 ```bash
 export PROMETHEUS_ENABLE=true
 ````
+
 After running the `install.sh`, it's expected to see the configuration related to `prometheus` is appended inside the following files:
 
 ```yaml
@@ -72,7 +73,9 @@ wds.linkis.prometheus.enable=true
 wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
 ````
+
 Then inside each computation engine, like spark, flink or hive, it's needed to add the same configuration **manually**.
+
 ```yaml
 ## linkis-engineconn.properties  ##
 ...
@@ -80,8 +83,11 @@ wds.linkis.prometheus.enable=true
 wds.linkis.server.user.restful.uri.pass.auth=/api/rest_j/v1/actuator/prometheus,
 ...
 ````
+
 ### 2.2 Enable Prometheus after installation
+
 Modify`${LINKIS_HOME}/conf/application-linkis.yml`, add `prometheus` as exposed endpoints.
+
 ```yaml
 ## application-linkis.yml  ##
 management:
@@ -91,7 +97,9 @@ management:
         #Add prometheus
         include: refresh,info,health,metrics,prometheus
 ```
+
 Modify`${LINKIS_HOME}/conf/application-eureka.yml`, add `prometheus` as exposed endpoints.
+
 ```yaml
 ## application-eureka.yml  ##
 management:
@@ -101,7 +109,9 @@ management:
         #Add prometheus
         include: refresh,info,health,metrics,prometheus
 ````
+
 Modify`${LINKIS_HOME}/conf/linkis.properties`, remove the comment `#` before `prometheus.enable`
+
 ```yaml
 ## linkis.properties ##
 ...
@@ -112,16 +122,17 @@ wds.linkis.prometheus.enable=true
 ### 2.3 Start Linkis
 
 ```bash
-$ bash linkis-start-all.sh
+bash linkis-start-all.sh
 ````
 
-After start the services, it's expected to access the prometheus endpoint of each microservice in the Linkis, for example, http://linkishost:9103/api/rest_j/v1/actuator/prometheus.
+After start the services, it's expected to access the prometheus endpoint of each microservice in the Linkis, for example, <http://linkishost:9103/api/rest_j/v1/actuator/prometheus>.
 
 :::caution 注意
-The prometheus endpoint of gateway/eureka don't include the prefix `api/rest_j/v1`, and the complete endpoint will be http://linkishost:9001/actuator/prometheus
+The prometheus endpoint of gateway/eureka don't include the prefix `api/rest_j/v1`, and the complete endpoint will be <http://linkishost:9001/actuator/prometheus>
 :::
 
 ## 3. Demo for Deploying the Prometheus, Alertmanager and Grafana
+
 Usually the monitoring setup for a cloud native application will be deployed on kubernetes with service discovery and high availability (e.g. using a kubernetes operator like Prometheus Operator). To quickly prototype dashboards and experiment with different metric type options (e.g. histogram vs gauge) you may need a similar setup locally. This sector explains how to setup locally a Prometheus/Alert Manager and Grafana monitoring stack with Docker Compose.
 
 First, lets define a general component of the stack as follows:
@@ -173,8 +184,10 @@ services:
     ports:
       - "3000:3000"
 ````
+
 Second, to define some alerts based on metrics in Prometheus, you can group then into an alert_rules.yml, so you could validate those alerts are properly triggered in your local setup before configuring them in the production instance.
 As an example, the following configration convers the usual metrics used to monitor Linkis services.
+
 - a. Down instance
 - b. High Cpu for each JVM instance (>80%)
 - c. High Heap memory for each JVM instance (>80%)
@@ -246,7 +259,8 @@ groups:
           description: "waiting threads is over 100 for over 1min"
           value: "{{ $value }}"
 ```
-**Note**: Since once the service instance is shutdown, it will not be one of the target of Prometheus Eureka SD, and `up` metrics will not return any data after a short time. Thus we will collect if the `up=0` in the last one minute to determine whether the service is alive or not. 
+
+**Note**: Since once the service instance is shutdown, it will not be one of the target of Prometheus Eureka SD, and `up` metrics will not return any data after a short time. Thus we will collect if the `up=0` in the last one minute to determine whether the service is alive or not.
 
 Third, and most importantly define Prometheus configuration in prometheus.yml file. This will defines:
 
@@ -254,6 +268,7 @@ Third, and most importantly define Prometheus configuration in prometheus.yml fi
 - the connection information to reach AlertManager and the rules to be evaluated
 - the connection information to application metrics endpoint.
 This is an example configration file for Linkis:
+
 ````yaml
 ## prometheus.yml ##
 # my global config
@@ -286,7 +301,9 @@ scrape_configs:
         target_label: __metrics_path__
         regex: (.+)
 ````
+
 Forth, the following configuration defines how alerts will be sent to external webhook.
+
 ```yaml
 ## alertmanager.yml ##
 global:
@@ -295,7 +312,7 @@ global:
 route:
   receiver: 'webhook'
   group_by: ['alertname']
-   
+
   # How long to wait to buffer alerts of the same group before sending a notification initially.
   group_wait: 1m
   # How long to wait before sending an alert that has been added to a group for which there has already been a notification.
@@ -314,6 +331,7 @@ receivers:
 Finally, after defining all the configuration file as well as the docker compose file we can start the monitoring stack with `docker-compose up`
 
 ## 4. Result display
+
 On Prometheus page, it's expected to see all the Linkis service instances as shown below:
 ![](/Images/deployment/monitoring/prometheus_screenshot.jpg)
 

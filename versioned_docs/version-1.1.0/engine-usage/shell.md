@@ -6,6 +6,7 @@ sidebar_position: 2
 # Shell Engine Usage document
 
 This article mainly introduces the configuration, deployment and use of Shell EngineConn in Linkis1.0
+
 ## 1. The environment configuration before using the Shell EngineConn
 
 If you want to use the shell EngineConn on your server, you need to ensure that the user's PATH has the bash execution directory and execution permissions.
@@ -21,6 +22,7 @@ Table 1-1 Environmental configuration list
 ### 2.1 Shell version selection and compilation
 
 The shell EngineConn does not need to be compiled by the user, and the compiled shell EngineConn plug-in package can be used directly.
+
 ### 2.2 shell engineConn deployment and loading
 
 Here you can use the default loading method to be used normally.
@@ -39,6 +41,7 @@ Before submitting the shell on linkis, you only need to ensure that there is the
 
 Linkis  provides a client method to call shell tasks. The call method is through the SDK provided by LinkisClient. We provide java and scala two ways to call, the specific usage can refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
 If you use Hive, you only need to make the following changes:
+
 ```java
         Map<String, Object> labels = new HashMap<String, Object>();
         labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "shell-1"); // required engineType Label
@@ -49,9 +52,11 @@ If you use Hive, you only need to make the following changes:
 ### 3.2 How to use Linkis-cli
 
 After Linkis 1.0, you can submit tasks through cli. We only need to specify the corresponding EngineConn and CodeType tag types. The use of shell is as follows:
+
 ```shell
 sh ./bin/linkis-cli -engineType shell-1 -codeType shell -code "echo \"hello\" "  -submitUser hadoop -proxyUser hadoop
 ```
+
 The specific usage can refer to [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 How to use Scriptis

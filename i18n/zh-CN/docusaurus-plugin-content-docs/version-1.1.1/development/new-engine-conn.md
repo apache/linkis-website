@@ -13,9 +13,9 @@ sidebar_position: 3
 
 ```xml
 <dependency>
-	<groupId>org.apache.linkis</groupId>
-	<artifactId>linkis-engineconn-plugin-core</artifactId>
-	<version>${linkis.version}</version>
+ <groupId>org.apache.linkis</groupId>
+ <artifactId>linkis-engineconn-plugin-core</artifactId>
+ <version>${linkis.version}</version>
 </dependency>
 <!-- 以及一些其他所需依赖的maven配置 -->
 ```
@@ -25,9 +25,9 @@ sidebar_position: 3
 - **EngineConnPlugin：** 启动EngineConn时，先找到对应的EngineConnPlugin类，以此为入口，获取其它核心接口的实现，是必须实现的主要接口。
 
 - **EngineConnFactory：** 实现如何启动一个引擎连接器，和如何启动一个引擎执行器的逻辑，是必须实现的接口。
-    - 实现createEngineConn方法：返回一个EngineConn对象，其中，getEngine返回一个封装了与底层引擎连接信息的对象，同时包含Engine类型信息。
-    - 对于只支持单一计算场景的引擎，继承SingleExecutorEngineConnFactory，实现createExecutor，返回对应的Executor。
-    - 对于支持多计算场景的引擎，需要继承MultiExecutorEngineConnFactory，并为每种计算类型实现一个ExecutorFactory。EngineConnPlugin会通过反射获取所有的ExecutorFactory，根据实际情况返回对应的Executor。
+  - 实现createEngineConn方法：返回一个EngineConn对象，其中，getEngine返回一个封装了与底层引擎连接信息的对象，同时包含Engine类型信息。
+  - 对于只支持单一计算场景的引擎，继承SingleExecutorEngineConnFactory，实现createExecutor，返回对应的Executor。
+  - 对于支持多计算场景的引擎，需要继承MultiExecutorEngineConnFactory，并为每种计算类型实现一个ExecutorFactory。EngineConnPlugin会通过反射获取所有的ExecutorFactory，根据实际情况返回对应的Executor。
 - **EngineConnResourceFactory：** 用于限定启动一个引擎所需要的资源，引擎启动前，将以此为依 据 向 Linkis Manager 申 请 资 源。非必须，默认可以使用GenericEngineResourceFactory。
 - **EngineLaunchBuilder：** 用于封装EngineConnManager可以解析成启动命令的必要信息。非必须，可以直接继承JavaProcessEngineConnLaunchBuilder。
 
@@ -36,8 +36,8 @@ sidebar_position: 3
 Executor为执行器，作为真正的计算场景执行器，是实际的计算逻辑执行单元，也是对引擎各种具体能力的抽象，提供加锁、访问状态、获取日志等多种不同的服务。并根据实际的使用需要，Linkis默认提供以下的派生Executor基类，其类名和主要作用如下：
 
 - **SensibleExecutor：**
-    - Executor存在多种状态，允许Executor切换状态
-    - Executor切换状态后，允许做通知等操作
+  - Executor存在多种状态，允许Executor切换状态
+  - Executor切换状态后，允许做通知等操作
 - **YarnExecutor：** 指Yarn类型的引擎，能够获取得到applicationId和applicationURL和队列。
 - **ResourceExecutor：** 指引擎具备资源动态变化的能力，配合提供requestExpectedResource方法，用于每次希望更改资源时，先向RM申请新的资源；而resourceUpdate方法，用于每次引擎实际使用资源发生变化时，向RM汇报资源情况。
 - **AccessibleExecutor：** 是一个非常重要的Executor基类。如果用户的Executor继承了该基类，则表示该Engine是可以被访问的。这里需区分SensibleExecutor的state()和 AccessibleExecutor 的 getEngineStatus()方法：state()用于获取引擎状态，getEngineStatus()会获取引擎的状态、负载、并发等基础指标Metric数据。
@@ -94,7 +94,7 @@ def mapStringToEngineType(str: String): EngineType = str match {
 
 // RunType.scla中
 object RunType extends Enumeration {
-	val JDBC = Value("jdbc")
+ val JDBC = Value("jdbc")
 }
 ```
 
@@ -109,7 +109,7 @@ public class LabelCommonConfig {
 // 在EngineTypeLabelCreator的init方法中补充jdbc的匹配逻辑
 // 如果这一步不做，代码提交到引擎上时，引擎标签信息中会缺少版本号
 public class EngineTypeLabelCreator {
-	private static void init() {
+ private static void init() {
     defaultVersion.put(EngineType.JDBC().toString(), LabelCommonConfig.JDBC_ENGINE_VERSION.getValue());
   }
 }
@@ -182,14 +182,12 @@ methods: {
   // 图标过滤
   supportIcon(item) {
      const supportTypes = [
-       	 ......
+         ......
         { rule: 'jdbc', logo: 'fi-jdbc' },
       ];
   }
 }
 ```
-
-
 
 最终呈现给用户的效果：
 
@@ -244,8 +242,6 @@ mvn clean install -DskipTests
 在管理台选择添加引擎
 
 ![添加引擎](/Images-zh/EngineConnNew/add_engine_conf.png)
-
-
 
 如果您希望在管理台支持引擎参数配置，可以按照JDBC引擎SQL示例修改数据库。
 
@@ -421,7 +417,7 @@ methods: {
   // 图标过滤
   supportIcon(item) {
      const supportTypes = [
-				......
+    ......
         { rule: 'jdbc', logo: 'fi-jdbc' },
       ];
   }
@@ -439,8 +435,6 @@ web/src/dss/assets/projectIconFont/iconfont.css
 此处控制的应该是：
 
 ![引擎图标](/Images-zh/EngineConnNew/jdbc_engine_logo.png)
-
-
 
 找一个引擎图标的svg文件
 
@@ -482,7 +476,7 @@ const NODETYPE = {
 }
 
 const ext = {
-	......
+ ......
   [NODETYPE.JDBC]: 'jdbc',
 }
 

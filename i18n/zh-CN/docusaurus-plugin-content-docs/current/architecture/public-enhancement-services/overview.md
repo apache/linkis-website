@@ -10,7 +10,7 @@ PublicEnhancementService（PS）：公共增强服务，为其他微服务模块
 
 ![](/Images-zh/Architecture/PublicEnhencement架构图.png)
 
-二级模块介绍：
+二级模块介绍
 ==============
 
 BML物料库

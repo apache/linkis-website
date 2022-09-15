@@ -86,7 +86,6 @@ sidebar_position: 1
 | wds.linkis.shell.white.usage | cd,ls | Shell白名单语法 |
 | wds.linkis.sql.default.limit | 5000 | SQL默认的最大返回结果集行数 |
 
-
 #### 2.2 EngineConn配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -99,7 +98,6 @@ sidebar_position: 1
 | wds.linkis.engineconn.pass.words | org.apache.hadoop.hive.ql.exec.Task | Engine向Entrance端推送日志时，默认必须推送的日志 |
 | wds.linkis.engineconn.heartbeat.time | 3m | EngineConn向LinkisManager的默认心跳间隔 |
 | wds.linkis.engineconn.max.free.time | 1h | EngineConn的最大空闲时间 |
-
 
 #### 2.3 EngineConnManager的配置参数
 
@@ -126,7 +124,6 @@ sidebar_position: 1
 | wds.linkis.rm.yarnqueue.memory.max | 450g | 每个用户在每个引擎的使用队列的最大内存数 |
 | wds.linkis.rm.yarnqueue.instance.max | 30 | 每个用户在每个引擎的队列中最多启动的应用数 |
 
-
 ### 3. 各引擎配置参数
 
 #### 3.1 JDBC引擎配置参数
@@ -136,7 +133,6 @@ sidebar_position: 1
 | wds.linkis.jdbc.default.limit | 5000 | 默认的最大返回结果集行数 |
 | wds.linkis.jdbc.support.dbs | mysql=>com.mysql.jdbc.Driver,postgresql=>org.postgresql.Driver,oracle=>oracle.jdbc.driver.OracleDriver,hive2=>org.apache.hive.jdbc.HiveDriver,presto=>com.facebook.presto.jdbc.PrestoDriver | JDBC引擎支持的驱动 |
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | 最大并行SQL执行数 |
-
 
 #### 3.2 Python引擎配置参数
 
@@ -152,7 +148,6 @@ sidebar_position: 1
 | wds.linkis.engine.spark.language-repl.init.time | 30s | Scala和Python命令解释器的最大初始化时间 |
 | PYSPARK_DRIVER_PYTHON | python | Python命令路径 |
 | wds.linkis.server.spark-submit | spark-submit | spark-submit命令路径 |
-
 
 ### 4. PublicEnhancements配置参数
 
@@ -175,13 +170,11 @@ sidebar_position: 1
 | hive.meta.user | 无 | HiveMetaStore数据库的user |
 | hive.meta.password | 无 | HiveMetaStore数据库的password |
 
-
 #### 4.3 JobHistory配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.jobhistory.admin | 无 | 默认的Admin账号，用于指定哪些用户可以查看所有人的执行历史 |
-
 
 #### 4.4 FileSystem配置参数
 

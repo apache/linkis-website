@@ -2,7 +2,7 @@
 title: SpringMVC Replaces Jersey 
 sidebar_position: 5
 ---
-> This article mainly introduces the linkis-1.0.3 version, how to use Spring REST to replace the jersey REST mode. Before version 1.0.3, the REST web services provided by linkis used the jersey architecture. The reason for the replacement is mainly to consider: 1. Lisence compliance issues (https://www.apache.org/legal/resolved.html#); 2. linkis itself is a project developed based on Spring, using Spring REST It is more friendly to combine with Feign.
+> This article mainly introduces the linkis-1.0.3 version, how to use Spring REST to replace the jersey REST mode. Before version 1.0.3, the REST web services provided by linkis used the jersey architecture. The reason for the replacement is mainly to consider: 1. Lisence compliance issues (<https://www.apache.org/legal/resolved.html>#); 2. linkis itself is a project developed based on Spring, using Spring REST It is more friendly to combine with Feign.
 
 ## Servlet Adjustment
 
@@ -10,6 +10,7 @@ linkis Before 1.0.3, the DataWorkCloudApplication startup class used jersey's Se
 Replaced by Spring's DispatcherServlet in 1.0.3. If there are other components based on the secondary development of linkis, and some rely on the DataWorkCloudApplication startup class, then the http service in the original jersey mode cannot be used directly.
 
 ## Request Returned Structure Adjustment
+
 - Jersey: http request returns entity: javax.ws.rs.core.Response is the jersey mode http return entity, which is processed separately in jersey and encapsulated as Response
 
 - The Spingmvc mode needs to be modified and returns directly to Message
@@ -20,15 +21,12 @@ Replaced by Spring's DispatcherServlet in 1.0.3. If there are other components b
   return Message.ok().data("test", data)
 ````
 
-
 ## Jackson Upgrade Replacement
 
 - org.codehaus.jackson has been moved from codehaus to github since v2 and renamed to com.fasterxml.jackson
 - The old version of jersey uses org.codehaus.jackson, and springmvc uses the new version of com.fasterxml.jackson. When replacing with springmvc style, you need to upgrade jackson
 
-
 ## Annotation Comparison
-
 
 | jersey annotations | springmvc annotations | remarks |
 | --- | --- | --- |
@@ -47,7 +45,6 @@ Replaced by Spring's DispatcherServlet in 1.0.3. If there are other components b
 |@Produces(MediaType.APPLICATION_JSON)|@RequestMapping(produces = {"application/json"})| |
 |Parameter org.codehaus.jackson.JsonNode|@RequestBody com.fasterxml.jackson.databind.JsonNode jsonNode|The old version of jersey uses the old version of jackson, and springmvc uses the new version of JsonNode
 
-
 ## Jackson Main Replacement Point
 
 ```
@@ -57,5 +54,6 @@ jackson-2.X methods: booleanValue(), fields(), elements() and intValue()
 ```
 
 For details, please refer to
-- https://stackoverflow.com/questions/55896802/upgrade-of-jackson-from-org-codehaus-jackson-to-com-fasterxml-jackson-version-1
-- http://www.cowtowncoder.com/blog/archives/2012/04/entry_469.html
+
+- <https://stackoverflow.com/questions/55896802/upgrade-of-jackson-from-org-codehaus-jackson-to-com-fasterxml-jackson-version-1>
+- <http://www.cowtowncoder.com/blog/archives/2012/04/entry_469.html>

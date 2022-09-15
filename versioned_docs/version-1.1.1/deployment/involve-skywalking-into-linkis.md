@@ -17,6 +17,7 @@ The following figure is the overall architecture of SkyWalking.
 ![](/Images/deployment/skywalking/SkyWalking_Architecture.png)
 
 SkyWalking is logically split into four parts: Probes, Platform backend, Storage and UI.
+
 - **Probe**s collect data and reformat them for SkyWalking requirements (different probes support different sources).
 - **Platform backend** supports data aggregation, analysis and streaming process covers traces, metrics, and logs.
 - **Storage** houses SkyWalking data through an open/plugable interface. You can choose an existing implementation, such as ElasticSearch, H2, MySQL, TiDB, InfluxDB, or implement your own. Patches for new storage implementors welcome!
@@ -30,8 +31,8 @@ Using SkyWalking in Linkis requires that the user already has the Backend servic
 
 We used **Language based native agent** when Linkis integrated SkyWalking, that is, the method of java agent. Below we will show you how to enable SkyWalking in Linkis service.
 
-
 ## 2. Deploy the SkyWalking backend
+
 The SkyWalking backend is a prerequisite for enabling SkyWalk. The following is a brief demonstration of how to install the SkyWalking backend.
 
 First download SkyWalking APM from SkyWalking's [Downloads](https://skywalking.apache.org/downloads/) page.
@@ -39,6 +40,7 @@ First download SkyWalking APM from SkyWalking's [Downloads](https://skywalking.a
 ![](/Images/deployment/skywalking/SkyWalking_APM_Download.png)
 
 After downloading, unzip it directly, and we get the following directory structure.
+
 ```bash
 $ ls
 bin config config-examples LICENSE licenses logs NOTICE oap-libs README.txt tools webapp
@@ -47,16 +49,19 @@ bin config config-examples LICENSE licenses logs NOTICE oap-libs README.txt tool
 The backend uses the H2 in-memory database as the backend storage by default, and does not need to modify the configuration. Start as follows.
 
 Start Backend
+
 ```bash
-$ bash bin/startup.sh
+bash bin/startup.sh
 ````
 
 Start WebApp
+
 ```bash
-$ bash bin/webappService.sh
+bash bin/webappService.sh
 ````
 
 The UI starts on port 8080 by default. You can also modify the listening port by modifying the webapp.yml file in the webapp directory.
+
 ````yaml
 server:
   port: 8080
@@ -99,6 +104,7 @@ To start SkyWalking in Linkis, you first need to download the Java agent of SkyW
 ![](/Images/deployment/skywalking/SkyWalking_Agent_Download.png)
 
 After downloading, unzip it directly, the internal file structure is as follows:
+
 ```bash
 tree skywalking-agent
 $ skywalking-agent
@@ -129,6 +135,7 @@ $ skywalking-agent
 ````
 
 Modify the configuration item `SKYWALKING_AGENT_PATH` in linkis-env.sh of Linkis. Set it to the path to `skywalking-agent.jar`.
+
 ```bash
 SKYWALKING_AGENT_PATH=/path/to/skywalking-agent.jar
 ````
@@ -136,7 +143,7 @@ SKYWALKING_AGENT_PATH=/path/to/skywalking-agent.jar
 Then start Linkis.
 
 ```bash
-$ bash linkis-start-all.sh
+bash linkis-start-all.sh
 ````
 
 ## 4. Result display

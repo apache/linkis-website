@@ -19,7 +19,6 @@ This makes the event distribution and consumption algorithm need to deal with a 
 
 2. In each group, define the combination of related parameters. When a parameter is adjusted, all parameters related to it will be adjusted accordingly to try to maintain the normal operation of the consumer.
 
-
 ## 3 Implementation
 
 As shown in the figure below, the process of Linkis Scheduler distributing consumption events is as follows:
@@ -55,15 +54,15 @@ When adjusting the parameters of this program, the following process is required
 2. Call the parameter adjustment method in the grouping object and try to set the parameters. The following two situations are involved:
 
     a) The parameter limit must be within the range specified by several sets of numbers.
-        
+
         If the parameter you are trying to set is not within the range, the feedback setting has failed.
         
         If it is within the allowable range, the grouped object will get the corresponding consumer through the consumption manager. While setting the target parameter to the target value, set the other parameters to the corresponding value according to the matched group of numbers. .
-    
+
     b) The parameter limit must meet a certain ratio.
-    
+
         The grouped object gets the corresponding consumer through the consumer manager, and while setting the target parameter to the target value, the other parameters are also calculated in proportion to the corresponding target value, and all are reset.
-        
+
 In addition to manually setting parameters, each consumer has an independent monitoring thread to count the length of the waiting queue in the consumer, the number of events being executed, and the growth rate of execution time.
 
 In each grouping object, thresholds and alarm ratios are set for these indicators. Once an indicator exceeds the threshold, or the ratio between multiple indicators exceeds a limited range (for example, when the average execution time is monitored to be greater than the distribution interval parameter, the threshold is considered to be exceeded ), the monitoring thread will immediately expand the consumer accordingly.

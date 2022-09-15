@@ -33,13 +33,13 @@ sidebar_position: 1
 
 如果您已经编译完了您的spark引擎的插件已经编译完成，那么您需要将新的插件放置到指定的位置中才能加载，具体可以参考下面这篇文章
 
-[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation)
 
 ### 2.3 spark引擎的标签
 
 Linkis1.0是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/engine-conn-plugin-installation)
 
 ## 3.spark引擎的使用
 

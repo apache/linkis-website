@@ -15,11 +15,11 @@ sidebar_position: 3
 
 **约定**：
 
- - method：返回请求的Restful API URI，主要是 WebSocket 模式需要使用。
- - status：返回状态信息，其中：-1表示没有登录，0表示成功，1表示错误，2表示验证失败，3表示没该接口的访问权限。
- - data：返回具体的数据。
- - message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。 
- 
+- method：返回请求的Restful API URI，主要是 WebSocket 模式需要使用。
+- status：返回状态信息，其中：-1表示没有登录，0表示成功，1表示错误，2表示验证失败，3表示没该接口的访问权限。
+- data：返回具体的数据。
+- message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。
+
 更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](/community/development-specification/api)
 
 ### 1. 提交执行
@@ -35,14 +35,14 @@ sidebar_position: 3
     "runType": "sql"
   },
   "params": {
-    "variable": {// task variable 
+    "variable": {// task variable
       "testvar": "hello"
     },
     "configuration": {
-      "runtime": {// task runtime params 
+      "runtime": {// task runtime params
         "jdbc.url": "XX"
       },
-      "startup": { // ec start up params 
+      "startup": { // ec start up params
         "spark.executor.cores": "4"
       }
     }
@@ -74,7 +74,6 @@ sidebar_position: 3
 - execID是用户任务提交到 Linkis 之后，为该任务生成的唯一标识执行ID，为 String 类型，这个ID只在任务运行时有用，类似PID的概念。ExecID 的设计为`(requestApplicationName长度)(executeAppName长度)(Instance长度)${requestApplicationName}${executeApplicationName}${entranceInstance信息ip+port}${requestApplicationName}_${umUser}_${index}`
 
 - taskID 是表示用户提交task的唯一ID，这个ID由数据库自增生成，为 Long 类型
-
 
 ### 2. 获取状态
 
@@ -113,8 +112,8 @@ sidebar_position: 3
   "message": "返回日志信息",
   "data": {
     "execID": "${execID}",
-	"log": ["error日志","warn日志","info日志", "all日志"],
-	"fromLine": 56
+ "log": ["error日志","warn日志","info日志", "all日志"],
+ "fromLine": 56
   }
 }
 ```
@@ -134,23 +133,23 @@ sidebar_position: 3
   "message": "返回进度信息",
   "data": {
     "execID": "${execID}",
-	"progress": 0.2,
-	"progressInfo": [
-		{
-			"id": "job-1",
-			"succeedTasks": 2,
-			"failedTasks": 0,
-			"runningTasks": 5,
-			"totalTasks": 10
-		},
-		{
-			"id": "job-2",
-			"succeedTasks": 5,
-			"failedTasks": 0,
-			"runningTasks": 5,
-			"totalTasks": 10
-		}
-	]
+ "progress": 0.2,
+ "progressInfo": [
+  {
+   "id": "job-1",
+   "succeedTasks": 2,
+   "failedTasks": 0,
+   "runningTasks": 5,
+   "totalTasks": 10
+  },
+  {
+   "id": "job-2",
+   "succeedTasks": 5,
+   "failedTasks": 0,
+   "runningTasks": 5,
+   "totalTasks": 10
+  }
+ ]
   }
 }
 ```
@@ -185,7 +184,6 @@ sidebar_position: 3
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |id|id|path|true|string||
-
 
 - 返回示例
 
@@ -235,7 +233,6 @@ sidebar_position: 3
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |path|结果集目录路径|query|true|string||
-
 
 - 返回示例
 
@@ -294,7 +291,6 @@ sidebar_position: 3
 |charset|字符集|query|false|string||
 |page|页码|query|false|ref||
 |pageSize|页面大小|query|false|ref||
-
 
 - 返回示例
 
@@ -363,14 +359,14 @@ sidebar_position: 3
     "requestApplicationName": "dss", //Client service type
     "executionCode": "show tables",
     "params": {
-      "variable": {// task variable 
+      "variable": {// task variable
         "testvar": "hello"
       },
       "configuration": {
-        "runtime": {// task runtime params 
+        "runtime": {// task runtime params
           "jdbc.url": "XX"
         },
-        "startup": { // ec start up params 
+        "startup": { // ec start up params
           "spark.executor.cores": "4"
         }
       }

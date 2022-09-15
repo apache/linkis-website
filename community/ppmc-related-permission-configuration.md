@@ -8,15 +8,18 @@ sidebar_position: 8
 ## 1. Binding github account process
 
 ### 1.1 Process overview
+
 1. Associate the apache account with the github account
 2. Securely enable 2FA authentication for github personal accounts
 3. Open permission application on gitbox
 
 ### 1.2 Associate apache Id with github account
+
 **Way 1**
-Log in to https://id.apache.org and set the [Your GitHub Username] field in LDAP to your own GitHub ID. Enter your password Click submit changes and you will receive an invitation to join the apache organization on github within four hours. You should receive an email with "asf-gitbox" in the title of your github account email.
+Log in to <https://id.apache.org> and set the [Your GitHub Username] field in LDAP to your own GitHub ID. Enter your password Click submit changes and you will receive an invitation to join the apache organization on github within four hours. You should receive an email with "asf-gitbox" in the title of your github account email.
 If the invitation has expired (7 days expired), you can try both method 1 and method 2 again. See if you can re-receive the invitation email to join ASF org in the mailbox associated with the github account (search for "asf-gitbox").
 If you haven't received an invitation yet, try the following:
+
 1. Delete the github accounts in methods 1 and 2 first;
 2. After waiting for 1 scan cycle (4 hours to be safe), add the github account back again;
 3. Then wait another 4 hours to see if you can re-receive the invitation email to join ASF org in the email associated with the github account (search for the email title "asf-gitbox").
@@ -24,7 +27,7 @@ If you haven't received an invitation yet, try the following:
 ![Open-Apache's-GitHub-warehouse1](https://user-images.githubusercontent.com/29391030/153324492-cc4e4348-5e4b-450f-a23f-6c208e1a26fb.png)
 
 **Way 2**
-Visit https://whismy.apache.org/roster/committer/xxx (replace with your apache id) to modify the corresponding data, and you will receive an invitation to join the apache github organization within four hours.
+Visit <https://whismy.apache.org/roster/committer/xxx> (replace with your apache id) to modify the corresponding data, and you will receive an invitation to join the apache github organization within four hours.
 Pay attention to check the invitation email of the github organization inviting you to join apache. Invitation is valid for 7 days
 
 ![open-Apache's-GitHub-warehouse2](https://user-images.githubusercontent.com/29391030/153324641-351cf239-c0ff-4fa6-a9f9-46991d4b11fd.png)
@@ -34,12 +37,13 @@ After the successful invitation, the personal github account information can be 
 ![open-Apache's-GitHub-warehouse3](https://user-images.githubusercontent.com/29391030/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
 
 ### 1.3 Enable 2FA authentication (login token)
+
 >github personal account security Enable 2FA authentication (login token)
 
 Two-factor authentication (2FA) refers to a method of authenticating users by combining passwords and physical items (credit cards, SMS mobile phones, tokens, or biometric indicators such as fingerprints). To keep the committer account secure, we require you to enable 2FA on GitHub to authenticate logged in users and contribute code. For details, please refer to 2FA.
-You need to install TOTP software on the mobile phone, search for TOTP in the application market (Microsoft Authenticator is available for Android), and IOS Apple mobile phone personally recommends downloading the authy token software, which can be backed up in the cloud by binding the mobile phone. Mobile SMS is also supported, but the github configuration page does not have a mobile phone number +86 in China by default. For the front-end code bypass when you need to modify the configuration, see https://www.programmerall.com/article/5457100195/ .
+You need to install TOTP software on the mobile phone, search for TOTP in the application market (Microsoft Authenticator is available for Android), and IOS Apple mobile phone personally recommends downloading the authy token software, which can be backed up in the cloud by binding the mobile phone. Mobile SMS is also supported, but the github configuration page does not have a mobile phone number +86 in China by default. For the front-end code bypass when you need to modify the configuration, see <https://www.programmerall.com/article/5457100195/> .
 
-step1 Visit the personal account security settings page https://github.com/settings/security and select the fourth item [Account security]
+step1 Visit the personal account security settings page <https://github.com/settings/security> and select the fourth item [Account security]
 
 ![open-Apache's-GitHub-warehouse4](https://user-images.githubusercontent.com/29391030/153325044-4b68a5c0-959a-4077-abdf-5ad5e67aa26a.png)
 
@@ -63,7 +67,8 @@ For details, see Creating a Private Token.
 If 2FA is turned off in the future, you will be delisted from this project, and you will not be able to access our repository and the fork repository from our private repository.
 
 ### 1.4 Open permission application on gitbox
-step1 Visit https://gitbox.apache.org/setup/ to authorize the associated apache account
+
+step1 Visit <https://gitbox.apache.org/setup/> to authorize the associated apache account
 
 ![open-Apache's-GitHub-warehouse8](https://user-images.githubusercontent.com/29391030/153325227-f917e9c3-16ea-42d4-8432-4b63fd5849da.png)
 
@@ -81,32 +86,39 @@ After successful execution, the following figure is shown. After the success, th
 ![open-Apache's-GitHub-warehouse11](https://user-images.githubusercontent.com/29391030/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
 
 ### 1.5 Related Links Documentation
-[github uses TOTP to enable 2FA authentication] https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
 
-[Create a private token] https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+[github uses TOTP to enable 2FA authentication] <https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication>
 
-[Introduction to gitbox] https://gitbox.apache.org
+[Create a private token] <https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>
 
-[apache and github] https://infra.apache.org/apache-github.html
+[Introduction to gitbox] <https://gitbox.apache.org>
 
-【git github &gitbox 】https://cwiki.apache.org/confluence/display/INFRA/Git%2C+GitHub+and+Gitbox
+[apache and github] <https://infra.apache.org/apache-github.html>
+
+【git github &gitbox 】<https://cwiki.apache.org/confluence/display/INFRA/Git%2C+GitHub+and+Gitbox>
 
 ## 2. Configure emails and email subscriptions
 
 ### 2.1 Associate your own mailbox
->See https://infra.apache.org/committer-email.html for details
-- Method 1: Log in to https://id.apache.org/, fill in your own email address in the `Forwarding email address` field (usually the address provided in the Independent Contributor License Agreement (ICLA) you provided), Save changes
-- Method 2: Log in to https://whismy.apache.org/roster/committer/__self__ and double-click `Email forwarded to` to edit
+
+>See <https://infra.apache.org/committer-email.html> for details
+
+- Method 1: Log in to <https://id.apache.org/>, fill in your own email address in the `Forwarding email address` field (usually the address provided in the Independent Contributor License Agreement (ICLA) you provided), Save changes
+- Method 2: Log in to <https://whismy.apache.org/roster/committer/>__self__ and double-click `Email forwarded to` to edit
 
 ### 2.2 Configure forwarding address
+
 You cannot use your Apache email address directly. You must set up forwarding for this address. When writing to your ASF address, the email will be forwarded to your forwarding address. When you reply, the message goes back through the ASF system, so people you write with will see it's coming from your ASF address
 . Configure in your email environment
+
 ```shell script
 Server: mail-relay.apache.org Port: 587 (STARTTLS), 465 (SSL) User/Pass: {Your LDAP credentials}
 ````
+
 ![image](/img/community/mail-relay.png)
 
 ### 2.2 Subscribe to related mailing lists
+
 As a member of PPMC, you need to actively participate in community construction, promote the healthy development of the community, undertake the responsibility and governance of the project, and this part of the work is often carried out by email (discussion/voting/answering questions, etc.),
 Every PPMC member is required to subscribe to the following mailing lists:
 
@@ -120,9 +132,8 @@ Subscription operations can be found in the guide [Subscribe to the mailing list
 :::caution note
 Note: private@linkis.apache.org subscriptions need to be reviewed by the mail moderator (shaofengshi@apache.org), so please attach personal name information to the content of the mail when subscribing for moderator review.
 :::
-If the above subscription is unsuccessful, you can try to use the web-side tool: https://whismy.apache.org/committers/subscribe.cgi
+If the above subscription is unsuccessful, you can try to use the web-side tool: <https://whismy.apache.org/committers/subscribe.cgi>
 
 ![image](/img/community/subscribe.png)
-
 
 Mailing list subscriptions, PPMC members can view here: https://whismy.apache.org/roster/ppmc/linkis

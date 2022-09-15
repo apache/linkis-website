@@ -4,7 +4,7 @@ sidebar_position: 3
 ---
 > The new interface after the optimization of the metadata query interface, see [Metadata Query API](./metadatamanager-api.md) for the old interface that has been abandoned. Compared with the old interface, mainly adjust the request path and interface parameter naming
 
-#  MetadataQueryRestful class
+# MetadataQueryRestful class
 
 ## getColumns
 
@@ -59,8 +59,8 @@ sidebar_position: 3
 }
 ````
 
-
 ## getDatabases
+
 **Interface address**:`/api/rest_j/v1//metadataQuery/getDatabases`
 
 **Request method**: `GET`
@@ -79,6 +79,7 @@ sidebar_position: 3
 |system|system|query|true|string||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,
@@ -93,7 +94,6 @@ sidebar_position: 3
     }
 }
 ````
-
 
 ## getPartitions
 
@@ -120,6 +120,7 @@ sidebar_position: 3
 |traverse|traverse|query|false|boolean||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,
@@ -148,7 +149,6 @@ sidebar_position: 3
 
 **Interface description**:
 
-
 **Request Parameters**:
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
@@ -159,6 +159,7 @@ sidebar_position: 3
 |table|table|path|true|string||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,
@@ -190,8 +191,8 @@ sidebar_position: 3
 }
 ````
 
-
 ## getPartitionProps
+
 **Interface address**:`/api/rest_j/v1//metadataQuery/getPartitionProps`
 
 **Request method**: `GET`
@@ -212,8 +213,8 @@ sidebar_position: 3
 |system|system|query|true|string||
 |table|table|path|true|string||
 
-
 **Sample Response**:
+
 ````javascript
 {
 "data": {},
@@ -223,8 +224,8 @@ sidebar_position: 3
 }
 ````
 
-
 ## getTables
+
 **Interface address**:`/api/rest_j/v1//metadataQuery/getTables`
 
 **Request method**: `GET`
@@ -244,6 +245,7 @@ sidebar_position: 3
 |system|system|query|true|string||
 
 **Sample Response**:
+
 ````javascript
 {
     "method": null,

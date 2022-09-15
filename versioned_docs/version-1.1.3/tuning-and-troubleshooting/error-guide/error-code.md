@@ -15,10 +15,13 @@ An error occurs during task execution:error code : 01001，error msg : Your task
 Your task is not routed to the background ECM
 
 **Solution 1**
+
 1. Check whether the tenant label is correct
 
 2. If yes, contact the administrator
+
 ---------------------------------
+
 #### Error code 01002
 
 **error description**
@@ -65,6 +68,7 @@ An error occurs during task execution:error code : 01004，error msg : The engin
 The engine was killed at startup because the machine load was too high
 
 **Solution 1**
+
 1. you can choose to retry
 2. or contact the administrator
 
@@ -99,8 +103,10 @@ An error occurs during task execution:error code : 01101，error msg : ECM resou
 Due to insufficient server resources, possibly during peak hours
 
 **Solution 1**
+
 1. you can retry the task
 2. or contact the administrator
+
 ---------------------------------
 
 #### Error code 01102
@@ -115,8 +121,10 @@ An error occurs during task execution:error code : 01102，error msg : ECM memor
 Insufficient server memory resources
 
 **Solution 1**
+
 1. you can retry the task
 2. or contact the administrator
+
 ---------------------------------
 
 #### Error code 01103
@@ -131,8 +139,10 @@ An error occurs during task execution:error code : 01103，error msg : ECM CPU r
 Insufficient server CPU resources
 
 **Solution 1**
+
 1. you can retry the task
 2. or contact the administrator
+
 ---------------------------------
 
 #### Error code 01104
@@ -147,8 +157,10 @@ An error occurs during task execution:error code : 01104，error msg : Instance 
 Insufficient server instance resources
 
 **Solution 1**
+
 1. you can retry the task
 2. or contact the administrator
+
 ---------------------------------
 
 #### Error code 01105
@@ -167,6 +179,7 @@ Server machine out of memory
 1. you can retry the task
 
 2. or contact the administrator
+
 ---------------------------------
 
 #### Error code 12001
@@ -186,6 +199,7 @@ The queue CPU resource is insufficient, exceeding the limit you set
 - ![](/Images/tuning-and-troubleshooting/error-guide/sparkSetting.png)
 
 - Or adjust the upper limit of queue resource usage on the management console -- parameter configuration -- global settings
+
 ---------------------------------
 
 #### Error code 12002
@@ -200,10 +214,12 @@ An error occurs during task execution:error code : 12002，error msg : The queue
 The queue memory resource is insufficient, which exceeds the queue memory resource value you set
 
 **Solution 1**
+
 - Open the DSS platform and click management console -- parameter configuration -- ide -- spark -- display advanced settings -- Walker engine resource settings (2) -- adjust the number of concurrent executors [spark.executor.instances]
 - ![](/Images/tuning-and-troubleshooting/error-guide/sparkSetting.png)
 
 - Or adjust the upper limit of queue resource usage on the management console - parameter configuration - global settings
+
 ---------------------------------
 
 #### Error code 12003
@@ -224,7 +240,6 @@ The number of queue instances exceeds the limit
 
 **Remarks**
 
-
 Users are not recommended to modify the global settings at will. If necessary, please contact the operation and maintenance department before modifying. Non global setting parameters, which can be modified by the user
 
 ---------------------------------
@@ -241,6 +256,7 @@ An error occurs during task execution:error code : 12004，error msg : Global dr
 Global drive memory exceeds maximum
 
 **Solution 1**
+
 - Open the DSS platform and click management console - parameter configuration - global settings - queue resources - maximum number of yarn queue instances [wds.links.rm.yarnqueue.instance.max]
 - ![](/Images/tuning-and-troubleshooting/error-guide/queueInstanceMax.png)
 
@@ -249,7 +265,6 @@ Global drive memory exceeds maximum
 - If the queue is available and the number of application instances is too low, you can contact the administrator to set
 
 **Remarks**
-
 
 Users are not recommended to modify the global settings at will. If necessary, please contact the operation and maintenance department before modifying. Non global setting parameters, which can be modified by the user
 
@@ -276,7 +291,6 @@ The number of global drive CPUs exceeds the maximum
 - Clean up idle engines
 
 **Remarks**
-
 
 Users are not recommended to modify the global settings at will. If necessary, please contact the operation and maintenance department before modifying. Non global setting parameters, which can be modified by the user
 
@@ -308,7 +322,6 @@ Maximum engine concurrency exceeded
 
 **Remarks**
 
-
 Users are not recommended to modify the global settings at will. If necessary, please contact the operation and maintenance department before modifying. Non global setting parameters, which can be modified by the user
 
 ---------------------------------
@@ -333,12 +346,11 @@ Exception in getting Yan queue information
 **Solution 2**
 
 - If the cluster is a new cluster, first check the cluster configuration of linkismanager
-  >Hadoop cluster address: http://ip:8088/cluster
+  >Hadoop cluster address: <http://ip:8088/cluster>
   >
-  >yarn cluster address:http://ip:8888/cluster/scheduler
+  >yarn cluster address:<http://ip:8888/cluster/scheduler>
 >
 **Remarks**
-
 
 Users are not recommended to modify the global settings at will. If necessary, please contact the operation and maintenance department before modifying. Non global setting parameters, which can be modified by the user
 
@@ -359,6 +371,7 @@ The queue does not exist. Please check whether the queue settings are correct
 
 - The user contacts the administrator to confirm whether the queue is correct
 - ![](/Images/tuning-and-troubleshooting/error-guide/yarnQueue.png)
+
 ---------------------------------
 
 #### Error code 12010
@@ -376,6 +389,7 @@ Insufficient cluster queue memory resources
 
 - Check whether the resource memory is full. The user contacts the personnel in the group to release the resource, or applies for queue expansion
 - ![](/Images/tuning-and-troubleshooting/error-guide/queueRamResource.png)
+
 ---------------------------------
 
 #### Error code 12011
@@ -393,6 +407,7 @@ Insufficient cluster queue CPU resources
 
 - Check whether the resource CPU is full. The user contacts the personnel in the group to release the resource, or applies for queue expansion
 - ![](/Images/tuning-and-troubleshooting/error-guide/queueCPUResource.png)
+
 ---------------------------------
 
 #### Error code 12013
@@ -465,6 +480,7 @@ Use resources too large
 - Increase the memory of the executor in the management console or in the task submission
 - Modify the configuration, open the DSS platform, and click management console -- parameter configuration -- ide -- idspark -- worker resource settings (2) -- worker memory size [spark.executor.memory]
 - ![](/Images/tuning-and-troubleshooting/error-guide/sparkExecutorMemory.png)
+
 ---------------------------------
 
 #### Error code 13003
@@ -484,6 +500,7 @@ Use resources too large
 - After confirming with the administrator, the user can increase the memory of the executor in the management console or in the task submission
 - Modify the configuration, open the DSS platform, and click management console -- parameter configuration -- ide -- idspark -- worker resource settings (2) -- worker memory size [spark.executor.memory]
 - ![](/Images/tuning-and-troubleshooting/error-guide/sparkExecutorMemory.png)
+
 ---------------------------------
 
 #### Error code 13004
@@ -553,6 +570,7 @@ Spark context exits, which may be caused by complex tasks
 - After confirming with the administrator, the user can increase the memory of the executor in the management console or in the task submission
 - Modify the configuration, open the DSS platform, and click management console -- parameter configuration -- ide -- idspark -- worker resource settings (2) -- worker memory size [spark.executor.memory]
 - ![](/Images/tuning-and-troubleshooting/error-guide/sparkExecutorMemory.png)
+
 ---------------------------------
 
 #### Error code 13007
@@ -572,6 +590,7 @@ Pyspark child process exited unexpectedly, which may be caused by complex tasks
 - The user tries to increase the memory configuration of the Java management side. If it occurs repeatedly, please contact the administrator for troubleshooting
 - Modify the configuration, open the DSS platform, and click management console -- parameter configuration -- ide -- idespark -- spark engine resource settings (2) -- spark engine memory [spark.driver.memory]
 - ![](/Images/tuning-and-troubleshooting/error-guide/sparkMemory.png)
+
 ---------------------------------
 
 #### Error code 21001
@@ -643,6 +662,7 @@ Unauthorized access
 **Solution 1**
 
 - Database table permission needs to be applied to
+
 ---------------------------------
 
 #### Error code 22003
@@ -677,8 +697,8 @@ Unauthorized access
 
 **Solution 1**
 
-
 - User bill of lading application authority
+
 ---------------------------------
 
 #### Error code 22005
@@ -696,6 +716,7 @@ Unauthorized access
 **Solution 1**
 
 - User bill of lading application authority
+
 ---------------------------------
 
 #### Error code 22006
@@ -712,8 +733,8 @@ Unauthorized access
 
 **Solution 1**
 
-
 - User bill of lading application authority
+
 ---------------------------------
 
 #### Error code 22007
@@ -730,8 +751,8 @@ Unauthorized access
 
 **Solution 1**
 
-
 - User bill of lading application authority
+
 ---------------------------------
 
 #### Error code 22008
@@ -748,8 +769,8 @@ Unauthorized access
 
 **Solution 1**
 
-
 - User bill of lading application authority
+
 ---------------------------------
 
 #### Error code 30001
@@ -789,6 +810,7 @@ User active kill task
 **Solution 1**
 
 - If it is confirmed that the user has not actively killed, please contact the operation and maintenance personnel for troubleshooting
+
 ---------------------------------
 
 #### Error code 31002
@@ -807,6 +829,7 @@ Enginetypelabel has no corresponding engine version
 
 - The user checks whether the enginetypelabel passed is correct. If it is correct, please contact the operation and maintenance personnel for troubleshooting
 - Inspection method of the operation and maintenance personnel: the lib/links-engineconn-plugins/ on the linkis ECP node is the local cache of all available engine plug-ins. This is not possible because the corresponding version of the engine is not available, or there are other abnormal format files in the engine file, such as Bak, you shouldn't have put zip. Zip, etc
+
 ---------------------------------
 
 #### Error code 41001
@@ -862,6 +885,7 @@ Field %s does not exist
 **Solution 1**
 
 - User checks whether the field exists
+
 >desc tabl_name
 ---------------------------------
 
@@ -880,6 +904,7 @@ Field %s does not exist
 **Solution 1**
 
 - User checks whether the field exists
+
 >desc tabl_name
 ---------------------------------
 
@@ -898,6 +923,7 @@ Field %s does not exist
 **Solution 1**
 
 - User checks whether the field exists
+
 >desc tabl_name
 ---------------------------------
 
@@ -988,7 +1014,6 @@ File %s does not exist
 **Solution 1**
 
 - Please try refresh table XXX, or the kill engine runs again, but there are still exceptions. Please contact the data management personnel for troubleshooting
-
 
 ---------------------------------
 
@@ -1136,7 +1161,6 @@ Table %s already exists in the database
 
 - The user needs to clean up the table and try again
 
-
 ---------------------------------
 
 #### Error code 42006
@@ -1154,7 +1178,6 @@ Table %s already exists in the database
 **Solution 1**
 
 - The user needs to clean up the table and try again
-
 
 ---------------------------------
 
@@ -1174,7 +1197,6 @@ Insert target table field quantity mismatch
 
 - User check code
 
-
 ---------------------------------
 
 #### Error code 42008
@@ -1192,7 +1214,6 @@ data type mismatch
 **Solution 1**
 
 - User check code
-
 
 ---------------------------------
 
@@ -1212,7 +1233,6 @@ Incorrect reference to field %s
 
 - User checks whether the field exists
 
-
 ---------------------------------
 
 #### Error code 42010
@@ -1230,7 +1250,6 @@ Failed to extract data for field %s
 **Solution 1**
 
 - Check whether the selected field is incorrect
-
 
 ---------------------------------
 
@@ -1250,7 +1269,6 @@ The field of group by is not in the select list
 
 - User check code
 
-
 ---------------------------------
 
 #### Error code 42014
@@ -1268,7 +1286,6 @@ The inserted data does not correspond to the fields of the target table
 **Solution 1**
 
 - User check code
-
 
 ---------------------------------
 
@@ -1288,7 +1305,6 @@ UDF function does not specify full parameters
 
 - User check code
 
-
 ---------------------------------
 
 #### Error code 42017
@@ -1306,7 +1322,6 @@ Aggregate function%s cannot be written in group by, please check the code!
 **Solution 1**
 
 - User check code
-
 
 ---------------------------------
 
@@ -1327,7 +1342,6 @@ Syntax error or stage failure
 - If it is a syntax error, you need to check the code for modification
 - If the stage fails, you can choose to retry
 
-
 ---------------------------------
 
 #### Error code 43011
@@ -1345,7 +1359,6 @@ Data volume exceeds the limit of a single sheet
 **Solution 1**
 
 - Reduce the amount of data to export, or export to CSV format
-
 
 ---------------------------------
 
@@ -1367,7 +1380,6 @@ Data source configuration error
 - Modify the configuration, open the DSS platform, and click management console -- parameter configuration -- ide -- idepresto -- data source configuration
 - ![](/Images/tuning-and-troubleshooting/error-guide/presto.png)
 
-
 ---------------------------------
 
 #### Error code 46001
@@ -1387,7 +1399,6 @@ file does not exist
 - Please check the workspace, or check whether the files in the HDFS directory exist
 - ![](/Images/tuning-and-troubleshooting/error-guide/hdfs.png)
 
-
 ---------------------------------
 
 #### Error code 46002
@@ -1406,7 +1417,6 @@ Abnormal file directory or insufficient file read / write permission
 
 - Please confirm that the file has read-write permission. If there is any abnormality, please contact the operation and maintenance personnel for handling
 
-
 ---------------------------------
 
 #### Error code 46003
@@ -1424,7 +1434,6 @@ Unable to create directory
 **Solution 1**
 
 - Contact the operation and maintenance personnel for troubleshooting
-
 
 ---------------------------------
 

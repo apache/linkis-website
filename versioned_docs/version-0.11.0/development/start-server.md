@@ -29,7 +29,7 @@ e.g. PublicService
 
 View service startup on Eureka interface, see method：
 
-Use http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, open in browser, see whether the service was registered successfully.
+Use <http://${EUREKA_INSTALL_IP}:${EUREKA_PORT>}, open in browser, see whether the service was registered successfully.
 
 If your Eureka home page shows a microservice, it indicates that the service is started successfully and can be provided externally：
 

@@ -4,41 +4,46 @@ sidebar_position: 1
 ---
 
 # Login Document
+
 ## 1. Docking With LDAP Service
 
 Enter the /conf/linkis-spring-cloud-services/linkis-mg-gateway directory and execute the command:  
+
 ```bash
     vim linkis-server.properties
-```    
+```
 
 Add LDAP related configuration:  
+
 ```bash
 wds.linkis.ldap.proxy.url=ldap://127.0.0.1:389/ #LDAP service URL
-wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com #Configuration of LDAP service    
-```    
+wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com #Configuration of LDAP service
+```
 
 ## 2. How To Open The Test Mode To Achieve Login-Free
 
 Enter the /conf/linkis-spring-cloud-services/linkis-mg-gateway directory and execute the command:
+
 ```bash
     vim linkis-server.properties
 ```
-    
-    
+
 Turn on the test mode and the parameters are as follows:
+
 ```bash
     wds.linkis.test.mode=true   # Open test mode
     wds.linkis.test.user=hadoop  # Specify which user to delegate all requests to in test mode
 ```
 
 ## 3.Log In Interface Summary
+
 We provide the following login-related interfaces:
- - Login In
 
- - Login Out
+- Login In
 
- - Heart Beat
- 
+- Login Out
+
+- Heart Beat
 
 ## 4. Interface details
 
@@ -59,7 +64,7 @@ We provide the following login-related interfaces:
 - status: returns status information, where: -1 means no login, 0 means success, 1 means error, 2 means verification failed, 3 means no access to the interface.
 - data: return specific data.
 - message: return the requested prompt message. If the status is not 0, the message returns an error message, and the data may have a stack field, which returns specific stack information.
- 
+
 For more information about the Linkis Restful interface specification, please refer to: [Linkis Restful Interface Specification](/community/development-specification/api)
 
 ### 1). Login In

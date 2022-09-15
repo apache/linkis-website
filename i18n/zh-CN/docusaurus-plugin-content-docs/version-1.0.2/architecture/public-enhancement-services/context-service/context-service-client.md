@@ -4,24 +4,23 @@ sidebar_position: 2
 ---
 ## **CSClient设计的思路和实现**
 
-
 CSClient是每一个微服务和CSServer组进行交互的客户端，CSClient需要满足下面的功能。
 
-1.  微服务向cs-server申请一个上下文对象的能力
+1. 微服务向cs-server申请一个上下文对象的能力
 
-2.  微服务向cs-server注册上下文信息的能力
+2. 微服务向cs-server注册上下文信息的能力
 
-3.  微服务能够向cs-server更新上下文信息的能力
+3. 微服务能够向cs-server更新上下文信息的能力
 
-4.  微服务向cs-server获取上下文信息的能力
+4. 微服务向cs-server获取上下文信息的能力
 
-5.  某一些特殊的微服务能够嗅探到cs-server中已经修改了上下文信息的操作
+5. 某一些特殊的微服务能够嗅探到cs-server中已经修改了上下文信息的操作
 
-6.  CSClient在csserver集群都失败的情况下能够给出明确的指示
+6. CSClient在csserver集群都失败的情况下能够给出明确的指示
 
-7.  CSClient需要提供复制csid1所有上下文信息为一个新的csid2用来提供给调度执行的
+7. CSClient需要提供复制csid1所有上下文信息为一个新的csid2用来提供给调度执行的
 
->   总体的做法是通过的linkis自带的linkis-httpclient进行发送http请求，通过实现各种Action和Result的实体类进行发送请求和接收响应。
+> 总体的做法是通过的linkis自带的linkis-httpclient进行发送http请求，通过实现各种Action和Result的实体类进行发送请求和接收响应。
 
 ### 1. 申请上下文对象的能力
 
@@ -29,12 +28,12 @@ CSClient是每一个微服务和CSServer组进行交互的客户端，CSClient�
 
 ### 2. 注册上下文信息的能力
 
->   注册上下文的能力，例如用户在前端页面上传了资源文件，文件内容上传到dss-server，dss-server将内容存储到bml中，然后需要将从bml中获得的resourceid和version注册到cs-server中，此时需要使用到csclient的注册的能力，注册的能力是通过传入csid，以及cskey
->   和csvalue(resourceid和version)进行注册。
+> 注册上下文的能力，例如用户在前端页面上传了资源文件，文件内容上传到dss-server，dss-server将内容存储到bml中，然后需要将从bml中获得的resourceid和version注册到cs-server中，此时需要使用到csclient的注册的能力，注册的能力是通过传入csid，以及cskey
+> 和csvalue(resourceid和version)进行注册。
 
 ### 3. 更新注册的上下文的能力
 
->   更新上下文信息的能力。举一个例子，比如一个用户上传了一个资源文件test.jar，此时csserver已经有注册的信息，如果用户在编辑工作流的时候，将这个资源文件进行了更新，那么cs-server需要将这个内容进行更新。此时需要调用csclient的更新的接口
+> 更新上下文信息的能力。举一个例子，比如一个用户上传了一个资源文件test.jar，此时csserver已经有注册的信息，如果用户在编辑工作流的时候，将这个资源文件进行了更新，那么cs-server需要将这个内容进行更新。此时需要调用csclient的更新的接口
 
 ### 4. 获取上下文的能力
 
@@ -57,7 +56,6 @@ CSClient是每一个微服务和CSServer组进行交互的客户端，CSClient�
 ![](/Images-zh/Architecture/Public_Enhancement_Service/ContextService/linkis-contextservice-client-02.png)
 
 ## **GatewayRouter的实现**
-
 
 Gateway插件实现Context进行转发Gateway的插件的转发逻辑是通过的GatewayRouter进行的，需要分成两种方式进行，第一种是申请一个context上下文对象的时候，这个时候，CSClient携带的信息中是没有包含csid的信息的，此时的判断逻辑应该是通过eureka的注册信息，第一次发送的请求将会随机进入到一个微服务实例中。  
 第二种情况是携带了ContextID的内容，我们需要将csid进行解析，解析的方式就是通过字符串切割的方法，获取到每一个instance的信息，然后通过instance的信息通过eureka判断是否还存在这个微服务，如果是存在的，就往这个微服务实例进行发送

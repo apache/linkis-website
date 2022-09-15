@@ -4,8 +4,10 @@ sidebar_position: 1
 ---
 
 ## 背景
+
 针对旧版本Linkis的Entrance模块负责太多的职责，对Engine的管理能力较弱，且不易于后续的扩展，新抽出了AppManager模块，完成
 以下职责：
+
 1. 新增AM模块将Entrance之前做的管理Engine的功能移动到AM模块
 2. AM需要支持操作Engine，包括：新增、复用、回收、预热、切换等功能
 3. 需要对接Manager模块对外提供Engine的管理功能：包括Engine状态维护、引擎列表维护、引擎信息等
@@ -23,10 +25,9 @@ sidebar_position: 1
 新引擎申请流程图：
 ![](/Images-zh/Architecture/AppManager-02.png)
 
-
 从上面的引擎生命周期流程图可知，Entrance已经不在做Engine的管理工作，engine的启动和管理都由AM控制。
 
-## 架构说明：
+## 架构说明
 
 AppManager主要包含了引擎服务和EM服务：
 引擎服务包含了所有和引擎EngineConn相关的操作，如引擎创建、引擎复用、引擎切换、引擎回收、引擎停止、引擎销毁等。
@@ -45,5 +46,3 @@ ReuseEngienRequest->RPC/Rest -> MasterEventHandler ->ReuseEngineService ->abelCo
 SwitchEngienRequest->RPC/Rest -> MasterEventHandler ->SwitchEngineService ->LabelContext/EnginePlugin/RMResourcevice->EngineNodeManager->EngineLocker->Engine->EngineNodeManager->EngineReuser->EngineService=&gt;ServerInstance
 
 引擎管理器：引擎管理负责管理所有引擎的基本信息、元数据信息
-
-

@@ -5,9 +5,10 @@ sidebar_position: 8
 
 
 ## **CSCache Architecture**
+
 ### **issues that need resolving**
 
-### 1.1. Memory structure needs to be solved:
+### 1.1. Memory structure needs to be solved
 
 1. Support splitting by ContextType: speed up storage and query performance
 
@@ -21,13 +22,13 @@ sidebar_position: 8
 
 6. Support traversal: need to support traversal according to ContextID and ContextType
 
-### 1.2 Loading and parsing problems to be solved:
+### 1.2 Loading and parsing problems to be solved
 
 1. Support parsing ContextValue into memory data structure: It is necessary to complete the parsing of ContextKey and value to find the corresponding keywords.
 
 2. Need to interface with the Persistence module to complete the loading and analysis of the ContextID content
 
-### 1.3 Metric and cleaning mechanism need to solve the problem:
+### 1.3 Metric and cleaning mechanism need to solve the problem
 
 1. When JVM memory is not enough, it can be cleaned based on memory usage and frequency of use
 

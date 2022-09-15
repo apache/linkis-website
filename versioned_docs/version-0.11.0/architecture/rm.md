@@ -20,6 +20,7 @@ sidebar_position: 2
 2. Engine, also known as application: a microservice that executes user operations. At the same time, as the actual user of resources, the engine is responsible for reporting the actual used resources and releasing resources to the RM. Each Engine has a corresponding resource record in the RM: during the startup process, it is reflected as a locked resource; during the running process, it is reflected as a used resource; after being terminated, the resource record is subsequently deleted.
 
 ### 2.2 Database table structure design
+
 ```
 
 User resource record table:
@@ -78,7 +79,6 @@ em_instance
 | / |divide |>= | notLessThan |
 | <= |notMoreThan |
 
-
   The currently supported resource types are shown in the following table. All resources have corresponding json serialization and deserialization methods, which can be stored in json format and transmitted across the network:
 
 |Resource Type| Description|
@@ -90,7 +90,6 @@ em_instance
 |LoadInstanceResource |Server resources (memory, CPU, number of instances)|
 |DriverAndYarnResource |Driver and actuator resources (both server resources and Yarn queue resources)|
 |SpecialResource |Other custom resources|
-
 
 ## 3 Record the available resources reported by EM
 
@@ -123,29 +122,29 @@ em_instance
   a) According to the EM instance information, find the resource type provided by the EM, and then find the corresponding RequestResourceService (there are multiple subclasses, and each subclass corresponds to one or more resource types and has its own processing logic).
   
   b) RequestResourceService counts the remaining available resources from multiple dimensions.
-    
+
    &ensp;i. According to the total resources of the EM, after subtracting the used resources and the protected resources, the remaining EM available resources are obtained.
-    
+
    &ensp;ii. According to the upper limit of the resources allowed by the creator, after subtracting the resources already used by the creator, the remaining available resources of the creator are obtained.
-    
+
    &ensp;iii. According to the upper limit of the resources allowed by the user, after subtracting the resources used by the user, the remaining resources available to the user are obtained.
-    
+
    &ensp;iv. According to the user's global upper limit of the number of instances, subtract the number of engines that the user has started to obtain the remaining number of available instances.
-   
+
   c) Step by step, compare the remaining available quantity with the requested resources.
   
    &ensp;i. According to the order listed in b, once the remaining available quantity of a certain step is less than the quantity applied for, it is immediately determined that there are not enough resources, and NotEnoughResource and the corresponding prompt information are returned, and the determination of subsequent steps will not be performed.
-   
+
    &ensp;ii. In the above steps, if the remaining available quantity is greater than the requested quantity until the end, it is determined that there are enough resources, and the next step is to lock the resources.
 
 3. Lock the resource for the request that successfully applied for the resource. After confirming that the resources are sufficient, lock the resources in advance for the application and generate a unique identifier.
 
   a) In order to ensure the correctness in the concurrent scenario, two locks need to be added before the lock operation (the specific implementation of the lock mechanism is described in another chapter): EM lock and user lock.
-    
+
    &ensp;i. EM lock. After the lock is obtained, other resource operations for the EM will not be allowed.
-    
+
    &ensp;ii. User lock. After the lock is obtained, other resource operations of the user will not be allowed.
-   
+
   b) After the two locks are successfully obtained, the judgment will be repeated again to determine whether the resources are sufficient, and if it is still sufficient, continue with the subsequent steps.
   
   c) Generate a UUID for the resource application, and insert a user resource record in the linkis_user_resource_meta_data table (pre_used_resource is the number of resources requested, and used_resource is null).
@@ -187,13 +186,13 @@ em_instance
 1. EM lock: for the global lock on an instance of an EM operation.
 
  a) Obtain the lock:
- 
+
   &ensp;i. Check whether there is a record where the user is null and the application and instance fields are corresponding values. If there is, it means that the lock has been acquired by other instances, and polling is waiting.
   
   &ensp;ii. When there is no corresponding record, insert a record, if the insertion is successful, it means that the lock is successfully obtained; if the insertion encounters a UniqueConstraint error, the record polling and waiting until timeout.
 
  b) Release the lock:
- 
+
   &ensp;i. Delete the record that you own.
 
 2. User lock: lock the operation of a certain EM for a certain user.

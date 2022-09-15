@@ -2,31 +2,21 @@
 title: BMLFS Management
 sidebar_position: 18
 ---
-** BMLFsRestfulApi class **
-
-
+**BMLFsRestfulApi class**
 
 ## Open ScriptFromBML
 
-
 **Interface address**:`/api/rest_j/v1/filesystem/openScriptFromBML`
-
 
 **Request method**: `GET`
 
-
 **Request data type**: `application/x-www-form-urlencoded`
-
 
 **Response data type**: `*/*`
 
-
 **Interface description**:<p>openScriptFromBML</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -36,9 +26,7 @@ sidebar_position: 18
 |resourceId|ResourceId|query|false|string|
 |version|version|query|false|string|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -47,9 +35,7 @@ sidebar_position: 18
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -58,8 +44,8 @@ sidebar_position: 18
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "data": {},
@@ -69,28 +55,19 @@ sidebar_position: 18
 }
 ````
 
-
 ## -product-openScriptFromBML
-
 
 **Interface address**:`/api/rest_j/v1/filesystem/product/openScriptFromBML`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>/product/openScriptFromBML</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -99,9 +76,7 @@ sidebar_position: 18
 |resourceId|ResourceId|query|false|string|
 |version|version|query|false|string|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -110,9 +85,7 @@ sidebar_position: 18
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -121,8 +94,8 @@ sidebar_position: 18
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "data": {},
@@ -132,28 +105,19 @@ sidebar_position: 18
 }
 ````
 
-
 ## Save script from BML
-
 
 **Interface address**:`/api/rest_j/v1/filesystem/saveScriptToBML`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Save script from BML</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required  | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -165,9 +129,7 @@ sidebar_position: 18
 |scriptContent|Content|true|String|String|
 |SaveScriptToBML|json|body|true|SaveScriptToBML|SaveScriptToBML|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -177,9 +139,7 @@ sidebar_position: 18
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -188,8 +148,8 @@ sidebar_position: 18
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "data": {},

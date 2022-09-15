@@ -2,32 +2,21 @@
 title: Parameter Configuration
 sidebar_position: 24
 ---
-** ConfigurationRestfulApi class **
-
-
-
+**ConfigurationRestfulApi class**
 
 ## Add KeyForEngine
 
-
 **Interface address**:`/api/rest_j/v1/configuration/addKeyForEngine`
-
 
 **Request method**: `GET`
 
-
 **Request data type**: `application/x-www-form-urlencoded`
-
 
 **Response data type**: `*/*`
 
-
 **Interface description**:<p>Add KeyForEngine</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -36,9 +25,7 @@ sidebar_position: 24
 |token|token|query|false|string|
 |version|version|query|false|string|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -47,9 +34,7 @@ sidebar_position: 24
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -58,8 +43,8 @@ sidebar_position: 24
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "data": {},
@@ -69,25 +54,20 @@ sidebar_position: 24
 }
 ````
 
-
 ## Add application type
-
 
 **Interface address**:`/api/rest_j/v1/configuration/createFirstCategory`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Add application type tag</p>
 
 **Request example**:
+
 ````javascript
 {
     "categoryName": "",
@@ -97,15 +77,12 @@ sidebar_position: 24
 
 **Request Parameters**:
 
-
 | Parameter name | Parameter description | Required | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |categoryName|Reference type label name|false|String|String|
 |description|Description|false|String|STRing|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -115,9 +92,7 @@ sidebar_position: 24
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -126,8 +101,8 @@ sidebar_position: 24
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/configuration/createFirstCategory",
@@ -137,25 +112,20 @@ sidebar_position: 24
 }
 ````
 
-
 ## Add parameter configuration
-
 
 **Interface address**:`/api/rest_j/v1/configuration/createSecondCategory`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Add parameter configuration</p>
 
 **Request example**:
+
 ````javascript
 {
     categoryId: ,
@@ -167,7 +137,6 @@ sidebar_position: 24
 
 **Request Parameters**:
 
-
 | Parameter name | Parameter description |Required  | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |categoryId|Parameter ConfigurationId|true|String|String|
@@ -175,9 +144,7 @@ sidebar_position: 24
 |engineType|Engine Type|true|String|String|
 |version|version number|true|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -187,9 +154,7 @@ sidebar_position: 24
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -198,8 +163,8 @@ sidebar_position: 24
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/configuration/createSecondCategory",
@@ -209,25 +174,20 @@ sidebar_position: 24
 }
 ````
 
-
 ## delete configuration
-
 
 **Interface address**: `/api/rest_j/v1/configuration/deleteCategory`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Delete parameter configuration</p>
 
 **Request example**:
+
 ````javascript
 {
     categoryId:
@@ -236,14 +196,11 @@ sidebar_position: 24
 
 **Request Parameters**:
 
-
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |categoryId|Parameter ConfigurationId|String|true|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -253,9 +210,7 @@ sidebar_position: 24
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -264,8 +219,8 @@ sidebar_position: 24
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/configuration/deleteCategory",
@@ -275,34 +230,23 @@ sidebar_position: 24
 }
 ````
 
-
 ## Engine type list
-
 
 **Interface address**:`/api/rest_j/v1/configuration/engineType`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Get a list of engine types</p>
 
-
-
 **Request Parameters**:
-
 
 No
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -311,9 +255,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -322,8 +264,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/configuration/engineType",
@@ -334,33 +276,24 @@ No
     }
 }
 ````
-## App types
 
+## App types
 
 **Interface address**: `/api/rest_j/v1/configuration/getCategory`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Apply type tag in parameter configuration</p>
 
-
-
 **Request Parameters**:
-
 
 No
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -369,9 +302,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -380,59 +311,50 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
-	"method": "/api/configuration/getCategory",
-	"status": 0,
-	"message": "OK",
-	"data": {
-		"Category": [{
-			"categoryId": ,
-			"labelId": ,
-			"categoryName": "",
-			"childCategory": [],
-			"description": null,
-			"tag": null,
-			"createTime": ,
-			"updateTime": ,
-			"level": ,
-			"fatherCategoryName": ""
-		}],
-		"description": null,
-		"tag": null,
-		"createTime": ,
-		"updateTime": ,
-		"level": ,
-		"fatherCategoryName":
-	}]
+ "method": "/api/configuration/getCategory",
+ "status": 0,
+ "message": "OK",
+ "data": {
+  "Category": [{
+   "categoryId": ,
+   "labelId": ,
+   "categoryName": "",
+   "childCategory": [],
+   "description": null,
+   "tag": null,
+   "createTime": ,
+   "updateTime": ,
+   "level": ,
+   "fatherCategoryName": ""
+  }],
+  "description": null,
+  "tag": null,
+  "createTime": ,
+  "updateTime": ,
+  "level": ,
+  "fatherCategoryName":
+ }]
 }
 }
 ````
 
-
 ## queue resources
-
 
 **Interface address**:`/api/rest_j/v1/configuration/getFullTreesByAppName`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>The queue resource module in the parameter configuration returns the column and value of the queue resource</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -440,9 +362,7 @@ No
 |engineType|engineType|query|false|string|
 |version|version|query|false|string|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -451,9 +371,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -462,63 +380,54 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
-	"method": "/api/configuration/getFullTreesByAppName",
-	"status": 0,
-	"message": "OK",
-	"data": {
-		"fullTree": [{
-			"name": "Queue Resource",
-			"description": null,
-			"settings": [{
-				"id": ,
-				"key": "",
-				"description": "",
-				"name": "",
-				"defaultValue": "",
-				"validateType": "",
-				"validateRange": "[]",
-				"level": 1,
-				"engineType": ,
-				"treeName": "",
-				"valueId": ,
-				"configValue": "",
-				"configLabelId": ,
-				"unit": null,
-				"isUserDefined": ,
-				"hidden": ,
-				"advanced":
-			}]
-		}]
-	}
+ "method": "/api/configuration/getFullTreesByAppName",
+ "status": 0,
+ "message": "OK",
+ "data": {
+  "fullTree": [{
+   "name": "Queue Resource",
+   "description": null,
+   "settings": [{
+    "id": ,
+    "key": "",
+    "description": "",
+    "name": "",
+    "defaultValue": "",
+    "validateType": "",
+    "validateRange": "[]",
+    "level": 1,
+    "engineType": ,
+    "treeName": "",
+    "valueId": ,
+    "configValue": "",
+    "configLabelId": ,
+    "unit": null,
+    "isUserDefined": ,
+    "hidden": ,
+    "advanced":
+   }]
+  }]
+ }
 }
 ````
 
-
 ## Get key value
-
 
 **Interface address**:`/api/rest_j/v1/configuration/keyvalue`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Get key value</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -527,9 +436,7 @@ No
 |engineType|engineType|query|false|string|
 |version|version|query|false|string|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -538,9 +445,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -549,8 +454,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "data": {},
@@ -559,27 +464,20 @@ No
     "status": 0
 }
 ````
-## save key value
 
+## save key value
 
 **Interface address**:`/api/rest_j/v1/configuration/keyvalue`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Save key value</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required |  Request type| Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -590,9 +488,7 @@ No
 |version|version|true|String|String|
 |SaveKeyValue|json|body|true|SaveKeyValue|SaveKeyValue|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -602,9 +498,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -613,8 +507,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "data": {},
@@ -624,28 +518,19 @@ No
 }
 ````
 
-
 ## delete key value
-
 
 **Interface address**:`/api/rest_j/v1/configuration/keyvalue`
 
-
 **Request method**: `DELETE`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Delete key value</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Required  | Request type | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -654,9 +539,7 @@ No
 |engineType|engineType|true|String|String|
 |version|version|true|String|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -665,9 +548,7 @@ No
 |401|Unauthorized|
 |403|Forbidden|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -676,8 +557,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "data": {},
@@ -687,28 +568,19 @@ No
 }
 ````
 
-
 ## rpc test
-
 
 **Interface address**: `/api/rest_j/v1/configuration/rpcTest`
 
-
 **Request method**: `GET`
-
 
 **Request data type**: `application/x-www-form-urlencoded`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>rpc test</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -717,9 +589,7 @@ No
 |username|username|query|false|string|
 |version|version|query|false|string|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -728,9 +598,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -739,8 +607,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "data": {},
@@ -750,28 +618,19 @@ No
 }
 ````
 
-
 ## Save queue resources
-
 
 **Interface address**:`/api/rest_j/v1/configuration/saveFullTree`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Save queue resources</p>
 
-
-
 **Request Parameters**:
-
 
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
@@ -782,9 +641,7 @@ No
 |name|Queue resource name, which belongs to the content in fullTree|String|true|String|
 |settings|Detailed content in the queue resource, belonging to the content in fullTree|List|true|List|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -794,9 +651,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -805,8 +660,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/configuration/saveFullTree",
@@ -816,26 +671,20 @@ No
 }
 ````
 
-
 ## Update category information
-
 
 **Interface address**: `/api/rest_j/v1/configuration/updateCategoryInfo`
 
-
 **Request method**: `POST`
-
 
 **Request data type**: `application/json`
 
-
 **Response data type**: `*/*`
-
 
 **Interface description**:<p>Update category information</p>
 
-
 **Sample Response**:
+
 ````javascript
 {
     description: "",
@@ -845,15 +694,12 @@ No
 
 **Request Parameters**:
 
-
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |categoryId|categoryId|String|true|String|
 |description|description|String|true|String|
 
-
 **Response Status**:
-
 
 | Status code | Description | schema |
 | -------- | -------- | ----- |
@@ -863,9 +709,7 @@ No
 |403|Forbidden|
 |404|Not Found|
 
-
 **Response parameters**:
-
 
 | parameter name | parameter description | type | schema |
 | -------- | -------- | ----- |----- |
@@ -874,8 +718,8 @@ No
 |method|request url|string|
 |status|Status|integer(int32)|integer(int32)|
 
-
 **Sample Response**:
+
 ````javascript
 {
     "method": "/api/configuration/updateCategoryInfo",

@@ -5,7 +5,6 @@ sidebar_position: 5
 
 > Linkis代码层级目录结构说明，如果想详细了解各个模块，请查看[Linkis的相关架构设计](architecture/overview.md)
 
-
 ```html
 │-- linkis-dist //编译打包最后阶段步骤 整合所有lib包和安装部署脚本配置等
 │        │-- assembly-combined

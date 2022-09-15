@@ -4,7 +4,6 @@ sidebar_position: 2
 ---
 > Linkis 提供了方便的HTTP接口方便前端上层应用或者后台通过Restful接口进行调用
 
-
 ## 1 Linkis接口规范
 
 Linkis在前后端进行交互的时候，定义了一套自己的接口规范。
@@ -15,11 +14,11 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
 
 我们提供以下几个接口，方便用户快速提交执行Job，获取执行结果。
 
- - 提交执行
- - 获取状态
- - 获取日志
- - 获取进度
- - Kill任务
+- 提交执行
+- 获取状态
+- 获取日志
+- 获取进度
+- Kill任务
 
 ## 3 接口详解
 
@@ -31,34 +30,33 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
 
 ```json
 {
- 	"method":"/api/rest_j/v1/entrance/execute",
- 	"params": {
-    	"variable":{
-    		"k1":"v1"
-    	},
-    	"configuration":{
-    		"special":{
-    			"k2":"v2"
-    		},
-    		"runtime":{
-    			"k3":"v3"
-    		},
-    		"startup":{
-    			"k4":"v4"
-    		}
-    	}
+  "method":"/api/rest_j/v1/entrance/execute",
+  "params": {
+     "variable":{
+      "k1":"v1"
+     },
+     "configuration":{
+      "special":{
+       "k2":"v2"
+      },
+      "runtime":{
+       "k3":"v3"
+      },
+      "startup":{
+       "k4":"v4"
+      }
+     }
     },
     "executeApplicationName":"spark",
     "executionCode":"show tables",
     "runType":"sql",
     "source":{
-    	"scriptPath": "/home/Linkis/Linkis.sql"
+     "scriptPath": "/home/Linkis/Linkis.sql"
     }
 }
 ```
 
 - 请求体data中的参数描述如下
-
 
 |  参数名 | 参数定义 |  类型 | 备注   |
 | ------------ | ------------ | ------------ | ------------ |
@@ -68,7 +66,6 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
 | executionCode  | 用户提交的执行代码  |  String |不可为空  |
 | runType  | 当用户执行如spark服务时，可以选择python、R、SQL等runType|  String | 不可为空  |
 | scriptPath  | 用户提交代码脚本的存放路径  |  String | 如果是IDE的话，与executionCode不能同时为空  |
-
 
 - 返回示例
 
@@ -86,7 +83,6 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
 
 - execID是用户任务提交到UJES之后，为该任务生成的唯一标识的执行ID，为String类型，这个ID只在任务运行时有用，类似PID的概念。ExecID的设计为(requestApplicationName长度)(executeAppName长度1)(Instance长度2)${requestApplicationName}${executeApplicationName}${entranceInstance信息ip+port}${requestApplicationName}_${umUser}_${index}
 - taskID 是表示用户提交task的唯一ID，这个ID由数据库自增生成，为Long 类型
-
 
 ### 3.2 获取状态
 
@@ -125,8 +121,8 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
   "message": "返回日志信息",
   "data": {
     "execID": "${execID}",
-	"log": ["error日志","warn日志","info日志", "all日志"],
-	"fromLine": 56
+ "log": ["error日志","warn日志","info日志", "all日志"],
+ "fromLine": 56
   }
 }
 ```
@@ -146,23 +142,23 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
   "message": "返回进度信息",
   "data": {
     "execID": "${execID}",
-	"progress": 0.2,
-	"progressInfo": [
-		{
-			"id": "job-1",
-			"succeedTasks": 2,
-			"failedTasks": 0,
-			"runningTasks": 5,
-			"totalTasks": 10
-		},
-		{
-			"id": "job-2",
-			"succeedTasks": 5,
-			"failedTasks": 0,
-			"runningTasks": 5,
-			"totalTasks": 10
-		}
-	]
+ "progress": 0.2,
+ "progressInfo": [
+  {
+   "id": "job-1",
+   "succeedTasks": 2,
+   "failedTasks": 0,
+   "runningTasks": 5,
+   "totalTasks": 10
+  },
+  {
+   "id": "job-2",
+   "succeedTasks": 5,
+   "failedTasks": 0,
+   "runningTasks": 5,
+   "totalTasks": 10
+  }
+ ]
   }
 }
 ```

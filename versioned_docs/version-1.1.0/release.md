@@ -12,7 +12,7 @@ sidebar_position: 0.1
 - [Start SkyWalking](/deployment/involve-skywalking-into-linkis.md)
 - [Release-notes](/download/release-notes-1.1.0)
 
-## Configuration Item 
+## Configuration Item
 
 | Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
 | ----------- | ----- | ------------------------------- | ------------------------- | ------------------------ |
@@ -34,4 +34,4 @@ sidebar_position: 0.1
 
 ## DB Table Changes
 
-For details, see the upgrade schema`db/upgrade/1.1.0_schema` file in the corresponding branch of the code repository (https://github.com/apache/incubator-linkis).
+For details, see the upgrade schema`db/upgrade/1.1.0_schema` file in the corresponding branch of the code repository (<https://github.com/apache/incubator-linkis>).

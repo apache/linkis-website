@@ -77,7 +77,6 @@ Figure 3 Spark running effect Figure 2
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifically, you can view the python.py source code in the python execution source code. There are several python methods defined by Linkis for process interaction.
 
-
 ## 3 Future goals
 
 1. The deployment method is simpler, try to use the containerized method.

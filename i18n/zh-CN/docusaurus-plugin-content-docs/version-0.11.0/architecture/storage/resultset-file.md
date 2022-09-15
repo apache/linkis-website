@@ -68,7 +68,6 @@ Dolphin文件的读入和写入的具体流程如下图：
 
 7、写入PostData的长度，完成写入操作。
 
-
 ### 3.2 读取Dolphin文件
 
 用户读取Dolphin文件内容步骤如下：
@@ -78,7 +77,7 @@ Dolphin文件的读入和写入的具体流程如下图：
 2、如果用户只需要读取Statistical information，则读取PostData的长度，并依据该长度获取PostData。
 
  通过PostData，将基本信息进行解析为对应的Type，Codec，MetaData，Statistical information。
- 
+
  返回，完成本次读取操作。
 
 3、如果用户希望读取数据，则先读取数据类型Type。

@@ -4,9 +4,10 @@ sidebar_position: 1
 ---
 
 
-** DataSourceAdminRestfulApi 类 ** 
+** DataSourceAdminRestfulApi 类 **
 
 ## queryDataSourceEnv
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/env`
 
 **请求方式**:`GET`
@@ -36,6 +37,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/env",
@@ -74,7 +76,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## getAllEnvListByDataSourceType
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/env-list/all/type/{typeId}`
 
 **请求方式**:`GET`
@@ -101,6 +105,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/env-list/all/type/4",
@@ -124,7 +129,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## insertJsonEnv
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/env/json`
 
 **请求方式**:`POST`
@@ -136,6 +143,7 @@ sidebar_position: 1
 **接口描述**:
 
 **请求示例**:
+
 ```javascript
 {
   "connectParams": {},
@@ -192,15 +200,18 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```
+
 ## getEnvEntityById
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/env/{envId}`
 
 **请求方式**:`GET`
@@ -227,6 +238,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/env/1",
@@ -249,7 +261,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## removeEnvEntity
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/env/{envId}`
 
 **请求方式**:`DELETE`
@@ -276,15 +290,18 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```
+
 ## updateJsonEnv
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/env/{envId}/json`
 
 **请求方式**:`PUT`
@@ -296,6 +313,7 @@ sidebar_position: 1
 **接口描述**:
 
 **请求示例**:
+
 ```javascript
 {
   "connectParams": {},
@@ -353,19 +371,21 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```
 
 ------
-** DataSourceCoreRestfulApi类**
+**DataSourceCoreRestfulApi类**
 
 ## queryDataSource
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/info`
 
 **请求方式**:`GET`
@@ -397,6 +417,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/info",
@@ -439,12 +460,14 @@ sidebar_position: 1
                     "layers": 0
                 }
             }
-          
+
         ]
     }
 }
 ```
+
 ## removeDataSource
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/info/delete/{dataSourceId}`
 
 **请求方式**:`DELETE`
@@ -471,6 +494,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/info/delete/1",
@@ -481,7 +505,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## insertJsonInfo
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/info/json`
 
 **请求方式**:`POST`
@@ -493,6 +519,7 @@ sidebar_position: 1
 **接口描述**:
 
 **请求示例**:
+
 ```javascript
 {
   "connectParams": {},
@@ -620,15 +647,18 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```
+
 ## getInfoByDataSourceName
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/info/name/{dataSourceName}`
 
 **请求方式**:`GET`
@@ -655,6 +685,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/info/name/hive-test",
@@ -685,7 +716,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## getInfoByDataSourceId
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}`
 
 **请求方式**:`GET`
@@ -712,6 +745,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/info/1",
@@ -746,7 +780,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## expireDataSource
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}/expire`
 
 **请求方式**:`PUT`
@@ -773,6 +809,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/info/1/expire",
@@ -783,7 +820,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## updateDataSourceInJson
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}/json`
 
 **请求方式**:`PUT`
@@ -795,6 +834,7 @@ sidebar_position: 1
 **接口描述**:
 
 **请求示例**:
+
 ```javascript
 {
   "connectParams": {},
@@ -923,15 +963,18 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```
+
 ## getInfoByDataSourceIdAndVersion
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/info/{dataSourceId}/{version}`
 
 **请求方式**:`GET`
@@ -959,6 +1002,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/info/1/1",
@@ -993,7 +1037,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## getKeyDefinitionsByType
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/key-define/type/{typeId}`
 
 **请求方式**:`GET`
@@ -1020,6 +1066,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/key-define/type/4",
@@ -1049,7 +1096,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## getConnectParams
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/name/{dataSourceName}/connect-params`
 
 **请求方式**:`GET`
@@ -1076,6 +1125,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/name/linkis_test256/connect-params",
@@ -1091,7 +1141,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## insertJsonParameter
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/parameter/{dataSourceId}/json`
 
 **请求方式**:`POST`
@@ -1119,15 +1171,18 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```
+
 ## publishByDataSourceId
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/publish/{dataSourceId}/{versionId}`
 
 **请求方式**:`POST`
@@ -1155,6 +1210,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/publish/3/2",
@@ -1163,7 +1219,9 @@ sidebar_position: 1
     "data": {}
 }
 ```
+
 ## getAllDataSourceTypes
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/type/all`
 
 **请求方式**:`GET`
@@ -1186,6 +1244,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/type/all",
@@ -1202,7 +1261,7 @@ sidebar_position: 1
                 "icon": "https://uat.dongcha.weoa.com/static/img/logo.770c1525.png",
                 "layers": 3
             },
-            
+
             {
                 "id": "4",
                 "name": "hive",
@@ -1211,12 +1270,14 @@ sidebar_position: 1
                 "classifier": "大数据存储",
                 "layers": 3
             }
-            
+
         ]
     }
 }
 ```
+
 ## getConnectParams
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/{dataSourceId}/connect-params`
 
 **请求方式**:`GET`
@@ -1243,6 +1304,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/3/connect-params",
@@ -1258,7 +1320,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## getVersionList
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/{dataSourceId}/versions`
 
 **请求方式**:`GET`
@@ -1285,6 +1349,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/1/versions",
@@ -1309,7 +1374,9 @@ sidebar_position: 1
     }
 }
 ```
+
 ## connectDataSource
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/{dataSourceId}/{version}/op/connect`
 
 **请求方式**:`PUT`
@@ -1337,6 +1404,7 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
     "method": "/api/data-source-manager/1/1/op/connect",
@@ -1349,9 +1417,10 @@ sidebar_position: 1
 ```
 
 -----
-** DataSourceOperateRestfulApi类 ** 
+** DataSourceOperateRestfulApi类 **
 
 ## connect
+
 **接口地址**:`/api/rest_j/v1/data-source-manager/op/connect/json`
 
 **请求方式**:`POST`
@@ -1363,6 +1432,7 @@ sidebar_position: 1
 **接口描述**:
 
 **请求示例**:
+
 ```javascript
 {
   "connectParams": {},
@@ -1490,11 +1560,12 @@ sidebar_position: 1
 |status||integer(int32)|integer(int32)|
 
 **响应示例**:
+
 ```javascript
 {
-	"data": {},
-	"message": "",
-	"method": "",
-	"status": 0
+ "data": {},
+ "message": "",
+ "method": "",
+ "status": 0
 }
 ```

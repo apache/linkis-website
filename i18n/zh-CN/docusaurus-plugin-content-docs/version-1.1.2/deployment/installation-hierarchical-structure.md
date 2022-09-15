@@ -98,20 +98,18 @@ sidebar_position: 4.5
      └── linkis-stop-all.sh ── 一键停止全部微服务脚本
 
 ```
- 
- ## 2  配置项修改
- 
+
+## 2  配置项修改
+
  在执行完Linkis安装后，所有配置项位于conf目录下，
  如果需要进行配置项修改，修改配置`${LINKIS_HOME}/conf/*properties`文件后，重启对应的服务，
  如：`sh sbin/linkis-daemon.sh start ps-publicservice`。
- 如果修改的是公共配置文件`application-eureka.yml/application-linkis.yml/linkis.properties`，需要重启所有服务`sh sbin/linkis-start-all.sh` 
- 
+ 如果修改的是公共配置文件`application-eureka.yml/application-linkis.yml/linkis.properties`，需要重启所有服务`sh sbin/linkis-start-all.sh`
 
+## 3 微服务启停
 
- 
- ## 3 微服务启停
- 
 所有微服务名称如下：
+
  ```
 ├── linkis-cg-engineconnmanager 引擎管理服务  
 ├── linkis-cg-engineplugin 引擎插件管理服务  
@@ -119,51 +117,49 @@ sidebar_position: 4.5
 ├── linkis-cg-linkismanager 计算治理管理服务  
 ├── linkis-mg-eureka 微服务注册中心服务  
 ├── linkis-mg-gateway Linkis网关服务  
-├── linkis-ps-cs 上下文服务 
-├── linkis-ps-publicservice 公共服务 
-├── linkis-ps-data-source-manager 数据源管理服务 
+├── linkis-ps-cs 上下文服务
+├── linkis-ps-publicservice 公共服务
+├── linkis-ps-data-source-manager 数据源管理服务
 ├── linkis-ps-metadatamanager  元数据查询服务
  ```
 
 **微服务简称**：
- 
+
  | 简称 | 英文全称                | 中文全称   |
  |------|-------------------------|------------|
  | cg   | Computation Governance  | 计算治理   |
  | mg   | Microservice Covernance | 微服务治理 |
  | ps   | Public Enhancement Service  | 公共增强服务   |
- 
 
-
-``` 
+```
 # 一次性启动所有微服务：
- 
+
      sh linkis-start-all.sh
- 
+
 # 一次性关停所有微服务
- 
+
      sh linkis-stop-all.sh
- 
+
 # 启动单个微服务（服务名需要去掉linkis前缀如：mg-eureka）
- 
+
      sh linkis-daemon.sh start service-name
- 
+
      例如: sh linkis-daemon.sh start mg-eureka
- 
+
 # 关闭单个微服务
- 
+
      sh linkis-daemon.sh stop service-name
- 
+
      例如: sh linkis-daemon.sh stop mg-eureka
- 
+
 # 重启单个微服务
- 
+
      sh linkis-daemon.sh restart service-name
- 
+
      例如: sh linkis-daemon.sh restart mg-eureka
 # 查看单个微服务的状态
- 
+
      sh linkis-daemon.sh status service-name
- 
+
      例如: sh linkis-daemon.sh status mg-eureka
 ```

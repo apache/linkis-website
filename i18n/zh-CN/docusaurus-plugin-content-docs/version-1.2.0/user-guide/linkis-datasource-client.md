@@ -6,6 +6,7 @@ sidebar_position: 4
 > Linkis DataSource 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-datasource-client的模块就可以进行使用，
 
 ## 1. 引入依赖模块
+
 ```
  <dependency>
    <groupId>org.apache.linkis</groupId>
@@ -21,7 +22,9 @@ sidebar_position: 4
 ```
 
 ## 2. Scala测试代码
+
 建立Scala的测试类LinkisDataSourceClientTest，具体接口含义可以见注释：
+
 ```java
 
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -54,7 +57,7 @@ object LinkisDataSourceClientTest {
       .setAuthTokenValue("xxx") // set passwd or token
       .setDWSVersion("v1") //linkis rest version v1
       .build
-     //init datasource remote client   
+     //init datasource remote client
      val dataSourceClient = new LinkisDataSourceRemoteClient(clientConfig)
      //init metadata remote client
      val metaDataClient = new LinkisMetaDataRemoteClient(clientConfig)
@@ -140,4 +143,3 @@ def testUpdateDataSourceParameterForEs(client:LinkisDataSourceRemoteClient): Uni
   }
 }
 ```
-

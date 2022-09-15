@@ -4,9 +4,11 @@ sidebar_position: 3
 ---
 
 # Apache Publishing Guide
-> This article takes the release of 1.0.3 Apache version as an example. If it is a non-Apache version, please refer to the [detailed information](https://incubator.apache.org/guides/releasemanagement.html) https://incubator.apache.org/guides/releasemanagement.html
+
+> This article takes the release of 1.0.3 Apache version as an example. If it is a non-Apache version, please refer to the [detailed information](https://incubator.apache.org/guides/releasemanagement.html) <https://incubator.apache.org/guides/releasemanagement.html>
 
 Understand the content and process of Apache's release. Source Release is the focus of Apache’s attention and is also a required content for release; Binary Release is optional. Please refer to the following link to find more ASF release guidelines:
+
 - [Apache Release Guide](http://www.apache.org/dev/release-publishing)
 - [Apache Release Policy](http://www.apache.org/dev/release.html)
 - [Maven Release Info](http://www.apache.org/dev/publishing-maven-artifacts.html)
@@ -14,6 +16,7 @@ Understand the content and process of Apache's release. Source Release is the fo
 Both apache's maven and SVN repositories use GPG signatures to verify the legitimacy of material files
 
 ## 1 Tool preparation
+
 :::caution Note
 Required when this publisher is publishing for the first time
 :::
@@ -27,18 +30,21 @@ Mainly include the preparation of the signature tool GnuPG, Maven repository cer
 Download the binary installation package (GnuPG binary releases) at [GnuPG official website](https://www.gnupg.org/download/index.html). The latest version is [Gpg4win-3.1.16 2021-06-11](https://gpg4win.org/download.html) After downloading, please complete the installation operation first
 Note: The commands of GnuPG 1.x version and 2.x version are slightly different. The following description takes 2.2.28 as an example
 After installation, the gpg command is added to the system environment variables and is available
+
 ```sh
 #Check the version, it should be 2.x
-$ gpg --version 
+$ gpg --version
 ```
 
 ### 1.2. Generate key with gpg
 
 **Note the following points:**
+
 - The mailbox used should be apache mailbox
 - It is best to use pinyin or English for the name, otherwise garbled characters will appear
 
 According to the prompt, generate the key
+
 ```shell
 $ gpg --full-gen-key
 gpg (GnuPG) 2.2.28; Copyright (C) 2021 g10 Code GmbH
@@ -111,8 +117,11 @@ sub rsa4096/399AA54F 2021-11-10 [E]
 $ gpg --keyserver keyserver.ubuntu.com --send-key 584EE68E
 # Among them, keyserver.ubuntu.com is the selected keyserver, it is recommended to use this, because the Apache Nexus verification uses this keyserver
 ```
+
 ### 1.4. Check whether the key is created successfully
+
 Verify whether it is synchronized to the public network. It takes about a minute to find out. If it is not successful, you can upload and retry several times
+
 ```shell
 # method one
 $ gpg --keyserver keyserver.ubuntu.com --recv-keys 584EE68E #584EE68E is the corresponding key id
@@ -126,14 +135,13 @@ gpg: unchanged: 1
 Go directly to https://keyserver.ubuntu.com/ and enter the username mingXiao to search the query results
 ```
 
-
 ### 1.5 Add the gpg public key
 
->  This step requires the use of SVN, please download and install the SVN client first, Apache uses svn to host the project’s published content
+> This step requires the use of SVN, please download and install the SVN client first, Apache uses svn to host the project’s published content
 
-- Linkis DEV branch https://dist.apache.org/repos/dist/dev/incubator/linkis
+- Linkis DEV branch <https://dist.apache.org/repos/dist/dev/incubator/linkis>
 
--  Linkis Release branch https://dist.apache.org/repos/dist/release/incubator/linkis
+- Linkis Release branch <https://dist.apache.org/repos/dist/release/incubator/linkis>
 
 #### 1.5.1 Add public key to KEYS in dev branch
 
@@ -176,7 +184,6 @@ $ svn add KEYS
 $ svn ci -m "add gpg key for YOUR_NAME"
 ```
 
-
 ### 1.6 Configure apache maven address and user password settings
 
 In the maven configuration file ~/.m2/settings.xml, add the following `<server>` item
@@ -216,7 +223,6 @@ For encryption settings, please refer to [here](http://maven.apache.org/guides/m
 </settings>
 ```
 
-
 ## 2 Prepare material package & release of Apache Nexus
 
 ### 2.1 Prepare branch/Tag/Release Notes
@@ -228,10 +234,11 @@ If the source branch currently developed is dev-1.0.3, version 1.0.3 needs to be
 -Create tag: release-1.0.3-rc1
 
 Sort out the content description of this change and release, sort by \[module]\[pr_url].
-Enter the creation page https://github.com/apache/incubator-linkis/releases/new
+Enter the creation page <https://github.com/apache/incubator-linkis/releases/new>
 Create a release based on the previous release-1.0.3-rc1 tag, and check `This is a pre-release` to write the release notes.
 
 :::caution Note
+
 - After the main repository apache/incubator-linkis is ready to release the branch/tag/release notes, please fork to your own repository and perform the following steps
 :::
 
@@ -242,10 +249,12 @@ If the version number is incorrect, you need to modify the version number to
 ```shell
 $ mvn versions:set -DnewVersion=1.0.3
 
-Modify the configuration in pom.xml 
+Modify the configuration in pom.xml
 <linkis.version>1.0.3</linkis.version>
 ```
+
 Check whether the code is normal, including the version number, the compilation is successful, the unit test is all successful, the RAT check is successful, etc.
+
 ```shell
 #build check
 $ mvn clean install -Dmaven.javadoc.skip=true
@@ -262,31 +271,36 @@ If the check is abnormal, please check whether additional unnecessary files have
 The whitelist file of rat check is configured in the apache-rat-plugin plugin configuration in the outer pom.xml.
 
 Check all license information in merged-rat.txt, and note that Binaries and Archives files are 0.
+
 ````text
 Notes: 0
 Binaries: 0
 Archives: 0
 0 Unknown Licenses
 ````
+
 <font color="red">
 If it is not 0, you need to confirm whether there is a license for the binary or compressed file in the source code. You can refer to `linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7- src.zip`
 </font>
 
 ### 2.3 Publish jar package to Apache Nexus repository
+
 ```shell
 # Start to compile and upload, it takes about 1h40min
 $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 ```
+
 :::caution Note
 
 1 If a network proxy is used or the requester's ip changes, it may cause the maven side to split in order to upload records multiple times. This needs to be closed first and re-deployed. It is best to turn off the network proxy
 2 If there is a timeout, you need to re-deploy
 :::
 
-After the above command is executed successfully, the release package will be automatically uploaded to Apache's staging repository. All Artifacts deployed to the remote [maven repository](http://repository.apache.org/) will be in the staging state. Visit https://repository.apache.org/#stagingRepositories and log in using the Apache LDAP account. You will see the uploaded version, and the content in the `Repository` column is ${STAGING.REPOSITORY}. Click `Close` to tell Nexus that the build is complete, and only then is the version available. If there is a problem with the electronic signature, `Close` will fail. You can check the failure information through `Activity`.
+After the above command is executed successfully, the release package will be automatically uploaded to Apache's staging repository. All Artifacts deployed to the remote [maven repository](http://repository.apache.org/) will be in the staging state. Visit <https://repository.apache.org/#stagingRepositories> and log in using the Apache LDAP account. You will see the uploaded version, and the content in the `Repository` column is ${STAGING.REPOSITORY}. Click `Close` to tell Nexus that the build is complete, and only then is the version available. If there is a problem with the electronic signature, `Close` will fail. You can check the failure information through `Activity`.
 At the same time, the binary file linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz is also generated
 
 Step 2.4-3.3 execute the command, merge it in the release.sh script, or execute it through the release.sh script (See appendix at the end of this article)
+
 ### 2.4 Package source code
 
 ```shell
@@ -298,33 +312,40 @@ $ mkdir -p dist/apache-linkis
 
 $ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" --prefix=apache-linkis-1.0.3-incubating-src/  release-1.0.3-rc1
 ```
+
 ### 2.5 Copy binary files
 
 After step 2.3 is executed, the binary file has been generated, located in linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz
+
 ```shell
-$ cp linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-linkis
+cp linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-linkis
 ```
 
 ### 2.6 Package front-end management console
+
 :::caution Note
 If you do not publish the front-end project, you can skip this step
 :::
 
 #### 2.6.1 Install Node.js
+
 Download Node.js to the local and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (node v14 version is recommended)
-**This step only needs to be performed the first time you use it. **
+**This step only needs to be performed the first time you use it.**
 
 #### 2.6.2 Install dependencies
+
 Execute the following commands in the terminal command line:
+
 ```shell
 #Enter the project WEB root directory
 $ cd incubator-linkis/linkis-web
 #Required dependencies for installation project
 $ npm install
 ```
-**This step only needs to be performed the first time you use it. **
+**This step only needs to be performed the first time you use it.**
 
 **Notice:**
+
 ```shell
 1. An error is reported in the npm install step under Windows:
 Error: Can't find Python executable "python", you can set the PYTHON env variable
@@ -346,37 +367,45 @@ $ npm install
 ```
 
 #### 2.6.3 Package console project
+
 Execute the following instructions on the terminal command line to package the project and generate a compressed deployment installation package.
 Check linkis-web/package.json, linkis-web/.env files, and check whether the version number of the front-end management console is correct.
+
 ```shell
-$ npm run build
+npm run build
 ```
+
 After the above command is successfully executed, the front-end management console installation package `apache-linkis-${version}-incubating-web-bin.tar.gz` will be generated
 
 #### 2.6.4 Copy console installation package
 
 After step 2.6.3 is executed, the front-end management console installation package has been generated, located at linkis-web/apache-linkis-1.0.3-incubating-web-bin.tar.gz
+
 ```shell
-$ cp linkis-web/apache-linkis-1.0.3-incubating-web-bin.tar.gz dist/apache-linkis
+cp linkis-web/apache-linkis-1.0.3-incubating-web-bin.tar.gz dist/apache-linkis
 ```
 
 ### 2.7 Sign the source package/binary package/sha512
+
 ```shell
-$ cd dist/apache-linkis
+cd dist/apache-linkis
 
-$ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i; done # Calculate signature
+for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i; done # Calculate signature
 
-$ for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # Calculate SHA512
+for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # Calculate SHA512
 ```
 
 ### 2.8 Check whether the generated signature/sha512 is correct
+
 Verify that the signature is correct as follows:
+
 ```shell
-$ cd dist/apache-linkis
-$ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
+cd dist/apache-linkis
+for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
 ```
 
 If something like the following appears, the signature is correct. Keyword: **`Good signature`**
+
 ```shell
      apache-linkis-xxx-incubating-src.tar.gz
      gpg: Signature made XXXX
@@ -385,15 +414,14 @@ If something like the following appears, the signature is correct. Keyword: **`G
 ````
 
 Verify that sha512 is correct as follows:
+
 ```shell
-$ cd dist/apache-linkis
-$ for i in *.tar.gz; do echo $i; sha512sum --check $i.sha512; done
+cd dist/apache-linkis
+for i in *.tar.gz; do echo $i; sha512sum --check $i.sha512; done
 
 ```
 
 The detailed verification process can be found in [Verification Candidate Version](how-to-verify.md)
-
-
 
 ## 3 Publish the Apache SVN repository
 
@@ -405,7 +433,7 @@ The detailed verification process can be found in [Verification Candidate Versio
 Check out the Linkis distribution directory from the Apache SVN dev directory.
 
 ```shell
-$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis dist/linkis_svn_dev
+svn co https://dist.apache.org/repos/dist/dev/incubator/linkis dist/linkis_svn_dev
 
 ```
 
@@ -416,15 +444,16 @@ For example: 1.0.3-RC1 version is voted, if the vote is passed without any probl
 If there is a problem (when voting in the linkis/incubator community, voters will strictly check various release requirements and compliance issues) and need to be corrected. After the correction, the vote will be re-initiated. The candidate version for the next vote is 1.0.3- RC2.
 
 ```shell
-$ mkdir -p dist/linkis_svn_dev/1.0.3-RC1
+mkdir -p dist/linkis_svn_dev/1.0.3-RC1
 ```
 
 Add the source code package, binary package, and Linkis executable binary package to the SVN working directory.
 
 ```shell
-$ cp -f dist/apache-linkis/* dist/linkis_svn_dev/1.0.3-RC1
+cp -f dist/apache-linkis/* dist/linkis_svn_dev/1.0.3-RC1
 
 ```
+
 ### 3.3 Submit Apache SVN
 
 ```shell
@@ -439,12 +468,12 @@ $ svn status
 $ svn commit -m "prepare for 1.0.3-RC1"
 
 ```
+
 If Chinese garbled characters appear in the svn command, you can try to set the encoding format (set the encoding format: export LANG=en_US.UTF-8).
 
 ## 4 Verify Release Candidates
 
 For details, please refer to [How to Verify release](/how-to-verify.md)
-
 
 ## 5 Initiates a vote
 
@@ -455,9 +484,9 @@ Please use your apache.org mailbox to send emails, and use `plain text mode`, fo
 
 :::caution Note
 
-All links to checksums, signatures, and public keys must refer to the main Apache website https://downloads.apache.org/ and should use https://(SSL). For example: https://downloads.apache.org/incubator/linkis/KEYS
+All links to checksums, signatures, and public keys must refer to the main Apache website <https://downloads.apache.org/> and should use <https://(SSL>). For example: <https://downloads.apache.org/incubator/linkis/KEYS>
 
-The DISCLAIMER-WIP disclaimer is currently used, please add this description `As the DISCLAIMER-WIP shows....` to the email. If the WIP pending problem is solved later, it can be removed. Use of WIP, see https://issues.apache.org/jira/browse/LEGAL-469 for details
+The DISCLAIMER-WIP disclaimer is currently used, please add this description `As the DISCLAIMER-WIP shows....` to the email. If the WIP pending problem is solved later, it can be removed. Use of WIP, see <https://issues.apache.org/jira/browse/LEGAL-469> for details
 :::
 
 - To vote in the Linkis community, send an email to: `dev@linkis.apache.org`
@@ -482,44 +511,44 @@ Hello Linkis Community,
 
     Release notes:
         https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
-    
+
     The release candidates:
         https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
-    
+
      Maven artifacts are available in a staging repository at:
         https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
-    
+
     Git tag for the release:
         https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
-    
+
     Keys to verify the Release Candidate:
         https://downloads.apache.org/incubator/linkis/KEYS
-    
+
     GPG user ID:
     ${YOUR.GPG.USER.ID}
-    
+
     As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
 
     The vote will be open for at least 72 hours or until necessary number of votes are reached.
-    
+
     Please vote accordingly:
-    
+
     [] +1 approve
     [] +0 no opinion
     [] -1 disapprove with the reason
-    
+
     Checklist for reference:
-    
+
     [] Download links are valid.
     [] Checksums and PGP signatures are valid.
     [] Source code distributions have correct names matching the current release.
     [] LICENSE and NOTICE files are correct for each Linkis repo.
     [] All files have license headers if necessary.
     [] No unlicensed compiled archives bundled in source archive.
-    
+
     More detail checklist please refer:
         https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
-    
+
 Thanks,
 ${Linkis Release Manager}
 ```
@@ -631,9 +660,11 @@ be working on publishing the artifacts soon.
 Thanks
 On behalf of Apache Linkis(Incubating) community
 ```
+
 ## 6 Official release
 
 ### 6.1 Migrating source and binary packages
+
 :::caution note
 The path name of release cannot carry the rc identifier
 :::
@@ -663,13 +694,12 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 ### 6.3 Release version in Apache Staging repository
 
-- Log in to http://repository.apache.org , log in with your Apache account
+- Log in to <http://repository.apache.org> , log in with your Apache account
 - Click on Staging repositories on the left,
 - Search for Linkis keywords, select your recently uploaded repository, and the repository specified in the voting email
 - Click the `Release` button above, this process will perform a series of checks
 
 > It usually takes 24 hours to wait for the repository to synchronize to other data sources
-
 
 ### 6.4 Update download page
 
@@ -677,10 +707,10 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 The official website download address of linkis should point to the official address of apache
 
-After waiting and confirming that the new release version is synced to the Apache mirror (https://downloads.apache.org/incubator/linkis/), update the following page:
+After waiting and confirming that the new release version is synced to the Apache mirror (<https://downloads.apache.org/incubator/linkis/>), update the following page:
 
-- https://linkis.apache.org/en-US/download/main
-- https://linkis.apache.org/download/main
+- <https://linkis.apache.org/en-US/download/main>
+- <https://linkis.apache.org/download/main>
 
 ### 6.5 GitHub version released
 
@@ -688,12 +718,12 @@ After waiting and confirming that the new release version is synced to the Apach
 2. Tag the official version, and the RC version tag during the voting process can be removed
 3. On the [GitHub Releases](https://github.com/apache/incubator-linkis/releases) page, update the version number and version description, etc.
 
-
 ## 7 Email notification version is released
 
 > Please make sure that the Apache Staging repository has been published successfully, usually mail is published 24 hours after this step
 
 Send email to `dev@linkis.apache.org`, `announce@apache.org` and `general@incubator.apache.org`
+
 ```html
 title:
 [ANNOUNCE] Apache Linkis (Incubating) ${release_version} available
@@ -720,11 +750,12 @@ Linkis Resources:
 
 ```
 
-
 ## Appendix
+
 ### Appendix one release.sh
 
 Step 2.4-3.3 execute the command, which can be combined in the release.sh script
+
 ```shell script
 #!/bin/bash
 #
@@ -807,13 +838,12 @@ svn commit -m "prepare for ${release_version} ${rc_version}"
 ### Mail switch to plain text format
 
 Do not send plain HTML messages; instead, send plain text (content-type: text/plain). Sending HTML reduces the number of people reading your email and is often rejected by the apache.org inbound spam filter. If your message is bounced and the error message says that the spam hit includes HTML_MESSAGE, please resend the message in plain text.
-For more information, please refer to the official [Email Specification](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips
+For more information, please refer to the official [Email Specification](https://infra.apache.org/contrib-email-tips) <https://infra.apache.org/contrib-email-tips>
 
-
-** Gmail mailbox switch to plain text format **
+**Gmail mailbox switch to plain text format**
 
 ![image](https://user-images.githubusercontent.com/7869972/152912490-a5038505-e487-4451-be9a-e26021877e4f.png)
 
-** QQ mailbox switch to plain text format **
+**QQ mailbox switch to plain text format**
 
 ![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)

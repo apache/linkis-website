@@ -4,25 +4,33 @@ sidebar_position: 1
 ---
 
 ## 1. General
+
 ### Requirements Background
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Users want to be able to define some common variables when writing code and then replace them during execution. For example, users run the same sql in batches every day, and need to specify the partition time of the previous day. If based on sql It will be more complicated to write if the system provides a variable of run_date which will be very convenient to use.
+
 ### Target
+
 1. Support variable substitution of task code
 2. Support custom variables, support users to define custom variables in scripts and task parameters submitted to Linkis, support simple +, - and other calculations
 3. Preset system variables: run_date, run_month, run_today and other system variables
 
 ## 2. Overall Design
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;During the execution of the Linkis task, the custom variables are carried out in Entrance, mainly through the interceptor of Entrance before the task is submitted and executed. The variable and the defined variable, and complete the code replacement through the initial value of the custom variable passed in by the task, and become the final executable code.
 
 ### 2.1 Technical Architecture
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The overall structure of custom variables is as follows. After the task is submitted, it will go through the variable replacement interceptor. First, all variables and expressions used in the code will be parsed, and then replaced with the system and user-defined initial values ​​of variables, and finally the parsed code will be submitted to EngineConn for execution. So the underlying engine is already replaced code.
 
 ![var_arc](/Images/Architecture/Commons/var_arc.png)
 
 ### 3 Function introduction
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The variable types supported by Linkis are divided into custom variables and system built-in variables. The internal variables are predefined by Linkis and can be used directly. Then different variable types support different calculation formats: String supports +, integer decimal supports +-*/, date supports +-.
 
 ### 3.1 Built-in variables
+
 The currently supported built-in variables are as follows:
 
 | variable name | variable type | variable meaning | variable value example |
@@ -61,7 +69,9 @@ details:
 3. Built-in variables support more abundant usage scenarios: ${run_date-1} is the day before run_data; ${run_month_begin-1} is the first day of the previous month of run_month_begin, where -1 means minus one month.
 
 ### 3.2 Custom variables
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What are custom variables? User variables that are defined first and then used. User-defined variables temporarily support the definition of strings, integers, and floating-point variables. Strings support the + method, and integers and floating-point numbers support the +-*/ method. User-defined variables do not conflict with the set variable syntax supported by SparkSQL and HQL, but the same name is not allowed. How to define and use custom variables? as follows:
+
 ````
 ## Defined in the code, specified before the task code
 sql type definition method:
@@ -70,10 +80,13 @@ The python/shell types are defined as follows:
 #@set f=20.1
 Note: Only one variable can be defined on one line
 ````
+
 The use is directly used in the code through ```{varName expression}, such as ${f*2}```
 
 ### 3.3 Variable scope
+
 Custom variables in linkis also have scope, and the priority is that the variable defined in the script is greater than the Variable defined in the task parameter is greater than the built-in run_date variable. The task parameters are defined as follows:
+
 ````
 ##restful
 {

@@ -13,8 +13,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -42,8 +42,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -59,7 +59,7 @@ sidebar_position: 0.1
   </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfUpdateVo</span></td><td key="1"><span>object</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-0"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> id</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-1"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfName</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>不能修改</span></td><td key="5"></td></tr><tr key="0-0-2"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> udfType</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>不能修改</span></td><td key="5"></td></tr><tr key="0-0-3"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> description</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-4"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> path</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>jar类型udf采用文件路径方式上传</span></td><td key="5"></td></tr><tr key="0-0-5"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> useFormat</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr><tr key="0-0-6"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> registerFormat</span></td><td key="1"><span>string</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
                </tbody>
               </table>
-       
+
 ### 返回数据
 
 <table>
@@ -72,6 +72,7 @@ sidebar_position: 0.1
 </table>
 
 ## UDF共享用户列表
+
 ### 基本信息
 
 **Path：** /api/rest_j/v1/udf/getSharedUsers
@@ -80,8 +81,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -97,7 +98,7 @@ sidebar_position: 0.1
   </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> udfId</span></td><td key="1"><span>number</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
                </tbody>
               </table>
-       
+
 ### 返回数据
 
 <table>
@@ -110,6 +111,7 @@ sidebar_position: 0.1
               </table>
 
 ## UDF删除
+
 ### 基本信息
 
 **Path：** /api/rest_j/v1/udf/delete/{id}
@@ -118,8 +120,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -151,8 +153,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -169,7 +171,6 @@ sidebar_position: 0.1
                </tbody>
               </table>
 
-         
 ### 返回数据
 
 <table>
@@ -191,8 +192,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -230,8 +231,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -258,8 +259,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -277,6 +278,7 @@ sidebar_position: 0.1
               </table>
 
 ## UDF管理页面
+
 >注：只能看到用户自己创建的udf
 
 ### 基本信息
@@ -287,8 +289,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -326,8 +328,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -365,8 +367,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -404,8 +406,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Query**
 
 | 参数名称  |  是否必须 | 示例  | 备注  |
@@ -433,8 +435,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Headers**
 
 | 参数名称  | 参数值  |  是否必须 | 示例  | 备注  |
@@ -461,7 +463,6 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
 
 ### 返回数据
@@ -485,8 +486,8 @@ sidebar_position: 0.1
 
 **接口描述：**
 
-
 ### 请求参数
+
 **Query**
 
 | 参数名称  |  是否必须 | 示例  | 备注  |
@@ -502,4 +503,3 @@ sidebar_position: 0.1
     </tr>
   </thead><tbody className="ant-table-tbody"><tr key="0-0"><td key="0"><span style={{paddingLeft:'0px'}}><span style={{color:'#8c8a8a'}}></span> userDirectory</span></td><td key="1"><span>string []</span></td><td key="2">必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}>分类名组成的列表</span></td><td key="5"><p key="4"><span style={{fontWeight:'700'}}>item 类型: </span><span>string</span></p></td></tr><tr key="array-16"><td key="0"><span style={{paddingLeft:'20px'}}><span style={{color:'#8c8a8a'}}>├─</span> </span></td><td key="1"><span></span></td><td key="2">非必须</td><td key="3"></td><td key="4"><span style={{whiteSpace:'pre-wrap'}}></span></td><td key="5"></td></tr>
                </tbody> </table>
-            

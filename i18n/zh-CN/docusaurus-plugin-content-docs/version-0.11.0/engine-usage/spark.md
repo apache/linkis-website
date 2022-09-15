@@ -4,6 +4,7 @@ sidebar_position: 2
 ---
 
 ## 1 Spark引擎的使用
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis的Spark执行引擎为用户提供了向Yarn集群提交spark作业并反馈日志、进度、状态和结果集的能力。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spark执行引擎支持用户提交sparksql、pyspark以及scala三种类型的作业，默认采用yarn-client方式提交作业，并以引擎的形式为用户维系一个或多个spark会话。
@@ -19,6 +20,7 @@ sidebar_position: 2
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在启动SparkEngineManager的微服务之前，请确保以上环境变量已经设置。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果您没有设置，请先在/home/${USER}/.bash_rc 或 linkis-ujes-spark-enginemanager/conf目录中的 linkis.properties配置文件中设置。如以下所示
+
 ```properties
   HADOOP_HOME=${真实的hadoop home}
   HADOOP_CONF_DIR=${真实的hadoop配置目录}
@@ -36,7 +38,7 @@ Spark引擎的启动，需要依赖以下的Linkis微服务:
 - 3)、Linkis-publicService: 提供持久化、udf等基础功能。
 - 4)、Linkis-ResourceManager:提供Linkis的资源管理功能。
 
-### 1.3	自定义参数配置
+### 1.3 自定义参数配置
 
 启动spark的相关微服务之前，用户可以设置关于spark引擎的相关配置参数。
 
@@ -46,15 +48,11 @@ Linkis考虑到用户希望能够更自由地设置参数，提供了许多的�
 
 用户可以在linkis.properties中配置这些参数。
 
-
 |  参数名称 | 参考值 |  说明 |
 | ------------ | ------------ | ------------ |
 | wds.linkis.enginemanager.memory.max  | 40G|  用于指定sparkEM启动的所有引擎的客户端的总内存 |
 | wds.linkis.enginemanager.cores.max  | 20 |  用于指定sparkEM启动的所有引擎的客户端的总CPU核数 |
 | wds.linkis.enginemanager.engine.instances.max  | 10  |  用于指定sparkEM可以启动的引擎个数 |
-
-
-
 
 ### 1.4 前端部署
 

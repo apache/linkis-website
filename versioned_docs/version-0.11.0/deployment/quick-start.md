@@ -17,9 +17,9 @@ Execute the following commands in the installation directory, start all services
 
 You can view service startup success on the Eureka interface, see method：
 
-Use http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, open in browser, see whether the service was registered successfully.
+Use <http://${EUREKA_INSTALL_IP}:${EUREKA_PORT>}, open in browser, see whether the service was registered successfully.
 
-If you do not specify in config.sh, EUREKA_INSTAL_IP_SPECIALL_IP, then HTTP address is：http://127.0.0.1:20303
+If you do not specify in config.sh, EUREKA_INSTAL_IP_SPECIALL_IP, then HTTP address is：<http://127.0.0.1:20303>
 
 As shown in the figure below, if the following microservices appear on your Eureka homepage, it means that the services have been started successfully and you can provide services to the outside world normally:
 

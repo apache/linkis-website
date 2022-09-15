@@ -9,7 +9,6 @@ The call of HTTP interface between Feign-based microservices can only satisfy a 
 
 At the same time, because Feign only supports simple service selection rules, it cannot forward the request to the specified microservice instance, and cannot broadcast a request to all instances of the recipient microservice.
 
-
 ## 2 Introduction
 
 Linkis has implemented a set of its own underlying RPC communication scheme based on Feign.
@@ -21,7 +20,6 @@ A microservice can be both a request caller and a request receiver.
 As the request caller, the Receiver of the target receiver's microservice will be requested through the Sender. As the request receiver, the Receiver will be provided to process the request sent by the request receiver Sender in order to complete a synchronous response or an asynchronous response.
 
 ![Linkis RPC architecture diagram](../../images/ch4/rpc1.png)
-
 
 ## 3 Implementation
 
@@ -81,18 +79,14 @@ void deliver(Object message);
      The default interceptor is used to call the next processing steps.
      
      e) Custom interceptor. Users can also implement their own custom interceptors to achieve some specific functions.
- 
--4) The request encoder will first convert the data (entity bean) requested by the user into a serialized JSON string, and then pass it to the Feign client generator.
 
+-4) The request encoder will first convert the data (entity bean) requested by the user into a serialized JSON string, and then pass it to the Feign client generator.
 
 -5) Feign client generator, which generates Feign client that can access the receiver Restful request receiver.
 
-
 -6) The generated Feign client will call the service discovery manager to obtain a list of all microservices. Through the service selector, if the user specifies the microservice name in step 1), then it will pass Feign's load balancing strategy. Select a suitable receiver microservice instance for request forwarding, otherwise the service selector will rewrite Spring Cloud Feign's FeignLoadBalancer (Feign load balancer). When creating LoadBalancerCommand, specify the corresponding microservice instance as step 1) Obtain The microservice instance specified when Sender.
 
-
 -7) Call the Feign client to start requesting the Restful request receiver on the receiving end.
-
 
 ### 3.2 Receiver
 

@@ -31,7 +31,6 @@ tags: [blog,linki1.1.1,hadoop3.1.1,spark3.0.1,hive3.1.2,flink1.13.2]
 | Streamis         | 0.2.0 | 流式开发应用中心                                             |
 | Visualis         | 1.0.0 | 可视化报表展示,可以分享外链接                                |
 
-
 ## 部署顺序
 
   从序号3之后的顺序可以自己选择进行调整.但是在部署exchangis中需要注意一点,将exchangis的sqoop引擎插件,给copy到linkis的lib下的engine插件包下
@@ -77,7 +76,7 @@ Schedulis,Qualitis,Exchangis,Streamis,Visualis等系统,都是通过各自的app
 #### linkis-hadoop-common的pom文件
 
 ```xml
-       <!-- 注意这里的 <version>${hadoop.version}</version> , 根据你有没有遇到错误来进行调整 --> 
+       <!-- 注意这里的 <version>${hadoop.version}</version> , 根据你有没有遇到错误来进行调整 -->
        <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs-client</artifactId>
@@ -223,7 +222,7 @@ responseRef.getValue("expireTime")
        <spark.version>3.0.1</spark.version>
 ```
 
-####  azkaban-jobtype
+#### azkaban-jobtype
 
 下载对应版本的jobtype文件(注意对应好版本): [下载地址](https://github.com/WeBankFinTech/Schedulis/blob/master/docs/schedulis_deploy_cn.md)
 下载完后,将整个jobtypes放在jobtypes下
@@ -275,7 +274,7 @@ linkis-engineplugin-sqoop是需要放入linkis中(lib/linkis-engineconn-plugins)
 exchangis-appconn.zip是需要放入dss中(dss-appconns)
 
 ```xml
-mvn clean install 
+mvn clean install
 ```
 
 ![image.png](./img/exchangis1.png)
@@ -433,7 +432,7 @@ wds.linkis.flink.engine.version=1.13.2
 
 ![1ca32f79d940016d72bf1393e4bccc8.jpg](./img/deploy5.jpg)
 
-3. 
+3.
 
 ### DSS部署注意点
 
@@ -483,7 +482,6 @@ exchangis,qualitis,streamis,visualis 都分别要从 Exchangis , Qualitis , Stre
 - hostname和ip,如果是使用ip访问的话,执行appconn-install.sh安装的时候,也确保是ip. 否则会出现访问其他组件的时候,会提示没有登录或者没有权限
 
 ![ec4989a817646f785c59f6802d0fab2.jpg](./img/deploy6.jpg)
-
 
 ### Schedulis部署注意点
 
@@ -738,4 +736,3 @@ server {
     }
 }
 ```
-

@@ -3,8 +3,8 @@
 </h2>
 
 <p align="center">
-  <strong>Linkis builds a computation middleware layer to decouple the upper applications and the underlying data engines, 
-  provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), 
+  <strong>Linkis builds a computation middleware layer to decouple the upper applications and the underlying data engines,
+  provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.),
   while enables cross engine context sharing, unified job& engine governance and orchestration.</strong>
 </p>
 <p align="center">
@@ -25,6 +25,5 @@
 
 This is the repository containing all the source code of `https://linkis.apache.org`.
 This guide will guide you how to contribute to the Linkis website.
-
 
 Please refer to [How to contribute to the official website](https://linkis.apache.org/community/how-to-contribute-to-website)

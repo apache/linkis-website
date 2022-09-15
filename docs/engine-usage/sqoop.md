@@ -30,15 +30,14 @@ It is strongly recommended that you use the native Sqoop to execute the test tas
 | wds.linkis.hadoop.site.xml  | Set sqoop to load hadoop parameter file location           | Required，Reference example："/etc/hadoop/conf/core-site.xml;/etc/hadoop/conf/hdfs-site.xml;/etc/hadoop/conf/yarn-site.xml;/etc/hadoop/conf/mapred-site.xml" |
 | sqoop.fetch.status.interval | Set the interval time for obtaining sqoop execution status | Not required, the default value is 5s                        |
 
-
-
 ## 2.Sqoop Engine configuration and deployment
 
-### 2.1 Sqoop Version selection and compilation 
+### 2.1 Sqoop Version selection and compilation
 
 Mainstream Sqoop versions 1.4.6 and 1.4.7 supported by Linkis 1.1.2 and above, and later versions may need to modify some code and recompile
 
 ### 2.2 Sqoop engineConn deploy and load
+
 Note: Before compiling the sqoop engine, the linkis project needs to be fully compiled
 
 ```
@@ -46,28 +45,35 @@ Compile sqoop separately:
 ${linkis_code_dir}linkis-engineconn-plugins/sqoop/
 mvn clean install
 ```
-The installation method is to compile the compiled engine package, located in 
+
+The installation method is to compile the compiled engine package, located in
+
 ```bash
 ${linkis_code_dir}linkis-engineconn-plugins/sqoop/target/sqoop-engineconn.zip
 ```
-and then deploy to 
-```bash 
+
+and then deploy to
+
+```bash
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
-and restart linkis-engineplugin 
+
+and restart linkis-engineplugin
+
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
+
 More engineplugin details can be found in the following article.  
-https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation
+<https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation>
 
-## 3.Sqoop Engine Usage 
-
+## 3.Sqoop Engine Usage
 
 ### 3.1 OnceEngineConn
 
 OnceEngineConn is used by calling LinkisManager's createEngineConn interface through LinkisManagerClient, and sending the code to the created Sqoop engine, and then the Sqoop engine starts to execute. This method can be called by other systems, such as Exchange. The use of Client is also very simple, first create a new maven project, or introduce the following dependencies into your project
+
 ```xml
 <dependency>
     <groupId>org.apache.linkis</groupId>
@@ -75,6 +81,7 @@ OnceEngineConn is used by calling LinkisManager's createEngineConn interface thr
     <version>${linkis.version}</version>
 </dependency>
 ```
+
 **Test Case：**
 
 ```scala

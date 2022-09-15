@@ -11,14 +11,15 @@ sidebar_position: 2
 
 ```bash
     vim linkis-mg-gateway.properties
-```    
+```
 
 添加LDAP相关配置：
+
 ```bash
 wds.linkis.ldap.proxy.url=ldap://127.0.0.1:389/ # 您的LDAP服务URL
-wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置    
-```    
-    
+wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置
+```
+
 ## 2.免登录配置
 
 如何打开测试模式，实现免登录？进入/conf目录，执行命令：
@@ -38,10 +39,9 @@ wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置
 
 我们提供以下几个与登录相关的接口：
 
- - 登录
- - 登出
- - 心跳
- 
+- 登录
+- 登出
+- 心跳
 
 ## 4.接口详解
 
@@ -58,11 +58,11 @@ wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置
 
 **约定**：
 
- - method：返回请求的Restful API URI，主要是 WebSocket 模式需要使用。
- - status：返回状态信息，其中：-1表示没有登录，0表示成功，1表示错误，2表示验证失败，3表示没该接口的访问权限。
- - data：返回具体的数据。
- - message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。 
- 
+- method：返回请求的Restful API URI，主要是 WebSocket 模式需要使用。
+- status：返回状态信息，其中：-1表示没有登录，0表示成功，1表示错误，2表示验证失败，3表示没该接口的访问权限。
+- data：返回具体的数据。
+- message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。
+
 更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](/community/development-specification/api)
 
 ### 4.1 登录
@@ -94,7 +94,7 @@ wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置
 
 其中：
 
- - isAdmin: Linkis只有admin用户和非admin用户，admin用户的唯一特权，就是支持在Linkis管理台查看所有用户的历史任务。
+- isAdmin: Linkis只有admin用户和非admin用户，admin用户的唯一特权，就是支持在Linkis管理台查看所有用户的历史任务。
 
 ### 4.2 登出
 

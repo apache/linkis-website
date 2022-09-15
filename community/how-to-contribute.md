@@ -31,6 +31,7 @@ Helping answering the questions in the Linkis community is a very valuable way t
 You can find linkis documentations at [linkis-Website](https://linkis.apache.org/docs/latest/introduction), and the supplement of the document is also crucial to the development of Linkis.
 
 ### 1.5 Other
+
 Including participating in and helping to organize community exchanges, community operation activities, etc., and other activities that can help the Linkis project and the community.
 
 ---
@@ -47,10 +48,12 @@ There are many branches,including temporary branches,in Linkis repository,but on
 - feature-*: Development branches for some larger new features that need to be jointly developed by the community
 
 #### 2.1.1 Concept
-Original warehouse: https://github.com/apache/incubator-linkis The apache warehouse of linkis is called the original warehouse in the text  
-Fork library: From https://github.com/apache/incubator-linkis fork to your own personal repository to become a fork library
+
+Original warehouse: <https://github.com/apache/incubator-linkis> The apache warehouse of linkis is called the original warehouse in the text  
+Fork library: From <https://github.com/apache/incubator-linkis> fork to your own personal repository to become a fork library
 
 #### 2.1.2 Synchronize the latest code of the original warehouse branch to your own fork library
+
 1. Enter the user project page and select the branch to be updated
 2. Click fetch upstream under the code download button and select fetch and merge (if the branch of your own fork library is accidentally polluted, you can delete the branch and synchronize the new branch of the original warehouse to your own fork library. For instructions, see [Synchronize the new branch of the original repository to your own fork repository](#213-synchronize-the-new-branch-of-the-original-repository-to-your-own-fork-repository))
    ![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
@@ -66,25 +69,33 @@ Operate in your own clone's local project
 ````
 git remote add apache git@github.com:apache/incubator-linkis.git
 ````
+
 2. Pull the apache image information to the local
 
 ````
 git fetch apache
 ````
+
 3. Create a local branch based on the new branch that needs to be synced
 
 ````
 git checkout -b dev-1.1.4 apache/dev-1.1.4
 ````
+
 4. Push the local branch to your own warehouse, if your own warehouse does not have a dev-1.1.4 branch, it will create a dev-1.1.4 branch
+
 ````
 git push origin dev-1.1.4:dev-1.1.4
 ````
+
 5. Delete the upstream branch
+
 ````
 git remote remove apache
 ````
+
 6. Update the branch
+
 ````
 git pull
 ````
@@ -96,18 +107,21 @@ git pull
 2. Synchronize the latest code of the original warehouse branch to its own fork warehouse branch , See the guideline [Synchronize the new branch of the original repository to your own fork repository](#213-synchronize-the-new-branch-of-the-original-repository-to-your-own-fork-repository)
 
 3. Based on the development branch, pull the new fix/feature branch (do not modify it directly on the original branch, if the subsequent PR is merged in the squash method, the submitted commit records will be merged into one)
+
 ````
 git checkout -b dev-1.1.4-fix dev-1.1.4
 git push origin dev-1.1.4-fix:dev-1.1.4-fix
 ````
+
 4. Develop
-5. Submit pr (if it is in progress and the development has not been completely completed, please add the WIP logo to the pr title, such as `[WIP] Dev 1.1.1 Add junit test code for [linkis-common] `; associate the corresponding issue, etc.)
+5. Submit pr (if it is in progress and the development has not been completely completed, please add the WIP logo to the pr title, such as `[WIP] Dev 1.1.1 Add junit test code for [linkis-common]`; associate the corresponding issue, etc.)
 6. Waiting to be merged
 7. Delete the fix/future branch (you can do this on the github page)
+
 ````
 git branch -d dev-1.1.4-fix
 git push
-```` 
+````
 
 Please note: The dev branch of major features will be named with corresponding naming instructions in addition to the version number, such as: dev-0.10.0-flink, which refers to the flink feature development branch of 0.10.0.
 
@@ -178,6 +192,7 @@ Modify the `application.yml` file in the resources/ directory of each microservi
 2. To obtain the package of each module, simple execute `mvn clean package` in the module directory.
 
 ### 2.3 Issue submission guidelines
+
 - If you still don’t know how to initiate a PR to an open source project, please refer to [About issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues)
 - Issue name, which should briefly describe your problem or suggestion in one sentence; for the international promotion of the project, please write the issue in English or both Chinese and English.
 - For each Issue, please bring at least two labels, component and type, such as component=Computation Governance/EngineConn, type=Improvement. Reference: [issue #590](https://github.com/apache/incubator-linkis/issues/590)
@@ -223,7 +238,7 @@ Before contributing code, you can find out what kind of submissions are popular 
 
 ---
 
-##3, Outstanding Contributor
+## 3, Outstanding Contributor
 
 ### 3.1 About Committers (Collaborators)
 

@@ -6,10 +6,13 @@ tags: [Feature]
 
 
 ## 1. 功能需求
+
 ### 1.1 需求背景
+
  上报信息缺少引擎信息、以及上报的资源和进度接口有冗余，降低了性能，需要对其进行优化调整，并且在上报协议中增加扩展模块。
 
 ### 1.2 目标
+
 - 增加了包含资源、进度、额外信息的RPC 协议，支持在一次请求中上报这些信息
 - 重构已有的资源、进度上报的链路，将上报相关信息的动作合并为一个请求
 
@@ -27,8 +30,8 @@ tags: [Feature]
 
 ![engineconn-mitrics-1.png](/Images-zh/Architecture/EngineConn/engineconn-mitrics-1.png)
 
-
 ### 2.2 业务架构
+
 此次特性涉及功能点模块如下：
 
 |  一级模块 | 二级模块  | 功能点  |
@@ -38,9 +41,10 @@ tags: [Feature]
 | Orchestrator  | orchestrator-plugin-ecm | 合并监听引擎信息的资源和进度接口 |
 | Orchestrator  | computation-engineconn  | 合并资源和进度的上报接口；新增上报引擎示例metrics |
 
-
 ## 3. 模块设计
+
 ### 核心执行流程
+
 - [输入端]输入端为交互式引擎端`computation-engineconn`。引擎在执行任务时，上报运行信息`TaskRunningInfo`，包含原有的`TaskProgressInfo`和`TaskResourceInfo`，新增了引擎示例信息和引擎现有任务数信息。
 - [处理流程]`orchestrator-plugin-ecm`负责监听引擎运行任务时的上报信息，接收上报信息，并生成`TaskRunningInfoEvent`异步消息，
 发给`OrchestratorAsyncListenerBus`处理。注册到`OrchestratorAsyncListener`的`TaskRunningInfoListener`收到消息，触发`listener`方法，回调到`Entrance`的Job的`TaskRunningInfo`回调方法。
@@ -53,25 +57,23 @@ tags: [Feature]
 需求新增了`RPC protocol TaskRunningInfo` ，无新增db表
 
 ## 5. 接口设计
+
 无对外接口
 
-## 6. 非功能性设计：
+## 6. 非功能性设计
+
 ### 6.1 安全
+
 RPC接口内部鉴权，不涉及对外安全问题
 
 ### 6.2 性能
+
 合并了两个RPC接口，减少上报次数，提升了性能
 
 ### 6.3 容量
+
 metrics信息较少，无影响
 
 ### 6.4 高可用
+
 不涉及
-
-
-
-
-
-
-
-

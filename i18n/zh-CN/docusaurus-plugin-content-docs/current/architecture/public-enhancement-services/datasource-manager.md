@@ -16,7 +16,7 @@ sidebar_position: 3
 
 4）、提供数据源全生命周期管理，包括新建、查询、更新、测试、过期管理。
 
-5）、多版本数据源管理，历史数据源会保存在数据库中，并提供数据源过期管理。 
+5）、多版本数据源管理，历史数据源会保存在数据库中，并提供数据源过期管理。
 
 6）、Restful接口提供功能，详细列表：数据源类型查询、数据源详细信息查询、基于版本进行数据源信息查询、数据源版本查询、获取数据源参数列表、多维度数据源搜索、获数据源环境查询及更新、新增数据源、数据源参数配置、数据源过期设置、数据源连通性测试。
 
@@ -26,7 +26,7 @@ sidebar_position: 3
 
 ## 架构说明
 
-1、服务登记在Linkis-Eureak-Service服务中，与Linkis其他微服务统一管理，客户端可以通过连接Linkis-GateWay-Service服务与服务名 data-source-manager获取数据源管理服务。 
+1、服务登记在Linkis-Eureak-Service服务中，与Linkis其他微服务统一管理，客户端可以通过连接Linkis-GateWay-Service服务与服务名 data-source-manager获取数据源管理服务。
 
 2、接口层，通过Restful接口向其他应用，提供了针对数据源、数据源环境的增删查改、数据源链接与双链接测试、数据源版本管理及过期操作;
 
@@ -55,11 +55,11 @@ sidebar_position: 3
 
 ## **数据库设计**
 
-##### 数据库关系图：
+##### 数据库关系图
 
 ![](/Images-zh/Architecture/datasource/dn-db.png)
 
-##### 数据表定义：
+##### 数据表定义
 
 表名：linkis_ps_dm_datatsource <-->实体：DataSource
 
@@ -137,4 +137,3 @@ sidebar_position: 3
 | 4    | comment       | 内容             |
 | 5    | create_time   | 创建时间         |
 | 6    | create_user   | 创建用户         |
-

@@ -8,18 +8,20 @@ Apache Linkis(incubating) 1.2.0 包括所有 [Project Linkis-1.2.0](https://gith
 Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引擎新增特性，以支持数据源模式；减少和优化Linkis模块；数据源功能优化；改进部分引擎的测试用例，并进行了大量的bug修复和功能改进。
 
 主要功能如下：
-* 新增对 Presto 引擎的支持 
+
+* 新增对 Presto 引擎的支持
 * 新增对 ElasticSearch 引擎的支持
 * JDBC引擎新增特性:支持数据源模式
 * 减少和优化Linkis部分模块
 * 数据源功能模块接口优化
-* 集成swagger,http 接口新增swagger注解说明 
-* entrance支持Route标签租户隔离 
-* 支持SDK客户端任务重试 
-* 新增单个Entrance任务统计接口 
+* 集成swagger,http 接口新增swagger注解说明
+* entrance支持Route标签租户隔离
+* 支持SDK客户端任务重试
+* 新增单个Entrance任务统计接口
 * 管理台资源管理页面支持查看历史引擎信息
 
 缩写：
+
 - COMMON: Linkis Common
 - EC: Engineconn
 - ECM: EngineConnManager
@@ -33,7 +35,9 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 - CG: Linkis Computation Governance
 
 ---
+
 ## 新特性
+
 + \[ECP-PRESTO][[LINKIS-1631]](https://github.com/apache/incubator-linkis/issues/1631) 增强Presto引擎，适配Linkis 1.X 架构
 + \[ECP-ES][[LINKIS-1632]](https://github.com/apache/incubator-linkis/issues/1632) 增强ElasticSearch引擎, 适配Linkis 1.X 架构
 + \[ECP-JDBC][[LINKIS-2092]](https://github.com/apache/incubator-linkis/issues/2092) Linkis JDBC引擎支持多个数据源链接
@@ -53,6 +57,7 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 + \[COMMON][[LINKIS-2415]](https://github.com/apache/incubator-linkis/pull/2415) 支持变量操作
 
 ## Enhancement
+
 + \[COMMON][[LINKIS-1411]](https://github.com/apache/incubator-linkis/issues/1411) 移除 sun.misc.BASE64
 + \[COMMON][[LINKIS-1475]](https://github.com/apache/incubator-linkis/issues/1475) 优化代码风格
 + \[LM][[LINKIS-1763]](https://github.com/apache/incubator-linkis/issues/1763) 将非空验证添加到应用列表接口
@@ -102,6 +107,7 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 + \[ECP-JDBC][[LINKIS-2743]](https://github.com/apache/incubator-linkis/issues/2743) JDBC数据源配置优先级定义
 
 ## Bugs Fix
+
 + \[PS-RM][[LINKIS-1850]](https://github.com/apache/incubator-linkis/pull/1850) 修复NPE问题
 + \[PE][[LINKIS-1879]](https://github.com/apache/incubator-linkis/issues/1879) FileWriter和BufferedWriter在finally子句中没有关闭
 + \[CG][[LINKIS-1911]](https://github.com/apache/incubator-linkis/issues/1911) 修复link-computing-client提交作业失败的问题
@@ -140,14 +146,17 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 + \[TOOL][[LINKIS-2701]](https://github.com/apache/incubator-linkis/issues/2701) 修复github repos页面的许可证显示与未知的许可证发现
 
 ## Security related
+
 + \[SPRING][[LINKIS-2395]](https://github.com/apache/incubator-linkis/issues/2395) SynchronossPartHttpMessageReader应该只在需要时创建临时目录(CVE-2022-2296)
 
 ## Dependency changes
+
 + \[COMMON]\[CG]\[ECP][[LINKIS-2301]](https://github.com/apache/incubator-linkis/pull/2301) 更新依赖关系以修复CVE
 + \[CG][[LINKIS-2452]](https://github.com/apache/incubator-linkis/issues/2452) oshi-core 版本升级
 
 ## 致谢
-Apache Linkis(incubating) 1.2.0的发布离不开Linkis社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: 
+
+Apache Linkis(incubating) 1.2.0的发布离不开Linkis社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）:
 CCweixiao, Dlimeng, QuintinTao, WenxiangFan, aiceflower, barry8023, binbinCheng, casionone,
  duhanmin, gabeng1996, huangKai-2323, huapan123456, huiyuanjjjjuice, hunter-cloud09, jackxu2011,
 legendtkl, liangqilang, liuyou2, mindflow94, peacewong, ruY9527, seedscoder, wForget, yyuser5201314

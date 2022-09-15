@@ -21,6 +21,7 @@ sidebar_position: 0
 您必须[验证](https://www.apache.org/info/verification.html) 下载文件的完整性。 我们为每个发布文件提供 OpenPGP 签名。 此签名应与包含 Linkis 发布经理的 OpenPGP 密钥的 [KEYS](https://downloads.apache.org/incubator/linkis/KEYS) 文件匹配。 我们还为每个发布文件提供 <code>SHA-512</code> 校验和。 下载文件后，您应该计算下载的校验和，并确保它与我们的相同。
 
 验证示例：
+
 ```shell script
 #下载公钥
 $ curl  https://downloads.apache.org/incubator/linkis/KEYS > KEYS
@@ -33,24 +34,23 @@ $ gpg --verify apache-linkis-xxxxx.tar.gz.asc  apache-linkis-xxxxx.tar.gz
 
 #  检查sha512哈希
 $ sha512sum --check  apache-linkis-xxxxx-src.tar.gz.sha512
-``` 
-
+```
 
 ## 源码的编译
 
 如果是下载版本的Source源码包，可以按下面简易步骤，进行编译
- 
+
 ```shell script
 $ tar -xvf apache-linkis-xxxxx-incubating-src.tar.gz
 
 $ cd apache-linkis-xxxxx-incubating-src
 
 #如果本源码包是首次编译，需要执行本命令，一般执行在3分钟内完成
-$ ./mvnw -N install 
+$ ./mvnw -N install
 
 #如果编译所在的机器性能比较差，则此过程会比较耗时，一般耗时30min左右
 $ ./mvnw clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
 ```
+
 详细指引可以参考：[编译打包指引](/docs/latest/development/linkis-compile-and-package)
- 

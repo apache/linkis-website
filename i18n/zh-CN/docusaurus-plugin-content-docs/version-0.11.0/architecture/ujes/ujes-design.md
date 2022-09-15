@@ -24,7 +24,7 @@ UJES(Unified Job Execution Service)，统一作业执行服务是Linkis的核心
  UJES的入口微服务是用户某一类作业全程的管理者。从作业生成到提交到执行引擎，再到作业信息反馈给用户和作业关闭，入口微服务管理了一个作业的生命周期。
 
 3) 引擎管理器:
- 
+
  UJES的引擎管理器是处理启动引擎请求的微服务，同时也监控引擎的生命状态。
 
 4) 执行引擎:
@@ -220,5 +220,3 @@ UJES的Entrance、EngineManager和Engine都是通过Linkis PRC进行通信。
 ### 5.1 传统部署方式
 
 请查看[快速部署文档](deployment/quick-deploy.md)。
-
-

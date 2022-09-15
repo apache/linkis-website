@@ -7,7 +7,7 @@ sidebar_position: 0
 
 ## Introduction
 
-Linkis Github repo: https://github.com/apache/incubator-linkis
+Linkis Github repo: <https://github.com/apache/incubator-linkis>
 
 Linkis, a single computing storage engine such as Spark, TiSpark, Hive, Python and HBase, provides a unified REST/WebSocket/JDBC interface to submit data intermediaries for implementation of SQL, Pyspark, HiveQL, Scala.
 
@@ -46,7 +46,6 @@ How to provide a uniform data intermediary, block all calls and usage details fr
 
 ![Technical architecture](images/ch4/ujes/technical_architecture_diagram.png)
 
-
 As shown in the graph above, we have created several new microservice clusters based on SpringCloud microservice technology to build Linkis's intermediate capacity as well.
 
 Each microservice cluster assumes a part of the functional responsibilities of the system, which we have clearly delineated as follows.e.g.：
@@ -57,26 +56,19 @@ Each microservice cluster assumes a part of the functional responsibilities of t
 
   **Supported script languages include**：SparkSQL, Spark Scala, Pyspark, R, Python, HQL and Shell;
 
-
 - **Resource management service**： supports real-time control of resource use by each system and user, limits resource usage and confluence of systems and users, and provides real-time resource dynamics graphs to facilitate access to and management of system and user resources;
 
   **Currently supported resource types**：Yarn queue resources, servers (CPU and memory), number of concurrent users etc.
 
-
 - **Unified storage service**：Universal IO, capable of fast interfacing various storage systems, providing a uniform call entry, supporting all commonly used formats, having a high degree of integration, simple usage;
-
 
 - **Unified context service**：Unify user and system resource files (user script, JAR, ZIP, Properties, etc.), for users, systems, computing engine parameters and variable management in one setting, automatically reference;
 
-
 - **Repository services**：Systems and user level material management, shared and flowed to support automatic management throughout the life cycle;
-
 
 - **Metadata service**：Real-time Hive Library Structure and Partition Show.
 
-
 Building on the interaction of these microservice clusters, we have improved the way and process of external service across the large data platform.
-
 
 ## Business architecture
 
@@ -116,8 +108,7 @@ Name Explanation：
 
  Eureka Client is built into each microservice and has access to Eureka Server and ability to find service in real time.
 
-
- ## Processes
+## Processes
 
  How does Linkis handle a SparkSQL submission from the parent system?
 
@@ -147,8 +138,7 @@ Name Explanation：
 
  12. Once SQL has been successfully executed, Engineering has taken the initiative to push the results set to Entrance, Entrance notifies the frontend to obtain the results.
 
-
- ## How to ensure high real-time
+## How to ensure high real-time
 
  It is well known that Spring Cloud is integrated as a communication tool between microservices.
 
@@ -204,7 +194,6 @@ Linkis has designed the Scheduler module, the group schedule consumption module 
 
 ![Group Scheduler Cost Architecture](images/ch4/commons/scheduler.png)
 
-
 Each user of each system is grouped separately to ensure segregation at system level and user level.
 
 Each consumer has an independent control thread, measuring the length of the consumer waiting queue, the number of events being implemented and the proportion of time spent growing.
@@ -219,7 +208,7 @@ Linkis, as a data intermediary, has made many attempts and efforts to block deta
 
 Like：Linkis, how to implement the Unified Storage Service?How can Linkis unify UDF, function and user variables?
 
-Due to space limitations, this paper is no longer discussed in detail, and you are welcome to visit our[official network](https://linkis.apache.org/)：https://linkis.apache.org
+Due to space limitations, this paper is no longer discussed in detail, and you are welcome to visit our[official network](https://linkis.apache.org/)：<https://linkis.apache.org>
 
 Is there a set of truly open-source, self-developed and well-developed financial production environments and scenes that can be returned to the middle of data in the open source communities so that people can be relatively comfortable taking services for production, supporting financial-grade operations, and securing business-class characteristics?
 

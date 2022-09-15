@@ -16,7 +16,6 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please note: the lite version only allows users to submit Python scripts.
 
-
 ----
 
 **Simple version**:
@@ -24,7 +23,6 @@ sidebar_position: 1
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depends on Python, Hadoop and Hive, distributed installation mode, including Python engine and Hive engine, requires the user's Linux environment to install Hadoop and Hive first.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The simple version allows users to submit HiveQL and Python scripts.
-
 
 ----
 
@@ -34,7 +32,6 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The standard version allows users to submit Spark scripts (including SparkSQL, Pyspark and Scala), HiveQL and Python scripts.
 **Please note: the installation of the standard version requires the machine's memory to be above 10G** If the machine's memory is not enough, you need to add or modify the environment variable: `export SERVER_HEAP_SIZE="512M"`
-
 
 ----
 
@@ -47,7 +44,7 @@ sidebar_position: 1
 - MySQL (5.5+), [How to install MySQL](https://www.runoob.com/mysql/mysql-install.html)
 - JDK (above 1.8.0_141), [How to install JDK](https://www.runoob.com/java/java-environment-setup.html)
 - Python (support both 2.x and 3.x), [How to install Python](https://www.runoob.com/python/python-install.html)
- 
+
 ### 2.2 Create User
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example: **Deployment user is hadoop account**
@@ -57,7 +54,7 @@ sidebar_position: 1
 ```bash
     sudo useradd hadoop
 ```
-        
+
 2. Because the Linkis service uses sudo -u ${linux-user} to switch engines to perform operations, the deployment user needs to have sudo permissions and is password-free.
 
 ```bash
@@ -81,13 +78,13 @@ sidebar_position: 1
 ```bash
     tar -xvf wedatasphere-linkis-x.x.x-dist.tar.gz
 ```
-      
+
    (1) Modify the basic configuration
 
 ```bash
     vi conf/config.sh
 ```
-        
+
 ```properties
     SSH_PORT=22 #Specify the SSH port, if the stand-alone version is installed, it may not be configured
     deployUser=hadoop #Specify deployment user
@@ -96,13 +93,13 @@ sidebar_position: 1
     RESULT_SET_ROOT_PATH=file:///tmp/linkis # The result set file path, used to store the result set file of the job
     #HDFS_USER_ROOT_PATH=hdfs:///tmp/linkis #This parameter needs to be commented for the streamlined version installation
 ```
-        
+
    (2) Modify the database configuration
 
 ```bash
     vi conf/db.sh
 ```
-            
+
 ```properties
     # Set the connection information of the database
     # Including IP address, database name, user name, port
@@ -113,9 +110,8 @@ sidebar_position: 1
     MYSQL_USER=
     MYSQL_PASSWORD=
  ```
- 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The environment is ready, click me to enter [5-installation deployment](#5-installation deployment)
-   
 
 ## 3 Simple version of Linkis environment preparation
 
@@ -130,15 +126,15 @@ sidebar_position: 1
 - Hive (1.2.1, **2.0 and above 2.0, there may be compatibility issues**)
 
 ### 3.2 Create User
-        
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example: **Deployment user is hadoop account**
-   
+
 1. Create deployment users on all machines that need to be deployed for installation
 
 ```bash
     sudo useradd hadoop
 ```
-        
+
 2. Because the Linkis service uses sudo -u ${linux-user} to switch engines to perform operations, the deployment user needs to have sudo permissions and is password-free.
 
 ```bash
@@ -146,7 +142,7 @@ sidebar_position: 1
 ```
 
          hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
-         
+
 3. **Set the following global environment variables on each installation node so that Linkis can use Hadoop and Hive normally**
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modify the installation user's .bash_rc, the command is as follows:
@@ -185,16 +181,16 @@ sidebar_position: 1
 ```bash
     tar -xvf wedatasphere-linkis-x.x.x-dist.tar.gz
 ```
-      
+
    (1) Modify the basic configuration
 
 ```bash
     vi /conf/config.sh
 ```
-        
+
 ```prop
 erties
-   
+
     deployUser=hadoop #Specify deployment user
     LINKIS_HOME=/appcom/Install/Linkis # Specify the installation directory
     WORKSPACE_USER_ROOT_PATH=file:///tmp/hadoop # Specify the user root directory, which is generally used to store the user's script files and log files, etc. It is the user's workspace.
@@ -209,13 +205,13 @@ erties
     HADOOP_CONF_DIR=/appcom/config/hadoop-config #hadoop's conf directory
     HIVE_CONF_DIR=/appcom/config/hive-config #hive's conf directory
 ```
-        
+
    (2) Modify the database configuration
 
 ```bash
        vi conf/db.sh
 ```
-            
+
 ```properties
 
     # Set the connection information of the database
@@ -227,10 +223,9 @@ erties
     MYSQL_USER=
     MYSQL_PASSWORD=
  ```
- 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The environment is ready, click me to enter [5-installation deployment](#5-installation deployment)
- 
- 
+
 ## 4 Standard Linkis Environment Preparation
 
 ### 4.1 Basic software installation
@@ -244,17 +239,16 @@ erties
 - Hive (1.2.1, **2.0 and above 2.0, there may be compatibility issues**)
 - Spark (**Start from Linkis release 0.7.0, support all versions above Spark 2.0**)
 
-
 ### 4.2 Create User
-        
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example: **Deployment user is hadoop account**
-   
+
 1. Create deployment users on all machines that need to be deployed for installation
 
 ```bash
     sudo useradd hadoop
 ```
-        
+
 2. Because the Linkis service uses sudo -u ${linux-user} to switch engines to perform operations, the deployment user needs to have sudo permissions and is password-free.
 
 ```bash
@@ -313,13 +307,13 @@ erties
 ```bash
     tar -xvf wedatasphere-linkis-x.x.0-dist.tar.gz
 ```
-      
+
    (1) Modify the basic configuration
 
 ```bash
     vi conf/config.sh
 ```
-        
+
 ```properties
     SSH_PORT=22 #Specify the SSH port, if the stand-alone version is installed, it may not be configured
     deployUser=hadoop #Specify deployment user
@@ -331,7 +325,7 @@ erties
     HIVE_META_URL=jdbc://... # HiveMeta Metadata Database URL
     HIVE_META_USER= # HiveMeta Metadata Database User
     HIVE_META_PASSWORD= # Password of HiveMeta Metabase
-    
+
     # Configure hadoop/hive/spark configuration directory
     HADOOP_CONF_DIR=/appcom/config/hadoop-config #hadoop's conf directory
     HIVE_CONF_DIR=/appcom/config/hive-config #hive's conf directory
@@ -343,7 +337,7 @@ erties
 ```bash
     vi conf/db.sh
 ```
-            
+
 ```properties
 
     # Set the connection information of the database
@@ -355,10 +349,10 @@ erties
     MYSQL_USER=
     MYSQL_PASSWORD=
  ```
- 
+
 ## 5 Installation and deployment
 
-### 5.1 Execute the installation script:
+### 5.1 Execute the installation script
 
 ```bash
     sh bin/install.sh
@@ -376,38 +370,36 @@ erties
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Yes must be selected for the first installation**.
 
-### 5.3 Is the installation successful:
+### 5.3 Is the installation successful
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check whether the installation is successful by viewing the log information printed on the console.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If there is an error message, you can check the specific reason for the error.
 
-
 ### 5.4 Quick start Linkis
 
-#### (1), start the service:
+#### (1), start the service
   
   Execute the following command in the installation directory to start all services:
 
 ```bash
   ./bin/start-all.sh> start.log 2>start_error.log
 ```
-        
+
 #### (2), check whether the startup is successful
-    
+
   You can check the success of the service startup on the Eureka interface, and check the method:
-    
-  Use http://${EUREKA_INSTALL_IP}:${EUREKA_PORT}, open it in a browser, and view the server
+
+  Use <http://${EUREKA_INSTALL_IP}:${EUREKA_PORT>}, open it in a browser, and view the server
 Whether the registration is successful.
-    
-  If you did not specify EUREKA_INSTALL_IP and EUREKA_INSTALL_IP in config.sh, the HTTP address is: http://127.0.0.1:20303
-    
+
+  If you did not specify EUREKA_INSTALL_IP and EUREKA_INSTALL_IP in config.sh, the HTTP address is: <http://127.0.0.1:20303>
+
   As shown in the figure below, if the following microservices appear on your Eureka homepage, it means that the services have been started successfully and you can provide services to the outside world normally:
 
   __Note:__ The ones marked in red are DSS services, and the rest are services of Linkis. If you only use linkis, you can ignore the parts marked in red
-    
- ![Eureka](../images/ch1/Eureka_homepage.png)
 
+ ![Eureka](../images/ch1/Eureka_homepage.png)
 
 ## 6. Quickly use Linkis
 
@@ -422,16 +414,15 @@ Whether the registration is successful.
 ```
     com.webank.wedatasphere.linkis.ujes.client.UJESClientImplTestJ # Java-based test class
     com.webank.wedatasphere.linkis.ujes.client.UJESClientImplTest # Test class based on Scala implementation
-    
+
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you cloned the source code of Linkis, you can run these two test classes directly.
-   
 
 ### 6.3 Quick implementation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**The following specifically introduces how to quickly implement a linkis code submission and execution. **
-   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**The following specifically introduces how to quickly implement a linkis code submission and execution.**
+
 #### 6.3.1 maven dependency
 
 ```xml
@@ -479,7 +470,7 @@ public class UJESClientImplTestJ{
                 .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authentication method
                 .setAuthTokenKey("johnnwang").setAuthTokenValue("Abcd1234"))) //Authentication key, generally the user name; authentication value, generally the password corresponding to the user name
                 .setDWSVersion("v1").build(); //Linkis backend protocol version, the current version is v1
-        
+
         // 2. Get a UJESClient through DWSClientConfig
         UJESClient client = new UJESClientImpl(clientConfig);
 
@@ -491,7 +482,7 @@ public class UJESClientImplTestJ{
                 .setUser("johnnwang") //User, requesting user; used for user-level multi-tenant isolation
                 .build());
         System.out.println("execId: "+ jobExecuteResult.getExecID() + ", taskId:" + jobExecuteResult.taskID());
-        
+
         // 4. Get the execution status of the script
         JobStatusResult status = client.status(jobExecuteResult);
         while(!status.isCompleted()) {
@@ -500,7 +491,7 @@ public class UJESClientImplTestJ{
             Utils.sleepQuietly(500);
             status = client.status(jobExecuteResult);
         }
-        
+
         // 6. Get the job information of the script
         JobInfoResult jobInfo = client.getJobInfo(jobExecuteResult);
         // 7. Get the list of result sets (if the user submits multiple SQL at a time, multiple result sets will be generated)

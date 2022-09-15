@@ -3,7 +3,7 @@ title: 调试指引
 sidebar_position: 2
 ---
 
-# 调试相关 
+# 调试相关
 
 > 因为linkis本身模块比较多，调试起来有一定的难度，下面就指导大家如何进行一次本地的服务调试(基于1.0.3版本)。
 
@@ -16,13 +16,13 @@ git clone https://github.com/apache/incubator-linkis.git
 cd incubator-linkis
 #如果需要 可以切换到对应的分支上
 #git checkout dev-xxx
-mvn -N install 
+mvn -N install
 mvn clean install
 ```
 
 ## step2 必要的参数配置
 
-对于incubator-linkis/assembly-combined-package/assembly-combined/conf/下的配置文件，需要对数据库以及hive meta等必要启动参数进行配置。 
+对于incubator-linkis/assembly-combined-package/assembly-combined/conf/下的配置文件，需要对数据库以及hive meta等必要启动参数进行配置。
 
 ## step3 调整log4j.xml配置
 
@@ -40,7 +40,7 @@ log4j2.xml 路径 incubator-linkis/assembly-combined-package/assembly-combined/c
         <SizeBasedTriggeringPolicy size="100MB"/>
         <DefaultRolloverStrategy max="10"/>
     </RollingFile>
-    
+
     <Console name="Console" target="SYSTEM_OUT">
         <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
         <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} %L %M - %msg%xEx%n"/>
@@ -56,9 +56,10 @@ log4j2.xml 路径 incubator-linkis/assembly-combined-package/assembly-combined/c
 ```
 
 ## step 4 整体调试方案
+
 Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eureka服务也可以用您已经启动的Eureka。Eureka启动后就可以启动其他服务了。
 
-因为linkis内部通过-DserviceName参数设置应用名以及使用的配置文件，所以-DserviceName是必须的启动VM参数 
+因为linkis内部通过-DserviceName参数设置应用名以及使用的配置文件，所以-DserviceName是必须的启动VM参数
 
 可以通过 “-Xbootclasspath/a:配置文件路径“命令。将配置文件，追加到引导程序类的搜索路劲末尾，即将依赖的配置文件加到classpath中
 
@@ -66,7 +67,7 @@ Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eu
 
 **Microservice Governance Services组件**
 
-### linkis-mg-eureka的启动 
+### linkis-mg-eureka的启动
 
 ```plain
 [main Class]
@@ -81,14 +82,18 @@ org.apache.linkis.eureka.SpringCloudEurekaApplication
 [User classpath of module]
 linkis-eureka
 ```
+
 如果不想默认的20303端口可以修改端口配置：
+
 ```yml
 文件路径：conf/application-eureka.yml
 修改端口：
 server:
   port: 8080 ##启动的端口
 ```
-##### 具体配置如下：
+
+##### 具体配置如下
+
 老版idea配置
 ![](/Images/development/old_debug_application.png)
 新版idea配置
@@ -97,7 +102,7 @@ server:
 启动后可以通过[http://localhost:20303/](http://localhost:20303/) 查看eureka服务列表
 ![](/Images/development/debug_eureka.png)
 
-###  linkis-mg-gateway的启动配置 
+### linkis-mg-gateway的启动配置
 
 ```plain
 [main Class]
@@ -110,10 +115,12 @@ org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 linkis-gateway-server-support
 
 ```
-注意 若出现'org.apache.logging.log4j.LoggingException: log4j-slf4j-impl cannot be present with log4j-to-slf4j' 问题 
+
+注意 若出现'org.apache.logging.log4j.LoggingException: log4j-slf4j-impl cannot be present with log4j-to-slf4j' 问题
 请exclude掉，对spring-boot-starter-logging的依赖
 
 **Public Enhancement Services组件**
+
 ### linkis-ps-publicservice的启动配置
 
 ```plain
@@ -142,7 +149,9 @@ org.apache.linkis.cs.server.LinkisCSApplication
 linkis-cs-server
 
 ```
+
 **Computation Governance Services 组件**
+
 ### linkis-cg-linkismanager启动
 
 ```plain
@@ -155,7 +164,9 @@ org.apache.linkis.manager.am.LinkisManagerApplication
 [Use classpath of module]
 linkis-application-manager
 ```
+
 ### linkis-cg-entrance启动
+
 ```plain
 [main Class]
 org.apache.linkis.entrance.LinkisEntranceApplication
@@ -174,7 +185,7 @@ linkis-cg-engineplugin(ecp)：需要读取本地的ecp物料，本地调试需�
 linkis-cg-engineconnmanager(ecm)：暂时ecm启动引擎使用的是unix的方式，不支持windows环境
 
 ```
-下面是通过正常成功安装后，linkis服务启动具体的详细命令参数 
+下面是通过正常成功安装后，linkis服务启动具体的详细命令参数
 
 LinkisInstallDir:完整linkis的安装目录
 
@@ -193,7 +204,7 @@ nohup java  -DserviceName=linkis-cg-linkismanager -Xmx512M -XX:+UseG1GC -Xloggc:
 [linkis-ps-cs]
 nohup java  -DserviceName=linkis-ps-cs -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-ps-cs-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-public-enhancements/linkis-ps-cs/* org.apache.linkis.cs.server.LinkisCSApplication  2>&1 > /data/LinkisInstallDir/logs/linkis-ps-cs.out &
 
-[linkis-cg-entrance] 
+[linkis-cg-entrance]
 nohup java  -DserviceName=linkis-cg-entrance -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-cg-entrance-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-commons/public-module/*:/data/LinkisInstallDir/lib/linkis-computation-governance/linkis-cg-entrance/* org.apache.linkis.entrance.LinkisEntranceApplication  2>&1 > /data/LinkisInstallDir/logs/linkis-cg-entrance.out &
 
 [linkis-cg-engineconnmanager]

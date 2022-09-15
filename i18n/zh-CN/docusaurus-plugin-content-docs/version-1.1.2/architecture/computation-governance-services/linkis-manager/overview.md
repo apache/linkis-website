@@ -14,6 +14,7 @@ LinkisManager作为Linkis的一个独立微服务，对外提供了AppManager（
 ![01](/Images-zh/Architecture/LinkisManager/LinkisManager-01.png)
 
 ### 名词解释
+
 - EngineConnManager（ECM）： 引擎管理器，用于启动和管理引擎
 - EngineConn（EC）：引擎连接器，用于连接底层计算引擎
 - ResourceManager（RM）：资源管理器，用于管理节点资源
@@ -40,11 +41,9 @@ AppManager用于引擎的统一调度和管理
 |EngineSwitchService | 定义了引擎切换功能 |
 |AMHeartbeatService | 提供了EngineConnManager和EngineConn节点心跳处理功能 |
 
-
 通过AppManager申请引擎流程如下：
 ![](/Images-zh/Architecture/LinkisManager/AppManager-01.png)
 
-  
 ### 2. 标签管理模块 linkis-label-manager
 
 LabelManager提供标签管理和解析能力
@@ -58,8 +57,6 @@ LabelManager提供标签管理和解析能力
 LabelManager架构图如下：
 ![](/Images-zh/Architecture/LinkisManager/LabelManager-01.png)
 
-
-
 ### 3. 资源管理模块 linkis-resource-manager
 
 ResourceManager用于管理引擎和队列的所有资源分配
@@ -69,7 +66,6 @@ ResourceManager用于管理引擎和队列的所有资源分配
 |RequestResourceService | 提供了EngineConn资源申请功能 |
 |ResourceManagerService | 提供了EngineConn资源释放功能 |
 |LabelResourceService | 提供了标签对应资源管理功能 |
-
 
 ResourceManager架构图如下：
 

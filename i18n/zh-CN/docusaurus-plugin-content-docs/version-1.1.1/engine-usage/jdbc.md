@@ -12,13 +12,13 @@ sidebar_position: 7
 ## 2. 部署和配置
 
 ### 2.1 版本的选择和编译
+
 注意: 编译jdbc引擎之前需要进行linkis项目全量编译  
 发布的安装部署包中默认不包含此引擎插件，
-你可以按此指引部署安装 https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+你可以按此指引部署安装 <https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin>
 ，或者按以下流程，手动编译部署
 
-
-单独编译jdbc引擎 
+单独编译jdbc引擎
 
 ```
 ${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/jdbc/
@@ -28,24 +28,29 @@ mvn clean install
 ### 2.2 物料的部署和加载
 
 将 2.1 步编译出来的引擎包,位于
+
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/jdbc/target/out/jdbc
 ```
+
 上传到服务器的引擎目录下
-```bash 
+
+```bash
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
+
 并重启linkis-engineplugin（或则通过引擎接口进行刷新）
+
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
+
 ### 2.3 引擎的标签
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
-
+[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation)
 
 ## 3.JDBC引擎的使用
 
@@ -58,8 +63,9 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 图3-1 JDBC配置信息
 
 您也可以再提交任务接口中的params.configuration.runtime进行修改即可
+
 ```shell
-jdbc.url 
+jdbc.url
 jdbc.username
 jdbc.password
 ```
@@ -67,7 +73,7 @@ jdbc.password
 您也可以在提交任务接口，通过参数进行配置
 
 ```shell
-http 请求参数示例 
+http 请求参数示例
 {
     "executionContent": {"code": "show databases;", "runType":  "jdbc"},
     "params": {
@@ -88,7 +94,6 @@ http 请求参数示例
 }
 ```
 
-
 ### 3.1 通过Linkis SDK进行使用
 
 Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
@@ -104,9 +109,11 @@ Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以�
 ### 3.2 通过Linkis-cli进行任务提交
 
 Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，JDBC的使用如下：
+
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop
 ```
+
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ### 3.3 Scriptis的使用方式

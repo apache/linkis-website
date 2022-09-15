@@ -8,40 +8,46 @@ tags: [blog,guide]
 本文主要参考Docusaurus的官方[博文规范和示例](https://docusaurus.io/zh-CN/blog)，指引和规范可能并不完善，有任何意见或建议，欢迎提出。
 
 <!--truncate-->
-## 资源路径 
+## 资源路径
 
-- 中文博文仓库路径:https://github.com/apache/incubator-linkis-website/tree/dev/i18n/zh-CN/docusaurus-plugin-content-blog
-- 英文博文仓库路径:https://github.com/apache/incubator-linkis-website/tree/dev/blog
+- 中文博文仓库路径:<https://github.com/apache/incubator-linkis-website/tree/dev/i18n/zh-CN/docusaurus-plugin-content-blog>
+- 英文博文仓库路径:<https://github.com/apache/incubator-linkis-website/tree/dev/blog>
 
 每篇博文需要支持中文和英文，提交时请不要遗漏对应的英文文档。
 
 ## 文件命名
+
 框架会自动从目录/文件名中，解析出 YYYY-MM-DD 格式的发布日期
-- 如：blog/2021-02-08-how-to-user-blog.md 
-- http的访问路径是: http://xxxxx/blog/2021/02/08/how-to-user-blog
+
+- 如：blog/2021-02-08-how-to-user-blog.md
+- http的访问路径是: <http://xxxxx/blog/2021/02/08/how-to-user-blog>
 
 博文发布日志会根据文件自动解析出对应的日期:2021-02-08，这样默认就是按照日期进行排序。
 
 ## 图文博客规范
+
 - ⚠ 如果博文有涉及到图片资源，需要加载本地图片资源，请使用文件夹的形式，这样可以方便的把博客所需要的图片等资源和Markdown 文档放在一起。
-- ⚠ 如果是架构/流程等图片，原始的工程文件，如.vsdx文件，也请上传至img目录下，方便后续修改。请保证不要再英文博文中出现中文图片。 
+- ⚠ 如果是架构/流程等图片，原始的工程文件，如.vsdx文件，也请上传至img目录下，方便后续修改。请保证不要再英文博文中出现中文图片。
 
 ```shell script
 |-- blog
-|   |--2021-02-08-how-to-user-blog 
+|   |--2021-02-08-how-to-user-blog
 |   |    |-- img //存放图片
 |   |    |-- index.md //博文内容
 ```
 
 参考示例:
-- 源码：https://github.com/facebook/docusaurus/tree/main/website/blog/2022-01-24-docusaurus-2021-recap
-- 视觉效果:https://docusaurus.io/zh-CN/blog/2022/01/24/docusaurus-2021-recap
+
+- 源码：<https://github.com/facebook/docusaurus/tree/main/website/blog/2022-01-24-docusaurus-2021-recap>
+- 视觉效果:<https://docusaurus.io/zh-CN/blog/2022/01/24/docusaurus-2021-recap>
 
 ## 摘要
+
 博客的首页（默认为 /blog ）是博客列表页，会展示所有的博客文章。
 
-在博文中使用 <!--truncate--> 来标记文章摘要。 <!--truncate--> 以上的内容均将成为摘要，会在博客主页进行展示。 
+在博文中使用 <!--truncate--> 来标记文章摘要。 <!--truncate--> 以上的内容均将成为摘要，会在博客主页进行展示。
 举个例子：
+
 ```markdown
 ---
 title: 摘要示例
@@ -68,7 +74,7 @@ Markdown 文档可以使用以下 Markdown 前端元数据字段，由---两边�
 ---
 title: Welcome Docusaurus v2
 description: This is my first post on Docusaurus 2.
-data:2022-02-01 
+data:2022-02-01
 slug: welcome-docusaurus-v2
 authors:
   - name: Joel Marcey
@@ -92,7 +98,8 @@ Welcome to this blog. 此博客使用 [**Docusaurus 2**](https://docusaurus.io/)
 
 下方是一系列内容。
 ```
-常用参数 
+
+常用参数
 
 |姓名 |类型 |默认 |说明 |
 | --- | --- | --- | --- |
@@ -122,12 +129,12 @@ Welcome to this blog. 此博客使用 [**Docusaurus 2**](https://docusaurus.io/)
 | `image` | `string` | `undefined` | Cover or thumbnail image that will be used when displaying the link to your post. |
 | `slug` | `string` | File path | Allows to customize the blog post url (`/<routeBasePath>/<slug>`). Support multiple patterns: `slug: my-blog-post`, `slug: /my/path/to/blog/post`, slug: `/`. |
 
-
-##  作者信息维护
+## 作者信息维护
 
 对于普通的博客文章作者来说，维护每篇博客文章中内联的作者信息可能很乏味。
 可以在配置文件中全局声明这些作者：
 `blog/authors.yml`
+
 ```yaml
 Casion:
   name: Casion

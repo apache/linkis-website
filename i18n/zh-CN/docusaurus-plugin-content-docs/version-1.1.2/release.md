@@ -8,8 +8,7 @@ sidebar_position: 0.1
 - [工具Scriptis的安装部署](/deployment/linkis-scriptis-install.md)
 - [版本的release-notes](/download/release-notes-1.1.2)
 
-## 参数变化 
-
+## 参数变化
 
 | 模块名(服务名)| 类型  |     参数名                                                | 默认值             | 描述                                                    |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
@@ -28,10 +27,10 @@ sidebar_position: 0.1
 |ec-sqoop | 新增  | sqoop.task.map.cpu.cores                        | 1|                                 |
 |ec-sqoop | 新增  | sqoop.params.name.mode                         | sqoop.mode|                        |
 |ec-sqoop | 新增  | sqoop.params.name.prefix                        | sqoop.args.|                     |
-|ec-sqoop | 新增  | sqoop.params.name.env.prefix                    |sqoop.env.|                     |             
-|ec-sqoop | 新增  | linkis.hadoop.site.xml                     |/etc/hadoop/conf/core-site.xml;<br/>/etc/hadoop/conf/hdfs-site.xml;<br/>/etc/hadoop/conf/yarn-site.xml;<br/>/etc/hadoop/conf/mapred-site.xml|  设置sqoop加载hadoop参数文件位置                   |          
-|ec-sqoop | 新增  | sqoop.fetch.status.interval                    |5s|            设置获取sqoop执行状态的间隔时间         |                       
+|ec-sqoop | 新增  | sqoop.params.name.env.prefix                    |sqoop.env.|                     |
+|ec-sqoop | 新增  | linkis.hadoop.site.xml                     |/etc/hadoop/conf/core-site.xml;<br/>/etc/hadoop/conf/hdfs-site.xml;<br/>/etc/hadoop/conf/yarn-site.xml;<br/>/etc/hadoop/conf/mapred-site.xml|  设置sqoop加载hadoop参数文件位置                   |
+|ec-sqoop | 新增  | sqoop.fetch.status.interval                    |5s|            设置获取sqoop执行状态的间隔时间         |
 
-## 数据库表变化 
+## 数据库表变化
 
 无变化

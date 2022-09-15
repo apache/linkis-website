@@ -4,6 +4,7 @@ sidebar_position: 2
 ---
 
 ## 1 Use of Spark Engine
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis's Spark execution engine provides users with the ability to submit spark jobs to the Yarn cluster and feedback logs, progress, status, and result sets.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spark execution engine supports users to submit three types of jobs: sparksql, pyspark, and scala. By default, the job is submitted by yarn-client, and the engine is used to maintain users One or more spark sessions.
@@ -19,6 +20,7 @@ sidebar_position: 2
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Before starting the SparkEngineManager microservice, please make sure that the above environment variables have been set.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you have not set it, please first download linkis.properties in the /home/${USER}/.bash_rc or linkis-ujes-spark-enginemanager/conf directory Set in the configuration file. As shown below
+
 ```properties
   HADOOP_HOME=${real hadoop home}
   HADOOP_CONF_DIR=${Real hadoop configuration directory}
@@ -46,15 +48,11 @@ The following table has some commonly used parameters. The Spark engine supports
 
 Users can configure these parameters in linkis.properties.
 
-
 | Parameter name | Reference value | Description |
 | ------------ | ------------ | ------------ |
 | wds.linkis.enginemanager.memory.max | 40G| Used to specify the total memory of the client of all engines started by sparkEM |
 | wds.linkis.enginemanager.cores.max | 20 | Used to specify the total number of CPU cores of the client for all engines started by sparkEM |
 | wds.linkis.enginemanager.engine.instances.max | 10 | Used to specify the number of engines that sparkEM can start |
-
-
-
 
 ### 1.4 Front-end deployment
 

@@ -7,7 +7,6 @@ sidebar_position: 5
 
 > Linkis代码层级目录结构说明，如果您想详细了解Linkis各个模块，请查看[Linkis的相关架构设计](architecture/overview.md)
 
-
 ```html
 
 |-- assembly-combined-package //编译整个项目的模块
@@ -36,11 +35,11 @@ sidebar_position: 5
 |        |-- linkis-entrance-client
 |        |-- linkis-jdbc-driver
 |        |-- linkis-manager
-|    
+|
 |-- linkis-engineconn-plugins
 |        |-- engineconn-plugins
 |        |-- linkis-engineconn-plugin-framework
-|    
+|
 |-- linkis-extensions
 |        |-- linkis-io-file-client
 |-- linkis-orchestrator
@@ -61,14 +60,14 @@ sidebar_position: 5
 |        |-- check.sh
 |        |-- dependencies
 |
-|-- web  //linkis的管理台代码 
+|-- web  //linkis的管理台代码
 |-- scalastyle-config.xml  //Scala 代码格式检查配置文件
 |-- CONTRIBUTING.md
 |-- CONTRIBUTING_CN.md
 |-- DISCLAIMER-WIP
 |-- LICENSE //项目源码的LICENSE
 |-- LICENSE-binary //二进制包的LICENSE
-|-- LICENSE-binary-ui //前端web编译包的LICENSE 
+|-- LICENSE-binary-ui //前端web编译包的LICENSE
 |-- NOTICE  //项目源码的NOTICE
 |-- NOTICE-binary //二进制包的NOTICE
 |-- NOTICE-binary-ui //前端web二进制包的NOTICE

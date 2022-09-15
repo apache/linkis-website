@@ -5,10 +5,13 @@ tags: [Feature]
 ---
 
 ## 1. Functional requirements
+
 ### 1.1 Requirement Background
+
 Before version 1.1.3, LinkisManager only recorded the information and resource usage of the running EngineConn, but the information was lost after the task was completed. If you need to do some statistics and view of historical ECs, or to view the logs of ECs that have ended, it is too cumbersome, so it is more important to record historical ECs.
 
 ### 1.2 Goals
+
 - Complete the storage of EC information and resource information persistent to DB
 - Supports viewing and searching of historical EC information through the restful interface
 - Support to view logs of EC that has ended
@@ -18,11 +21,10 @@ Before version 1.1.3, LinkisManager only recorded the information and resource u
 The main changes in this feature are the RM and AM modules under LinkisManager, and an information record table has been added.
 
 ### 2.1 Technical Architecture
+
 Because this implementation needs to record EC information and resource information, and resource information is divided into three concepts, such as requesting resources, actually using resources, and releasing resources, and all of them need to be recorded. Therefore, the general plan for this implementation is: based on the EC in the life cycle of the ResourceManager to implement, and when the EC completes the above three stages, the update operation of the EC information is added. The overall picture is shown below:
 
 ![engineconn-history-01.png](/Images-zh/Architecture/EngineConn/engineconn-history-01.png)
-
-
 
 ### 2.2 Business Architecture
 
@@ -34,6 +36,7 @@ This feature is mainly to complete the information recording of historical ECs a
 | LinkisManager | AppManager| Provides an interface to list and search all historical EC information|
 
 ## 3. Module Design
+
 ### Core execution flow
 
 - \[Input] The input is mainly for the requested resource when the engine is created, the real used resource reported after the engine is started, and the information input when the resource is released when the engine exits, mainly including the requested label, resource, EC's unique ticketid, resource type etc.
@@ -42,9 +45,8 @@ This feature is mainly to complete the information recording of historical ECs a
 The call sequence diagram is as follows:
 ![engineconn-history-02.png](/Images-zh/Architecture/EngineConn/engineconn-history-02.png)
 
+## 4. Data structure
 
-
-## 4. Data structure:
 ```sql
 # EC information resource record table
 DROP TABLE IF EXISTS `linkis_cg_ec_resource_info_record`;
@@ -72,18 +74,23 @@ CREATE TABLE `linkis_cg_ec_resource_info_record` (
 ````
 
 ## 5. Interface Design
+
 Engine history management page API interface, refer to the document Add history engine page to the management console
 
 ## 6. Non-functional design
 
 ### 6.1 Security
+
 No security issues are involved, the restful interface requires login authentication
 
 ### 6.2 Performance
+
 Less impact on engine life cycle performance
 
 ### 6.3 Capacity
+
 Requires regular cleaning
 
 ### 6.4 High Availability
+
 not involving

@@ -30,15 +30,19 @@ mvn clean install
 ### 2.2 ElasticSearch EngineConn deployment and loading
 
 Upload the engine package compiled in Step 2.1
+
 ```bash
 ${linkis_code_dir}/linkis-engineconn-pluginsjdbc/target/out/elasticsearch
 ```
+
 to the engine directory on the server
-```bash 
+
+```bash
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
 
 ### 2.3 ElasticSearch EngineConn Labels
+
 Linkis1.x works with tags, so you need to insert data into our database as shown below.
 
 The configuration of the management console is managed by engine labels. If a new engine needs to be configured, you need to modify the metadata of the corresponding table.
@@ -106,8 +110,10 @@ INNER JOIN `linkis_cg_manager_label` label ON relation.engine_type_label_id = la
 | linkis.es.headers.* | None | no | Client Headers configuration |
 | linkis.engineconn.concurrent.limit | 100 | no | Maximum engine concurrency of ElasticSearch cluster |
 
-## 3. The use of ElasticSearch EngineConn 
+## 3. The use of ElasticSearch EngineConn
+
 ### 3.1 Ready to operate
+
 You need to configure ElasticSearch connection information, including connection address information and user name and password (if needed).
 
 ![ElasticSearch](https://user-images.githubusercontent.com/22620332/182787195-8051bf25-1e1e-47e5-ad88-4896278857f2.png)  
@@ -115,10 +121,11 @@ You need to configure ElasticSearch connection information, including connection
 Figure 3-1 ElasticSearch Configuration information
 
 You can also specify in the RuntimeMap of the submitted task.
+
 ```shell
 linkis.es.cluster
 linkis.es.datasource
-linkis.es.username               
+linkis.es.username
 linkis.es.password
 ```
 
@@ -136,6 +143,7 @@ For the ElasticSearch task, you only need to change the EngineConnType and CodeT
 ```
 
 ### 3.2 How to use Linkis-cli
+
 **-codeType parameter description**
 
 - essql：Execute ES engine tasks through SQL scripts
@@ -147,17 +155,19 @@ After Linkis 1.0, you can submit tasks through cli. We only need to specify the 
 
 **Example using mode essql**
 
-**Note：** To use the SQL script, you must install the SQL plugin for ElasticSearch service：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
+**Note：** To use the SQL script, you must install the SQL plugin for ElasticSearch service：<https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762>
+
 ```shell
  sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType essql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
 **Example using mode esjson**
-```shell
-sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200 
-```
-Specific use can refer to： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
+```shell
+sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
+```
+
+Specific use can refer to： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
 ## 4. ElasticSearch EngineConn user settings
 

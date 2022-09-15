@@ -100,4 +100,3 @@ EUREKA_URL=http://$EUREKA_INSTALL_IP:$EUREKA_PORT/eureka/,http:/server1:port/eur
 
 After the modification, start the microservice, enter the eureka registration interface from the web side, you can see that the microservice has been successfully registered to eureka, and the DS
 Replicas will also display the replica nodes adjacent to the cluster.
-
