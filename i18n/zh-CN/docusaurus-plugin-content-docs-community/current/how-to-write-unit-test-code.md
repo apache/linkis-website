@@ -235,9 +235,45 @@ Assertions.assertThrows方法，用来测试Executable实例执行execute方法�
     assertTrue(jobRespProtocolArrayList.stream().anyMatch(statusPrecate));
   ```
 
+## Mock模拟返回数据
+
+有时我们单测一些api或者service模块,其中的service或者dao对于一些方法的返回值默认是null,但是逻辑里面有对这个返回null的对象进行判断或者二次取值的话,就是引发一些异常
+
+示例:
+
+```java
+    PageInfo<UDFAddVo> pageInfo =
+        udfService.getManagerPages(udfName, udfTypes, userName, curPage, pageSize);
+    message = Message.ok();
+    // 这里的pageInfo是null,后续的get方法就会出现异常
+    message.data("infoList", pageInfo.getList());
+    message.data("totalPage", pageInfo.getPages());
+    message.data("total", pageInfo.getTotal());
+```
+
+mock模拟数据示例:
+
+```java
+    PageInfo<UDFAddVo> pageInfo = new PageInfo<>();
+    pageInfo.setList(new ArrayList<>());
+    pageInfo.setPages(10);
+    pageInfo.setTotal(100);
+    // 对 udfService.getManagerPages 方法进行任意传递参数,模拟返回pageInfo对象
+    // 有了这个模拟数据,上面示例在执行get方法的时候,就不会有异常
+    Mockito.when(
+            udfService.getManagerPages(
+                Mockito.anyString(),
+                Mockito.anyCollection(),
+                Mockito.anyString(),
+                Mockito.anyInt(),
+                Mockito.anyInt()))
+        .thenReturn(pageInfo);
+```
 
 ## 单元测试的编写
+
 ### 类的划分
+
 按类的大功能可以大体分类
 - Controller  提供http服务的controller 配合mockmvc做单元测试 
 - Service   业务逻辑代码的service层
