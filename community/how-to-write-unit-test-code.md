@@ -264,6 +264,41 @@ assertEquals(2, jobRespProtocolArrayList.size());
 assertTrue(jobRespProtocolArrayList.stream(). anyMatch(statusPrecate));
 ```
 
+## Mock simulation return data
+
+Sometimes we just test some apis or service modules, where the service or dao returns null values for some methods by default, but if the logic includes the judgment or secondary value of the returned null object, it is to throw some exceptions
+
+Example:  
+
+```java
+    PageInfo<UDFAddVo> pageInfo =
+        udfService.getManagerPages(udfName, udfTypes, userName, curPage, pageSize);
+    message = Message.ok();
+    // The pageInfo here is null, and subsequent get methods will have exceptions
+    message.data("infoList", pageInfo.getList());
+    message.data("totalPage", pageInfo.getPages());
+    message.data("total", pageInfo.getTotal());
+```
+
+Example of mock simulation data:
+
+```java
+    PageInfo<UDFAddVo> pageInfo = new PageInfo<>();
+    pageInfo.setList(new ArrayList<>());
+    pageInfo.setPages(10);
+    pageInfo.setTotal(100);
+    // For udfService.getManagerPages method passes parameters arbitrarily, and the simulation returns the pageInfo object
+    // With this simulation data, the above example will not have exceptions when executing the get method
+    Mockito.when(
+            udfService.getManagerPages(
+                Mockito.anyString(),
+                Mockito.anyCollection(),
+                Mockito.anyString(),
+                Mockito.anyInt(),
+                Mockito.anyInt()))
+        .thenReturn(pageInfo);
+```
+
 ## Compilation of Unit Test
 
 ### Class Division
