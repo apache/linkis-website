@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import conts from './contributors.json';
+import WebSiteConts from './contributorsWebsite.json';
 
 export default (props) => {
     const [contributers, setContributers] = useState([]);
@@ -7,11 +9,7 @@ export default (props) => {
         const repo = props.repo ?? 'apache/incubator-linkis';
 
         if (!contributers || contributers.length === 0) {
-            fetch(`https://api.github.com/repos/${repo}/contributors?page=1&per_page=10000`).then(function (response) {
-                return response.json();
-            }).then((res) => {
-                setContributers(res);
-            });
+            props.repo == 'apache/incubator-linkis' ? setContributers(conts) : setContributers(WebSiteConts);
         }
     });
     /*let html = '<table>';
