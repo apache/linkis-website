@@ -30,9 +30,7 @@ jobs:
           repo: apache/incubator-linkis
           num: 1000
         
-      - name: scheduled website contributor 
-        uses: peaceiris/actions-gh-pages@v3.8.0
+      - name: scheduled commit contributor 
+        uses: EndBug/add-and-commit@v9
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /home/runner/work/incubator-linkis-website/incubator-linkis-website/
-          publish_branch: dev
+          default_author: github_actions
