@@ -53,6 +53,8 @@ mvn clean install -DskipTests
 </dependency>
 ```
 
+同时需要留意 根pom.xml的<dependencyManagement>中是否将mysql-connector-java依赖的scope设置为test，如是，本地调试时需要注释掉
+
 ### 3.2 调整log4j2.xml配置
 
 在Linkis源码文件夹下，子目录linkis-dist/package/conf中，是Linkis的一些默认配置文件，首先对log4j2.xml文件进行编辑，在其中增加日志输出到控制台的配置。
