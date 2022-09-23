@@ -2,10 +2,10 @@
 title: 如何提名新的Committer 和 PPMC
 sidebar_position: 6
 ---
-> 介绍Committer 和 PPMC 的推选要求以及流程。官方指引可参见：https://community.apache.org/newcommitter.html
+> 介绍Committer 和 PPMC 的推选要求以及流程。官方指引可参见：https://incubator.apache.org/guides/ppmc.html
 
 ## 1.候选人要求
-在投票时，所有 PMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索[邮件列表](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/incubator-linkis/issues)/[官网文档贡献](https://github.com/apache/incubator-linkis-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
+在投票时，所有 PPMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索[邮件列表](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/incubator-linkis/issues)/[官网文档贡献](https://github.com/apache/incubator-linkis-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
 
 以下是在评估候选人的承诺资格时需要考虑的一些要点。
 1. 与社区开发合作的能力？
@@ -122,14 +122,18 @@ Thanks!
 **备注：如果是未通过，结果是 "The vote for "${Candidate Name} as an Linkis ${Committer/PPMC}" has FAILED and closed now."**
    
 ### 2.4 新增 PPMC 的通知邮件
+
 >该步骤只针对新的 PPMC 推举流程，如果选举的是Committer，该步跳过不执行。
->投票发起者需要向board@apache.org邮件组发送知会邮件，并等待至少72小时；
->邮件发送board@apache.org，抄送private@linkis.apache.org；IPMC们会分析合规性，直到没有异议。
+>投票发起者需要发送至IPMC private@incubator.apache.org邮件组发送知会邮件，并等待至少72小时；
+>邮件发送 private@incubator.apache.org，抄送private@linkis.apache.org；IPMC们会分析合规性，直到没有异议。
+
+发送至IPMC private@incubator.apache.org  抄送 private@linkis.apache.org 。 从 PPMC 向 IPMC 发送通知到 PPMC 正式邀请被提议的成员，之间要有 72 小时的宽限期
 
 如下是新增推选 PPMC 的通知邮件样例：
 ```html
-To: board@apache.org
+To: private@incubator.apache.org
 Cc: private@linkis.apache.org
+
 Subject：[NOTICE] ${Candidate Name} for Linkis PPMC
 Content:
 Hi everyone,
@@ -142,7 +146,7 @@ Hi everyone,
 Thanks!
 ```
 
-72 小时后，如果董事会不反对提名（大多数情况下不会反对），则可以向候选人发送邀请。
+72 小时后，如果IPMC不反对提名（大多数情况下不会反对），则可以向候选人发送邀请。
 
 
 ### 2.5 向候选人发起邮件邀请 
