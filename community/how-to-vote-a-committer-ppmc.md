@@ -2,10 +2,10 @@
 title: How to Vote New Committer/PPMC
 sidebar_position: 6
 ---
-> Introduce the selection requirements and process for Committer and PPMC. Official guidelines can be found at: https://community.apache.org/newcommitter.html
+> Introduce the selection requirements and process for Committer and PPMC. Official guidelines can be found at: https://incubator.apache.org/guides/ppmc.html
 
 ## 1. Candidate Requirements
-When voting, all PMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/incubator-linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/incubator-linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
+When voting, all PPMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/incubator-linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/incubator-linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
 
 Below are some points to consider when evaluating candidates for commitment eligibility.
 1. Ability to develop collaboration with the community?
@@ -121,13 +121,15 @@ Thanks!
 **Note: If it is not passed, the result is "The vote for "${Candidate Name} as an Linkis ${Committer/PPMC}" has FAILED and closed now."**
    
 ### 2.4 Added PPMC notification email
->This step is only for the new PPMC election process. If the Committer is elected, this step is skipped and not executed.
->The initiator of the vote needs to send a notification email to the board@apache.org mailing group and wait at least 72 hours;
-> Email board@apache.org, cc private@linkis.apache.org; IPMCs will analyze compliance until there is no objection.
+> This step is only for the new PPMC election process. If the Committer is elected, this step is skipped and not executed.
+> The initiator of the vote needs to send a notification email to the IPMC private@incubator.apache.org mailing group and wait for at least 72 hours;
+> Email to private@incubator.apache.org, cc private@linkis.apache.org; IPMCs will analyze compliance until there is no objection.
+
+Send to IPMC private@incubator.apache.org cc private@linkis.apache.org . There is a 72-hour grace period between the notification by the PPMC to the IPMC and the formal invitation by the PPMC to the proposed member
 
 The following is a sample notification email for adding a PPMC:
 ```html
-To: board@apache.org
+To: private@incubator.apache.org
 Cc: private@linkis.apache.org
 Subject: [NOTICE] ${Candidate Name} for Linkis PPMC
 Content:
@@ -141,7 +143,7 @@ Hi everyone,
 Thanks!
 ````
 
-After 72 hours, if the board has no objection to the nomination (which in most cases will not), an invitation may be sent to the candidate.
+After 72 hours, if the IPMC has no objection to the nomination (which in most cases will not), an invitation may be sent to the candidate.
 
 ### 2.5 Send email invitations to candidates
 > After announcing the voting results, the voting initiator should send an invitation email to the candidates. The invitation email is sent to the invitees, cc private@linkis.apache.org; the invited candidates must reply to accept or reject the invitation through the specified email address.
