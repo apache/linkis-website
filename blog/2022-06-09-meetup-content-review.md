@@ -1,10 +1,12 @@
 ---
-title: Apache Linkis(Incubating) Meep Up 
+title: Apache Linkis(Incubating) Meet up 
 tags: [meetup]
 ---
 
 |**Data**|**Topic & Video**|**Scripts**|
 |:----|:----|:----|
+|8/27/2022|[Meetup 04期：2022 一站式开源大数据平台WeDataSphere社区年中大会视频集合](https://space.bilibili.com/598542776/channel/collectiondetail?sid=681893)<br/>[Meetup 04：2022 Community mid-year conference video collection of WeDataSphere One-stop Open Source Big Data Platform](https://space.bilibili.com/598542776/channel/collectiondetail?sid=681893)|    [ 演讲稿合集 A collection of speeches ]( https://pan.baidu.com/s/1_Ectkxf5WpRcaLQXWxu72g?pwd=eeik)
+|6/27/2022|[ Meetup 03期：Linkis-1.1.0新功能介绍、上海合合信息合数据工坊IDS](https://space.bilibili.com/598542776/channel/seriesdetail?sid=2649896)<br/>[Meetup 03: Linkis-1.1.0 New function introduction, Shanghai HEHE Information and Data Workshop IDS](https://space.bilibili.com/598542776/channel/seriesdetail?sid=2649896)|    [ 演讲稿合集 A collection of speeches ](https://pan.baidu.com/s/1TpN4qJFdjA666PWmWyiw6A?pwd=na3h)
 |4/13/2022|[Meetup 02期：Qualitis 数据质量 0.9.0版本介绍](https://www.bilibili.com/video/BV1r5411U7Dx/)<br/>[Meetup 02：Introduction to Data Quality Platform Qualitis V0.9.0 ](https://www.bilibili.com/video/BV1r5411U7Dx/?spm_id_from=333.788.recommend_more_video.-1)|    [Qualitis 数据质量0.9.0版本介绍.pptx](https://uploader.shimo.im/f/bpeDQgadrMVFUiNL.pptx?fileGuid=m8AZV9z6xMsOevAb)|
 |4/13/2022|[Meetup 02期：Prophecis 机器学习Studio版本更新介绍](https://www.bilibili.com/video/BV1WS4y127ma/)<br/>[Meetup 02：Introduction to Mechine Learning Platform Prophecis Studio](https://www.bilibili.com/video/BV1r5411U7Dx/?spm_id_from=333.788.recommend_more_video.-1)|[Prophecis 机器学习Studio版本更新介绍(V0.3.0).pptx](https://uploader.shimo.im/f/eL3HOVtYTgeCGOtr.pptx?fileGuid=m8AZV9z6xMsOevAb)|
 |4/13/2022|[Meetup 02期：调度系统 Schedulis 0.6.2 发布](https://www.bilibili.com/video/BV1vY4y1H7j2/)<br/>[Meetup 02](https://www.bilibili.com/video/BV1vY4y1H7j2)[: The Scheduling System Schedulis is Release v0.6.2](https://www.bilibili.com/video/BV1vY4y1H7j2)|[Schedulis 0.6.2 发布.pptx](https://uploader.shimo.im/f/rD98D9SwNavhWga3.pptx?fileGuid=m8AZV9z6xMsOevAb)|
