@@ -472,7 +472,7 @@ Listening for transport dt_socket at address: 5005
 ...
 ```
 
-#### entry into the component Pod
+#### Entry into the component Pod
 
 Use `. /scripts/login-pod.sh <component name>` to access the component's Pod to open a Bash for interactive operation, where the component name can be :
 
