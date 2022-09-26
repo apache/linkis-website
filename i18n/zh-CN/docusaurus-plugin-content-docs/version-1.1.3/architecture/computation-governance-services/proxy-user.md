@@ -1,5 +1,5 @@
 ---
-title: Linkis支持代理用户提交架构涉及
+title: Linkis支持代理用户提交架构设计
 sidebar_position: 2
 ---
 
