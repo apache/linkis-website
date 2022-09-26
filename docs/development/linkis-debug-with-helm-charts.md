@@ -14,7 +14,7 @@ This document describes how to use Kubernetes technology to simplify the develop
 
 ## Introduction to Dependency Tools
 
-### Version requirements
+### Version Requirements
 
 * [Docker](https://docs.docker.com/get-docker/), minimum version v20.10.8+
 * [Kubernetes](https://kubernetes.io/docs/setup/), minimum version v1.21.0+
@@ -40,9 +40,9 @@ Deploying KinD is also very easy, please refer to the official deployment docume
 > ⚠️ Note:
 > KinD is a tool for testing purposes and cannot be used for production deployments. For example, KinD clusters cannot be used after the development machine is rebooted and need to be recreated (because KinD performs a series of initialization tasks after the Node container is created, which cannot be automatically reverted after the machine is rebooted).
 
-## Linkis containerized components
+## Linkis Containerized Components
 
-### Linkis images
+### Linkis Images
 
 Linkis provides several images, all of which have their Dockerfile and related scripts in the `linkis-dist/docker` directory. Linkis images include the following.
 
@@ -257,7 +257,7 @@ nodes:
 
 ```
 
-## Developing and debugging with Linkis containerized components
+## Developing and Debugging with Linkis Containerized Components
 
 The following steps describe how to develop and debug using Linkis containerized components (currently only supported for Linux and MacOS). Please confirm the following before proceeding.
 1. whether the Docker engine is already installed on the development machine
@@ -265,7 +265,7 @@ The following steps describe how to develop and debug using Linkis containerized
 3. whether KinD has been installed on the development machine 
 4. whether the Linkis image has been created as described in [Linkis Docker image packaging](https://linkis.apache.org/zh-CN/docs/latest/development/linkis_docker_build_instrument)
 
-### Create debugging environment
+### Create Debugging Environment
 
 This step will create a KinD cluster and deploy MySQL, Linkis and LDH instances on it.
 
@@ -369,9 +369,9 @@ linkis-demo-web-554bd7659f-nmdjl                    1/1     Running            0
 
 ```
 
-### Debugging components
+### Debugging Components
 
-#### enable port forwarding
+#### Enable Port Forwarding
 
 Each component has a JVM remote debug port of 5005 within the container, and these ports are mapped to different ports on the host as follows.
 * mg-eureka: 5001
@@ -418,7 +418,7 @@ $> ./scripts/remote-debug-proxy.sh stop
 - stopping port-forward for [cg-engineplugin] with mapping [local->5010:5005->pod] ...
 ```
 
-#### Configure the IDE for remote debugging
+#### Configure the IDE for Remote Debugging
 
 Configure the IDE as follows to enable remote debugging:
 
@@ -441,7 +441,7 @@ exec /etc/alternatives/jre/bin/java -server -Xms32m -Xmx2048m -XX:+HeapDumpOnOut
 ![](/Images/development/kube-jvm-remote-debug-breakpoint.png)
 
 
-### Clean up the environment
+### Clean Up the Environment
 
 After debugging, you can use the following command to clean up the entire environment:
 
@@ -450,9 +450,9 @@ $> kind delete clusters test-helm
 Deleted clusters: ["test-helm"]
 ```
 
-### Other useful operations
+### Other Useful Operations
 
-#### Fetch logs
+#### Fetch Logs
 
 ``` bash
 $> kubectl logs -n linkis linkis-demo-cg-engineconnmanager-659bf85689-ddvhw -f
@@ -472,7 +472,7 @@ Listening for transport dt_socket at address: 5005
 ...
 ```
 
-#### Entry into the component Pod
+#### Entry into the Component Pod
 
 Use `. /scripts/login-pod.sh <component name>` to access the component's Pod to open a Bash for interactive operation, where the component name can be :
 
