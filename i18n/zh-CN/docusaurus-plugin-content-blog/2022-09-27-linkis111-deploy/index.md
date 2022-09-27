@@ -1,3 +1,8 @@
+---
+title: Deploy Apache Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2
+authors: [kevinWdong]
+tags: [blog,linki1.1.1,hadoop3.0.0-cdh6.3.2,spark2.4.8,hive2.1.1]
+---
 ### 前言
 
 随着业务的发展和社区产品的更新迭代，我们发现Linkis1.X在资源管理，引擎管理方面有极大的性能提升，可以更好的满足数据中台的建设。相较于0.9.3版本和我们之前使用的平台， 在用户体验方面也得到很大的提升，任务失败页面无法方便查看详情等问题也都得到改善，因此决定升级Linkis以及WDS套件，那么如下是具体的实践操作，希望给大家带来参考。 
