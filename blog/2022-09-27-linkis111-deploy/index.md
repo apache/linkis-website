@@ -123,9 +123,10 @@ Reason: PYSPARK is not set_ VERSION
 resolvent:
 
 Set two parameters in/etc/profile
-
-export PYSPARK_ PYTHON=/usr/local/bin/python3.6export PYSPARK_ DRIVER_ PYTHON=/usr/local/bin/python3.6
-
+```
+export PYSPARK_ PYTHON=/usr/local/bin/python3.6
+export PYSPARK_ DRIVER_PYTHON=/usr/local/bin/python3.6
+```
 ### 2.2.6 Error occurs when executing the pyspark task
 
 java.lang.NoSuchFieldError: HIVE_ STATS_ JDBC_ TIMEOUT
