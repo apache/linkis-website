@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.incubator.apache.org/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Mon, 08 Aug 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 27 Sep 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Deploy Apache Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2]]></title>
+            <link>https://linkis.incubator.apache.org/blog/2022/09/27/linkis111-deploy</link>
+            <guid>Deploy Apache Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2</guid>
+            <pubDate>Tue, 27 Sep 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[With the development of business and the update and iteration of community products, we found that Linkis1. X has greatly improved its performance in terms of resource management and engine management, which can better meet the requirements of the construction of data middle stations. Compared with version 0.9.3 and the platform we used before, the user experience has also been greatly improved, and the problems such as the inability to view details on the task failure page have also been improved. Therefore, we decided to upgrade Linkis and the WDS suite. The following are the specific practical operations, which we hope will give you a reference.]]></description>
+        </item>
         <item>
             <title><![CDATA[Linkis1.1.1 adapts Hadoop 3.1.1 and deploys other services]]></title>
             <link>https://linkis.incubator.apache.org/blog/2022/08/08/linkis111-compile-integration</link>
