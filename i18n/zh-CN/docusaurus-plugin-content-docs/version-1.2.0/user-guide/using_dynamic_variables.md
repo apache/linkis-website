@@ -26,7 +26,7 @@ D	|Day in year	|Number|	189
 d	|Day in month	|Number	|10
 F	|Day of week in month|	Number	|2
 E	|Day name in week	|Text	|Tuesday; Tue
-u	|Day number of week (1 = Monday, …, 7 = Sunday)	|Number	|1
+e	|Day number of week (1 = Monday, …, 7 = Sunday)	|Number	|1
 a	|Am/pm marker	|Text	|PM
 H	|Hour in day (0-23)	|Number|	0
 k	|Hour in day (1-24)|	Number	|24
