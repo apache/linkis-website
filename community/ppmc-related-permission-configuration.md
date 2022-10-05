@@ -14,24 +14,13 @@ sidebar_position: 8
 
 ### 1.2 Associate apache Id with github account
 **Way 1**
-Log in to https://id.apache.org and set the [Your GitHub Username] field in LDAP to your own GitHub ID. Enter your password Click submit changes and you will receive an invitation to join the apache organization on github within four hours. You should receive an email with "asf-gitbox" in the title of your github account email.
-If the invitation has expired (7 days expired), you can try both method 1 and method 2 again. See if you can re-receive the invitation email to join ASF org in the mailbox associated with the github account (search for "asf-gitbox").
-If you haven't received an invitation yet, try the following:
-1. Delete the github accounts in methods 1 and 2 first;
-2. After waiting for 1 scan cycle (4 hours to be safe), add the github account back again;
-3. Then wait another 4 hours to see if you can re-receive the invitation email to join ASF org in the email associated with the github account (search for the email title "asf-gitbox").
+Log in to https://id.apache.org and set the [Your GitHub Username] field in LDAP to your own GitHub ID. Enter your password Click submit changes.
+
 
 ![Open-Apache's-GitHub-warehouse1](https://user-images.githubusercontent.com/29391030/153324492-cc4e4348-5e4b-450f-a23f-6c208e1a26fb.png)
 
 **Way 2**
-Visit https://whismy.apache.org/roster/committer/xxx (replace with your apache id) to modify the corresponding data, and you will receive an invitation to join the apache github organization within four hours.
-Pay attention to check the invitation email of the github organization inviting you to join apache. Invitation is valid for 7 days
-
-![open-Apache's-GitHub-warehouse2](https://user-images.githubusercontent.com/29391030/153324641-351cf239-c0ff-4fa6-a9f9-46991d4b11fd.png)
-
-After the successful invitation, the personal github account information can be seen that the affiliated organization has apache
-
-![open-Apache's-GitHub-warehouse3](https://user-images.githubusercontent.com/29391030/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
+Visit https://whismy.apache.org/roster/committer/xxx (replace with your apache id) to modify the corresponding data.
 
 ### 1.3 Enable 2FA authentication (login token)
 >github personal account security Enable 2FA authentication (login token)
@@ -47,7 +36,7 @@ step2 Select【Set up using an app】Next step
 
 ![open-Apache's-GitHub-warehouse5](https://user-images.githubusercontent.com/29391030/153325063-ea61ad8c-cbbc-4053-8a37-35d315dc3b00.png)
 
-step3 Enter the QR code binding page, scan the code with the totp type app with the download number in advance, and enter the 6 displayed on the mobile phone as the token
+Step3 enter the qr code binding page, scan the code with the pre-downloaded totp type app (such as Google identity authenticator、Microsoft Authenticator), and input the 6 displayed on the mobile phone as the token
 
 ![open-Apache's-GitHub-warehouse6](https://user-images.githubusercontent.com/29391030/153325084-b57d3647-a6a5-4e15-9e9c-3c2f632c0655.png)
 
@@ -80,6 +69,10 @@ After successful execution, the following figure is shown. After the success, th
 
 ![open-Apache's-GitHub-warehouse11](https://user-images.githubusercontent.com/29391030/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
 
+After the successful invitation, the personal github account information can be seen that the affiliated organization has apache
+
+![open-Apache's-GitHub-warehouse3](https://user-images.githubusercontent.com/29391030/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
+
 ### 1.5 Related Links Documentation
 [github uses TOTP to enable 2FA authentication] https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
 
@@ -90,6 +83,7 @@ After successful execution, the following figure is shown. After the success, th
 [apache and github] https://infra.apache.org/apache-github.html
 
 【git github &gitbox 】https://cwiki.apache.org/confluence/display/INFRA/Git%2C+GitHub+and+Gitbox
+
 
 ## 2. Configure emails and email subscriptions
 

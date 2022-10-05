@@ -259,7 +259,7 @@ for more information about roles at Apache.
 
 ### 2.7 设置 Apache ID 和开发环境
 
-- 进入[Apache Account Utility Platform](https://id.apache.org/)，创建密码，设置个人邮箱（`转发邮箱地址`）和GitHub账号（`Your GitHub Username`）。此后不久（2 小时内）将通过电子邮件向您发送组织邀请。
+- 进入[Apache Account Utility Platform](https://id.apache.org/)，创建密码，设置个人邮箱（`转发邮箱地址`）和GitHub账号（`Your GitHub Username`）。
 - 如果您想使用`xxx@apache.org`邮件服务，请参考[这里](https://infra.apache.org/committer-email.html)。推荐使用 Gmail，因为这种转发模式在大多数邮箱服务设置中都不容易找到。
 - 关注【授权GitHub 2FA wiki】(https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) 开启双因素授权（2FA ) 在 [Github](http://github.com/) 上。当您将 2FA 设置为“关闭”时，它将被相应的 Apache committer 写入权限组除名，直到您再次设置它。 （**注意：像对待密码一样注意恢复代码！**）
 - 使用【GitBox Account Linking Utility】（https://gitbox.apache.org/setup/）获取Linkis项目的写权限。
@@ -318,3 +318,12 @@ step2 修改 linkis.xml 中的new信息
 step3 更新提交后，信息会在这里呈现 
 https://incubator.apache.org/clutch/linkis.html
 
+
+## 5 操作流程总结
+1. 发送携带ICLA附件的邮件
+2. 1-2天后收到回复邮件，将在5个工作日内处理  
+3. 2-5天内收到apache账户创建成功邮件   
+4. 使用邮件提示内容找回密码或重置密码  
+5. 登录id.apache.org或whimsy.apache.org关联github账号  
+6. 开启Github的2FA认证（双英子认证）  
+7. 使用gitbox.apache.org获得仓库写入权限  
