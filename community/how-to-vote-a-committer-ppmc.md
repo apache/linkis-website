@@ -243,7 +243,7 @@ After receiving the notification email that the account was created successfully
 ### 2.7 Setting up Apache ID and development environment
 >Requires candidates for processing
 
-- Enter [Apache Account Utility Platform] (https://id.apache.org/), create a password, set up a personal email address (`forwarding email address`) and a GitHub account (`Your GitHub Username`). An organization invitation will be emailed to you shortly thereafter (within 2 hours).
+- Enter [Apache Account Utility Platform] (https://id.apache.org/), create a password, set up a personal email address (`forwarding email address`) and a GitHub account (`Your GitHub Username`). 
 - If you want to use `xxx@apache.org` mail service, please refer to [here](https://infra.apache.org/committer-email.html). Gmail is recommended as this forwarding mode is not easily found in most email service setups.
 - Follow【Authorize GitHub 2FA wiki】(https://help.github.com/articles/configuring-two-factor-authentication-via-a-totp-mobile-app/) to enable two-factor authorization (2FA) in [Github ](http://github.com/). When you set 2FA to "off", it will be delisted from the corresponding Apache committer write permission group until you set it again. (**Note: pay attention to recovery codes like passwords!**)
 - Use the [GitBox Account Linking Utility] (https://gitbox.apache.org/setup/) to obtain the write permission of the Linkis project.
@@ -277,3 +277,19 @@ The Apache Linkis(Incubating) PPMC
 ````
    
 At this point, the whole process is over, and the candidate officially becomes the Committer or PPMC of the project.
+
+## 4 Workflow summary
+
+1. Send emails with ICLA attachments
+
+2. 1-2 days after receipt of the reply email, will be processed within 5 working days
+
+3. 2-Receive an Apache account creation success email within 5 days
+
+4. Use the email prompt to retrieve or reset your password
+
+5. Connect your Github account to id.apache.org or whimsy.apache.org
+
+6. Enable Github 2FA authentication
+
+7. Use gitbox.apache.org to get repository write access
