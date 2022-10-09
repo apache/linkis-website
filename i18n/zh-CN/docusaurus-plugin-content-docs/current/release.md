@@ -2,50 +2,51 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-- [ElasticSearch 引擎使用说明](/engine-usage/elasticsearch.md)
-- [Presto 引擎使用说明](/engine-usage/presto.md)
-- [集成 Knife4j 和启用](/deployment/involve-knife4j-into-linkis.md)
-- [数据源功能模块接口优化](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
-- [JDBC 引擎支持数据源模式](/engine-usage/jdbc.md)
-- [EngineConn历史引擎信息记录架构设计](/architecture/computation-governance-services/linkis-manager/ec-history-arc.md)
-- [微服务租户隔离架构设计](/architecture/microservice-governance-services/service_isolation.md)
-- [版本的 Release-Notes](/download/release-notes-1.2.0)
+- [Linkis 容器化构建](/development/linkis-docker-build-instrument.md)
+- [Linkis 容器化开发调试](/development/linkis-docker-build-instrument.md)
 
 ## 参数变化 
 
 | 模块名(服务名)| 类型  |     参数名                                                | 默认值             | 描述                                                    |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
-|eureka(application-eureka.yml) | 新增  | management.endpoints.web.exposure.include|refresh,info,health,metrics   | Spring Boot Actuator暴露端口范围|
-|eureka(application-eureka.yml)  | 新增   |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} | 注册在eureka元数据中的微服务prometheus监控端口|
-|common(application-linkis.yml) | 新增  | eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:${prometheus.endpoint}}} | 同上|
-|common       | 新增  |wds.linkis.prometheus.enable  | false|        |
-|common  | 修改  | wds.linkis.server.user.restful.uri.pass.auth               | /api/rest_j/v1/actuator/prometheus|                                 |
-|common | 修改  | spring.spring.cloud.config.enabled                   | false|                                |
-|ec-es | 新增  | linkis.es.cluster        			| 127.0.0.1:9200    | ElasticSearch 集群，多个节点使用逗号分隔 |
-|ec-es | 新增  | linkis.es.username       			| 无    			| ElasticSearch 集群用户名                 |
-|ec-es | 新增  | linkis.es.password       			| 无       			| ElasticSearch 集群密码                   |
-|ec-es | 新增  | linkis.es.auth.cache     			| false       		| 客户端是否缓存认证                       |
-|ec-es | 新增  | linkis.es.sniffer.enable 			| false          	| 客户端是否开启 sniffer                   |
-|ec-es | 新增  | linkis.es.http.method    			| GET               | 调用方式                                 |
-|ec-es | 新增  | linkis.es.http.endpoint  			| /_search          | JSON 脚本调用的 Endpoint                 |
-|ec-es | 新增  | linkis.es.sql.endpoint   			| /_sql             | SQL 脚本调用的 Endpoint                  |
-|ec-es | 新增  | linkis.es.sql.format     			| {"query":"%s"} 	| SQL 脚本调用的模板，%s 替换成 SQL 作为请求体请求Es 集群 |
-|ec-es | 新增  | linkis.es.headers.* 	            | 无 				| 客户端 Headers 配置 |
-|ec-es | 新增  | linkis.engineconn.concurrent.limit | 100				| 引擎最大并发 |
-|ec-presto | 新增  | wds.linkis.presto.url                  | http://127.0.0.1:8080 | Presto 集群连接                             | 
-|ec-presto | 新增  | wds.linkis.presto.username             | default               | Presto 集群用户名                           | 
-|ec-presto | 新增  | wds.linkis.presto.password             | 无                    | Presto 集群密码                             |
-|ec-presto | 新增  | wds.linkis.presto.catalog              | system                | 查询的 Catalog                              | 
-|ec-presto | 新增  | wds.linkis.presto.schema               | 无                    | 查询的 Schema                               | 
-|ec-presto | 新增  | wds.linkis.presto.source               | global                | 查询使用的 source                           |
-|ec-presto | 新增  | presto.session.query_max_total_memory  | 8GB                   | 查询使用最大的内存                          | 
-|ec-presto | 新增  | wds.linkis.presto.http.connectTimeout  | 60                    | Presto 客户端的 connect timeout（单位：秒） |
-|ec-presto | 新增  | wds.linkis.presto.http.readTimeout     | 60                    | Presto 客户端的 read timeout（单位：秒）    |
-|ec-presto | 新增  | wds.linkis.engineconn.concurrent.limit | 100                   | Presto 引擎最大并发数                       | 
-|ec-jdbc | 修改  | wds.linkis.jdbc.connect.url            | jdbc:mysql://127.0.0.1:3306/test	|	jdbc连接url				|
-|ec-jdbc | 修改  | wds.linkis.jdbc.driver            		| com.mysql.jdbc.Driver			  	|	jdbc连接驱动包			|
-|ec-jdbc | 修改  | wds.linkis.jdbc.username            	| 无								|	jdbc连接用户名			|
-|ec-jdbc | 修改  | wds.linkis.jdbc.password            	| 无								|	jdbc连接密码			|
+| common | 新增 |linkis.session.redis.host| 127.0.0.1 | redis连接地址 |
+| common | 新增 |linkis.session.redis.port| 6379 | redis连接端口 |
+| common | 新增 |linkis.session.redis.password| test123 | redis连接密码 |
+| common | 新增 |linkis.session.redis.cache.enabled| false | redis sso 开关 |
+| ps-cs | 新增 | wds.linkis.server.restful.scan.packages | org.apache.linkis.cs.server.restful | restful包扫描路径 |
+| ps-cs | 新增 | wds.linkis.server.mybatis.mapperLocations | classpath*:org/apache/linkis/cs/persistence/dao/impl/*.xml | mapper扫描路径 |
+| ps-cs | 新增 | wds.linkis.server.mybatis.typeAliasesPackage | org.apache.linkis.cs.persistence.entity | 数据表映射实体类包路径 |
+| ps-cs | 新增 | wds.linkis.server.mybatis.BasePackage | org.apache.linkis.cs.persistence.dao | Mybatis 包扫描路径 |
+| ps-cs | 新增 | spring.server.port | 9108 | 服务端口 |
+| ps-cs | 新增 | spring.eureka.instance.metadata-map.route | cs_1_dev | ps-cs路由前缀(必须以cs_打头) |
+| ps-cs | 新增 | wds.linkis.cs.deserialize.replace_package_header.enable |  false | 反序列化时是否替换包头部 |
+| ps-data-source-manager | 新增 | wds.linkis.server.restful.scan.packages | org.apache.linkis.datasourcemanager.core.restful | restful包扫描路径 |
+| ps-data-source-manager | 新增 | wds.linkis.server.mybatis.mapperLocations | classpath:org/apache/linkis/datasourcemanager/core/dao/mapper/*.xml | mapper扫描路径 |
+| ps-data-source-manager | 新增 | wds.linkis.server.mybatis.typeAliasesPackage | org.apache.linkis.datasourcemanager.common.domain,org.apache.linkis.datasourcemanager.core.vo | 数据表映射实体类包路径 |
+| ps-data-source-manager | 新增 | wds.linkis.server.mybatis.BasePackage | org.apache.linkis.datasourcemanager.core.dao | Mybatis 包扫描路径 |
+| ps-data-source-manager | 新增 | hive.meta.url | None | hive连接地址 |
+| ps-data-source-manager | 新增 | hive.meta.user | None | hive连接用户 |
+| ps-data-source-manager | 新增 | hive.meta.password | None | hive连接密码 |
+| ps-data-source-manager | 新增 | wds.linkis.metadata.hive.encode.enabled | false | 是否启用BASE64编解码 |
+| ps-data-source-manager | 新增 | spring.server.port | 9109 | 服务端口 |
+| ps-data-source-manager | 新增 | spring.spring.main.allow-bean-definition-overriding | true | 是否允许Bean定义覆盖 |
+| ps-data-source-manager | 新增 | spring.jackson.serialization.FAIL_ON_EMPTY_BEANS | false | 是否允许空beans |
+| ps-data-source-manager | 新增 | wds.linkis.server.mdm.service.instance.expire-in-seconds | 1800 | 服务实例过期时间 |
+| ps-data-source-manager | 新增 | wds.linkis.server.restful.scan.packages | org.apache.linkis.metadata.query.server.restful | restful包扫描路径 |
+| ps-data-source-manager | 新增 | wds.linkis.server.dsm.app.name | linkis-ps-data-source-manager | 服务名称 |
+| ps-data-source-manager | 新增 | spring.server.port | 9110 | 服务端口 |
+| ps-publicservice | 修改 | wds.linkis.server.restful.scan.packages | org.apache.linkis.cs.server.restful,org.apache.linkis.datasourcemanager.core.restful,org.apache.linkis.metadata.query.server.restful,org.apache.linkis.jobhistory.restful,org.apache.linkis.variable.restful,org.apache.linkis.configuration.restful,org.apache.linkis.udf.api,org.apache.linkis.filesystem.restful,org.apache.linkis.filesystem.restful,org.apache.linkis.instance.label.restful,org.apache.linkis.metadata.restful.api,org.apache.linkis.cs.server.restful,org.apache.linkis.bml.restful,org.apache.linkis.errorcode.server.restful | restful包扫描路径 |
+|ps-publicservice|修改|wds.linkis.server.mybatis.mapperLocations|classpath*:org/apache/linkis/cs/persistence/dao/impl/*.xml,classpath:org/apache/linkis/datasourcemanager/core/dao/mapper/*.xml,classpath:org/apache/linkis/jobhistory/dao/impl/*.xml,classpath:org/apache/linkis/variable/dao/impl/*.xml,classpath:org/apache/linkis/configuration/dao/impl/*.xml,classpath:org/apache/linkis/udf/dao/impl/*.xml,classpath:org/apache/linkis/instance/label/dao/impl/*.xml,classpath:org/apache/linkis/metadata/hive/dao/impl/*.xml,org/apache/linkis/metadata/dao/impl/*.xml,classpath:org/apache/linkis/bml/dao/impl/*.xml|mapper扫描路径|
+|ps-publicservice|修改|wds.linkis.server.mybatis.typeAliasesPackage|org.apache.linkis.cs.persistence.entity,org.apache.linkis.datasourcemanager.common.domain,org.apache.linkis.datasourcemanager.core.vo,org.apache.linkis.configuration.entity,org.apache.linkis.jobhistory.entity,org.apache.linkis.udf.entity,org.apache.linkis.variable.entity,org.apache.linkis.instance.label.entity,org.apache.linkis.manager.entity,org.apache.linkis.metadata.domain,org.apache.linkis.bml.entity| 数据表映射实体类包路径 |
+|ps-publicservice|修改|wds.linkis.server.mybatis.BasePackage|org.apache.linkis.cs.persistence.dao,org.apache.linkis.datasourcemanager.core.dao,org.apache.linkis.jobhistory.dao,org.apache.linkis.variable.dao,org.apache.linkis.configuration.dao,org.apache.linkis.udf.dao,org.apache.linkis.instance.label.dao,org.apache.linkis.metadata.hive.dao,org.apache.linkis.metadata.dao,org.apache.linkis.bml.dao,org.apache.linkis.errorcode.server.dao,org.apache.linkis.publicservice.common.lock.dao|  Mybatis 包扫描路径 |
+| ps-publicservice | 新增 | wds.linkis.cs.deserialize.replace_package_header.enable | false | 反序列化时是否替换包头部 |
+| ps-publicservice | 新增 | wds.linkis.rpc.conf.enable.local.message | true | 是否启用本地消息 |
+| ps-publicservice | 新增 | wds.linkis.rpc.conf.local.app.list | linkis-ps-publicservice | 本地应用列表 |
+| ps-publicservice | 新增 | spring.server.port | 9105 | 服务端口 |
+| ps-publicservice | 新增 | spring.spring.main.allow-bean-definition-overriding | true | 是否允许Bean定义覆盖 |
+| ps-publicservice | 新增 | spring.spring.jackson.serialization.FAIL_ON_EMPTY_BEANS | false | 是否允许空beans |
+| ps-publicservice | 新增 | spring.eureka.instance.metadata-map.route | cs_1_dev | 路由前缀(必须以cs_打头 |
+
 
 ## 数据库表变化 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.2.0_schema`文件
+详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.3.0_schema`文件
