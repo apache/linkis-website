@@ -17,7 +17,7 @@ sidebar_position: 12
 
 - Apache 徽标  https://www.apache.org/foundation/press/kit/#poweredby 
 
-- APACHE 项目网站品牌政策 https://www.apache.org/foundation/marks/pmcs.html
+- Apache 项目网站品牌政策 https://www.apache.org/foundation/marks/pmcs.html
 
 - 商标QA问题  https://www.apache.org/foundation/marks/faq/#guide
 

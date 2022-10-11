@@ -1,5 +1,5 @@
 ---
-title: Deploy Apache Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2
+title: 基于 CDH6.3.2 部署 Apache Linkis1.1.1 和 DSS1.1.0
 authors: [kevinWdong]
 tags: [blog,linki1.1.1,hadoop3.0.0-cdh6.3.2,spark2.4.8,hive2.1.1]
 ---
