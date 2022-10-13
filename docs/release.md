@@ -2,8 +2,6 @@
 title: Version Overview
 sidebar_position: 0.1
 ---
-- [Linkis container build](/development/linkis-docker-build-instrument.md)
-- [Linkis container development and debugging](/development/linkis-docker-build-instrument.md)
 
 - [Build Linkis Docker Image](/development/linkis-docker-build-instrument.md)
 - [Linkis Docker LDH Quick Deployment](/development/linkis-debug-with-helm-charts.md)
@@ -14,7 +12,7 @@ sidebar_position: 0.1
 
 ## Configuration Item
 
-| module name (service name) | type | parameter name | default value | description |
+| Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
 | --------------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
 | common | ADD |linkis.session.redis.host| 127.0.0.1 | redis connection IP |
 | common | ADD |linkis.session.redis.port| 6379 | redis connection port |
@@ -55,4 +53,5 @@ sidebar_position: 0.1
 | ps-publicservice | ADD | spring.eureka.instance.metadata-map.route | cs_1_dev | route prefix(must be start with cs_ |
 
 ## DB Table Changes
-For details, see the upgrade schema`db/upgrade/1.3.0_schema` file in the corresponding branch of the code repository (https://github.com/apache/incubator-linkis).
+For details, see the upgrade schema`db/upgrade/1.3.0_schema` file in the corresponding branch of the 
+code repository (https://github.com/apache/incubator-linkis).

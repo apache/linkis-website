@@ -12,7 +12,7 @@ sidebar_position: 0.1
 
 ## Configuration Item
 
-| module name (service name) | type | parameter name | default value | description |
+| Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
 |eureka(application-eureka.yml) | New | management.endpoints.web.exposure.include|refresh,info,health,metrics | The endpoint exposure range for Spring Boot Actuator|
 |eureka(application-eureka.yml) | New |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} | Prometheus monitoring endpoint for microservices registered in Eureka metadata|
