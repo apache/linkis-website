@@ -8,9 +8,9 @@
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[Apache Linkis1.3.0 Service Merge]]></title>
+            <title><![CDATA[Linkis 1.3.0 PES(Public Enhancement Services) 服务组内部分服务的合并]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/10/09/linkis-service-merge</link>
-            <guid>Apache Linkis1.3.0 Service Merge</guid>
+            <guid>Linkis 1.3.0 PES(Public Enhancement Services) 服务组内部分服务的合并</guid>
             <pubDate>Sun, 09 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[前言]]></description>
         </item>
