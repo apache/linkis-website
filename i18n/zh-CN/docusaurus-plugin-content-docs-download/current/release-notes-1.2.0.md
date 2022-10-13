@@ -52,7 +52,7 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 + \[ECP-JDBC][[LINKIS-2392]](https://github.com/apache/incubator-linkis/pull/2392) JDBC引擎支持trino
 + \[COMMON][[LINKIS-2415]](https://github.com/apache/incubator-linkis/pull/2415) 支持变量操作
 
-## Enhancement
+## 增强点
 + \[COMMON][[LINKIS-1411]](https://github.com/apache/incubator-linkis/issues/1411) 移除 sun.misc.BASE64
 + \[COMMON][[LINKIS-1475]](https://github.com/apache/incubator-linkis/issues/1475) 优化代码风格
 + \[LM][[LINKIS-1763]](https://github.com/apache/incubator-linkis/issues/1763) 将非空验证添加到应用列表接口
@@ -101,7 +101,8 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 + \[ECP-JDBC][[LINKIS-2741]](https://github.com/apache/incubator-linkis/issues/2741) ConnectionManager中的连接缓存池键值将调整为数据源名称和版本号
 + \[ECP-JDBC][[LINKIS-2743]](https://github.com/apache/incubator-linkis/issues/2743) JDBC数据源配置优先级定义
 
-## Bugs Fix
+## 修复功能
+
 + \[PS-RM][[LINKIS-1850]](https://github.com/apache/incubator-linkis/pull/1850) 修复NPE问题
 + \[PE][[LINKIS-1879]](https://github.com/apache/incubator-linkis/issues/1879) FileWriter和BufferedWriter在finally子句中没有关闭
 + \[CG][[LINKIS-1911]](https://github.com/apache/incubator-linkis/issues/1911) 修复link-computing-client提交作业失败的问题
@@ -139,10 +140,10 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 + \[LM][[LINKIS-2688]](https://github.com/apache/incubator-linkis/issues/2688) 升级flink ec的默认EngineType版本
 + \[TOOL][[LINKIS-2701]](https://github.com/apache/incubator-linkis/issues/2701) 修复github repos页面的许可证显示与未知的许可证发现
 
-## Security related
+## 安全相关
 + \[SPRING][[LINKIS-2395]](https://github.com/apache/incubator-linkis/issues/2395) SynchronossPartHttpMessageReader应该只在需要时创建临时目录(CVE-2022-2296)
 
-## Dependency changes
+## 依赖变更
 + \[COMMON]\[CG]\[ECP][[LINKIS-2301]](https://github.com/apache/incubator-linkis/pull/2301) 更新依赖关系以修复CVE
 + \[CG][[LINKIS-2452]](https://github.com/apache/incubator-linkis/issues/2452) oshi-core 版本升级
 
