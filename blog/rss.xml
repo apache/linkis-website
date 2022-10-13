@@ -22,9 +22,9 @@
             <description><![CDATA[Environment and Version]]></description>
         </item>
         <item>
-            <title><![CDATA[deploy linkis with kubernetes]]></title>
+            <title><![CDATA[Deploy Linkis with Kubernetes]]></title>
             <link>https://linkis.incubator.apache.org/blog/2022/07/16/deploy-linkis-with-kubernetes</link>
-            <guid>deploy linkis with kubernetes</guid>
+            <guid>Deploy Linkis with Kubernetes</guid>
             <pubDate>Sat, 16 Jul 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[1. Dependencies and versions]]></description>
         </item>

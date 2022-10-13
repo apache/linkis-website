@@ -30,8 +30,8 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[deploy linkis with kubernetes]]></title>
-        <id>deploy linkis with kubernetes</id>
+        <title type="html"><![CDATA[Deploy Linkis with Kubernetes]]></title>
+        <id>Deploy Linkis with Kubernetes</id>
         <link href="https://linkis.incubator.apache.org/blog/2022/07/16/deploy-linkis-with-kubernetes"/>
         <updated>2022-07-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[1. Dependencies and versions]]></summary>
