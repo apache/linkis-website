@@ -3,11 +3,11 @@ title: Session Supports Redis Shared Storage
 sidebar_position: 8
 ---
 ## Background
-Because the original login session does not support distributed storage, for a user's request, it needs to request to the same gateway instance to process the request normally.
+Because the original login session does not support distributed storage, for all requests from the same user, nginx needs to forward the requests to the same gateway instance to process the requests normally.
 The common solution is to support it by configuring ip hash load balancing on the ingress nginx.
-However, in the ip hash method, if there is an expansion or contraction of the server, the hash values ​​of all client IPs need to be recalculated, which will result in session loss.
-Secondly, it is easy to cause data skew problems due to uneven node distribution. In order to optimize the problems existing in the ip hash method, shared storage is implemented for the session in the login state.
-
+However, in the ip hash method, if there is an expansion or contraction of the server, the hash values ​​of all client ips need to be recalculated, which will result in session loss.
+Secondly, it is easy to cause data skew problems due to uneven node distribution. 
+In order to optimize the problems existing in the ip hash method, shared storage is implemented for the session in the login state.
 
 ## Implementation plan
 Because session information is mainly identified by ticketId, and all external entrances are gateways, only the gateway module needs to be modified.
