@@ -4,41 +4,48 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.incubator.apache.org/zh-CN/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Tue, 27 Sep 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 Oct 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[Deploy Apache Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2]]></title>
+            <title><![CDATA[Apache Linkis1.3.0 Service Merge]]></title>
+            <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/10/09/linkis-service-merge</link>
+            <guid>Apache Linkis1.3.0 Service Merge</guid>
+            <pubDate>Sun, 09 Oct 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[前言]]></description>
+        </item>
+        <item>
+            <title><![CDATA[基于 CDH6.3.2 部署 Apache Linkis1.1.1 和 DSS1.1.0]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/09/27/linkis111-deploy</link>
-            <guid>Deploy Apache Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2</guid>
+            <guid>基于 CDH6.3.2 部署 Apache Linkis1.1.1 和 DSS1.1.0</guid>
             <pubDate>Tue, 27 Sep 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[前言]]></description>
         </item>
         <item>
-            <title><![CDATA[linkis1.1.1适配hadoop3.1.1以及部署其他服务]]></title>
+            <title><![CDATA[Linkis1.1.1 适配 hadoop3.1.1 以及部署其他系统服务]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/08/08/linkis111-compile-integration</link>
-            <guid>linkis1.1.1适配hadoop3.1.1以及部署其他服务</guid>
+            <guid>Linkis1.1.1 适配 hadoop3.1.1 以及部署其他系统服务</guid>
             <pubDate>Mon, 08 Aug 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[环境以及版本]]></description>
         </item>
         <item>
-            <title><![CDATA[部署到Kubernetes]]></title>
+            <title><![CDATA[如何进行 Kubernetes 部署]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/07/16/deploy-linkis-with-kubernetes</link>
-            <guid>部署到Kubernetes</guid>
+            <guid>如何进行 Kubernetes 部署</guid>
             <pubDate>Sat, 16 Jul 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[1. 依赖版本]]></description>
         </item>
         <item>
-            <title><![CDATA[如何为github仓库添加一个github action]]></title>
+            <title><![CDATA[如何编写 Github Action]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/07/04/how-to-add-auto-bot</link>
-            <guid>如何为github仓库添加一个github action</guid>
+            <guid>如何编写 Github Action</guid>
             <pubDate>Mon, 04 Jul 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[1 概述]]></description>
         </item>
         <item>
-            <title><![CDATA[Apache Linkis(Incubating) Meep Up]]></title>
+            <title><![CDATA[Apache Linkis(Incubating) Meet up]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/06/09/meetup-content-review</link>
-            <guid>Apache Linkis(Incubating) Meep Up</guid>
+            <guid>Apache Linkis(Incubating) Meet up</guid>
             <pubDate>Thu, 09 Jun 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[|Data|Topic & Video|Scripts|]]></description>
         </item>
@@ -50,9 +57,9 @@
             <description><![CDATA[本文主要指引大家如何下载每个版本对应的非默认引擎安装插件包。]]></description>
         </item>
         <item>
-            <title><![CDATA[OpenLooKeng的引擎的实现]]></title>
+            <title><![CDATA[openLooKeng 的引擎的实现]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/03/20/openlookeng</link>
-            <guid>OpenLooKeng的引擎的实现</guid>
+            <guid>openLooKeng 的引擎的实现</guid>
             <pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[概述]]></description>
         </item>

@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.incubator.apache.org/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Tue, 27 Sep 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 09 Oct 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Apache Linkis1.3.0 Service Merge]]></title>
+            <link>https://linkis.incubator.apache.org/blog/2022/10/09/linkis-service-merge</link>
+            <guid>Apache Linkis1.3.0 Service Merge</guid>
+            <pubDate>Sun, 09 Oct 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Foreword]]></description>
+        </item>
         <item>
             <title><![CDATA[Deploy Apache Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2]]></title>
             <link>https://linkis.incubator.apache.org/blog/2022/09/27/linkis111-deploy</link>
@@ -22,9 +29,9 @@
             <description><![CDATA[Environment and Version]]></description>
         </item>
         <item>
-            <title><![CDATA[deploy linkis with kubernetes]]></title>
+            <title><![CDATA[Deploy Linkis with Kubernetes]]></title>
             <link>https://linkis.incubator.apache.org/blog/2022/07/16/deploy-linkis-with-kubernetes</link>
-            <guid>deploy linkis with kubernetes</guid>
+            <guid>Deploy Linkis with Kubernetes</guid>
             <pubDate>Sat, 16 Jul 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[1. Dependencies and versions]]></description>
         </item>
