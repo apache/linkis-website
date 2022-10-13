@@ -2,11 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://linkis.incubator.apache.org/zh-CN/blog</id>
     <title>Apache Linkis Blog</title>
-    <updated>2022-09-27T00:00:00.000Z</updated>
+    <updated>2022-10-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://linkis.incubator.apache.org/zh-CN/blog"/>
     <subtitle>Apache Linkis Blog</subtitle>
     <icon>https://linkis.incubator.apache.org/zh-CN/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Apache Linkis1.3.0 Service Merge]]></title>
+        <id>Apache Linkis1.3.0 Service Merge</id>
+        <link href="https://linkis.incubator.apache.org/zh-CN/blog/2022/10/09/linkis-service-merge"/>
+        <updated>2022-10-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[前言]]></summary>
+        <author>
+            <name>aiceflower</name>
+            <uri>https://github.com/aiceflower/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[基于 CDH6.3.2 部署 Apache Linkis1.1.1 和 DSS1.1.0]]></title>
         <id>基于 CDH6.3.2 部署 Apache Linkis1.1.1 和 DSS1.1.0</id>
