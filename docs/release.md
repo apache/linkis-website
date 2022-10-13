@@ -5,6 +5,13 @@ sidebar_position: 0.1
 - [Linkis container build](/development/linkis-docker-build-instrument.md)
 - [Linkis container development and debugging](/development/linkis-docker-build-instrument.md)
 
+- [Build Linkis Docker Image](/development/linkis-docker-build-instrument.md)
+- [Linkis Docker LDH Quick Deployment](/development/linkis-debug-with-helm-charts.md)
+- [Development & Debugging with Kubernetes](development/linkis-debug-with-helm-charts.md)
+- [PES Public Service Group Service Merge Details](/blog/2022/10/09/linkis-service-merge)
+- [Session supports Redis shared storage](/user-guide/sso-with-redis.md)
+
+
 ## Configuration Item
 
 | module name (service name) | type | parameter name | default value | description |
