@@ -1,5 +1,5 @@
 ---
-title: deploy linkis with kubernetes
+title: Deploy Linkis with Kubernetes
 authors: [jacktao]
 tags: [github]
 ---

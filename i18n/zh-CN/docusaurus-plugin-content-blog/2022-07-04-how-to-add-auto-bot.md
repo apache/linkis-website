@@ -1,5 +1,5 @@
 ---
-title: 如何为github仓库添加一个github action
+title: 如何编写 Github Action
 authors: [BeaconTown]
 tags: [github]
 ---

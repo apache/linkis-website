@@ -1,5 +1,5 @@
 ---
-title: linkis1.1.1适配hadoop3.1.1以及部署其他服务
+title: Linkis1.1.1 适配 hadoop3.1.1 以及部署其他系统服务
 authors: [ruY9527]
 tags: [blog,linki1.1.1,hadoop3.1.1,spark3.0.1,hive3.1.2,flink1.13.2]
 ---

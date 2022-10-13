@@ -1,5 +1,5 @@
 ---
-title: 部署到Kubernetes
+title: 如何进行 Kubernetes 部署
 authors: [jacktao]
 tags: [github]
 ---
