@@ -5,7 +5,7 @@ sidebar_position: 0.17
 
 Apache Linkis(incubating) 1.3.0 包括所有 [Project Linkis-1.3.0](https://github.com/apache/incubator-linkis/projects/14).
 
-Linkis 1.3.0 版本发布主要进行了 Public Enhancement Services 服务组内部分服务的合并；SSO 登陆会话信息支持 redis 内存共享存储，支持网关服务的gateways分布式部署 ；支持 Linkis 服务部署在 Kubernetes 环境中，包括统一镜像构建、完整 Helm Charts、基于 Kind 的完整测试周边等。除此之外还做了一些功能的优化和 bug 修复。
+Linkis 1.3.0 版本发布主要进行了 PES(Public Enhancement Services) 服务组内部分服务的合并；SSO 登陆会话信息支持 redis 内存共享存储，支持网关服务的gateways分布式部署 ；支持 Linkis 服务部署在 Kubernetes 环境中，包括统一镜像构建、完整 Helm Charts、基于 Kind 的完整测试周边等。除此之外还做了一些功能的优化和 bug 修复。
 
 主要功能如下：
 * 将 ps-cs ps-data-source-manager ps-metadataquery 服务合并至 ps-publicservice，减少服务数量 
