@@ -6,7 +6,7 @@ sidebar_position: 0.1
 - [Linkis 容器化体验版 LDH 快速部署](/development/linkis-debug-with-helm-charts.md)
 - [Linkis 容器化开发调试](development/linkis-debug-with-helm-charts.md)
 - [PES 公共服务组服务合并详情](/blog/2022/10/09/linkis-service-merge)
-- [Session 支持 Redis 存储](/user-guide/sso-with-redis.md)
+- [Session 支持 Redis 共享存储](/user-guide/sso-with-redis.md)
 
 
 ## 参数变化 
