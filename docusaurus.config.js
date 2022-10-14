@@ -70,12 +70,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           blogSidebarCount: 'ALL'
         },
-      community: {
-          // routeBasePath: '/',
-          path: 'community',
-          sidebarPath: require.resolve('./sidebars.js'),
-          sidebarCollapsible: true,
-            },
+        // community: {
+        //   // routeBasePath: '/',
+        //   path: 'community',
+        //   sidebarPath: require.resolve('./sidebars.js'),
+        //   sidebarCollapsible: true,
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
         },
@@ -104,12 +104,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         src: 'img/logo.png',
       },
       items: [
-//       {
-//          to: '/',
-//          position: 'left',
-//          label: 'Home',
-//          activeBaseRegex: `^/$`,
-//        },
+        //       {
+        //          to: '/',
+        //          position: 'left',
+        //          label: 'Home',
+        //          activeBaseRegex: `^/$`,
+        //        },
         /*{
           type: 'docsVersionDropdown',
           position: 'right',
@@ -145,12 +145,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           position: 'left',
           activeBaseRegex: `/team`,
         },
-//        {
-//          to: '/blessing_wall',
-//          label: 'Blessing',
-//          position: 'left',
-//          activeBaseRegex: `/blessing_wall`,
-//        },
+        //        {
+        //          to: '/blessing_wall',
+        //          label: 'Blessing',
+        //          position: 'left',
+        //          activeBaseRegex: `/blessing_wall`,
+        //        },
         {
           to: '/user',
           label: 'Users',
@@ -167,49 +167,49 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Doc',
           position: 'right',
           items: [
-            {label: 'Next(1.3.0)', to: '/docs/1.3.0/introduction'},
-            {label: '1.2.0', to: '/docs/latest/introduction'},
-            {label: '1.1.3', to: '/docs/1.1.3/introduction'},
-            {label: '1.1.2', to: '/docs/1.1.2/introduction'},
-            {label: '1.1.1', to: '/docs/1.1.1/introduction'},
-            {label: '1.1.0', to: '/docs/1.1.0/introduction'},
-            {label: '1.0.3', to: '/docs/1.0.3/introduction'},
-            {label: '1.0.2', to: '/docs/1.0.2/introduction'},
-            {label: '0.11.0', to: '/docs/0.11.0/introduction'},
-            {label: 'All Version', to: '/versions'}
+            { label: 'Next(1.3.0)', to: '/docs/1.3.0/introduction' },
+            { label: '1.2.0', to: '/docs/latest/introduction' },
+            { label: '1.1.3', to: '/docs/1.1.3/introduction' },
+            { label: '1.1.2', to: '/docs/1.1.2/introduction' },
+            { label: '1.1.1', to: '/docs/1.1.1/introduction' },
+            { label: '1.1.0', to: '/docs/1.1.0/introduction' },
+            { label: '1.0.3', to: '/docs/1.0.3/introduction' },
+            { label: '1.0.2', to: '/docs/1.0.2/introduction' },
+            { label: '0.11.0', to: '/docs/0.11.0/introduction' },
+            { label: 'All Version', to: '/versions' }
           ]
         },
         {
           label: 'ASF',
           position: 'left',
           items: [{
-              label: "Foundation",
-              to: "https://www.apache.org/",
-            },
-            {
-              label: "License",
-              to: "https://www.apache.org/licenses/",
-            },
-            {
-              label: "Events",
-              to: "https://www.apache.org/events/current-event",
-            },
-            {
-              label: "Security",
-              to: "https://www.apache.org/security/",
-            },
-            {
-              label: "Sponsorship",
-              to: "https://www.apache.org/foundation/sponsorship.html",
-            },
-            {
-              label: "Privacy",
-              to: "https://www.apache.org/foundation/policies/privacy.html",
-            },
-            {
-              label: "Thanks",
-              to: "https://www.apache.org/foundation/thanks.html",
-            },
+            label: "Foundation",
+            to: "https://www.apache.org/",
+          },
+          {
+            label: "License",
+            to: "https://www.apache.org/licenses/",
+          },
+          {
+            label: "Events",
+            to: "https://www.apache.org/events/current-event",
+          },
+          {
+            label: "Security",
+            to: "https://www.apache.org/security/",
+          },
+          {
+            label: "Sponsorship",
+            to: "https://www.apache.org/foundation/sponsorship.html",
+          },
+          {
+            label: "Privacy",
+            to: "https://www.apache.org/foundation/policies/privacy.html",
+          },
+          {
+            label: "Thanks",
+            to: "https://www.apache.org/foundation/thanks.html",
+          },
           ],
         },
         {
@@ -227,53 +227,53 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     footer: {
       style: 'light',
       links: [{
-          title: 'Linkis',
-          items: [{
-              label: 'Document',
-              href: '/docs/latest/introduction',
-            },
-            {
-              label: 'FAQ',
-              href: '/faq/main',
-            },
-            {
-              label: 'Releases',
-              href: 'https://github.com/apache/incubator-linkis/releases',
-            },
-          ],
+        title: 'Linkis',
+        items: [{
+          label: 'Document',
+          href: '/docs/latest/introduction',
         },
         {
-          title: 'Community',
-          items: [{
-              label: 'GitHub',
-              href: 'https://github.com/apache/incubator-linkis',
-            },
-            {
-              label: 'Issue Tracker',
-              href: 'https://github.com/apache/incubator-linkis/issues',
-            },
-            {
-              label: 'Pull Requests',
-              href: 'https://github.com/apache/incubator-linkis/pulls',
-            },
-          ],
+          label: 'FAQ',
+          href: '/faq/main',
         },
         {
-          title: 'Subscribe Mailing List',
-          items: [{
-              label: 'How to Subscribe',
-              to: '/community/how-to-subscribe',
-            },
-            {
-              label: 'Subscribe Mail',
-              href: 'mailto:dev-subscribe@linkis.apache.org',
-            },
-            {
-              label: 'Mail Archive',
-              href: 'https://lists.apache.org/list.html?dev@linkis.apache.org',
-            },
-          ],
+          label: 'Releases',
+          href: 'https://github.com/apache/incubator-linkis/releases',
         },
+        ],
+      },
+      {
+        title: 'Community',
+        items: [{
+          label: 'GitHub',
+          href: 'https://github.com/apache/incubator-linkis',
+        },
+        {
+          label: 'Issue Tracker',
+          href: 'https://github.com/apache/incubator-linkis/issues',
+        },
+        {
+          label: 'Pull Requests',
+          href: 'https://github.com/apache/incubator-linkis/pulls',
+        },
+        ],
+      },
+      {
+        title: 'Subscribe Mailing List',
+        items: [{
+          label: 'How to Subscribe',
+          to: '/community/how-to-subscribe',
+        },
+        {
+          label: 'Subscribe Mail',
+          href: 'mailto:dev-subscribe@linkis.apache.org',
+        },
+        {
+          label: 'Mail Archive',
+          href: 'https://lists.apache.org/list.html?dev@linkis.apache.org',
+        },
+        ],
+      },
       ],
       copyright: `<div><img style="height:50px" alt="Apache Software Foundation" src="/img/incubator-logo.svg" /><p style="color: #999999;  padding: 0 20px 30px;font-weight:400;text-align:left">Apache Linkis is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p></p>
              <p style="padding: 0 20px 30px;color: #999999;font-weight: 400;"> Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache Linkis, Apache Incubator, Apache, the Apache feather logo, the Apache Linkis logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.</p>
@@ -286,14 +286,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     scripts: ['/script/matomo.js'],
   },
   plugins: [
-     [
-        'docusaurus-plugin-less',
-        {
-          lessOptions: {
-            javascriptEnabled: true,
-          },
+    [
+      'docusaurus-plugin-less',
+      {
+        lessOptions: {
+          javascriptEnabled: true,
         },
-      ],
+      },
+    ],
     'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-content-docs',
