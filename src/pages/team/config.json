@@ -19,6 +19,12 @@
         "email": "zhanghuajin@apache.org"
       },
       {
+        "apacheId": "zhiqiangtao",
+        "githubId": "jacktao007",
+        "name": "陶志强",
+        "email": "zhiqiangtao@apache.org"
+      },
+      {
         "apacheId": "xujie",
         "githubId": "xiaojie19852006",
         "name": "徐杰",
@@ -226,6 +232,12 @@
         "githubId": "utopianet",
         "name": "HuaJin Zhang",
         "email": "zhanghuajin@apache.org"
+      },
+      {
+        "apacheId": "zhiqiangtao",
+        "githubId": "jacktao007",
+        "name": "ZhiQiang Tao",
+        "email": "zhiqiangtao@apache.org"
       },
       {
         "apacheId": "xujie",
