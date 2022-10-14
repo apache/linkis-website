@@ -379,39 +379,16 @@ linkismanager服务修改下这个配置：wds.linkis.manager.rm.request.enable=
 或者关闭检测
 linkismanager服务修改下这个配置：wds.linkis.manager.rm.request.enable=false
 
-#### Q19: dss-framework-project-serve 启动失败
-问题现象：
-dss-framework-project-serve 启动失败
-
-日志：
-
-2021-10-12 11:52:49.122 ERROR [main] org.springframework.boot.SpringApplication 837 reportFailure - Application run failed org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'appConnManagerRestfulApi': Invocation of init method failed; nested exception is LinkisException{errCode=100000, desc='errCode: 90003 ,desc: /opt/dss/Install/dss-dev/dss-appconns/orchestrator-framework to zip file failed ,ip:  ,port: 9002,serviceKind: dss-framework-project-server', ip=', port=9002, serviceKind='dss-framework-project-server'}
-
-
-
-#### Q20: 执行脚本报错
-执行脚本报错
-
+#### Q19: 执行脚本报错
 ```
 GatewayErrorException: errCode: 11012 ,desc: Cannot find an instance in the routing chain of serviceId [linkis-cg-entrance], please retry ,ip: localhost ,port: 9001 ,serviceKind: linkis-mg-gateway
 ```
 
 ![](/faq/q39_1.png)
 
-#### Q21: DSS开头的接口全部报错
-```
-报错内容TooManyServiceException: errCode: 11010 ,desc: Cannot find a correct serviceId for parsedServiceId dss, service list is: List(dss-framework-project-server, dss-framework-orchestrator-server-dev, dss-apiservice-server, dss-datapipe-server, dss-workflow-server-dev, dss-flow-entrance)
-```
+A:请检查linkis-cg-entrance服务是否正常启动。
 
-![](/faq/q40_1.png)
-
-![](/faq/q40_2.png)
-
-![](/faq/q40_3.png)
-
-
-
-#### Q22:  ScriptIs执行脚本 TimeoutException
+#### Q20:  ScriptIs执行脚本 TimeoutException
 
 ![](/faq/q41_1.png)
 
@@ -420,24 +397,20 @@ linkis-cg-linkismanager.log中， 重复打印Need a ServiceInstance(linkis-cg-e
 
 
 
-#### Q23:  配置默认jdbc
-
-![](/faq/q42_1.png)
-
-#### Q24: 引擎超时时间设置
+#### Q21: 引擎超时时间设置
 
 ![](/faq/q43_1.png)
 
 ①管理台参数配置，可以对应引擎参数，可以修改超时时间。保存后kill现有引擎即可。
 ②如未显示超时配置，需要手动修改 linkis-engineplugins目录下，对应引擎插件目录 如 spark/dist/v2.4.3/conf/linkis-engineconn.properties ，默认配置 wds.linkis.engineconn.max.free.time=1h ，表示1h超时，可带单位m 、h。0表示不超时，不会自动kill。改完需要重启ecp，并且kill现有引擎，跑新任务起引擎即可生效。
 
-#### Q25:  新建工作流的时候，提示“504 Gateway Time-out”
+#### Q22:  新建工作流的时候，提示“504 Gateway Time-out”
 
 ![](/faq/q44_1.png)
 
 错误信息：The instance 05f211cb021e:9108 of application linkis-ps-cs is not exists. ,ip: 5d30e4bb2f42 ,port: 9001 ,serviceKind: linkis-mg-gateway，如下图：
 
-#### Q26:  Scripts执行python脚本(脚本内容是很简单的print)正常执行成功，通过任务调度系统也可以执行成功，通过作业流的编辑作业脚本页面也可执行成功，但是通过作业流执行时报错
+#### Q23:  Scripts执行python脚本(脚本内容是很简单的print)正常执行成功，通过任务调度系统也可以执行成功，通过作业流的编辑作业脚本页面也可执行成功，但是通过作业流执行时报错
 错误信息：
 
 ```
@@ -465,18 +438,18 @@ Exception in thread "main" java.lang.NullPointerException
 
 解决方案：/opt/kepler/work/engine/hadoop/workDir/9c28976e-63ba-4d9d-b85e-b37d84144596目录下conf为空导致的。lib和conf是在微服务启动时，由系统检查到（linkis/lib/linkis-engineconn-plugins/python）python引擎物料包zip变化，自动上传至engine/engineConnPublickDir/目录下。临时解决问题是将linkis/lib/linkis-engineconn-plugins/python下的lib和conf内容复制到engine/engineConnPublickDir/对应的目录（即workDir/9c28976e-63ba-4d9d-b85e-b37d84144596里的外链接引用的目录）下。正式方案需解决物料包变化未能成功上传到engineConnPublickDir的问题。
 
-#### Q27:  安装Exchangis0.5.0后通过dss菜单点击进入新页面提示“Sorry, Page Not Found”。F12查看有404异常
+#### Q24:  安装Exchangis0.5.0后通过dss菜单点击进入新页面提示“Sorry, Page Not Found”。F12查看有404异常
 错误信息：F12查看到vue.runtime.esm.js:6785 GET http://10.0.xx.xx:29008/udes/auth?redirect=http%3A%2F%2F10.0.xx.xx%3A29008&dssurl=http%3A%2F%2F10.0.xx.xx%3A8088&cookies=bdp-user-ticket-id%3DM7UZXQP9Ld1xeftV5DUGYeHdOc9oAFgW2HLiVea4FcQ%3D%3B%20workspaceId%3D225 404 (Not Found)
-#### Q28:  HIVE 里面配置atlas出现死循环导致堆栈溢出
+#### Q25:  HIVE 里面配置atlas出现死循环导致堆栈溢出
 需要将${ATLAS_HOME}/atlas/hook/hive/ 下所有内容jar包及子目录加入到hive engine 的 lib目录下，不然AtlasPluginClassLoader找不到正确的实现类而找到的是hive-bridge-shim下的类，导致死循环
 但是Linkis（1.0.2）现在的执行方式不支持lib下有子目录，需要修改代码，参考：
 https://github.com/apache/incubator-linkis/pull/1058
 
-#### Q29:  Linkis1.0.X基于 spark3 hadoop3 hive3 或 hdp3.1.4 编译需要修改的地方请参考：
+#### Q26:  Linkis1.0.X基于 spark3 hadoop3 hive3 或 hdp3.1.4 编译需要修改的地方请参考：
 https://github.com/lordk911/Linkis/commits/master
 编译好之后DSS请依据编译好的包重新编译，scala保持版本一致，web模块用全家桶的就行
 
-#### Q30: linkis 执行jdbc任务无法获取到用户名
+#### Q27 linkis 执行jdbc任务无法获取到用户名
 2021-10-31 05:16:54.016 ERROR Task is Failed,errorMsg: NullPointerException: jdbc.username cannot be null.
 源代码：com.webank.wedatasphere.linkis.manager.engineplugin.jdbc.executer.JDBCEngineConnExecutor 接收到的val properties = engineExecutorContext.getProperties.asInstanceOf[util.Map[String, String]] 没有jdbc.username 参数
 
@@ -486,7 +459,7 @@ https://github.com/lordk911/Linkis/commits/master
 解决方法2：对比修改此文件
 https://github.com/apache/incubator-linkis/blob/319213793881b0329022cf4137ee8d4c502395c7/linkis-engineconn-plugins/engineconn-plugins/jdbc/src/main/scala/com/webank/wedatasphere/linkis/manager/engineplugin/jdbc/executer/JDBCEngineConnExecutor.scala
 
-#### Q31:  安装前更改配置中的hive版本后，管理台的配置中仍然显示版本为2.3.3
+#### Q28:  安装前更改配置中的hive版本后，管理台的配置中仍然显示版本为2.3.3
 
 ![](/faq/q50_1.png)
 
@@ -494,7 +467,7 @@ https://github.com/apache/incubator-linkis/blob/319213793881b0329022cf4137ee8d4c
 方案二：如果不想重新安装，则需要在linkis_cg_manager_label表中label_value包含hive-2.3.3的所有值改成希望的hive版本即可
 Note：欢迎将此问题在github Linkis项目提交PR进行修复，然后告知我们，我们会尽快review并合并到代码中（目前未修复，Deadline 2021年11月30日）
 
-#### Q32: linkis-cli 提交任务，提示GROUP BY clause; sql_mode=only_full_group_by错误
+#### Q29: linkis-cli 提交任务，提示GROUP BY clause; sql_mode=only_full_group_by错误
 ```
 _8_codeExec_8 com.webank.wedatasphere.linkis.orchestrator.ecm.exception.ECMPluginErrorException: errCode: 12003 ,desc: uathadoop01:9101_8 Failed  to async get EngineNode MySQLSyntaxErrorException: Expression #6 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dss_linkis.si.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by ,ip: uathadoop01 ,port: 9104 ,serviceKind: linkis-cg-entrance
 ```
@@ -503,7 +476,7 @@ _8_codeExec_8 com.webank.wedatasphere.linkis.orchestrator.ecm.exception.ECMPlugi
 原因：这个错误发生在mysql 5.7 版本及以上版本会出现的问题：因为配置严格执行了"SQL92标准"，解决方法：进入/etc/mysql目录下修改my.cnf文件 在 [mysqld] 下面添加代码：
 sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 
-  #### Q33: flink引擎启动时报错找到TokenCache
+  #### Q30: flink引擎启动时报错找到TokenCache
 ERROR [main] com.webank.wedatasphere.linkis.engineconn.computation.executor.hook.ComputationEngineConnHook 57 error - EngineConnSever start failed! now exit. java.lang.NoClassDefFoundError: org/apache/hadoop/mapreduce/security/TokenCache
 原因：flink-enginecon lib下缺少hadoop-mapreduce-client-core.jar这个jar包，从hadoop的lib下拷贝一份即可。
 
@@ -512,11 +485,11 @@ ERROR [main] com.webank.wedatasphere.linkis.engineconn.computation.executor.hook
 
 原因：flink引擎目录下的conf里的配置文件为空，读取了默认的配置（默认读取hived引擎的配置），删除配置表中关于flink的conf 然后重启ecp
 
-#### Q35: 启动flink引擎/spark引擎时，engine-entrance报错org.json4s.JsonAST$JNothing$ cannot be cast to org.json4s.JsonAST$JString
+#### Q31: 启动flink引擎/spark引擎时，engine-entrance报错org.json4s.JsonAST$JNothing$ cannot be cast to org.json4s.JsonAST$JString
 原因是linkis-manager里面报错yarn队列获取异常
 解决办法：修改linkis_cg_rm_external_resource_provider表中修改对应config的yarn队列信息
 
-#### Q55、函数脚本执行时报ClassNotFoundException
+#### Q32:函数脚本执行时报ClassNotFoundException
 
 ![](/faq/q55_1.png)
 
@@ -530,7 +503,7 @@ ERROR [main] com.webank.wedatasphere.linkis.engineconn.computation.executor.hook
   }
 ```
 
-### Q36: CDH环境Linkis执行Spark任务报：Failed to start bean 'webServerStartStop
+### Q33: CDH环境Linkis执行Spark任务报：Failed to start bean 'webServerStartStop
 
 详细日志：
 ```shell
