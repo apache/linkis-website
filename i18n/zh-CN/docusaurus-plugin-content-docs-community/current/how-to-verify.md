@@ -254,7 +254,7 @@ $ cd apache-linkis-${release_version}-incubating-bin
 
 PPMC在dev@linkis.apache.org linkis的社区投票时，请带上 binding后缀，表示对linkis社区中的投票具有约束性投票，方便统计投票结果。
 
-IPMC在general@incubator.apache.org incubator社区投票，请带上 binding后缀，表示表示对incubator社区中的投票具有约束性投票，方便统计投票结果。
+IPMC在general@incubator.apache.org incubator社区投票，请带上 binding后缀，表示对incubator社区中的投票具有约束性投票，方便统计投票结果。
 
 </font>
 
