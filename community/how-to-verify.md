@@ -3,7 +3,7 @@ title: How to Verify
 sidebar_position: 4
 ---
 
-# Verify the candidate version
+# Verify the Candidate Version
 
 For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
