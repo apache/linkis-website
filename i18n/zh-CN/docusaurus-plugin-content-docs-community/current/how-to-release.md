@@ -365,10 +365,7 @@ $ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.1.2-i
 $ cp  linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz   dist/apache-linkis
 ```
 
-### 2.6 打包前端管理台(如果需要发布前端)
-:::caution 注意
-如果不发布前端项目，可以跳过此步骤
-:::
+### 2.6 打包前端管理台
 
 #### 2.6.1 安装Node.js
 将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node v14版本）

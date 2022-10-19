@@ -306,9 +306,6 @@ $ cp linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-li
 ```
 
 ### 2.6 Package front-end management console
-:::caution Note
-If you do not publish the front-end project, you can skip this step
-:::
 
 #### 2.6.1 Install Node.js
 Download Node.js to the local and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (node v14 version is recommended)
