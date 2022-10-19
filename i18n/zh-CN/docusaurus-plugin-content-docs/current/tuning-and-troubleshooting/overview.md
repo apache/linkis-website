@@ -106,7 +106,10 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 | /api/rest_j/v1/errorcode/*          | linkis-ps-publicservice         |
 | /api/rest_j/v1/udf/*                | linkis-ps-publicservice         |
 | /api/rest_j/v1/datasource/*         | linkis-ps-publicservice         |
+| /api/rest_j/v1/metadatamanager/*    | linkis-ps-publicservice      |
+| /api/rest_j/v1/data-source-manager/*| linkis-ps-publicservice   |
 | /api/rest_j/v1/engineplugin/*       | linkis-engineconn-plugin        |
+| /api/rest_j/v1/contextservice/*(暂未使用到)     | linkis-ps-publicservice                  |
 
 对于请求异常的定位，可以根据上表的对应关系，去对应的服务日志中进行查看
 

@@ -33,6 +33,8 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 |cg-engineconnmanager|cg-engineconnmanager|
 |entrance|cg-entrance|
 |bml|ps-bml|
+|contextservice|ps-publicservice|
+|datasource|ps-publicservice|
 |configuration||
 |microservice||
 |jobhistory|ps-publicservice|
@@ -81,7 +83,6 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 >
 >服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.out`
 
-
 - ps-datasource：
 >GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource-gc.log`
 >
@@ -96,7 +97,22 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 >
 >服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice.out`
 
-### 4. 异常定位
+###  4. 查看日志
+展示接口对应的报错信息
+
+找到请求日志，日志中会展示出服务调用的其他服务，或者展示自己服务中处理的逻辑日志
+>tail -fn200 linkis-ps-publicservice.log
+
+![企业微信截图_16661762643889](https://user-images.githubusercontent.com/106590848/196670615-a23f93ff-e98a-4464-bda1-ca7a0dd1c7c2.png)
+
+**该图展示的是报错的详细服务日志**
+
+前端报错展示
+
+![企业微信截图_16661762322722](https://user-images.githubusercontent.com/106590848/196670764-4419b375-a56c-4ace-84cf-86e5a5de6cd0.png)
+
+
+### 5. 异常定位
 `ECMResourceClear failed, ecm current resource:bdpuje
 s110003:9102{"instance":0,"memory":"0.0 B","cpu":0} org.apache.linkis.manager.exception.PersistenceErrorException: errCode: 210001 ,desc: label not found, this label may be removed a
 lready. , ip: bdpujes110003 ,port: 9101 ,serviceKind: linkis-cg-linkismanager`

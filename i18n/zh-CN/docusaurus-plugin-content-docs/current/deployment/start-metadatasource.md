@@ -38,9 +38,9 @@ sidebar_position: 7
 
 - LinkisDataSourceRemoteClient客户端根据请求参数，组装http请求，
 - HTTP请求发送到linkis-ps-data-source-manager
-- ps-publicservice 会进行基本参数校验，部分接口只能管理员角色能操作 
-- ps-publicservice 与数据库进行基本的数据操作
-- ps-publicservice 提供的数据源测试连接的接口 内部通过rpc方式，调用ps-metadatamanager方法进行连接测试
+- linkis-datasource-manager-server-x.x.x.jar 会进行基本参数校验，部分接口只能管理员角色能操作 
+- linkis-datasource-manager-server-x.x.x.jar 与数据库进行基本的数据操作
+- linkis-datasource-manager-server-x.x.x.jar 提供的数据源测试连接的接口 内部通过rpc方式，调用ps-metadatamanager方法进行连接测试
 - http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化
 
 LinkisDataSourceRemoteClient接口 
@@ -108,7 +108,7 @@ linkis的启动脚本中默认不会启动数据源相关的服务, 通过linkis
 
 通过eureka页面查看服务是否正常启动 
 
-![image](https://user-images.githubusercontent.com/106590848/196632605-005f15b7-4c75-497b-8c20-1e30833921ee.png)
+![企业微信截图_16661765352765](https://user-images.githubusercontent.com/106590848/196671241-5c82289e-8f88-473e-8bf7-4dc14514beb2.png)
 
 :::caution 注意
 - 1.linkis的管理台web版本需要配合升级至1.1.0版本才能在linkis管理台上使用数据源管理页面功能。
