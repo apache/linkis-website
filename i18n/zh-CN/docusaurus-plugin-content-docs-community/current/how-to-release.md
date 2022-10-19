@@ -274,7 +274,7 @@ step3 检查
 
 step4 clone对应的release分支到本地 
 ```shell script
-#-b release-1.12-rc1 指定clone分支  -c(config) 指定使用的配置  core.autocrlf=fals 关闭自动换行符的转换 
+#-b release-1.12-rc1 指定clone分支  -c(config) 指定使用的配置  core.autocrlf=false 关闭自动换行符的转换 
 git clone -b release-1.1.2-rc1  -c core.autocrlf=false  git@github.com:apache/incubator-linkis.git 
 
 ```
