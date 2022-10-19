@@ -18,7 +18,7 @@ sidebar_position: 7
 客户端模块，用户数据源的基本管理的DataSourceRemoteClient，以及进行元数据的查询操作的MetaDataRemoteClient.
 
 ** linkis-datasource-manager-server **
-数据源管理模块,服务名ps-data-source-manager。对数据源的进行基本的管理，对外提供数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便元数据查询模块通过rpc调用，查询数据库建立连接需要的必要信息。
+数据源管理模块,服务名ps-publicservice。对数据源的进行基本的管理，对外提供数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便元数据查询模块通过rpc调用，查询数据库建立连接需要的必要信息。
 
 - [http接口文档](/api/http/linkis-ps-publicservice-api/data-source-manager-api.md)
 - http接口类 org.apache.linkis.metadatamanager.server.restful
@@ -38,9 +38,9 @@ sidebar_position: 7
 
 - LinkisDataSourceRemoteClient客户端根据请求参数，组装http请求，
 - HTTP请求发送到linkis-ps-data-source-manager
-- linkis-ps-data-source-manager 会进行基本参数校验，部分接口只能管理员角色能操作 
-- linkis-ps-data-source-manager 与数据库进行基本的数据操作
-- linkis-ps-data-source-manager 提供的数据源测试连接的接口 内部通过rpc方式，调用ps-metadatamanager方法进行连接测试
+- ps-publicservice 会进行基本参数校验，部分接口只能管理员角色能操作 
+- ps-publicservice 与数据库进行基本的数据操作
+- ps-publicservice 提供的数据源测试连接的接口 内部通过rpc方式，调用ps-metadatamanager方法进行连接测试
 - http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化
 
 LinkisDataSourceRemoteClient接口 
@@ -66,8 +66,8 @@ LinkisDataSourceRemoteClient接口
 
 - LinkisMetaDataRemoteClient客户端，根据请求参数，组装http请求， 
 - HTTP请求发送到ps-metadatamanager
-- ps-metadatamanager 会进行基本参数校验，
-- 请求会根据参数 datasourceId，发送RPC请求到linkis-ps-data-source-manager，获取该数据源的类型，连接参数如用户名密码等信息
+- ps-publicservice 会进行基本参数校验，
+- 请求会根据参数 datasourceId，发送RPC请求到ps-publicservice，获取该数据源的类型，连接参数如用户名密码等信息
 - 拿到连接需要的信息后，根据数据源类型，加载对应目录下的lib包，通过反射机制调用对应的函数方法，从而查询到元数据信息
 - http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化 
 
@@ -98,35 +98,17 @@ linkis-public-enhancements/linkis-datasource
 
 
 ```
-### 1.4 安装包目录结构
-
-```shell script
-/lib/linkis-public-enhancements/
-
-├── linkis-ps-data-source-manager
-├── linkis-ps-metadatamanager
-│   └── service
-│       ├── elasticsearch
-│       ├── hive
-│       ├── kafka
-│       └── mysql
-```
-`wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
-
-### 1.5 配置参数 
+### 1.4 配置参数 
 
 参见[调优排障>参数列表#datasource配置参数](/docs/1.1.0/tuning-and-troubleshooting/configuration/#6-数据源及元数据服务配置参数)
 
 ## 2. 数据源功能的启用
 
-linkis的启动脚本中默认不会启动数据源相关的服务两个服务（ps-data-source-manager，ps-metadatamanager），
-如果想使用数据源服务，可以通过如下方式进行开启:
-修改`$LINKIS_CONF_DIR/linkis-env.sh`中的 `export ENABLE_METADATA_MANAGER=true`值为true。
-通过linkis-start-all.sh/linkis-stop-all.sh 进行服务启停时，会进行数据源服务的启动与停止。
+linkis的启动脚本中默认不会启动数据源相关的服务, 通过linkis-start-all.sh/linkis-stop-all.sh 进行服务启停时，会进行数据源服务的启动与停止。
 
 通过eureka页面查看服务是否正常启动 
 
-![datasource eureka](/Images-zh/deployment/datasource/eureka.png)
+![image](https://user-images.githubusercontent.com/106590848/196632605-005f15b7-4c75-497b-8c20-1e30833921ee.png)
 
 :::caution 注意
 - 1.linkis的管理台web版本需要配合升级至1.1.0版本才能在linkis管理台上使用数据源管理页面功能。

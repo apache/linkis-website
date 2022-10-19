@@ -65,15 +65,6 @@ filter:`is:issue spark3`
 │   ├── linkis-mg-gateway-gc.log
 │   ├── linkis-mg-gateway.log
 │   ├── linkis-mg-gateway.out
-│   ├── linkis-ps-cs-gc.log
-│   ├── linkis-ps-cs.log
-│   ├── linkis-ps-cs.out
-│   ├── linkis-ps-data-source-manager-gc.log
-│   ├── linkis-ps-data-source-manager.log
-│   ├── linkis-ps-data-source-manager.out
-│   ├── linkis-ps-metadatamanager-gc.log
-│   ├── linkis-ps-metadatamanager.log
-│   ├── linkis-ps-metadatamanager.out
 │   ├── linkis-ps-publicservice-gc.log
 │   ├── linkis-ps-publicservice.log
 │   └── linkis-ps-publicservice.out
@@ -115,10 +106,7 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 | /api/rest_j/v1/errorcode/*          | linkis-ps-publicservice         |
 | /api/rest_j/v1/udf/*                | linkis-ps-publicservice         |
 | /api/rest_j/v1/datasource/*         | linkis-ps-publicservice         |
-| /api/rest_j/v1/metadatamanager/*    | linkis-ps-metadatamanager       |
-| /api/rest_j/v1/data-source-manager/*| linkis-ps-data-source-manager   |
 | /api/rest_j/v1/engineplugin/*       | linkis-engineconn-plugin        |
-| /api/rest_j/v1/contextservice/*(暂未使用到)     | linkis-ps-cs                    |
 
 对于请求异常的定位，可以根据上表的对应关系，去对应的服务日志中进行查看
 

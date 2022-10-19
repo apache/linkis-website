@@ -33,8 +33,6 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 |cg-engineconnmanager|cg-engineconnmanager|
 |entrance|cg-entrance|
 |bml|ps-bml|
-|contextservice|ps-cs|
-|datasource|ps-datasource|
 |configuration||
 |microservice||
 |jobhistory|ps-publicservice|
@@ -83,12 +81,6 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 >
 >服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.out`
 
-- ps-cs：
->GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs-gc.log`
->
->服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.log`
->
->服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.out`
 
 - ps-datasource：
 >GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource-gc.log`
@@ -104,28 +96,7 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 >
 >服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice.out`
 
-###  4. 查看日志
-展示接口对应的报错信息
-
-找到请求日志，日志中会展示出服务调用的其他服务，或者展示自己服务中处理的逻辑日志
->tail -fn200 linkis-ps-data-source-manager.log
-
-![](/Images/tuning-and-troubleshooting/error-guide/datasourcemanager.png)
-
-**上图展示的是服务调用其他服务的日志，可根据此信息查询另外服务的日志**
-
-**下图展示的是真正报错的服务日志**
-
->tail -fn200 linkis-ps-metadataquery.log
-
-![](/Images/tuning-and-troubleshooting/error-guide/errorMsgFromMeta.png)
-
-前端报错展示
-
-![](/Images/tuning-and-troubleshooting/error-guide/errorMsg.png)
-
-
-### 5. 异常定位
+### 4. 异常定位
 `ECMResourceClear failed, ecm current resource:bdpuje
 s110003:9102{"instance":0,"memory":"0.0 B","cpu":0} org.apache.linkis.manager.exception.PersistenceErrorException: errCode: 210001 ,desc: label not found, this label may be removed a
 lready. , ip: bdpujes110003 ,port: 9101 ,serviceKind: linkis-cg-linkismanager`

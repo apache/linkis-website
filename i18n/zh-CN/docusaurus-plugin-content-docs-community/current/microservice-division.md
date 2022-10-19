@@ -21,10 +21,6 @@ Linkis 基于微服务架构开发，其服务可以分为3类服务群（组）
 |     CGS      | linkis-cg-engineconnmanager | EngineConn的管理器，提供引擎的生命周期管理，同时向ResourceManager汇报负载信息和自身的健康状况  |
 |     CGS      | linkis-cg-engineconn| 是与底层计算存储引擎(Hive/Spark)的实际连接的服务，包含了与实际引擎的会话信息。对于底层计算存储引擎来说 它充当了一个客户端的角色                  |
 |     PES      | linkis-ps-publicservice|为其他微服务模块提供统一配置管理、上下文服务、BML物料库、数据源管理、微服务管理和历史任务查询等功能                   |
-|     PES      | linkis-ps-cs | 上下文服务，解决一个数据应用开发流程，跨多个服务间的数据和信息共享问题                  |
-|     PES      | linkis-ps-metadatamanager|       只提供元数据查询服务 提供数据库的数据元数据的基本查询功能,对外提供了http接口，对内提供了rpc服务，方便数据源管理模块，通过rpc调用，进行数据源的连接测试           |
-|     PES      | linkis-ps-data-source-manager | 数据源管理服务 对数据源的进行基本的管理，对外提数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便数据元管理模块通过rpc调用，查询数据库建立连接需要的必要信息|
-
 
 ## 基本名词解释
 | 简介     | 英文全称                        | 中文全称             |
