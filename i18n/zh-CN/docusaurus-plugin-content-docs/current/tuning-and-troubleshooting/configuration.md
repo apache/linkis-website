@@ -227,7 +227,9 @@ sidebar_position: 1
 
 |引入版本| 参数名                                                   | 默认值                                                   | 描述                                                    |
 |-------| -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
+|v1.1.0 | wds.linkis.server.mdm.service.lib.dir                    | /lib/linkis-public-enhancements/linkis-ps-metadataquery/service | 设置需要加载数据源jar包的相对路径，会通过反射调用|
 |v1.1.0 | wds.linkis.server.mdm.service.instance.expire-in-seconds | 60                                                    | 设置加载子服务的过期时间，超过该时间将不加载该服务    |
+|v1.1.0 | wds.linkis.server.dsm.app.name                           | linkis-ps-data-source-manager                        | 设置获取数据源信息的服务                              |
 |v1.1.0 | wds.linkis.server.mdm.service.kerberos.principle         | hadoop/HOST@EXAMPLE.COM   | set kerberos principle for linkis-metadata hive service |
 |v1.1.0 | wds.linkis.server.mdm.service.user                       | hadoop                                                | 设置hive服务的访问用户                                  |
 |v1.1.0 | wds.linkis.server.mdm.service.kerberos.krb5.path         | ""                                                    | 设置hive服务使用的kerberos krb5 路径                    |

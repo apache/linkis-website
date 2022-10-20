@@ -98,7 +98,21 @@ linkis-public-enhancements/linkis-datasource
 
 
 ```
-### 1.4 配置参数 
+### 1.4 安装包目录结构
+
+```shell script
+/lib/linkis-public-enhancements/
+
+├── linkis-ps-publicservice
+│   └── metadataquery-service
+│       ├── elasticsearch
+│       ├── hive
+│       ├── kafka
+│       └── mysql
+```
+`wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
+
+### 1.5 配置参数 
 
 参见[调优排障>参数列表#datasource配置参数](/docs/1.1.0/tuning-and-troubleshooting/configuration/#6-数据源及元数据服务配置参数)
 
