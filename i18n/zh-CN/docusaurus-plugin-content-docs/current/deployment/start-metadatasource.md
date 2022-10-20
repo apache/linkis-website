@@ -110,7 +110,7 @@ linkis-public-enhancements/linkis-datasource
 │       ├── kafka
 │       └── mysql
 ```
-`wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
+`wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-metadataquery/service`
 
 ### 1.5 配置参数 
 
