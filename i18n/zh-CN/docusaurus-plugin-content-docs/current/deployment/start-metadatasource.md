@@ -122,7 +122,7 @@ linkis的启动脚本中默认不会启动数据源相关的服务, 通过linkis
 
 通过eureka页面查看服务是否正常启动 
 
-![企业微信截图_16661765352765](https://user-images.githubusercontent.com/106590848/196671241-5c82289e-8f88-473e-8bf7-4dc14514beb2.png)
+![datasource eureka](/Images-zh/deployment/datasource/eureka.png)
 
 :::caution 注意
 - 1.linkis的管理台web版本需要配合升级至1.1.0版本才能在linkis管理台上使用数据源管理页面功能。
