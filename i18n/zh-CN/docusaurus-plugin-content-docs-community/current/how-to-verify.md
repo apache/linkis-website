@@ -1,5 +1,5 @@
 ---
-title: 发布版本验证
+title: 版本物料的验证
 sidebar_position: 4
 ---
 # 验证候选版本

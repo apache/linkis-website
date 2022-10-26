@@ -28,13 +28,13 @@
     <homepage rdf:resource="http://linkis.apache.org/" />
     <asfext:pmc rdf:resource="http://incubator.apache.org" />
     <shortdesc>Apache Linkis builds a layer of computation middleware between upper applications and underlying engines.</shortdesc>
-    <description>Apache Linkis is a computation middleware project, which decouples the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.).</description>
+    <description>Apache Linkis is a computation middleware project, which decouples the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.).</description>
     <bug-database rdf:resource="https://github.com/apache/incubator-linkis/issues" />
     <mailing-list rdf:resource="https://linkis.apache.org/community/how-to-subscribe" />
     <download-page rdf:resource="https://linkis.apache.org/download/main" />
 	<repository>
       <GitRepository>
-        <location rdf:resource="https://github.com/apache/incubator-linkis.git"/>
+        <location rdf:resource="https://github.com/apache/incubator-linkis"/>
         <browse rdf:resource="https://github.com/apache/incubator-linkis"/>
       </GitRepository>
     </repository>
