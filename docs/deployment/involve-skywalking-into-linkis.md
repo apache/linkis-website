@@ -1,6 +1,6 @@
 ---
-title: Involve SkyWaling into Linkis
-sidebar_position: 7
+title: Involve SkyWaling 
+sidebar_position: 10
 ---
 This article describes how to enable SkyWalking when starting the Linkis service to facilitate subsequent distributed trace and troubleshooting.
 

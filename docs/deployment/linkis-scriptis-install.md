@@ -1,6 +1,6 @@
 ---
-title: Installation and deployment of the tool scriptis
-sidebar_position: 10
+title: Installation Scriptis Tool
+sidebar_position: 4.1
 ---
 
 ## 1 Introduction

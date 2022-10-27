@@ -1,6 +1,6 @@
 ---
 title:  Source Code Directory Structure
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Source Code Directory Structure

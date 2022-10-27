@@ -1,6 +1,6 @@
 ---
-title: Linkis Console Deployment
-sidebar_position: 6
+title: Console Deployment
+sidebar_position: 3
 ---
 ```
 The linkis web service uses nginx as a static resource server. The access request process is as follows :

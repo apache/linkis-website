@@ -1,12 +1,9 @@
 ---
-title: EngineConnPlugin Installation
-sidebar_position: 3
+title: Installation EngineConn Plugin
+sidebar_position: 4
 ---
 
-EngineConnPlugin installation 
-===============================
-
-This article mainly introduces the use of Linkis EngineConnPlugins, mainly from the aspects of compilation and installation.
+> This article mainly introduces the use of Linkis EngineConnPlugins, mainly from the aspects of compilation and installation.
 
 ## 1. Compilation and packaging of EngineConnPlugins
 

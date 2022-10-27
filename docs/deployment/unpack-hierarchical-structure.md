@@ -1,6 +1,6 @@
 ---
-title: installation package directory structure
-sidebar_position: 4.5
+title: Installation Package Directory Structure
+sidebar_position: 6.1
 ---
 
 ## Linkis installation package decompressed directory structure

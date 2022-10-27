@@ -1,5 +1,5 @@
 ---
-title: Involve Knife4j into Linkis
+title: Involve Knife4j
 sidebar_position: 12
 ---
 

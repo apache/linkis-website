@@ -1,11 +1,9 @@
 ---
-title: Installation Directory Structure
-sidebar_position: 4
+title: After Installation Directory Structure
+sidebar_position: 6.2
 ---
-Installation directory structure
-============
 
-The directory structure of Linkis 1.0 is very different from the 0.X version. Each microservice in 0.X has a root directory that exists independently. The main advantage of this directory structure is that it is easy to distinguish microservices and facilitate individual Microservices are managed, but there are some obvious problems:
+> The directory structure of Linkis 1.0 is very different from the 0.X version. Each microservice in 0.X has a root directory that exists independently. The main advantage of this directory structure is that it is easy to distinguish microservices and facilitate individual Microservices are managed, but there are some obvious problems:
 
 1.	The microservice catalog is too complicated and it is not convenient to switch catalog management
 2.	There is no unified startup script, which makes it more troublesome to start and stop microservices
