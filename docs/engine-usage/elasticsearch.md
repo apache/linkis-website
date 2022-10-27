@@ -1,5 +1,5 @@
 ---
-title:  ElasticSearch Engine Usage
+title:  ElasticSearch Engine
 sidebar_position: 11
 ---
 

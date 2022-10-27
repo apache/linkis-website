@@ -1,20 +1,20 @@
 ---
-title: Linkis 配置参数介绍
+title: 配置参数介绍
 sidebar_position: 1
 ---
 
 ## 1. 参数分类
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis参数主要分为以下三个部分：
-1. Linkis 服务端参数，主要包含Linkis本身的参数和Spring的参数
-2. Linkis SDK、Restful等客户端端调用提交的参数
-3. Linkis 管理台参数
+Linkis参数主要分为以下三个部分：
+- Linkis 服务端参数，主要包含Linkis本身的参数和Spring的参数
+- Linkis SDK、Restful等客户端端调用提交的参数
+- Linkis 管理台参数
 
 
 ## 2. Linkis 服务端参数
 
 1. Linkis本身的参数
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linkis本身的参数支持在配置文件里面进行设置，也支持通过环境变量和系统属性进行设置，推荐使用配置文件进行设置。
+linkis本身的参数支持在配置文件里面进行设置，也支持通过环境变量和系统属性进行设置，推荐使用配置文件进行设置。
 Linkis配置文件格式如下所示：
 ```shell
 ├── conf 配置目录  
@@ -36,7 +36,7 @@ Linkis配置文件格式如下所示：
 建议通用的参数放置在主配置文件，个性话配置文件放在服务配置文件
 
 2. Spring 参数
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis服务是基于SpringBoot应用的，Spring相关的参数支持在application-linkis.yml进行设置，也支持在linkis配置文件里面进行配置。在linkis配置文件里面配置需要加上spring.的前缀。如下：
+Linkis服务是基于SpringBoot应用的，Spring相关的参数支持在application-linkis.yml进行设置，也支持在linkis配置文件里面进行配置。在linkis配置文件里面配置需要加上spring.的前缀。如下：
 
 ```shell
 # spring port default 
@@ -47,7 +47,7 @@ spring.server.port=9102
 ```
 
 ## 3. Linkis 客户端参数
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis客户端参数主要是指任务提交时的参数，主要在提交接口里面进行指定的参数。
+Linkis客户端参数主要是指任务提交时的参数，主要在提交接口里面进行指定的参数。
 1.restful 如何设置参数：
 
 ```shell
@@ -114,7 +114,7 @@ linkis-cli -runtieMap key1=value -runtieMap key2=value
 ```
 
 ## 4. Linkis 管理台参数
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis管理台参数时方便用户指定资源限制参数和默认的任务参数提供的Web界面，如下：
+Linkis管理台参数时方便用户指定资源限制参数和默认的任务参数提供的Web界面，如下：
 全局配置参数：
 ![](/Images/development/linkis_global_conf.png)
 主要包含了全局队列参数[wds.linkis.rm.yarnqueue],任务默认采用的Yarn队列，支持在客户端StartUPMap里面另外进行指定

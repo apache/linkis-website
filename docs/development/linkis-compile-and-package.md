@@ -1,5 +1,5 @@
 ---
-title: Compile And Package
+title: How to Build
 sidebar_position: 1
 ---
 

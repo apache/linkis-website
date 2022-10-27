@@ -1,6 +1,6 @@
 ---
 title: Apache Product Name Usage Guide
-sidebar_position: 6
+sidebar_position: 13
 ---
 > See https://www.apache.org/foundation/marks/guide for detailed and complete instructions
 

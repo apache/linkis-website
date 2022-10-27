@@ -1,9 +1,10 @@
 ---
-title: Task Submission And Execution Of JDBC API
+title: Task JDBC API
 sidebar_position: 4
 ---
 
-# Task Submission And Execution Of JDBC API Documents
+# Task Submission And Execution Of JDBC API 
+
 ### 1. Introduce Dependent Modules
 The first way depends on the JDBC module in the pom:  
 ```xml

@@ -1,5 +1,5 @@
 ---
-title: Metadata Query Api
+title: Metadata Query API
 sidebar_position: 3
 ---
 

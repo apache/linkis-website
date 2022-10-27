@@ -1,6 +1,6 @@
 ---
-title: Introduction to Linkis Configuration Parameters
-sidebar_position: 1
+title: Configuration Parameters
+sidebar_position: 2
 ---
 
 ## 1. Parameter classification

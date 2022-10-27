@@ -1,5 +1,5 @@
 ---
-title: Public Api
+title: Public API
 sidebar_position: 6
 ---
 ** CommonRestfulApi class **
