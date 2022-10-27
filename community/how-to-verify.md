@@ -1,5 +1,5 @@
 ---
-title: How to Verify
+title: How to Verify Release
 sidebar_position: 4
 ---
 

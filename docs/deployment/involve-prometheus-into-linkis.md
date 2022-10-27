@@ -1,5 +1,5 @@
 ---
-title: Involve Prometheus into Linkis
+title: Involve Prometheus
 sidebar_position: 11
 ---
 This article describes how to enable Prometheus to monitor all running Linkis services.

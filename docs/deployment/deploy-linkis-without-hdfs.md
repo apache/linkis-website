@@ -1,5 +1,5 @@
 ---
-title: Deploy Linkis without HDFS
+title: Deploy without HDFS
 sidebar_position: 8
 ---
 
