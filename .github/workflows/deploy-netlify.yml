@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy to Netlify
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
           cp doap.rdf build   
 
       - name: Deploy to Netlify
-        uses: ./.github/actions/actions-netlify
+        uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: "./build"
           github-token: ${{ secrets.GITHUB_TOKEN }}
