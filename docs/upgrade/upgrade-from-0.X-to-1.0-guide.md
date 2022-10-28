@@ -1,5 +1,5 @@
 ---
-title: Upgrade From 0.X To 1.0 Guide
+title: Upgrade From 0.X To 1.0
 sidebar_position: 1
 ---
 

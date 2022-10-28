@@ -1,5 +1,5 @@
 ---
-title: Metadata Query Api
+title: Metadata Query API
 sidebar_position: 3
 ---
 > The new interface after the optimization of the metadata query interface, see [Metadata Query API](./metadatamanager-api.md) for the old interface that has been abandoned. Compared with the old interface, mainly adjust the request path and interface parameter naming

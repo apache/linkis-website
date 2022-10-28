@@ -1,5 +1,5 @@
 ---
-title: DataSource Api
+title: DataSource API
 sidebar_position: 1
 ---
 

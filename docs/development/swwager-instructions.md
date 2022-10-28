@@ -1,5 +1,5 @@
 ---
-title: Swagger Annotation Instructions
+title: Swagger Annotation
 sidebar_position: 5
 ---
 

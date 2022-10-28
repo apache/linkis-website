@@ -1,6 +1,6 @@
 ---
-title: Linkis Console Compile
-sidebar_position: 4
+title: How to Build Console
+sidebar_position: 1.1
 ---
 
 ## Start the process

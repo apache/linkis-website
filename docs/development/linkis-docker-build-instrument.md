@@ -1,6 +1,6 @@
 ---
-title: Build Linkis Docker Image
-sidebar_position: 5
+title: How to Build Docker Image
+sidebar_position: 1.2
 ---
 
 ## Linkis Image Components

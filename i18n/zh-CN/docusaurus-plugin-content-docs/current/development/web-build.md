@@ -1,5 +1,5 @@
 ---
-title: Linkis 管理台编译
+title: 管理台编译
 sidebar_position: 4
 ---
 

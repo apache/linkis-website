@@ -3,8 +3,6 @@ title:  Source Code Directory Structure
 sidebar_position: 6
 ---
 
-# Source Code Directory Structure
-
 > Linkis source code hierarchical directory structure description, if you want to learn more about Linkis modules, please check [Linkis related architecture design](architecture/overview.md)
 
 ```html

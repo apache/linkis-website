@@ -1,6 +1,6 @@
 ---
-title: Use of UDFs
-sidebar_position: 2
+title: UDF Manual
+sidebar_position: 2.2
 ---
 
 ## 1 Introduction to UDFs

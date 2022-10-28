@@ -1,5 +1,5 @@
 ---
-title:  Interface error troubleshooting
+title:  Interface Error Troubleshooting
 sidebar_position: 3
 ---
 

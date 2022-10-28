@@ -1,5 +1,5 @@
 ---
-title: Version upgrades above 1.0.3
+title: Version Upgrades above 1.0.3
 sidebar_position: 2
 ---
 

@@ -1,9 +1,9 @@
 ---
-title: Task Submission and Execution Rest Api
+title: Task Rest API
 sidebar_position: 3
 ---
 
-# Linkis Task submission and execution Rest API document
+# Linkis Task submission and execution Rest API
 
 - The return of the Linkis Restful interface follows the following standard return format:
 

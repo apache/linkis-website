@@ -1,5 +1,5 @@
 ---
-title: Login Api
+title: Login API
 sidebar_position: 1
 ---
 

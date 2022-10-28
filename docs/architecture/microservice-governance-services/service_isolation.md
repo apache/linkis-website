@@ -1,5 +1,5 @@
 ---
-title: Service isolation Design
+title: Service Isolation Design
 sidebar_position: 2
 ---
 

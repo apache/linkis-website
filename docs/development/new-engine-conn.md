@@ -1,5 +1,5 @@
 ---
-title: How To Quickly Implement A New Engine
+title: Quickly Implement New Engine
 sidebar_position: 3
 ---
 

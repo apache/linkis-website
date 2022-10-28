@@ -1,5 +1,5 @@
 ---
-title:  Spark Engine Usage
+title:  Spark Engine
 sidebar_position: 2
 ---
 

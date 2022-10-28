@@ -1,5 +1,5 @@
 ---
-title: Swagger 注解使用说明
+title: Swagger 注解使用
 sidebar_position: 5
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Engine Plugin Api
+title: Engine Plugin API
 sidebar_position: 5
 ---
 

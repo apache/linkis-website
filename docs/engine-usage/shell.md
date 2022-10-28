@@ -1,5 +1,5 @@
 ---
-title:  Shell Engine Usage
+title:  Shell Engine
 sidebar_position: 2
 ---
 
