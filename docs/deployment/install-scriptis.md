@@ -8,7 +8,7 @@ sidebar_position: 4.1
 > After Apache Linkis >= 1.1.1 and DSS >= 1.1.0, scriptis can be deployed separately and used in conjunction with Linkis. Using the interactive analysis function of scriptis, you can write SQL, Pyspark, HiveQL, etc. online on web pages Scripts are submitted to Linkis for execution and support features such as UDFs, functions, resource management and custom variables. This article will introduce how to deploy the web component-scriptis separately, and use  Apache Linkis through the scriptis web page.
 
 
-Prerequisite: The Linkis service (backend and management desk service) has been successfully installed and can be used normally. The deployment process of Linkis can be found in [Quick Deployment of Apache Linkis](quick-deploy.md)
+Prerequisite: The Linkis service (backend and management desk service) has been successfully installed and can be used normally. The deployment process of Linkis can be found in [Quick Deployment of Apache Linkis](deploy-quick.md)
 
 Example description:
 

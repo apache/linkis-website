@@ -1,6 +1,6 @@
 ---
 title: Cluster Deployment
-sidebar_position: 2
+sidebar_position: 1.1
 ---
 
 Linkis's stand-alone deployment is simple, but it cannot be used in a production environment, because too many processes on the same server will make the server too stressful. The choice of deployment plan is related to the company's user scale, user habits, and the number of simultaneous users of the cluster. Generally speaking, we will choose the deployment method based on the number of simultaneous users using Linkis and the user's preference for the execution engine.

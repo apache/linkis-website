@@ -1,5 +1,5 @@
 ---
-title: Console User Manual
+title: Console Manual
 sidebar_position: 4
 ---
 

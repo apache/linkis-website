@@ -1,5 +1,5 @@
 ---
-title: JAVA SDK Manual
+title: Linkis Client SDK 
 sidebar_position: 2
 ---
 

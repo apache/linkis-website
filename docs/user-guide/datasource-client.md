@@ -1,5 +1,5 @@
 ---
-title: DataSource Client SDK
+title: Data Source Client SDK
 sidebar_position: 4
 ---
 

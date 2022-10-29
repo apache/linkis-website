@@ -2,7 +2,6 @@
 title: Introduction
 sidebar_position: 0
 ---
-## Introduction
 
  Linkis builds a layer of computation middleware between upper applications and underlying engines. By using standard interfaces such as REST/WS/JDBC provided by Linkis, the upper applications can easily access the underlying engines such as MySQL/Spark/Hive/Presto/Flink, etc., and achieve the intercommunication of user resources like unified variables, scripts, UDFs, functions and resource files，and provides data source and metadata management services through REST standard interface. at the same time.
 
@@ -52,7 +51,7 @@ Please go to the [Linkis releases page](https://github.com/apache/incubator-link
 
 ## Compile and deploy
 Please follow [Compile Guide](development/linkis-compile-and-package.md) to compile Linkis from source code.  
-Please refer to [Deployment_Documents](deployment/quick-deploy.md) to do the deployment. 
+Please refer to [Deployment_Documents](deployment/deploy-quick.md) to do the deployment. 
 
 ## Examples and Guidance
 You can find examples and guidance for how to use and manage Linkis in [User_Manual](user-guide/overview.md), [engine-usage_Documents](engine-usage/overview.md) and [API_Documents](api/overview.md).

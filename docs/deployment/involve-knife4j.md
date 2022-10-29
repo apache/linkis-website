@@ -1,6 +1,6 @@
 ---
 title: Involve Knife4j
-sidebar_position: 12
+sidebar_position: 5.2
 ---
 
 ## Knife4j introduced

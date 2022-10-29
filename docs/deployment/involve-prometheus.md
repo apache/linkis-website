@@ -1,6 +1,6 @@
 ---
 title: Involve Prometheus
-sidebar_position: 11
+sidebar_position: 5.1
 ---
 This article describes how to enable Prometheus to monitor all running Linkis services.
 

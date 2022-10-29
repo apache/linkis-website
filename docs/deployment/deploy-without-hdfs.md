@@ -1,6 +1,6 @@
 ---
 title: Deploy without HDFS
-sidebar_position: 8
+sidebar_position: 1.3
 ---
 
 This article describes how to deploy Linkis services in an environment where HDFS is not deployed to facilitate more lightweight learning, use and debugging.

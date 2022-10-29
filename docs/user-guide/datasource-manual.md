@@ -1,5 +1,5 @@
 ---
-title: Data Source Usage 
+title: Data Source Manual 
 sidebar_position: 7
 ---
 
