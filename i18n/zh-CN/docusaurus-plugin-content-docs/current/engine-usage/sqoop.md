@@ -72,7 +72,7 @@ sh linkis-daemon.sh restart cg-engineplugin
 ```
 engineplugin更详细的介绍可以参看下面的文章。
   
-https://linkis.apache.org/zh-CN/docs/latest/deployment/engine-conn-plugin-installation
+https://linkis.apache.org/zh-CN/docs/latest/deployment/install-engineconn
 
 ## 3 Sqoop引擎的使用
 

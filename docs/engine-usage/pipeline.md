@@ -62,7 +62,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 Linkis1.XIt is carried out through labels, so it is necessary to insert data into our database. The insertion method is shown below.
 
-[EngineConnPlugin Engine plug-in installation](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin Engine plug-in installation](../deployment/install-engineconn) 
 
 
 ## 2 Use of engine

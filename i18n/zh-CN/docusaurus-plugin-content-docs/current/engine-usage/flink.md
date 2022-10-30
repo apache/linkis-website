@@ -58,12 +58,12 @@ cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
 engineplugin更详细的介绍可以参看下面的文章。  
-https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation
+https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/install-engineconn
 ### 2.3 Flink引擎的标签
 
 Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
 
-[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn) 
 
 ## 3.Flink引擎的使用
 

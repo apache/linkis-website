@@ -98,7 +98,7 @@ EngineConnManager（ECM）使用总资源
 模式：Eureka服务多活部署 ，部分服务部署在服务器A，部分服务部署在服务器B上 
 
 ### 2.1 分布式部署的环境准备  
-和服务器A一样，服务器B需要进行基础的环境准备，请参考[Linkis环境准备](quick-deploy#3-linkis%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87)
+和服务器A一样，服务器B需要进行基础的环境准备，请参考[Linkis环境准备](deploy-quick#3-linkis%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87)
 
 ### 2.2 Eureka多活配置调整 
 注册中心Eureka服务，需要部署在服务器A和服务器B上，

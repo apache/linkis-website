@@ -15,7 +15,7 @@ sidebar_position: 1
 
 在安装时如果需要保留0.X的数据，一定要选择1跳过建表语句（见下面代码）。
 
-Linkis1.0 的安装可以参考[如何快速安装](deployment/quick-deploy.md)
+Linkis1.0 的安装可以参考[如何快速安装](deployment/deploy-quick.md)
 
 ```
 Do you want to clear Linkis table information in the database?
@@ -75,4 +75,4 @@ Please input the choice: ## choice 1
 
 ## 4. 安装Linkis1.0
 
-  启动Linkis1.0，验证服务是否已正常启动并对外提供服务，具体请参考： [如何快速安装](deployment/quick-deploy.md)
+  启动Linkis1.0，验证服务是否已正常启动并对外提供服务，具体请参考： [如何快速安装](deployment/deploy-quick.md)

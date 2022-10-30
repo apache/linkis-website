@@ -5,7 +5,7 @@ sidebar_position: 6
 > web端是使用nginx作为静态资源服务器的，访问请求流程是:`Linkis管理台请求->nginx ip:port->linkis-gateway ip:port-> 其他服务`
 
 
-Linkis 提供了单独的前端管理台功能，提供了展示历史任务的全局历史、修改用户参数、管理ECM和微服务等功能，部署前端管理台前需要先将Linkis后端进行部署，Linkis的部署手册见：[Linkis部署手册](quick-deploy.md)
+Linkis 提供了单独的前端管理台功能，提供了展示历史任务的全局历史、修改用户参数、管理ECM和微服务等功能，部署前端管理台前需要先将Linkis后端进行部署，Linkis的部署手册见：[Linkis部署手册](deploy-quick.md)
 
 
 ## 1 准备工作

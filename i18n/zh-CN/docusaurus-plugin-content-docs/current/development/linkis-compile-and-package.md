@@ -107,7 +107,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
    #spark文件下就是编译好的引擎物料
    incubator-linkis-x.x.x/linkis-engineconn-plugins/spark/target/out/spark
 ```
-如何单独安装 Spark 引擎？请参考 [Linkis 引擎插件安装文档](../deployment/engine-conn-plugin-installation)
+如何单独安装 Spark 引擎？请参考 [Linkis 引擎插件安装文档](../deployment/install-engineconn)
 
 
 ### 3.2 如何将非默认引擎打包至安装部署包中 

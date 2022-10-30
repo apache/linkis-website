@@ -412,13 +412,13 @@ If the verification fails, please refer to [Step 8] for troubleshooting
 ## 6 Installation of development tool IDE (Scriptis) (optional)
 >After installing the Scripti tool, it can support writing SQL, Pyspark, HiveQL and other scripts online on the web page
 
-For detailed instructions, see [Installation and Deployment of Tool Scriptis](./linkis-scriptis-install)
+For detailed instructions, see [Installation and Deployment of Tool Scriptis](./install-scriptis)
 
 ## 7. Supported Engines
 
 ### 7.1 Engine Adaptation List
 
-Please note: The separate installation package of Linkis only contains four engines by default: Python/Shell/Hive/Spark. If there are other engines (such as jdbc/flink/sqoop and other engines) usage scenarios, you can install them manually. For details, please refer to [ EngineConnPlugin Engine Plugin Installation Documentation](engine-conn-plugin-installation).
+Please note: The separate installation package of Linkis only contains four engines by default: Python/Shell/Hive/Spark. If there are other engines (such as jdbc/flink/sqoop and other engines) usage scenarios, you can install them manually. For details, please refer to [ EngineConnPlugin Engine Plugin Installation Documentation](install-engineconn).
 
 The list of supported engines that have been adapted in this version is as follows:
 
@@ -526,7 +526,7 @@ The normal is as follows:
 
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).
 
-- If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](engine-conn-plugin-installation#23-Engine Refresh)).
+- If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](install-engineconn#23-Engine Refresh)).
 - Check the specific reasons for material failure through `log/linkis-cg-engineplugin.log` log. In many cases, it may be caused by the lack of permissions in the hdfs directory
 - Check whether the gateway address configuration is correct. The configuration item `wds.linkis.gateway.url` of `conf/linkis.properties`
 

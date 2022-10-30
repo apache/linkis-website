@@ -50,7 +50,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 
 ## 安装部署
   
-请参考[安装部署文档](deployment/quick-deploy.md) 来部署Linkis 
+请参考[安装部署文档](deployment/deploy-quick.md) 来部署Linkis 
 
 ## 示例和使用指引
 - [用户手册](user-guide/overview.md)

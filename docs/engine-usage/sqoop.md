@@ -59,8 +59,8 @@ and restart linkis-engineplugin
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
-More engineplugin details can be found in the following article.  
-https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation
+More engineplugin details can be found in the following article [EngineConnPlugin Installation](../deployment/install-engineconn)   
+
 
 ## 3.Sqoop Engine Usage 
 

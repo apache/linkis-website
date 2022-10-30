@@ -56,13 +56,13 @@ cd ${LINKIS_HOME}/sbin
 sh linkis-daemon restart cg-engineplugin
 ```
 A more detailed introduction to engineplugin can be found in the following article.
-[EngineConnPlugin Installation](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin Installation](../deployment/install-engineconn) 
 
 ### 2.3 Flink engine tags
 
 Linkis1.0 is done through tags, so we need to insert data in our database, the way of inserting is shown below.
 
-[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/engine-conn-plugin-installation) 
+[EngineConnPlugin Installation > 2.2 Configuration modification of management console (optional)](../deployment/install-engineconn) 
 
 ## 3. The use of Flink engine
 

@@ -18,7 +18,7 @@ sidebar_position: 2
 
 ## 2 Service upgrade installation
 
-Press [Deployment guide document](../deployment/quick-deploy) (the installation of the management console in the document can be skipped) to install the new version.
+Press [Deployment guide document](../deployment/deploy-quick) (the installation of the management console in the document can be skipped) to install the new version.
 
 When installing the service, if the historical data is retained, please retain the historical data, if you do not need to retain the data, just reinstall it directly
 ```shell script

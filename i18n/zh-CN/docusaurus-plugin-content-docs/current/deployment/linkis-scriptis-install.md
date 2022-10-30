@@ -8,7 +8,7 @@ sidebar_position: 10
 > 在 Apache Linkis >= 1.1.1 和 DSS >= 1.1.0 之后，支持将 scriptis 单独部署和 Linkis 进行搭配使用，使用 scriptis 的交互式分析的功能，可以在 web 页面在线写 SQL、Pyspark、HiveQL 等脚本，提交给 Linkis 执行且支持 UDF、函数、资源管控和自定义变量等特性，本文将介绍如何单独部署 Web 组件-scriptis，并通过 scriptis 这种 Web 页面来使用 Apache Linkis 。
 
 
-前提:已经成功安装并可以正常使用了 Linkis 服务（后端和管理台服务），Linkis 的部署流程可以见[Apache Linkis 的快速部署 ](quick-deploy.md)
+前提:已经成功安装并可以正常使用了 Linkis 服务（后端和管理台服务），Linkis 的部署流程可以见[Apache Linkis 的快速部署 ](deploy-quick.md)
 
 示例说明:
 
