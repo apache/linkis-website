@@ -1,5 +1,5 @@
 ---
-title: Linkis内置时间变量介绍
+title: Linkis内置时间变量
 sidebar_position: 7
 ---
 
