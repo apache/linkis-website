@@ -44,7 +44,7 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 - 方式1：从官网[下载地址](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main
 ，下载对应的安装包(项目安装包和管理台安装包)
-- 方式2：根据[Linkis 编译打包](../development/linkis-compile-and-package)和[前端管理台编译](../development/web-build) 自行编译出项目安装包和管理台安装包
+- 方式2：根据[Linkis 编译打包](../development/build)和[前端管理台编译](../development/build-console) 自行编译出项目安装包和管理台安装包
 
 上传安装包`apache-linkis-x.x.x-incubating-bin.tar.gz`后，进行解压安装包 
 
@@ -412,7 +412,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 ## 6 开发工具IDE（Scriptis）的安装(可选)
 >安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本
 
-详细指引见[工具Scriptis的安装部署](./linkis-scriptis-install)
+详细指引见[工具Scriptis的安装部署](./install-scriptis)
 
 ## 7. 支持的引擎 
 

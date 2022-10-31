@@ -269,7 +269,7 @@ Your default account password is [hadoop/5e8e312b4]`
 
 ### 3.4 添加mysql驱动(>=1.0.3)版本 
 因为license原因，linkis官方发布包中(dss集成的全家桶会包含，无需手动添加)移除了mysql-connector-java，需要手动添加  
-具体参见[ 添加mysql驱动包](/docs/latest/deployment/quick-deploy#-44-添加mysql驱动包)
+具体参见[ 添加mysql驱动包](/docs/latest/deployment/deploy-quick#-44-添加mysql驱动包)
 
 ### 3.5 启动服务
 ```shell script
