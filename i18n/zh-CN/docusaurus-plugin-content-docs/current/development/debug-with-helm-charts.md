@@ -1,6 +1,6 @@
 ---
-title: 开发调试容器化
-sidebar_position: 6
+title: 容器化开发调试
+sidebar_position: 2.1
 ---
 
 ## 前言

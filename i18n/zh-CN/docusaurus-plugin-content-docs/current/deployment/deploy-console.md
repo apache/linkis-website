@@ -1,6 +1,6 @@
 ---
 title: 管理台部署
-sidebar_position: 6
+sidebar_position: 1.2
 ---
 > web端是使用nginx作为静态资源服务器的，访问请求流程是:`Linkis管理台请求->nginx ip:port->linkis-gateway ip:port-> 其他服务`
 

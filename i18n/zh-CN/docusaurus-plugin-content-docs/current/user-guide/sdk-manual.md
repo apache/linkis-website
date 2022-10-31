@@ -1,5 +1,5 @@
 ---
-title: JAVA SDK 方式使用
+title: JAVA SDK 的使用
 sidebar_position: 3
 ---
 

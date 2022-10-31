@@ -1,6 +1,6 @@
 ---
 title: 管理台编译
-sidebar_position: 4
+sidebar_position: 1.1
 ---
 
 ## 1. 前置准备 

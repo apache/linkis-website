@@ -1,6 +1,6 @@
 ---
 title: Installation Package Directory
-sidebar_position: 3.2
+sidebar_position: 3.1
 ---
 
 Download the officially released [Compilation Complete Package](https://linkis.apache.org/zh-CN/download/main), and the decompressed directory structure is as follows:

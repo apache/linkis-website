@@ -19,6 +19,10 @@
     "message": "调优排障",
     "description": "The label for category Tuning And Troubleshooting in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Error Guide": {
+    "message": "错误码",
+    "description": "The label for category Error Guide in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.API Docs": {
     "message": "API文档",
     "description": "The label for category API Docs in sidebar tutorialSidebar"

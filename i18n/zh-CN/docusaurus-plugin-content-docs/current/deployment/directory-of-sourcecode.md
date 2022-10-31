@@ -1,6 +1,6 @@
 ---
 title: 源码目录结构
-sidebar_position: 5
+sidebar_position: 3.0
 ---
 
 > Linkis代码层级目录结构说明，如果想详细了解各个模块，请查看[Linkis的相关架构设计](architecture/overview.md)

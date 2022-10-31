@@ -1,6 +1,6 @@
 ---
 title: 开启 SkyWalking
-sidebar_position: 7
+sidebar_position: 5.0
 ---
 这篇文章介绍一下如何在启动 Linkis 服务的时候开启 SkyWalking，以方便后续做分布式 trace 和 troubleshooting。
 

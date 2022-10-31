@@ -1,5 +1,5 @@
 ---
-title: 快速单机部署
+title: 单机部署
 sidebar_position: 1
 ---
 

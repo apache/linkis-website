@@ -1,5 +1,5 @@
 ---
-title: 服务调试指引
+title: 调试指引
 sidebar_position: 2
 ---
 

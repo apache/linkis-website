@@ -1,5 +1,5 @@
 ---
-title: Linkis-Cli 方式使用
+title: Linkis-Cli 的使用
 sidebar_position: 2
 ---
 

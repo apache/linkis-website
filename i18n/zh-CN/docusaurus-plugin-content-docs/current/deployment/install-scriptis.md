@@ -1,6 +1,6 @@
 ---
-title: 工具 Scriptis 的安装部署
-sidebar_position: 10
+title: 工具 Scriptis 的安装
+sidebar_position: 4.1
 ---
 
 ## 1. 介绍

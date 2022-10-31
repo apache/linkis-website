@@ -1,6 +1,6 @@
 ---
-title: 启用 Knife4j
-sidebar_position: 12
+title: 开启 Knife4j
+sidebar_position: 5.2
 ---
 
 ## knife4j介绍

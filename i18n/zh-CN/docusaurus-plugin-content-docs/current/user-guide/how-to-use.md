@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Linkis1.0 
+title: 如何使用 Linkis
 sidebar_position: 1
 ---
 

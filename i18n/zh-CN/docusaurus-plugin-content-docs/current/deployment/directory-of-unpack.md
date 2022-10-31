@@ -1,6 +1,6 @@
 ---
 title: 安装包目录结构
-sidebar_position: 4
+sidebar_position: 3.1
 ---
 > Linkis安装包解压后的目录结构
 

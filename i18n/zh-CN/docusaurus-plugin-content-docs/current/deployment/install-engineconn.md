@@ -1,6 +1,6 @@
 ---
 title: 引擎的安装
-sidebar_position: 3
+sidebar_position: 4.0
 ---
 
 > 本文主要介绍对于官方安装包中，未包含的引擎物料(jdbc/sqoop/flink等)/或则自定义实现的新引擎，如何进行安装部署，以支持对应的任务

@@ -1,6 +1,6 @@
 ---
 title: 部署后的目录结构
-sidebar_position: 4.5
+sidebar_position: 3.2
 ---
 
 ## 1 目录结构

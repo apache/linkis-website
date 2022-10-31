@@ -1,6 +1,6 @@
 ---
 title: 开启 Prometheus 监控
-sidebar_position: 11
+sidebar_position: 5.1
 ---
 这篇文章描述了如何让Prometheus监控所有正在运行的Linkis服务。
 

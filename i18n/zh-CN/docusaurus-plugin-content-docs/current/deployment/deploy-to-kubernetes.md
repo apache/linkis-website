@@ -1,6 +1,6 @@
 ---
-title: Linkis 容器化部署
-sidebar_position: 13
+title: 容器化部署
+sidebar_position: 1.4
 ---
 这篇文章介绍一下如何在就Kind的Kubernetes的环境中部署 Linkis 服务，以方便更轻量化的学习使用和调试。
 
