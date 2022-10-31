@@ -435,7 +435,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
   
-如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](/docs/latest/deployment/engine-conn-plugin-installation#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
+如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](/docs/latest/deployment/install-engineconn#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
 
 引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`  
 ```shell script

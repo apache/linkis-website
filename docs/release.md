@@ -3,11 +3,11 @@ title: Version Overview
 sidebar_position: 0.1
 ---
 
-- [Build Linkis Docker Image](/development/linkis-docker-build-instrument)
-- [Linkis Docker LDH Quick Deployment](/deployment/deploy-to-kubernetes)
-- [Development & Debugging with Kubernetes](development/debug-with-helm-charts)
+- [Build Linkis Docker Image](/development/build-docker.md)
+- [Linkis Docker LDH Quick Deployment](/deployment/deploy-to-kubernetes.md)
+- [Development & Debugging with Kubernetes](development/debug-with-helm-charts.md)
 - [PES Public Service Group Service Merge Details](/blog/2022/10/09/linkis-service-merge)
-- [Session supports Redis shared storage](/user-guide/sso-with-redis)
+- [Session supports Redis shared storage](/user-guide/sso-with-redis.md)
 
 
 ## Configuration Item

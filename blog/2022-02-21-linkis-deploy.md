@@ -420,7 +420,7 @@ normal as follows
 
 
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).  
-If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](docs/latest/deployment/engine-conn-plugin-installation#23-Engine Refresh)). Check the `log/linkis-cg-engineplugin.log` log to check the specific reasons for the failure of the material. In many cases, it may be caused by the lack of permissions in the hdfs directory. Check whether the gateway address configuration is correct `conf/linkis.properties:wds.linkis.gateway.url`
+If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](docs/latest/deployment/install-engineconn#23-Engine Refresh)). Check the `log/linkis-cg-engineplugin.log` log to check the specific reasons for the failure of the material. In many cases, it may be caused by the lack of permissions in the hdfs directory. Check whether the gateway address configuration is correct `conf/linkis.properties:wds.linkis.gateway.url`
 
 The material resources of the engine are uploaded to the hdfs directory by default as `/apps-data/${deployUser}/bml`
 ```shell script
