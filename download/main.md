@@ -54,4 +54,4 @@ $ ./mvnw -N install
 $ ./mvnw clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
 ````
-For detailed guidelines, please refer to: [Compilation and Packaging Guidelines](/docs/latest/development/linkis-compile-and-package)
+For detailed guidelines, please refer to: [Compilation and Packaging Guidelines](/docs/latest/development/build)
