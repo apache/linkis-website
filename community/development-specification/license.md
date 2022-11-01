@@ -4,7 +4,7 @@ sidebar_position: 0.1
 ---
 
 > Note: This article applies to Apache projects only.
->This article refers to the Dolphinscheduler project's License Instructions document https://dolphinscheduler.apache.org/zh-cn/community/development/DS-License.html
+>This article refers to the Dolphinscheduler project's License Instructions document https://dolphinscheduler.apache.org/zh-cn/docs/dev/user_doc/contribute/join/DS-License.html
 
 The open source projects under the ASF (Apache Foundation) have extremely strict requirements for the license. When you contribute code to Linkis, you must follow the Apache rules. In order to avoid the contributors wasting too much time on the license,
 This article will explain the ASF-License and how to avoid the license risk when participating in the Linkis project development.

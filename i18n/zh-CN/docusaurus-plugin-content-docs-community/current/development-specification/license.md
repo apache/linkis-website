@@ -4,7 +4,7 @@ sidebar_position: 0.1
 ---
 
 >注：本文仅适用于Apache项目。
->本文参考 Dolphinscheduler项目的License须知文档 https://dolphinscheduler.apache.org/zh-cn/community/development/DS-License.html
+>本文参考 Dolphinscheduler项目的License须知文档 https://dolphinscheduler.apache.org/zh-cn/docs/dev/user_doc/contribute/join/DS-License.html
 
 ASF(Apache基金会)下的开源项目，对于License有着极其严苛的要求，当您为Linkis贡献代码时，就必须按照Apache的规则来,为了避免贡献者在License上浪费过多的时间，
 本文将为您讲解ASF—License以及参与 Linkis 项目开发时如何规避掉License风险。
