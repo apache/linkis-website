@@ -4,8 +4,8 @@
     "description": "The label for version current"
   },
   "sidebar.tutorialSidebar.category.Deployment": {
-    "message": "安装部署",
-    "description": "The label for category Deployment in sidebar tutorialSidebar"
+    "message": "进阶部署",
+    "description": "The label for category advanced Deployment in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.User Guide": {
     "message": "用户手册",
@@ -105,8 +105,25 @@
     "message": "公共服务",
     "description": "Public Service"
   },
-  "sidebar.tutorialSidebar.category.Context Service": {
-    "message": "上下文服务",
-    "description": "Context Service"
+  "sidebar.tutorialSidebar.category.Quick Start": {
+    "message": "快速上手",
+    "description": "quick start"
+  },
+  "sidebar.tutorialSidebar.category.Console Manual": {
+    "message": "管理台的使用",
+    "description": "console manual"
+  },
+  "sidebar.tutorialSidebar.category.Security": {
+    "message": "安全认证",
+    "description": "linkis security"
+  },
+  "sidebar.tutorialSidebar.category.Service Architecture": {
+    "message": "服务架构",
+    "description": "linkis service architecture"
+  },
+  "sidebar.tutorialSidebar.category.Feature": {
+    "message": "关键特性架构",
+    "description": "key feature architechture"
   }
+  
 }
