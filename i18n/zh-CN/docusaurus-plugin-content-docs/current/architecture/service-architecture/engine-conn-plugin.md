@@ -1,5 +1,5 @@
 ---
-title: EngineConnPlugin服务架构
+title: EngineConnPlugin 服务架构
 sidebar_position: 0.7
 ---
 

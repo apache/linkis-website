@@ -1,5 +1,5 @@
 ---
-title: EngineConnManager架构
+title: EngineConnManager 架构
 sidebar_position: 0.6
 ---
 
