@@ -1,5 +1,5 @@
 ---
-title: 网关 Gateway 架构
+title: 网关架构
 sidebar_position: 0.1
 ---
 ## Gateway 架构设计

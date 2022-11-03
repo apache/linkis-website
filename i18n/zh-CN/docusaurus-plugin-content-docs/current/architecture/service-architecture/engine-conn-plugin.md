@@ -1,5 +1,5 @@
 ---
-title: EngineConnPlugin（ECP）架构
+title: EngineConnPlugin服务架构
 sidebar_position: 0.7
 ---
 

@@ -4,7 +4,7 @@
     "description": "The label for version current"
   },
   "sidebar.tutorialSidebar.category.Deployment": {
-    "message": "进阶部署",
+    "message": "部署指南",
     "description": "The label for category advanced Deployment in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.User Guide": {
@@ -33,15 +33,15 @@
   },
 
   "sidebar.tutorialSidebar.category.Architecture": {
-    "message": "技术架构",
+    "message": "架构设计",
     "description": "The label for category Architecture in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Commons": {
-    "message": "公共模块",
+    "message": "公共依赖模块",
     "description": "The label for category Commons in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Computation Governance Services": {
-    "message": "计算治理服务架构",
+    "message": "计算治理模块",
     "description": "The label for category Computation Governance Services in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Engine": {
@@ -53,7 +53,7 @@
     "description": "The label for category Linkis Manager in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Public Enhancement Services": {
-    "message": "公共增强服务",
+    "message": "公共增强模块",
     "description": "The label for category Public Enhancement Services in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Context Service": {
@@ -62,7 +62,7 @@
   },
 
   "sidebar.tutorialSidebar.category.Microservice Governance Services": {
-    "message": "微服务治理架构",
+    "message": "微服务实例模块",
     "description": "The label for category Microservice Governance Services in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Orchestrator": {
@@ -118,7 +118,7 @@
     "description": "linkis security"
   },
   "sidebar.tutorialSidebar.category.Service Architecture": {
-    "message": "服务架构",
+    "message": "微服务架构",
     "description": "linkis service architecture"
   },
   "sidebar.tutorialSidebar.category.Feature": {

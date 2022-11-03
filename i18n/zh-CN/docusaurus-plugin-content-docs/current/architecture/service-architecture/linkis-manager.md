@@ -1,5 +1,5 @@
 ---
-title: Linkis Manager 架构
+title: Linkis Manager服务架构
 sidebar_position: 0.4
 ---
 
