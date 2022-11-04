@@ -6,13 +6,13 @@ sidebar_position: 0.1
 - [Enable Prometheus monitoring](/deployment/involve-prometheus-into-linkis.md)
 - [Custom Variable Design & Built-in Variables](/architecture/commons/variable.md)
 - [EngineConn History Information Recording Features](/architecture/computation-governance-services/engine/engine-conn-history.md)
-- [EngineConn Metrics reporting feature](/architecture/computation-governance-services/engine/engine-conn-metrics.md)
+- [EngineConn Metrics Reporting Feature](/architecture/computation-governance-services/engine/engine-conn-metrics.md)
 - [ContextService cleanup interface features](/architecture/public-enhancement-services/context-service/content-service-cleanup.md)
 - [Release-Notes](/download/release-notes-1.1.3)
 
 ## Configuration Item
 
-| module name (service name) | type | parameter name | default value | description |
+| Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
 |eureka(application-eureka.yml) | New | management.endpoints.web.exposure.include|refresh,info,health,metrics | The endpoint exposure range for Spring Boot Actuator|
 |eureka(application-eureka.yml) | New |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} | Prometheus monitoring endpoint for microservices registered in Eureka metadata|

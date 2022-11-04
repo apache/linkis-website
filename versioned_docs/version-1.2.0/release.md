@@ -9,13 +9,13 @@ sidebar_position: 0.1
 - [Data source function module interface optimization](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
 - [JDBC engine supports data source schema](/engine-usage/jdbc.md)
 - [EC History List Architecture Design](/architecture/computation-governance-services/linkis-manager/ec-history-arc.md)
-- [Service isolation Design](/architecture/microservice-governance-services/service_isolation.md)
+- [Service Isolation Design](/architecture/microservice-governance-services/service_isolation.md)
 - [version of Release-Notes](/download/release-notes-1.2.0)
 
 
 ## Configuration Item
 
-| module name (service name) | type | parameter name | default value | description |
+| Module Name (Service Name) | Type | Parameter Name | Default Value | Description |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
 |eureka(application-eureka.yml) | New | management.endpoints.web.exposure.include|refresh,info,health,metrics | The endpoint exposure range for Spring Boot Actuator|
 |eureka(application-eureka.yml) | New |eureka.instance.metadata-map:.prometheus.path| ${prometheus.path:/actuator/prometheus} | Prometheus monitoring endpoint for microservices registered in Eureka metadata|

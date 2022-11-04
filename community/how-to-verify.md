@@ -1,9 +1,9 @@
 ---
-title: How to Verify
+title: How to Verify Release
 sidebar_position: 4
 ---
 
-# Verify the candidate version
+# Verify the Candidate Version
 
 For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 

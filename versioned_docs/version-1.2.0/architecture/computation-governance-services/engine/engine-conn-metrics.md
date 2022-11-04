@@ -1,5 +1,5 @@
 ---
-title: EngineConn Metrics reporting feature
+title: EngineConn Metrics Reporting Feature
 sidebar_position: 6
 tags: [Feature]
 ---

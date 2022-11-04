@@ -1,5 +1,5 @@
 ---
-title: How to Participate in the Official Website Contribution
+title: How to Participate in Website Project Contribution
 sidebar_position: 2.1
 ---
 

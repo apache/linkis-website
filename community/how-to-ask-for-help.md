@@ -1,10 +1,6 @@
 ---
 title: How to Ask for Help
-sidebar_position: 2.1
----
----
-title: need help
-sidebar_position: 2.1
+sidebar_position: 0.1
 ---
 >This article mainly guides you on how to ask for help from the community. If you have any questions or doubts about the use of the software, you can seek help from the community through the following guidelines.
 

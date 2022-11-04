@@ -10,21 +10,49 @@ export default function() {
     const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
     const dataSource = config?.[language];
 
-    const sortToShowCommitter = () =>{
-      dataSource.committer.sort((a, b) =>{
-        return a.name.localeCompare(b.name)
-      })
 
-      return dataSource.committer.map((item, i) => (
-        <a href={'https://github.com/'+ item.githubId} key={i} target="_blank">
-            <li className="character-item text-center" style={{'listStyle':'none', lineHeight: '42px', padding: 0}}>
-              <div className="character-desc">
-                <h3 className="character-name" style={{margin: 0, padding: '20px'}}>{item.name}</h3>
-              </div>
-            </li>
-        </a>
-      ))
+    const sortToShowMentor = () =>{
+          config.mentor.sort((a, b) =>{
+            return a.publicName.localeCompare(b.publicName)
+          })
+          return  config.mentor.map((item, i) => (
+               <tr>
+                   <td align="left"><a href={'https://people.apache.org/committer-index.html#'+ item.apacheId} target="_blank" rel="noopener noreferrer">{item.apacheId}</a></td>
+                   <td align="left">{item.githubId}</td>
+                   <td align="left">{item.publicName}</td>
+                </tr>
+            ))
     }
+
+
+    const sortToShowPPMC = () =>{
+          config.ppmc.sort((a, b) =>{
+            return a.publicName.localeCompare(b.publicName)
+          })
+          return  config.ppmc.map((item, i) => (
+               <tr>
+                   <td align="left"><a href={'https://people.apache.org/committer-index.html#'+ item.apacheId} target="_blank" rel="noopener noreferrer">{item.apacheId}</a></td>
+                   <td align="left">{item.githubId}</td>
+                   <td align="left">{item.publicName}</td>
+                </tr>
+            ))
+    }
+
+
+     const sortToShowCommitter = () =>{
+          config.committer.sort((a, b) =>{
+            return a.publicName.localeCompare(b.publicName)
+          })
+
+          return config.committer.map((item, i) => (
+            <tr>
+              <td align="left"><a href={'https://people.apache.org/committer-index.html#'+ item.apacheId} target="_blank" rel="noopener noreferrer">{item.apacheId}</a></td>
+              <td align="left">{item.githubId}</td>
+              <td align="left">{item.publicName}</td>
+            </tr>
+          ))
+     }
+
 
     return (
      <Layout>
@@ -33,29 +61,46 @@ export default function() {
         <br/>
         <p className="normal-desc" dangerouslySetInnerHTML={{__html:dataSource.info.desc}}></p>
         <br></br>
-        <h3 className="normal-title">PPMC</h3>
+        <h3 className="normal-title">PPMC({config.ppmc.length+config.mentor.length})</h3>
         <p className="normal-desc">{dataSource.info.tip}</p>
-        <ul  className="character-list">
-          {
-              dataSource.list.map((item, i) => (
-                <a href={'https://github.com/'+ item.githubId} key={i} target="_blank">
-                    <li className="character-item text-center" style={{'listStyle':'none'}}>
-                      <img className="character-avatar" src={item.avatarUrl} alt={item.name}/>
-                      <div className="character-desc">
-                        <h3 className="character-name">{item.name}</h3>
-                      </div>
-                    </li>
-                </a>
-              ))
-          }
-        </ul>
-        <h3 className="normal-title">Committer</h3>
-        <p className="normal-desc">{dataSource.info.committerTip}</p>
-        <ul  className="character-list">
-          {
-              sortToShowCommitter()
-          }
-        </ul>
+
+        <table>
+           <thead>
+              <tr>
+                 <th align="left">Apache ID</th>
+                 <th align="left">Github Username</th>
+                 <th align="left">Public Name</th>
+              </tr>
+           </thead>
+           <tbody>
+           {
+             sortToShowMentor()
+            }
+
+            {
+             sortToShowPPMC()
+            }
+           </tbody>
+        </table>
+
+        <h3 className="normal-title">Committer({config.committer.length})</h3>
+        <p className="normal-desc">{dataSource.info.tip}</p>
+
+        <table>
+           <thead>
+              <tr>
+                 <th align="left">Apache ID</th>
+                 <th align="left">Github Username</th>
+                 <th align="left">Public Name</th>
+              </tr>
+           </thead>
+           <tbody>
+              {
+                 sortToShowCommitter()
+              }
+           </tbody>
+        </table>
+
         <h3 className="normal-title">
           <a target="_blank" href="https://github.com/apache/incubator-linkis">Contributors of Apache Linkis</a>
         </h3>

@@ -1,18 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import contributors from "./contributors.json";
+import contributorsWebSite from "./contributors-website.json";
+
+
 
 export default (props) => {
     const [contributers, setContributers] = useState([]);
-    useEffect(() => {
-        const repo = props.repo ?? 'apache/incubator-linkis';
 
-        if (!contributers || contributers.length === 0) {
-            fetch(`https://api.github.com/repos/${repo}/contributors?page=1&per_page=10000`).then(function (response) {
-                return response.json();
-            }).then((res) => {
-                setContributers(res);
-            });
+    useEffect(() => {
+       const repo = props.repo ?? 'apache/incubator-linkis';
+
+ /*      if (!contributers || contributers.length === 0) {
+                    fetch(`https://api.github.com/repos/${repo}/contributors?page=1&per_page=10000`)
+                    .then(function (response) {
+                        return response.json();
+                    }).then((res) => {
+                        setContributers(res);
+                    }).catch((response) => {
+                        //use local contributors data
+                        console.log(contributors)
+                        if(repo=="apache/incubator-linkis-website")
+                         setContributers(contributorsWebSite)
+                        else
+                         setContributers(contributors)
+                    });
         }
+*/
+      if(repo=="apache/incubator-linkis-website")
+        setContributers(contributorsWebSite)
+      else
+        setContributers(contributors)
+
     });
     /*let html = '<table>';
     if (contributers && Array.isArray(contributers)) {
@@ -71,4 +90,7 @@ export default (props) => {
         </table>
     )
     /*return <div style={{width:'1300px'}} dangerouslySetInnerHTML={{ __html: html }}/>;*/
+
 }
+
+

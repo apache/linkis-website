@@ -1,5 +1,5 @@
 ---
-title: How to Use Email List
+title: How to Use Email
 sidebar_position: 1.1
 ---
 

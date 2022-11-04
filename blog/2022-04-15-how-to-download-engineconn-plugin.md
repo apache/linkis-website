@@ -47,4 +47,4 @@ cd 1.0.3-engineconn-plugin
 
 Copy the engine material package to be used to the engine plug-in directory of linkis, and then refresh the engine material.
 
-For the detailed process, refer to [Installing the EngineConnPlugin Engine](https://linkis.apache.org/zh-CN/docs/latest/deployment/engine-conn-plugin-installation).
+For the detailed process, refer to [Installing the EngineConnPlugin Engine](https://linkis.apache.org/zh-CN/docs/latest/deployment/install-engineconn).

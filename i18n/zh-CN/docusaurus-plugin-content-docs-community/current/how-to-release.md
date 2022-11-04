@@ -274,7 +274,7 @@ step3 检查
 
 step4 clone对应的release分支到本地 
 ```shell script
-#-b release-1.12-rc1 指定clone分支  -c(config) 指定使用的配置  core.autocrlf=fals 关闭自动换行符的转换 
+#-b release-1.12-rc1 指定clone分支  -c(config) 指定使用的配置  core.autocrlf=false 关闭自动换行符的转换 
 git clone -b release-1.1.2-rc1  -c core.autocrlf=false  git@github.com:apache/incubator-linkis.git 
 
 ```
@@ -365,10 +365,7 @@ $ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.1.2-i
 $ cp  linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz   dist/apache-linkis
 ```
 
-### 2.6 打包前端管理台(如果需要发布前端)
-:::caution 注意
-如果不发布前端项目，可以跳过此步骤
-:::
+### 2.6 打包前端管理台
 
 #### 2.6.1 安装Node.js
 将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node v14版本）
