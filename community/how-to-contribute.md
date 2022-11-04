@@ -223,7 +223,7 @@ Before contributing code, you can find out what kind of submissions are popular 
 
 ---
 
-##3, Outstanding Contributor
+## 3, Outstanding Contributor
 
 ### 3.1 About Committers (Collaborators)
 
