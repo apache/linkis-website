@@ -3,7 +3,7 @@ title: Site Map
 sidebar_position: 12
 ---
 
-## Related Links 
+## Related links 
 
 - Successful Graduation Guide https://incubator.apache.org/guides/graduation.html
 
