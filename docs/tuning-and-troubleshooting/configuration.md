@@ -238,3 +238,89 @@ sidebar_position: 1
 |v1.1.0     | wds.linkis.server.mdm.service.sql.url                    | jdbc:mysql://%s:%s/%s                                | set url format for hive-metadata mysql service               |
 |v1.1.0     | wds.linkis.server.mdm.service.sql.connect.timeout        | 3000                                                 | set timeout for mysql connect for hive-metadata mysql service |
 |v1.1.0     | wds.linkis.server.mdm.service.sql.socket.timeout         | 6000                                                 | set timeout for socket open for hive-metadata mysql service  |
+
+### 7. Common scene parameters
+
+#### 7.1 Enable test mode
+If you need a no-seal interface during development, you can replace or add this configuration in `linkis.properties`
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.test.mode | false | Whether to enable debug mode. If true, all microservices support unencrypted login and all Engineconns open the remote debug port |
+| wds.linkis.test.user | hadoop | Default logon user for password-free login when wds.linkis.test.mode=true |
+
+
+#### 7.2 Login user Settings
+Apache Linkis uses a configuration file to manage admin users by default. This configuration can be replaced or append in 'linkis-mg-gateway.properties'. Multi-user access to LDAP implementation.
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.admin.user | hadoop | Admin username |
+| wds.linkis.admin.password | 123456 | Admin password |
+
+#### 7.3 LDAP setup
+Apache Linkis can be parameterized to LDAP for multi-user management. You can replace or append this configuration in 'linkis-mg-gateway.properties'.
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.ldap.proxy.url | None | The LDAP URL address |
+| wds.linkis.ldap.proxy.baseDN | None | LDAP baseDN address |
+| wds.linkis.ldap.proxy.userNameFormat | None |  |
+
+#### 7.4 Disable resource checking
+Apache Linkis sometimes has debugging exceptions when submitting tasks, such as: insufficient resources; You can replace or append this configuration at 'linkis-cg-linkismanager.properties'.
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.manager.rm.request.enable | true | Resources to check |
+
+#### 7.5 Enable engine debugging
+Apache Linkis EC can enable debugging mode, you can replace or append this configuration in 'linkis-cg-Linkismanager.properties'.
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.engineconn.debug.enable | false | Whether to enable engine debugging |
+
+#### 7.6 Hive metadata configuration
+The public-service service of Apache Linkis reads hive metadata. You can replace or append this configuration at 'linkis-ps-publicservice.properties'.
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| hive.meta.url | None | HiveMetaStore database URL |
+| hive.meta.user | None | HiveMetaStore database user |
+| hive.meta.password | None | HiveMetaStore database password |
+
+#### 7.7 Linkis database configuration
+Apache Linkis access uses Mysql as the data store by default. You can replace or append this configuration in 'linkis.properties'.
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.server.mybatis.datasource.url | None | Database connection string, such as: JDBC: mysql: / / 127.0.0.1:3306 / DSS? characterEncoding=UTF-8 |
+| wds.linkis.server.mybatis.datasource.username | None | Database user name, for example, root |
+| wds.linkis.server.mybatis.datasource.password | None | Database password, for example, root |
+
+#### 7.8 Linkis Session cache configuration
+Apache Linkis supports sharing sessions using redis; You can replace or append this configuration at 'linkis.properties'.
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| linkis.session.redis.cache.enabled | None | Whether open |
+| linkis.session.redis.host | 127.0.0.1 |  host name |
+| linkis.session.redis.port | 6379 | port |
+| linkis.session.redis.password | None | password |
+
+
+#### 7.9 Linkis module development configuration
+During the development of Apache Linkis, the database, Rest interface and entity object of the loading module can be customized through this parameter. It can be modified in 'linkis-ps-publicservice.properties' with comma separation between multiple modules.
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.server.restful.scan.packages | None | restful Scan packages, for example: org.apache.linkis.basedatamanager.server.restful |
+| wds.linkis.server.mybatis.mapperLocations | None | mybatis mapper file path, for example: classpath*:org/apache/linkis/basedatamanager/server/dao/mapper/*.xml|
+| wds.linkis.server.mybatis.typeAliasesPackage | None | Entity alias scan package, for example:org.apache.linkis.basedatamanager.server.domain |
+| wds.linkis.server.mybatis.BasePackage | None | Database dao layer scanning, for example:org.apache.linkis.basedatamanager.server.dao |
+
+#### 7.10 Linkis module development configuration
+When Apache Linkis is developed, the route of loading module can be customized through this parameter; It can be modified in 'linkis.properties' with comma separation between multiple modules.
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.gateway.conf.publicservice.list | cs,contextservice,data-source-manager,metadataQuery,metadatamanager,query,jobhistory,application,configuration,filesystem,udf,variable,microservice,errorcode,bml,datasource,basedata-manager | publicservice Indicates the module that supports routing |
