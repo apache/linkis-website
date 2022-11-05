@@ -329,3 +329,14 @@ Apache Linkis 开发时可通过此参数，自定义加载模块的路由；可
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.gateway.conf.publicservice.list | cs,contextservice,data-source-manager,metadataQuery,metadatamanager,query,jobhistory,application,configuration,filesystem,udf,variable,microservice,errorcode,bml,datasource,basedata-manager | publicservice服务支持路由的模块 |
+
+#### 7.11 Linkis 文件系统及物料存放路径
+Apache Linkis 开发时可通过此参数，自定义加载模块的路由；可以在`linkis.properties`进行修改，多个模块之间使用逗号分割。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.filesystem.root.path | file:///tmp/linkis/ | 本地用户目录，需在该目录下建立以用户名为名称的文件夹 |
+| wds.linkis.filesystem.hdfs.root.path | hdfs:///tmp/ | HDFS用户目录 |
+| wds.linkis.bml.is.hdfs | true | 是否启用hdfs |
+| wds.linkis.bml.hdfs.prefix | /apps-data | hdfs路径 |
+| wds.linkis.bml.local.prefix | /apps-data | 本地路径 |

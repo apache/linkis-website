@@ -311,16 +311,29 @@ Apache Linkis supports sharing sessions using redis; You can replace or append t
 
 
 #### 7.9 Linkis module development configuration
-During the development of Apache Linkis, the database, Rest interface and entity object of the loading module can be customized through this parameter. It can be modified in 'linkis-ps-publicservice.properties' with comma separation between multiple modules.
+During the development of Apache Linkis, the database, Rest interface and entity object of the loading module can be customized through this parameter. It can be modified in 'linkis-ps-publicservice.properties' with comma separation between multiple modules.    
+
 | Parameter name | Default value | Description |
 | ------------------------- | -------  | -----------------------------------------------------------|
-| wds.linkis.server.restful.scan.packages | None | restful Scan packages, for example: org.apache.linkis.basedatamanager.server.restful |
-| wds.linkis.server.mybatis.mapperLocations | None | mybatis mapper file path, for example: classpath*:org/apache/linkis/basedatamanager/server/dao/mapper/*.xml|
-| wds.linkis.server.mybatis.typeAliasesPackage | None | Entity alias scan package, for example:org.apache.linkis.basedatamanager.server.domain |
-| wds.linkis.server.mybatis.BasePackage | None | Database dao layer scanning, for example:org.apache.linkis.basedatamanager.server.dao |
+| wds.linkis.server.restful.scan.packages | None | restful Scan packages, for example: org.apache.linkis.basedatamanager.server.restful |  
+| wds.linkis.server.mybatis.mapperLocations | None | mybatis mapper file path, for example: `classpath*:org/apache/linkis/basedatamanager/server/dao/mapper/*.xml` |  
+| wds.linkis.server.mybatis.typeAliasesPackage | None | Entity alias scan package, for example:org.apache.linkis.basedatamanager.server.domain |  
+| wds.linkis.server.mybatis.BasePackage | None | Database dao layer scanning, for example:org.apache.linkis.basedatamanager.server.dao |  
 
 #### 7.10 Linkis module development configuration
-When Apache Linkis is developed, the route of loading module can be customized through this parameter; It can be modified in 'linkis.properties' with comma separation between multiple modules.
+When Apache Linkis is developed, the route of loading module can be customized through this parameter; It can be modified in 'linkis.properties' with comma separation between multiple modules.  
+
 | Parameter name | Default value | Description |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.gateway.conf.publicservice.list | cs,contextservice,data-source-manager,metadataQuery,metadatamanager,query,jobhistory,application,configuration,filesystem,udf,variable,microservice,errorcode,bml,datasource,basedata-manager | publicservice Indicates the module that supports routing |
+
+#### 7.11 Linkis file system and material storage path
+Apache Linkis development through this parameter, control file and file storage path; This can be modified in 'linkis.properties' to separate modules by commas.
+
+| Parameter name | Default value | Description |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.filesystem.root.path | file:///tmp/linkis/ | The local user directory, in which a folder with the user's name should be created |
+| wds.linkis.filesystem.hdfs.root.path | hdfs:///tmp/ | HDFS user directory, where a folder with the user's name should be created |
+| wds.linkis.bml.is.hdfs | true | Whether hdfs is enabled |
+| wds.linkis.bml.hdfs.prefix | /apps-data | HDFS path |
+| wds.linkis.bml.local.prefix | /apps-data | local path |
