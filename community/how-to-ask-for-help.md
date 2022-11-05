@@ -19,7 +19,7 @@ step2 Copy the template content
 -->
 
 
-## Method 1 Github-Issue ask questions (recommended)
+## Method 1 Github-issue ask questions (recommended)
 
 ### Precautions
 :::caution note
@@ -41,7 +41,7 @@ In many browsers you can copy and paste the image directly into the box
 The log file should not exceed 25MB
 :::
     
-### Completion Instructions
+### Completion instructions
 - Entry: https://github.com/apache/incubator-linkis/issues
 
 ** Step1: Enter the issue column, click to create issue **
@@ -66,7 +66,7 @@ The log file should not exceed 25MB
 
 
 
-## Method 2 Email consultation
+## Method 2 email consultation
 
 Email Question Process
 

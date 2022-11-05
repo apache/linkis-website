@@ -3,7 +3,7 @@ title: How to Participate in Developer Meetings
 sidebar_position: 2.2
 ---
 
-# How to Participate in Developer Meetings
+# How to Participate in developer meetings
 
 ## Introduction to developer meetings
 

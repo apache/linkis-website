@@ -3,7 +3,7 @@ title: How to Release
 sidebar_position: 3
 ---
 
-# Apache Publishing Guide
+# Apache publishing guide
 > This article takes the release of 1.0.3 Apache version as an example. If it is a non-Apache version, please refer to the [detailed information](https://incubator.apache.org/guides/releasemanagement.html) https://incubator.apache.org/guides/releasemanagement.html
 
 Understand the content and process of Apache's release. Source Release is the focus of Apache’s attention and is also a required content for release; Binary Release is optional. Please refer to the following link to find more ASF release guidelines:
@@ -135,7 +135,7 @@ Go directly to https://keyserver.ubuntu.com/ and enter the username mingXiao to 
 
 -  Linkis Release branch https://dist.apache.org/repos/dist/release/incubator/linkis
 
-#### 1.5.1 Add public key to KEYS in dev branch
+#### 1.5.1 Add public key to keys in dev branch
 
 Used to release RC version
 
@@ -155,7 +155,7 @@ $ svn add KEYS
 $ svn ci -m "add gpg key for YOUR_NAME"
 ```
 
-#### 1.5.2 Add public key to KEYS in release branch
+#### 1.5.2 Add public key to keys in release branch
 
 Used to release the official version
 
@@ -217,9 +217,9 @@ For encryption settings, please refer to [here](http://maven.apache.org/guides/m
 ```
 
 
-## 2 Prepare material package & release of Apache Nexus
+## 2 Prepare material package & release of apache nexus
 
-### 2.1 Prepare branch/Tag/Release Notes
+### 2.1 Prepare branch/tag/\release notes
 
 Pull the new branch from the branch to be released as the branch to be released. If you want to release the $`{release_version}` version now, check out the new branch `release-${release_version}-${condition_version}` from the branch to be released, and all after that The operations are all performed on the `release-${release_version}-${condition_version}` branch, and merge into the main branch after the final release is completed.
 
@@ -272,7 +272,7 @@ Archives: 0
 If it is not 0, you need to confirm whether there is a license for the binary or compressed file in the source code. You can refer to `linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7- src.zip`
 </font>
 
-### 2.3 Publish jar package to Apache Nexus repository
+### 2.3 Publish jar package to apache nexus repository
 ```shell
 # Start to compile and upload, it takes about 1h40min
 $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
@@ -392,7 +392,7 @@ The detailed verification process can be found in [Verification Candidate Versio
 
 
 
-## 3 Publish the Apache SVN repository
+## 3 Publish the apache svn repository
 
 - The Linkis [DEV branch](https://dist.apache.org/repos/dist/dev/incubator/linkis) is used to store the source code and binary materials of the candidate version
 - The RC version voted by the Linkis [Release branch](https://dist.apache.org/repos/dist/release/incubator/linkis) will eventually be moved to the release library
@@ -406,7 +406,7 @@ $ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis dist/linkis_svn
 
 ```
 
-### 3.2 Add the content to be published to the SVN directory
+### 3.2 Add the content to be published to the svn directory
 
 Create a version number directory and name it in the way of `${release_version}-${RC_version}`, RC_version starts from 1, that is, the candidate version starts from RC1. During the release process, there is a problem that causes the vote to be rejected, and it needs to be corrected and iterated. RC version, RC version number should be +1.
 For example: 1.0.3-RC1 version is voted, if the vote is passed without any problems, the RC1 version material will be released as the final version material.
@@ -422,7 +422,7 @@ Add the source code package, binary package, and Linkis executable binary packag
 $ cp -f dist/apache-linkis/* dist/linkis_svn_dev/1.0.3-RC1
 
 ```
-### 3.3 Submit Apache SVN
+### 3.3 Submit apache svn
 
 ```shell
 $ cd dist/linkis_svn_dev/
@@ -438,7 +438,7 @@ $ svn commit -m "prepare for 1.0.3-RC1"
 ```
 If Chinese garbled characters appear in the svn command, you can try to set the encoding format (set the encoding format: export LANG=en_US.UTF-8).
 
-## 4 Verify Release Candidates
+## 4 Verify release candidates
 
 For details, please refer to [How to Verify release](/how-to-verify.md)
 
@@ -465,7 +465,7 @@ The DISCLAIMER-WIP disclaimer is currently used, please add this description `As
 - To vote in the Linkis community, send a voting email to `dev@linkis.apache.org`. PMC needs to check the correctness of the version according to the document, and then vote. After at least 72 hours have passed and three `+1 PMC member` votes have been counted, you can enter the next stage of voting.
 - Announce the results of the voting and send an email to the result of the voting to `dev@linkis.apache.org`.
 
-#### 5.1.1 Linkis Community Voting Template
+#### 5.1.1 Linkis community voting template
 
 ```html
 title:
@@ -658,7 +658,7 @@ $ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://di
 $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ````
 
-### 6.3 Release version in Apache Staging repository
+### 6.3 Release version in apache staging repository
 
 - Log in to http://repository.apache.org , log in with your Apache account
 - Click on Staging repositories on the left,
