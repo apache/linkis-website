@@ -182,13 +182,7 @@ export SERVER_HEAP_SIZE="512M"
 ##The decompression directory and the installation directory need to be inconsistent
 LINKIS_HOME=/appcom/Install/LinkisInstall
 ```
-#### 数据源服务开启(可选)
-> 按实际情况，如果想使用数据源功能，则需要调整 
 
-```shell script
-#If you want to start metadata related microservices, you can set this export ENABLE_METADATA_MANAGE=true
-export ENABLE_METADATA_QUERY=true
-```
 #### 无HDFS模式部署(可选 >1.1.2版本支持) 
 
 > 在没有HDFS 的环境中部署 Linkis 服务，以方便更轻量化的学习使用和调试。去HDFS模式部署不支持hive/spark/flink引擎等任务

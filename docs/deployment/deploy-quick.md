@@ -182,13 +182,7 @@ export SERVER_HEAP_SIZE="512M"
 ##The decompression directory and the installation directory need to be inconsistent
 LINKIS_HOME=/appcom/Install/LinkisInstall
 ````
-#### Data source service is enabled (optional)
-> According to the actual situation, if you want to use the data source function, you need to adjust
 
-```shell script
-#If you want to start metadata related microservices, you can set this export ENABLE_METADATA_MANAGE=true
-export ENABLE_METADATA_QUERY=true
-````
 #### No HDFS mode deployment (optional >1.1.2 version support hold)
 
 > Deploy Linkis services in an environment without HDFS to facilitate more lightweight learning and debugging. Deploying in HDFS mode does not support tasks such as hive/spark/flink engines
