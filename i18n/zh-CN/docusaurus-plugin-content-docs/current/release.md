@@ -2,9 +2,9 @@
 title: 版本总览
 sidebar_position: 0.1
 --- 
-- [Linkis 容器化构建流程](/development/linkis-docker-build-instrument.md)
-- [Linkis 容器化体验版 LDH 快速部署](/development/linkis-debug-with-helm-charts.md)
-- [Linkis 容器化开发调试](development/linkis-debug-with-helm-charts.md)
+- [Linkis 容器化构建流程](/development/build-docker.md)
+- [Linkis 容器化体验版 LDH 快速部署](/deployment/deploy-to-kubernetes.md)
+- [Linkis 容器化开发调试](/development/debug-with-helm-charts.md)
 - [PES 公共服务组服务合并详情](/blog/2022/10/09/linkis-service-merge)
 - [Session 支持 Redis 共享存储](/user-guide/sso-with-redis.md)
 

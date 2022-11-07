@@ -1,9 +1,9 @@
 ---
-title: How to Verify
+title: How to Verify Release
 sidebar_position: 4
 ---
 
-# Verify the Candidate Version
+# Verify the candidate version
 
 For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
@@ -120,7 +120,7 @@ $ tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
 
 $ cd apache-linkis-${release_version}-incubating-src
 ```
-#### 2.4.1 ASF License RAT Check
+#### 2.4.1 Asf license rat check
 Mac OS/Linux
 ```shell
 #normally can be executed within 5 minutes

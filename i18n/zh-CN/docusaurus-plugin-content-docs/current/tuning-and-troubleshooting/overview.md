@@ -156,6 +156,6 @@ sh -x engineConnExec.sh
 ### 5. 定位源码远程debug
 
 通常情况下，对源码远程debug是定位问题最有效的方式，但相对查阅文档来说，需要用户对源码结构有一定的了解，
-这里建议您在远程debug前查阅《 [Linkis源码层级结构详解](deployment/sourcecode-hierarchical-structure.md) 》,对项目的源码结构进行初步的了解，
-有一定程度上的熟悉之后，可以参考《 [如何DebugLinkis](development/linkis-debug.md) 》一文 调试对应微服务下的代码。
+这里建议您在远程debug前查阅《 [Linkis源码层级结构详解](deployment/directory-of-sourcecode.md) 》,对项目的源码结构进行初步的了解，
+有一定程度上的熟悉之后，可以参考《 [如何DebugLinkis](development/debug.md) 》一文 调试对应微服务下的代码。
 
