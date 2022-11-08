@@ -73,7 +73,7 @@ After the successful invitation, the personal github account information can be 
 
 ![open-Apache's-GitHub-warehouse3](https://user-images.githubusercontent.com/29391030/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
 
-### 1.5 Related Links Documentation
+### 1.5 Related links documentation
 [github uses TOTP to enable 2FA authentication] https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
 
 [Create a private token] https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token

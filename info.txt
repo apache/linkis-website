@@ -63,12 +63,15 @@ cp -r current.json version-1.2.0.json
 
 修改src/pages/versions
 
-
-
 i18n/zh-CN/code.json
 theme.docs.versions.unreleasedVersionLabel
 
-[1.1.3->1.2.0]
+
+
+
+----------------
+
+[1.1.3->1.2.0] 的修改点
 assembly-combined-package/assembly-combined
 linkis-dist/package
 

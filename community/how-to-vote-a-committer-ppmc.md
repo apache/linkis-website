@@ -4,7 +4,7 @@ sidebar_position: 6
 ---
 > Introduce the selection requirements and process for Committer and PPMC. Official guidelines can be found at: https://incubator.apache.org/guides/ppmc.html
 
-## 1. Candidate Requirements
+## 1. Candidate requirements
 When voting, all PPMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/incubator-linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/incubator-linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
 
 Below are some points to consider when evaluating candidates for commitment eligibility.
@@ -207,7 +207,7 @@ Hello Joe Bloggs,
 The Apache Linkis(Incubating) PPMC
 ````
 
-### 2.6 Invitation Acceptance Process
+### 2.6 Invitation acceptance process
 >Requires candidates for processing
 
 The new Committer should reply to `private@linkis.apache.org` (select `reply all`) and express his/her acceptance of the invitation.
@@ -240,7 +240,7 @@ In a few days, new committers will receive an email confirming account creation 
 After receiving the notification email that the account was created successfully, you can reply to the previous invitation email again to inform Linkis PPMC that your Apache Id account has been created, and request that your Apache Id be added to Linkis' official submitter list.
 (Inform the PPMC responsible for nominating you to add the new committer to the official committer list via the [Roster](https://whismy.apache.org/roster/committee/linkis) page)
 
-### 2.7 Setting up Apache ID and development environment
+### 2.7 Setting up apache id and development environment
 >Requires candidates for processing
 
 - Enter [Apache Account Utility Platform] (https://id.apache.org/), create a password, set up a personal email address (`forwarding email address`) and a GitHub account (`Your GitHub Username`). 

@@ -1,5 +1,5 @@
 ---
-title: APACHE 产品名称使用指南
+title: Apache 产品名称使用指南
 sidebar_position: 12
 ---
 > 详细完整说明见 https://www.apache.org/foundation/marks/guide
