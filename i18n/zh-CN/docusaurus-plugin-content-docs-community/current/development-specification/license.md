@@ -12,16 +12,18 @@ ASF(Apache基金会)下的开源项目，对于License有着极其严苛的要�
 ## License 文件目录说明 
 [Linkis源码](https://github.com/apache/incubator-linkis)涉及到license的目录如下
 ```shell script
-#位于最外层的目录下
+#最外层的目录开始
 
 |-- LICENSE //项目源码的LICENSE
-|-- LICENSE-binary //二进制包的LICENSE
-|-- LICENSE-binary-ui //前端web编译包的LICENSE 
-|-- NOTICE  //项目源码的NOTICE
-|-- NOTICE-binary //二进制包的NOTICE
-|-- NOTICE-binary-ui //前端web二进制包的NOTICE
-|-- licenses-binary  二进制包的详细依赖的license文件
-|-- licenses-binary-ui //前端web编译包详细依赖的license文件
+|-- NOTICE  //项目源码的NOTICE 
+|-- linkis-web
+|-- └─ release-docs 
+|--     └─ LICENSE //前端web编译包的LICENSE 
+|--     └─ NOTICE //前端web二进制包的NOTICE
+|-- linkis-dist
+|-- └─ release-docs 
+|--     └─ LICENSE //二进制包的LICENSE
+|--     └─ NOTICE //二进制包的NOTICE
 
 ```
 
@@ -72,8 +74,8 @@ copyright notice that is included in or attached to the work.
 当我们需要添加新的Jar或其他外部资源的时候，我们需要按照以下步骤：
 
 * 在 tool/dependencies/known-dependencies.txt中添加你所需要的jar名称+版本。
-* 在 LICENSE/LICENSE-binary/LICENSE-binary-ui（根据实际情况决定）中添加相关的license信息。
-* 在 NOTICE/NOTICE-binary/NOTICE-binary-ui（根据实际情况决定）中追加相关的NOTICE文件，此文件请务必和依赖项的代码版本仓库中的NOTICE文件一致。
+* 在 linkis-web/release-docs/LICENSE（根据实际情况决定）中添加相关的license信息。
+* 在 linkis-web/release-docs/NOTICE（根据实际情况决定）中追加相关的NOTICE文件，此文件请务必和依赖项的代码版本仓库中的NOTICE文件一致。
 
 :::caution 注意
 如果是移除的场景，则对应的上述步骤的反向操作，需要在对应的文件中移除相应的LICENSE/NOTICE内容，总之需要保证这几个文件与实际源码/编译包的数据保持一致

@@ -12,16 +12,18 @@ This article will explain the ASF-License and how to avoid the license risk when
 ## License file directory description
 [Linkis source code](https://github.com/apache/incubator-linkis) The directory related to the license is as follows
 ```shell script
-# in the outermost directory
+# the outermost directory starts
 
 |-- LICENSE //LICENSE of the project source code
-|-- LICENSE-binary //LICENSE of binary package
-|-- LICENSE-binary-ui //LICENSE of the front-end web compilation package
-|-- NOTICE //NOTICE of project source code
-|-- NOTICE-binary // NOTICE of binary package
-|-- NOTICE-binary-ui //NOTICE of front-end web binary package
-|-- licenses-binary The detailed dependent license file of the binary package
-|-- licenses-binary-ui //The license file that the front-end web compilation package depends on in detail
+|-- NOTICE  //NOTICE of project source code
+|-- linkis-web
+|-- └─ release-docs 
+|--     └─ LICENSE //LICENSE for front-end web compilation packages
+|--     └─ NOTICE //NOTICE for front-end web binary packages
+|-- linkis-dist
+|-- └─ release-docs 
+|--     └─ LICENSE //LICENSE for binary packages
+|--     └─ NOTICE //NOTICE for binary packages
 
 ````
 
@@ -72,8 +74,8 @@ We build a license-check script for our own project to ensure that we can avoid 
 When we need to add new Jars or other external resources, we need to follow these steps:
 
 * Add the jar name + version you need in tool/dependencies/known-dependencies.txt.
-* Add relevant license information in LICENSE/LICENSE-binary/LICENSE-binary-ui (depending on the actual situation).
-* Append the relevant NOTICE file to NOTICE/NOTICE-binary/NOTICE-binary-ui (determined according to the actual situation). This file must be consistent with the NOTICE file in the code version repository of the dependencies.
+* Add relevant license information in linkis-web/release-docs/LICENSE (depending on the actual situation).
+* Append the relevant NOTICE file to linkis-web/release-docs/NOTICE (determined according to the actual situation). This file must be consistent with the NOTICE file in the code version repository of the dependencies.
 
 :::caution Note
 If the scenario is to remove, then the corresponding reverse operation of the above steps needs to remove the corresponding LICENSE/NOTICE content in the corresponding file. In short, it is necessary to ensure that these files are consistent with the data of the actual source code/compiled package
