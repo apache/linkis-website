@@ -79,7 +79,7 @@ copyright notice that is included in or attached to the work.
 
 :::caution 注意
 如果是移除的场景，则对应的上述步骤的反向操作，需要在对应的文件中移除相应的LICENSE/NOTICE内容，总之需要保证这几个文件与实际源码/编译包的数据保持一致
-- known-dependencies.txt
+- tool/dependencies/known-dependencies.txt
 - LICENSE/LICENSE-binary/LICENSE-binary-ui
 - NOTICE/NOTICE-binary/NOTICE-binary-ui
 :::
