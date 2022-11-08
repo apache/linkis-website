@@ -1,6 +1,6 @@
 ---
 title: Version Overview
-sidebar_position: 0.1
+sidebar_position: 1
 ---
 
 - [Build Linkis Docker Image](/development/build-docker.md)
