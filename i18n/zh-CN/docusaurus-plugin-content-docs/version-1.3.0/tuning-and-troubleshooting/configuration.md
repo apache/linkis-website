@@ -239,3 +239,90 @@ sidebar_position: 1
 |v1.1.0 | wds.linkis.server.mdm.service.sql.connect.timeout        | 3000                                                  | 设置mysql服务连接mysql服务的连接超时时间                |
 |v1.1.0 | wds.linkis.server.mdm.service.sql.socket.timeout         | 6000                                                  | 设置mysql服务打开mysql服务的socket超时时间              |
 |v1.1.0 | wds.linkis.server.mdm.service.temp.location              | /tmp/keytab                                           | 设置服务的本地临时存储路径，主要是存储从bml物料服务下载的认证文件|
+
+### 7. 常用场景参数
+
+#### 7.1 开启测试模式
+开发过程需要免密接口，可在`linkis.properties`替换或追加此配置
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.test.mode | false | 是否打开调试模式，如果设置为 true，所有微服务都支持免密登录，且所有EngineConn打开远程调试端口 |
+| wds.linkis.test.user | hadoop | 当wds.linkis.test.mode=true时，免密登录的默认登录用户 |
+
+
+#### 7.2 登录用户设置
+Apache Linkis 默认使用配置文件来管理admin用户，可以在`linkis-mg-gateway.properties`替换或追加此配置。如需多用户可接入LDAP实现。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.admin.user | hadoop | 管理员用户名 |
+| wds.linkis.admin.password | 123456 | 管理员用户密码 |
+
+#### 7.3 LDAP设置
+Apache Linkis 可以通过参数接入LDAP实现多用户管理，可以在`linkis-mg-gateway.properties`替换或追加此配置。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.ldap.proxy.url | 无 | LDAP URL地址 |
+| wds.linkis.ldap.proxy.baseDN | 无 | LDAP baseDN地址 |
+| wds.linkis.ldap.proxy.userNameFormat | 无 |  |
+
+#### 7.4 关闭资源检查
+Apache Linkis 提交任务时有时会调试异常，如：资源不足；可以在`linkis-cg-linkismanager.properties`替换或追加此配置。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.manager.rm.request.enable | true | 资源检查 |
+
+#### 7.5 开启引擎调试
+Apache Linkis EC可以开启调试模式，可以在`linkis-cg-linkismanager.properties`替换或追加此配置。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.engineconn.debug.enable | false | 是否开启引擎调试 |
+
+#### 7.6 Hive元数据配置
+Apache Linkis 的public-service服务需要读取hive的元数据；可以在`linkis-ps-publicservice.properties`替换或追加此配置。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| hive.meta.url | 无 | HiveMetaStore数据库的URL。 |
+| hive.meta.user | 无 | HiveMetaStore数据库的user |
+| hive.meta.password | 无 | HiveMetaStore数据库的password |
+
+#### 7.7 Linkis 数据库配置
+Apache Linkis 访问默认使用Mysql作为数据存储，可以在`linkis.properties`替换或追加此配置。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.server.mybatis.datasource.url | 无 | 数据库连接字符串，例如：jdbc:mysql://127.0.0.1:3306/dss?characterEncoding=UTF-8 |
+| wds.linkis.server.mybatis.datasource.username | 无 | 数据库用户名，例如：root |
+| wds.linkis.server.mybatis.datasource.password | 无 | 数据库密码，例如：root |
+
+#### 7.8 Linkis Session 缓存配置
+Apache Linkis 支持使用redis进行session的共享；可以在`linkis.properties`替换或追加此配置。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| linkis.session.redis.cache.enabled | None | 是否开启 |
+| linkis.session.redis.host | 127.0.0.1 | 主机名 |
+| linkis.session.redis.port | 6379 | 端口，例如 |
+| linkis.session.redis.password | None | 密码 |
+
+
+
+#### 7.9 Linkis 模块开发配置
+Apache Linkis 开发时可通过此参数，自定义加载模块的数据库、Rest接口、实体对象；可以在`linkis-ps-publicservice.properties`进行修改，多个模块之间使用逗号分割。
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.server.restful.scan.packages | 无 | restful 扫描包，例如：org.apache.linkis.basedatamanager.server.restful |
+| wds.linkis.server.mybatis.mapperLocations | 无 | mybatis mapper文件路径，例如： classpath*:org/apache/linkis/basedatamanager/server/dao/mapper/*.xml|
+| wds.linkis.server.mybatis.typeAliasesPackage | 无 | 实体别名扫描包，例如：org.apache.linkis.basedatamanager.server.domain |
+| wds.linkis.server.mybatis.BasePackage | 无 | 数据库dao层扫描，例如：org.apache.linkis.basedatamanager.server.dao |
+
+#### 7.10 Linkis 模块开发配置
+Apache Linkis 开发时可通过此参数，自定义加载模块的路由；可以在`linkis.properties`进行修改，多个模块之间使用逗号分割。
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.gateway.conf.publicservice.list | cs,contextservice,data-source-manager,metadataQuery,metadatamanager,query,jobhistory,application,configuration,filesystem,udf,variable,microservice,errorcode,bml,datasource,basedata-manager | publicservice服务支持路由的模块 |
