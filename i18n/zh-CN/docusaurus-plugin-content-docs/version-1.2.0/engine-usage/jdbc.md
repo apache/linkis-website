@@ -132,24 +132,27 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 
 图3-4 数据源连接测试
 
-数据源添加完成之后，就可以使用JDBC引擎的多数据源切换功能，有两种方式：
+数据源添加完成之后（还需要点击数据源的版本按钮进行发布操作，只有发布了的数据源才能正式使用），就可以使用JDBC引擎的多数据源切换功能，有两种方式：
 1、通过接口参数指定数据源名称参数，如下图：
 ![](/Images-zh/EngineUsage/muti-data-source.png)
 
 参数示例：
 ```json
 {
-    "executionContent": {"code": "show databases", "runType":  "jdbc"},
-    "params": {"variable": {}, "configuration": {"startup":{}, 
-    "runtime": 
-    	{ 
-    		"dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
-    	}
-    }}},
+    "executionContent": {"code": "show tables", "runType":  "jdbc"},
+    "params": {
+        "variable": {}, 
+        "configuration": {
+            "startup":{}, 
+            "runtime":{ 
+                "wds.linkis.engine.runtime.datasource": "mysql-test"
+            }
+        }
+    },
     "source":  {"scriptPath": ""},
     "labels": {
         "engineType": "jdbc-4",
-        "userCreator": "linkis-IDE"
+        "userCreator": "hadoop-IDE"
     }
 }
 ```
