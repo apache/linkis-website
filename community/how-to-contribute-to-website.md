@@ -186,5 +186,10 @@ After the verification is correct, the asf-staging branch can be merged to the a
 - When adding a document, pay attention to the document node name and node sorting fields, as shown in the following figure  
 ![pg-eng](https://user-images.githubusercontent.com/29391030/161210331-497bbc90-369d-4401-b9dd-fe63bbaba850.png)
 
-## 7 Other
+## 7 Acknowledgments
+
+[![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg "Deploys by Netlify")](https://www.netlify.com/) 
+[Netlify](https://www.netlify.com/) kindly provides pull request builds, checks and previews for this website.
+
+## 8 Other
 The naming convention refers to "Alibaba Front-end Development Specification"
