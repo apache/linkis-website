@@ -92,11 +92,22 @@ kubectl get pods -A
 ```
 ### 9.访问系统
 ```
-linkis-web: http://10.0.2.101:8088/
+linkis-web: http://10.0.2.102:8088/#/login
+用户名:hadoop
+获取密码：
+kubectl describe cm linkis-demo-linkis-config -n linkis |grep wds.linkis.admin.password
+密码:4f90c1b13
+```
+
+```
 eureka: http://10.0.2.101:20303/
 ```
-### 10.进入容器
+
+![](/Images/deployment/kubernetes/eureka.png)
+
+### 10.执行linkis-cli执行任务
 ```
+进入容器
 ./helm/scripts/login-pod.sh cg-engineconnmanager
 执行shell测试
 sh ./bin/linkis-cli -engineType shell-1 -codeType shell -code "echo "hello" "  -submitUser hadoop -proxyUser hadoop
@@ -107,4 +118,5 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show tables"  -
 执行python测试
 sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python.version=python
 ```
+
 ![](/Images/deployment/kubernetes/linkis.jpg)

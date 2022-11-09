@@ -81,11 +81,22 @@ kubectl get pods -A
 ```
 ### Step10 Access to the system
 ```
-linkis-web: http://10.0.2.101:8088/
+linkis-web: http://10.0.2.102:8088/#/login
+username:hadoop
+Get the password command：
+kubectl describe cm linkis-demo-linkis-config -n linkis |grep wds.linkis.admin.password
+password:4f90c1b13
+```
+
+```
 eureka: http://10.0.2.101:20303/
 ```
-### Step11 Into the container
+
+![](/Images/deployment/kubernetes/eureka.png)
+
+### Step11 use linkis-cli executes the task
 ```
+Enter the container
 ./helm/scripts/login-pod.sh cg-engineconnmanager
 Executing shell tests
 sh ./bin/linkis-cli -engineType shell-1 -codeType shell -code "echo "hello" "  -submitUser hadoop -proxyUser hadoop
