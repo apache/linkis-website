@@ -10,20 +10,42 @@ ASF(Apache基金会)下的开源项目，对于License有着极其严苛的要�
 本文将为您讲解ASF—License以及参与 Linkis 项目开发时如何规避掉License风险。
 
 ## License 文件目录说明 
-[Linkis源码](https://github.com/apache/incubator-linkis)涉及到license的目录如下
-```shell script
-#最外层的目录开始
 
-|-- LICENSE //项目源码的LICENSE
-|-- NOTICE  //项目源码的NOTICE 
-|-- linkis-web
-|-- └─ release-docs 
-|--     └─ LICENSE //前端web编译包的LICENSE 
-|--     └─ NOTICE //前端web二进制包的NOTICE
-|-- linkis-dist
-|-- └─ release-docs 
-|--     └─ LICENSE //二进制包的LICENSE
-|--     └─ NOTICE //二进制包的NOTICE
+licence相关的可以划分为3部分
+- 源码级别  主要需要关注的场景是： 在项目工程源码中，直接引入第三方资源（如 直接使用了某个其他项目的代码JAVA文件，新增了文本、css、js、图片、图标、音视频等文件，以及在第三方基础上做的修改）
+- 项目的安装物料包  主要需要关注的场景是： 依赖的第三方jar包的运行态依赖，pom 配置中 通过dependency依赖引入 即最后编译打包会被打包到发布的安装包中的
+- 管理台的安装物料包  主要需要关注的场景是：前端web编译依赖的第三方npm依赖包 通过linkis-web/package.json 配置引入
+
+
+[Linkis源码](https://github.com/apache/incubator-linkis)涉及到license的目录如下
+
+```shell script
+# 最外层目录开始
+
+├── LICENSE  //项目源码的LICENSE  一些没有asf header的文件或则引入外部资源需要在这里标明 
+├── NOTICE   //项目源码的NOTICE 一般不会变动 
+├── licenses  //项目源码级别引入第三方组件license 说明 
+│   └── LICENSE-py4j-0.10.9.5-src.txt
+├── linkis-dist  
+│   └── release-docs 
+│       ├── LICENSE   //编译的安装包中依赖的第三方jar包的license信息汇总 
+│       ├── licenses   //编译的安装包中依赖的第三方jar包对应的license信息详细 
+│       │   ├── LICENSE-log4j-api.txt
+│       │   ├── LICENSE-log4j-core.txt
+│       │   ├── LICENSE-log4j-jul.txt
+│       │   ├── LICENSE-xxxx.txt
+│       └── NOTICE  //编译的安装包中依赖的第三方jar包的NOTICE 汇总 
+├── linkis-web 
+    └── release-docs
+        ├── LICENSE  //前端web编译安装包第三方npm依赖的LICENSE信息汇总  
+        ├── licenses  //前端web编译安装包第三方npm依赖对应的license信息详细 
+        │   ├── LICENSE-vuedraggable.txt
+        │   ├── LICENSE-vue-i18n.txt
+        │   ├── LICENSE-vue.txt
+        │   ├── LICENSE-vuescroll.txt
+        │   └── LICENSE-xxxx.txt
+        └── NOTICE //前端web编译安装包第三方npm依赖的NOTICE 汇总  
+        
 
 ```
 

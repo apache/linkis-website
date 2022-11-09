@@ -10,20 +10,41 @@ The open source projects under the ASF (Apache Foundation) have extremely strict
 This article will explain the ASF-License and how to avoid the license risk when participating in the Linkis project development.
 
 ## License file directory description
+
+License related can be divided into 3 parts
+- The main scenarios that need to be paid attention to are: in the project source code, the resources are directly included in the project (such as the direct use of video files, sample files, code JAVA of other projects, additions, icons, audio sources) and other files, and modifications made on the basis )
+- The packaging of the project will be packaged and released. The main scenarios that need to be paid attention to are: the running and installation dependencies of the dependent jar packages in the dependencies, and the pom, that is, the packaging of the dependencies, will be packaged in
+- The situation that the material installation package of the management console needs to be paid attention to: the additional dependency packages that are dependent on the front-end web are configured through linkweb/package.json
+
 [Linkis source code](https://github.com/apache/incubator-linkis) The directory related to the license is as follows
 ```shell script
 # the outermost directory starts
 
-|-- LICENSE //LICENSE of the project source code
-|-- NOTICE  //NOTICE of project source code
-|-- linkis-web
-|-- └─ release-docs 
-|--     └─ LICENSE //LICENSE for front-end web compilation packages
-|--     └─ NOTICE //NOTICE for front-end web binary packages
-|-- linkis-dist
-|-- └─ release-docs 
-|--     └─ LICENSE //LICENSE for binary packages
-|--     └─ NOTICE //NOTICE for binary packages
+├── LICENSE  //LICENSE of the project source code Some files without asf header or the introduction of external resources need to be marked here
+├── NOTICE   //The NOTICE of the project source code generally does not change
+├── licenses  //Introduction of third-party component licenses at the project source level
+│   └── LICENSE-py4j-0.10.9.5-src.txt
+├── linkis-dist  
+│   └── release-docs 
+│       ├── LICENSE   //Summary of license information of the third-party jar packages that depend on the compiled installation package
+│       ├── licenses   //Details of the license information corresponding to the third-party jar package dependent on the compiled installation package
+│       │   ├── LICENSE-log4j-api.txt
+│       │   ├── LICENSE-log4j-core.txt
+│       │   ├── LICENSE-log4j-jul.txt
+│       │   ├── LICENSE-xxxx.txt
+│       └── NOTICE  //A summary of NOTICE of dependent third-party jar packages in the compiled installation package
+├── linkis-web 
+    └── release-docs
+        ├── LICENSE  //LICENSE information summary of the third-party npm dependencies of the front-end web compilation and installation package
+        ├── licenses  //The license information corresponding to the third-party npm dependencies of the front-end web compilation and installation package is detailed
+        │   ├── LICENSE-vuedraggable.txt
+        │   ├── LICENSE-vue-i18n.txt
+        │   ├── LICENSE-vue.txt
+        │   ├── LICENSE-vuescroll.txt
+        │   └── LICENSE-xxxx.txt
+        └── NOTICE //A summary of NOTICE dependent on third-party npm for front-end web compilation and installation packages
+
+
 
 ````
 
