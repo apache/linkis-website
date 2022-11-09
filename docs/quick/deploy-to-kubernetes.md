@@ -24,21 +24,9 @@ kind web site：[kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
 ### 2.1 Install the tutorial
 ```
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-sudo sed -i 's+download.docker.com+mirrors.aliyun.com/docker-ce+' /etc/yum.repos.d/docker-ce.repo
-sudo yum makecache fast
 sudo yum -y install docker-ce
 systemctl start docker
 systemctl enable docker
-```
-
-### 2.2 Setting a Domestic Image
-```
-vi /etc/docker/daemon.json
-{
-"registry-mirrors": ["http://hub-mirror.c.163.com"],
-"insecure-registries": ["https://registry.mydomain.com","http://hub-mirror.c.163.com"]
-}
 ```
 
 ## 3. Install the kind
