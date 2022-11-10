@@ -189,7 +189,7 @@ After the verification is correct, the asf-staging branch can be merged to the a
 ## 7 Acknowledgments
 
 [![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg "Deploys by Netlify")](https://www.netlify.com/) 
-[Netlify](https://www.netlify.com/) kindly provides pull request builds, checks and previews for this website.
+[Netlify](https://www.netlify.com) kindly provides pull request builds, checks and previews for this website.
 
 ## 8 Other
 The naming convention refers to "Alibaba Front-end Development Specification"
