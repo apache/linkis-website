@@ -94,7 +94,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 
 ## 3.引擎的使用
 
-### 3.1 通过 Linkis-Cli 提交任务
+### 3.1 通过 Linkis-cli 提交任务
 
 ```shell
 sh ./bin/linkis-cli -engineType openlookeng-1.5.0 -codeType sql -code 'select * from tpcds.sf1.date_dim;' -submitUser hadoop -proxyUser hadoop
@@ -164,31 +164,33 @@ Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如�
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
-linkis_cg_manager_label：插入引擎label如：elasticsearch-7.6.2
+linkis_cg_manager_label：插入引擎label如：openlookeng-1.5.0
 linkis_ps_configuration_category： 插入引擎的目录关联关系
 linkis_ps_configuration_config_value： 插入引擎需要展示的配置
 linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
 ```
 
-表中与 ElasticSearch 引擎相关的初始数据如下
+表中与引擎相关的初始数据如下
 
 ```sql
+-- set variable
 SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 SET @OPENLOOKENG_ALL=CONCAT('*-*,',@OPENLOOKENG_LABEL);
 SET @OPENLOOKENG_IDE=CONCAT('*-IDE,',@OPENLOOKENG_LABEL);
 
+-- engine label
 insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @OPENLOOKENG_ALL, 'OPTIONAL', 2, now(), now());
 insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @OPENLOOKENG_IDE, 'OPTIONAL', 2, now(), now());
 
 select @label_id := id from linkis_cg_manager_label where `label_value` = @OPENLOOKENG_IDE;
 insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
 
--- openlookeng
+-- configuration key
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.url', '例如:http://127.0.0.1:8080', '连接地址', 'http://127.0.0.1:8080', 'Regex', '^\\s*http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', 'openlookeng', 0, 0, 1, '数据源配置');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.catalog', 'catalog', 'catalog', 'system', 'None', '', 'openlookeng', 0, 0, 1, '数据源配置');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.source', 'source', 'source', 'global', 'None', '', 'openlookeng', 0, 0, 1, '数据源配置');
 
--- openlookeng-*
+-- key engine relation
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
 (select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
 INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'openlookeng' and label_value = @OPENLOOKENG_ALL);

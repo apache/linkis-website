@@ -291,8 +291,6 @@ object SqoopOnceJobTest extends App {
 | \--username <username\>                                                                                               | sqoop.args.username                     | Set authentication username                                                                                        |
 | \--verbose                                                                                                            | sqoop.args.verbose                      | Print more information while working                                                                               |
 |                                                                                                                       |                                         |                                                                                                                    |
-
-
 ### 4.2 导入导出参数
 
 | 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
