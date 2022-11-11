@@ -3,9 +3,10 @@ title: Hive 引擎
 sidebar_position: 2
 ---
 
-本文主要介绍在Linkis1.X 中，Hive引擎的配置、部署和使用。
+本文主要介绍在 Linkis 中，Hive 引擎插件的安装、使用和配置。
 
-## 1.Hive引擎使用前的环境配置
+## 1. 前置工作
+### 1.1擎使用前的环境配置
 
 如果您希望在您的服务器上使用hive引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
 
@@ -18,80 +19,153 @@ sidebar_position: 2
 | HADOOP_CONF_DIR | Hadoop配置路径 | 必须 |
 | HIVE_CONF_DIR  | Hive配置路径   | 必须 |
 
-表1-1 环境配置清单
+### 1.1环境验证
+```
+# 链接hive
+bin/hive
 
-## 2.Hive引擎的配置和部署
+# 测试命令
+show databases;
 
-### 2.1 Hive版本的选择和编译
+# 能够链接成功，并正常输出数据库信息代表环境配置成功
+hive (default)> show databases;
+OK
+databases_name
+default
+```
+
+## 2.引擎插件安装
+
+linkis发布的二进制安装包中默认包含了 Hive 引擎插件，用户无需额外安装。
 
 Hive的版本是支持hive1.x和hive2.x，默认是支持hive on MapReduce，如果您想改成Hive
 on Tez，需要您按照此pr进行一下修改。
 
 <https://github.com/apache/incubator-linkis/pull/541>
 
-默认支持的hive版本是1.2.1,如果您想修改hive的版本，比如想要修改成2.3.3，您可以找到linkis-engineplugin-hive模块，将\<hive.version\>标签进行改成2.3.3，然后单独编译此模块即可
+默认支持的hive版本是2.3.3，如果您想修改hive的版本，您可以找到linkis-engineplugin-hive模块，修改\<hive.version\>标签，然后单独编译此模块即可
 
-### 2.2 hive engineConn部署和加载
+## 3.引擎的使用
 
-如果您已经编译完了您的hive引擎的插件已经编译完成，那么您需要将新的插件放置到指定的位置中才能加载，具体可以参考下面这篇文章
+### 3.1 通过Linkis-cli提交任务
 
-[EngineConnPlugin引擎插件安装](../deployment/install-engineconn) 
+```shell
+sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+```
 
-### 2.3 hive引擎的标签
+更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
-
-[EngineConnPlugin引擎插件安装 > 2.2 管理台Configuration配置修改（可选）](../deployment/install-engineconn) 
-
-## 3.hive引擎的使用
-
-### 准备操作，队列设置
-
-hive的MapReduce任务是需要用到yarn的资源，所以需要您在一开始就设置队列
-
-![yarn](https://user-images.githubusercontent.com/29391030/168044735-99bc50cb-2521-4bc9-badb-305fd7cb82d6.png)    
-
-图3-1 队列设置
-
-您也可以通过在提交参数的StartUpMap里面添加队列的值：`startupMap.put("wds.linkis.rm.yarnqueue", "dws")`
-
-### 3.1 通过Linkis SDK进行使用
+### 3.2 通过Linkis SDK提交任务
 
 Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
 对于Hive任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
 
 ```java
-        Map<String, Object> labels = new HashMap<String, Object>();
-        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-2.3.3"); // required engineType Label
-        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
-        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
+Map<String, Object> labels = new HashMap<String, Object>();
+labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-2.3.3"); // required engineType Label
+labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 ```
 
-### 3.2 通过Linkis-cli进行任务提交
+### 3.3 通过Scriptis提交任务
 
-Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Hive的使用如下：
-```shell
-sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show tables"  -submitUser hadoop -proxyUser hadoop
-```
-具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
-
-### 3.3 Scriptis的使用方式
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建hive脚本并编写hivesql代码
+[Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建hive脚本并编写hql代码
 
 hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来提交任务，并获取结果集并展示。
 
 ![](/Images-zh/EngineUsage/hive-run.png)
 
-图3-2 hivesql的执行效果截图
 
-## 4.Hive引擎的用户设置
+## 4.引擎配置说明
 
-除了以上引擎配置，用户还可以进行自定义的设置，包括hive Driver进程的内存大小等。
+### 4.1 默认配置说明
+| 配置                     | 默认值          |是否必须    | 说明                                     |
+| ------------------------ | ------------------- | ---|---------------------------------------- |
+| wds.linkis.rm.instance        | 10    |否  | 引擎最大并发数 |
+| wds.linkis.engineconn.java.driver.memory        | 1g            |否  | 引擎初始化内存大小 |
+| wds.linkis.engineconn.max.free.time       | 1h    |否              | 引擎空闲退出时间 |
 
-![hive](https://user-images.githubusercontent.com/29391030/168044822-f217e4bb-a323-4837-bb26-fbfb6c138512.png)  
+### 4.2 队列资源配置
+hive的MapReduce任务是需要用到yarn的资源，所以需要设置队列
 
-图4-1 hive的用户自定义配置管理台
+![yarn](https://user-images.githubusercontent.com/29391030/168044735-99bc50cb-2521-4bc9-badb-305fd7cb82d6.png)    
+
+### 4.3 配置修改
+如果默认参数不满足时，有如下几中方式可以进行一些基础参数配置
+
+#### 4.3.1 管理台配置
+
+![hive](https://user-images.githubusercontent.com/29391030/168044822-f217e4bb-a323-4837-bb26-fbfb6c138512.png) 
+
+注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
+
+```shell
+sh ./bin/linkis-cli -creator IDE -engineType hive-2.3.3 -codeType hql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+```
+
+#### 4.3.2 任务接口配置
+提交任务接口，通过参数params.configuration.runtime进行配置
+
+```shell
+http 请求参数示例 
+{
+    "executionContent": {"code": "show databases;", "runType":  "sql"},
+    "params": {
+                    "variable": {},
+                    "configuration": {
+                            "runtime": {
+                                "wds.linkis.rm.instance":"10"
+                                }
+                            }
+                    },
+    "labels": {
+        "engineType": "hive-2.3.3",
+        "userCreator": "hadoop-IDE"
+    }
+}
+```
+
+### 4.4 引擎相关数据表
+
+Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+
+```
+linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
+linkis_cg_manager_label：插入引擎label如：hive-2.3.3
+linkis_ps_configuration_category： 插入引擎的目录关联关系
+linkis_ps_configuration_config_value： 插入引擎需要展示的配置
+linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
+```
+
+表中与 hive 引擎相关的初始数据如下
+
+```sql
+SET @HIVE_LABEL="hive-2.3.3";
+SET @HIVE_ALL=CONCAT('*-*,',@HIVE_LABEL);
+SET @HIVE_IDE=CONCAT('*-IDE,',@HIVE_LABEL);
+
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @HIVE_ALL, 'OPTIONAL', 2, now(), now());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @HIVE_IDE, 'OPTIONAL', 2, now(), now());
+
+select @label_id := id from linkis_cg_manager_label where `label_value` = @HIVE_IDE;
+insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
+
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.instance', '范围：1-20，单位：个', 'hive引擎最大并发数', '10', 'NumInterval', '[1,20]', '0', '0', '1', '队列资源', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.java.driver.memory', '取值范围：1-10，单位：G', 'hive引擎初始化内存大小','1g', 'Regex', '^([1-9]|10)(G|g)$', '0', '0', '1', 'hive引擎设置', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('hive.client.java.opts', 'hive客户端进程参数', 'hive引擎启动时jvm参数','', 'None', NULL, '1', '1', '1', 'hive引擎设置', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('mapred.reduce.tasks', '范围：-1-10000，单位：个', 'reduce数', '-1', 'NumInterval', '[-1,10000]', '0', '1', '1', 'hive资源设置', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.max.free.time', '取值范围：3m,15m,30m,1h,2h', '引擎空闲退出时间','1h', 'OFT', '[\"1h\",\"2h\",\"30m\",\"15m\",\"3m\"]', '0', '0', '1', 'hive引擎设置', 'hive');
+
+-- hive key engine relation
+insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
+(select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
+INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'hive' and label_value = @HIVE_ALL);
+
+-- hive default configuration
+insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
+(select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
+INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @HIVE_ALL);
+```
 
 ## 5.Hive修改日志展示
 默认的日志界面是不显示application_id以及task完成数量的,用户可以根据需要输出该日志
