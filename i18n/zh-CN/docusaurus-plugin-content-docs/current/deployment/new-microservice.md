@@ -9,8 +9,7 @@ sidebar_position: 5.3
 
 思维导图：
 
-![image](https://user-images.githubusercontent.com/106590848/201465421-0b237c0a-2fce-41e6-88a4-a5bacf8ba453.png)
-
+![image](https://user-images.githubusercontent.com/106590848/201465730-f957c767-539b-4cce-9ffc-907b791f169c.png)
 
 
 ### 1 本地注册新的微服务
