@@ -1,11 +1,17 @@
 ---
 title: 如何注册一个新的微服务
-sidebar_position:6
+sidebar_position: 5.3
 ---
 
 # 如何注册一个新的微服务
 
 这篇文章介绍一下如何在本地调试时以及linux环境下注册一个新的微服务，以方便更轻量化的学习使用和调试。
+
+思维导图：
+
+![image](https://user-images.githubusercontent.com/106590848/201465421-0b237c0a-2fce-41e6-88a4-a5bacf8ba453.png)
+
+
 
 ### 1 本地注册新的微服务
 
