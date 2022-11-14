@@ -6,7 +6,7 @@ sidebar_position: 6
 
 This article introduces how to register a new microservice during local debugging and in the Linux environment, so as to facilitate lighter learning, use and debugging.
 
-mind Mapping:
+Mind mapping:
 
 ![Mind Map](/Images/deployment/microservice/thinking.png)
 
@@ -34,7 +34,7 @@ This paragraph records how to configure and register a new microservice belongin
 
 ![name-module](/Images/deployment/microservice/name-module.png)
 
-- created successfully
+- Created successfully
 
 ![created-successfully](/Images/deployment/microservice/created-successfully.png)
 
