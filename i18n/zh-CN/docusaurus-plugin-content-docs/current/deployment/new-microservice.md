@@ -1,6 +1,6 @@
 ---
 title: 如何注册一个新的微服务
-sidebar_position: 5.3
+sidebar_position: 6
 ---
 
 # 如何注册一个新的微服务
@@ -9,10 +9,10 @@ sidebar_position: 5.3
 
 思维导图：
 
-![image](https://user-images.githubusercontent.com/106590848/201465730-f957c767-539b-4cce-9ffc-907b791f169c.png)
+![思维导图](/Images-zh/deployment/microservice/thinking.png)
 
 
-### 1 本地注册新的微服务
+## 1. 本地注册新的微服务
 
 该段记录了如何在IDEA中配置和以及注册一个属于linkis新的微服务
 
@@ -20,30 +20,28 @@ sidebar_position: 5.3
 - jdk1.8
 - maven3.5+
 
-### 1.1 新建linkis-new-microservices子模块
+### 1.1 新建linkis-new-microservice子模块
 
 **注意**:在什么模块下新建子模块，这个并不是固定的因情况而定，这里只是举例子。
 
 - linkis-public-enhancements模块下鼠标右键
 
-![image](https://user-images.githubusercontent.com/106590848/201453748-0b8ada31-7190-4817-a1a2-32ba20db3743.png)
+![new-module](/Images-zh/deployment/microservice/new-module.png)
 
 - 选择maven点击Nex下一步
 
-![image](https://user-images.githubusercontent.com/106590848/201453787-55983124-c6b9-4893-89dd-e7542a27ef5e.png)
+![maven-module](/Images-zh/deployment/microservice/maven-module.png)
 
 - 输入模块名点击Finsh
 
-![image](https://user-images.githubusercontent.com/106590848/201453852-8d8a9364-4b00-418f-aee8-98fbc39020dd.png)
+![name-module](/Images-zh/deployment/microservice/name-module.png)
 
 - 创建成功
 
-![image](https://user-images.githubusercontent.com/106590848/201453947-b029d666-d1dc-49a3-a49f-df8c9260b5da.png)
-
+![created-successfully](/Images-zh/deployment/microservice/created-successfully.png)
 
 #### 1.1.1 修改linkis-new-microservice模块的pom.xml文件
 
-##此处为新建模块下的pom.xml
 **path**: linkis-public-enhancements/linkis-new-microservice/pom.xml
 
 ``` 
@@ -71,7 +69,7 @@ sidebar_position: 5.3
 
 #### 1.1.2 新增linkis-new-microservice.properties文件
 
-**path**: linkis-dist/package/conf/linkis-new-microservices.properties
+**path**: linkis-dist/package/conf/linkis-new-microservice.properties
 
 ``` properties
 # 
@@ -94,9 +92,9 @@ sidebar_position: 5.3
 wds.linkis.server.restful.scan.packages=org.apache.linkis.newmicroservice.server.restful  ## 如不需提供接口Api则无需添加此配置
 
 ##mybatis
-wds.linkis.server.mybatis.mapperLocations=classpath*:org/apache/linkis/newmicroservices/server/dao/mapper/*.xml 
-wds.linkis.server.mybatis.typeAliasesPackage=org.apache.linkis.newmicroservices.server.domain
-wds.linkis.server.mybatis.BasePackage=org.apache.linkis.newmicroservices.server.dao
+wds.linkis.server.mybatis.mapperLocations=classpath*:org/apache/linkis/newmicroservice/server/dao/mapper/*.xml 
+wds.linkis.server.mybatis.typeAliasesPackage=org.apache.linkis.newmicroservice.server.domain
+wds.linkis.server.mybatis.BasePackage=org.apache.linkis.newmicroservice.server.dao
 
 
 
@@ -113,7 +111,7 @@ spring.server.port=9208 #切勿与其他服务的端口相同
 
 添加fileSet 配置，改配置主要是控制编译打包时的能输出linkis-new-microservice服务包
 
-![image](https://user-images.githubusercontent.com/106590848/201454790-2c8ceade-91fe-43af-b69f-ad47fdb4b6b5.png)
+![fileset](/Images-zh/deployment/microservice/fileset.png)
 
 这里只贴出来需要新增的配置内容。
 
@@ -137,7 +135,7 @@ spring.server.port=9208 #切勿与其他服务的端口相同
 
 **path**: linkis-dist/package/conf/linkis.properties
 
-![image](https://user-images.githubusercontent.com/106590848/201456815-5d377a91-69ac-494e-9b76-f5d6393faf44.png)
+![test-mode](/Images-zh/deployment/microservice/test-mode.png)
 
 这里只贴出来需要新增的配置内容。
 
@@ -154,7 +152,7 @@ wds.linkis.test.mode=true #由于后续需进行接口调试，因此这里需�
 
 #### 1.2.1 新建 NewMicroservice 类
 
-![image](https://user-images.githubusercontent.com/106590848/201456425-242e2146-05ba-485c-81e4-3f432051b765.png)
+![new-microservice](/Images-zh/deployment/microservice/new-microservice.png)
 
 ``` Class
 package org.apache.linkis.newmicroservice.server.restful;
@@ -169,9 +167,9 @@ import io.swagger.annotations.Api;
 import java.util.HashMap;
 import java.util.Map;
 
-@Api(tags = "newMicroservices")
+@Api(tags = "newmicroservice")
 @RestController
-@RequestMapping(path = "/newMicroservices")
+@RequestMapping(path = "/newmicroservice")
 public class NewMicroservice {
 
 
@@ -188,7 +186,7 @@ public class NewMicroservice {
 
 #### 1.2.2 新建 LinkisNewMicroserviceApplication启动类
 
-![image](https://user-images.githubusercontent.com/106590848/201456437-25d5280d-44e0-47fb-961f-1243d656092f.png)
+![maven-module](/Images-zh/deployment/microservice/start-up.png)
 
 ``` Class
 
@@ -204,7 +202,7 @@ public class LinkisNewMicroserviceApplication {
   private static final Log logger = LogFactory.getLog(LinkisNewMicroserviceApplication.class);
 
   public static void main(String[] args) throws ReflectiveOperationException {
-    logger.info("Start to running LinkisNewMicroservicesApplication");
+    logger.info("Start to running LinkisNewmicroserviceApplication");
     LinkisBaseServerApp.main(args);
   }
 }
@@ -214,26 +212,26 @@ public class LinkisNewMicroserviceApplication {
 
 这一步骤的具体指引在 [调试指引](../development/debug)  文档中已有写 可直接访问，这里就不在过多介绍
 
-### 1.4 启动linkis-new-microservices服务
+### 1.4 启动linkis-new-microservice服务
 
-设置linkis-new-microservices的启动Application
+设置linkis-new-microservice的启动Application
 
-![image](https://user-images.githubusercontent.com/106590848/201056682-660ecc73-e141-426c-8911-b52a744c975e.png)
+![commissioning-service](/Images-zh/deployment/microservice/commissioning-service.png)
 
 参数解释：
 
 ```shell
 [Service Name]
-linkis-new-microservices
+linkis-new-microservice
 
 [Module Name]
-linkis-new-microservices
+linkis-new-microservice
 
 [VM Opitons]
--DserviceName=linkis-new-microservices -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-new-microservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
 
 [main Class]
-org.apache.linkis.newmicroservices.server.LinkisNewMicroservicesApplication
+org.apache.linkis.newmicroservice.server.LinkisNewmicroserviceApplication
 
 [Add provided scope to classpath]
 通过勾选Include dependencies with “Provided” scope ，可以在调试时，引入provided级别的依赖包。
@@ -245,16 +243,15 @@ org.apache.linkis.newmicroservices.server.LinkisNewMicroservicesApplication
     http://ip:port/ 
 ```
 
-![image](https://user-images.githubusercontent.com/106590848/201058281-c73f99b5-71cf-4cfe-aded-ec2f5f35f447.png)
+![new-service](/Images-zh/deployment/microservice/new-service.png)
 
-当eureka注册中心出现linkis-new-microservices服务即为本地注册新的微服务成功。
+当eureka注册中心出现linkis-new-microservice服务即为本地注册新的微服务成功。
 
 ### 1.5 Postman 进行接口调试
 
-**URL**: http://ip:port/api/rest_j/v1/newMicroservices/establish
+**URL**: http://ip:port/api/rest_j/v1/newmicroservice/establish
 
-![image](https://user-images.githubusercontent.com/106590848/201456985-f857d824-d8e9-4b84-9db4-e50cc647288d.png)
-
+![postman-test](/Images-zh/deployment/microservice/postman-test.png)
 
 ## 2. linux环境下注册新的微服务
 
@@ -264,9 +261,9 @@ org.apache.linkis.newmicroservices.server.LinkisNewMicroservicesApplication
 安装linkis 微服务近10个，至少3G内存。**每个微服务默认配置启动的jvm -Xmx 内存大小为 512M(内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大)
 
 
-#### 2.2 新增linkis-new-microservice文件
+### 2.2 新增linkis-new-microservice文件
 
-![image](https://user-images.githubusercontent.com/106590848/201459625-76b0de2d-8869-48fc-8899-1779fcc5a100.png)
+![new-configuration](/Images-zh/deployment/microservice/new-configuration.png)
 
 ``` sh
 
@@ -308,12 +305,11 @@ fi
 ```
 
 
-#### 2.3 linkis-start-all.sh 配置修改
+### 2.3 linkis-start-all.sh 配置修改
 
 **path**: linkis-dist/package/sbin/linkis-start-all.sh
 
-
-![image](https://user-images.githubusercontent.com/106590848/201459497-7c2e0752-5c85-4f79-a183-c7c3e83a2380.png)
+![start-script](/Images-zh/deployment/microservice/start-script.png)
 
 这里只贴出来需要新增的配置内容。
 
@@ -322,18 +318,24 @@ fi
     #linkis-new-microservice
     SERVER_NAME="new-microservice" 
     startApp
+```
 
+![detection-script](/Images-zh/deployment/microservice/detection-script.png)
+
+这里只贴出来需要新增的配置内容。
+
+``` sh
 	##检测脚本
     #linkis-new-microservice
     SERVER_NAME="new-microservice"
     checkServer
 ```
 
-#### 2.4 linkis-stop-all.sh 配置修改
+### 2.4 linkis-stop-all.sh 配置修改
 
 **path**:linkis-dist/package/sbin/linkis-stop-all.sh
 
-![image](https://user-images.githubusercontent.com/106590848/201459539-cf0eafea-10f6-424f-b2d3-670faf1d46d5.png)
+![stop-script](/Images-zh/deployment/microservice/stop-script.png)
 
 这里只贴出来需要新增的配置内容。
 
@@ -348,10 +350,10 @@ fi
 
 这一步骤的具体指引在 [后端编译](../development/build)  文档中已有写 可直接访问，这里就不在过多介绍
 
-### 2.6 安装包上传至服务器
+### 2.6 服务器部署
 
 这里为单机部署做示例，而该步骤的具体指引在 [单机部署](../deployment/deploy-quick)  文档中已有写 可直接访问，这里就不在过多介绍
 
-当安装部署成功后可直接在浏览器中访问eureka注册中心，看中心是否已经成功注册linkis-new-microservices服务，如注册成功即为创建新的微服务成功。
+当安装部署成功后可直接在浏览器中访问eureka注册中心，看中心是否已经成功注册linkis-new-microservice服务，如注册成功即为创建新的微服务成功。
 
-![企业微信截图_16682327115719](https://user-images.githubusercontent.com/106590848/201459777-c41f3631-c434-4318-b7ca-dc92e75e721b.png)
+![new-service](/Images-zh/deployment/microservice/new-service.png)

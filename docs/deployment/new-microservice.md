@@ -1,50 +1,49 @@
 ---
 title: How to register a new microservice
-sidebar_position: 5.3
+sidebar_position: 6
 ---
 # How to register a new microservice
 
-This article describes how to register a new microservice during local debugging and in the Linux environment to facilitate more lightweight learning, use and debugging.
+This article introduces how to register a new microservice during local debugging and in the Linux environment, so as to facilitate lighter learning, use and debugging.
 
-### 1 Register a new microservice locally
+mind Mapping:
 
-This section documents how to configure and register a new microservice belonging to linkis in IDEA
+![Mind Map](/Images/deployment/microservice/thinking.png)
 
-Mind mapping:
 
-![image](https://user-images.githubusercontent.com/106590848/201465730-f957c767-539b-4cce-9ffc-907b791f169c.png)
-**Hardware requirements**
-- jdk1.8
+## 1. Register a new microservice locally
+
+This paragraph records how to configure and register a new microservice belonging to linkis in IDEA
+
+**Hardware Requirements**
+-jdk1.8
 - maven3.5+
 
-### 1.1 Create a new linkis-new-microservices submodule
-
-**Note**: Under what module to create a new submodule, this is not fixed depending on the situation, here is just an example.
+### 1.1 Create a new linkis-new-microservice submodule
+**Note**: The new sub-module under which module is not fixed and depends on the situation, here is just an example.
 
 - Right mouse button under the linkis-public-enhancements module
 
-![image](https://user-images.githubusercontent.com/106590848/201453748-0b8ada31-7190-4817-a1a2-32ba20db3743.png)
+![new-module](/Images/deployment/microservice/new-module.png)
 
-- Select maven and click Nex Next
+- Select maven and click Nex to next step
 
-![image](https://user-images.githubusercontent.com/106590848/201453787-55983124-c6b9-4893-89dd-e7542a27ef5e.png)
+![maven-module](/Images/deployment/microservice/maven-module.png)
 
 - Enter the module name and click Finsh
 
-![image](https://user-images.githubusercontent.com/106590848/201453852-8d8a9364-4b00-418f-aee8-98fbc39020dd.png)
+![name-module](/Images/deployment/microservice/name-module.png)
 
 - created successfully
 
-![image](https://user-images.githubusercontent.com/106590848/201453947-b029d666-d1dc-49a3-a49f-df8c9260b5da.png)
-
+![created-successfully](/Images/deployment/microservice/created-successfully.png)
 
 #### 1.1.1 Modify the pom.xml file of the linkis-new-microservice module
 
-## Here is the pom.xml under the new module
 **path**: linkis-public-enhancements/linkis-new-microservice/pom.xml
 
 ``` 
-## 添加依赖
+## add dependencies
   <dependency>
       <groupId>org.apache.linkis</groupId>
       <artifactId>linkis-module</artifactId>
@@ -65,10 +64,9 @@ Mind mapping:
 ```
 
 
+#### 1.1.2 Add linkis-new-microservice.properties file
 
-#### 1.1.2 Added linkis-new-microservice.properties file
-
-**path**: linkis-dist/package/conf/linkis-new-microservices.properties
+**path**: linkis-dist/package/conf/linkis-new-microservice.properties
 
 ``` properties
 # 
@@ -91,9 +89,9 @@ Mind mapping:
 wds.linkis.server.restful.scan.packages=org.apache.linkis.newmicroservice.server.restful  ## 如不需提供接口Api则无需添加此配置
 
 ##mybatis
-wds.linkis.server.mybatis.mapperLocations=classpath*:org/apache/linkis/newmicroservices/server/dao/mapper/*.xml 
-wds.linkis.server.mybatis.typeAliasesPackage=org.apache.linkis.newmicroservices.server.domain
-wds.linkis.server.mybatis.BasePackage=org.apache.linkis.newmicroservices.server.dao
+wds.linkis.server.mybatis.mapperLocations=classpath*:org/apache/linkis/newmicroservice/server/dao/mapper/*.xml 
+wds.linkis.server.mybatis.typeAliasesPackage=org.apache.linkis.newmicroservice.server.domain
+wds.linkis.server.mybatis.BasePackage=org.apache.linkis.newmicroservice.server.dao
 
 
 
@@ -103,14 +101,14 @@ spring.server.port=9208 #Never use the same port as other services
 ```
 
 
-#### 1.1.3 Modify distribution.xml
+#### 1.1.3 modify distribution.xml
 
 **path**: linkis-dist/src/main/assembly/distribution.xml
 
 
 Add fileSet configuration, changing the configuration is mainly to control the output linkis-new-microservice service package when compiling and packaging
 
-![image](https://user-images.githubusercontent.com/106590848/201454790-2c8ceade-91fe-43af-b69f-ad47fdb4b6b5.png)
+![fileset](/Images/deployment/microservice/fileset.png)
 
 Only the configuration content that needs to be added is posted here.
 
@@ -134,7 +132,7 @@ Only the configuration content that needs to be added is posted here.
 
 **path**: linkis-dist/package/conf/linkis.properties
 
-![image](https://user-images.githubusercontent.com/106590848/201456815-5d377a91-69ac-494e-9b76-f5d6393faf44.png)
+![test-mode](/Images/deployment/microservice/test-mode.png)
 
 Only the configuration content that needs to be added is posted here.
 
@@ -144,14 +142,13 @@ wds.linkis.test.mode=true #Since the interface debugging needs to be carried out
 
 ```
 
-
 ### 1.2 Code Development
 
 To make it easier for everyone to learn, let's take creating a simple API interface as an example.
 
 #### 1.2.1 New NewMicroservice class
 
-![image](https://user-images.githubusercontent.com/106590848/201456425-242e2146-05ba-485c-81e4-3f432051b765.png)
+![new-microservice](/Images/deployment/microservice/new-microservice.png)
 
 ``` Class
 package org.apache.linkis.newmicroservice.server.restful;
@@ -166,9 +163,9 @@ import io.swagger.annotations.Api;
 import java.util.HashMap;
 import java.util.Map;
 
-@Api(tags = "newMicroservices")
+@Api(tags = "newmicroservice")
 @RestController
-@RequestMapping(path = "/newMicroservices")
+@RequestMapping(path = "/newmicroservice")
 public class NewMicroservice {
 
 
@@ -185,7 +182,7 @@ public class NewMicroservice {
 
 #### 1.2.2 Create a new LinkisNewMicroserviceApplication startup class
 
-![image](https://user-images.githubusercontent.com/106590848/201456437-25d5280d-44e0-47fb-961f-1243d656092f.png)
+![maven-module](/Images/deployment/microservice/start-up.png)
 
 ``` Class
 
@@ -201,67 +198,66 @@ public class LinkisNewMicroserviceApplication {
   private static final Log logger = LogFactory.getLog(LinkisNewMicroserviceApplication.class);
 
   public static void main(String[] args) throws ReflectiveOperationException {
-    logger.info("Start to running LinkisNewMicroservicesApplication");
+    logger.info("Start to running LinkisNewmicroserviceApplication");
     LinkisBaseServerApp.main(args);
   }
 }
 ```
+### 1.3 Start eureka service
 
-### 1.3 Start the eureka service
+The specific guidelines for this step have been written in the [Debugging Guidelines](../development/debug) document and can be directly accessed, so I won’t introduce too much here
 
-The specific guidelines for this step have been written in the [Debugging Guide](../development/debug) document and can be accessed directly, so I will not introduce too much here.
-### 1.4 Start the linkis-new-microservices service
+### 1.4 Start the linkis-new-microservice service
 
-Set the startup Application of linkis-new-microservices
+Set the startup Application of linkis-new-microservice
 
-![image](https://user-images.githubusercontent.com/106590848/201056682-660ecc73-e141-426c-8911-b52a744c975e.png)
+![commissioning-service](/Images/deployment/microservice/commissioning-service.png)
 
 Parameter explanation:
 
 ```shell
 [Service Name]
-linkis-new-microservices
+linkis-new-microservice
 
 [Module Name]
-linkis-new-microservices
+linkis-new-microservice
 
 [VM Opitons]
--DserviceName=linkis-new-microservices -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-new-microservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
 
 [main Class]
-org.apache.linkis.newmicroservices.server.LinkisNewMicroservicesApplication
+org.apache.linkis.newmicroservice.server.LinkisNewmicroserviceApplication
 
 [Add provided scope to classpath]
 By checking Include dependencies with “Provided” scope, you can introduce provided-level dependency packages during debugging.
 ```
 
-After the above settings are completed, the Application can be run directly. After running successfully, open the browser and enter the url of the eureka registration center
+After the above settings are completed, the Application can be run directly. After the operation is successful, open the browser and enter the url of the eureka registry
 
 ``` url
     http://ip:port/ 
 ```
 
-![image](https://user-images.githubusercontent.com/106590848/201058281-c73f99b5-71cf-4cfe-aded-ec2f5f35f447.png)
+![new-service](/Images/deployment/microservice/new-service.png)
 
-When the linkis-new-microservices service appears in the eureka registry, the new microservice is successfully registered locally.
+When the linkis-new-microservice service appears in the eureka registration center, the local registration of the new microservice is successful.
 
 ### 1.5 Postman for interface debugging
+**URL**: http://ip:port/api/rest_j/v1/newmicroservice/establish
 
-**URL**: http://ip:port/api/rest_j/v1/newMicroservices/establish
+![postman-test](/Images/deployment/microservice/postman-test.png)
 
-![image](https://user-images.githubusercontent.com/106590848/201456985-f857d824-d8e9-4b84-9db4-e50cc647288d.png)
-
-## 2. Register new microservices in linux environment
+## 2. Register new microservice in linux environment
 
 ### 2.1 Linux server
 
 hardware requirements
-Install nearly 10 linkis microservices, at least 3G memory. **The default jvm -Xmx memory size of each microservice is 512M (if the memory is not enough, you can try to reduce it to 256/128M, and you can also increase it if the memory is enough)
+Install nearly 10 linkis microservice, at least 3G memory. **The default jvm -Xmx memory size of each microservice is 512M (if the memory is not enough, you can try to reduce it to 256/128M, and you can also increase it if the memory is enough)
 
 
-#### 2.2 Add linkis-new-microservice file
+### 2.2 Add linkis-new-microservice file
 
-![image](https://user-images.githubusercontent.com/106590848/201459625-76b0de2d-8869-48fc-8899-1779fcc5a100.png)
+![new-configuration](/Images/deployment/microservice/new-configuration.png)
 
 ``` sh
 
@@ -303,12 +299,12 @@ fi
 ```
 
 
-#### 2.3 linkis-start-all.sh configuration modification
+### 2.3 linkis-start-all.sh configuration modification
 
 **path**: linkis-dist/package/sbin/linkis-start-all.sh
 
 
-![image](https://user-images.githubusercontent.com/106590848/201459497-7c2e0752-5c85-4f79-a183-c7c3e83a2380.png)
+![start-script](/Images/deployment/microservice/start-script.png)
 
 Only the configuration content that needs to be added is posted here.
 
@@ -317,20 +313,26 @@ Only the configuration content that needs to be added is posted here.
     #linkis-new-microservice
     SERVER_NAME="new-microservice" 
     startApp
+```
 
-	## detection script
+![detection-script](/Images/deployment/microservice/detection-script.png)
+
+Only the configuration content that needs to be added is posted here.
+
+``` sh
+	##detection script
     #linkis-new-microservice
     SERVER_NAME="new-microservice"
     checkServer
 ```
 
-#### 2.4 linkis-stop-all.sh configuration modification
+### 2.4 linkis-stop-all.sh Configuration modification
 
 **path**:linkis-dist/package/sbin/linkis-stop-all.sh
 
-![image](https://user-images.githubusercontent.com/106590848/201459539-cf0eafea-10f6-424f-b2d3-670faf1d46d5.png)
+![stop-script](/Images/deployment/microservice/stop-script.png)
 
-Only the configuration content that needs to be added is posted here.
+Only the configuration content that needs to be added is posted here
 
 ``` sh
 	## stop script
@@ -340,12 +342,12 @@ Only the configuration content that needs to be added is posted here.
 ```
 ### 2.5 Installation package preparation
 
-The specific guidelines for this step have been written in the [backend compilation](../development/build) document and can be accessed directly, so I won't introduce too much here.
+The specific guidelines for this step have been written in the [backend compilation](../development/build) document and can be directly accessed, so I won’t introduce too much here
 
-### 2.6 Upload the installation package to the server
+### 2.6 Server Deployment
 
-Here is an example of single-machine deployment, and the specific instructions of this step have been written in the [Single-machine deployment](../deployment/deploy-quick) document and can be accessed directly, so I won’t introduce too much here.
+Here is an example of single-machine deployment, and the specific guidance of this step has been written in the [Single-machine deployment](../deployment/deploy-quick) document and can be accessed directly, so I won’t introduce it here
 
-When the installation and deployment are successful, you can directly access the eureka registration center in the browser to see whether the center has successfully registered the linkis-new-microservices service. If the registration is successful, the creation of a new microservice is successful.
+After the installation and deployment is successful, you can directly visit the eureka registration center in the browser to see whether the center has successfully registered the linkis-new-microservice service. If the registration is successful, the creation of a new microservice is successful.
 
-![Microservices](https://user-images.githubusercontent.com/106590848/201459777-c41f3631-c434-4318-b7ca-dc92e75e721b.png)
+![new-service](/Images/deployment/microservice/new-service.png)
