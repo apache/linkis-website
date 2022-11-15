@@ -71,7 +71,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipelin
 
 [Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建一个类型为`storage`的脚本
 
-![](/Images-zh/EngineConnNew/new_pipeline_script.png)
+![](./images/new_pipeline_script.png)
 
 #### 2.2.1 编写脚本
 
@@ -106,18 +106,18 @@ from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 - `hdfs:///000/000/000/B.csv`： 输入文件路径及文件
 - `file:///000/000/000/A.CSV`： 输出文件路径及文件
 
-![](/Images-zh/EngineConnNew/to_write.png)
+![](./images/to_write.png)
 
 注意：语法末端不能带分号(;),否则语法错误。
 
 #### 2.2.2 结果
 进度 
 
-![](/Images-zh/EngineConnNew/job_state.png)
+![](./images/job_state.png)
 
 历史记录
 
-![](/Images-zh/EngineConnNew/historical_information.png)
+![](./images/historical_information.png)
 
 
 ## 3.引擎配置说明
@@ -139,7 +139,7 @@ from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 
 #### 4.2.1 管理台配置
 
-![](/Images-zh/EngineUsage/pipeline-conf.png)
+![](./images/pipeline-conf.png)
 
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 

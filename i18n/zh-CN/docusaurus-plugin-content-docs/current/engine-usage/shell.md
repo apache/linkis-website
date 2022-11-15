@@ -54,7 +54,7 @@ Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键�
 
 shell的执行原理是shell引擎通过java自带的ProcessBuilder启动一个系统进程来进行执行，并且将进程的输出重定向到引擎并写入到日志中。
 
-![](/Images-zh/EngineUsage/shell-run.png)
+![](./images/shell-run.png)
 
 ## 4.引擎配置说明
 

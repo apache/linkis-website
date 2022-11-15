@@ -132,7 +132,7 @@ sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType
 
 #### 4.2.1 管理台配置
 
-![](/Images-zh/EngineUsage/es-manage.png)
+![](./images/es-manage.png)
 
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 
@@ -168,7 +168,7 @@ http 请求参数示例
 #### 4.2.3 文件配置
 通过修改目录 ${LINKIS_HOME}/lib/linkis-engineconn-plugins/elasticsearch/dist/v7.6.2/conf/ 中的linkis-engineconn.properties 文件进行配置，如下图：
 
-![](/Images-zh/EngineUsage/es-config.png)
+![](./images/es-config.png)
 
 ### 4.3 引擎相关数据表
 

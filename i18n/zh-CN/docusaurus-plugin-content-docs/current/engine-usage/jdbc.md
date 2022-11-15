@@ -113,22 +113,22 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
 
 JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去执行并获取到结果集并返回。
 
-![](/Images-zh/EngineUsage/jdbc-run.png)
+![](./images/jdbc-run.png)
 
 ### 3.4 多数据源支持
 从Linkis 1.2.0开始，提供了JDBC引擎多数据源的支持，我们首先可以在控制台管理不同的数据源。地址：登陆管理台-->数据源管理-->新增数据源
 
-![](/Images-zh/EngineUsage/datasourcemanage.png)
+![](./images/datasourcemanage.png)
 
 图3-3 数据源管理
 
-![](/Images-zh/EngineUsage/datasourceconntest.png)
+![](./images/datasourceconntest.png)
 
 图3-4 数据源连接测试
 
 数据源添加完成之后，就可以使用JDBC引擎的多数据源切换功能，有两种方式：
 1、通过接口参数指定数据源名称参数，如下图：
-![](/Images-zh/EngineUsage/muti-data-source.png)
+![](./images/muti-data-source.png)
 
 参数示例：
 ```json
@@ -151,7 +151,7 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 参数：wds.linkis.engine.runtime.datasource为固定名称的配置，不要随意修改名称定义
 
 2、通过DSS的Scripts代码提交入口下拉筛选需要提交的数据源，如下图：
-![](/Images-zh/EngineUsage/muti-data-source-usage.png)
+![](./images/muti-data-source-usage.png)
 当前dss-1.1.0还暂不支持下拉选择数据源名称，PR在开发中，可以等后续发版或关注相关PR：
 （https://github.com/WeBankFinTech/DataSphereStudio/issues/940）
 
@@ -188,7 +188,7 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 
 #### 4.2.1 管理台配置
 
-![jdbc](https://user-images.githubusercontent.com/29391030/168045539-9cea6c44-56a9-4b14-86fb-1e65f937ae54.png)
+![jdbc](./images/jdbc-config.png)
 
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 

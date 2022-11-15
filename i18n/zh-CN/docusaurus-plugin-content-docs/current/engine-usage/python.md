@@ -48,7 +48,7 @@ Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键�
 
 python的执行逻辑是通过Py4j的方式，启动一个的python的gateway，然后Python引擎将代码提交到python的执行器进行执行。
 
-![](/Images-zh/EngineUsage/python-run.png)
+![](./images/python-run.png)
 
 ## 4.引擎配置说明
 
@@ -68,7 +68,7 @@ sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"h
 
 #### 4.1.2管理台配置
 
-![](/Images-zh/EngineUsage/python-config.png)
+![](./images/python-config.png)
 
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 
@@ -102,7 +102,7 @@ http 请求参数示例
 #### 4.2.3文件配置
 通过修改目录 ${LINKIS_HOME}/lib/linkis-engineconn-plugins/python/dist/vpython2/conf/ 中的linkis-engineconn.properties 文件进行配置，如下图：
 
-![](/Images-zh/EngineUsage/python-conf.png)
+![](./images/python-conf.png)
 
 ### 4.3 引擎相关数据表
 

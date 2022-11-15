@@ -88,7 +88,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 
 Linkis的Flink引擎是通过flink on yarn的方式进行启动的,所以需要指定用户使用的队列，如下图所示。
 
-![yarn](https://user-images.githubusercontent.com/29391030/168045831-80836172-a582-48cd-b15d-c343b958cd75.png)  
+![yarn](./images/yarn-conf.png)  
 
 ### 3.1 通过Linkis-cli提交任务
 

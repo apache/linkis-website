@@ -128,7 +128,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType
 
 #### 4.2.1 管理台配置
 
-![](/Images-zh/EngineUsage/openlookeng-config.png)
+![](./images/openlookeng-config.png)
 
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 

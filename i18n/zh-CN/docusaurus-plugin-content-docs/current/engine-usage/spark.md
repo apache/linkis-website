@@ -77,15 +77,15 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,s
 sql的方式是最简单的，您可以新建sql脚本然后编写进行执行，执行的时候，会有进度的显示。如果一开始用户是没有spark引擎的话，sql的执行会启动一个spark会话(这里可能会花一些时间)，
 SparkSession初始化之后，就可以开始执行sql。
 
-![](/Images-zh/EngineUsage/sparksql-run.png)
+![](./images/sparksql-run.png)
 
 spark-scala的任务，我们已经初始化好了sqlContext等变量，用户可以直接使用这个sqlContext进行sql的执行。
 
-![](/Images-zh/EngineUsage/scala-run.png)
+![](./images/scala-run.png)
 
 类似的，pyspark的方式中，我们也已经初始化好了SparkSession，用户可以直接使用spark.sql的方式进行执行sql。
 
-![](/Images-zh/EngineUsage/pyspakr-run.png)
+![](./images/pyspakr-run.png)
 
 ## 4.引擎配置说明
 
@@ -102,7 +102,7 @@ spark-scala的任务，我们已经初始化好了sqlContext等变量，用户�
 ### 4.2 队列资源配置
 因为spark的执行需要队列的资源，须要设置自己能够执行的队列。    
 
-![yarn](https://user-images.githubusercontent.com/29391030/168044322-ce057ec0-8891-4691-9454-8fba45b2c631.png) 
+![yarn](./images/yarn-conf.png) 
 
 
 ### 4.3 配置修改
@@ -110,7 +110,7 @@ spark-scala的任务，我们已经初始化好了sqlContext等变量，用户�
 
 #### 4.3.1 管理台配置
 用户可以进行自定义的设置，比如spark会话executor个数和executor的内存。这些参数是为了用户能够更加自由地设置自己的spark的参数，另外spark其他参数也可以进行修改，比如的pyspark的python版本等。
-![spark](https://user-images.githubusercontent.com/29391030/168044389-55aea9de-6dfa-4b57-81a6-220e242f9eec.png)
+![spark](./images/spark-conf.png)
 
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 

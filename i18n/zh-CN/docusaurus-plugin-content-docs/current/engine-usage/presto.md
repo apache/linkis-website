@@ -116,7 +116,7 @@ sh ./bin/linkis-cli -engineType presto-0.234 -codeType  tsql -code 'show tables;
 
 [Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis工作空间模块右键选择新建一个类型为`psql`的脚本
 
-![](/Images-zh/EngineUsage/presto-psql.png)
+![](./images/presto-psql.png)
 
 ## 4.引擎配置说明
 
@@ -141,7 +141,7 @@ sh ./bin/linkis-cli -engineType presto-0.234 -codeType  tsql -code 'show tables;
 
 #### 4.2.1管理台配置
 
-![](/Images-zh/EngineUsage/presto-console.png)
+![](./images/presto-console.png)
 
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 
@@ -178,7 +178,7 @@ http 请求参数示例
 #### 4.2.3 文件配置
 通过修改目录 install path/lib/linkis-engineconn-plugins/presto/dist/v0.234/conf/ 中的linkis-engineconn.properties 文件进行配置，如下图：
 
-![](/Images-zh/EngineUsage/presto-file.png)
+![](./images/presto-file.png)
 
 ### 4.3引擎相关数据表
 

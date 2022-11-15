@@ -73,7 +73,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 
 hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来提交任务，并获取结果集并展示。
 
-![](/Images-zh/EngineUsage/hive-run.png)
+![](./images/hive-run.png)
 
 
 ## 4.引擎配置说明
@@ -88,14 +88,14 @@ hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来
 ### 4.2 队列资源配置
 hive的MapReduce任务是需要用到yarn的资源，所以需要设置队列
 
-![yarn](https://user-images.githubusercontent.com/29391030/168044735-99bc50cb-2521-4bc9-badb-305fd7cb82d6.png)    
+![yarn](./images/yarn-conf.png)    
 
 ### 4.3 配置修改
 如果默认参数不满足时，有如下几中方式可以进行一些基础参数配置
 
 #### 4.3.1 管理台配置
 
-![hive](https://user-images.githubusercontent.com/29391030/168044822-f217e4bb-a323-4837-bb26-fbfb6c138512.png) 
+![hive](./images/hive-config.png)
 
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 
