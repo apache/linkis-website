@@ -33,7 +33,7 @@ Mind mapping:
 
 ![name-module](/Images/deployment/microservice/name-module.png)
 
-- created successfully
+- Created successfully
 
 ![created-successfully](/Images/deployment/microservice/created-successfully.png)
 
