@@ -6,7 +6,9 @@ Pipeline is mainly used to import and export files. This article mainly introduc
 
 ## 1. Engine plugin installation
 
-### 1.1 Engine plug-in preparation (choose one) Method 1: Download the engine plug-in package directly
+### 1.1 Engine plug-in preparation (choose one) 
+
+Method 1: Download the engine plug-in package directly
 
 [Linkis Engine Plugin Download](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 

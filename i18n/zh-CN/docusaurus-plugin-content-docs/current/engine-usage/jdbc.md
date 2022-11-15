@@ -3,18 +3,18 @@ title: JDBC 引擎
 sidebar_position: 7
 ---
 
-本文主要介绍在 Linkis 中，JDBC 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` 中， `JDBC` 引擎插件的安装、使用和配置。
 
 ## 1. 前置工作
-### 1.1环境安装
+### 1.1 环境安装
 
-如果您希望在您的服务器上使用JDBC引擎，您需要准备JDBC连接信息，如MySQL数据库的连接地址、用户名和密码等
+如果您希望在您的服务器上使用 `JDBC` 引擎，您需要准备 `JDBC` 连接信息，如 `MySQL` 数据库的连接地址、用户名和密码等
 
-### 1.2环境验证（以Mysql为例）
+### 1.2 环境验证（以 `Mysql` 为例）
 ```
 mysql -uroot -P 3306 -h 127.0.0.1 -p 123456
 ```
-输出如下信息代表JDBC连接信息可用
+输出如下信息代表 `JDBC` 连接信息可用
 ```
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -34,13 +34,13 @@ mysql>
 
 ## 2. 引擎插件安装
 
-### 2.1 引擎插件准备（二选一）
+### 2.1 引擎插件准备（二选一）[非默认引擎](./overview.md)
 
 方式一：直接下载引擎插件包
 
-[Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
+[`Linkis` 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-方式二：单独编译引擎插件（需要有 maven 环境）
+方式二：单独编译引擎插件（需要有 `maven` 环境）
 
 ```
 # 编译
@@ -49,6 +49,8 @@ mvn clean install
 # 编译出来的引擎插件包，位于如下目录中
 ${linkis_code_dir}/linkis-engineconn-plugins/jdbc/target/out/
 ```
+
+[`EngineConnPlugin`引擎插件安装](../deployment/install-engineconn.md)
 
 ### 2.2 引擎插件的上传和加载
 
@@ -71,34 +73,36 @@ linkis-engineconn-plugins/
 ### 2.3 引擎刷新
 
 #### 2.3.1 重启刷新
-通过重启 linkis-cg-linkismanager 服务刷新引擎
+通过重启 `linkis-cg-linkismanager` 服务刷新引擎
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 2.3.2 检查引擎是否刷新成功
-可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。
+
+可以查看数据库中的 `linkis_engine_conn_plugin_bml_resources` 这张表的 `last_update_time` 是否为触发刷新的时间。
 
 ```sql
-#登陆到linkis的数据库 
+#登陆到 `linkis` 的数据库 
 select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
-## 3.引擎的使用
+## 3. 引擎的使用
 
-### 3.1 通过Linkis-cli提交任务
+### 3.1 通过 `Linkis-cli` 提交任务
 
 ```shell
-sh ./bin/linkis-cli -engineType jdbc-4 -codeType jdbc -code "show tables" -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType jdbc-4 \
+-codeType jdbc -code "show tables" \
+-submitUser hadoop -proxyUser hadoop
 ```
 
-更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [`Linkis-Cli` 使用](../user-guide/linkiscli-manual.md)
 
-### 3.2通过Linkis SDK提交任务
+### 3.2 通过 `Linkis SDK` 提交任务
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于JDBC任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。对于 `JDBC` 任务您只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -107,16 +111,8 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
 ```
 
-### 3.3 通过Scriptis提交任务
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建JDBC脚本并编写JDBC代码并点击执行。
-
-JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去执行并获取到结果集并返回。
-
-![](./images/jdbc-run.png)
-
-### 3.4 多数据源支持
-从Linkis 1.2.0开始，提供了JDBC引擎多数据源的支持，我们首先可以在控制台管理不同的数据源。地址：登陆管理台-->数据源管理-->新增数据源
+### 3.3 多数据源支持
+从 `Linkis 1.2.0` 开始，提供了 `JDBC` 引擎多数据源的支持，我们首先可以在控制台管理不同的数据源。地址：登陆管理台-->数据源管理-->新增数据源
 
 ![](./images/datasourcemanage.png)
 
@@ -126,8 +122,8 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 
 图3-4 数据源连接测试
 
-数据源添加完成之后，就可以使用JDBC引擎的多数据源切换功能，有两种方式：
-1、通过接口参数指定数据源名称参数，如下图：
+数据源添加完成之后，就可以使用 `JDBC` 引擎的多数据源切换功能，有两种方式：
+1、 通过接口参数指定数据源名称参数，如下图：
 ![](./images/muti-data-source.png)
 
 参数示例：
@@ -148,30 +144,30 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 }
 ```
 
-参数：wds.linkis.engine.runtime.datasource为固定名称的配置，不要随意修改名称定义
+参数：`wds.linkis.engine.runtime.datasource` 为固定名称的配置，不要随意修改名称定义
 
-2、通过DSS的Scripts代码提交入口下拉筛选需要提交的数据源，如下图：
+2、 通过 `DSS` 的 `Scripts` 代码提交入口下拉筛选需要提交的数据源，如下图：
 ![](./images/muti-data-source-usage.png)
-当前dss-1.1.0还暂不支持下拉选择数据源名称，PR在开发中，可以等后续发版或关注相关PR：
+当前 `dss-1.1.0` 还暂不支持下拉选择数据源名称， `PR` 在开发中，可以等后续发版或关注相关 `PR` ：
 （https://github.com/WeBankFinTech/DataSphereStudio/issues/940）
 
 
 多数据源的功能说明：
 
-1）在之前的版本中，JDBC引擎对数据源的支持不够完善，尤其是搭配Scripts使用的时候，jdbc脚本类型只能绑定控制台的一套JDBC引擎参数，
-当我们有多数据源的切换需求时，只能修改jdbc引擎的连接参数，比较麻烦。
+1）在之前的版本中， `JDBC` 引擎对数据源的支持不够完善，尤其是搭配 Scripts 使用的时候， `JDBC` 脚本类型只能绑定控制台的一套 `JDBC` 引擎参数，
+当我们有多数据源的切换需求时，只能修改 `JDBC` 引擎的连接参数，比较麻烦。
 
-2）配合数据源管理，我们引入JDBC引擎的多数据源切换功能，可以实现只设置数据源名称，就可把作业提交到不同的JDBC服务之上，普通用户不需要
+2）配合数据源管理，我们引入 `JDBC` 引擎的多数据源切换功能，可以实现只设置数据源名称，就可把作业提交到不同的 `JDBC` 服务之上，普通用户不需要
 维护数据源的连接信息，避免了配置繁琐，也满足了数据源连接密码等配置的安全性需要。
 
-3）多数据源管理中设置的数据源，只有发布之后，并且没有过期的数据源才能被JDBC引擎加载到，否则会反馈给用户不同类型的异常提示。
+3）多数据源管理中设置的数据源，只有发布之后，并且没有过期的数据源才能被 `JDBC` 引擎加载到，否则会反馈给用户不同类型的异常提示。
 
-4）jdbc引擎参数的加载优先级为：任务提交传参 > 选择数据源的参数 > 控制台JDBC引擎的参数
+4） `JDBC` 引擎参数的加载优先级为：任务提交传参 > 选择数据源的参数 > 控制台JDBC引擎的参数
 
 
-## 4.引擎配置说明
+## 4. 引擎配置说明
 
-### 4.1默认配置说明
+### 4.1 默认配置说明
 
 | 配置                     | 默认值          |是否必须    | 说明                                     |
 | ------------------------ | ------------------- | ---|---------------------------------------- |
@@ -190,14 +186,21 @@ JDBC的执行原理是通过加载JDBC的Driver然后提交sql到SQL的server去
 
 ![jdbc](./images/jdbc-config.png)
 
-注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
+注意: 修改 `IDE` 标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType jdbc-4 -codeType jdbc -code "show tables"  -submitUser hadoop -proxyUser hadoop 
+sh ./bin/linkis-cli -creator IDE \
+-engineType jdbc-4 -codeType jdbc \
+-code "show tables"  \
+-submitUser hadoop -proxyUser hadoop \
+-runtimeMap wds.linkis.jdbc.connect.url=jdbc:mysql://127.0.0.1:3306 \
+-runtimeMap wds.linkis.jdbc.driver=com.mysql.jdbc.Driver \
+-runtimeMap wds.linkis.jdbc.username=root \
+-runtimeMap wds.linkis.jdbc.password=123456 \
 ```
 
 #### 4.2.2 任务接口配置
-提交任务接口，通过参数params.configuration.runtime进行配置
+提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
 ```shell
 http 请求参数示例 
@@ -220,9 +223,9 @@ http 请求参数示例
     }
 }
 ```
-### 4.3引擎相关数据表
+### 4.3 引擎相关数据表
 
-Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values

@@ -3,14 +3,14 @@ title: Hive 引擎
 sidebar_position: 2
 ---
 
-本文主要介绍在 Linkis 中，Hive 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` 中， `Hive` 引擎插件的安装、使用和配置。
 
 ## 1. 前置工作
-### 1.1擎使用前的环境配置
+### 1.1 擎使用前的环境配置
 
-如果您希望在您的服务器上使用hive引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
+如果您希望在您的服务器上使用 `hive` 引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
 
-强烈建议您在执行hive任务之前，检查下执行用户的这些环境变量。
+强烈建议您在执行 `hive` 任务之前，检查下执行用户的这些环境变量。
 
 | 环境变量名      | 环境变量内容   | 备注 |
 |-----------------|----------------|------|
@@ -19,7 +19,7 @@ sidebar_position: 2
 | HADOOP_CONF_DIR | Hadoop配置路径 | 必须 |
 | HIVE_CONF_DIR  | Hive配置路径   | 必须 |
 
-### 1.1环境验证
+### 1.1 环境验证
 ```
 # 链接hive
 bin/hive
@@ -34,31 +34,34 @@ databases_name
 default
 ```
 
-## 2.引擎插件安装
+## 2. 引擎插件安装 [默认引擎](./overview.md)
 
-linkis发布的二进制安装包中默认包含了 Hive 引擎插件，用户无需额外安装。
+`linkis` 发布的二进制安装包中默认包含了 `Hive` 引擎插件，用户无需额外安装。
 
-Hive的版本是支持hive1.x和hive2.x，默认是支持hive on MapReduce，如果您想改成Hive
-on Tez，需要您按照此pr进行一下修改。
+`Hive` 的版本是支持 `hive1.x` 和` hive2.x` ，默认是支持 `hive on MapReduce` ，如果您想改成 `Hive on Tez` ，需要您按照此 `pr` 进行一下修改。
 
 <https://github.com/apache/incubator-linkis/pull/541>
 
-默认支持的hive版本是2.3.3，如果您想修改hive的版本，您可以找到linkis-engineplugin-hive模块，修改\<hive.version\>标签，然后单独编译此模块即可
+默认支持的 `hive` 版本是2.3.3，如果您想修改 `hive` 的版本，您可以找到 `linkis-engineplugin-hive` 模块，修改\<hive.version\>标签，然后单独编译此模块即可
 
-## 3.引擎的使用
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
-### 3.1 通过Linkis-cli提交任务
+## 3. 引擎的使用
+
+### 3.1 通过 `Linkis-cli` 提交任务
 
 ```shell
-sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType hive-2.3.3 \
+-codeType hql -code "show databases"  \
+-submitUser hadoop -proxyUser hadoop
 ```
 
-更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [`Linkis-Cli` 使用](../user-guide/linkiscli-manual.md)
 
 ### 3.2 通过Linkis SDK提交任务
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于Hive任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
+对于 `Hive` 任务你只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -67,16 +70,7 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 ```
 
-### 3.3 通过Scriptis提交任务
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建hive脚本并编写hql代码
-
-hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来提交任务，并获取结果集并展示。
-
-![](./images/hive-run.png)
-
-
-## 4.引擎配置说明
+## 4. 引擎配置说明
 
 ### 4.1 默认配置说明
 | 配置                     | 默认值          |是否必须    | 说明                                     |
@@ -86,7 +80,7 @@ hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来
 | wds.linkis.engineconn.max.free.time       | 1h    |否              | 引擎空闲退出时间 |
 
 ### 4.2 队列资源配置
-hive的MapReduce任务是需要用到yarn的资源，所以需要设置队列
+`hive` 的 `MapReduce` 任务是需要用到 `yarn` 的资源，所以需要设置队列
 
 ![yarn](./images/yarn-conf.png)    
 
@@ -97,14 +91,17 @@ hive的MapReduce任务是需要用到yarn的资源，所以需要设置队列
 
 ![hive](./images/hive-config.png)
 
-注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
+注意: 修改 `IDE` 标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType hive-2.3.3 -codeType hql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -creator IDE \
+-engineType hive-2.3.3 -codeType hql \
+-code "show databases"  \
+-submitUser hadoop -proxyUser hadoop
 ```
 
 #### 4.3.2 任务接口配置
-提交任务接口，通过参数params.configuration.runtime进行配置
+提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
 ```shell
 http 请求参数示例 
@@ -127,7 +124,7 @@ http 请求参数示例
 
 ### 4.4 引擎相关数据表
 
-Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
@@ -170,26 +167,26 @@ insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_val
 INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @HIVE_ALL);
 ```
 
-## 5.Hive修改日志展示
-默认的日志界面是不显示application_id以及task完成数量的,用户可以根据需要输出该日志
-引擎内的log4j2-engineconn.xml/log4j2.xml配置文件中需要修改的代码块如下
-1.appenders组件下需要添加
+## 5. Hive修改日志展示
+默认的日志界面是不显示 `application_id` 以及 `task` 完成数量的,用户可以根据需要输出该日志
+引擎内的 `log4j2-engineconn.xml/log4j2.xml` 配置文件中需要修改的代码块如下
+1. `appenders` 组件下需要添加
 ```xml
         <Send name="SendPackage" >
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} %L %M - %msg%xEx%n"/>
         </Send>
 ```
-2.root组件下需要添加
+2. `root` 组件下需要添加
 ```xml
         <appender-ref ref="SendPackage"/>
 ```
-3.loggers组件下需要添加
+3. `loggers` 组件下需要添加
 ```xml
         <logger name="org.apache.hadoop.hive.ql.exec.StatsTask" level="info" additivity="true">
             <appender-ref ref="SendPackage"/>
         </logger>
 ```
-进行如上相关修改后日志可以增加任务task进度信息，显示为如下样式
+进行如上相关修改后日志可以增加任务 `task` 进度信息，显示为如下样式
 ```
 2022-04-08 11:06:50.228 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Status: Running (Executing on YARN cluster with App id application_1631114297082_432445)
 2022-04-08 11:06:50.248 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: -/-	Reducer 2: 0/1	
@@ -199,7 +196,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 2022-04-08 11:06:57.899 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1	Reducer 2: 1/1	
 ```
 
-完整xml配置文件范例如下：
+完整 `xml` 配置文件范例如下：
 ```xml
 <!--
   ~ Copyright 2019 WeBank

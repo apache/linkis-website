@@ -3,14 +3,14 @@ title: Shell 引擎
 sidebar_position: 6
 ---
 
-本文主要介绍在 Linkis 中，Shell 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` 中， `Shell` 引擎插件的安装、使用和配置。
 
-## 1.前置工作
+## 1. 前置工作
 
-### 1.1环境安装
-如果您希望在您的服务器上使用shell引擎，您需要保证用户的PATH中是有bash的执行目录和执行权限。
+### 1.1 环境安装
+如果您希望在您的服务器上使用 `shell` 引擎，您需要保证用户的 `PATH` 中是有 `bash` 的执行目录和执行权限。
 
-### 1.2环境验证
+### 1.2 环境验证
 ```
 echo $SHELL
 ```
@@ -23,23 +23,26 @@ echo $SHELL
 /bin/sh
 ```
 
-## 2.引擎插件安装
+## 2. 引擎插件安装 [默认引擎](./overview.md)
 
-linkis发布的二进制安装包中默认包含了Shell引擎插件，用户无需额外安装。
+`linkis` 发布的二进制安装包中默认包含了 `Shell` 引擎插件，用户无需额外安装。
 
-## 3.引擎的使用
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
-### 3.1通过Linkis-cli提交任务
+## 3. 引擎的使用
+
+### 3.1 通过 `Linkis-cli` 提交任务
 
 ```shell
-sh ./bin/linkis-cli -engineType shell-1 -codeType shell -code "echo \"hello\" " -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType shell-1 \
+-codeType shell -code "echo \"hello\" " \
+-submitUser hadoop -proxyUser hadoop
 ```
-更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-### 3.2通过Linkis SDK提交任务
+### 3.2 通过Linkis SDK提交任务
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于Shell任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。 对于 `Shell` 任务您只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -47,15 +50,6 @@ labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "shell-1"); // required engineType 
 labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "shell"); // required codeType
 ```
+## 4. 引擎配置说明
 
-### 3.3通过Scriptis提交任务
-
-Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建shell脚本并编写shell代码并点击执行。
-
-shell的执行原理是shell引擎通过java自带的ProcessBuilder启动一个系统进程来进行执行，并且将进程的输出重定向到引擎并写入到日志中。
-
-![](./images/shell-run.png)
-
-## 4.引擎配置说明
-
-shell引擎一般可以设置引擎JVM的最大内存。
+`shell` 引擎一般可以设置引擎 `JVM` 的最大内存。

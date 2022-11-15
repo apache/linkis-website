@@ -3,14 +3,14 @@ title: OpenLooKeng 引擎
 sidebar_position: 8
 ---
 
-本文主要介绍在 Linkis 中，OpenLooKeng 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` `中，OpenLooKeng` 引擎插件的安装、使用和配置。
 
 ## 1. 前置工作
-### 1.1环境安装
+### 1.1 环境安装
 
-如果您希望部署使用OpenLooKeng引擎，您需要准备一套可用的OpenLooKeng环境。
+如果您希望部署使用 `OpenLooKeng` 引擎，您需要准备一套可用的 `OpenLooKeng` 环境。
 
-### 1.2服务验证
+### 1.2 服务验证
 
 ```shell
 # 准备 hetu-cli
@@ -39,15 +39,15 @@ Splits: 33 total, 33 done (100.00%)
 0:00 [73K rows, 0B] [86.8K rows/s, 0B/s]
 ```
 
-## 2.引擎插件安装
+## 2. 引擎插件安装
 
-### 2.1 引擎插件准备（二选一）
+### 2.1 引擎插件准备（二选一）[非默认引擎](./overview.md)
 
 方式一：直接下载引擎插件包
 
 [Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-方式二：单独编译引擎插件（需要有 maven 环境）
+方式二：单独编译引擎插件（需要有 `maven` 环境）
 
 ```
 # 编译
@@ -56,6 +56,7 @@ mvn clean install
 # 编译出来的引擎插件包，位于如下目录中
 ${linkis_code_dir}/linkis-engineconn-plugins/openlookeng/target/out/
 ```
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
 ### 2.2 引擎插件的上传和加载
 
@@ -78,34 +79,37 @@ linkis-engineconn-plugins/
 ### 2.3 引擎刷新
 
 #### 2.3.1 重启刷新
-通过重启 linkis-cg-linkismanager 服务刷新引擎
+通过重启 `linkis-cg-linkismanager` 服务刷新引擎
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 2.3.2 检查引擎是否刷新成功
-可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。
+可以查看数据库中的 `linkis_engine_conn_plugin_bml_resources` 这张表的 `last_update_time` 是否为触发刷新的时间。
 
 ```sql
-#登陆到linkis的数据库 
+#登陆到 `linkis` 的数据库 
 select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
 ## 3.引擎的使用
 
-### 3.1 通过 Linkis-cli 提交任务
+### 3.1 通过 `Linkis-cli` 提交任务
 
 ```shell
-sh ./bin/linkis-cli -engineType openlookeng-1.5.0 -codeType sql -code 'select * from tpcds.sf1.date_dim;' -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType openlookeng-1.5.0 \
+-codeType sql -code 'select * from tpcds.sf1.date_dim;' \
+-submitUser hadoop -proxyUser hadoop \
+-runtimeMap linkis.openlookeng.url=http://127.0.0.1:8080 
 ```
 
-更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-### 3.2 通过Linkis SDK进行使用
+### 3.2 通过 `Linkis SDK` 提交任务
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于openlookeng任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
+对于 `JDBC` 任务您只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -114,7 +118,7 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType
 ```
 
-## 4.引擎配置说明
+## 4. 引擎配置说明
 
 ### 4.1 默认配置说明
 | 配置                     | 默认值          |是否必须    | 说明                                     |
@@ -133,11 +137,14 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType
 注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType openlookeng-1.5.0 -codeType sql -code 'select * from tpcds.sf1.date_dim;' -submitUser hadoop -proxyUser hadoop 
+sh ./bin/linkis-cli -creator IDE \
+-engineType openlookeng-1.5.0 -codeType sql \
+-code 'select * from tpcds.sf1.date_dim;' \
+-submitUser hadoop -proxyUser hadoop 
 ```
 
 #### 4.2.2 任务接口配置
-提交任务接口，通过参数params.configuration.runtime进行配置
+提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
 ```shell
 http 请求参数示例 
@@ -160,7 +167,7 @@ http 请求参数示例
 
 ### 4.3 引擎相关数据表
 
-Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values

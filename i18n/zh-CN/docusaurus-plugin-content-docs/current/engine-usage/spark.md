@@ -3,14 +3,14 @@ title: Spark 引擎
 sidebar_position: 1
 ---
 
-本文主要介绍在 Linkis 中，Spark 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` 中， `Spark` 引擎插件的安装、使用和配置。
 
 ## 1. 前置工作
 ### 1.1 引擎安装
 
-如果您希望在您的服务器上使用spark引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
+如果您希望在您的服务器上使用 `spark` 引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
 
-强烈建议您在执行spark任务之前，检查下执行用户的这些环境变量。
+强烈建议您在执行 `spark` 任务之前，检查下执行用户的这些环境变量。
 
 | 环境变量名      | 环境变量内容   | 备注                                   |
 |-----------------|----------------|----------------------------------------|
@@ -23,7 +23,7 @@ sidebar_position: 1
 | python          | python        | 建议使用anaconda的python作为默认python   |
 
 ### 1.2 环境验证
-通过pyspark验证Spark是否安装成功
+通过 `pyspark` 验证 `Spark` 是否安装成功
 ```
 pyspark
 
@@ -39,15 +39,17 @@ Using Python version 2.7.13 (default, Sep 30 2017 18:12:43)
 SparkSession available as 'spark'.
 ```
 
-## 2.引擎插件安装
+## 2. 引擎插件安装 [默认引擎](./overview.md)
 
-linkis发布的二进制安装包中默认包含了 Spark 引擎插件，用户无需额外安装。
+`linkis` 发布的二进制安装包中默认包含了 `Spark` 引擎插件，用户无需额外安装。
 
-理论上Linkis支持的spark2.x以上的所有版本。默认支持的版本为Spark2.4.3。如果您想使用其他的spark版本，如spark2.1.0，则您仅仅需要将插件spark的版本进行修改，然后进行编译即可。具体的，您可以找到linkis-engineplugin-spark模块，将maven依赖中"spark.version"标签的值改成2.1.0，然后单独编译此模块即可。
+理论上 `Linkis` 支持的 `spark2.x` 以上的所有版本。默认支持的版本为 `Spark2.4.3` 。如果您想使用其他的 `spark` 版本，如 `spark2.1.0` ，则您仅仅需要将插件 `spark` 的版本进行修改，然后进行编译即可。具体的，您可以找到 `linkis-engineplugin-spark` 模块，将 `maven` 依赖中 `<spark.version>` 标签的值改成 2.1.0 ，然后单独编译此模块即可。
 
-## 3.spark引擎的使用
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
-### 3.1 通过Linkis-cli提交任务
+## 3. `spark` 引擎的使用
+
+### 3.1 通过 `Linkis-cli` 提交任务
 
 ```shell
 # codeType对应关系 py-->pyspark  sql-->sparkSQL scala-->Spark scala
@@ -56,12 +58,12 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show databases"
 # 可以在提交参数通过-confMap wds.linkis.yarnqueue=dws  来指定yarn 队列
 sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show databases"  -submitUser hadoop -proxyUser hadoop
 ```
-更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-### 3.2 通过Linkis SDK进行使用
+### 3.2 通过 `Linkis SDK` 提交任务
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于Spark任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
+对于 `Spark` 任务你只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -69,23 +71,6 @@ labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineT
 labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
 ```
-
-### 3.3 Scriptis的使用方式
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis，新建sql、scala或者pyspark脚本进行执行。
-
-sql的方式是最简单的，您可以新建sql脚本然后编写进行执行，执行的时候，会有进度的显示。如果一开始用户是没有spark引擎的话，sql的执行会启动一个spark会话(这里可能会花一些时间)，
-SparkSession初始化之后，就可以开始执行sql。
-
-![](./images/sparksql-run.png)
-
-spark-scala的任务，我们已经初始化好了sqlContext等变量，用户可以直接使用这个sqlContext进行sql的执行。
-
-![](./images/scala-run.png)
-
-类似的，pyspark的方式中，我们也已经初始化好了SparkSession，用户可以直接使用spark.sql的方式进行执行sql。
-
-![](./images/pyspakr-run.png)
 
 ## 4.引擎配置说明
 
@@ -100,7 +85,7 @@ spark-scala的任务，我们已经初始化好了sqlContext等变量，用户�
 | spark.python.version       | python2    |否              | python版本 |
 
 ### 4.2 队列资源配置
-因为spark的执行需要队列的资源，须要设置自己能够执行的队列。    
+因为 `spark` 的执行需要队列的资源，须要设置自己能够执行的队列。    
 
 ![yarn](./images/yarn-conf.png) 
 
@@ -109,17 +94,20 @@ spark-scala的任务，我们已经初始化好了sqlContext等变量，用户�
 如果默认参数不满足时，有如下几中方式可以进行一些基础参数配置
 
 #### 4.3.1 管理台配置
-用户可以进行自定义的设置，比如spark会话executor个数和executor的内存。这些参数是为了用户能够更加自由地设置自己的spark的参数，另外spark其他参数也可以进行修改，比如的pyspark的python版本等。
+用户可以进行自定义的设置，比如 `spark` 会话 `executor` 个数和 `executor` 的内存。这些参数是为了用户能够更加自由地设置自己的 `spark` 的参数，另外 `spark` 其他参数也可以进行修改，比如的 `pyspark` 的 `python` 版本等。
 ![spark](./images/spark-conf.png)
 
-注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
+注意: 修改 `IDE` 标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType spark-2.4.3 -codeType sql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -creator IDE \
+-engineType spark-2.4.3 -codeType sql \
+-code "show databases"  \
+-submitUser hadoop -proxyUser hadoop
 ```
 
 #### 4.3.2 任务接口配置
-提交任务接口，通过参数params.configuration.runtime进行配置
+提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
 ```shell
 http 请求参数示例 
@@ -142,7 +130,7 @@ http 请求参数示例
 
 ### 4.4 引擎相关数据表
 
-Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
@@ -152,7 +140,7 @@ linkis_ps_configuration_config_value： 插入引擎需要展示的配置
 linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
 ```
 
-表中与 spark 引擎相关的初始数据如下
+表中与 `spark` 引擎相关的初始数据如下
 
 ```sql
 -- set variable

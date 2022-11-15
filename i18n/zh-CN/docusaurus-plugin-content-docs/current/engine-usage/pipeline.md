@@ -2,11 +2,13 @@
 title: Pipeline 引擎
 sidebar_position: 10
 ---
-Pipeline的主要用来文件的导入和导出，本文主要介绍在 Linkis 中，Hive 引擎插件的安装、使用和配置。
+`Pipeline` 的主要用来文件的导入和导出，本文主要介绍在 `Linkis` 中， `Hive` 引擎插件的安装、使用和配置。
 
-## 1.引擎插件安装
+## 1. 引擎插件安装
 
-### 1.1 引擎插件准备（二选一）方式一：直接下载引擎插件包
+### 1.1 引擎插件准备（二选一）[非默认引擎](./overview.md)
+
+方式一：直接下载引擎插件包
 
 [Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
@@ -19,6 +21,7 @@ mvn clean install
 # 编译出来的引擎插件包，位于如下目录中
 ${linkis_code_dir}/linkis-engineconn-plugins/pipeline/target/out/
 ```
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
 ### 1.2 引擎插件的上传和加载
 
@@ -40,14 +43,14 @@ linkis-engineconn-plugins/
 ### 1.3 引擎刷新
 
 #### 1.3.1 重启刷新
-通过重启 linkis-cg-linkismanager 服务刷新引擎
+通过重启 `linkis-cg-linkismanager` 服务刷新引擎
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 1.3.2 检查引擎是否刷新成功
-可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。
+可以查看数据库中的 `linkis_engine_conn_plugin_bml_resources` 这张表的 `last_update_time` 是否为触发刷新的时间。
 
 ```sql
 #登陆到linkis的数据库 
@@ -56,71 +59,20 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 
 ## 2 引擎的使用
 
-因为`pipeline`引擎主要用来导入导出文件为主，现在我们假设从A向B导入文件为介绍案例
+因为 `pipeline` 引擎主要用来导入导出文件为主，现在我们假设从A向B导入文件为介绍案例
 
-### 2.1 通过Linkis-cli提交任务
+### 2.1 通过 `Linkis-cli` 提交任务
 
 ```shell
-sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipeline  -code "from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv"
+sh bin/linkis-cli -submitUser  hadoop  \
+-engineType pipeline-1  -codeType pipeline  \
+-code "from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv"
 ```
 `from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv` 该内容 2.3 有解释
 
-更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-### 2.2 通过 Scriptis 提交任务
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建一个类型为`storage`的脚本
-
-![](./images/new_pipeline_script.png)
-
-#### 2.2.1 编写脚本
-
-##### 语法为：from path to path 
-
-文件拷贝规则：`dolphin`后缀类型文件属于结果集文件可转换成`.csv`类型及`.xlsx`类型文件,其他类型只能从A地址拷贝到B地址，简称搬运
-
-```bash
-#dolphin 类型
-from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv
-from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.xlsx
-
-#其他类型
-from hdfs:///000/000/000/A.txt to file:///000/000/000/B.txt
-```
-
-
-文件A导出为文件B
-```bash
-from hdfs:///000/000/000/A.csv to file:///000/000/000/B.csv
-```
-
-- `from path to path`
-- `hdfs:///000/000/000/A.csv`： 输入文件路径及文件
-- `file:///000/000/000/B.csv`： 输出文件路径及文件
-
-
-文件B导出为文件A
-```bash
-from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
-```
-- `hdfs:///000/000/000/B.csv`： 输入文件路径及文件
-- `file:///000/000/000/A.CSV`： 输出文件路径及文件
-
-![](./images/to_write.png)
-
-注意：语法末端不能带分号(;),否则语法错误。
-
-#### 2.2.2 结果
-进度 
-
-![](./images/job_state.png)
-
-历史记录
-
-![](./images/historical_information.png)
-
-
-## 3.引擎配置说明
+## 3. 引擎配置说明
 
 ### 3.1 默认配置说明
 
@@ -141,14 +93,18 @@ from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
 
 ![](./images/pipeline-conf.png)
 
-注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
+注意: 修改 `IDE` 标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
 
 ```shell
-sh bin/linkis-cli -creator IDE -submitUser hadoop -engineType pipeline-1  -codeType pipeline -code "from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv"
+sh bin/linkis-cli -creator IDE \
+-submitUser hadoop \
+-engineType pipeline-1  \
+-codeType pipeline \
+-code "from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv"
 ```
 
 #### 4.2.2 任务接口配置
-提交任务接口，通过参数params.configuration.runtime进行配置
+提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
 ```shell
 http 请求参数示例 
@@ -172,7 +128,7 @@ http 请求参数示例
 
 ### 4.3 引擎相关数据表
 
-Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values

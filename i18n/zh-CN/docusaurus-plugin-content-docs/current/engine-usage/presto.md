@@ -3,16 +3,16 @@ title: Presto 引擎
 sidebar_position: 11
 ---
 
-本文主要介绍在 Linkis 中，Presto 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` `中，Presto` 引擎插件的安装、使用和配置。
 
 
 ## 1. 前置工作
 
-### 1.1引擎安装
+### 1.1 引擎安装
 
-如果您希望在您的 Linkis 服务上使用 Presto 引擎，您需要安装 Presto 服务并保证服务可用。
+如果您希望在您的 `Linkis` 服务上使用 `Presto` 引擎，您需要安装 `Presto` 服务并保证服务可用。
 
-### 1.2服务验证
+### 1.2 服务验证
 
 ```shell
 # 准备 presto-cli
@@ -41,7 +41,7 @@ chmod +x presto-cli
 
 ## 2. 引擎插件部署
 
-### 2.1 引擎插件准备（二选一）
+### 2.1 引擎插件准备（二选一）[非默认引擎](./overview.md)
 
 方式一：直接下载引擎插件包
 
@@ -56,8 +56,9 @@ mvn clean install
 # 编译出来的引擎插件包，位于如下目录中
 ${linkis_code_dir}/linkis-engineconn-plugins/presto/target/out/
 ```
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
-### 2.2引擎插件的上传和加载
+### 2.2 引擎插件的上传和加载
 
 将 2.1 中的引擎包上传到服务器的引擎目录下
 ```bash 
@@ -78,47 +79,45 @@ linkis-engineconn-plugins/
 ### 2.3 引擎刷新
 
 #### 2.3.1 重启刷新
-通过重启 linkis-cg-linkismanager 服务刷新引擎
+通过重启 `linkis-cg-linkismanager` 服务刷新引擎
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 2.3.2 检查引擎是否刷新成功
-可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。
+可以查看数据库中的 `linkis_engine_conn_plugin_bml_resources` 这张表的`last_update_time` 是否为触发刷新的时间。
 
 ```sql
-#登陆到linkis的数据库 
+#登陆到 `linkis` 的数据库 
 select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
 ## 3 引擎的使用
 
-### 3.1 通过 Linkis-cli 提交任务 
-
-通过linkis-cli的方式提交任务，需要指定对应的EngineConn和CodeType标签类型，presto的使用如下：
-
-**注意：** `engineType presto-0.234` 引擎版本设置是有前缀的  如 `presto` 版本为`0.234` 则设置为 ` presto-0.234`
+### 3.1 通过 `Linkis-cli` 提交任务 
 
 ```shell
- sh ./bin/linkis-cli -engineType presto-0.234 -codeType psql -code 'show tables;' -submitUser hadoop -proxyUser hadoop
+ sh ./bin/linkis-cli -engineType presto-0.234 \
+ -codeType psql -code 'show tables;' \
+ -submitUser hadoop -proxyUser hadoop
 ```
 
-如果管理台，任务接口，配置文件，均未配置（配置方式见 4.2 ）时可在 cli 客户端中通过`-runtimeMap`属性进行配置
+如果管理台，任务接口，配置文件，均未配置（配置方式见 4.2 ）时可在 `Linkis-cli` 客户端中通过 `-runtimeMap` 属性进行配置
 
 ```shell
-sh ./bin/linkis-cli -engineType presto-0.234 -codeType  tsql -code 'show tables;'  -runtimeMap wds.linkis.presto.url=http://127.0.0.1:8080 -runtimeMap wds.linkis.presto.catalog=hive -runtimeMap  wds.linkis.presto.schema=default  -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType presto-0.234 \
+-codeType  tsql -code 'show tables;'  \
+-runtimeMap wds.linkis.presto.url=http://127.0.0.1:8080 \
+-runtimeMap wds.linkis.presto.catalog=hive \
+-runtimeMap  wds.linkis.presto.schema=default  \
+-runtimeMap wds.linkis.presto.catalog=hive \
+-submitUser hadoop -proxyUser hadoop
 ```
 
-更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-### 3.2 通过 Scriptis 提交任务
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis)的使用方式是最简单的，您可以直接进入Scriptis工作空间模块右键选择新建一个类型为`psql`的脚本
-
-![](./images/presto-psql.png)
-
-## 4.引擎配置说明
+## 4. 引擎配置说明
 
 ### 4.1 默认配置说明
 
@@ -135,22 +134,25 @@ sh ./bin/linkis-cli -engineType presto-0.234 -codeType  tsql -code 'show tables;
 | wds.linkis.presto.http.readTimeout     | 60                    | Presto 客户端的 read timeout（单位：秒）    | false |
 | wds.linkis.engineconn.concurrent.limit | 100                   | Presto 引擎最大并发数                       | false |
 
-### 4.2配置修改
+### 4.2 配置修改
 
 如果默认参数不满足时，有如下几中方式可以进行一些基础参数配置
 
-#### 4.2.1管理台配置
+#### 4.2.1 管理台配置
 
 ![](./images/presto-console.png)
 
-注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
+注意: 修改 `IDE` 标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType presto-0.234 -codeType  tsql -code 'show tables;' -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -creator IDE \
+-engineType presto-0.234 -codeType  tsql \
+-code 'show tables;' \
+-submitUser hadoop -proxyUser hadoop
 ```
 
-#### 4.2.2任务接口配置
-提交任务接口，通过参数params.configuration.runtime进行配置
+#### 4.2.2 任务接口配置
+提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
 ```shell
 http 请求参数示例 
@@ -176,13 +178,13 @@ http 请求参数示例
 ```
 
 #### 4.2.3 文件配置
-通过修改目录 install path/lib/linkis-engineconn-plugins/presto/dist/v0.234/conf/ 中的linkis-engineconn.properties 文件进行配置，如下图：
+通过修改目录 `install path/lib/linkis-engineconn-plugins/presto/dist/v0.234/conf/` 中的 `linkis-engineconn.properties` 文件进行配置，如下图：
 
 ![](./images/presto-file.png)
 
-### 4.3引擎相关数据表
+### 4.3 引擎相关数据表
 
-Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values

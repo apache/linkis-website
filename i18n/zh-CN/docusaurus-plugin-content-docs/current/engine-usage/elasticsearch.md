@@ -3,20 +3,20 @@ title: ElasticSearch 引擎
 sidebar_position: 11
 ---
 
-本文主要介绍在 Linkis 中，ElasticSearch 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` 中，`ElasticSearch` 引擎插件的安装、使用和配置。
 
 ## 1. 前置工作
 ### 1.1 引擎安装
 
-如果您希望在您的 Linkis 服务上使用 ElasticSearch 引擎，您需要安装 ElasticSearch 服务并保证服务可用。
+如果您希望在您的 `Linkis` 服务上使用 `ElasticSearch` 引擎，您需要安装 `ElasticSearch` 服务并保证服务可用。
 
 ### 1.2 服务验证
-通过如下命令验证 ElasticSearch 引擎服务是否可用，如服务已开启用户验证则需要增加 --user username:password
+通过如下命令验证 `ElasticSearch` 引擎服务是否可用，如服务已开启用户验证则需要增加  `--user username:password`
 ```
 curl [--user username:password] http://ip:port/_cluster/healty?pretty
 ```
-输出如下内容代表 ElasticSearch 服务可用，注意集群 status 为 green
-```
+输出如下内容代表 `ElasticSearch` 服务可用，注意集群 `status` 为 `green`
+```json
 {
   "cluster_name" : "docker-cluster",
   "status" : "green",
@@ -35,9 +35,9 @@ curl [--user username:password] http://ip:port/_cluster/healty?pretty
   "active_shards_percent_as_number" : 100.0
 }
 ```
-## 2.引擎插件安装
+## 2. 引擎插件安装
 
-### 2.1 引擎插件准备（二选一）
+### 2.1 引擎插件准备（二选一）[非默认引擎](./overview.md)
 
 方式一：直接下载引擎插件包
 
@@ -52,6 +52,8 @@ mvn clean install
 # 编译出来的引擎插件包，位于如下目录中
 ${linkis_code_dir}/linkis-engineconn-plugins/elasticsearch/target/out/
 ```
+
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
 ### 2.2 引擎插件的上传和加载
 
@@ -73,14 +75,14 @@ linkis-engineconn-plugins/
 ### 2.3 引擎刷新
 
 #### 2.3.1 重启刷新
-通过重启 linkis-cg-linkismanager 服务刷新引擎
+通过重启 `linkis-cg-linkismanager` 服务刷新引擎
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 2.3.2 检查引擎是否刷新成功
-可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。
+可以查看数据库中的 `linkis_engine_conn_plugin_bml_resources` 这张表的`last_update_time` 是否为触发刷新的时间。
 
 ```sql
 #登陆到linkis的数据库 
@@ -89,26 +91,38 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 
 ## 3.引擎使用
 
-### 3.1 通过 Linkis-cli 提交任务
-**-codeType 参数说明**
-- essql：通过SQL脚本的方式执行 ElasticSearch 引擎任务
-- esjson：通过JSON脚本的方式执行 ElasticSearch 引擎任务
+### 3.1 通过 `Linkis-cli` 提交任务
+**`-codeType` 参数说明**
+- `essql`：通过 `SQL` 脚本的方式执行 `ElasticSearch` 引擎任务
+- `esjson`：通过 `JSON` 脚本的方式执行 `ElasticSearch` 引擎任务
 
-**essql方式示例**
+**essql 方式示例**
 
-**注意：** 使用这种形式，ElasticSearch 服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
+**注意：** 使用这种形式， `ElasticSearch` 服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
 ```shell
- sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType essql -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/_sql -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
+ sh ./bin/linkis-cli -submitUser hadoop \
+ -engineType elasticsearch-7.6.2 -codeType essql \
+ -code '{"sql": "select * from kibana_sample_data_ecommerce limit 10' \
+ -runtimeMap linkis.es.http.method=GET \
+ -runtimeMap linkis.es.http.endpoint=/_sql \
+ -runtimeMap linkis.es.datasource=hadoop  \
+ -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
-**esjson方式示例**
+**`esjson` 方式示例**
 ```shell
-sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search -runtimeMap linkis.es.datasource=hadoop  -runtimeMap linkis.es.cluster=127.0.0.1:9200
+sh ./bin/linkis-cli -submitUser hadoop \
+-engineType elasticsearch-7.6.2 -codeType esjson \
+-code '{"query": {"match": {"order_id": "584677"}}}' \
+-runtimeMap linkis.es.http.method=GET \
+-runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search \
+-runtimeMap linkis.es.datasource=hadoop  \
+-runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
-更多 Linkis-Cli 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [`Linkis-Cli` 使用](../user-guide/linkiscli-manual.md)
 
-## 4.引擎配置说明
+## 4. 引擎配置说明
 
 ### 4.1 默认配置说明
 
@@ -134,14 +148,18 @@ sh ./bin/linkis-cli -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType
 
 ![](./images/es-manage.png)
 
-注意: 修改IDE标签下的配置后需要指定 -creator IDE 才会生效（其它标签类似），如：
+注意: 修改 `IDE` 标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -submitUser hadoop -engineType elasticsearch-7.6.2 -codeType esjson -code '{"query": {"match": {"order_id": "584677"}}}' -runtimeMap linkis.es.http.method=GET -runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search 
+sh ./bin/linkis-cli -creator IDE -submitUser hadoop \
+-engineType elasticsearch-7.6.2 -codeType esjson \
+-code '{"query": {"match": {"order_id": "584677"}}}' \
+-runtimeMap linkis.es.http.method=GET \
+-runtimeMap linkis.es.http.endpoint=/kibana_sample_data_ecommerce/_search 
 ```
 
 #### 4.2.2 任务接口配置
-提交任务接口，通过参数params.configuration.runtime进行配置
+提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
 ```shell
 http 请求参数示例 
@@ -166,13 +184,13 @@ http 请求参数示例
 ```
 
 #### 4.2.3 文件配置
-通过修改目录 ${LINKIS_HOME}/lib/linkis-engineconn-plugins/elasticsearch/dist/v7.6.2/conf/ 中的linkis-engineconn.properties 文件进行配置，如下图：
+通过修改目录 `${LINKIS_HOME}/lib/linkis-engineconn-plugins/elasticsearch/dist/v7.6.2/conf/` 中的 `linkis-engineconn.properties` 文件进行配置，如下图：
 
 ![](./images/es-config.png)
 
 ### 4.3 引擎相关数据表
 
-Linkis 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
