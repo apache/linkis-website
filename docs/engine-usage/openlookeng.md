@@ -3,17 +3,17 @@ title: OpenLooKeng Engine
 sidebar_position: 8
 ---
 
-This article mainly introduces the installation, use and configuration of the OpenLooKeng engine plugin in Linkis.
+This article mainly introduces the installation, usage and configuration of the OpenLooKeng engine plugin in `Linkis` `.
 
-## 1. Pre-work
+## 1. Preliminary work
 ### 1.1 Environment Installation
 
-If you want to deploy OpenLooKeng engine, you need to prepare a set of available OpenLooKeng environment.
+If you wish to deploy the `OpenLooKeng` engine, you need to prepare a working `OpenLooKeng` environment.
 
-### 1.2 Service Verification
+### 1.2 Service Authentication
 
 ```shell
-# prepare hetu-cli
+# Prepare hetu-cli
 wget https://download.openlookeng.io/1.5.0/hetu-cli-1.5.0-executable.jar
 mv hetu-cli-1.5.0-executable.jar hetu-cli
 chmod +x hetu-cli
@@ -21,12 +21,12 @@ chmod +x hetu-cli
 # link service
 ./hetu-cli --server 172.22.32.6:9090 --catalog tpcds --schema default
 
-# execute query statement
+# Execute query statement
 lk:default> select d_date_sk, d_date_id, d_date, d_month_seq from tpcds.sf1.date_dim order by d_date limit 5;
 
 # Get the following output to represent the service is available
  d_date_sk |    d_date_id     |   d_date   | d_month_seq
------------+------------------+------------+------ -------
+-------------+--------+------------+------ -------
    2415022 | AAAAAAAAOKJNECAA | 1900-01-02 | 0
    2415023 | AAAAAAAAPKJNECAA | 1900-01-03 | 0
    2415024 | AAAAAAAAALJNECAA | 1900-01-04 | 0
@@ -41,13 +41,13 @@ Splits: 33 total, 33 done (100.00%)
 
 ## 2. Engine plugin installation
 
-### 2.1 Engine plug-in preparation (choose one of the two)
+### 2.1 Engine plugin preparation (choose one) [non-default engine](./overview.md)
 
 Method 1: Download the engine plug-in package directly
 
 [Linkis Engine Plugin Download](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-Method 2: Compile the engine plug-in separately (requires a maven environment)
+Method 2: Compile the engine plug-in separately (requires a `maven` environment)
 
 ```
 # compile
@@ -56,6 +56,7 @@ mvn clean install
 # The compiled engine plug-in package is located in the following directory
 ${linkis_code_dir}/linkis-engineconn-plugins/openlookeng/target/out/
 ```
+[EngineConnPlugin Engine Plugin Installation](../deployment/install-engineconn.md)
 
 ### 2.2 Upload and load engine plugins
 
@@ -66,7 +67,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 The directory structure after uploading is as follows
 ```
 linkis-engineconn-plugins/
-├── open look
+├── openlookeng
 │   ├── dist
 │ │ └── v1.5.0
 │   │       ├── conf
@@ -78,34 +79,37 @@ linkis-engineconn-plugins/
 ### 2.3 Engine refresh
 
 #### 2.3.1 Restart and refresh
-Refresh the engine by restarting the linkis-cg-linkismanager service
+Refresh the engine by restarting the `linkis-cg-linkismanager` service
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 2.3.2 Check whether the engine is refreshed successfully
-You can check whether the last_update_time of the linkis_engine_conn_plugin_bml_resources table in the database is the time when the refresh is triggered.
+You can check whether the `last_update_time` of the `linkis_engine_conn_plugin_bml_resources` table in the database is the time to trigger the refresh.
 
 ```sql
-#Log in to the linkis database
+#Login to the `linkis` database
 select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
 ## 3. The use of the engine
 
-### 3.1 Submit tasks through Linkis-cli
+### 3.1 Submitting tasks via `Linkis-cli`
 
 ```shell
-sh ./bin/linkis-cli -engineType openlookeng-1.5.0 -codeType sql -code 'select * from tpcds.sf1.date_dim;' -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType openlookeng-1.5.0 \
+-codeType sql -code 'select * from tpcds.sf1.date_dim;' \
+-submitUser hadoop -proxyUser hadoop \
+-runtimeMap linkis.openlookeng.url=http://127.0.0.1:8080
 ```
 
-More Linkis-Cli command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
+More `Linkis-Cli` command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
 
-### 3.2 Using Linkis SDK
+### 3.2 Submitting tasks through `Linkis SDK`
 
-Linkis provides Java and Scala SDKs to submit tasks to the Linkis server. For details, please refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
-For the openlookeng task, you only need to modify the EngineConnType and CodeType parameters in the Demo:
+`Linkis` provides `SDK` of `Java` and `Scala` to submit tasks to `Linkis` server. For details, please refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
+For `JDBC` tasks you only need to modify the `EngineConnType` and `CodeType` parameters in `Demo`:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -118,7 +122,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType
 
 ### 4.1 Default Configuration Description
 | Configuration | Default | Required | Description |
-| ------------------------ | ------------------- | ---| ---------------------------------------- |
+| ------------------------ | ------------------- | ---| ------------------------------------------- |
 | linkis.openlookeng.url | http://127.0.0.1:8080 | yes | link address |
 | linkis.openlookeng.catalog | system | yes | catalog |
 | linkis.openlookeng.source | global | no | source |
@@ -130,14 +134,17 @@ If the default parameters are not satisfied, there are the following ways to con
 
 ![](./images/openlookeng-config.png)
 
-Note: After modifying the configuration under the IDE tag, you need to specify -creator IDE to take effect (other tags are similar), such as:
+Note: After modifying the configuration under the IDE label, you need to specify -creator IDE to take effect (other labels are similar), such as:
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType openlookeng-1.5.0 -codeType sql -code 'select * from tpcds.sf1.date_dim;' -submitUser hadoop -proxyUser hadoop 
+sh ./bin/linkis-cli -creator IDE \
+-engineType openlookeng-1.5.0 -codeType sql \
+-code 'select * from tpcds.sf1.date_dim;' \
+-submitUser hadoop -proxyUser hadoop 
 ```
 
 #### 4.2.2 Task interface configuration
-Submit the task interface and configure it through the parameter params.configuration.runtime
+Submit the task interface, configure it through the parameter `params.configuration.runtime`
 
 ```shell
 Example of http request parameters
@@ -158,15 +165,15 @@ Example of http request parameters
 }
 ```
 
-### 4.3 Engine related data table
+### 4.3 Engine related data sheet
 
-Linkis is managed through engine tags, and the data table information involved is shown below.
+`Linkis` is managed through the engine tag, and the data table information involved is shown below.
 
 ```
 linkis_ps_configuration_config_key: key and default values ​​of configuration parameters inserted into the engine
-linkis_cg_manager_label: Insert engine label such as: openlookeng-1.5.0
-linkis_ps_configuration_category: The directory association relationship of the insertion engine
-linkis_ps_configuration_config_value: The configuration that the insertion engine needs to display
+linkis_cg_manager_label: insert engine label such as: openlookeng-1.5.0
+linkis_ps_configuration_category: Insert the directory association of the engine
+linkis_ps_configuration_config_value: Insert the configuration that the engine needs to display
 linkis_ps_configuration_key_engine_relation: The relationship between the configuration item and the engine
 ```
 
@@ -186,9 +193,9 @@ select @label_id := id from linkis_cg_manager_label where `label_value` = @OPENL
 insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
 
 -- configuration key
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.url', 'eg: http://127.0.0.1:8080', 'connection address', 'http://127.0.0.1:8080', 'Regex', '^\\s *http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', 'openlookeng', 0, 0, 1, 'Data source configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.catalog', 'catalog', 'catalog', 'system', 'None', '', 'openlookeng', 0, 0, 1, 'Data source configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.source', 'source', 'source', 'global', 'None', '', 'openlookeng', 0, 0, 1, 'Data source configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.url', 'eg: http://127.0.0.1:8080', 'connection address', 'http://127.0.0.1:8080', 'Regex', '^\\s *http://([^:]+)(:\\d+)(/[^\\?]+)?(\\?\\S*)?$', 'openlookeng', 0, 0, 1, 'data source conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.catalog', 'catalog', 'catalog', 'system', 'None', '', 'openlookeng', 0, 0, 1, 'data source conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.openlookeng.source', 'source', 'source', 'global', 'None', '', 'openlookeng', 0, 0, 1, 'data source conf');
 
 -- key engine relation
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)

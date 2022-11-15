@@ -3,15 +3,15 @@ title: Sqoop Engine
 sidebar_position: 9
 ---
 
-This article mainly introduces the installation, use and configuration of the Sqoop engine plugin in Linkis.
+This article mainly introduces the installation, usage and configuration of the `Sqoop` engine plugin in `Linkis`.
 
 ## 1. Preliminary work
 ### 1.1 Environment Installation
 
-The Sqoop engine mainly depends on the Hadoop basic environment. If the node needs to deploy the Sqoop engine, you need to deploy the Hadoop client environment and install the Sqoop client![Download](https://archive.apache.org/dist/sqoop/).
+The `Sqoop` engine mainly depends on the `Hadoop` basic environment. If the node needs to deploy the `Sqoop` engine, you need to deploy the `Hadoop` client environment, and ![Download](https://archive.apache.org/dist/sqoop /) Install the `Sqoop` client.
 
 ### 1.2 Environment verification
-Before executing the Sqoop task, use the native Sqoop to execute the test task on the node to check whether the node environment is normal.
+Before executing the `Sqoop` task, use the native `Sqoop` to execute the test task on the node to check whether the node environment is normal.
 ```shell script
 #Verify whether the sqoop environment is available Reference example: Import the /user/hive/warehouse/hadoop/test_linkis_sqoop file data of hdfs into the mysql table test_sqoop
 
@@ -27,31 +27,31 @@ sqoop export \
 ```
 
 | Environment variable name | Environment variable content | Remarks |
-|-----------------|----------------|------------- --------------------------|
-| JAVA_HOME | JDK installation path | required |
+|-----------------|----------------|-------------- -----------------------------|
+| JAVA_HOME | JDK installation path | Required |
 | HADOOP_HOME | Hadoop installation path | Required |
 | HADOOP_CONF_DIR | Hadoop configuration path | required |
 | SQOOP_HOME | Sqoop installation path | Required |
-| SQOOP_CONF_DIR | Sqoop configuration path | Not required |
+| SQOOP_CONF_DIR | Sqoop configuration path | not required |
 | HCAT_HOME | HCAT configuration path | not required |
 | HBASE_HOME | HBASE configuration path | not required |
 
 
 | Linkis System Parameters | Parameters | Remarks |
 | ------------------------------------- | --------------------- ---------- | --------------------------------------- --------------------- |
-| wds.linkis.hadoop.site.xml | Set the location of the hadoop parameter file loaded by sqoop | Generally, no separate configuration is required, the default value is "core-site.xml;hdfs-site.xml;yarn-site.xml;mapred-site. xml" |
+| wds.linkis.hadoop.site.xml | Set sqoop to load hadoop parameter file location | Generally, no separate configuration is required, the default value is "core-site.xml;hdfs-site.xml;yarn-site.xml;mapred-site. xml" |
 | sqoop.fetch.status.interval | Set the interval for obtaining sqoop execution status | Generally, no separate configuration is required, the default value is 5s |
 
 
 ## 2. Engine plugin deployment
 
-### 2.1 Engine plug-in preparation (choose one of two)
+### 2.1 Engine plugin preparation (choose one) [non-default engine](./overview.md)
 
 Method 1: Download the engine plug-in package directly
 
 [Linkis Engine Plugin Download](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-Method 2: Compile the engine plug-in separately (maven environment is required)
+Method 2: Compile the engine plug-in separately (requires a `maven` environment)
 
 ```
 # compile
@@ -61,7 +61,9 @@ mvn clean install
 ${linkis_code_dir}/linkis-engineconn-plugins/sqoop/target/out/
 ```
 
-### 2.2 Uploading and loading of engine plugins
+[EngineConnPlugin engine plugin installation](../deployment/install-engineconn.md)
+
+### 2.2 Upload and load engine plugins
 
 Upload the engine package in 2.1 to the engine directory of the server
 ```bash
@@ -82,27 +84,28 @@ linkis-engineconn-plugins/
 ### 2.3 Engine refresh
 
 #### 2.3.1 Restart and refresh
-Refresh the engine by restarting the linkis-cg-linkismanager service
+Refresh the engine by restarting the `linkis-cg-linkismanager` service
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 2.3.2 Check if the engine is refreshed successfully
-You can check whether the last_update_time of the linkis_engine_conn_plugin_bml_resources table in the database is the time when the refresh is triggered.
+You can check whether the `last_update_time` of the `linkis_engine_conn_plugin_bml_resources` table in the database is the time to trigger the refresh.
 
 ```sql
-#Login to the linkis database
+#Login to the `linkis` database
 select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
-## 3 The use of Sqoop engine
+## 3 `Sqoop` engine usage
 
-### 3.1 Submit tasks through Linkis-cli
-#### 3.1.1 hdfs file export to mysql
-```shell script
+### 3.1 Submitting tasks via `Linkis-cli`
+#### 3.1.1 `hdfs` file export to `mysql`
+
+```shell
 sh linkis-cli-sqoop export \
--D mapreduce.job.queuename=ide \
+-D mapreduce.job.queuename=ide\
 --connect jdbc:mysql://10.10.10.10:9600/testdb\
 --username password@123 \
 --password password@123 \
@@ -112,19 +115,19 @@ sh linkis-cli-sqoop export \
 --update-mode allowinsert --verbose ;  
 ```
 
-#### 3.1.2 Import mysql data into hive library
+#### 3.1.2 `mysql` data import to `hive` library
 ```shell script
-mysql is imported into the hive library linkis_test_ind.test_import_sqoop_1, the table test_import_sqoop_1 does not exist, you need to add the parameter --create-hive-table
+`mysql` is imported into `hive` library `linkis_test_ind.test_import_sqoop_1`, table `test_import_sqoop_1` does not exist, need to add parameter `--create-hive-table`
 
-sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
---connect jdbc:mysql://10.10.10.10:3306/casion_test \
---username hadoop \
+sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws\
+--connect jdbc:mysql://10.10.10.10:3306/casion_test\
+--username hadoop\
 --password password@123 \
 --table test_sqoop_01 \
 --columns user_id,user_code,user_name,email,status \
 --fields-terminated-by ',' \
 --hive-import --create-hive-table \
---hive-database casexia_ind \
+--hive-database casionxia_ind\
 --hive-table test_import_sqoop_1 \
 --hive-drop-import-delims \
 --delete-target-dir \
@@ -133,8 +136,9 @@ sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
 --verbose ;
 
 
-mysql is imported into the hive library linkis_test_ind.test_import_sqoop_1, the table test_import_sqoop_1 exists to remove the parameter --create-hive-table \
-sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
+`mysql` is imported into the `hive` library `linkis_test_ind.test_import_sqoop_1`, the table `test_import_sqoop_1` exists to remove the parameter `--create-hive-table`
+
+sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws\
 --connect jdbc:mysql://10.10.10.10:9600/testdb\
 --username testdb \
 --password password@123 \
@@ -153,9 +157,9 @@ sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
 
 ```
 
-### 3.2 Submitting tasks through OnceEngineConn
+### 3.2 Submit tasks through `OnceEngineConn`
 
-The usage of OnceEngineConn is to call the createEngineConn interface of LinkisManager through LinkisManagerClient, and send the code to the created Sqoop engine, and then the Sqoop engine starts to execute. This method can be called by other systems, such as Exchange. The use of Client is also very simple, first create a new maven project, or introduce the following dependencies into your project
+The usage of `OnceEngineConn` is to call the `createEngineConn` interface of `LinkisManager` through `LinkisManagerClient`, and send the code to the created `Sqoop` engine, and then the `Sqoop` engine starts to execute, which can be performed by other systems. Calls such as `Exchangeis`. The usage of `Client` is also very simple, first create a `maven` project, or introduce the following dependencies into your project
 ```xml
 <dependency>
     <groupId>org.apache.linkis</groupId>
@@ -165,7 +169,7 @@ The usage of OnceEngineConn is to call the createEngineConn interface of LinkisM
 ```
 **Test case:**
 
-```scala
+```java
 
 import java.util.concurrent.TimeUnit
 
@@ -182,9 +186,9 @@ object SqoopOnceJobTest extends App {
   LinkisJobBuilder.setDefaultServerUrl("http://127.0.0.1:9001")
   val logPath = "C:\\Users\\resources\\log4j.properties"
   System.setProperty("log4j.configurationFile", logPath)
-  val startUpMap = new util.HashMap[String, Any]
+  val startUpMap = new util. HashMap[String, Any]
   startUpMap.put("wds.linkis.engineconn.java.driver.memory", "1g")
-   val builder = SimpleOnceJob.builder().setCreateService("Linkis-Client")
+   val builder = SimpleOnceJob. builder(). setCreateService("Linkis-Client")
      .addLabel(LabelKeyUtils.ENGINE_TYPE_LABEL_KEY, "sqoop-1.4.6")
      .addLabel(LabelKeyUtils.USER_CREATOR_LABEL_KEY, "Client")
      .addLabel(LabelKeyUtils.ENGINE_CONN_MODE_LABEL_KEY, "once")
@@ -192,10 +196,10 @@ object SqoopOnceJobTest extends App {
      .setMaxSubmitTime(30000)
      .addExecuteUser("freeuser")
   val onceJob = importJob(builder)
-  val time = System.currentTimeMillis()
+  val time = System. currentTimeMillis()
   onceJob.submit()
 
-  println(onceJob.getId)
+  println(onceJob. getId)
   val logOperator = onceJob.getOperator(EngineConnLogOperator.OPERATOR_NAME).asInstanceOf[EngineConnLogOperator]
   println(onceJob.getECMServiceInstance)
   logOperator.setFromLine(0)
@@ -212,12 +216,12 @@ object SqoopOnceJobTest extends App {
          metricOperator = null
        }
       logOperator.setPageSize(100)
-      Utils.tryQuietly{
+      Utils. tryQuietly{
         val logs = logOperator.apply()
         logs.logs.asScala.foreach( log => {
           println(log)
         })
-        rowBefore = logs.logs.size
+        rowBefore = logs. logs. size
     }
     Thread.sleep(3000)
     Option(metricOperator).foreach( operator => {
@@ -227,17 +231,17 @@ object SqoopOnceJobTest extends App {
       }
     })
   }
-  onceJob.isCompleted
+  onceJob. isCompleted
   onceJob.waitForCompleted()
-  println(onceJob.getStatus)
-  println(TimeUnit.SECONDS.convert(System.currentTimeMillis() - time, TimeUnit.MILLISECONDS) + "s")
-  System.exit(0)
+  println(onceJob. getStatus)
+  println(TimeUnit. SECONDS. convert(System. currentTimeMillis() - time, TimeUnit. MILLISECONDS) + "s")
+  System. exit(0)
 
 
    def importJob(jobBuilder: SimpleOnceJobBuilder): SubmittableSimpleOnceJob = {
      jobBuilder
        .addJobContent("sqoop.env.mapreduce.job.queuename", "queue_10")
-       .addJobContent("sqoop.mode", "import")
+       .addJobContent("sqoop. mode", "import")
        .addJobContent("sqoop.args.connect", "jdbc:mysql://127.0.0.1:3306/exchangis")
        .addJobContent("sqoop.args.username", "free")
        .addJobContent("sqoop.args.password", "testpwd")
@@ -269,10 +273,10 @@ object SqoopOnceJobTest extends App {
 
 
 ## 4 Engine configuration instructions
-### 4.1 Default configuration description
+### 4.1 Default Configuration Description
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | | sqoop.mode | import/export/… |
 | -Dmapreduce.job.queuename | sqoop.env.mapreduce.job.queuename | |
 | \--connect <jdbc-uri\> | sqoop.args.connect | Specify JDBC connect string |
@@ -294,7 +298,7 @@ object SqoopOnceJobTest extends App {
 ### 4.2 Import and export parameters
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--batch | sqoop.args.batch | Indicates underlying statements to be executed in batch mode |
 | \--call <arg\> | sqoop.args.call | Populate the table using this stored procedure (one call per row) |
 | \--clear-staging-table | sqoop.args.clear.staging.table | Indicates that any data in staging table can be deleted |
@@ -314,7 +318,7 @@ object SqoopOnceJobTest extends App {
 | | | |
 ### 4.3 Import control parameters
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--append | sqoop.args.append | Imports data in append mode |
 | \--as-avrodatafile | sqoop.args.as.avrodatafile | Imports data to Avro data files |
 | \--as-parquetfile | sqoop.args.as.parquetfile | Imports data to Parquet files |
@@ -349,7 +353,7 @@ object SqoopOnceJobTest extends App {
 ### 4.4 Incremental import parameters
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--check-column <column\> | sqoop.args.check.column | Source column to check for incremental change |
 | \--incremental <import-type\> | sqoop.args.incremental | Define an incremental import of type 'append' or 'lastmodified' |
 | \--last-value <value\> | sqoop.args.last.value | Last imported value in the incremental check column |
@@ -357,7 +361,7 @@ object SqoopOnceJobTest extends App {
 
 ### 4.5 Output line formatting parameters
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--enclosed-by <char\> | sqoop.args.enclosed.by | Sets a required field enclosing character |
 | \--escaped-by <char\> | sqoop.args.escaped.by | Sets the escape character |
 | \--fields-terminated-by <char\> | sqoop.args.fields.terminated.by | Sets the field separator character |
@@ -369,18 +373,18 @@ object SqoopOnceJobTest extends App {
 ### 4.6 Input parsing parameters
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
-| \--input-enclosed-by <char\> | sqoop.args.input.enclosed.by | Sets a required field encloser |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--input-enclosed-by <char\> | sqoop.args.input.enclosed.by | Sets a required field enclosure |
 | \--input-escaped-by <char\> | sqoop.args.input.escaped.by | Sets the input escape character |
 | \--input-fields-terminated-by <char\> | sqoop.args.input.fields.terminated.by | Sets the input field separator |
 | \--input-lines-terminated-by <char\> | sqoop.args.input.lines.terminated.by | Sets the input end-of-line char |
 | \--input-optionally-enclosed-by <char\> | sqoop.args.input.optionally.enclosed.by | Sets a field enclosing character |
 | | | |
 
- ### 4.7 Hive parameters
+ ### 4.7 `Hive` parameters
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--create-hive-table | sqoop.args.create.hive.table | Fail if the target hive table exists |
 | \--hive-database <database-name\> | sqoop.args.hive.database | Sets the database name to use when importing to hive |
 | \--hive-delims-replacement <arg\> | sqoop.args.hive.delims.replacement | Replace Hive record \\0x01 and row delimiters (\\n\\r) from imported string fields with user-defined string |
@@ -394,10 +398,10 @@ object SqoopOnceJobTest extends App {
 | \--map-column-hive <arg\> | sqoop.args.map.column.hive | Override mapping for specific column to hive types. |
 
 
-### 4.8 HBase parameters
+### 4.8 `HBase` parameters
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--column-family <family\> | sqoop.args.column.family | Sets the target column family for the import |
 | \--hbase-bulkload | sqoop.args.hbase.bulkload | Enables HBase bulk loading |
 | \--hbase-create-table | sqoop.args.hbase.create.table | If specified, create missing HBase tables |
@@ -405,10 +409,10 @@ object SqoopOnceJobTest extends App {
 | \--hbase-table <table\> | sqoop.args.hbase.table | Import to <table\>in HBase |
 | | | |
 
-### 4.9 HCatalog Parameters
+### 4.9 `HCatalog` parameters
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--hcatalog-database <arg\> | sqoop.args.hcatalog.database | HCatalog database name |
 | \--hcatalog-home <hdir\> | sqoop.args.hcatalog.home | Override $HCAT\_HOME |
 | \--hcatalog-partition-keys <partition-key\> | sqoop.args.hcatalog.partition.keys | Sets the partition keys to use when importing to hive |
@@ -423,10 +427,10 @@ object SqoopOnceJobTest extends App {
 | \--create-hcatalog-table | sqoop.args.create.hcatalog.table | Create HCatalog before import |
 | \--hcatalog-storage-stanza <arg\> | sqoop.args.hcatalog.storage.stanza | HCatalog storage stanza for table creation |
 | | |                                                                                                                    
-### 4.10 Accumulo parameters
+### 4.10 `Accumulo` parameters
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--accumulo-batch-size <size\> | sqoop.args.accumulo.batch.size | Batch size in bytes |
 | \--accumulo-column-family <family\> | sqoop.args.accumulo.column.family | Sets the target column family for the import |
 | \--accumulo-create-table | sqoop.args.accumulo.create.table | If specified, create missing Accumulo tables |
@@ -443,7 +447,7 @@ object SqoopOnceJobTest extends App {
 ### 4.11 Code Generation Parameters
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \--bindir <dir\> | sqoop.args.bindir | Output directory for compiled objects |
 | \--class-name <name\> | sqoop.args.class.name | Sets the generated class name. This overrides --package-name. When combined with --jar-file, sets the input class. |
 | \--input-null-non-string <null-str\> | sqoop.args.input.null.non.string | Input null non-string representation |
@@ -455,11 +459,11 @@ object SqoopOnceJobTest extends App {
 | \--outdir <dir\> | sqoop.args.outdir | Output directory for generated code |
 | \--package-name <name\> | sqoop.args.package.name | Put auto-generated classes in this package |
 | | | |
-### 4.12 General Hadoop Command Line Parameters
+### 4.12 Generic `Hadoop` command line arguments
 >must preceed any tool-specific arguments,Generic options supported are
 
 | parameter | key | description |
-| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| -------------------------------------------------- -------------------------------------------------- ------------------ | ------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
 | \-conf <configuration file\> | sqoop.args.conf | specify an application configuration file |
 | \-D <property=value\> | sqoop.args.D | use value for given property |
 | \-fs <local|namenode:port\> | sqoop.args.fs | specify a namenode |

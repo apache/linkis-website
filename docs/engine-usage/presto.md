@@ -3,16 +3,16 @@ title: Presto Engine
 sidebar_position: 11
 ---
 
-This article mainly introduces the installation, use and configuration of the Presto engine plugin in Linkis.
+This article mainly introduces the installation, usage and configuration of the Presto engine plugin in `Linkis` `.
 
 
 ## 1. Preliminary work
 
-### 1.1 Engine Installation
+### 1.1 Engine installation
 
-If you want to use the Presto engine on your Linkis service, you need to install the Presto service and make sure the service is available.
+If you want to use the `Presto` engine on your `Linkis` service, you need to install the `Presto` service and make sure the service is available.
 
-### 1.2 Service Verification
+### 1.2 Service Authentication
 
 ```shell
 # prepare presto-cli
@@ -23,7 +23,7 @@ chmod + x presto-cli
 # execute task
 ./presto-cli --server localhost:8082 --execute 'show tables from system.jdbc'
 
-# Get the following output to represent the service is available
+# Get the following output to indicate that the service is available
 "attributes"
 "catalogs"
 "columns"
@@ -41,7 +41,7 @@ chmod + x presto-cli
 
 ## 2. Engine plugin deployment
 
-### 2.1 Engine plug-in preparation (choose one of two)
+### 2.1 Engine plugin preparation (choose one) [non-default engine](./overview.md)
 
 Method 1: Download the engine plug-in package directly
 
@@ -56,8 +56,9 @@ mvn clean install
 # The compiled engine plug-in package is located in the following directory
 ${linkis_code_dir}/linkis-engineconn-plugins/presto/target/out/
 ```
+[EngineConnPlugin Engine Plugin Installation](../deployment/install-engineconn.md)
 
-### 2.2 Uploading and loading of engine plugins
+### 2.2 Upload and load engine plugins
 
 Upload the engine package in 2.1 to the engine directory of the server
 ```bash 
@@ -78,60 +79,58 @@ linkis-engineconn-plugins/
 ### 2.3 Engine refresh
 
 #### 2.3.1 Restart and refresh
-Refresh the engine by restarting the linkis-cg-linkismanager service
+Refresh the engine by restarting the `linkis-cg-linkismanager` service
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 2.3.2 Check if the engine is refreshed successfully
-You can check whether the last_update_time of the linkis_engine_conn_plugin_bml_resources table in the database is the time when the refresh is triggered.
+You can check whether the `last_update_time` of the `linkis_engine_conn_plugin_bml_resources` table in the database is the time to trigger the refresh.
 
 ```sql
-#Login to the linkis database
+#Login to the `linkis` database
 select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
 ## 3 The use of the engine
 
-### 3.1 Submit tasks through Linkis-cli
-
-To submit a task through linkis-cli, you need to specify the corresponding EngineConn and CodeType tag types. The use of presto is as follows:
-
-**Note:** The `engineType presto-0.234` engine version setting is prefixed. For example, if the `presto` version is `0.234`, set it to `presto-0.234`
+### 3.1 Submit tasks through `Linkis-cli`
 
 ```shell
- sh ./bin/linkis-cli -engineType presto-0.234 -codeType psql -code 'show tables;' -submitUser hadoop -proxyUser hadoop
+ sh ./bin/linkis-cli -engineType presto-0.234 \
+ -codeType psql -code 'show tables;' \
+ -submitUser hadoop -proxyUser hadoop
 ```
 
-If the management console, task interface, and configuration file are not configured (see 4.2 for configuration methods), they can be configured in the cli client through the `-runtimeMap` property
+If the management console, task interface, and configuration file are not configured (see 4.2 for the configuration method), they can be configured through the `-runtimeMap` attribute in the `Linkis-cli` client
 
 ```shell
-sh ./bin/linkis-cli -engineType presto-0.234 -codeType  tsql -code 'show tables;'  -runtimeMap wds.linkis.presto.url=http://127.0.0.1:8080 -runtimeMap wds.linkis.presto.catalog=hive -runtimeMap  wds.linkis.presto.schema=default  -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType presto-0.234 \
+-codeType  tsql -code 'show tables;'  \
+-runtimeMap wds.linkis.presto.url=http://127.0.0.1:8080 \
+-runtimeMap wds.linkis.presto.catalog=hive \
+-runtimeMap wds.linkis.presto.schema=default \
+-runtimeMap wds.linkis.presto.catalog=hive \
+-submitUser hadoop -proxyUser hadoop
 ```
 
-More Linkis-Cli command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
-
-### 3.2 Submitting tasks through Scriptis
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis) is the easiest to use. You can directly enter the Scriptis workspace module and right-click to create a new script of type `psql`
-
-![](./images/presto-psql.png)
+More `Linkis-Cli` command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
 
 ## 4. Engine configuration instructions
 
-### 4.1 Default configuration description
+### 4.1 Default Configuration Description
 
 | Configuration | Default | Description | Required |
 | -------------------------------------- | ---------- ----------- | -------------------------------------- ----- | -------- |
 | wds.linkis.presto.url | http://127.0.0.1:8080 | Presto Cluster Connection | true |
 | wds.linkis.presto.username | default | Presto cluster username | false |
 | wds.linkis.presto.password | none | Presto cluster password | false |
-| wds.linkis.presto.catalog | system | Catalog for queries | true |
-| wds.linkis.presto.schema | None | Query Schema | true |
-| wds.linkis.presto.source | global | source used by the query | false |
+| wds.linkis.presto.catalog | system | Query Catalog | true |
+| wds.linkis.presto.schema | None | Schema to query | true |
+| wds.linkis.presto.source | global | source used for query | false |
 | presto.session.query_max_total_memory | 8GB | query uses maximum memory | false |
-| wds.linkis.presto.http.connectTimeout | 60 | Presto client connect timeout (unit: seconds) | false |
+| wds.linkis.presto.http.connectTimeout | 60 | Presto client connect timeout (unit: second) | false |
 | wds.linkis.presto.http.readTimeout | 60 | Presto client read timeout (unit: seconds) | false |
 | wds.linkis.engineconn.concurrent.limit | 100 | The maximum number of concurrent Presto engines | false |
 
@@ -143,14 +142,17 @@ If the default parameters are not satisfied, there are the following ways to con
 
 ![](./images/presto-console.png)
 
-Note: After modifying the configuration under the IDE tag, you need to specify -creator IDE to take effect (other tags are similar), such as:
+Note: After modifying the configuration under the `IDE` tag, you need to specify `-creator IDE` to take effect (other tags are similar), such as:
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType presto-0.234 -codeType  tsql -code 'show tables;' -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -creator IDE \
+-engineType presto-0.234 -codeType tsql \
+-code 'show tables;' \
+-submitUser hadoop -proxyUser hadoop
 ```
 
 #### 4.2.2 Task interface configuration
-Submit the task interface and configure it through the parameter params.configuration.runtime
+Submit the task interface, configure it through the parameter `params.configuration.runtime`
 
 ```shell
 Example of http request parameters
@@ -176,19 +178,19 @@ Example of http request parameters
 ```
 
 #### 4.2.3 File Configuration
-Configure by modifying the linkis-engineconn.properties file in the directory install path/lib/linkis-engineconn-plugins/presto/dist/v0.234/conf/, as shown below:
+Configure by modifying the `linkis-engineconn.properties` file in the directory `install path/lib/linkis-engineconn-plugins/presto/dist/v0.234/conf/`, as shown below:
 
 ![](./images/presto-file.png)
 
 ### 4.3 Engine related data sheet
 
-Linkis is managed through engine tags, and the data table information involved is shown below.
+`Linkis` is managed through the engine tag, and the data table information involved is shown below.
 
 ```
 linkis_ps_configuration_config_key: key and default values ​​of configuration parameters inserted into the engine
 linkis_cg_manager_label: Insert engine label such as: presto-0.234
 linkis_ps_configuration_category: The directory association relationship of the insertion engine
-linkis_ps_configuration_config_value: The configuration that the insertion engine needs to display
+linkis_ps_configuration_config_value: Insert the configuration that the engine needs to display
 linkis_ps_configuration_key_engine_relation: The relationship between the configuration item and the engine
 ```
 
@@ -210,10 +212,10 @@ select @label_id := id from `linkis_cg_manager_label` where `label_value` = @PRE
 insert into `linkis_ps_configuration_category` (`label_id`, `level`) VALUES (@label_id, 2);
 
 -- configuration key
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.url', 'Presto cluster connection', 'presto connection address', 'http://127.0.0.1:8080', 'None', NULL, @PRESTO_NAME, 0, 0, 1 , 'Data source configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.url', 'Presto cluster connection', 'presto connection address', 'http://127.0.0.1:8080', 'None', NULL, @PRESTO_NAME, 0, 0, 1 , 'data source conf');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.catalog', 'Query's Catalog', 'presto-connected catalog', 'hive', 'None', NULL, @PRESTO_NAME, 0, 0, 1, 'Datasource configuration') ;
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.schema', 'Query schema', 'Database connection schema', '', 'None', NULL, @PRESTO_NAME, 0, 0, 1, 'Datasource configuration');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.source', 'source used for query', 'database connection source', '', 'None', NULL, @PRESTO_NAME, 0, 0, 1, 'data source configuration');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.schema', 'Query Schema', 'Database connection schema', '', 'None', NULL, @PRESTO_NAME, 0, 0, 1, 'data source conf');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('wds.linkis.presto.source', 'source for query', 'database connection source', '', 'None', NULL, @PRESTO_NAME, 0, 0, 1, 'data source conf');
 
 -- key engine relation
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)

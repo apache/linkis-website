@@ -5,16 +5,16 @@ sidebar_position: 8
 
 # Flink engine usage documentation
 
-This article mainly introduces the installation, use and configuration of the flink engine plugin in Linkis.
+This article mainly introduces the installation, use and configuration of the `flink` engine plugin in `Linkis`.
 
 ## 1. Preliminary work
 ### 1.1 Engine environment configuration
 
-If you want to use the Flink engine on your server, you need to ensure that the following environment variables have been set correctly and that the engine's startup user has these environment variables.
+If you want to use the `Flink` engine on your server, you need to ensure that the following environment variables are set correctly and that the user who started the engine has these environment variables.
 
-### 1.2 Engine Validation
+### 1.2 Engine Verification
 
-It is strongly recommended that you check these environment variables of the executing user before executing the flink task. The specific way is
+It is strongly recommended that you check these environment variables for the executing user before executing `flink` tasks. The specific way is
 ```
 sudo su -${username}
 echo ${JAVA_HOME}
@@ -22,8 +22,8 @@ echo ${FLINK_HOME}
 ```
 
 | Environment variable name | Environment variable content | Remarks |
-|-----------------|----------------|------------- --------------------------|
-| JAVA_HOME | JDK installation path | required |
+|-----------------|----------------|-------------- -----------------------------|
+| JAVA_HOME | JDK installation path | Required |
 | HADOOP_HOME | Hadoop installation path | Required |
 | HADOOP_CONF_DIR | Hadoop configuration path | Linkis starts the Flink on yarn mode adopted by the Flink engine, so yarn support is required. |
 | FLINK_HOME | Flink installation path | Required |
@@ -33,13 +33,13 @@ echo ${FLINK_HOME}
 
 ## 2. Engine plugin installation
 
-### 2.1 Engine plug-in preparation (choose one of two)
+### 2.1 Engine plugin preparation (choose one) [non-default engine](./overview.md)
 
 Method 1: Download the engine plug-in package directly
 
 [Linkis Engine Plugin Download](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-Method 2: Compile the engine plug-in separately (maven environment is required)
+Method 2: Compile the engine plug-in separately (requires a `maven` environment)
 
 ```
 # compile
@@ -49,7 +49,9 @@ mvn clean install
 ${linkis_code_dir}/linkis-engineconn-plugins/flink/target/out/
 ```
 
-### 2.2 Uploading and loading of engine plugins
+[EngineConnPlugin engine plugin installation](../deployment/install-engineconn.md)
+
+### 2.2 Upload and load engine plugins
 
 Upload the engine plug-in package in 2.1 to the engine directory of the server
 ```bash 
@@ -58,7 +60,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 The directory structure after uploading is as follows
 ```
 linkis-engineconn-plugins/
-├── good
+├── big
 │   ├── dist
 │ │ └── v1.12.2
 │   │       ├── conf
@@ -69,14 +71,14 @@ linkis-engineconn-plugins/
 ### 2.3 Engine refresh
 
 #### 2.3.1 Restart and refresh
-Refresh the engine by restarting the linkis-cg-linkismanager service
+Refresh the engine by restarting the `linkis-cg-linkismanager` service
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
 ### 2.3.2 Check if the engine is refreshed successfully
-You can check whether the last_update_time of the linkis_engine_conn_plugin_bml_resources table in the database is the time when the refresh is triggered.
+You can check whether the `last_update_time` of this table in the `linkis_engine_conn_plugin_bml_resources` in the database is the time when the refresh is triggered.
 
 ```sql
 #Login to the linkis database
@@ -84,27 +86,29 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
 
-## 3. The use of Flink engine
+## 3. Use of Flink engine
 
-The Flink engine of Linkis is started by flink on yarn, so it is necessary to specify the queue used by the user, as shown in the following figure.
+The `Flink` engine of `Linkis` is started by `flink on yarn`, so the queue used by the user needs to be specified, as shown in the figure below.
 
 ![yarn](./images/yarn-conf.png)  
 
-### 3.1 Submit tasks through Linkis-cli
+### 3.1 Submit tasks through `Linkis-cli`
 
 ```shell
-sh ./bin/linkis-cli -engineType flink-1.12.2 -codeType sql -code "show tables"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType flink-1.12.2 \
+-codeType sql -code "show tables"  \
+-submitUser hadoop -proxyUser hadoop
 ```
 
-More Linkis-Cli command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
+More `Linkis-Cli` command parameter reference: [`Linkis-Cli` usage](../user-guide/linkiscli-manual.md)
 
-### 3.2 Submitting tasks through ComputationEngineConn
+### 3.2 Submitting tasks via `ComputationEngineConn`
 
-FlinkSQL can support a variety of data sources, such as binlog, kafka, hive, etc. If you want to use these data sources in Flink code, you need to place the plug-in jar packages of these connectors into the lib of the flink engine, and restart Linkis EnginePlugin service. If you want to use binlog as a data source in your FlinkSQL, then you need to place flink-connector-mysql-cdc-1.1.1.jar in the lib of the flink engine.
+`FlinkSQL` can support a variety of data sources, such as `binlog, kafka, hive`, etc. If you want to use these data sources in `Flink` code, you need to put these `connector` plugin `jar` packages into In the `lib` of the `flink` engine, and restart the `EnginePlugin` service of `Linkis`. If you want to use `binlog` as a data source in your `FlinkSQL`, then you need to place `flink-connector-mysql-cdc-1.1.1.jar` in the `lib` of the `flink` engine.
 
-In order to facilitate sampling and debugging, we have added a script type of fql to Scriptis, which is specially used to execute FlinkSQL. But you need to ensure that your DSS has been upgraded to DSS1.0.0. After upgrading to DSS1.0.0, you can directly enter Scriptis to create a new fql script for editing and execution.
+In order to facilitate sampling and debugging, we have added the `fql` script type in `Scriptis`, which is specially used to execute `FlinkSQL`. But you need to ensure that your `DSS` has been upgraded to `DSS1.0.0`. After upgrading to `DSS1.0.0`, you can directly enter `Scriptis` to create a new `fql` script for editing and execution.
 
-Writing example of FlinkSQL, taking binlog as an example
+Writing example of `FlinkSQL`, taking `binlog` as an example
 ```sql
 CREATE TABLE mysql_binlog (
  id INT NOT NULL,
@@ -122,11 +126,11 @@ CREATE TABLE mysql_binlog (
 );
 select * from mysql_binlog where id > 10;
 ```
-When debugging using the select syntax in Scriptis, the Flink engine will have an automatic cancel mechanism, that is, when the specified time or the number of sampled rows reaches the specified number, the Flink engine will actively cancel the task, and will have obtained the The result set is persisted, and then the front end will call the interface to open the result set to display the result set on the front end.
+When debugging using the `select` syntax in `Scriptis`, the `Flink` engine will have an automatic `cancel` mechanism, that is, when the specified time or the number of lines sampled reaches the specified number, the `Flink` engine will Actively cancel the task and persist the obtained result set, and then the front end will call the interface to open the result set to display the result set on the front end.
 
-### 3.3 Submitting tasks through OnceEngineConn
+### 3.3 Submitting tasks via `OnceEngineConn`
 
-The usage method of OnceEngineConn is to officially start the streaming application of Flink. Specifically, the interface of createEngineConn of LinkisManager is called through LinkisManagerClient, and the code is sent to the created Flink engine, and then the Flink engine starts to execute. This method can be used by other systems. Make calls, such as Streamis. The use of Client is also very simple, first create a new maven project, or introduce the following dependencies into your project
+`OnceEngineConn` is used to officially start `Flink` streaming applications, specifically by calling `LinkisManager` `createEngineConn` interface through `LinkisManagerClient`, and sending the code to the created `Flink` engine, and then The `Flink` engine starts to execute, and this method can be called by other systems, such as `Streamis`. The usage of `Client` is also very simple, first create a `maven` project, or introduce the following dependencies in your project.
 ```xml
 <dependency>
     <groupId>org.apache.linkis</groupId>
@@ -134,12 +138,12 @@ The usage method of OnceEngineConn is to officially start the streaming applicat
     <version>${linkis.version}</version>
 </dependency>
 ```
-Then create a new scala test file, click execute, and the parsing from a binlog data is completed and inserted into a table in another mysql database. But it should be noted that you must create a resources directory in the maven project, place a linkis.properties file, and specify the gateway address and api version of linkis, such as
+Then create a `scala` test file, click execute, and the parsing from a `binlog` data is completed and inserted into a table in another mysql database. But it should be noted that you must create a `resources` directory in the `maven` project, place a `linkis.properties` file, and specify the `gateway` address and `api` version of `linkis`, such as
 ```properties
 wds.linkis.server.version=v1
 wds.linkis.gateway.url=http://ip:9001/
 ```
-```scala
+```java
 object OnceJobTest {
   def main(args: Array[String]): Unit = {
     val sql = """CREATE TABLE mysql_binlog (

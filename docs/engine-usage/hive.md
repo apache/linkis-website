@@ -3,18 +3,18 @@ title: Hive Engine
 sidebar_position: 2
 ---
 
-This article mainly introduces the installation, use and configuration of the Hive engine plugin in Linkis.
+This article mainly introduces the installation, usage and configuration of the `Hive` engine plugin in `Linkis`.
 
 ## 1. Preliminary work
 ### 1.1 Environment configuration before engine use
 
-If you want to use the hive engine on your server, you need to ensure that the following environment variables have been set correctly and that the user who started the engine has these environment variables.
+If you want to use the `hive` engine on your server, you need to ensure that the following environment variables have been set correctly and the engine startup user has these environment variables.
 
-It is strongly recommended that you check these environment variables of the executing user before executing hive tasks.
+It is strongly recommended that you check these environment variables for the executing user before executing `hive` tasks.
 
 | Environment variable name | Environment variable content | Remarks |
 |-----------------|----------------|------|
-| JAVA_HOME | JDK installation path | required |
+| JAVA_HOME | JDK installation path | Required |
 | HADOOP_HOME | Hadoop installation path | Required |
 | HADOOP_CONF_DIR | Hadoop configuration path | required |
 | HIVE_CONF_DIR | Hive configuration path | required |
@@ -27,38 +27,41 @@ bin/hive
 # test command
 show databases;
 
-# Able to link successfully and output database information normally means that the environment is configured successfully
+# Being able to link successfully and output database information normally means that the environment configuration is successful
 hive (default)> show databases;
 OK
 databases_name
 default
 ```
 
-## 2. Engine plugin installation
+## 2. Engine plugin installation [default engine](./overview.md)
 
-The binary installation package released by linkis includes the Hive engine plug-in by default, and users do not need to install it additionally.
+The binary installation package released by `linkis` includes the `Hive` engine plug-in by default, and users do not need to install it additionally.
 
-The version of Hive is to support hive1.x and hive2.x, the default is to support hive on MapReduce, if you want to change to Hive
-on Tez, you need to modify it according to this pr.
+The version of `Hive` supports `hive1.x` and `hive2.x`. The default is to support `hive on MapReduce`. If you want to change to `Hive on Tez`, you need to modify it according to this `pr`.
 
 <https://github.com/apache/incubator-linkis/pull/541>
 
-The default supported hive version is 2.3.3. If you want to modify the hive version, you can find the linkis-engineplugin-hive module, modify the \<hive.version\> tag, and then compile this module separately
+The `hive` version supported by default is 2.3.3, if you want to modify the `hive` version, you can find the `linkis-engineplugin-hive` module, modify the \<hive.version\> tag, and then compile this module separately Can
 
-## 3. The use of the engine
+[EngineConnPlugin engine plugin installation](../deployment/install-engineconn.md)
 
-### 3.1 Submit tasks through Linkis-cli
+## 3. Engine usage
+
+### 3.1 Submitting tasks via `Linkis-cli`
 
 ```shell
-sh ./bin/linkis-cli -engineType hive-2.3.3 -codeType hql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType hive-2.3.3 \
+-codeType hql -code "show databases"  \
+-submitUser hadoop -proxyUser hadoop
 ```
 
-More Linkis-Cli command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
+More `Linkis-Cli` command parameter reference: [`Linkis-Cli` usage](../user-guide/linkiscli-manual.md)
 
 ### 3.2 Submit tasks through Linkis SDK
 
-Linkis provides Java and Scala SDKs to submit tasks to the Linkis server. For details, please refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
-For Hive tasks, you only need to modify the EngineConnType and CodeType parameters in the Demo:
+`Linkis` provides `SDK` of `Java` and `Scala` to submit tasks to `Linkis` server. For details, please refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
+For the `Hive` task, you only need to modify `EngineConnType` and `CodeType` parameters in `Demo`:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -67,26 +70,17 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 ```
 
-### 3.3 Submitting tasks through Scriptis
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis) is the easiest way to use, you can directly enter Scriptis, right-click the directory, create a new hive script and write hql code
-
-The hive engine is implemented by instantiating the driver instance of hive, and then the driver submits the task, and obtains and displays the result set.
-
-![](./images/hive-run.png)
-
-
 ## 4. Engine configuration instructions
 
-### 4.1 Default configuration description
+### 4.1 Default Configuration Description
 | Configuration | Default | Required | Description |
-| ------------------------ | ------------------- | ---| ---------------------------------------- |
+| ------------------------ | ------------------- | ---| ------------------------------------------- |
 | wds.linkis.rm.instance | 10 | no | engine maximum concurrency |
-| wds.linkis.engineconn.java.driver.memory | 1g | no | engine initialization memory size |
+| wds.linkis.engineconn.java.driver.memory | 1g | No | engine initialization memory size |
 | wds.linkis.engineconn.max.free.time | 1h | no | engine idle exit time |
 
 ### 4.2 Queue resource configuration
-The MapReduce task of hive needs to use yarn resources, so you need to set the queue
+The `MapReduce` task of `hive` needs to use `yarn` resources, so a queue needs to be set
 
 ![yarn](./images/yarn-conf.png)    
 
@@ -95,16 +89,19 @@ If the default parameters are not satisfied, there are the following ways to con
 
 #### 4.3.1 Management Console Configuration
 
-![hive](./images/hive-config.png) 
+![hive](./images/hive-config.png)
 
-Note: After modifying the configuration under the IDE tag, you need to specify -creator IDE to take effect (other tags are similar), such as:
+Note: After modifying the configuration under the `IDE` tag, you need to specify `-creator IDE` to take effect (other tags are similar), such as:
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType hive-2.3.3 -codeType hql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -creator IDE \
+-engineType hive-2.3.3 -codeType hql \
+-code "show databases"  \
+-submitUser hadoop -proxyUser hadoop
 ```
 
 #### 4.3.2 Task interface configuration
-Submit the task interface and configure it through the parameter params.configuration.runtime
+Submit the task interface, configure it through the parameter `params.configuration.runtime`
 
 ```shell
 Example of http request parameters
@@ -125,14 +122,14 @@ Example of http request parameters
 }
 ```
 
-### 4.4 Engine related data sheet
+### 4.4 Engine related data table
 
-Linkis is managed through engine tags, and the data table information involved is shown below.
+`Linkis` is managed through engine tags, and the data table information involved is as follows.
 
 ```
-linkis_ps_configuration_config_key: key and default values ​​of configuration parameters inserted into the engine
-linkis_cg_manager_label: Insert engine label such as: hive-2.3.3
-linkis_ps_configuration_category: The directory association relationship of the insertion engine
+linkis_ps_configuration_config_key: Insert the key and default values ​​​​of the configuration parameters of the engine
+linkis_cg_manager_label: insert engine label such as: hive-2.3.3
+linkis_ps_configuration_category: Insert the directory association of the engine
 linkis_ps_configuration_config_value: The configuration that the insertion engine needs to display
 linkis_ps_configuration_key_engine_relation: The relationship between the configuration item and the engine
 ```
@@ -154,9 +151,9 @@ insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@labe
 
 -- configuration key
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.instance', 'range: 1-20, unit: piece', 'hive engine maximum concurrent number', '10', 'NumInterval', '[1,20]', '0 ', '0', '1', 'Queue resource', 'hive');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.java.driver.memory', 'value range: 1-10, unit: G', 'hive engine initialization memory size','1g', 'Regex', '^([ 1-9]|10)(G|g)$', '0', '0', '1', 'hive engine settings', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.java.driver.memory', 'Value range: 1-10, unit: G', 'hive engine initialization memory size', '1g', 'Regex', '^([ 1-9]|10)(G|g)$', '0', '0', '1', 'hive engine settings', 'hive');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('hive.client.java.opts', 'hive client process parameters', 'jvm parameters when the hive engine starts','', 'None', NULL, '1', '1', '1', 'hive engine settings', 'hive');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('mapred.reduce.tasks', 'range: -1-10000, unit: number', 'reduce number', '-1', 'NumInterval', '[-1,10000]', '0', '1', '1', 'hive resource settings', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('mapred.reduce.tasks', 'Range: -1-10000, unit: number', 'reduce number', '-1', 'NumInterval', '[-1,10000]', '0', '1', '1', 'hive resource settings', 'hive');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.max.free.time', 'Value range: 3m,15m,30m,1h,2h', 'Engine idle exit time','1h', 'OFT', '[\ "1h\",\"2h\",\"30m\",\"15m\",\"3m\"]', '0', '0', '1', 'hive engine settings', ' hive');
 
 -- key engine relation
@@ -171,25 +168,25 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 ```
 
 ## 5. Hive modification log display
-The default log interface does not display the application_id and the number of tasks completed, the user can output the log as needed
-The code blocks that need to be modified in the log4j2-engineconn.xml/log4j2.xml configuration file in the engine are as follows
-1. Need to add under appenders component
+The default log interface does not display `application_id` and the number of `task` completed, users can output the log according to their needs
+The code blocks that need to be modified in the `log4j2-engineconn.xml/log4j2.xml` configuration file in the engine are as follows
+1. Need to add under the `appenders` component
 ```xml
         <Send name="SendPackage" >
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} %L %M - %msg%xEx%n"/>
         </Send>
 ```
-2. Need to add under the root component
+2. Need to add under `root` component
 ```xml
         <appender-ref ref="SendPackage"/>
 ```
-3. Need to add under the loggers component
+3. Need to add under `loggers` component
 ```xml
         <logger name="org.apache.hadoop.hive.ql.exec.StatsTask" level="info" additivity="true">
             <appender-ref ref="SendPackage"/>
         </logger>
 ```
-After making the above relevant modifications, the log can add task progress information, which is displayed in the following style
+After making the above related modifications, the log can add task `task` progress information, which is displayed in the following style
 ```
 2022-04-08 11:06:50.228 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Status: Running (Executing on YARN cluster with App id application_1631114297082_432445)
 2022-04-08 11:06:50.248 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: -/-	Reducer 2: 0/1	
@@ -199,7 +196,7 @@ After making the above relevant modifications, the log can add task progress inf
 2022-04-08 11:06:57.899 INFO  [Linkis-Default-Scheduler-Thread-3] SessionState 1111 printInfo - Map 1: 1/1	Reducer 2: 1/1	
 ```
 
-An example of a complete xml configuration file is as follows:
+An example of a complete `xml` configuration file is as follows:
 ```xml
 <!--
   ~ Copyright 2019 WeBank

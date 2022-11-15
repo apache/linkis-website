@@ -3,18 +3,18 @@ title: Spark Engine
 sidebar_position: 1
 ---
 
-This article mainly introduces the installation, use and configuration of the Spark engine plugin in Linkis.
+This article mainly introduces the installation, use and configuration of the `Spark` engine plugin in `Linkis`.
 
 ## 1. Preliminary work
 ### 1.1 Engine installation
 
-If you want to use the spark engine on your server, you need to ensure that the following environment variables have been set correctly and that the engine startup user has these environment variables.
+If you wish to use the `spark` engine on your server, you need to ensure that the following environment variables are set correctly and that the engine's starting user has these environment variables.
 
-It is strongly recommended that you check these environment variables of the executing user before executing spark tasks.
+It is strongly recommended that you check these environment variables for the executing user before executing a `spark` job.
 
 | Environment variable name | Environment variable content | Remarks |
-|-----------------|----------------|------------- --------------------------|
-| JAVA_HOME | JDK installation path | required |
+|-----------------|----------------|-------------- -----------------------------|
+| JAVA_HOME | JDK installation path | Required |
 | HADOOP_HOME | Hadoop installation path | Required |
 | HADOOP_CONF_DIR | Hadoop configuration path | required |
 | HIVE_CONF_DIR | Hive configuration path | required |
@@ -23,13 +23,13 @@ It is strongly recommended that you check these environment variables of the exe
 | python | python | It is recommended to use anaconda's python as the default python |
 
 ### 1.2 Environment verification
-Verify that Spark is installed successfully through pyspark
+Verify that `Spark` is successfully installed by `pyspark`
 ```
 pyspark
 
 #After entering the pyspark virtual environment, the spark logo appears, indicating that the environment is successfully installed
 Welcome to
-      ____ __
+      ______
      /__/__ ___ _____/ /__
     _\ \/ _ \/ _ `/ __/ '_/
    /__ / .__/\_,_/_/ /_/\_\   version 2.4.3
@@ -39,15 +39,17 @@ Using Python version 2.7.13 (default, Sep 30 2017 18:12:43)
 SparkSession available as 'spark'.
 ```
 
-## 2. Engine plugin installation
+## 2. Engine plugin installation [default engine](./overview.md)
 
-The Spark engine plugin is included in the binary installation package released by linkis by default, and users do not need to install it additionally.
+The `Spark` engine plugin is included in the binary installation package released by `linkis` by default, and users do not need to install it additionally.
 
-In theory, Linkis supports all versions of spark2.x and above. The default supported version is Spark2.4.3. If you want to use other spark versions, such as spark2.1.0, you only need to modify the version of the plug-in spark and then compile it. Specifically, you can find the linkis-engineplugin-spark module, change the value of the "spark.version" tag in the maven dependency to 2.1.0, and then compile this module separately.
+In theory `Linkis` supports all versions of `spark2.x` and above. The default supported version is `Spark2.4.3`. If you want to use another version of `spark`, such as `spark2.1.0`, you just need to modify the version of the plugin `spark` and compile it. Specifically, you can find the `linkis-engineplugin-spark` module, change the value of the `<spark.version>` tag in the `maven` dependency to 2.1.0, and then compile this module separately.
 
-## 3. Use of spark engine
+[EngineConnPlugin engine plugin installation](../deployment/install-engineconn.md)
 
-### 3.1 Submit tasks through Linkis-cli
+## 3. Using the `spark` engine
+
+### 3.1 Submitting tasks via `Linkis-cli`
 
 ```shell
 # codeType correspondence py-->pyspark sql-->sparkSQL scala-->Spark scala
@@ -56,12 +58,12 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show databases"
 # You can specify the yarn queue in the submission parameter by -confMap wds.linkis.yarnqueue=dws
 sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show databases"  -submitUser hadoop -proxyUser hadoop
 ```
-More Linkis-Cli command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
+More `Linkis-Cli` command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
 
-### 3.2 Using Linkis SDK
+### 3.2 Submitting tasks through `Linkis SDK`
 
-Linkis provides Java and Scala SDKs to submit tasks to the Linkis server. For details, please refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
-For Spark tasks, you only need to modify the EngineConnType and CodeType parameters in the Demo:
+`Linkis` provides `SDK` of `Java` and `Scala` to submit tasks to `Linkis` server. For details, please refer to [JAVA SDK Manual](../user-guide/sdk-manual.md).
+For `Spark` tasks you only need to modify the `EngineConnType` and `CodeType` parameters in `Demo`:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -70,56 +72,42 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
 ```
 
-### 3.3 How to use Scriptis
-
-[Scriptis](https://github.com/WeBankFinTech/Scriptis) is the easiest to use. You can directly enter Scriptis and create a new sql, scala or pyspark script for execution.
-
-The sql method is the simplest. You can create a new sql script and then write and execute it. When executing, there will be a progress display. If the user does not have a spark engine at the beginning, the execution of sql will start a spark session (it may take some time here),
-After SparkSession is initialized, you can start executing sql.
-
-![](./images/sparksql-run.png)
-
-For spark-scala tasks, we have initialized variables such as sqlContext, and users can directly use this sqlContext to execute sql.
-
-![](./images/scala-run.png)
-
-Similarly, in the pyspark method, we have already initialized the SparkSession, and users can directly use the spark.sql method to execute sql.
-
-![](./images/pyspakr-run.png)
-
 ## 4. Engine configuration instructions
 
-### 4.1 Default configuration description
+### 4.1 Default Configuration Description
 | Configuration | Default | Required | Description |
-| ------------------------ | ------------------- | ---| ---------------------------------------- |
-| wds.linkis.rm.instance | 10 | no | engine maximum concurrency |
-| spark.executor.cores | 1 | no | number of spark executor cores |
+| ------------------------ | ------------------- | ---| ------------------------------------------- |
+| wds.linkis.rm.instance | 10 |No| Maximum number of concurrent engines |
+| spark.executor.cores | 1 |No| Number of spark executor cores |
 | spark.driver.memory | 1g | no | maximum concurrent number of spark executor instances |
-| spark.executor.memory | 1g | no | spark executor memory size |
-| wds.linkis.engineconn.max.free.time | 1h | no | engine idle exit time |
+| spark.executor.memory | 1g | No | spark executor memory size |
+| wds.linkis.engineconn.max.free.time | 1h | No | Engine idle exit time |
 | spark.python.version | python2 | no | python version |
 
 ### 4.2 Queue resource configuration
-Because the execution of spark requires the resources of the queue, you need to set up a queue that you can execute.    
+Because the execution of `spark` requires queue resources, you need to set up a queue that you can execute.    
 
-![yarn](https://user-images.githubusercontent.com/29391030/168044322-ce057ec0-8891-4691-9454-8fba45b2c631.png) 
+![yarn](./images/yarn-conf.png) 
 
 
 ### 4.3 Configuration modification
 If the default parameters are not satisfied, there are the following ways to configure some basic parameters
 
 #### 4.3.1 Management Console Configuration
-Users can make custom settings, such as the number of spark session executors and the memory of the executors. These parameters are for users to set their own spark parameters more freely, and other parameters of spark can also be modified, such as the python version of pyspark, etc.
+Users can customize settings, such as the number of `spark` sessions `executor` and `executor` memory. These parameters are for users to set their own `spark` parameters more freely, and other `spark` parameters can also be modified, such as the `python` version of `pyspark`, etc.
 ![spark](./images/spark-conf.png)
 
-Note: After modifying the configuration under the IDE tag, you need to specify -creator IDE to take effect (other tags are similar), such as:
+Note: After modifying the configuration under the `IDE` tag, you need to specify `-creator IDE` to take effect (other tags are similar), such as:
 
 ```shell
-sh ./bin/linkis-cli -creator IDE -engineType spark-2.4.3 -codeType sql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -creator IDE \
+-engineType spark-2.4.3 -codeType sql \
+-code "show databases"  \
+-submitUser hadoop -proxyUser hadoop
 ```
 
 #### 4.3.2 Task interface configuration
-Submit the task interface and configure it through the parameter params.configuration.runtime
+Submit the task interface, configure it through the parameter `params.configuration.runtime`
 
 ```shell
 Example of http request parameters
@@ -142,17 +130,17 @@ Example of http request parameters
 
 ### 4.4 Engine related data sheet
 
-Linkis is managed through engine tags, and the data table information involved is shown below.
+`Linkis` is managed through the engine tag, and the data table information involved is shown below.
 
 ```
-linkis_ps_configuration_config_key: key and default values ​​of configuration parameters inserted into the engine
-linkis_cg_manager_label: Insert engine label such as: spark-2.4.3
+linkis_ps_configuration_config_key: Insert the key and default values ​​​​of the configuration parameters of the engine
+linkis_cg_manager_label: insert engine label such as: spark-2.4.3
 linkis_ps_configuration_category: The directory association relationship of the insertion engine
 linkis_ps_configuration_config_value: The configuration that the insertion engine needs to display
 linkis_ps_configuration_key_engine_relation: The relationship between the configuration item and the engine
 ```
 
-The initial data related to the spark engine in the table is as follows
+The initial data in the table related to the `spark` engine is as follows
 
 ```sql
 -- set variable
@@ -168,19 +156,19 @@ select @label_id := id from linkis_cg_manager_label where `label_value` = @SPARK
 insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
 
 -- configuration key
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.instance', 'Range: 1-20, Unit: Pieces', 'Maximum concurrent number of spark engines', '10', 'NumInterval', '[1,20]', '0 ', '0', '1', 'Queue resource', 'spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.instance', 'Range: 1-20, unit: each', 'Maximum concurrent number of spark engine', '10', 'NumInterval', '[1,20]', '0 ', '0', '1', 'queue resources', 'spark');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.executor.instances', 'value range: 1-40, unit: individual', 'maximum concurrent number of spark executor instances', '1', 'NumInterval', '[1,40]', '0', '0', '2', 'spark resource settings', 'spark');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.executor.cores', 'value range: 1-8, unit: piece', 'spark executor cores', '1', 'NumInterval', '[1,8]', ' 0', '0', '1','spark resource settings', 'spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.executor.cores', 'Value range: 1-8, unit: number', 'Number of spark executor cores', '1', 'NumInterval', '[1,8]', ' 0', '0', '1','spark resource settings', 'spark');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.executor.memory', 'value range: 1-15, unit: G', 'spark executor memory size', '1g', 'Regex', '^([1-9]|1 [0-5])(G|g)$', '0', '0', '3', 'spark resource settings', 'spark');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.driver.cores', 'Value range: can only take 1, unit: number', 'spark driver cores', '1', 'NumInterval', '[1,1]', '0 ', '1', '1', 'spark resource settings','spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.driver.cores', 'Value range: only 1, unit: number', 'Number of spark driver cores', '1', 'NumInterval', '[1,1]', '0 ', '1', '1', 'spark resource settings', 'spark');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.driver.memory', 'value range: 1-15, unit: G', 'spark driver memory size','1g', 'Regex', '^([1-9]|1[ 0-5])(G|g)$', '0', '0', '1', 'spark resource settings', 'spark');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.max.free.time', 'Value range: 3m,15m,30m,1h,2h', 'Engine idle exit time','1h', 'OFT', '[\ "1h\",\"2h\",\"30m\",\"15m\",\"3m\"]', '0', '0', '1', 'spark engine settings', ' spark');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.pd.addresses', NULL, NULL, 'pd0:2379', 'None', NULL, '0', '0', '1', 'tidb settings', 'spark');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.tidb.addr', NULL, NULL, 'tidb', 'None', NULL, '0', '0', '1', 'tidb settings', 'spark');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.tidb.password', NULL, NULL, NULL, 'None', NULL, '0', '0', '1', 'tidb settings', 'spark');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.tidb.port', NULL, NULL, '4000', 'None', NULL, '0', '0', '1', 'tidb settings', 'spark');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.tidb.user', NULL, NULL, 'root', 'None', NULL, '0', '0', '1', 'tidb settings', 'spark');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.python.version', 'value range: python2,python3', 'python version','python2', 'OFT', '[\"python3\",\"python2\"]', ' 0', '0', '1', 'spark engine settings', 'spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.pd.addresses', NULL, NULL, 'pd0:2379', 'None', NULL, '0', '0', '1', 'tidb设置', 'spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.tidb.addr', NULL, NULL, 'tidb', 'None', NULL, '0', '0', '1', 'tidb设置', 'spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.tidb.password', NULL, NULL, NULL, 'None', NULL, '0', '0', '1', 'tidb设置', 'spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.tidb.port', NULL, NULL, '4000', 'None', NULL, '0', '0', '1', 'tidb设置', 'spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.tispark.tidb.user', NULL, NULL, 'root', 'None', NULL, '0', '0', '1', 'tidb设置', 'spark');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('spark.python.version', 'Value range: python2,python3', 'python version','python2', 'OFT', '[\"python3\",\"python2\"]', ' 0', '0', '1', 'spark engine settings', 'spark');
 
 -- key engine relation
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
