@@ -3,71 +3,159 @@ title: Sqoop Engine
 sidebar_position: 9
 ---
 
-# Sqoop Engine usage documentation
+This article mainly introduces the installation, use and configuration of the Sqoop engine plugin in Linkis.
 
-This article mainly introduces the configuration, deployment and use of the Sqoop engine in Linkis1.X.
+## 1. Preliminary work
+### 1.1 Environment Installation
 
-## 1.Sqoop engine Linkis system parameter configuration
+The Sqoop engine mainly depends on the Hadoop basic environment. If the node needs to deploy the Sqoop engine, you need to deploy the Hadoop client environment and install the Sqoop client![Download](https://archive.apache.org/dist/sqoop/).
 
-The Sqoop engine mainly depends on the Hadoop basic environment. If the node needs to deploy the Sqoop engine, the Hadoop client environment needs to be deployed.
+### 1.2 Environment verification
+Before executing the Sqoop task, use the native Sqoop to execute the test task on the node to check whether the node environment is normal.
+```shell script
+#Verify whether the sqoop environment is available Reference example: Import the /user/hive/warehouse/hadoop/test_linkis_sqoop file data of hdfs into the mysql table test_sqoop
 
-It is strongly recommended that you use the native Sqoop to execute the test task on the node before executing the Sqoop task to check whether the node environment is normal.
+sqoop export \
+--connect jdbc:mysql://10.10.10.10/test \
+--username test \
+--password test123\
+--table test_sqoop \
+--columns user_id,user_code,user_name,email,status \
+--export-dir /user/hive/warehouse/hadoop/test_linkis_sqoop \
+--update-mode allowinsert \
+--verbose ;
+```
 
-| Environment Variable Name | Environment Variable Content | Remark                             |
-|-----------------|----------------|----------------------------------------|
-| JAVA_HOME       | JDK installation path | Required                           |
-| HADOOP_HOME     | Hadoop installation path | Required                           |
-| HADOOP_CONF_DIR | Hadoop installation path | Required                        |
-| SQOOP_HOME | Sqoop installation path | Not Required                 |
-| SQOOP_CONF_DIR | Sqoop config path | Not Required                    |
-| HCAT_HOME | HCAT config path | Not Required                    |
-| HBASE_HOME | HBASE config path | Not Required |
-
-表1-1 环境配置清单
-
-| Linkis Parameter Name       | Parameter Content                                          | Remark                                                       |
-| --------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
-| wds.linkis.hadoop.site.xml  | Set sqoop to load hadoop parameter file location           | Required，Reference example："/etc/hadoop/conf/core-site.xml;/etc/hadoop/conf/hdfs-site.xml;/etc/hadoop/conf/yarn-site.xml;/etc/hadoop/conf/mapred-site.xml" |
-| sqoop.fetch.status.interval | Set the interval time for obtaining sqoop execution status | Not required, the default value is 5s                        |
+| Environment variable name | Environment variable content | Remarks |
+|-----------------|----------------|------------- --------------------------|
+| JAVA_HOME | JDK installation path | required |
+| HADOOP_HOME | Hadoop installation path | Required |
+| HADOOP_CONF_DIR | Hadoop configuration path | required |
+| SQOOP_HOME | Sqoop installation path | Required |
+| SQOOP_CONF_DIR | Sqoop configuration path | Not required |
+| HCAT_HOME | HCAT configuration path | not required |
+| HBASE_HOME | HBASE configuration path | not required |
 
 
+| Linkis System Parameters | Parameters | Remarks |
+| ------------------------------------- | --------------------- ---------- | --------------------------------------- --------------------- |
+| wds.linkis.hadoop.site.xml | Set the location of the hadoop parameter file loaded by sqoop | Generally, no separate configuration is required, the default value is "core-site.xml;hdfs-site.xml;yarn-site.xml;mapred-site. xml" |
+| sqoop.fetch.status.interval | Set the interval for obtaining sqoop execution status | Generally, no separate configuration is required, the default value is 5s |
 
-## 2.Sqoop Engine configuration and deployment
 
-### 2.1 Sqoop Version selection and compilation 
+## 2. Engine plugin deployment
 
-Mainstream Sqoop versions 1.4.6 and 1.4.7 supported by Linkis 1.1.2 and above, and later versions may need to modify some code and recompile
+### 2.1 Engine plug-in preparation (choose one of two)
 
-### 2.2 Sqoop engineConn deploy and load
-Note: Before compiling the sqoop engine, the linkis project needs to be fully compiled
+Method 1: Download the engine plug-in package directly
+
+[Linkis Engine Plugin Download](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
+
+Method 2: Compile the engine plug-in separately (maven environment is required)
 
 ```
-Compile sqoop separately:
-${linkis_code_dir}linkis-engineconn-plugins/sqoop/
+# compile
+cd ${linkis_code_dir}/linkis-engineconn-plugins/sqoop/
 mvn clean install
+# The compiled engine plug-in package is located in the following directory
+${linkis_code_dir}/linkis-engineconn-plugins/sqoop/target/out/
 ```
-The installation method is to compile the compiled engine package, located in 
+
+### 2.2 Uploading and loading of engine plugins
+
+Upload the engine package in 2.1 to the engine directory of the server
 ```bash
-${linkis_code_dir}linkis-engineconn-plugins/sqoop/target/sqoop-engineconn.zip
-```
-and then deploy to 
-```bash 
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
-and restart linkis-engineplugin 
+The directory structure after uploading is as follows
+```
+linkis-engineconn-plugins/
+├── sqoop
+│ ├── dist
+│ │ └── v1.4.6
+│ │ ├── conf
+│ │ └── lib
+│ └── plugin
+│ └── 1.4.6
+```
+
+### 2.3 Engine refresh
+
+#### 2.3.1 Restart and refresh
+Refresh the engine by restarting the linkis-cg-linkismanager service
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart cg-linkismanager
 ```
-More engineplugin details can be found in the following article [EngineConnPlugin Installation](../deployment/install-engineconn)   
+
+### 2.3.2 Check if the engine is refreshed successfully
+You can check whether the last_update_time of the linkis_engine_conn_plugin_bml_resources table in the database is the time when the refresh is triggered.
+
+```sql
+#Login to the linkis database
+select * from linkis_cg_engine_conn_plugin_bml_resources;
+```
+
+## 3 The use of Sqoop engine
+
+### 3.1 Submit tasks through Linkis-cli
+#### 3.1.1 hdfs file export to mysql
+```shell script
+sh linkis-cli-sqoop export \
+-D mapreduce.job.queuename=ide \
+--connect jdbc:mysql://10.10.10.10:9600/testdb\
+--username password@123 \
+--password password@123 \
+--table test_sqoop_01_copy \
+--columns user_id,user_code,user_name,email,status \
+--export-dir /user/hive/warehouse/hadoop/test_linkis_sqoop_2 \
+--update-mode allowinsert --verbose ;  
+```
+
+#### 3.1.2 Import mysql data into hive library
+```shell script
+mysql is imported into the hive library linkis_test_ind.test_import_sqoop_1, the table test_import_sqoop_1 does not exist, you need to add the parameter --create-hive-table
+
+sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
+--connect jdbc:mysql://10.10.10.10:3306/casion_test \
+--username hadoop \
+--password password@123 \
+--table test_sqoop_01 \
+--columns user_id,user_code,user_name,email,status \
+--fields-terminated-by ',' \
+--hive-import --create-hive-table \
+--hive-database casexia_ind \
+--hive-table test_import_sqoop_1 \
+--hive-drop-import-delims \
+--delete-target-dir \
+--input-null-non-string '\\N' \
+--input-null-string '\\N' \
+--verbose ;
 
 
-## 3.Sqoop Engine Usage 
+mysql is imported into the hive library linkis_test_ind.test_import_sqoop_1, the table test_import_sqoop_1 exists to remove the parameter --create-hive-table \
+sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
+--connect jdbc:mysql://10.10.10.10:9600/testdb\
+--username testdb \
+--password password@123 \
+--table test_sqoop_01 \
+--columns user_id,user_code,user_name,email,status \
+--fields-terminated-by ',' \
+--hive-import \
+--hive-database linkis_test_ind \
+--hive-table test_import_sqoop_1 \
+--hive-overwrite \
+--hive-drop-import-delims \
+--delete-target-dir \
+--input-null-non-string '\\N' \
+--input-null-string '\\N' \
+--verbose ;
 
+```
 
-### 3.1 OnceEngineConn
+### 3.2 Submitting tasks through OnceEngineConn
 
-OnceEngineConn is used by calling LinkisManager's createEngineConn interface through LinkisManagerClient, and sending the code to the created Sqoop engine, and then the Sqoop engine starts to execute. This method can be called by other systems, such as Exchange. The use of Client is also very simple, first create a new maven project, or introduce the following dependencies into your project
+The usage of OnceEngineConn is to call the createEngineConn interface of LinkisManager through LinkisManagerClient, and send the code to the created Sqoop engine, and then the Sqoop engine starts to execute. This method can be called by other systems, such as Exchange. The use of Client is also very simple, first create a new maven project, or introduce the following dependencies into your project
 ```xml
 <dependency>
     <groupId>org.apache.linkis</groupId>
@@ -75,11 +163,9 @@ OnceEngineConn is used by calling LinkisManager's createEngineConn interface thr
     <version>${linkis.version}</version>
 </dependency>
 ```
-**Test Case：**
+**Test case:**
 
 ```scala
-
-package com.webank.wedatasphere.exchangis.job.server.log.client
 
 import java.util.concurrent.TimeUnit
 
@@ -108,6 +194,7 @@ object SqoopOnceJobTest extends App {
   val onceJob = importJob(builder)
   val time = System.currentTimeMillis()
   onceJob.submit()
+
   println(onceJob.getId)
   val logOperator = onceJob.getOperator(EngineConnLogOperator.OPERATOR_NAME).asInstanceOf[EngineConnLogOperator]
   println(onceJob.getECMServiceInstance)
@@ -135,7 +222,7 @@ object SqoopOnceJobTest extends App {
     Thread.sleep(3000)
     Option(metricOperator).foreach( operator => {
       if (!onceJob.isCompleted){
-        println(s"Metric Monitor: ${operator.apply()}")
+        println(s"Metric monitoring: ${operator.apply()}")
         println(s"Progress: ${progressOperator.apply()}")
       }
     })
@@ -155,7 +242,7 @@ object SqoopOnceJobTest extends App {
        .addJobContent("sqoop.args.username", "free")
        .addJobContent("sqoop.args.password", "testpwd")
        .addJobContent("sqoop.args.query", "select id as order_number, sno as time from" +
-         " exchangis where sno =1 and $CONDITIONS")
+         "exchangis where sno =1 and $CONDITIONS")
        .addJobContent("sqoop.args.hcatalog.database", "freedb")
        .addJobContent("sqoop.args.hcatalog.table", "zy_test")
        .addJobContent("sqoop.args.hcatalog.partition.keys", "month")
@@ -170,7 +257,7 @@ object SqoopOnceJobTest extends App {
         .addJobContent("sqoop.mode", "import")
         .addJobContent("sqoop.args.connect", "jdbc:mysql://127.0.0.1:3306/exchangis")
         .addJobContent("sqoop.args.query", "select id as order, sno as great_time from" +
-          " exchangis_table where sno =1 and $CONDITIONS")
+          "exchangis_table where sno =1 and $CONDITIONS")
         .addJobContent("sqoop.args.hcatalog.database", "hadoop")
         .addJobContent("sqoop.args.hcatalog.table", "partition_33")
         .addJobContent("sqoop.args.hcatalog.partition.keys", "month")
@@ -180,118 +267,203 @@ object SqoopOnceJobTest extends App {
    }
 ```
 
-**Parameter Comparison table (with native parameters):****
 
-```
-sqoop.env.mapreduce.job.queuename<=>-Dmapreduce.job.queuename
-sqoop.args.connection.manager<===>--connection-manager
-sqoop.args.connection.param.file<===>--connection-param-file
-sqoop.args.driver<===>--driver
-sqoop.args.hadoop.home<===>--hadoop-home
-sqoop.args.hadoop.mapred.home<===>--hadoop-mapred-home
-sqoop.args.help<===>help
-sqoop.args.password<===>--password
-sqoop.args.password.alias<===>--password-alias
-sqoop.args.password.file<===>--password-file
-sqoop.args.relaxed.isolation<===>--relaxed-isolation
-sqoop.args.skip.dist.cache<===>--skip-dist-cache
-sqoop.args.username<===>--username
-sqoop.args.verbose<===>--verbose
-sqoop.args.append<===>--append
-sqoop.args.as.avrodatafile<===>--as-avrodatafile
-sqoop.args.as.parquetfile<===>--as-parquetfile
-sqoop.args.as.sequencefile<===>--as-sequencefile
-sqoop.args.as.textfile<===>--as-textfile
-sqoop.args.autoreset.to.one.mapper<===>--autoreset-to-one-mapper
-sqoop.args.boundary.query<===>--boundary-query
-sqoop.args.case.insensitive<===>--case-insensitive
-sqoop.args.columns<===>--columns
-sqoop.args.compression.codec<===>--compression-codec
-sqoop.args.delete.target.dir<===>--delete-target-dir
-sqoop.args.direct<===>--direct
-sqoop.args.direct.split.size<===>--direct-split-size
-sqoop.args.query<===>--query
-sqoop.args.fetch.size<===>--fetch-size
-sqoop.args.inline.lob.limit<===>--inline-lob-limit
-sqoop.args.num.mappers<===>--num-mappers
-sqoop.args.mapreduce.job.name<===>--mapreduce-job-name
-sqoop.args.merge.key<===>--merge-key
-sqoop.args.split.by<===>--split-by
-sqoop.args.table<===>--table
-sqoop.args.target.dir<===>--target-dir
-sqoop.args.validate<===>--validate
-sqoop.args.validation.failurehandler<===>--validation-failurehandler
-sqoop.args.validation.threshold<===> --validation-threshold
-sqoop.args.validator<===>--validator
-sqoop.args.warehouse.dir<===>--warehouse-dir
-sqoop.args.where<===>--where
-sqoop.args.compress<===>--compress
-sqoop.args.check.column<===>--check-column
-sqoop.args.incremental<===>--incremental
-sqoop.args.last.value<===>--last-value
-sqoop.args.enclosed.by<===>--enclosed-by
-sqoop.args.escaped.by<===>--escaped-by
-sqoop.args.fields.terminated.by<===>--fields-terminated-by
-sqoop.args.lines.terminated.by<===>--lines-terminated-by
-sqoop.args.mysql.delimiters<===>--mysql-delimiters
-sqoop.args.optionally.enclosed.by<===>--optionally-enclosed-by
-sqoop.args.input.enclosed.by<===>--input-enclosed-by
-sqoop.args.input.escaped.by<===>--input-escaped-by
-sqoop.args.input.fields.terminated.by<===>--input-fields-terminated-by
-sqoop.args.input.lines.terminated.by<===>--input-lines-terminated-by
-sqoop.args.input.optionally.enclosed.by<===>--input-optionally-enclosed-by
-sqoop.args.create.hive.table<===>--create-hive-table
-sqoop.args.hive.delims.replacement<===>--hive-delims-replacement
-sqoop.args.hive.database<===>--hive-database
-sqoop.args.hive.drop.import.delims<===>--hive-drop-import-delims
-sqoop.args.hive.home<===>--hive-home
-sqoop.args.hive.import<===>--hive-import
-sqoop.args.hive.overwrite<===>--hive-overwrite
-sqoop.args.hive.partition.value<===>--hive-partition-value
-sqoop.args.hive.table<===>--hive-table
-sqoop.args.column.family<===>--column-family
-sqoop.args.hbase.bulkload<===>--hbase-bulkload
-sqoop.args.hbase.create.table<===>--hbase-create-table
-sqoop.args.hbase.row.key<===>--hbase-row-key
-sqoop.args.hbase.table<===>--hbase-table
-sqoop.args.hcatalog.database<===>--hcatalog-database
-sqoop.args.hcatalog.home<===>--hcatalog-home
-sqoop.args.hcatalog.partition.keys<===>--hcatalog-partition-keys
-sqoop.args.hcatalog.partition.values<===>--hcatalog-partition-values
-sqoop.args.hcatalog.table<===>--hcatalog-table
-sqoop.args.hive.partition.key<===>--hive-partition-key
-sqoop.args.map.column.hive<===>--map-column-hive
-sqoop.args.create.hcatalog.table<===>--create-hcatalog-table
-sqoop.args.hcatalog.storage.stanza<===>--hcatalog-storage-stanza
-sqoop.args.accumulo.batch.size<===>--accumulo-batch-size
-sqoop.args.accumulo.column.family<===>--accumulo-column-family
-sqoop.args.accumulo.create.table<===>--accumulo-create-table
-sqoop.args.accumulo.instance<===>--accumulo-instance
-sqoop.args.accumulo.max.latency<===>--accumulo-max-latency
-sqoop.args.accumulo.password<===>--accumulo-password
-sqoop.args.accumulo.row.key<===>--accumulo-row-key
-sqoop.args.accumulo.table<===>--accumulo-table
-sqoop.args.accumulo.user<===>--accumulo-user
-sqoop.args.accumulo.visibility<===>--accumulo-visibility
-sqoop.args.accumulo.zookeepers<===>--accumulo-zookeepers
-sqoop.args.bindir<===>--bindir
-sqoop.args.class.name<===>--class-name
-sqoop.args.input.null.non.string<===>--input-null-non-string
-sqoop.args.input.null.string<===>--input-null-string
-sqoop.args.jar.file<===>--jar-file
-sqoop.args.map.column.java<===>--map-column-java
-sqoop.args.null.non.string<===>--null-non-string
-sqoop.args.null.string<===>--null-string
-sqoop.args.outdir<===>--outdir
-sqoop.args.package.name<===>--package-name
-sqoop.args.conf<===>-conf
-sqoop.args.D<===>-D
-sqoop.args.fs<===>-fs
-sqoop.args.jt<===>-jt
-sqoop.args.files<===>-files
-sqoop.args.libjars<===>-libjars
-sqoop.args.archives<===>-archives
-sqoop.args.update.key<===>--update-key
-sqoop.args.update.mode<===>--update-mode
-sqoop.args.export.dir<===>--export-dir
-```
+## 4 Engine configuration instructions
+### 4.1 Default configuration description
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| | sqoop.mode | import/export/… |
+| -Dmapreduce.job.queuename | sqoop.env.mapreduce.job.queuename | |
+| \--connect <jdbc-uri\> | sqoop.args.connect | Specify JDBC connect string |
+| \--connection-manager <class-name\> | sqoop.args.connection.manager | Specify connection manager class name |
+| \--connection-param-file <properties-file\> | sqoop.args.connection.param.file | Specify connection parameters file |
+| \--driver <class-name\> | sqoop.args.driver | Manually specify JDBC driver class to use |
+| \--hadoop-home <hdir\> | sqoop.args.hadoop.home | Override $HADOOP\_MAPRED\_HOME\_ARG |
+| \--hadoop-mapred-home <dir\> | sqoop.args.hadoop.mapred.home | Override $HADOOP\_MAPRED\_HOME\_ARG |
+| \--help | sqoop.args.help | Print usage instructions |
+| \-P | | Read password from console |
+| \--password <password\> | sqoop.args.password | Set authentication password |
+| \--password-alias <password-alias\> | sqoop.args.password.alias | Credential provider password alias |
+| \--password-file <password-file\> | sqoop.args.password.file | Set authentication password file path |
+| \--relaxed-isolation | sqoop.args.relaxed.isolation | Use read-uncommitted isolation for imports |
+| \--skip-dist-cache | sqoop.args.skip.dist.cache | Skip copying jars to distributed cache |
+| \--username <username\> | sqoop.args.username | Set authentication username |
+| \--verbose | sqoop.args.verbose | Print more information while working |
+| | | |
+### 4.2 Import and export parameters
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--batch | sqoop.args.batch | Indicates underlying statements to be executed in batch mode |
+| \--call <arg\> | sqoop.args.call | Populate the table using this stored procedure (one call per row) |
+| \--clear-staging-table | sqoop.args.clear.staging.table | Indicates that any data in staging table can be deleted |
+| \--columns <col,col,col...\> | sqoop.args.columns | Columns to export to table |
+| \--direct | sqoop.args.direct | Use direct export fast path |
+| \--export-dir <dir\> | sqoop.args.export.dir | HDFS source path for the export |
+| \-m,--num-mappers <n\> | sqoop.args.num.mappers | Use 'n' map tasks to export in parallel |
+| \--mapreduce-job-name <name\> | sqoop.args.mapreduce.job.name | Set name for generated mapreduce job |
+| \--staging-table <table-name\> | sqoop.args.staging.table | Intermediate staging table |
+| \--table <table-name\> | sqoop.args.table | Table to populate |
+| \--update-key <key\> | sqoop.args.update.key | Update records by specified key column |
+| \--update-mode <mode\> | sqoop.args.update.mode | Specifies how updates are performed when new rows are found with non-matching keys in database |
+| \--validate | sqoop.args.validate | Validate the copy using the configured validator |
+| \--validation-failurehandler <validation-failurehandler\> | sqoop.args.validation.failurehandler | Validate the copy using the configured validator |
+| \--validation-threshold <validation-threshold\> | sqoop.args.validation.threshold | Fully qualified class name for ValidationThreshold |
+| \--validator <validator\> | sqoop.args.validator | Fully qualified class name for the Validator |
+| | | |
+### 4.3 Import control parameters
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--append | sqoop.args.append | Imports data in append mode |
+| \--as-avrodatafile | sqoop.args.as.avrodatafile | Imports data to Avro data files |
+| \--as-parquetfile | sqoop.args.as.parquetfile | Imports data to Parquet files |
+| \--as-sequencefile | sqoop.args.as.sequencefile | Imports data to SequenceFiles |
+| \--as-textfile | sqoop.args.as.textfile | Imports data as plain text (default) |
+| \--autoreset-to-one-mapper | sqoop.args.autoreset.to.one.mapper | Reset the number of mappers to one mapper if no split key available |
+| \--boundary-query <statement\> | sqoop.args.boundary.query | Set boundary query for retrieving max and min value of the primary key |
+| \--case-insensitive | sqoop.args.case.insensitive | Data Base is case insensitive, split where condition transfrom to lower case! |
+| \--columns <col,col,col...\> | sqoop.args.columns | Columns to import from table |
+| \--compression-codec <codec\> | sqoop.args.compression.codec | Compression codec to use for import |
+| \--delete-target-dir | sqoop.args.delete.target.dir | Imports data in delete mode |
+| \--direct | sqoop.args.direct | Use direct import fast path |
+| \--direct-split-size <n\> | sqoop.args.direct.split.size | Split the input stream every 'n' bytes when importing in direct mode |
+| \-e,--query <statement\> | sqoop.args.query | Import results of SQL 'statement' |
+| \--fetch-size <n\> | sqoop.args.fetch.size | Set number 'n' of rows to fetch from the database when more rows are needed |
+| \--inline-lob-limit <n\> | sqoop.args.inline.lob.limit | Set the maximum size for an inline LOB |
+| \-m,--num-mappers <n\> | sqoop.args.num.mappers | Use 'n' map tasks to import in parallel |
+| \--mapreduce-job-name <name\> | sqoop.args.mapreduce.job.name | Set name for generated mapreduce job |
+| \--merge-key <column\> | sqoop.args.merge.key | Key column to use to join results |
+| \--split-by <column-name\> | sqoop.args.split.by | Column of the table used to split work units |
+| \--table <table-name\> | sqoop.args.table | Table to read |
+| \--target-dir <dir\> | sqoop.args.target.dir | HDFS plain table destination |
+| \--validate | sqoop.args.validate | Validate the copy using the configured validator |
+| \--validation-failurehandler <validation-failurehandler\> | sqoop.args.validation.failurehandler | Fully qualified class name for ValidationFa ilureHandler |
+| \--validation-threshold <validation-threshold\> | sqoop.args.validation.threshold | Fully qualified class name for ValidationThreshold |
+| \--validator <validator\> | sqoop.args.validator | Fully qualified class name for the Validator |
+| \--warehouse-dir <dir\> | sqoop.args.warehouse.dir | HDFS parent for table destination |
+| \--where <where clause\> | sqoop.args.where | WHERE clause to use during import |
+| \-z,--compress | sqoop.args.compress | Enable compression |
+| | | |
+
+### 4.4 Incremental import parameters
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--check-column <column\> | sqoop.args.check.column | Source column to check for incremental change |
+| \--incremental <import-type\> | sqoop.args.incremental | Define an incremental import of type 'append' or 'lastmodified' |
+| \--last-value <value\> | sqoop.args.last.value | Last imported value in the incremental check column |
+| | | |
+
+### 4.5 Output line formatting parameters
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--enclosed-by <char\> | sqoop.args.enclosed.by | Sets a required field enclosing character |
+| \--escaped-by <char\> | sqoop.args.escaped.by | Sets the escape character |
+| \--fields-terminated-by <char\> | sqoop.args.fields.terminated.by | Sets the field separator character |
+| \--lines-terminated-by <char\> | sqoop.args.lines.terminated.by | Sets the end-of-line character |
+| \--mysql-delimiters | sqoop.args.mysql.delimiters | Uses MySQL's default delimiter set: fields: , lines: \\n escaped-by: \\ optionally-enclosed-by: ' |
+| \--optionally-enclosed-by <char\> | sqoop.args.optionally.enclosed.by | Sets a field enclosing character |
+| | | |
+
+### 4.6 Input parsing parameters
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--input-enclosed-by <char\> | sqoop.args.input.enclosed.by | Sets a required field encloser |
+| \--input-escaped-by <char\> | sqoop.args.input.escaped.by | Sets the input escape character |
+| \--input-fields-terminated-by <char\> | sqoop.args.input.fields.terminated.by | Sets the input field separator |
+| \--input-lines-terminated-by <char\> | sqoop.args.input.lines.terminated.by | Sets the input end-of-line char |
+| \--input-optionally-enclosed-by <char\> | sqoop.args.input.optionally.enclosed.by | Sets a field enclosing character |
+| | | |
+
+ ### 4.7 Hive parameters
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--create-hive-table | sqoop.args.create.hive.table | Fail if the target hive table exists |
+| \--hive-database <database-name\> | sqoop.args.hive.database | Sets the database name to use when importing to hive |
+| \--hive-delims-replacement <arg\> | sqoop.args.hive.delims.replacement | Replace Hive record \\0x01 and row delimiters (\\n\\r) from imported string fields with user-defined string |
+| \--hive-drop-import-delims | sqoop.args.hive.drop.import.delims | Drop Hive record \\0x01 and row delimiters (\\n\\r) from imported string fields |
+| \--hive-home <dir\> | sqoop.args.hive.home | Override $HIVE\_HOME |
+| \--hive-import | sqoop.args.hive.import | Import tables into Hive (Uses Hive's default delimiters if none are set.) |
+| \--hive-overwrite | sqoop.args.hive.overwrite | Overwrite existing data in the Hive table |
+| \--hive-partition-key <partition-key\> | sqoop.args.hive.partition.key | Sets the partition key to use when importing to hive |
+| \--hive-partition-value <partition-value\> | sqoop.args.hive.partition.value | Sets the partition value to use when importing to hive |
+| \--hive-table <table-name\> | sqoop.args.hive.table | Sets the table name to use when importing to hive |
+| \--map-column-hive <arg\> | sqoop.args.map.column.hive | Override mapping for specific column to hive types. |
+
+
+### 4.8 HBase parameters
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--column-family <family\> | sqoop.args.column.family | Sets the target column family for the import |
+| \--hbase-bulkload | sqoop.args.hbase.bulkload | Enables HBase bulk loading |
+| \--hbase-create-table | sqoop.args.hbase.create.table | If specified, create missing HBase tables |
+| \--hbase-row-key <col\> | sqoop.args.hbase.row.key | Specifies which input column to use as the row key |
+| \--hbase-table <table\> | sqoop.args.hbase.table | Import to <table\>in HBase |
+| | | |
+
+### 4.9 HCatalog Parameters
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--hcatalog-database <arg\> | sqoop.args.hcatalog.database | HCatalog database name |
+| \--hcatalog-home <hdir\> | sqoop.args.hcatalog.home | Override $HCAT\_HOME |
+| \--hcatalog-partition-keys <partition-key\> | sqoop.args.hcatalog.partition.keys | Sets the partition keys to use when importing to hive |
+| \--hcatalog-partition-values ​​<partition-value\> | sqoop.args.hcatalog.partition.values ​​| Sets the partition values ​​to use when importing to hive |
+| \--hcatalog-table <arg\> | sqoop.args.hcatalog.table | HCatalog table name |
+| \--hive-home <dir\> | sqoop.args.hive.home | Override $HIVE\_HOME |
+| \--hive-partition-key <partition-key\> | sqoop.args.hive.partition.key | Sets the partition key to use when importing to hive |
+| \--hive-partition-value <partition-value\> | sqoop.args.hive.partition.value | Sets the partition value to use when importing to hive |
+| \--map-column-hive <arg\> | sqoop.args.map.column.hive | Override mapping for specific column to hive types. |
+| | | |
+| HCatalog import specific options: | | |
+| \--create-hcatalog-table | sqoop.args.create.hcatalog.table | Create HCatalog before import |
+| \--hcatalog-storage-stanza <arg\> | sqoop.args.hcatalog.storage.stanza | HCatalog storage stanza for table creation |
+| | |                                                                                                                    
+### 4.10 Accumulo parameters
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--accumulo-batch-size <size\> | sqoop.args.accumulo.batch.size | Batch size in bytes |
+| \--accumulo-column-family <family\> | sqoop.args.accumulo.column.family | Sets the target column family for the import |
+| \--accumulo-create-table | sqoop.args.accumulo.create.table | If specified, create missing Accumulo tables |
+| \--accumulo-instance <instance\> | sqoop.args.accumulo.instance | Accumulo instance name. |
+| \--accumulo-max-latency <latency\> | sqoop.args.accumulo.max.latency | Max write latency in milliseconds |
+| \--accumulo-password <password\> | sqoop.args.accumulo.password | Accumulo password. |
+| \--accumulo-row-key <col\> | sqoop.args.accumulo.row.key | Specifies which input column to use as the row key |
+| \--accumulo-table <table\> | sqoop.args.accumulo.table | Import to <table\>in Accumulo |
+| \--accumulo-user <user\> | sqoop.args.accumulo.user | Accumulo user name. |
+| \--accumulo-visibility <vis\> | sqoop.args.accumulo.visibility | Visibility token to be applied to all rows imported |
+| \--accumulo-zookeepers <zookeepers\> | sqoop.args.accumulo.zookeepers | Comma-separated list of zookeepers (host:port) |
+| | | |
+
+### 4.11 Code Generation Parameters
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \--bindir <dir\> | sqoop.args.bindir | Output directory for compiled objects |
+| \--class-name <name\> | sqoop.args.class.name | Sets the generated class name. This overrides --package-name. When combined with --jar-file, sets the input class. |
+| \--input-null-non-string <null-str\> | sqoop.args.input.null.non.string | Input null non-string representation |
+| \--input-null-string <null-str\> | sqoop.args.input.null.string | Input null string representation |
+| \--jar-file <file\> | sqoop.args.jar.file | Disable code generation; use specified jar |
+| \--map-column-java <arg\> | sqoop.args.map.column.java | Override mapping for specific columns to java types |
+| \--null-non-string <null-str\> | sqoop.args.null.non.string | Null non-string representation |
+| \--null-string <null-str\> | sqoop.args.null.string | Null string representation |
+| \--outdir <dir\> | sqoop.args.outdir | Output directory for generated code |
+| \--package-name <name\> | sqoop.args.package.name | Put auto-generated classes in this package |
+| | | |
+### 4.12 General Hadoop Command Line Parameters
+>must preceed any tool-specific arguments,Generic options supported are
+
+| parameter | key | description |
+| ------------------------------------------------- -------------------------------------------------- ------------------ | ----------------------------------------- -------- | ----------------------------------------- -------------------------------------------------- ----------------------- |
+| \-conf <configuration file\> | sqoop.args.conf | specify an application configuration file |
+| \-D <property=value\> | sqoop.args.D | use value for given property |
+| \-fs <local|namenode:port\> | sqoop.args.fs | specify a namenode |
+| \-jt <local|resourcemanager:port\> | sqoop.args.jt | specify a ResourceManager |
+| \-files <comma separated list of files\> | sqoop.args.files | specify comma separated files to be copied to the map reduce cluster |
+| \-libjars <comma separated list of jars\> | sqoop.args.libjars | specify comma separated jar files to include in the classpath. |
+| \-archives <comma separated list of archives\> | sqoop.args.archives | specify comma separated archives to be unarchived on the compute machines. |
