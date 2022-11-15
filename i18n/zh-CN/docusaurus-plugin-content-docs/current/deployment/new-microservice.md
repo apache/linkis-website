@@ -1,30 +1,28 @@
 ---
-title: 如何注册一个新的微服务
+title: 如何开发一个新的微服务
 sidebar_position: 6
 ---
 
-# 如何注册一个新的微服务
-
-这篇文章介绍一下如何在本地调试时以及linux环境下注册一个新的微服务，以方便更轻量化的学习使用和调试。
+> 这篇文章介绍如何基于现有的Linkis微服务架构下，在本地开发调试一个新的微服务以及部署，方便有需要新增微服务的二次开发的同学参考。 
 
 思维导图：
 
 ![思维导图](/Images-zh/deployment/microservice/thinking.png)
 
 
-## 1. 本地注册新的微服务
+## 1. 新的微服务开发
 
-该段记录了如何在IDEA中配置和以及注册一个属于linkis新的微服务
+> 本文以新增微服务`linkis-new-microservice`为示例，进行介绍。 如何在IDEA中创建和注册一个属于linkis新的微服务
 
-**硬件要求**
+**软件要求**
 - jdk1.8
 - maven3.5+
 
 ### 1.1 新建linkis-new-microservice子模块
 
-**注意**:在什么模块下新建子模块，这个并不是固定的因情况而定，这里只是举例子。
+**注意**:在什么模块下新建子模块，这个并不是固定的因情况而定，一般按服务组来划分确认，这里只是举例子。
 
-- linkis-public-enhancements模块下鼠标右键
+- linkis-public-enhancements模块下 右键
 
 ![new-module](/Images-zh/deployment/microservice/new-module.png)
 
@@ -45,7 +43,7 @@ sidebar_position: 6
 **path**: linkis-public-enhancements/linkis-new-microservice/pom.xml
 
 ``` 
-## 添加依赖
+## 添加linkis的公共依赖模块和 mybatis模块依赖(如果不涉及数据库操作可以不添加mybatis) 
   <dependency>
       <groupId>org.apache.linkis</groupId>
       <artifactId>linkis-module</artifactId>
@@ -66,8 +64,11 @@ sidebar_position: 6
 ```
 
 
+#### 1.1.2 新增服务对应的配置文件
 
-#### 1.1.2 新增linkis-new-microservice.properties文件
+> 配置文件按 linkis-服务名.properties来命名，统一放在`linkis-dist/package/conf/`目录下，服务启动时候会加载linkis.properties 通用配置文件以及linkis-服务名.properties配置文件
+
+新增`linkis-new-microservice.properties`配置文件
 
 **path**: linkis-dist/package/conf/linkis-new-microservice.properties
 
@@ -88,60 +89,33 @@ sidebar_position: 6
 #
 
 
+## 如不需提供接口Api则无需添加此配置
 ##restful
-wds.linkis.server.restful.scan.packages=org.apache.linkis.newmicroservice.server.restful  ## 如不需提供接口Api则无需添加此配置
+wds.linkis.server.restful.scan.packages=org.apache.linkis.newmicroservice.server.restful 
 
-##mybatis
+## mybatis 数据操作项目的配置
 wds.linkis.server.mybatis.mapperLocations=classpath*:org/apache/linkis/newmicroservice/server/dao/mapper/*.xml 
 wds.linkis.server.mybatis.typeAliasesPackage=org.apache.linkis.newmicroservice.server.domain
 wds.linkis.server.mybatis.BasePackage=org.apache.linkis.newmicroservice.server.dao
 
 
-
-##Spring
-spring.server.port=9208 #切勿与其他服务的端口相同
-
-```
-
-
-#### 1.1.3 修改distribution.xml
-
-**path**: linkis-dist/src/main/assembly/distribution.xml
-
-
-添加fileSet 配置，改配置主要是控制编译打包时的能输出linkis-new-microservice服务包
-
-![fileset](/Images-zh/deployment/microservice/fileset.png)
-
-这里只贴出来需要新增的配置内容。
-
-``` 
-
-   <fileSet>
-            <directory>
-                ../linkis-public-enhancements/linkis-new-microservice/target/out/lib
-            </directory>
-            <outputDirectory>
-                linkis-package/lib/linkis-public-enhancements/linkis-new-microservice
-            </outputDirectory>
-            <includes>
-                <include>**/*</include>
-            </includes>
-   </fileSet>
+##切勿与其他服务的端口相同
+spring.server.port=9208 
 
 ```
 
-#### 1.1.4 修改linkis.properties  配置
+
+#### 1.1.4 开启调试模式
+
+> 方便进行接口的调式，无需进行登陆态的验证 
 
 **path**: linkis-dist/package/conf/linkis.properties
 
 ![test-mode](/Images-zh/deployment/microservice/test-mode.png)
 
-这里只贴出来需要新增的配置内容。
-
 ``` properties
-
-wds.linkis.test.mode=true #由于后续需进行接口调试，因此这里需改为测试模式
+wds.linkis.test.mode=true   # 打开测试模式
+wds.linkis.test.user=hadoop  # 指定测试模式下，所有请求都代理给哪个用户
 
 ```
 
@@ -212,6 +186,7 @@ public class LinkisNewMicroserviceApplication {
 
 这一步骤的具体指引在 [调试指引](../development/debug)  文档中已有写 可直接访问，这里就不在过多介绍
 
+
 ### 1.4 启动linkis-new-microservice服务
 
 设置linkis-new-microservice的启动Application
@@ -253,15 +228,43 @@ org.apache.linkis.newmicroservice.server.LinkisNewmicroserviceApplication
 
 ![postman-test](/Images-zh/deployment/microservice/postman-test.png)
 
-## 2. linux环境下注册新的微服务
-
-### 2.1 Linux服务器
-
-硬件要求
-安装linkis 微服务近10个，至少3G内存。**每个微服务默认配置启动的jvm -Xmx 内存大小为 512M(内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大)
 
 
-### 2.2 新增linkis-new-microservice文件
+## 2. 打包部署
+> 打包部署主要有有两个阶段 第一步是模块通过maven打包后 会将模块所需要的依赖 打包到模块对应的target目录下 linkis-new-microservice/target/out/lib。
+> 第二步是 组装完整的最终部署安装包时，需要将` linkis-new-microservice/target/out/lib` 自动拷贝至 `linkis-dist/target/apache-linkis-x.x.x-incubating-bin/linkis-package/lib`下
+
+### 模块的依赖打包 
+
+### 安装部署包的整合 
+1.1.3 修改distribution.xml
+
+**path**: linkis-dist/src/main/assembly/distribution.xml
+
+
+添加fileSet 配置，改配置主要是控制编译打包时的能输出linkis-new-microservice服务包
+
+![fileset](/Images-zh/deployment/microservice/fileset.png)
+
+这里只贴出来需要新增的配置内容。
+
+``` 
+
+   <fileSet>
+            <directory>
+                ../linkis-public-enhancements/linkis-new-microservice/target/out/lib
+            </directory>
+            <outputDirectory>
+                linkis-package/lib/linkis-public-enhancements/linkis-new-microservice
+            </outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+   </fileSet>
+
+```
+
+### 2.2 服务的运行配置脚本
 
 ![new-configuration](/Images-zh/deployment/microservice/new-configuration.png)
 
