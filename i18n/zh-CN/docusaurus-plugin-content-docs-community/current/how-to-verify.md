@@ -245,7 +245,7 @@ $ cd apache-linkis-${release_version}-incubating-bin
 详细的检查项，可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
  
  
-## 3.邮件回复 
+## 3. 邮件回复 
 
 如果发起了发布投票，验证后，可以参照此回复示例进行邮件回复
 
