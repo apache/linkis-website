@@ -184,7 +184,7 @@ public class LinkisNewMicroserviceApplication {
 The specific guidelines for this step have been written in the [Debugging Guidelines](../development/debug) document and can be directly accessed, so I won’t introduce too much here
 
 
-### 1.4 Start the linkis-new-microservice service
+### 1.4 Start the new microservice locally
 
 Set the startup Application of linkis-new-microservice
 

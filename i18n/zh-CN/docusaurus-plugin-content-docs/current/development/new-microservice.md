@@ -187,7 +187,7 @@ public class LinkisNewMicroserviceApplication {
 > 这一步骤的具体指引在 [调试指引](../development/debug)  文档中已有写 可直接访问，这里就不在过多介绍
 
 
-### 1.4 启动linkis-new-microservice服务
+### 1.4 本地启动新微服务
 
 > 设置linkis-new-microservice的启动Application
 
