@@ -2,7 +2,7 @@
 title: Pipeline 引擎
 sidebar_position: 10
 ---
-`Pipeline` 的主要用来文件的导入和导出，本文主要介绍在 `Linkis` 中， `Hive` 引擎插件的安装、使用和配置。
+`Pipeline` 主要是用来对文件进行导入和导出的。本文主要介绍在 `Linkis` 中， `Pipeline` 引擎插件的安装、使用和配置。
 
 ## 1. 引擎插件安装
 
@@ -12,7 +12,7 @@ sidebar_position: 10
 
 [Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-方式二：单独编译引擎插件（需要有 maven 环境）
+方式二：单独编译引擎插件（需要有 `maven` 环境）
 
 ```
 # 编译
@@ -21,7 +21,7 @@ mvn clean install
 # 编译出来的引擎插件包，位于如下目录中
 ${linkis_code_dir}/linkis-engineconn-plugins/pipeline/target/out/
 ```
-[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
+[EngineConnPlugin 引擎插件安装](../deployment/install-engineconn.md)
 
 ### 1.2 引擎插件的上传和加载
 
@@ -59,7 +59,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 
 ## 2 引擎的使用
 
-因为 `pipeline` 引擎主要用来导入导出文件为主，现在我们假设从A向B导入文件为介绍案例
+因为 `Pipeline` 引擎主要用来导入导出文件为主，现在我们假设从A向B导入文件为介绍案例
 
 ### 2.1 通过 `Linkis-cli` 提交任务
 

@@ -8,9 +8,9 @@ sidebar_position: 2
 ## 1. 前置工作
 ### 1.1 擎使用前的环境配置
 
-如果您希望在您的服务器上使用 `hive` 引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
+如果您希望在您的服务器上使用 `Hive` 引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
 
-强烈建议您在执行 `hive` 任务之前，检查下执行用户的这些环境变量。
+强烈建议您在执行 `Hive` 任务之前，检查下执行用户的这些环境变量。
 
 | 环境变量名      | 环境变量内容   | 备注 |
 |-----------------|----------------|------|
@@ -38,11 +38,11 @@ default
 
 `linkis` 发布的二进制安装包中默认包含了 `Hive` 引擎插件，用户无需额外安装。
 
-`Hive` 的版本是支持 `hive1.x` 和` hive2.x` ，默认是支持 `hive on MapReduce` ，如果您想改成 `Hive on Tez` ，需要您按照此 `pr` 进行一下修改。
+`Hive` 的版本是支持 `Hive1.x` 和` Hive2.x` ，默认是支持 `Hive on MapReduce` ，如果您想改成 `Hive on Tez` ，需要您按照此 `PR` 进行一下修改。
 
 <https://github.com/apache/incubator-linkis/pull/541>
 
-默认支持的 `hive` 版本是2.3.3，如果您想修改 `hive` 的版本，您可以找到 `linkis-engineplugin-hive` 模块，修改\<hive.version\>标签，然后单独编译此模块即可
+默认支持的 `Hive` 版本是2.3.3，如果您想修改 `Hive` 的版本，您可以找到 `linkis-engineplugin-hive` 模块，修改 `<hive.version\>` 标签，然后单独编译此模块即可
 
 [EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
@@ -60,8 +60,7 @@ sh ./bin/linkis-cli -engineType hive-2.3.3 \
 
 ### 3.2 通过Linkis SDK提交任务
 
-`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于 `Hive` 任务你只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务。具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。对于 `Hive` 任务你只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -80,7 +79,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 | wds.linkis.engineconn.max.free.time       | 1h    |否              | 引擎空闲退出时间 |
 
 ### 4.2 队列资源配置
-`hive` 的 `MapReduce` 任务是需要用到 `yarn` 的资源，所以需要设置队列
+`Hive` 的 `MapReduce` 任务是需要用到 `yarn` 的资源，所以需要设置队列。
 
 ![yarn](./images/yarn-conf.png)    
 

@@ -38,7 +38,7 @@ mysql>
 
 方式一：直接下载引擎插件包
 
-[`Linkis` 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
+[Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
 方式二：单独编译引擎插件（需要有 `maven` 环境）
 
@@ -50,7 +50,7 @@ mvn clean install
 ${linkis_code_dir}/linkis-engineconn-plugins/jdbc/target/out/
 ```
 
-[`EngineConnPlugin`引擎插件安装](../deployment/install-engineconn.md)
+[EngineConnPlugin 引擎插件安装](../deployment/install-engineconn.md)
 
 ### 2.2 引擎插件的上传和加载
 
@@ -98,11 +98,11 @@ sh ./bin/linkis-cli -engineType jdbc-4 \
 -submitUser hadoop -proxyUser hadoop
 ```
 
-更多 `Linkis-Cli` 命令参数参考： [`Linkis-Cli` 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
 ### 3.2 通过 `Linkis SDK` 提交任务
 
-`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。对于 `JDBC` 任务您只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务。具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。对于 `JDBC` 任务您只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -154,7 +154,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
 
 多数据源的功能说明：
 
-1）在之前的版本中， `JDBC` 引擎对数据源的支持不够完善，尤其是搭配 Scripts 使用的时候， `JDBC` 脚本类型只能绑定控制台的一套 `JDBC` 引擎参数，
+1）在之前的版本中， `JDBC` 引擎对数据源的支持不够完善，尤其是搭配 `Scripts` 使用的时候， `JDBC` 脚本类型只能绑定控制台的一套 `JDBC` 引擎参数，
 当我们有多数据源的切换需求时，只能修改 `JDBC` 引擎的连接参数，比较麻烦。
 
 2）配合数据源管理，我们引入 `JDBC` 引擎的多数据源切换功能，可以实现只设置数据源名称，就可把作业提交到不同的 `JDBC` 服务之上，普通用户不需要

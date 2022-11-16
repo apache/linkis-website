@@ -14,7 +14,7 @@ sidebar_position: 8
 
 ### 1.2 引擎验证
 
-强烈建议您在执行 `flink` 任务之前，检查下执行用户的这些环境变量。具体方式是
+强烈建议您在执行 `Flink` 任务之前，检查下执行用户的这些环境变量。具体方式是
 ```
 sudo su - ${username}
 echo ${JAVA_HOME}
@@ -49,7 +49,7 @@ mvn clean install
 ${linkis_code_dir}/linkis-engineconn-plugins/flink/target/out/
 ```
 
-[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
+[EngineConnPlugin 引擎插件安装](../deployment/install-engineconn.md)
 
 ### 2.2 引擎插件的上传和加载
 
@@ -104,7 +104,7 @@ sh ./bin/linkis-cli -engineType flink-1.12.2 \
 
 ### 3.2 通过 `ComputationEngineConn` 提交任务
 
-`FlinkSQL` 可以支持多种数据源,例如 `binlog, kafka, hive` 等,如果您想要在 `Flink` 代码中使用这些数据源，您需要将这些 `connector` 的插件 `jar` 包放置到 `flink` 引擎的 `lib` 中，并重启下 `Linkis` 的 `EnginePlugin` 服务。如你想要在您的 `FlinkSQL` 中使用 `binlog` 作为数据源，那么您需要将 `flink-connector-mysql-cdc-1.1.1.jar` 放置到 `flink` 引擎的 `lib` 中。
+`FlinkSQL` 可以支持多种数据源,例如 `binlog` , `kafka` , `hive` 等,如果您想要在 `Flink` 代码中使用这些数据源，您需要将这些 `connector` 的插件 `jar` 包放置到 `Flink` 引擎的 `lib` 中，并重启下 `Linkis` 的 `EnginePlugin` 服务。如你想要在您的 `FlinkSQL` 中使用 `binlog` 作为数据源，那么您需要将 `flink-connector-mysql-cdc-1.1.1.jar` 放置到 `Flink` 引擎的 `lib` 中。
 
 为了方便大家进行采样调试，我们在 `Scriptis` 新增了 `fql` 的脚本类型，专门用于执行 `FlinkSQL` 。但是需要保证您的 `DSS` 已经升级到 `DSS1.0.0` 。升级到 `DSS1.0.0` 之后，您可以直接进入 `Scriptis` ，新建 `fql` 脚本进行编辑和执行。
 
@@ -138,7 +138,7 @@ select * from mysql_binlog where id > 10;
     <version>${linkis.version}</version>
 </dependency>
 ```
-然后新建 `scala` 测试文件,点击执行，就完成了从一个 `binlog` 数据进行解析并插入到另一个 mysql 数据库的表中。但是需要注意的是，您必须要在 `maven` 项目中新建一个 `resources` 目录，放置一个 `linkis.properties` 文件，并指定 `linkis` 的 `gateway` 地址和 `api` 版本，如
+然后新建 `scala` 测试文件,点击执行，就完成了从一个 `binlog` 数据进行解析并插入到另一个 `mysql` 数据库的表中。但是需要注意的是，您必须要在 `maven` 项目中新建一个 `resources` 目录，放置一个 `linkis.properties` 文件，并指定 `linkis` 的 `gateway` 地址和 `api` 版本，如
 ```properties
 wds.linkis.server.version=v1
 wds.linkis.gateway.url=http://ip:9001/

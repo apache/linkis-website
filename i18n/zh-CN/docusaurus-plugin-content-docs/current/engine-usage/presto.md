@@ -3,7 +3,7 @@ title: Presto 引擎
 sidebar_position: 11
 ---
 
-本文主要介绍在 `Linkis` `中，Presto` 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` 中，`Presto` 引擎插件的安装、使用和配置。
 
 
 ## 1. 前置工作
@@ -47,7 +47,7 @@ chmod +x presto-cli
 
 [Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-方式二：单独编译引擎插件（需要有 maven 环境）
+方式二：单独编译引擎插件（需要有 `maven` 环境）
 
 ```
 # 编译
@@ -56,7 +56,7 @@ mvn clean install
 # 编译出来的引擎插件包，位于如下目录中
 ${linkis_code_dir}/linkis-engineconn-plugins/presto/target/out/
 ```
-[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
+[EngineConnPlugin 引擎插件安装](../deployment/install-engineconn.md)
 
 ### 2.2 引擎插件的上传和加载
 

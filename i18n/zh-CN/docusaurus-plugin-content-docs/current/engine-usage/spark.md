@@ -8,9 +8,9 @@ sidebar_position: 1
 ## 1. 前置工作
 ### 1.1 引擎安装
 
-如果您希望在您的服务器上使用 `spark` 引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
+如果您希望在您的服务器上使用 `Spark` 引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
 
-强烈建议您在执行 `spark` 任务之前，检查下执行用户的这些环境变量。
+强烈建议您在执行 `Spark` 任务之前，检查下执行用户的这些环境变量。
 
 | 环境变量名      | 环境变量内容   | 备注                                   |
 |-----------------|----------------|----------------------------------------|
@@ -41,13 +41,13 @@ SparkSession available as 'spark'.
 
 ## 2. 引擎插件安装 [默认引擎](./overview.md)
 
-`linkis` 发布的二进制安装包中默认包含了 `Spark` 引擎插件，用户无需额外安装。
+`Linkis` 发布的二进制安装包中默认包含了 `Spark` 引擎插件，用户无需额外安装。
 
-理论上 `Linkis` 支持的 `spark2.x` 以上的所有版本。默认支持的版本为 `Spark2.4.3` 。如果您想使用其他的 `spark` 版本，如 `spark2.1.0` ，则您仅仅需要将插件 `spark` 的版本进行修改，然后进行编译即可。具体的，您可以找到 `linkis-engineplugin-spark` 模块，将 `maven` 依赖中 `<spark.version>` 标签的值改成 2.1.0 ，然后单独编译此模块即可。
+理论上 `Linkis` 支持的 `Spark2.x` 以上的所有版本。默认支持的版本为 `Spark2.4.3` 。如果您想使用其他的 `Spark` 版本，如 `Spark2.1.0` ，则您仅仅需要将插件 `Spark` 的版本进行修改，然后进行编译即可。具体的，您可以找到 `linkis-engineplugin-spark` 模块，将 `maven` 依赖中 `<spark.version>` 标签的值改成 2.1.0 ，然后单独编译此模块即可。
 
 [EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
-## 3. `spark` 引擎的使用
+## 3. 引擎的使用
 
 ### 3.1 通过 `Linkis-cli` 提交任务
 
@@ -62,8 +62,7 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.y
 
 ### 3.2 通过 `Linkis SDK` 提交任务
 
-`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于 `Spark` 任务你只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务。具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。对于 `Spark` 任务你只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -85,7 +84,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,s
 | spark.python.version       | python2    |否              | python版本 |
 
 ### 4.2 队列资源配置
-因为 `spark` 的执行需要队列的资源，须要设置自己能够执行的队列。    
+因为 `Spark` 任务的执行需要队列的资源，须要设置自己能够执行的队列。    
 
 ![yarn](./images/yarn-conf.png) 
 
@@ -94,7 +93,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,s
 如果默认参数不满足时，有如下几中方式可以进行一些基础参数配置
 
 #### 4.3.1 管理台配置
-用户可以进行自定义的设置，比如 `spark` 会话 `executor` 个数和 `executor` 的内存。这些参数是为了用户能够更加自由地设置自己的 `spark` 的参数，另外 `spark` 其他参数也可以进行修改，比如的 `pyspark` 的 `python` 版本等。
+用户可以进行自定义的设置，比如 `Spark` 会话 `executor` 个数和 `executor` 的内存。这些参数是为了用户能够更加自由地设置自己的 `spark` 的参数，另外 `Spark` 其他参数也可以进行修改，比如的 `pyspark` 的 `python` 版本等。
 ![spark](./images/spark-conf.png)
 
 注意: 修改 `IDE` 标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
@@ -140,7 +139,7 @@ linkis_ps_configuration_config_value： 插入引擎需要展示的配置
 linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
 ```
 
-表中与 `spark` 引擎相关的初始数据如下
+表中与引擎相关的初始数据如下
 
 ```sql
 -- set variable

@@ -8,7 +8,7 @@ sidebar_position: 5
 ## 1. 前置工作
 ### 1.1 环境安装
 
-如果您希望在您的服务器上使用 `python` 引擎，您需要保证用户的 `PATH` 中是有 `python` 的执行目录和执行权限。
+如果您希望在您的服务器上使用 `Python` 引擎，您需要保证用户的 `PATH` 中是有 `Python` 的执行目录和执行权限。
 
 ### 1.2 环境验证
 ```
@@ -21,7 +21,7 @@ Python 3.6.0
 
 ## 2. 引擎插件安装 [默认引擎](./overview.md)
 
-`linkis` 发布的二进制安装包中默认包含了 `Python` 引擎插件，用户无需额外安装。
+`Linkis` 发布的二进制安装包中默认包含了 `Python` 引擎插件，用户无需额外安装。
 
 [EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
@@ -38,7 +38,7 @@ sh ./bin/linkis-cli -engineType python-python2 \
 
 ### 3.2 通过 `Linkis SDK` 提交任务
 
-`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).对于 `Python` 任务您只需要修改 `EngineConnType` 和 `CodeType` 参数即可。
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务。 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。对于 `Python` 任务您只需要修改 `EngineConnType` 和 `CodeType` 参数即可。
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
@@ -50,7 +50,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "python"); // required codeType
 ## 4. 引擎配置说明
 
 ### 4.1 配置修改
-`Python` 引擎插件支持 `python2` 和 `python3` ，您可以简单更改配置就可以完成 `Python` 版本的切换，不需要重新编译 `python` 的引擎版本。 `Python` 引擎支持多种配置修改方式，具体操作如下。
+`Python` 引擎插件支持 `Python2` 和 `Python3` ，您可以简单更改配置就可以完成 `Python` 版本的切换，不需要重新编译 `Python` 的引擎版本。 `Python` 引擎支持多种配置修改方式，具体操作如下。
 
 #### 4.1.1 通过命令参数显示指定（仅当前命令生效）
 

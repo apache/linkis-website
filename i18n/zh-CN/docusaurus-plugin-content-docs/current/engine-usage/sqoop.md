@@ -8,7 +8,7 @@ sidebar_position: 9
 ## 1. 前置工作
 ### 1.1 环境安装
 
-`Sqoop` 引擎主要依赖 `Hadoop` 基础环境，如果该节点需要部署 `Sqoop` 引擎，需要部署 `Hadoop` 客户端环境，以及![下载](https://archive.apache.org/dist/sqoop/)安装 `Sqoop` 客户端。
+`Sqoop` 引擎主要依赖 `Hadoop` 基础环境，如果该节点需要部署 `Sqoop` 引擎，需要部署 `Hadoop` 客户端环境，以及[下载](https://archive.apache.org/dist/sqoop/)安装 `Sqoop` 客户端。
 
 ### 1.2 环境验证
 在执行 `Sqoop` 任务之前，先在该节点使用原生的 `Sqoop` 执行测试任务，以检测该节点环境是否正常。
@@ -61,7 +61,7 @@ mvn clean install
 ${linkis_code_dir}/linkis-engineconn-plugins/sqoop/target/out/
 ```
 
-[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
+[EngineConnPlugin 引擎插件安装](../deployment/install-engineconn.md)
 
 ### 2.2 引擎插件的上传和加载
 
@@ -98,7 +98,7 @@ sh linkis-daemon.sh restart cg-linkismanager
 select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
-## 3 `Sqoop` 引擎的使用
+## 3 引擎的使用
 
 ### 3.1 通过 `Linkis-cli` 提交任务
 #### 3.1.1 `hdfs` 文件导出到 `mysql`
@@ -157,7 +157,7 @@ sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
 
 ```
 
-### 3.2 通过 `OnceEngineConn` 提交任务
+### 3.2 通过 OnceEngineConn 提交任务
 
 `OnceEngineConn` 的使用方式是通过 `LinkisManagerClient` 调用 `LinkisManager` 的 `createEngineConn` 的接口，并将代码发给创建的 `Sqoop` 引擎，然后 `Sqoop` 引擎就开始执行，此方式可以被其他系统进行调用，比如 `Exchangis` 。 `Client` 的使用方式也很简单，首先新建一个 `maven` 项目，或者在您的项目中引入以下的依赖
 ```xml
@@ -381,7 +381,7 @@ object SqoopOnceJobTest extends App {
 | \--input-optionally-enclosed-by <char\>                                                                               | sqoop.args.input.optionally.enclosed.by | Sets a field enclosing character                                                                                   |
 |                                                                                                                       |                                         |                                                                                                                    |
 
- ### 4.7 `Hive` 参数
+ ### 4.7 Hive 参数
 
 | 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -398,7 +398,7 @@ object SqoopOnceJobTest extends App {
 | \--map-column-hive <arg\>                                                                                             | sqoop.args.map.column.hive              | Override mapping for specific column to hive types.                                                                |
 
 
-### 4.8 `HBase` 参数
+### 4.8 HBase 参数
 
 | 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -409,7 +409,7 @@ object SqoopOnceJobTest extends App {
 | \--hbase-table <table\>                                                                                               | sqoop.args.hbase.table                  | Import to <table\>in HBase                                                                                         |
 |                                                                                                                       |                                         |                                                                                                                    |
 
-### 4.9 `HCatalog` 参数 
+### 4.9 HCatalog 参数 
 
 | 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -427,7 +427,7 @@ object SqoopOnceJobTest extends App {
 | \--create-hcatalog-table                                                                                              | sqoop.args.create.hcatalog.table        | Create HCatalog before import                                                                                      |
 | \--hcatalog-storage-stanza <arg\>                                                                                     | sqoop.args.hcatalog.storage.stanza      | HCatalog storage stanza for table creation                                                                         |
 |                                                                                                                       |                                         |                                                                                                                    
-### 4.10 `Accumulo` 参数
+### 4.10 Accumulo 参数
 
 | 参数                                                                                                                    | key                                     | 说明                                                                                                                 |
 | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -459,7 +459,7 @@ object SqoopOnceJobTest extends App {
 | \--outdir <dir\>                                                                                                      | sqoop.args.outdir                       | Output directory for generated code                                                                                |
 | \--package-name <name\>                                                                                               | sqoop.args.package.name                 | Put auto-generated classes in this package                                                                         |
 |                                                                                                                       |                                         |                                                                                                                    |
-### 4.12 通用 `Hadoop` 命令行参数
+### 4.12 通用 Hadoop 命令行参数
 >must preceed any tool-specific arguments,Generic options supported are 
 
 | 参数                                                                                                                    | key                                     | 说明                                                                                                                 |

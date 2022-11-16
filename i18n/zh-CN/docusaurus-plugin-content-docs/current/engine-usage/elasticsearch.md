@@ -43,7 +43,7 @@ curl [--user username:password] http://ip:port/_cluster/healty?pretty
 
 [Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-方式二：单独编译引擎插件（需要有 maven 环境）
+方式二：单独编译引擎插件（需要有 `maven` 环境）
 
 ```
 # 编译
@@ -53,7 +53,7 @@ mvn clean install
 ${linkis_code_dir}/linkis-engineconn-plugins/elasticsearch/target/out/
 ```
 
-[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
+[EngineConnPlugin 引擎插件安装](../deployment/install-engineconn.md)
 
 ### 2.2 引擎插件的上传和加载
 
@@ -96,7 +96,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 - `essql`：通过 `SQL` 脚本的方式执行 `ElasticSearch` 引擎任务
 - `esjson`：通过 `JSON` 脚本的方式执行 `ElasticSearch` 引擎任务
 
-**essql 方式示例**
+**`essql` 方式示例**
 
 **注意：** 使用这种形式， `ElasticSearch` 服务必须安装SQL插件，安装方式参考：https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
 ```shell
@@ -120,7 +120,7 @@ sh ./bin/linkis-cli -submitUser hadoop \
 -runtimeMap linkis.es.cluster=127.0.0.1:9200
 ```
 
-更多 `Linkis-Cli` 命令参数参考： [`Linkis-Cli` 使用](../user-guide/linkiscli-manual.md)
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
 ## 4. 引擎配置说明
 
