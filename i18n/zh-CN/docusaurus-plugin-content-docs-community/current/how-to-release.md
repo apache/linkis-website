@@ -520,7 +520,7 @@ $ svn commit -m "prepare for 1.1.2-RC1"
 若svn命令出现中文乱码，可尝试设置编码格式(设置编码格式:export LANG=en_US.UTF-8)。
  
  
-## 4 验证Release Candidates&创建git tag
+## 4 验证物料包&创建git tag
 
 ### 4.1 验证流程 
 
@@ -529,9 +529,14 @@ $ svn commit -m "prepare for 1.1.2-RC1"
 详细可以参见[How to Verify release](/how-to-verify.md)
 
 ### 4.2 创建git tag
+
 验证无误后，可以创建git tag
 
-step1 创建新的 github release
+:::caution 注意
+git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确保前面步骤相关的验证都没问题。
+:::
+
+**step1 创建新的 github release**
 
 进入到创建页面 https://github.com/apache/incubator-linkis/releases/new
 基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc1`的tag，
@@ -539,7 +544,7 @@ step1 创建新的 github release
 
 ![image](https://user-images.githubusercontent.com/7869972/180214706-7228e5ae-f810-4e07-80fc-67fcf01688eb.png)
 
-step2 检查
+**step2 检查**
 
 ![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
 
