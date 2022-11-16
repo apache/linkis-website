@@ -522,13 +522,13 @@ $ svn commit -m "prepare for 1.1.2-RC1"
  
 ## 4 验证Release Candidates&创建git tag
 
-## 4.1 验证流程 
+### 4.1 验证流程 
 
 准备的物料最好在window和类unix系统中都进行验证，避免系统兼容问题 如换行符问题
 
 详细可以参见[How to Verify release](/how-to-verify.md)
 
-## 4.2 创建git tag
+### 4.2 创建git tag
 验证无误后，可以创建git tag
 
 step1 创建新的 github release
