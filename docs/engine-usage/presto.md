@@ -3,7 +3,7 @@ title: Presto Engine
 sidebar_position: 11
 ---
 
-This article mainly introduces the installation, usage and configuration of the Presto engine plugin in `Linkis` `.
+This article mainly introduces the installation, usage and configuration of the Presto engine plugin in `Linkis` .
 
 
 ## 1. Preliminary work

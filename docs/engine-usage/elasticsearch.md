@@ -96,7 +96,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 - `essql`: Execute `ElasticSearch` engine tasks through `SQL` scripts
 - `esjson`: Execute `ElasticSearch` engine tasks through `JSON` script
 
-**essql method example**
+**`essql` method example**
 
 **Note:** Using this form, the `ElasticSearch` service must install the SQL plug-in, please refer to the installation method: https://github.com/NLPchina/elasticsearch-sql#elasticsearch-762
 ```shell

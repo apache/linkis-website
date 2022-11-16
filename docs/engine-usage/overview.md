@@ -14,14 +14,14 @@ Supported engines and version information are as follows:
 
 | Engine | Default Engine | Default Version |
 |--------------| -- | ---- |
-| Spark | Yes | 2.4.3 |
-| Hive | yes | 2.3.3 |
-| Python | yes | python2 |
-| Shell | Yes | 1 |
-| JDBC | No | 4 |
-| Flink | No | 1.12.2 |
-| OpenLooKeng | No | 1.5.0 |
-| Pipeline | No | 1 |
-| Presto | No | 0.234 |
-| Sqoop | No | 1.4.6 |
-| Elasticsearch | No | 7.6.2 |
+| [Spark](./spark.md) | Yes | 2.4.3 |
+| [Hive](./hive.md) | yes | 2.3.3 |
+| [Python](./python.md) | yes | python2 |
+| [Shell](./shell.md) | Yes | 1 |
+| [JDBC](./jdbc.md) | No | 4 |
+| [Flink](./flink.md) | No | 1.12.2 |
+| [OpenLooKeng](./openlookeng.md) | No | 1.5.0 |
+| [Pipeline](./pipeline.md) | No | 1 |
+| [Presto](./presto.md) | No | 0.234 |
+| [Sqoop](./sqoop.md) | No | 1.4.6 |
+| [Elasticsearch](./elasticsearch.md) | No | 7.6.2 |
