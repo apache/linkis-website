@@ -1,4 +1,4 @@
 ---
-title: 建议配置
+title: Hardware Environment
 sidebar_position: 0.1
 ---
