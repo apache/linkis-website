@@ -1,5 +1,5 @@
 ---
-title: How to Use Email List
+title: How to Use Email
 sidebar_position: 1.1
 ---
 
@@ -21,7 +21,7 @@ The subject of the email can be roughly divided into the following types
 
 
 
-## 2. Mail Specifications
+## 2. Mail specifications
 :::caution general specification
 - Whenever possible do not send plain HTML messages, but plain text. If you use QQ mailbox, its email content is in html format by default. Please switch to plain text text format when writing. For detailed switching instructions, see the appendix of this article.
 - Developers/community users/PPMC members initiate email discussions/needs for help/notifications for the content of the above scenarios, please send them to dev@linkis.apache.org
@@ -80,7 +80,7 @@ From the determination of a version to the release, it may involve specific comm
 4. New committer/ppmc votes need to be sent to private@linkis.apache.org. See https://community.apache.org/newcommitter.html for the new committee/ppmc selection process
 
 
-## 5. How to Reply to Version Release Voting Emails
+## 5. How to reply to version release voting emails
 If a release vote is initiated, after verification (see [How to verify](how-to-verify.md) for the detailed verification process), you can refer to this reply example for email reply
 
 If you initiate a posting vote, you can refer to this response example to reply to the email after verification

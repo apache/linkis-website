@@ -1,5 +1,5 @@
 ---
-title: 发布版本验证
+title: 版本物料的验证
 sidebar_position: 4
 ---
 # 验证候选版本
@@ -245,7 +245,7 @@ $ cd apache-linkis-${release_version}-incubating-bin
 详细的检查项，可以参考此文章：[ASF第三方许可证策](https://apache.org/legal/resolved.html)
  
  
-## 3.邮件回复 
+## 3. 邮件回复 
 
 如果发起了发布投票，验证后，可以参照此回复示例进行邮件回复
 
@@ -254,7 +254,7 @@ $ cd apache-linkis-${release_version}-incubating-bin
 
 PPMC在dev@linkis.apache.org linkis的社区投票时，请带上 binding后缀，表示对linkis社区中的投票具有约束性投票，方便统计投票结果。
 
-IPMC在general@incubator.apache.org incubator社区投票，请带上 binding后缀，表示表示对incubator社区中的投票具有约束性投票，方便统计投票结果。
+IPMC在general@incubator.apache.org incubator社区投票，请带上 binding后缀，表示对incubator社区中的投票具有约束性投票，方便统计投票结果。
 
 </font>
 

@@ -182,7 +182,7 @@ git push origin dev-fix dev-fix
 - Issue 名称，应一句话简单描述您的问题或建议；为了项目的国际化推广，请用英文，或中英文双语书写 issue.
 - 每个Issue，请至少带上component 和type 两个label，如component=Computation Governance/EngineConn，type=Improvement.参考:[issue #590](https://github.com/apache/incubator-linkis/issues/590)
 
-### 2.3 Pull Request(PR) 提交指引
+### 2.4 Pull Request(PR) 提交指引
 
 - 如果您还不知道怎样向开源项目发起 PR，请参考[About pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
 - 无论是 Bug 修复，还是新功能开发，请将 PR 提交到 dev-* 分支。
@@ -191,11 +191,11 @@ git push origin dev-fix dev-fix
 - 如果本次 PR 尚未准备好合并，请在名称头部加上 [WIP] 前缀（WIP = work-in-progress）。
 - 所有提交到 dev-* 分支的提交至少需要经过一次 Review 才可以被合并
 
-### 2.4 Review 标准
+### 2.5 Review 标准
 
 在贡献代码之前，可以了解一下什么样的提交在 Review 中是受欢迎的。简单来说，如果一项提交能带来尽可能多增益和尽可能少的副作用或风险，那它被合并的几率就越高，Review 的速度也会越快。风险大、价值低的提交是几乎不可能被合并的，并且有可能会被拒绝 Review。
 
-#### 2.4.1 增益
+#### 2.5.1 增益
 
 - 修复导致 Bug 的主要原因
 - 添加或修复一个大量用户亟需的功能或问题
@@ -204,7 +204,7 @@ git push origin dev-fix dev-fix
 - 减少复杂度以及代码量
 - 经社区讨论过的、确定需要改进的问题
 
-#### 2.4.2 副作用和风险
+#### 2.5.2 副作用和风险
 
 - 仅仅修复 Bug 的表面现象
 - 引入复杂度高的新功能
@@ -215,7 +215,7 @@ git push origin dev-fix dev-fix
 - 随意改变依赖版本
 - 一次性提交大量代码或改动
 
-#### 2.4.3 Reviewer 注意事项
+#### 2.5.3 Reviewer 注意事项
 
 - 请使用建设性语气撰写评论
 - 如果需要提交者进行修改，请明确说明完成此次 Pull Request 所需要修改的所有内容

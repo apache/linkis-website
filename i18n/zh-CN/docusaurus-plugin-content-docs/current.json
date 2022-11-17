@@ -1,6 +1,6 @@
 {
   "version.label": {
-    "message": "Next(1.3.0)",
+    "message": "Next(1.3.1)",
     "description": "The label for version current"
   },
   "sidebar.tutorialSidebar.category.Deployment": {
@@ -18,6 +18,10 @@
   "sidebar.tutorialSidebar.category.Tuning And Troubleshooting": {
     "message": "调优排障",
     "description": "The label for category Tuning And Troubleshooting in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Error Guide": {
+    "message": "错误码",
+    "description": "The label for category Error Guide in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.API Docs": {
     "message": "API文档",

@@ -1,5 +1,5 @@
 ---
-title: Linkis-Client Architecture Design
+title: Linkis-Client Architecture
 sidebar_position: 3
 ---
 

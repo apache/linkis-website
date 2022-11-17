@@ -11,7 +11,7 @@ As long as you subscribe to this mailing list, you can get the latest developmen
 
 **Linkis project mailing list**
 
-|name|description|Subscribe|Unsubscribe|archive|
+|Name|Description|Subscribe|Unsubscribe|Archive|
 |:-----|:--------|:------|:-------|:-----|
 | [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | community activity information | [subscribe](mailto:dev-subscribe@linkis.apache.org) | [unsubscribe](mailto:dev-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-dev) |
 | [commits@linkis.apache.org](mailto:commits@linkis.apache.org) | Code repo update information | [subscribe](mailto:commits-subscribe@linkis.apache.org) | [unsubscribe](mailto:commits-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-commits) |
