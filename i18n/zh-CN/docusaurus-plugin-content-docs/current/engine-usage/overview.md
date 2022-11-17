@@ -3,33 +3,25 @@ title: 总览
 sidebar_position: 0
 ---
 ## 1. 概述
-Linkis作为一款功能强大的计算中间件，可以方便的对接不同的计算引擎，通过屏蔽不同计算引擎的使用细节，并向上提供了一套统一的使用接口，
-使得部署和应用Linkis的大数据平台的运维成本大大降低，目前，Linkis已经对接了几款主流的计算引擎，基本上涵盖了上生产上对数据的需求，
-为了提供更好的可拓展性，Linkis同时提供了接入新引擎的相关接口，可以利用该接口接入新的计算引擎。 
+`Linkis` 作为一款功能强大的计算中间件，可以方便的对接不同的计算引擎，通过屏蔽不同计算引擎的使用细节，并向上提供了一套统一的使用接口，
+使得部署和应用 `Linkis` 的大数据平台的运维成本大大降低，目前， `Linkis` 已经对接了几款主流的计算引擎，基本上涵盖了上生产上对数据的需求，
+为了提供更好的可拓展性， `Linkis` 同时提供了接入新引擎的相关接口，可以利用该接口接入新的计算引擎。 
  
-引擎是提供给用户数据处理和分析能力的组件，目前已经接入Linkis的引擎，有主流的大数据计算引擎Spark、Hive、Presto等，也有python、Shell这些脚本处理数据能力的引擎。
-DataSphereStudio作为对接了Linkis的一站式数据操作平台，用户可以方便的在DataSphereStudio中使用Linkis支持的引擎完成交互式数据分析任务和工作流任务。
+引擎是提供给用户数据处理和分析能力的组件，目前已经接入 `Linkis` 的引擎，有主流的大数据计算引擎 `Spark` 、 `Hive` 、 `Presto` 等，也有 `python` 、 `Shell` 这些脚本处理数据能力的引擎。
+`DataSphereStudio` 作为对接了 `Linkis` 的一站式数据操作平台，用户可以方便的在 `DataSphereStudio` 中使用 `Linkis` 支持的引擎完成交互式数据分析任务和工作流任务。
 
-| 引擎          | 是否支持Scriptis |   是否支持工作流   |
-|-------------| ----  | ---- |
-| Spark       | 支持 |  支持 |
-| Hive        | 支持 | 支持 |
-| Python      | 支持 | 支持 |
-| Shell       | 支持 | 支持 |
-| JDBC        | 支持 | 支持 |
-| Flink       | 支持 | 支持 |
-| OpenLooKeng | 支持 | 支持 |
+支持引擎及版本信息如下：
 
-## 2. 文档结构
-已经接入的引擎相关文档可以参考如下文档。  
-- [Spark 引擎使用](spark.md)  
-- [Hive 引擎使用](hive.md)  
-- [Python 引擎使用](python.md)  
-- [Shell 引擎使用](shell.md)  
-- [JDBC 引擎使用](jdbc.md)  
-- [Flink 引擎使用](flink.md)  
-- [OpenLooKeng 引擎使用](openlookeng.md) 
-- [PipeLine 引擎使用](pipeline.md) 
-- [Sqoop 引擎使用](sqoop.md) 
-- [Presto 引擎使用](presto.md) 
-- [Elasticsearch 引擎使用](elasticsearch.md) 
+| 引擎          | 默认引擎 | 默认版本 |
+|-------------| -- | ----   |
+| [Spark](./spark.md)       | 是 | 2.4.3 |
+| [Hive](./hive.md)        | 是 | 2.3.3 |
+| [Python](./python.md)      | 是 | python2 |
+| [Shell](./shell.md)       | 是 | 1 |
+| [JDBC](./jdbc.md)        | 否 | 4 |
+| [Flink](./flink.md)       | 否 | 1.12.2 |
+| [OpenLooKeng](./openlookeng.md) | 否 | 1.5.0 |
+| [Pipeline](./pipeline.md) | 否 | 1 |
+| [Presto](./presto.md) | 否 | 0.234 |
+| [Sqoop](./sqoop.md) | 否 | 1.4.6 |
+| [Elasticsearch](./elasticsearch.md) | 否 | 7.6.2 |

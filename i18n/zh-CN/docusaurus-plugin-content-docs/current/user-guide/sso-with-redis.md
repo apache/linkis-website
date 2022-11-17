@@ -1,5 +1,5 @@
 ---
-title: Session 支持 Redis 共享存储
+title: LinkisGateway 如何支持多活
 sidebar_position: 8
 ---
 ## 背景
