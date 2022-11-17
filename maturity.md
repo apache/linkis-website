@@ -81,8 +81,7 @@ Mentors and community members are encouraged to contribute to this page and comm
 
 | **ID**   | **Description**                                                                                                                                                                                                                                                                 | **Status** |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **IN10** | The project is independent from any corporate or organizational influence. | :white_check_mark:  The PPMC members of Linkis are from  15 different organizations(Beluga Open Source, Binance.us, Boss Zhipin, ByteDance, Clory and Smy Cloud, Guanzhou Bank, HONOR, Hangzhou Link Cloud Technology Co., Ltd., Huawei, Kyligence Inc, Sensors Data, Tencent, Tianyi Cloud, WeBank, iQIYI)(2022/10/26). 
-are from 15+ companies, and majority of them are NOT From the company that donated this project. |
+| **IN10** | The project is independent from any corporate or organizational influence. | :white_check_mark:  The PPMC members of Linkis are from  15 different organizations(Beluga Open Source, Binance.us, Boss Zhipin, ByteDance, Clory and Smy Cloud, Guanzhou Bank, HONOR, Hangzhou Link Cloud Technology Co., Ltd., Huawei, Kyligence Inc, Sensors Data, Tencent, Tianyi Cloud, WeBank, iQIYI)(2022/10/26).|
 | **IN20** | Contributors act as themselves, not as representatives of a corporation or organization. | :white_check_mark:  The contributors act on their own initiative without representing a corporation or organization. |
 
 ----------------
