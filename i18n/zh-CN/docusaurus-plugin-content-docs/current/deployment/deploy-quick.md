@@ -240,22 +240,14 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 ### 3.3 配置调整（可选）
 > 以下操作，跟依赖的环境有关，根据实际情况，确定是否需要操作 
 
-#### 3.3.1 kerberos认证 
-如果使用的hive集群开启了kerberos模式认证，修改配置`${LINKIS_HOME}/conf/linkis.properties`（<=1.1.3）文件
-```shell script
-#追加以下配置 
-echo "wds.linkis.keytab.enable=true" >> linkis.properties
-```
-#### 3.3.2 Yarn的认证 
+#### 3.3.1 Yarn的认证 
 
 执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
 执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
 如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
 详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)
 
-
-
-#### 3.3.3 session 
+#### 3.3.2 session 
 如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties

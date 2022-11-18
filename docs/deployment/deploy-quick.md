@@ -240,22 +240,14 @@ cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-commons/public-modul
 ### 3.3 Configuration Adjustment (Optional)
 > The following operations are related to the dependent environment. According to the actual situation, determine whether the operation is required
 
-#### 3.3.1 kerberos authentication
-If the hive cluster used has kerberos mode authentication enabled, modify the configuration `${LINKIS_HOME}/conf/linkis.properties` (<=1.1.3) file
-```shell script
-#Append the following configuration
-echo "wds.linkis.keytab.enable=true" >> linkis.properties
-````
-#### 3.3.2 Yarn Authentication
+#### 3.3.1 Yarn Authentication
 
 When executing spark tasks, you need to use the ResourceManager of yarn, which is controlled by the configuration item `YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `.
 During installation and deployment, the `YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` information will be updated to the database table `linkis_cg_rm_external_resource_provider`. By default, access to yarn resources does not require permission verification.
 If password authentication is enabled in yarn's ResourceManager, please modify the yarn data information generated in the database table `linkis_cg_rm_external_resource_provider` after installation and deployment.
 For details, please refer to [Check whether the yarn address is configured correctly] (#811-Check whether the yarn address is configured correctly)
 
-
-
-#### 3.3.3 session
+#### 3.3.2 session
 If you are upgrading to Linkis. Deploy DSS or other projects at the same time, but the dependent linkis version introduced in other software is <1.1.1 (mainly in the lib package, the linkis-module-x.x.x.jar package of the dependent Linkis is <1.1.1), you need to modify the linkis located in ` ${LINKIS_HOME}/conf/linkis.properties` file
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
