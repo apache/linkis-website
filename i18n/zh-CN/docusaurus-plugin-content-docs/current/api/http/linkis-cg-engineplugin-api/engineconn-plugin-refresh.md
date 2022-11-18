@@ -4,9 +4,9 @@ sidebar_position: 2
 --- 
 >主要用于引擎的物料资源({LINKIS_INSTALL_HOME}/lib/linkis-engineconn-plugin 下，引擎的jar包/配置文件 )更新至BML中。
 
-## refesh
+## refresh
 
-**接口地址**:`/api/rest_j/v1/engineplugin/refesh`
+**接口地址**:`/api/rest_j/v1/engineplugin/refresh`
 
 
 **请求方式**:`GET`
@@ -28,6 +28,16 @@ sidebar_position: 2
 |ecType|引擎类型|query|true|string||
 |version|版本 可以为空或则*|query|false|string||
 
+**请求示例**:
+```
+#url
+http://ip:port/api/rest_j/v1/engineplugin/refresh?ecType=hive&version=v2.3.3 
+
+#请求头部
+Content-Type:application/json
+Token-Code:BML-AUTH
+Token-User:hadoop  
+```
 
 **响应参数**:
 
@@ -53,10 +63,10 @@ sidebar_position: 2
 ```
 
 
-## refeshAll
+## refreshAll
 
 
-**接口地址**:`/api/rest_j/v1/engineplugin/refeshAll`
+**接口地址**:`/api/rest_j/v1/engineplugin/refreshAll`
 
 
 **请求方式**:`GET`
