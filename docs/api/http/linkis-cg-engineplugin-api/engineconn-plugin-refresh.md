@@ -4,7 +4,7 @@ sidebar_position: 0.1
 ---
 >The material resources mainly used for the engine (under {LINKIS_INSTALL_HOME}/lib/linkis-engineconn-plugin, the jar package/configuration file of the engine) are updated to BML.
 
-## refesh
+## refresh
 
 **Interface address**:`/api/rest_j/v1/engineplugin/refresh`
 
@@ -64,7 +64,7 @@ Token-User:hadoop
 ````
 
 
-##refeshAll
+##refreshAll
 
 
 **Interface address**:`/api/rest_j/v1/engineplugin/refreshAll`
