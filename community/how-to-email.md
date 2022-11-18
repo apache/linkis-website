@@ -9,6 +9,17 @@ To subscribe to the mailing list, please refer to this [Subscription Guidelines]
 
 Linkis' archived mail can be viewed here [archived mail](https://lists.apache.org/list.html?dev@linkis.apache.org)
 
+:::caution Notice
+Since mailbox 163/sina replies with Chinese "reply" by default, it will cause the apache mail to be recognized as a new thread mail.
+The following takes 163 mailboxes as an example:
+:::
+
+![Email reply](/Images/Architecture/email-reply.png)
+
+**Therefore, you need to modify the general settings of the mailbox**
+
+![mailbox-settings](/Images/Architecture/mailbox-settings.png)
+
 ## 1. Themes
 The subject of the email can be roughly divided into the following types
 - **\[DISCUSS]** Discussion on a feature/function/logic modification/CI/CD, which can be implementation/design/optimization suggestion, etc.

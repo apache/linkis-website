@@ -9,6 +9,17 @@ Many things in the daily operation and maintenance of the community are carried 
 
 As long as you subscribe to this mailing list, you can get the latest developments in the Linkis community for the first time and keep pace with the community.
 
+:::caution Notice
+Since mailbox 163/sina replies with Chinese "reply" by default, it will cause the apache mail to be recognized as a new thread mail.
+The following takes 163 mailboxes as an example:
+:::
+
+![Email reply](/Images/Architecture/email-reply.png)
+
+**Therefore, you need to modify the general settings of the mailbox**
+
+![mailbox-settings](/Images/Architecture/mailbox-settings.png)
+
 **Linkis project mailing list**
 
 |Name|Description|Subscribe|Unsubscribe|Archive|

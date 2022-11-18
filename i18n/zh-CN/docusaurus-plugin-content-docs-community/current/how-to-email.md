@@ -9,6 +9,19 @@ sidebar_position: 1.1
 
 Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.org/list.html?dev@linkis.apache.org)
 
+:::caution 注意
+
+由于邮箱163/sina 回复时候 默认是带上中文“回复”会导致apache 邮件识别为一封新线程邮件。
+下面以163邮箱为示例：
+
+:::
+
+![Email reply](/Images-zh/Architecture/email-reply.png)
+
+**因此需修改邮箱常规设置**
+
+![mailbox-settings](/Images-zh/Architecture/mailbox-settings.png)
+
 ## 1. 主题种类 
 邮件的主题可以大体分为以下几种类型
 - **\[DISCUSS]**  针对某一特性/功能/逻辑修改/CI/CD的讨论，可以是实现方式/设计/优化建议等等 
