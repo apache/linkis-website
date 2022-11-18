@@ -1,9 +1,99 @@
 ---
-title: JAVA SDK 的使用
+title: Linkis SDK 的使用
 sidebar_position: 3
 ---
 
-> Linkis 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-computation-client的模块就可以进行使用，1.0后新增支持带Label提交的方式，下面将对兼容0.X的方式和1.0新增的方式进行介绍
+> Linkis 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-computation-client的模块就可以进行使用，1.0后新增支持带Label提交的方式，下面将对 SDK 使用方式进行介绍。
+
+
+**Linkis 支持的引擎版本**
+
+| 引擎         | 支持版本 |
+|-------------| ----   |
+| Spark      | 2.4.3 |
+| Hive        | 2.3.3 |
+| Python     |python2, python3 |
+| Shell      | 1 |
+| JDBC        | 4 |
+| Flink      |1.12.2 |
+| OpenLooKeng | 1.5.0 |
+| Pipeline | 1 |
+| Presto | 0.234 |
+| Sqoop | 1.4.6 |
+| Elasticsearch | 7.6.2 |
+| trino | 371 |
+
+**引擎支持的脚本类型**
+
+<table>
+  <tr>
+    <td rowspan="3">Spark</td>
+    <th>py</th>
+    <th>python脚本</th>  
+  </tr >
+  <tr>
+    <th>scala</th>
+    <th>scala脚本</th>  
+  </tr>
+  <tr>
+    <th>sql</th>
+    <th>sql脚本</th>  
+  </tr>
+  <tr>
+    <th>Hive</th>
+    <th>hql</th>
+    <th>hql脚本</th>  
+  </tr >
+  <tr>
+    <th>Python</th>
+    <th>python</th>
+    <th>python脚本</th>  
+  </tr >
+  <tr>
+    <th>Shell</th>
+    <th>shell</th>
+    <th>shell脚本</th>  
+  </tr >
+  <tr>
+    <th>JDBC</th>
+    <th>jdbc</th>
+    <th>sql脚本名</th>  
+  </tr >
+  <tr>
+    <th>OpenLooKeng</th>
+    <th>sql</th>
+    <th>sql脚本</th>  
+  </tr >
+  <tr>
+    <th>Pipeline</th>
+    <th>pipeline</th>
+    <th>文件导入导出</th>  
+  </tr >
+  <tr>
+    <th>Presto</th>
+    <th>psql</th>
+    <th>sql脚本</th>  
+  </tr >
+  <tr>
+    <th>Sqoop</th>
+    <th>appconn</th>
+    <th>文件导入导出</th>  
+  </tr >
+  <tr>
+    <th rowspan="2">Elasticsearch</th>
+    <th>esjson</th>
+    <th>json脚本</th>  
+  </tr >
+  </tr>
+    <th>essql</th>
+    <th>sql脚本</th>  
+  </tr >
+  <tr>
+    <th>trino</th>
+    <th>tsql</th>
+    <th>sql脚本</th>  
+  </tr >
+</table>
 
 ## 1. 引入依赖模块
 ```

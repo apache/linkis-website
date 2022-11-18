@@ -3,7 +3,104 @@ title: Linkis Client SDK
 sidebar_position: 2
 ---
 
-> Linkis provides a convenient interface for calling JAVA and SCALA. It can be used only by introducing the linkis-computation-client module. After 1.0, the method of submitting with Label is added. The following will introduce both ways that compatible with 0.X and newly added in 1.0.
+> Linkis provides a convenient interface for calling JAVA and SCALA. It can be used only by introducing the linkis-computation-client module. After 1.0, the method of submitting with Label is added. The following will introduce the usage of Linkis SDK.
+
+
+**The engine version supported by Links**
+
+| engine plugin         | support version |
+|-------------| ----   |
+| Spark      | 2.4.3 |
+| Hive        | 2.3.3 |
+| Python     |python2, python3 |
+| Shell      | 1 |
+| JDBC        | 4 |
+| Flink      |1.12.2 |
+| OpenLooKeng | 1.5.0 |
+| Pipeline | 1 |
+| Presto | 0.234 |
+| Sqoop | 1.4.6 |
+| Elasticsearch | 7.6.2 |
+| trino | 371 |
+
+**Script types supported by the engine**
+
+<table>
+	<tr>
+	    <th>engine</th>
+	    <th>script types</th>
+	    <th>notes</th>  
+	</tr >
+	
+  <tr>
+    <td rowspan="3">Spark</td>
+    <th>py</th>
+    <th>python script</th>  
+  </tr >
+  <tr>
+    <th>scala</th>
+    <th>scala script</th>  
+  </tr>
+  <tr>
+    <th>sql</th>
+    <th>sql script</th>  
+  </tr>
+  <tr>
+    <th>Hive</th>
+    <th>hql</th>
+    <th>hql script名</th>  
+  </tr >
+  <tr>
+    <th>Python</th>
+    <th>python</th>
+    <th>python script</th>  
+  </tr >
+  <tr>
+    <th>Shell</th>
+    <th>shell</th>
+    <th>shell script</th>  
+  </tr >
+  <tr>
+    <th>JDBC</th>
+    <th>jdbc</th>
+    <th>sql script</th>  
+  </tr >
+  <tr>
+    <th>OpenLooKeng</th>
+    <th>sql</th>
+    <th>sql script</th>  
+  </tr >
+  <tr>
+    <th>Pipeline</th>
+    <th>pipeline</th>
+    <th>file import and export</th>  
+  </tr >
+  <tr>
+    <th>Presto</th>
+    <th>psql</th>
+    <th>sql script</th>  
+  </tr >
+  <tr>
+    <th>Sqoop</th>
+    <th>appconn</th>
+    <th>file import and export</th>  
+  </tr >
+  <tr>
+    <th rowspan="2">Elasticsearch</th>
+    <th>esjson</th>
+    <th>json script</th>  
+  </tr >
+  </tr>
+    <th>essql</th>
+    <th>sql script</th>  
+  </tr >
+  <tr>
+    <th>trino</th>
+    <th>tsql</th>
+    <th>sql script</th>  
+  </tr >
+</table>
+
 
 ## 1. Introduce dependent modules
 ```
