@@ -117,6 +117,27 @@ linkis-public-enhancements/linkis-datasource
 
 参见[调优排障>参数列表#datasource配置参数](/docs/1.1.0/tuning-and-troubleshooting/configuration/#6-数据源及元数据服务配置参数)
 
+### 1.6 新增数据驱动
+1.背景说明：由于某些数据库驱动程序包与Apache许可证不兼容，需要自己引入驱动程序
+
+2.新驱动程序目录：./lib/linkis-public-enhancements/linkis-ps-publicservice
+
+3.驱动程序列表
+
+|  drive name   |  drive version | download link |
+| ----------- |  ----------- |----------- |
+| db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
+|
+| dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
+| mysql | 5.1.34 | https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar |
+|kingbase| kingbase8 | http://maven.jeecg.org/nexus/content/repositories/jeecg/kingbase/kingbase8/8/kingbase8-8.jar |
+|greenplum | 5.1.4 | https://network.pivotal.io/products/vmware-tanzu-greenplum#/releases/985537/file_groups/5749 |
+| postgresql | 42.3.1 | https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar| 
+| sqlserver | sqlserver2000 | https://www.microsoft.com/en-us/download/details.aspx?id=11774 |
+| oracle | 11.2.0.3 | http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar |
+
+
+
 ## 2. 数据源功能的启用
 
 linkis的启动脚本中默认不会启动数据源相关的服务两个服务（ps-data-source-manager，ps-metadatamanager），

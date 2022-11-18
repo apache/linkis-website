@@ -117,69 +117,25 @@ linkis-public-enhancements/linkis-datasource
 
 See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/tuning-and-troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
 
-### 1.6 Data Driven POM
-Driver profiles not loaded by default
-> linkis-metadata-query-jdbc
-```xml
-<!--db2-->
-<dependency>
-    <groupId>com.ibm.db2.jcc</groupId>
-    <artifactId>db2jcc</artifactId>
-    <version>db2jcc4</version>
-</dependency>
-<!--dameng-->
-<dependency>
-    <groupId>com.dameng</groupId>
-    <artifactId>Dm7JdbcDriver16</artifactId>
-    <version>7.6.0.165</version>
-</dependency>
-<!--mysql-->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.34</version>
-</dependency>
-<!--kingbase-->
-<dependency>
-    <groupId>com.kingbase</groupId>
-    <artifactId>kingbase8</artifactId>
-    <version>8.2.0</version>
-</dependency>
-<!--greenplum-->
-<dependency>
-    <groupId>com.pivotal</groupId>
-    <artifactId>greenplum-jdbc</artifactId>
-    <version>5.1.4</version>
-</dependency>
-<!--postgresql-->
-<dependency>
-    <groupId>org.postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <version>42.3.1</version>
-</dependency>
-<!--sqlserver-->
-<dependency>
-    <groupId>com.microsoft.jdbc.sqlserver</groupId>
-    <artifactId>msbase</artifactId>
-    <version>1.0</version>
-    <scope>system</scope>
-    <systemPath>${basedir}/src/main/lib/msbase-1.0.jar</systemPath>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.jdbc.sqlserver</groupId>
-    <artifactId>msutil</artifactId>
-    <version>1.0</version>
-    <scope>system</scope>
-    <systemPath>${basedir}/src/main/lib/msutil-1.0.jar</systemPath>
-</dependency>
-<dependency>
-    <groupId>com.microsoft.jdbc.sqlserver</groupId>
-    <artifactId>mssqlserver</artifactId>
-    <version>1.0</version>
-    <scope>system</scope>
-    <systemPath>${basedir}/src/main/lib/mssqlserver-1.0.jar</systemPath>
-</dependency>
-```
+### 1.6 New Data Driven
+1.Background note: Because some database driver packages are not compatible with the Apache license, you need to introduce the driver yourself
+
+2.New Driver Directory：./lib/linkis-public-enhancements/linkis-ps-publicservice
+
+3.Driver list
+
+|  drive name   |  drive version | download link |
+| ----------- |  ----------- |----------- |
+| db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
+|
+| dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
+| mysql | 5.1.34 | https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar |
+|kingbase| kingbase8 | http://maven.jeecg.org/nexus/content/repositories/jeecg/kingbase/kingbase8/8/kingbase8-8.jar |
+|greenplum | 5.1.4 | https://network.pivotal.io/products/vmware-tanzu-greenplum#/releases/985537/file_groups/5749 |
+| postgresql | 42.3.1 | https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar| 
+| sqlserver | sqlserver2000 | https://www.microsoft.com/en-us/download/details.aspx?id=11774 |
+| oracle | 11.2.0.3 | http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar |
+
 
 
 ## 2. Enable data source function
