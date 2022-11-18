@@ -265,16 +265,14 @@ After the installation is complete, if you need to modify the configuration (bec
 ### 3.6 Check whether the service starts normally
 Visit the eureka service page (http://eurekaip:20303),
 The 1.x.x version will start 8 Linkis microservices by default, and the linkis-cg-engineconn service in the figure below will be started only for running tasks
-![Linkis1.0_Eureka](/Images/deployment/Linkis1.0_combined_eureka.png)
+![Linkis1.0_Eureka](./images/eureka.png)
 
 ```shell script
 LINKIS-CG-ENGINECONNMANAGER Engine Management Services
-LINKIS-CG-ENGINEPLUGIN Engine Plugin Management Service
 LINKIS-CG-ENTRANCE Computing Governance Entry Service
 LINKIS-CG-LINKISMANAGER Computing Governance Management Service
 LINKIS-MG-EUREKA Microservice registry service
 LINKIS-MG-GATEWAY gateway service
-LINKIS-PS-CS context service
 LINKIS-PS-PUBLICSERVICE Public Service
 ````
 If the data source service function is enabled (not enabled by default), you will see these two services
@@ -513,7 +511,7 @@ The normal is as follows:
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).
 
 - If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](install-engineconn#23-Engine Refresh)).
-- Check the specific reasons for material failure through `log/linkis-cg-engineplugin.log` log. In many cases, it may be caused by the lack of permissions in the hdfs directory
+- Check the specific reasons for material failure through `log/linkis-cg-linkismanager.log` log. In many cases, it may be caused by the lack of permissions in the hdfs directory
 - Check whether the gateway address configuration is correct. The configuration item `wds.linkis.gateway.url` of `conf/linkis.properties`
 
 The material resources of the engine are uploaded to the hdfs directory by default as `/apps-data/${deployUser}/bml`

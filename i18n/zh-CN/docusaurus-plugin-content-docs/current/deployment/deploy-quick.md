@@ -265,16 +265,14 @@ sh sbin/linkis-start-all.sh
 ### 3.6 检查服务是否正常启动 
 访问eureka服务页面(http://eurekaip:20303)，
 1.x.x版本默认会启动8个Linkis微服务，其中图下linkis-cg-engineconn服务为运行任务才会启动
-![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
+![Linkis1.0_Eureka](./images/eureka.png)
 
 ```shell script
 LINKIS-CG-ENGINECONNMANAGER 引擎管理服务 
-LINKIS-CG-ENGINEPLUGIN  引擎插件管理服务 
 LINKIS-CG-ENTRANCE  计算治理入口服务
 LINKIS-CG-LINKISMANAGER  计算治理管理服务 
 LINKIS-MG-EUREKA        微服务注册中心服务   
 LINKIS-MG-GATEWAY  网关服务 
-LINKIS-PS-CS 上下文服务
 LINKIS-PS-PUBLICSERVICE 公共服务 
 ```
 如果开启了数据源服务功能(默认未开启),会看到这两个服务 
@@ -513,7 +511,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
 
 - 如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](install-engineconn#23-引擎刷新))。
-- 通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致
+- 通过`log/linkis-cg-linkismanager.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致
 - 检查gateway地址配置是否正确`conf/linkis.properties`的配置项`wds.linkis.gateway.url`
 
 引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`
