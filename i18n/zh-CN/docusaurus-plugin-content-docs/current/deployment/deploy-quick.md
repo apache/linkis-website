@@ -199,6 +199,17 @@ export ENABLE_HIVE=false
 export ENABLE_SPARK=false
 ```
 
+#### kerberos认证(可选)
+
+> 默认 Linkis 未开启 kerberos 认证，如果使用的hive集群开启了 kerberos 模式认证，需要配置如下参数。
+
+修改 `linkis-env.sh` 文件，修改内容如下
+```bash
+#HADOOP
+HADOOP_KERBEROS_ENABLE=true
+HADOOP_KEYTAB_PATH=/appcom/keytab/
+```
+
 ## 3. 安装和启动
 
 ### 3.1 执行安装脚本：

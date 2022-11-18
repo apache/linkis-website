@@ -197,7 +197,19 @@ RESULT_SET_ROOT_PATH=file:///tmp/linkis
 export ENABLE_HDFS=false
 export ENABLE_HIVE=false
 export ENABLE_SPARK=false
-````
+```
+
+#### kerberos authentication (optional)
+
+> By default, kerberos authentication is disabled on Linkis. If kerberos authentication is enabled in the hive cluster, you need to set the following parameters:
+
+Modify the `linkis-env.sh` file and modify the following
+
+```bash
+#HADOOP
+HADOOP_KERBEROS_ENABLE=true
+HADOOP_KEYTAB_PATH=/appcom/keytab/
+```
 
 ## 3. Install and start
 
