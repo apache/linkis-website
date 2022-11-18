@@ -4,9 +4,9 @@ sidebar_position: 0.1
 ---
 >The material resources mainly used for the engine (under {LINKIS_INSTALL_HOME}/lib/linkis-engineconn-plugin, the jar package/configuration file of the engine) are updated to BML.
 
-## refesh
+## refresh
 
-**Interface address**:`/api/rest_j/v1/engineplugin/refesh`
+**Interface address**:`/api/rest_j/v1/engineplugin/refresh`
 
 
 **Request method**: `GET`
@@ -27,6 +27,17 @@ sidebar_position: 0.1
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |ecType|Engine Type|query|true|string||
 |version|version can be empty or *|query|false|string||
+
+**Sample Request**:
+```
+#url
+http://ip:port/api/rest_j/v1/engineplugin/refresh?ecType=hive&version=v2.3.3 
+
+#Request Header
+Content-Type:application/json
+Token-Code:BML-AUTH
+Token-User:hadoop  
+```
 
 
 **Response parameters**:
@@ -53,10 +64,10 @@ sidebar_position: 0.1
 ````
 
 
-##refeshAll
+##refreshAll
 
 
-**Interface address**:`/api/rest_j/v1/engineplugin/refeshAll`
+**Interface address**:`/api/rest_j/v1/engineplugin/refreshAll`
 
 
 **Request method**: `GET`
