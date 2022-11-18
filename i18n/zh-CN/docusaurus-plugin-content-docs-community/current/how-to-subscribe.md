@@ -10,6 +10,14 @@ Apache为每一个项目都配置了一系列的邮件列表，邮件列表作�
 
 只要订阅了这个邮件列表，可以第一时间获取Linkis社区的最新动态，与社区保持同步。
 
+**注意**：由于邮箱163/sina 回复时候 默认是带上中文“回复”会导致apache 邮件识别为一封新线程邮件。以163邮箱为示例：
+
+![Email reply](/Images-zh/Architecture/email-reply.png)
+
+因此需修改邮箱常规设置。
+
+![mailbox-settings](/Images-zh/Architecture/mailbox-settings.png)
+
 **Linkis项目邮件列表**
 
 |名称|描述|订阅邮件|退订邮件|邮件归档|
