@@ -287,11 +287,8 @@ LINKIS-MG-EUREKA Microservice registry service
 LINKIS-MG-GATEWAY gateway service
 LINKIS-PS-PUBLICSERVICE Public Service
 ````
-If the data source service function is enabled (not enabled by default), you will see these two services
-```shell script
-LINKIS-PS-DATA-SOURCE-MANAGER
-LINKIS-PS-METADATAMANAGER
-````
+
+Note: Linkis-ps-cs, Linkis-ps-data-source-Manager and Linkis-Ps-Metadatamanager services have been merged into Linkis-Ps-PublicService in Linkis 1.3.1 and merge LINKIS-CG-ENGINECONNMANAGER services into LINKIS-CG-LINKISMANAGER.
 
 If any services are not started, you can view detailed exception logs in the corresponding log/${service name}.log file.
 

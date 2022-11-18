@@ -199,7 +199,7 @@ export ENABLE_HIVE=false
 export ENABLE_SPARK=false
 ```
 
-#### kerberos认证(可选)
+#### kerberos 认证(可选)
 
 > 默认 Linkis 未开启 kerberos 认证，如果使用的hive集群开启了 kerberos 模式认证，需要配置如下参数。
 
@@ -286,11 +286,8 @@ LINKIS-MG-EUREKA        微服务注册中心服务   
 LINKIS-MG-GATEWAY  网关服务 
 LINKIS-PS-PUBLICSERVICE 公共服务 
 ```
-如果开启了数据源服务功能(默认未开启),会看到这两个服务 
-```shell script
-LINKIS-PS-DATA-SOURCE-MANAGER  
-LINKIS-PS-METADATAMANAGER
-```
+
+注意：在 Linkis 1.3.1 中已将 LINKIS-PS-CS、LINKIS-PS-DATA-SOURCE-MANAGER、LINKIS-PS-METADATAMANAGER服务合并到LINKIS-PS-PUBLICSERVICE，将LINKIS-CG-ENGINECONNMANAGER服务合并到LINKIS-CG-LINKISMANAGER。
 
 如果有服务未启动，可以在对应的log/${服务名}.log文件中查看详细异常日志。
 
