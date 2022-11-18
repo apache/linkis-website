@@ -264,7 +264,7 @@ After the installation is complete, if you need to modify the configuration (bec
 
 ### 3.6 Check whether the service starts normally
 Visit the eureka service page (http://eurekaip:20303),
-The 1.x.x version will start 8 Linkis microservices by default, and the linkis-cg-engineconn service in the figure below will be started only for running tasks
+The Linkis will start 6 microservices by default, and the linkis-cg-engineconn service in the figure below will be started only for running tasks
 ![Linkis1.0_Eureka](./images/eureka.png)
 
 ```shell script

@@ -264,7 +264,7 @@ sh sbin/linkis-start-all.sh
 
 ### 3.6 检查服务是否正常启动 
 访问eureka服务页面(http://eurekaip:20303)，
-1.x.x版本默认会启动8个Linkis微服务，其中图下linkis-cg-engineconn服务为运行任务才会启动
+默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动
 ![Linkis1.0_Eureka](./images/eureka.png)
 
 ```shell script
