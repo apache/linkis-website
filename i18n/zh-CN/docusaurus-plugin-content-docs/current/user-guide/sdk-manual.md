@@ -12,7 +12,7 @@ sidebar_position: 3
 |-------------| ----   |
 | Spark      | 2.4.3 |
 | Hive        | 2.3.3 |
-| Python     |python2, python3 |
+| Python     |python2 |
 | Shell      | 1 |
 | JDBC        | 4 |
 | Flink      |1.12.2 |
