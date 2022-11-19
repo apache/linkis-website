@@ -21,7 +21,7 @@ sidebar_position: 8
 
 ### 2.1 常见错误码问题解决
 
-[见常见错误码及处理方法](../../tuning-and-troubleshooting/error-guide/error-code.md)
+[常见错误码及处理方法](../../tuning-and-troubleshooting/error-guide/error-code.md)
 
 ## 3. 扩展资源管理
 

@@ -21,7 +21,7 @@ List error code information, you can query by error code or error description.
 
 ### 2.1 Common error code problem solving
 
-[See common error codes and how to deal with them](../../tuning-and-troubleshooting/error-guide/error-code.md)
+[common error codes and how to deal with them](../../tuning-and-troubleshooting/error-guide/error-code.md)
 
 ## 3. Extended resource management
 
