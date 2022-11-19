@@ -1,12 +1,11 @@
 ---
-title: Data Source Client SDK
-sidebar_position: 4
+title: 数据源 Client SDK 的使用
+sidebar_position: 7
 ---
 
-> Linkis DataSource provides a convenient interface for JAVA and SCALA calls, which can be used only by introducing the module of linkis-datasource-client
+> Linkis DataSource 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-datasource-client的模块就可以进行使用，
 
-
-## 1. import dependent modules
+## 1. 引入依赖模块
 ```
  <dependency>
    <groupId>org.apache.linkis</groupId>
@@ -21,8 +20,8 @@ sidebar_position: 4
  </dependency>
 ```
 
-## 2. Scala Test Code
-Create a Scala test class LinkisDataSourceClientTest, the specific interface meaning can be seen in the comments：
+## 2. Scala测试代码
+建立Scala的测试类LinkisDataSourceClientTest，具体接口含义可以见注释：
 ```java
 
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -84,7 +83,7 @@ def testCreateDataSourceForKafka(client:LinkisDataSourceRemoteClient): Unit ={
     dataSourceType.setName("kafka")
     dataSourceType.setId("2")
     dataSourceType.setLayers(2)
-    dataSourceType.setClassifier("message queue")
+    dataSourceType.setClassifier("消息队列")
     dataSourceType.setDescription("kafka")
     dataSource.setDataSourceType(dataSourceType)
     dataSource.setDataSourceName("kafka-test")

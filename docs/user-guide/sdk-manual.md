@@ -1,29 +1,27 @@
 ---
-title: Linkis Client SDK 
-sidebar_position: 2
+title: JAVA SDK 的使用
+sidebar_position: 3
 ---
 
-> Linkis provides a convenient interface for calling JAVA and SCALA. It can be used only by introducing the linkis-computation-client module. After 1.0, the method of submitting with Label is added. The following will introduce both ways that compatible with 0.X and newly added in 1.0.
+> Linkis 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-computation-client的模块就可以进行使用，1.0后新增支持带Label提交的方式，下面将对兼容0.X的方式和1.0新增的方式进行介绍
 
-## 1. Introduce dependent modules
+## 1. 引入依赖模块
 ```
 <dependency>
-   <groupId>org.apache.linkis</groupId>
-   <artifactId>linkis-computation-client</artifactId>
-   <version>${linkis.version}</version>
+  <groupId>org.apache.linkis</groupId>
+  <artifactId>linkis-computation-client</artifactId>
+  <version>${linkis.version}</version>
 </dependency>
-Such as:
+如：
 <dependency>
-   <groupId>org.apache.linkis</groupId>
-   <artifactId>linkis-computation-client</artifactId>
-   <version>1.0.3</version>
+  <groupId>org.apache.linkis</groupId>
+  <artifactId>linkis-computation-client</artifactId>
+  <version>1.0.3</version>
 </dependency>
 ```
 
-## 2. Java test code
-
-Create the Java test class LinkisClientTest. Refer to the comments to understand the purposes of those interfaces:
-
+## 2. Java测试代码
+建立Java的测试类LinkisClientTest，具体接口含义可以见注释：
 ```java
 package org.apache.linkis.client.test;
 
@@ -59,7 +57,7 @@ public class LinkisClientTest {
             .readTimeout(30000)  //set read timeout
             .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis authen suppory static and Token
             .setAuthTokenKey("hadoop")  // set submit user
-            .setAuthTokenValue("hadoop")))  // set passwd or token (setAuthTokenValue("test"))
+            .setAuthTokenValue("123456")))  // set passwd or token (setAuthTokenValue("test"))
             .setDWSVersion("v1") //linkis rest version v1
             .build();
 
@@ -68,7 +66,7 @@ public class LinkisClientTest {
 
     public static void main(String[] args) {
 
-        String user = "hadoop"; // execute user
+        String user = "hadoop"; // 用户需要和AuthTokenKey的值保持一致
         String executeCode = "df=spark.sql(\"show tables\")\n" +
                 "show(df)"; // code support:sql/hql/py/scala
         try {
@@ -109,7 +107,7 @@ public class LinkisClientTest {
         IOUtils.closeQuietly(client);
     }
 
-   
+
     private static JobExecuteResult toSubmit(String user, String code) {
         // 1. build  params
         // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
@@ -138,10 +136,9 @@ public class LinkisClientTest {
 }
 ```
 
-Run the above code to interact with Linkis
+运行上述的代码即可以完成任务提交/执行/日志/结果集获取等
 
-## 3. Scala test code
-Create the Scala test class LinkisClientTest. Refer to the comments to understand the purposes of those interfaces:
+## 3. Scala测试代码：
 
 ```scala
 package org.apache.linkis.client.test
