@@ -124,6 +124,12 @@
   "sidebar.tutorialSidebar.category.Feature": {
     "message": "关键特性架构",
     "description": "key feature architechture"
-  }
+  },
+  "sidebar.tutorialSidebar.category.Control Panel": {
+    "message": "管理台的使用",
+    "description": "control panel usage"
+  },
+
+  
   
 }
