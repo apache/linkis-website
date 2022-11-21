@@ -1,6 +1,6 @@
 ---
 title: 名词解释和服务介绍
-sidebar_position: 2
+sidebar_position: 0.2
 ---
 
 ## 1.名词解释
