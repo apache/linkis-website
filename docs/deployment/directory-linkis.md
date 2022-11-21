@@ -8,103 +8,125 @@ Sidebar position: 7
 ## 1. Source code directory structure
 
 ```html
-│-- linkis-dist //The final step of compiling and packaging, integrating all lib packages and installation and deployment script configuration, etc.
-│ │-- bin installation related scripts
-│ │-- deploy-config //installation configuration
-│ │-- docker
-│ │───── │-- licenses
-│ │───── │-- scripts
-│ │-- helm
-│ │───── │-- charts
-│ │──── │──── |-- linkis
-│ │──── │──── |──── |-- templates
-│ │───── │-- scripts
-│ │-- package
-│ │───── │-- bin
-│ │──── │-- conf//linkis related configuration such as linkis.properties
-│ │──── │──── |-- linkis-cli
-│ │──── │-- db//sql script
-│ │──── │-- sbin//start and stop scripts
-│ │──── │──── |-- ext
-│ │-- release-docs
-│ │-- src
-│-- linkis-commons //Core abstraction, which contains all common modules
-│ │-- linkis-common //Common module, many built-in common tools
-│ │-- linkis-hadoop-common
-│ │-- linkis-httpclient //Java SDK top-level interface further encapsulates httpclient
-│ │-- linkis-module // Linkis's service top-level public module involves parameters and service initialization when the service starts, unified Restful processing, login status verification, etc.
-│ │-- linkis-mybatis //Mybatis module of SpringCloud
-│ │-- linkis-protocol //Some interfaces and entity classes of service request/response
-│ │-- linkis-rpc //RPC module, complex two-way communication based on Feign
-│ │-- linkis-scheduler //General scheduling module
-│ │-- linkis-storage //File operation tool set
-│ │
-│-- linkis-computation-governance //Computation governance service
-│ │-- linkis-client //Java SDK, users can directly access Linkis through Client
-│ │-- linkis-computation-governance-common
-│ │-- linkis-engineconn
-│ │-- linkis-engineconn-manager
-│ │-- linkis-entrance //General underlying entrance module
-│ │-- linkis-entrance-client
-│ │-- linkis-jdbc-driver //You can use linkis to connect in a similar way to jdbc sdk
-│ │-- linkis-manager
-│
-│-- linkis-engineconn-plugins // Engine plugins
-│ │-- engineconn-plugins
-│ │-- linkis-engineconn-plugin-framework
-│
-│-- linkis-extensions // Extended function enhancement plug-in module
-│ │-- linkis-io-file-client // function extension to linkis-storage
-│
-│-- linkis-orchestrator //Service orchestration
-│ │-- linkis-code-orchestrator
-│ │-- linkis-computation-orchestrator
-│ │-- linkis-orchestrator-core
-│ │-- plugin
-│
-│-- linkis-public-enhancements //Public enhancement services
-│ │-- linkis-bml // material library
-│ │-- linkis-context-service //unified context
-│ │-- linkis-datasource //data source service
-│ │ ├── linkis-datasource-client //client code
-│ │ ├── linkis-datasource-manager //Data source management module
-│ │ │ ├── common //data source management public module
-│ │ │ └── server //Data source management service module
-│ │ ├── linkis-metadata //Existing modules of the old version, keep
-│ │ ├── linkis-metadata-manager //Data element management module
-│ │ ├── common //Data element management public module
-│ │ ├── server //Data element management service module
-│ │ └── service //supported data sources
-│ │   ├── elasticsearch
-│ │   ├── hive
-│ │   ├── kafka
-│ │ └── mysql
-│ │-- linkis-publicservice //public service
-│ │-- linkis-baseddata-manager
-│ │-- linkis-configuration
-│ │-- linkis-error-code
-│ │-- linkis-jobhistory
-│ │-- linkis-variable
-│ │-- linkis-ps-common-lock
-│
-│-- linkis-spring-cloud-services //Microservice Governance
-│ │-- linkis-service-discovery
-│ │-- linkis-service-gateway //Gateway Gateway
-│
-│-- tool //tool ​​script
-│ │-- check.sh
-│ │-- dependencies
-│
-│--linkis-web //linkis management console code
-│-- scalastyle-config.xml //Scala code format checking configuration file
-│-- CONTRIBUTING.md
-│-- CONTRIBUTING_CN.md
-│-- DISCLAIMER-WIP
-│-- LICENSE //LICENSE of project source code
-│-- NOTICE //NOTICE of project source code
-│-- README.md
-│-- README_CN.md
+├── docs
+│ ├── configuration //linkis configuration item documents for all modules
+│ ├── errorcode // error code document of all modules of linkis
+│ ├── configuration-change-records.md
+│ ├── index.md
+│ ├── info-1.1.3.md
+│ ├── info-1.2.1.md
+│ ├── info-1.3.1.md
+│ └── trino-usage.md
+├── linkis-commons //Core abstraction, which contains all common modules
+│ ├── linkis-common //Common module, many built-in common tools
+│ ├── linkis-hadoop-common
+│ ├── linkis-httpclient //Java SDK top-level interface further encapsulates httpclient
+│ ├── linkis-module // The top-level public module of linkis service involves parameters and service initialization when the service starts, unified Restful processing, login status verification, etc.
+│ ├── linkis-mybatis //Mybatis module of SpringCloud
+│ ├── linkis-protocol //Some interfaces and entity classes of service request/response
+│ ├── linkis-rpc //RPC module, complex two-way communication based on Feign
+│ ├── linkis-scheduler //General scheduling module
+│ ├── linkis-storage //File operation tool set
+├── linkis-computation-governance //Computation governance service
+│ ├── linkis-client //Java SDK, users can directly access Linkis through Client
+│ ├── linkis-computation-governance-common
+│ ├── linkis-engineconn
+│ ├── linkis-engineconn-manager
+│ ├── linkis-entrance //General underlying entrance module
+│ ├── linkis-jdbc-driver //You can use linkis to connect in a similar way to jdbc sdk
+│ ├── linkis-manager
+├── linkis-dist //The final step of compiling and packaging, integrating all lib packages and installation and deployment script configuration, etc.
+│ ├── bin
+│ │ ├── checkEnv.sh
+│ │ ├── common.sh
+│ │ └── install.sh //Installation script
+│ ├── deploy-config
+│ │ ├── db.sh //database configuration
+│ │ └── linkis-env.sh //linkis startup related configuration
+│ ├── docker
+│ │ └── scripts
+│ ├── helm
+│ │ ├── charts
+│ │ ├── scripts
+│ │ ├── README_CN.md
+│ │ └── README.md
+│ ├── package
+│ │ ├── bin
+│ │ ├── conf
+│ │ ├── db
+│ │ └── sbin
+│ ├── release-docs
+│ │ ├── licenses
+│ │ ├── LICENSE
+│ │ └── NOTICE
+│ ├── src
+│ └── pom.xml
+├── linkis-engineconn-plugins // engine
+│ ├── elasticsearch
+│ ├── flink
+│ ├──hive
+│ ├── io_file
+│ ├── jdbc
+│ ├── open look
+│ ├── pipeline
+│ ├── presto
+│ ├── python
+│ ├── seat tunnel
+│ ├── shell
+│ ├── spark
+│ ├── sqoop
+├── linkis-extensions // extension function enhancement plug-in module
+│ ├── linkis-io-file-client // function extension to linkis-storage
+├── linkis-orchestrator //Service orchestration
+│ ├── linkis-code-orchestrator
+│ ├── linkis-computation-orchestrator
+│ ├── linkis-orchestrator-core
+├── linkis-public-enhancements //public enhancement services
+│ ├── linkis-baseddata-manager
+│ ├── linkis-bml // material library
+│ ├── linkis-configuration
+│ ├── linkis-context-service //unified context
+│ ├── linkis-datasource //data source service
+│ ├── linkis-error-code
+│ ├── linkis-instance-label
+│ ├── linkis-jobhistory
+│ ├── linkis-ps-common-lock
+│ ├── linkis-script-dev
+│ ├── linkis-udf
+│ ├── linkis-variable
+├── linkis-spring-cloud-services //Microservice Governance
+│ ├── linkis-service-discovery
+│ ├── linkis-service-gateway //Gateway Gateway
+├── linkis-web //linkis management console code
+│ ├── release-docs
+│ │ ├── licenses
+│ │ └── LICENSE
+│ ├── src
+│ ├── config.sh
+│ ├── install.sh
+│ ├── package.json
+│ ├── pom.xml
+│ └── vue.config.js
+├── tool
+│ ├── dependencies
+│ │ ├── known-dependencies.txt
+│ │ └── regenerate_konwn_dependencies_txt.sh
+│ ├── code-style-idea.xml
+│ ├── license-header
+│ └── modify_license.sh
+├── CONTRIBUTING_CN.md
+├── CONTRIBUTING.md
+├── DISCLAIMER
+├── linkis-tree.txt
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── README_CN.md
+├── README.md
+└── scalastyle-config.xml
+
 ```
+
 ## 2. Installation package directory structure
 ```html
 

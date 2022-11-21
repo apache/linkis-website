@@ -8,102 +8,122 @@ sidebar_position: 7
 ## 1. 源码目录结构
 
 ```html
-│-- linkis-dist //编译打包最后阶段步骤 整合所有lib包和安装部署脚本配置等
-│        │-- bin  安装相关的脚本
-│        │-- deploy-config //安装的配置
-│        │-- docker
-│        │──── │-- licenses
-│        │──── │-- scripts
-│        │-- helm
-│        │──── │-- charts
-│        │──── │──── |-- linkis
-│        │──── │──── |────  |-- templates
-│        │──── │-- scripts
-│        │-- package
-│        │──── │-- bin 
-│        │──── │-- conf//linkis相关配置如linkis.properties 
-│        │──── │──── |-- linkis-cli
-│        │──── │-- db//sql脚本
-│        │──── │-- sbin//启动和停止等脚本
-│        │──── │──── |-- ext
-│        │-- release-docs
-│        │-- src
-│-- linkis-commons  //核心抽象，里面放有所有的公用模块
-│        │-- linkis-common  //通用模块，内置很多通用工具类
-│        │-- linkis-hadoop-common
-│        │-- linkis-httpclient  //Java SDK顶层接口 对httpclient的进一步封装
-│        │-- linkis-module  // linkis的服务顶层公用模块 涉及到服务启动时的参数和服务初始化 统一的Restful处理 登录态校验等
-│        │-- linkis-mybatis  //SpringCloud的Mybatis模块
-│        │-- linkis-protocol  //服务请求/响应的一些接口和实体类
-│        │-- linkis-rpc      //RPC模块，基于Feign实现的复杂双向通信
-│        │-- linkis-scheduler //通用调度模块
-│        │-- linkis-storage   //文件操作工具集
-│        │
-│-- linkis-computation-governance //计算治理服务
-│        │-- linkis-client  //Java SDK，用户通过Client可直接访问Linkis
-│        │-- linkis-computation-governance-common
-│        │-- linkis-engineconn
-│        │-- linkis-engineconn-manager
-│        │-- linkis-entrance //通用底层entrance模块
-│        │-- linkis-entrance-client
-│        │-- linkis-jdbc-driver  //可以类似jdbc sdk方式连接使用linkis
-│        │-- linkis-manager
-│
-│-- linkis-engineconn-plugins // 引擎插件
-│        │-- engineconn-plugins
-│        │-- linkis-engineconn-plugin-framework
-│
-│-- linkis-extensions // 扩展功能增强插件模块
-│        │-- linkis-io-file-client  // 对linkis-storage的功能扩展
-│
-│-- linkis-orchestrator  //服务的编排
-│        │-- linkis-code-orchestrator
-│        │-- linkis-computation-orchestrator
-│        │-- linkis-orchestrator-core
-│        │-- plugin
-│
-│-- linkis-public-enhancements //公共增强服务
-│        │-- linkis-bml  // 物料库
-│        │-- linkis-context-service //统一上下文
-│        │-- linkis-datasource   //数据源服务 
-│        │   ├── linkis-datasource-client //客户端代码
-│        │   ├── linkis-datasource-manager //数据源管理模块
-│        │   │   ├── common  //数据源管理公共模块
-│        │   │   └── server  //数据源管理服务模块
-│        │   ├── linkis-metadata //旧版本已有的模块，保留
-│        │   ├── linkis-metadata-manager //数据元管理模块
-│        │       ├── common //数据元管理公共模块
-│        │       ├── server //数据元管理服务模块
-│        │       └── service //支持的数据源
-│        │           ├── elasticsearch
-│        │           ├── hive
-│        │           ├── kafka
-│        │           └── mysql
-│        │-- linkis-publicservice  //公共服务
-│        │-- linkis-basedata-manager
-│        │-- linkis-configuration
-│        │-- linkis-error-code
-│        │-- linkis-jobhistory
-│        │-- linkis-variable
-│        │-- linkis-ps-common-lock
-│
-│-- linkis-spring-cloud-services //微服务治理
-│        │-- linkis-service-discovery
-│        │-- linkis-service-gateway //网关Gateway
-│
-│-- tool //工具脚本
-│        │-- check.sh
-│        │-- dependencies
-│
-│--linkis-web  //linkis的管理台代码
-│-- scalastyle-config.xml  //Scala 代码格式检查配置文件
-│-- CONTRIBUTING.md
-│-- CONTRIBUTING_CN.md
-│-- DISCLAIMER-WIP
-│-- LICENSE //项目源码的LICENSE
-│-- NOTICE  //项目源码的NOTICE
-│-- README.md
-│-- README_CN.md
+├── docs
+│   ├── configuration //linkis所有模块的配置项文档
+│   ├── errorcode //linkis所有模块的错误码文档
+│   ├── configuration-change-records.md
+│   ├── index.md
+│   ├── info-1.1.3.md
+│   ├── info-1.2.1.md
+│   ├── info-1.3.1.md
+│   └── trino-usage.md
+├── linkis-commons //核心抽象，里面放有所有的公用模块
+│   ├── linkis-common //通用模块，内置很多通用工具类
+│   ├── linkis-hadoop-common
+│   ├── linkis-httpclient  //Java SDK顶层接口 对httpclient的进一步封装
+│   ├── linkis-module // linkis的服务顶层公用模块 涉及到服务启动时的参数和服务初始化 统一的Restful处理 登录态校验等
+│   ├── linkis-mybatis //SpringCloud的Mybatis模块
+│   ├── linkis-protocol //服务请求/响应的一些接口和实体类
+│   ├── linkis-rpc  //RPC模块，基于Feign实现的复杂双向通信
+│   ├── linkis-scheduler //通用调度模块
+│   ├── linkis-storage //文件操作工具集
+├── linkis-computation-governance //计算治理服务
+│   ├── linkis-client //Java SDK，用户通过Client可直接访问Linkis
+│   ├── linkis-computation-governance-common
+│   ├── linkis-engineconn
+│   ├── linkis-engineconn-manager
+│   ├── linkis-entrance //通用底层entrance模块
+│   ├── linkis-jdbc-driver //可以类似jdbc sdk方式连接使用linkis
+│   ├── linkis-manager
+├── linkis-dist //编译打包最后阶段步骤 整合所有lib包和安装部署脚本配置等
+│   ├── bin
+│   │   ├── checkEnv.sh
+│   │   ├── common.sh
+│   │   └── install.sh //安装脚本
+│   ├── deploy-config
+│   │   ├── db.sh  //数据库配置
+│   │   └── linkis-env.sh  //linkis 启动相关配置
+│   ├── docker
+│   │   └── scripts
+│   ├── helm
+│   │   ├── charts
+│   │   ├── scripts
+│   │   ├── README_CN.md
+│   │   └── README.md
+│   ├── package
+│   │   ├── bin
+│   │   ├── conf
+│   │   ├── db
+│   │   └── sbin
+│   ├── release-docs
+│   │   ├── licenses
+│   │   ├── LICENSE
+│   │   └── NOTICE
+│   ├── src
+│   └── pom.xml
+├── linkis-engineconn-plugins // 引擎 
+│   ├── elasticsearch 
+│   ├── flink
+│   ├── hive
+│   ├── io_file
+│   ├── jdbc
+│   ├── openlookeng
+│   ├── pipeline
+│   ├── presto
+│   ├── python
+│   ├── seatunnel
+│   ├── shell
+│   ├── spark
+│   ├── sqoop
+├── linkis-extensions // 扩展功能增强插件模块
+│   ├── linkis-io-file-client // 对linkis-storage的功能扩展
+├── linkis-orchestrator //服务的编排
+│   ├── linkis-code-orchestrator
+│   ├── linkis-computation-orchestrator
+│   ├── linkis-orchestrator-core
+├── linkis-public-enhancements //公共增强服务
+│   ├── linkis-basedata-manager
+│   ├── linkis-bml  // 物料库
+│   ├── linkis-configuration
+│   ├── linkis-context-service //统一上下文
+│   ├── linkis-datasource //数据源服务
+│   ├── linkis-error-code
+│   ├── linkis-instance-label
+│   ├── linkis-jobhistory
+│   ├── linkis-ps-common-lock
+│   ├── linkis-script-dev
+│   ├── linkis-udf
+│   ├── linkis-variable
+├── linkis-spring-cloud-services //微服务治理
+│   ├── linkis-service-discovery
+│   ├── linkis-service-gateway //网关Gateway
+├── linkis-web //linkis的管理台代码
+│   ├── release-docs
+│   │   ├── licenses
+│   │   └── LICENSE
+│   ├── src
+│   ├── config.sh
+│   ├── install.sh
+│   ├── package.json
+│   ├── pom.xml
+│   └── vue.config.js
+├── tool
+│   ├── dependencies
+│   │   ├── known-dependencies.txt
+│   │   └── regenerate_konwn_dependencies_txt.sh
+│   ├── code-style-idea.xml
+│   ├── license-header
+│   └── modify_license.sh
+├── CONTRIBUTING_CN.md
+├── CONTRIBUTING.md
+├── DISCLAIMER
+├── linkis-tree.txt
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── README_CN.md
+├── README.md
+└── scalastyle-config.xml
 
 ```
 
