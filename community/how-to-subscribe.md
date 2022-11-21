@@ -9,17 +9,6 @@ Many things in the daily operation and maintenance of the community are carried 
 
 As long as you subscribe to this mailing list, you can get the latest developments in the Linkis community for the first time and keep pace with the community.
 
-:::caution Notice
-Since mailbox 163/sina replies with Chinese "reply" by default, it will cause the apache mail to be recognized as a new thread mail.
-The following takes 163 mailboxes as an example:
-:::
-
-![Email reply](/Images/Architecture/email-reply.png)
-
-**Therefore, you need to modify the general settings of the mailbox**
-
-![mailbox-settings](/Images/Architecture/mailbox-settings.png)
-
 **Linkis project mailing list**
 
 |Name|Description|Subscribe|Unsubscribe|Archive|
@@ -55,3 +44,8 @@ The steps for unsubscribing to a mailing list are similar to those for subscribi
 For new problem/ideas, you can create a new issue through \[new issues\], and describe the issues in detail as much as possible, so that community members can follow up, discuss and solve them. For any problems of the project, it is recommended to create issues first to record and follow up, so that the entire process can be well preserved and archived to facilitate subsequent users to retrieve.
 
 For existing issues, if you are interested, you can reply and discuss as much as you want. For tasks/bug-type issues, if you are interested, you can follow or directly participate in the task. Community partners are very welcome to contribute their efforts to Linkis.
+
+
+## 4. Mail usage 
+
+Please refer to [How to use the mailing list](./how-to-email.md) for email specifications and tips

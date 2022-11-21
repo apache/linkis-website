@@ -9,18 +9,6 @@ sidebar_position: 1.1
 
 Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.org/list.html?dev@linkis.apache.org)
 
-:::caution 注意
-
-由于邮箱163/sina 回复时候 默认是带上中文“回复”会导致apache 邮件识别为一封新线程邮件。
-下面以163邮箱为示例：
-
-:::
-
-![Email reply](/Images-zh/Architecture/email-reply.png)
-
-**因此需修改邮箱常规设置**
-
-![mailbox-settings](/Images-zh/Architecture/mailbox-settings.png)
 
 ## 1. 主题种类 
 邮件的主题可以大体分为以下几种类型
@@ -35,13 +23,25 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 
 
 ## 2. 邮件规范
-:::caution 通用规范
-- 尽可能不要发送纯 HTML 消息，而是发送纯文本。如果使用QQ邮箱，其邮件内容默认使用的是html格式，编写时请先切换至纯文本格式，详细切换指引见本文附录
+
+** 通用规范 **
+
+- 尽可能不要发送纯 HTML 内容，而是发送纯文本。如果使用QQ邮箱，其邮件内容默认使用的是html格式，编写时请先切换至纯文本格式，详细切换指引见本文附录
 - 开发者/社区用户/PPMC成员针对以上场景的内容，发起邮件讨论/需求帮助/通知事宜等，请发送至dev@linkis.apache.org邮箱
 - 邮件标题前请带上对应的类型前缀：如`[HELP] XXXXXXX`,`[DISCUSS] XXXXXXX`
 
 更多可以参阅官方[邮件规范](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips
-:::
+
+
+** 回复规范**
+
+- 邮件内容末尾，最好带上自己的署名(英文)
+- 如果是回复投票类的邮件，最好带上是否具有约束性的标识(PPMC/IPMC成员投的票具有约束性，可以加上 binding后缀 如：`+1 approve(binding)`;
+普通成员投的票，无约束性，可以加上 non-binding后缀 如：`+1 approve(non-binding)` )
+- 由于部分邮箱如:163/sina 在进行邮件回复时，默认是带上的中文`回复`会导致apache 邮件识别为一封新线程邮件 
+如：https://lists.apache.org/thread/otfftdtbq0z9xsddnl7wb8tgzkhqcnof， 无法将整个邮件的线程串联起来，
+所以需要对邮箱的回复进行修改配置，详细切换指引见本文附录
+
 
 ** \[DISCUSS/Proposal] 邮件 **
 
@@ -127,3 +127,11 @@ I  checked:
 ** QQ邮箱切换纯文本格式 **
 
 ![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)
+
+** 邮箱配置回复默认主题关键字 **
+中文`回复：`会存在问题
+![Email reply](/Images-zh/Architecture/email-reply.png)
+
+修改邮箱常规设置
+
+![mailbox-settings](/Images-zh/Architecture/mailbox-settings.png)
