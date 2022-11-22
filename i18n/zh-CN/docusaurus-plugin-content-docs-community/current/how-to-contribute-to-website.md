@@ -185,5 +185,11 @@ Apache内部机制会将asf-staging分支内容部署至测试环境，所以当
 - 添加文档的时候注意文档侧边栏节点展示的名称字段(title)和侧边栏节点展示的顺序字段(sidebar_position),如下图   
 ![pg-ch](https://user-images.githubusercontent.com/29391030/161209898-847d0d43-8721-41a0-a30b-25896aabe56c.png)
 
-## 7 其他
+## 7 致谢 
+
+[![由 Netlify 部署](https://www.netlify.com/img/global/badges/netlify-color-accent.svg "由 Netlify 部署")](https://www.netlify.com/)
+[Netlify](https://www.netlify.com/) 为本网站提供拉取请求的构建、检查和预览。
+
+
+## 8 其他
 命名规范参考《阿里前端开发规范》
