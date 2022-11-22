@@ -32,7 +32,7 @@ ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
 It can be downloaded directly from the maven repository, such as https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.49
 
 ## 3. Deploy and start
-Refer to the "Quick Deployment" section to complete the deployment by executing the `${LINKIS_HOME}/bin/install.sh` command.
+Refer to the "Quick Deployment" section to complete the deployment by executing the `sh bin/install.sh` command.
 Refering to the "Quick Deployment" section, start the Linkis services by executing the `${LINKIS_HOME}/sbin/linkis-start-all.sh` command.
 
 
