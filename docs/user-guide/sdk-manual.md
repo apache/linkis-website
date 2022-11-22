@@ -33,7 +33,7 @@ sidebar_position: 2
 	</tr >
 	
   <tr>
-    <td rowspan="3">Spark</td>
+    <th rowspan="3">Spark<th>
     <th>py</th>
     <th>python script</th>  
   </tr >
@@ -96,7 +96,7 @@ sidebar_position: 2
   </tr >
   <tr>
     <th>trino</th>
-    <th>tsql</th>
+    <th>sql</th>
     <th>sql script</th>  
   </tr >
 </table>
