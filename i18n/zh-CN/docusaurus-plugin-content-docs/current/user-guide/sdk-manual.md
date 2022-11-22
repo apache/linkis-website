@@ -84,7 +84,7 @@ sidebar_position: 3
     <th>esjson</th>
     <th>json脚本</th>  
   </tr >
-  </tr>
+  <tr>
     <th>essql</th>
     <th>sql脚本</th>  
   </tr >

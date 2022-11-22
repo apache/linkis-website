@@ -90,7 +90,7 @@ sidebar_position: 2
     <th>esjson</th>
     <th>json script</th>  
   </tr >
-  </tr>
+  <tr>
     <th>essql</th>
     <th>sql script</th>  
   </tr >
