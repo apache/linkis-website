@@ -30,13 +30,12 @@ sidebar_position: 2
 	    <th>engine</th>
 	    <th>script types</th>
 	    <th>notes</th>  
-	</tr >
-	
+	</tr>
   <tr>
-    <th rowspan="3">Spark<th>
+    <th rowspan="3">Spark</th>
     <th>py</th>
     <th>python script</th>  
-  </tr >
+  </tr>
   <tr>
     <th>scala</th>
     <th>scala script</th>  
@@ -49,56 +48,56 @@ sidebar_position: 2
     <th>Hive</th>
     <th>hql</th>
     <th>hql script名</th>  
-  </tr >
+  </tr>
   <tr>
     <th>Python</th>
     <th>python</th>
     <th>python script</th>  
-  </tr >
+  </tr>
   <tr>
     <th>Shell</th>
     <th>shell</th>
     <th>shell script</th>  
-  </tr >
+  </tr>
   <tr>
     <th>JDBC</th>
     <th>jdbc</th>
     <th>sql script</th>  
-  </tr >
+  </tr>
   <tr>
     <th>OpenLooKeng</th>
     <th>sql</th>
     <th>sql script</th>  
-  </tr >
+  </tr>
   <tr>
     <th>Pipeline</th>
     <th>pipeline</th>
     <th>file import and export</th>  
-  </tr >
+  </tr>
   <tr>
     <th>Presto</th>
     <th>psql</th>
     <th>sql script</th>  
-  </tr >
+  </tr>
   <tr>
     <th>Sqoop</th>
     <th>appconn</th>
     <th>file import and export</th>  
-  </tr >
+  </tr>
   <tr>
     <th rowspan="2">Elasticsearch</th>
     <th>esjson</th>
     <th>json script</th>  
-  </tr >
+  </tr>
   <tr>
     <th>essql</th>
     <th>sql script</th>  
-  </tr >
+  </tr>
   <tr>
     <th>trino</th>
     <th>sql</th>
     <th>sql script</th>  
-  </tr >
+  </tr>
 </table>
 
 
