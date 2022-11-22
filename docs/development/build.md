@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 ## 1. Preparation
-**Environment requirements:** Version of JDK must be higher then **JDK8**,  **Oracle/Sun** and **OpenJDK** are both supported.
+**Environment requirements:** Version of JDK must be higher than **JDK8**,  **Oracle/Sun** and **OpenJDK** are both supported.
 
 After obtaining the project code from [github repository](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis, use maven to compile the project installation package.
 
@@ -19,7 +19,7 @@ If you want to compile Linkis with another version of Hadoop, Hive, Spark, pleas
 
 ### <font color="red">1.2 Modify dependency configuration</font>
 :::caution Note
-Because the mysql-connector-java driver is under the GPL2.0 agreement and does not meet the license policy of the Apache open source agreement, starting from version 1.0.3, the scope of the dependency on mysql-connector-java is test by default. If you compile by yourself , You can modify the scope scope that the mysql-connector-java of the top-level pom.xml depends on (just comment it out)
+Because the mysql-connector-java driver is under the GPL2.0 agreement and does not meet the license policy of the Apache open source agreement, starting from version 1.0.3, the scope of the dependency on mysql-connector-java is test by default. If you compile by yourself , You can modify the scope that the mysql-connector-java of the top-level pom.xml depends on (just comment it out)
 :::
 ```xml
 <dependency>
