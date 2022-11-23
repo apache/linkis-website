@@ -8,7 +8,7 @@
     "description": "The label for category advanced Deployment in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.User Guide": {
-    "message": "用户手册",
+    "message": "使用指南",
     "description": "The label for category User Guide in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Engine Usage": {
