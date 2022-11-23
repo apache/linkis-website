@@ -12,7 +12,8 @@ Seatunnel是依赖Spark或Flink环境，使用linkis-seatunnel引擎前，强烈
 |-----------------|----------------|----------------------------------------|
 | JAVA_HOME       | JDK安装路径 | 需要                           |
 | SEATUNNEL_HOME     | Seatunnel安装路径 | 需要                           |
-
+|SPARK_HOME| Spark安装路径 | Seatunnel执行基于Spark就需要 |
+|FLINK_HOME| Flink安装路径 | Seatunnel执行基于Flink就需要 |
 
 表1-1 环境配置清单
 

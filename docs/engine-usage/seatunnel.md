@@ -7,6 +7,8 @@ The seatunnel depends on the Spark or Flink environment. Before using the linkis
 |-----------------|----------------|----------------------------------------|
 | JAVA_ HOME | JDK installation path | Required|
 | SEATUNNEL_ HOME | Seattunnel installation path | Required|
+|SPARK_ HOME | Spark installation path | Executing Seatunnel based on Spark is required|
+|FLINK_ HOME | Flink installation path | It is necessary for Seatunnel execution based on Flink|
 Table 1-1 Environment Configuration List
 
 |Linkis variable name | variable content | Yes No|
