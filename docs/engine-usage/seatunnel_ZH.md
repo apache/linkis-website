@@ -129,6 +129,25 @@ public class SeatunnelOnceJobTest {
 }
 ```
 
+### 3.2 linkis-cli
+**测试用例：**
+```shell
+sh ./bin/linkis-cli --mode once -code 'test'  -engineType seatunnel-2.1.2 -codeType sspark  -labelMap userCreator=hadoop-seatunnel -labelMap engineConnMode=once -jobContentMap code='env {
+   spark.app.name = "SeaTunnel"
+   spark.executor.instances = 2
+   spark.executor.cores = 1
+   spark.executor.memory = "1g"
+   }
+   source { 
+     Fake {
+       result_table_name = "my_dataset"
+
+     }
+   }
+   transform {}
+   sink {Console {}}' -jobContentMap master=local[4] -jobContentMap deploy-mode=client -sourceMap jobName=OnceJobTest  -submitUser hadoop -proxyUser hadoop
+```
+
 **参数比较表（带本地参数）:**
 
 ```
