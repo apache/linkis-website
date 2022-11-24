@@ -44,3 +44,8 @@ The steps for unsubscribing to a mailing list are similar to those for subscribi
 For new problem/ideas, you can create a new issue through \[new issues\], and describe the issues in detail as much as possible, so that community members can follow up, discuss and solve them. For any problems of the project, it is recommended to create issues first to record and follow up, so that the entire process can be well preserved and archived to facilitate subsequent users to retrieve.
 
 For existing issues, if you are interested, you can reply and discuss as much as you want. For tasks/bug-type issues, if you are interested, you can follow or directly participate in the task. Community partners are very welcome to contribute their efforts to Linkis.
+
+
+## 4. Mail usage 
+
+Please refer to [How to use the mailing list](./how-to-email.md) for email specifications and tips
