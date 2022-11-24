@@ -38,7 +38,7 @@ linkis_port="8088"
 linkis_url="http://localhost:9001"
 
 #linkis ip address
-linkis_ipaddr=$(ip addr | awk'/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1" , "g", $2)}')
+linkis_ipaddr=$(ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1" , "g", $2)}')
 ```
 
 #### 2.1.2 execute deployment script
