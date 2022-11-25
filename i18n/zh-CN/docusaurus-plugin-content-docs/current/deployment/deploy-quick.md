@@ -858,7 +858,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 ### 8.5 编译技巧
 
 - 如果遇到类缺少或者类中方法缺少的情况下,找到对应引用这个包依赖,如何尝试切换到有对应包或者类的版本中来
-- 引擎版本如果需要使用到-的话,使用_来进行替换,并且加上<package.引擎名字.version>来指定替换后的版本,同时在对应的引擎distribution文件中使用${package.引擎名字.version}来替换原有的
+- 引擎版本如果需要使用到-的话,使用_来进行替换,并且加上 (package.引擎名字.version) 来指定替换后的版本,同时在对应的引擎distribution文件中使用 (package.引擎名字.version) 来替换原有的
 - 如果有时候使用阿里云镜像出现下载guava的jar出现403的问题的话,可以切换到华为,腾讯等镜像仓库
 
 ### 8.6 适配博文

@@ -864,7 +864,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 ### 8.5 Compilation Skills
 
 - If the class is missing or the method in the class is missing, find the corresponding package dependency, and how to try to switch to the version with the corresponding package or class
-- If the engine version needs to use -, use_ To replace, add<package.engine name.version>to specify the replaced version, and use ${package. engine name. version} in the corresponding engine distribution file to replace the original
+- If the engine version needs to use -, use_ To replace, add (package.engine name.version) to specify the replaced version, and use (package. engine name. version) in the corresponding engine distribution file to replace the original
 - If sometimes there is a 403 problem when using Alibaba Cloud images to download the jars of guava, you can switch to Huawei, Tencent and other image warehouses
 
 ### 8.6 Adaptation article
