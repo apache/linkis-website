@@ -59,6 +59,7 @@ sidebar_position: 1
 | wds.linkis.rpc.sender.asyn.consumer.thread.max", 5 | Sender Consumer maximum number of threads |
 | wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer Maximum Free Time |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Sender consumption queue maximum buffer number |
+| wds.linkis.rpc.cache.expire.time | 120000 liters | Linkis RPC storage expiration time |
 
 ### 2. Calculate governance configuration parameters
 

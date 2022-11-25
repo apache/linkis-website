@@ -57,6 +57,7 @@ sidebar_position: 1
 | wds.linkis.rpc.sender.asyn.consumer.thread.max", 5 | Sender Consumer最大线程数量 |
 | wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer最大空闲时间 |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Sender 消费队列最大缓存数 |
+| wds.linkis.rpc.cache.expire.time | 120000L | Linkis RPC 缓存失效时间 |
 
 ### 2. 计算治理配置参数
 
