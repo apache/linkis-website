@@ -12,7 +12,7 @@ sidebar_position: 1
 
 
 ### 1.2 添加部署用户
- 
+
 >部署用户: linkis核心进程的启动用户，同时此用户会默认作为管理员权限，<font color="red">部署过程中会生成对应的管理员登录密码，位于`conf/linkis-mg-gateway.properties`文件中</font>
 Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`sudo -u  ${linkis-user}` 切换到对应用户下，然后执行对应的引擎启动命令，所以引擎`linkis-engine`进程归属的用户是任务的执行者（因此部署用户需要有sudo权限，而且是免密的）
 
@@ -35,8 +35,6 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ```
 
 <font color='red'>以下操作都是在hadoop用户下进行</font>
-
-
 
 ## 2. 配置修改
 
@@ -259,8 +257,6 @@ echo "wds.linkis.keytab.enable=true" >> linkis.properties
 如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
 详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)
 
-
-
 #### 3.3.3 session 
 如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件
 ```shell
@@ -434,8 +430,6 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 | OpenLooKeng   | >=1.1.1 已适配   | **不包含** |
 | Sqoop         | >=1.1.2 已适配  | **不包含** |
 
-
-
 ### 7.2  查看部署的引擎
 
 #### 方式1: 查看引擎lib包目录
@@ -470,9 +464,414 @@ linkis-package/lib/linkis-engineconn-plugins/
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 
+## 8. 版本适配
 
-## 8. 常见异常问题排查指引
-### 8.1. Yarn队列检查
+### 8.1 默认版本
+
+如果版本与默认版本一致,则无需修改
+
+| 引擎   | 版本   |
+| ------ | ------ |
+| hadoop | 2.7.2  |
+| hive   | 2.3.3  |
+| spark  | 2.4.3  |
+| flink  | 1.12.2 |
+
+### 8.2 Apache版本适配
+
+| 引擎   | 版本   |
+| ------ | ------ |
+| hadoop | 3.1.1  |
+| hive   | 3.1.2  |
+| spark  | 3.0.1  |
+| flink  | 1.13.2 |
+
+#### 8.2.1 linkis的pom文件
+
+```xml
+<hadoop.version>3.1.1</hadoop.version>
+<scala.version>2.12.10</scala.version>
+<scala.binary.version>2.12</scala.binary.version>
+
+<!-- 将hadoop-hdfs 替换成为hadoop-hdfs-client -->
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-hdfs-client</artifactId>
+    <version>${hadoop.version}</version>
+<dependency>
+```
+
+#### 8.2.2 linkis-hadoop-common的pom文件
+
+```xml
+<!-- 注意这里的 <version>${hadoop.version}</version> , 根据你有没有遇到错误来进行调整 --> 
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-hdfs-client</artifactId>
+    <version>${hadoop.version}</version>
+</dependency>
+```
+
+#### 8.2.3 linkis-engineplugin-hive的pom文件
+
+```xml
+<hive.version>3.1.2</hive.version>
+```
+
+#### 8.2.4 linkis-engineplugin-spark的pom文件
+
+```xml
+<spark.version>3.0.1</spark.version>
+```
+
+#### 8.2.5 linkis-engineplugin-flink的pom文件
+
+```xml
+<flink.version>1.13.2</flink.version>
+```
+
+由于flink1.12.2到1.13.2版本,有部分类进行调整,所以需要进行flink的编译和调整,**编译flink**选择scala的版本为2.12版本
+
+```text
+-- 注意,下列的类是从1.12.2给copy到1.13.2版本来
+org.apache.flink.table.client.config.entries.DeploymentEntry
+org.apache.flink.table.client.config.entries.ExecutionEntry
+org.apache.flink.table.client.gateway.local.CollectBatchTableSink
+org.apache.flink.table.client.gateway.local.CollectStreamTableSink
+```
+
+#### 8.2.6 linkis-label-common调整
+
+org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
+
+```java
+    public static final CommonVars<String> SPARK_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.spark.engine.version", "3.0.1");
+
+    public static final CommonVars<String> HIVE_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.hive.engine.version", "3.1.2");
+```
+
+#### 8.2.7 linkis-computation-governance-common调整
+
+org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
+
+```
+  val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "3.0.1")
+
+  val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.2")
+```
+
+### 8.3 HDP版本适配
+
+#### 8.3.1 HDP3.0.1版本
+
+| 引擎           | 版本   |
+| -------------- | ------ |
+| hadoop         | 3.1.1  |
+| hive           | 3.1.0  |
+| spark          | 2.3.2  |
+| json4s.version | 3.2.11 |
+
+##### 8.3.1.1 linkis的pom文件
+
+```xml
+<hadoop.version>3.1.1</hadoop.version>
+<json4s.version>3.2.11</json4s.version>
+    
+<!-- 将hadoop-hdfs 替换成为hadoop-hdfs-client -->
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-hdfs-client</artifactId>
+    <version>${hadoop.version}</version>
+<dependency>
+```
+
+##### 8.3.1.2 linkis-engineplugin-hive的pom文件
+
+```xml
+<hive.version>3.1.0</hive.version>
+```
+
+##### 8.3.1.3 linkis-engineplugin-spark的pom文件
+
+```xml
+<spark.version>2.3.2</spark.version>
+```
+
+##### 8.3.1.4 linkis-label-common调整
+
+org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
+
+```java
+    public static final CommonVars<String> SPARK_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.spark.engine.version", "2.3.2");
+
+    public static final CommonVars<String> HIVE_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.hive.engine.version", "3.1.0");
+```
+
+##### 8.3.1.5 linkis-computation-governance-common调整
+
+org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
+
+```java
+  val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "2.3.2")
+
+  val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.0")
+```
+
+### 8.4 CDH版本适配
+
+#### 8.4.1 Maven配置
+
+##### 8.4.1.1 setting文件
+
+```xml
+<mirrors>
+  <!-- mirror
+   | Specifies a repository mirror site to use instead of a given repository. The repository that
+   | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used
+   | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
+   |
+  <mirror>
+    <id>mirrorId</id>
+    <mirrorOf>repositoryId</mirrorOf>
+    <name>Human Readable Name for this Mirror.</name>
+    <url>http://my.repository.com/repo/path</url>
+  </mirror>
+   -->
+   <mirror>
+       <id>nexus-aliyun</id>
+       <mirrorOf>*,!cloudera</mirrorOf>
+       <name>Nexus aliyun</name>
+       <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+   </mirror>
+   <mirror>
+       <id>aliyunmaven</id>
+       <mirrorOf>*,!cloudera</mirrorOf>
+       <name>阿里云公共仓库</name>
+       <url>https://maven.aliyun.com/repository/public</url>
+   </mirror>
+   <mirror>
+       <id>aliyunmaven</id>
+       <mirrorOf>*,!cloudera</mirrorOf>
+       <name>spring-plugin</name>
+       <url>https://maven.aliyun.com/repository/spring-plugin</url>
+   </mirror>
+  <mirror>
+    <id>maven-default-http-blocker</id>
+    <mirrorOf>external:http:*</mirrorOf>
+    <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
+    <url>http://0.0.0.0/</url>
+    <blocked>true</blocked>
+  </mirror>
+</mirrors>
+```
+
+##### 8.4.1.2 linkis的pom文件
+
+```xml
+    <repositories>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <!--防止cloudera找不到，加上阿里源-->
+        <repository>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+```
+
+#### 8.4.2 CDH5.12.1版本适配
+
+##### 8.4.2.1 CDH5.12.1版本
+
+| 引擎      | 版本            |
+| --------- | --------------- |
+| hadoop    | 2.6.0-cdh5.12.1 |
+| zookeeper | 3.4.5-cdh5.12.1 |
+| hive      | 1.1.0-cdh5.12.1 |
+| spark     | 2.3.4           |
+| flink     | 1.12.4          |
+| python    | python3         |
+
+##### 8.4.2.2 linkis的pom文件
+
+```xml
+<hadoop.version>2.6.0-cdh5.12.1</hadoop.version>
+<zookeeper.version>3.4.5-cdh5.12.1</zookeeper.version>
+<scala.version>2.11.8</scala.version>
+```
+
+##### 8.4.2.3 linkis-engineplugin-hive的pom文件
+
+```xml
+-- 修改
+<hive.version>1.1.0-cdh5.12.1</hive.version>
+-- 添加
+<package.hive.version>1.1.0_cdh5.12.1</package.hive.version>
+```
+
+- 修改 assembly 下的 distribution.xml 文件
+
+  ```xml
+  <outputDirectory>/dist/v${package.hive.version}/lib</outputDirectory>
+  <outputDirectory>dist/v${package.hive.version}/conf</outputDirectory>
+  <outputDirectory>plugin/${package.hive.version}</outputDirectory>
+  ```
+
+- 修改CustomerDelimitedJSONSerDe文件
+
+  ```java
+     /* hive版本过低，需注释
+     case INTERVAL_YEAR_MONTH:
+         {
+             wc = ((HiveIntervalYearMonthObjectInspector) oi).getPrimitiveWritableObject(o);
+             binaryData = Base64.encodeBase64(String.valueOf(wc).getBytes());
+             break;
+         }
+     case INTERVAL_DAY_TIME:
+         {
+             wc = ((HiveIntervalDayTimeObjectInspector) oi).getPrimitiveWritableObject(o);
+             binaryData = Base64.encodeBase64(String.valueOf(wc).getBytes());
+             break;
+         }
+     */
+  ```
+
+##### 8.4.2.4 linkis-engineplugin-flink的pom文件
+
+```xml
+<flink.version>1.12.4</flink.version>
+```
+
+##### 8.4.2.5 linkis-engineplugin-spark的pom文件
+
+```xml
+<spark.version>2.3.4</spark.version>
+```
+
+##### 8.4.2.6 linkis-engineplugin-python的pom文件
+
+```xml
+<python.version>python3</python.version>
+```
+
+##### 8.4.2.7 linkis-label-common调整
+
+org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
+
+```java
+   public static final CommonVars<String> SPARK_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.spark.engine.version", "2.3.4");
+
+    public static final CommonVars<String> HIVE_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.hive.engine.version", "1.1.0");
+
+			CommonVars.apply("wds.linkis.python.engine.version", "python3")
+```
+
+##### 8.4.2.8 linkis-computation-governance-common调整
+
+org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
+
+```java
+  val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "2.3.4")
+
+  val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "1.1.0")
+      
+  val PYTHON_ENGINE_VERSION = CommonVars("wds.linkis.python.engine.version", "python3")
+```
+
+#### 8.4.3 CDH6.3.2版本适配
+
+##### 8.4.3.1 CDH6.3.2版本
+
+| 引擎   | 版本           |
+| ------ | -------------- |
+| hadoop | 3.0.0-cdh6.3.2 |
+| hive   | 2.1.1-cdh6.3.2 |
+| spark  | 3.0.0          |
+
+##### 8.4.3.2 linkis的pom文件
+
+```xml
+<hadoop.version>3.0.0-cdh6.3.2</hadoop.version> 
+<scala.version>2.12.10</scala.version>
+<scala.binary.version>2.12</scala.binary.version>
+```
+
+##### 8.4.3.3 linkis-engineplugin-hive的pom文件
+
+```xml
+-- 修改
+<hive.version>2.1.1-cdh6.3.2</hive.version>
+-- 添加
+<package.hive.version>2.1.1_cdh6.3.2</package.hive.version>
+```
+
+- 修改 assembly 下的 distribution.xml 文件
+
+  ```xml
+  <outputDirectory>/dist/v${package.hive.version}/lib</outputDirectory>
+  <outputDirectory>dist/v${package.hive.version}/conf</outputDirectory>
+  <outputDirectory>plugin/${package.hive.version}</outputDirectory>
+  ```
+
+##### 8.4.3.4 linkis-engineplugin-spark的pom文件
+
+```xml
+<spark.version>3.0.0</spark.version>
+```
+
+##### 8.4.3.5 linkis-label-common调整
+
+org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
+
+```java
+   public static final CommonVars<String> SPARK_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.spark.engine.version", "3.0.0");
+
+    public static final CommonVars<String> HIVE_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.hive.engine.version", "2.1.1_cdh6.3.2");
+```
+
+##### 8.4.3.6 linkis-computation-governance-common调整
+
+org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
+
+```java
+  val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "3.0.0")
+
+  val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "2.1.1_cdh6.3.2")
+```
+
+### 8.5 编译技巧
+
+- 如果遇到类缺少或者类中方法缺少的情况下,找到对应引用这个包依赖,如何尝试切换到有对应包或者类的版本中来
+- 引擎版本如果需要使用到-的话,使用_来进行替换,并且加上<package.引擎名字.version>来指定替换后的版本,同时在对应的引擎distribution文件中使用${package.引擎名字.version}来替换原有的
+- 如果有时候使用阿里云镜像出现下载guava的jar出现403的问题的话,可以切换到华为,腾讯等镜像仓库
+
+### 8.6 适配博文
+
+[Apache版本适配](https://linkis.apache.org/zh-CN/blog/2022/08/08/linkis111-compile-integration)
+
+[CDH6.3.2版本适配](https://linkis.apache.org/zh-CN/blog/2022/09/27/linkis111-deploy)
+
+[CDH5.12.1版本适配](https://github.com/apache/incubator-linkis/discussions/2920)
+
+## 9. 常见异常问题排查指引
+
+### 9.1. Yarn队列检查
 
 >如果需要使用到spark/hive/flink引擎
 
@@ -482,7 +881,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 若如果无法显示：可以按以下指引调整
 
-#### 8.1.1 查看yarn地址是否配置正确
+#### 9.1.1 查看yarn地址是否配置正确
 数据库表 `linkis_cg_rm_external_resource_provider` `
 插入yarn数据信息
 ```sql
@@ -506,7 +905,7 @@ config字段属性
 sh sbin/linkis-daemon.sh  restart cg-linkismanager
 ```
 
-#### 8.1.2 查看yarn队列是否存在
+#### 9.1.2 查看yarn队列是否存在
 异常信息:`desc: queue ide is not exists in YARN.`表明配置的yarn队列不存在，需要进行调整
 
 修改方式:`linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue]`，修改一个可以使用的yarn队列，以使用的yarn 队列可以在 `rmWebAddress:http://xx.xx.xx.xx:8088/cluster/scheduler` 上查看到
@@ -514,7 +913,7 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 查看可用的yarn队列
 - 查看yarn队列地址：http://ip:8888/cluster/scheduler
 
-### 8.2 检查引擎物料资源是否上传成功
+### 9.2 检查引擎物料资源是否上传成功
 
 ```sql
 #登陆到linkis的数据库 
@@ -539,17 +938,17 @@ hdfs dfs -mkdir  /apps-data
 hdfs dfs -chown hadoop:hadoop   /apps-data
 ```
 
-### 8.3 登陆密码问题
+### 9.3 登陆密码问题
 
 linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于
 `{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
 
-### 8.4 版本兼容性问题
+### 9.4 版本兼容性问题
 
 linkis默认支持的引擎，与dss兼容关系可以查看[此文档](https://github.com/apache/incubator-linkis/blob/master/README.md)
 
 
-### 8.5 如何定位服务端异常日志
+### 9.5 如何定位服务端异常日志
 
 linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式
 ```shell script
@@ -558,7 +957,7 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 ```
 
 
-### 8.6 执行引擎任务的异常排查
+### 9.6 执行引擎任务的异常排查
 
 ** step1:找到引擎的启动部署目录 **  
 
@@ -589,7 +988,7 @@ less logs/stdout
 sh -x engineConnExec.sh  
 ```
 
-### 8.7 如何修改注册中心eureka的端口
+### 9.7 如何修改注册中心eureka的端口
 有时候当eureka的端口被其他服务占用,无法使用默认的eureka端口的时候,需要对eureka端口进行修改,这里把对eureka端口的修改分为执行安装之前和执行安装之后两种情况。
 1.执行安装之前修改注册中心eureka端口
 ```
@@ -612,7 +1011,7 @@ sh -x engineConnExec.sh
 ```
 
 
-### 8.8 CDH适配版本的注意事项
+### 9.8 CDH适配版本的注意事项
 
 CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修改linkis的源码中的hive/spark版本的依赖，进行重新编译部署。  
 具体可以参考CDH适配博文    
@@ -621,7 +1020,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 [【DSS1.0.0与Linkis1.0.2——JDBC引擎相关问题汇总】](https://mp.weixin.qq.com/s/vcFge4BNiEuW-7OC3P-yaw)  
 [【DSS1.0.0与Linkis1.0.2——Flink引擎相关问题汇总】](https://mp.weixin.qq.com/s/VxZ16IPMd1CvcrvHFuU4RQ)
 
-### 8.9 Http接口的调试
+### 9.9 Http接口的调试
 
 - 方式1 可以开启[免登陆模式指引](/docs/latest/api/login-api/#2免登录配置)
 - 方式2 postman中的，请求头带上登陆成功的cookie值
@@ -639,7 +1038,7 @@ Token-Code:TEST-AUTH
 Token-User:hadoop
 ```
 
-### 8.10 异常问题的排查流程
+### 9.10 异常问题的排查流程
 
 首先要按上述步骤检查服务/环境等是否都正常启动  
 按上述罗列的一些场景的方式进行基础问题的排查  
@@ -650,12 +1049,11 @@ Token-User:hadoop
 ![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)
 
 
-## 9. 相关的资料如何获取
+## 10. 相关的资料如何获取
 linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索相关文档。  
 相关博文链接
 - Linkis的技术博文集  https://github.com/apache/incubator-linkis/issues/1233
 - 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
 - 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction
 - bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  
-
 

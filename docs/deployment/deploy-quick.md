@@ -12,7 +12,7 @@ Install nearly 10 linkis microservices with at least 3G memory. **The size of th
 
 
 ### 1.2 Add deployment user
- 
+
 >Deployment user: the startup user of the linkis core process, and this user will be the administrator privilege by default. <font color="red">The corresponding administrator login password will be generated during the deployment process, located in `conf/linkis-mg-gateway .properties` file</font>
 Linkis supports specifying the user who submits and executes. The linkis main process service will switch to the corresponding user through `sudo -u ${linkis-user}`, and then execute the corresponding engine start command, so the user to which the engine `linkis-engine` process belongs is the executor of the task (so the deployment The user needs to have sudo permissions, and it is password-free)
 
@@ -470,9 +470,414 @@ linkis-package/lib/linkis-engineconn-plugins/
 select * from linkis_cg_engine_conn_plugin_bml_resources
 ````
 
+## 8. Version adaptation
 
-## 8. Troubleshooting Guidelines for Common Abnormal Problems
-### 8.1. Yarn Queue Check
+### 8.1 Default Version
+
+If the version is consistent with the default version, no modification is required
+
+| engine | version |
+| ------ | ------- |
+| hadoop | 2.7.2   |
+| hive   | 2.3.3   |
+| spark  | 2.4.3   |
+| flink  | 1.12.2  |
+
+### 8.2 Apache version adaptation
+
+| engine | version |
+| ------ | ------- |
+| hadoop | 3.1.1   |
+| hive   | 3.1.2   |
+| spark  | 3.0.1   |
+| flink  | 1.13.2  |
+
+#### 8.2.1 The pom file of linkis
+
+```xml
+<hadoop.version>3.1.1</hadoop.version>
+<scala.version>2.12.10</scala.version>
+<scala.binary.version>2.12</scala.binary.version>
+
+<!-- hadoop-hdfs replace with hadoop-hdfs-client -->
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-hdfs-client</artifactId>
+    <version>${hadoop.version}</version>
+<dependency>
+```
+
+#### 8.2.2 The pom file of  linkis-hadoop-common
+
+```xml
+<!-- Notice here <version>${hadoop.version}</version> , adjust according to whether you have encountered errors --> 
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-hdfs-client</artifactId>
+    <version>${hadoop.version}</version>
+</dependency>
+```
+
+#### 8.2.3 The pom file of  linkis-engineplugin-hive
+
+```xml
+<hive.version>3.1.2</hive.version>
+```
+
+#### 8.2.4 The pom file of  linkis-engineplugin-spark
+
+```xml
+<spark.version>3.0.1</spark.version>
+```
+
+#### 8.2.5 The pom file of  linkis-engineplugin-flink
+
+```xml
+<flink.version>1.13.2</flink.version>
+```
+
+Since some classes in Flink 1.12.2 to 1.13.2 are adjusted, you need to compile and adjust Flink. **Compile Flink** Select Scala version 2.12
+
+```text
+-- Note that the following classes are copied from version 1.12.2 to version 1.13.2
+org.apache.flink.table.client.config.entries.DeploymentEntry
+org.apache.flink.table.client.config.entries.ExecutionEntry
+org.apache.flink.table.client.gateway.local.CollectBatchTableSink
+org.apache.flink.table.client.gateway.local.CollectStreamTableSink
+```
+
+#### 8.2.6 linkis-label-common adjustment
+
+org.apache.linkis.manager.label.conf.LabelCommonConfig file Adjustment
+
+```java
+    public static final CommonVars<String> SPARK_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.spark.engine.version", "3.0.1");
+
+    public static final CommonVars<String> HIVE_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.hive.engine.version", "3.1.2");
+```
+
+#### 8.2.7 linkis-computation-governance-common adjustment
+
+org.apache.linkis.governance.common.conf.GovernanceCommonConf file Adjustment
+
+```
+  val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "3.0.1")
+
+  val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.2")
+```
+
+### 8.3 HDP version adaptation
+
+#### 8.3.1 HDP3.0.1 version
+
+| engine         | version |
+| -------------- | ------- |
+| hadoop         | 3.1.1   |
+| hive           | 3.1.0   |
+| spark          | 2.3.2   |
+| json4s.version | 3.2.11  |
+
+##### 8.3.1.1 The pom file of linkis
+
+```xml
+<hadoop.version>3.1.1</hadoop.version>
+<json4s.version>3.2.11</json4s.version>
+    
+<!-- 将hadoop-hdfs 替换成为hadoop-hdfs-client -->
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-hdfs-client</artifactId>
+    <version>${hadoop.version}</version>
+<dependency>
+```
+
+##### 8.3.1.2 The pom file of  linkis-engineplugin-hive
+
+```xml
+<hive.version>3.1.0</hive.version>
+```
+
+##### 8.3.1.3 The pom file of  linkis-engineplugin-spark
+
+```xml
+<spark.version>2.3.2</spark.version>
+```
+
+##### 8.3.1.4 linkis-label-common adjustment
+
+org.apache.linkis.manager.label.conf.LabelCommonConfig file adjustment
+
+```java
+    public static final CommonVars<String> SPARK_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.spark.engine.version", "2.3.2");
+
+    public static final CommonVars<String> HIVE_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.hive.engine.version", "3.1.0");
+```
+
+##### 8.3.1.5 linkis-computation-governance-common adjustment
+
+org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
+
+```java
+  val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "2.3.2")
+
+  val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.0")
+```
+
+### 8.4 CDH version adaptation
+
+#### 8.4.1 Maven config
+
+##### 8.4.1.1 setting file
+
+```xml
+<mirrors>
+  <!-- mirror
+   | Specifies a repository mirror site to use instead of a given repository. The repository that
+   | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used
+   | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.
+   |
+  <mirror>
+    <id>mirrorId</id>
+    <mirrorOf>repositoryId</mirrorOf>
+    <name>Human Readable Name for this Mirror.</name>
+    <url>http://my.repository.com/repo/path</url>
+  </mirror>
+   -->
+   <mirror>
+       <id>nexus-aliyun</id>
+       <mirrorOf>*,!cloudera</mirrorOf>
+       <name>Nexus aliyun</name>
+       <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+   </mirror>
+   <mirror>
+       <id>aliyunmaven</id>
+       <mirrorOf>*,!cloudera</mirrorOf>
+       <name>阿里云公共仓库</name>
+       <url>https://maven.aliyun.com/repository/public</url>
+   </mirror>
+   <mirror>
+       <id>aliyunmaven</id>
+       <mirrorOf>*,!cloudera</mirrorOf>
+       <name>spring-plugin</name>
+       <url>https://maven.aliyun.com/repository/spring-plugin</url>
+   </mirror>
+  <mirror>
+    <id>maven-default-http-blocker</id>
+    <mirrorOf>external:http:*</mirrorOf>
+    <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
+    <url>http://0.0.0.0/</url>
+    <blocked>true</blocked>
+  </mirror>
+</mirrors>
+```
+
+##### 8.4.1.2 The pom file of linkis
+
+```xml
+    <repositories>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <!--To prevent cloudera from not being found, add Alibaba Source-->
+        <repository>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+```
+
+#### 8.4.2 CDH5.12.1 version adaptation
+
+##### 8.4.2.1 CDH5.12.1 version 
+
+| engine    | version         |
+| --------- | --------------- |
+| hadoop    | 2.6.0-cdh5.12.1 |
+| zookeeper | 3.4.5-cdh5.12.1 |
+| hive      | 1.1.0-cdh5.12.1 |
+| spark     | 2.3.4           |
+| flink     | 1.12.4          |
+| python    | python3         |
+
+##### 8.4.2.2 The pom file of linkis
+
+```xml
+<hadoop.version>2.6.0-cdh5.12.1</hadoop.version>
+<zookeeper.version>3.4.5-cdh5.12.1</zookeeper.version>
+<scala.version>2.11.8</scala.version>
+```
+
+##### 8.4.2.3 The pom file of  linkis-engineplugin-hive
+
+```xml
+-- modify 
+<hive.version>1.1.0-cdh5.12.1</hive.version>
+-- add
+<package.hive.version>1.1.0_cdh5.12.1</package.hive.version>
+```
+
+- Modify the distribution under assembly.xml file
+
+  ```xml
+  <outputDirectory>/dist/v${package.hive.version}/lib</outputDirectory>
+  <outputDirectory>dist/v${package.hive.version}/conf</outputDirectory>
+  <outputDirectory>plugin/${package.hive.version}</outputDirectory>
+  ```
+
+- Modify CustomerDelimitedJSONSerDe file
+
+  ```java
+     /* Hive version is too low, need to comment
+     case INTERVAL_YEAR_MONTH:
+         {
+             wc = ((HiveIntervalYearMonthObjectInspector) oi).getPrimitiveWritableObject(o);
+             binaryData = Base64.encodeBase64(String.valueOf(wc).getBytes());
+             break;
+         }
+     case INTERVAL_DAY_TIME:
+         {
+             wc = ((HiveIntervalDayTimeObjectInspector) oi).getPrimitiveWritableObject(o);
+             binaryData = Base64.encodeBase64(String.valueOf(wc).getBytes());
+             break;
+         }
+     */
+  ```
+
+##### 8.4.2.4 The pom file of  linkis-engineplugin-flink
+
+```xml
+<flink.version>1.12.4</flink.version>
+```
+
+##### 8.4.2.5 The pom file of  linkis-engineplugin-spark
+
+```xml
+<spark.version>2.3.4</spark.version>
+```
+
+##### 8.4.2.6 The pom file of  linkis-engineplugin-python3
+
+```xml
+<python.version>python3</python.version>
+```
+
+##### 8.4.2.7 linkis-label-common adjustment
+
+org.apache.linkis.manager.label.conf.LabelCommonConfig file adjustment
+
+```java
+   public static final CommonVars<String> SPARK_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.spark.engine.version", "2.3.4");
+
+    public static final CommonVars<String> HIVE_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.hive.engine.version", "1.1.0");
+
+			CommonVars.apply("wds.linkis.python.engine.version", "python3")
+```
+
+##### 8.4.2.8 linkis-computation-governance-common adjustment
+
+org.apache.linkis.governance.common.conf.GovernanceCommonConf file adjustment
+
+```java
+  val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "2.3.4")
+
+  val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "1.1.0")
+      
+  val PYTHON_ENGINE_VERSION = CommonVars("wds.linkis.python.engine.version", "python3")
+```
+
+#### 8.4.3 CDH6.3.2 version adaptation
+
+##### 8.4.3.1 CDH6.3.2 version 
+
+| engine | version        |
+| ------ | -------------- |
+| hadoop | 3.0.0-cdh6.3.2 |
+| hive   | 2.1.1-cdh6.3.2 |
+| spark  | 3.0.0          |
+
+##### 8.4.3.2 The pom file of linkis
+
+```xml
+<hadoop.version>3.0.0-cdh6.3.2</hadoop.version> 
+<scala.version>2.12.10</scala.version>
+<scala.binary.version>2.12</scala.binary.version>
+```
+
+##### 8.4.3.3 The pom file of  linkis-engineplugin-hive
+
+```xml
+-- modify
+<hive.version>2.1.1-cdh6.3.2</hive.version>
+-- add
+<package.hive.version>2.1.1_cdh6.3.2</package.hive.version>
+```
+
+- Modify the distribution under assembly.xml file
+
+  ```xml
+  <outputDirectory>/dist/v${package.hive.version}/lib</outputDirectory>
+  <outputDirectory>dist/v${package.hive.version}/conf</outputDirectory>
+  <outputDirectory>plugin/${package.hive.version}</outputDirectory>
+  ```
+
+##### 8.4.3.4 The pom file of  linkis-engineplugin-spark
+
+```xml
+<spark.version>3.0.0</spark.version>
+```
+
+##### 8.4.3.5 linkis-label-common adjustment
+
+org.apache.linkis.manager.label.conf.LabelCommonConfig file adjustment
+
+```java
+   public static final CommonVars<String> SPARK_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.spark.engine.version", "3.0.0");
+
+    public static final CommonVars<String> HIVE_ENGINE_VERSION =
+            CommonVars.apply("wds.linkis.hive.engine.version", "2.1.1_cdh6.3.2");
+```
+
+##### 8.4.3.6 linkis-computation-governance-common adjustment
+
+org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
+
+```java
+  val SPARK_ENGINE_VERSION = CommonVars("wds.linkis.spark.engine.version", "3.0.0")
+
+  val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "2.1.1_cdh6.3.2")
+```
+
+### 8.5 Compilation Skills
+
+- If the class is missing or the method in the class is missing, find the corresponding package dependency, and how to try to switch to the version with the corresponding package or class
+- If the engine version needs to use -, use_ To replace, add<package.engine name.version>to specify the replaced version, and use ${package. engine name. version} in the corresponding engine distribution file to replace the original
+- If sometimes there is a 403 problem when using Alibaba Cloud images to download the jars of guava, you can switch to Huawei, Tencent and other image warehouses
+
+### 8.6 Adaptation article
+
+[Apache version adaptation](https://linkis.apache.org/zh-CN/blog/2022/08/08/linkis111-compile-integration)
+
+[CDH6.3.2 version adaptation](https://linkis.apache.org/zh-CN/blog/2022/09/27/linkis111-deploy)
+
+[CDH5.12.1 version adaptation](https://github.com/apache/incubator-linkis/discussions/2920)
+
+## 9. Troubleshooting Guidelines for Common Abnormal Problems
+
+### 9.1. Yarn Queue Check
 
 >If you need to use spark/hive/flink engine
 
@@ -482,7 +887,7 @@ Normally as shown below:
 
 If it cannot be displayed: You can adjust it according to the following guidelines
 
-#### 8.1.1 Check whether the yarn address is configured correctly
+#### 9.1.1 Check whether the yarn address is configured correctly
 Database table `linkis_cg_rm_external_resource_provider` `
 Insert yarn data information
 ```sql
@@ -506,7 +911,7 @@ After the update, because the cache is used in the program, if you want to take 
 sh sbin/linkis-daemon.sh restart cg-linkismanager
 ````
 
-#### 8.1.2 Check whether the yarn queue exists
+#### 9.1.2 Check whether the yarn queue exists
 Exception information: `desc: queue ide is not exists in YARN.` indicates that the configured yarn queue does not exist and needs to be adjusted
 
 Modification method: `linkis management console/parameter configuration> global settings>yarn queue name [wds.linkis.rm.yarnqueue]`, modify a yarn queue that can be used, and the yarn queue to be used can be found at `rmWebAddress:http:// xx.xx.xx.xx:8088/cluster/scheduler`
@@ -514,7 +919,7 @@ Modification method: `linkis management console/parameter configuration> global 
 View available yarn queues
 - View yarn queue address: http://ip:8888/cluster/scheduler
 
-### 8.2 Check whether the engine material resource is uploaded successfully
+### 9.2 Check whether the engine material resource is uploaded successfully
 
 ```sql
 #Login to the linkis database
@@ -539,17 +944,17 @@ hdfs dfs -mkdir /apps-data
 hdfs dfs -chown hadoop:hadoop/apps-data
 ````
 
-### 8.3 Login password problem
+### 9.3 Login password problem
 
 By default, linkis uses a static user and password. The static user is the deployment user. The static password will randomly generate a password string during deployment and store it in
 `{LINKIS_HOME}/conf/linkis-mg-gateway.properties` (>=1.0.3 version)
 
-### 8.4 version compatibility issues
+### 9.4 version compatibility issues
 
 The engine supported by linkis by default, the compatibility with dss can be viewed [this document](https://github.com/apache/incubator-linkis/blob/master/README.md)
 
 
-### 8.5 How to locate the server exception log
+### 9.5 How to locate the server exception log
 
 Linkis has many microservices. If you are unfamiliar with the system, sometimes you cannot locate the specific module that has an exception. You can search through the global log.
 ```shell script
@@ -558,7 +963,7 @@ less log/* |grep -5n exception (or less log/* |grep -5n ERROR)
 ````
 
 
-### 8.6 Exception troubleshooting of execution engine tasks
+### 9.6 Exception troubleshooting of execution engine tasks
 
 ** step1: Find the startup deployment directory of the engine **
 
@@ -589,7 +994,7 @@ Debugging can be done by trying to execute the script manually
 sh -x engineConnExec.sh
 ````
 
-### 8.7 How to modify the port of the registry eureka
+### 9.7 How to modify the port of the registry eureka
 Sometimes when the eureka port is occupied by other services and the default eureka port cannot be used, the eureka port needs to be modified. Here, the modification of the eureka port is divided into two situations: before the installation is performed and after the installation is performed.
 1. Modify the eureka port of the registry before performing the installation
 ````
@@ -612,7 +1017,7 @@ Sometimes when the eureka port is occupied by other services and the default eur
 ````
 
 
-### 8.8 Notes on CDH adaptation version
+### 9.8 Notes on CDH adaptation version
 
 CDH itself is not the official standard hive/spark package used. When adapting, it is best to modify the hive/spark version dependencies in the source code of linkis to recompile and deploy.
 For details, please refer to the CDH adaptation blog post
@@ -621,7 +1026,7 @@ For details, please refer to the CDH adaptation blog post
 [[DSS1.0.0 and Linkis1.0.2——Summary of JDBC engine related issues]](https://mp.weixin.qq.com/s/vcFge4BNiEuW-7OC3P-yaw)
 [[DSS1.0.0 and Linkis1.0.2——Summary of Flink engine related issues]](https://mp.weixin.qq.com/s/VxZ16IPMd1CvcrvHFuU4RQ)
 
-### 8.9 Debugging of Http interface
+### 9.9 Debugging of Http interface
 
 - Method 1 can enable [Login-Free Mode Guide] (/docs/latest/api/login-api/#2 Login-Free Configuration)
 - In method 2 postman, the request header brings the cookie value of the successful login
@@ -639,7 +1044,7 @@ Token-Code: TEST-AUTH
 Token-User:hadoop
 ````
 
-### 8.10 Troubleshooting process for abnormal problems
+### 9.10 Troubleshooting process for abnormal problems
 
 First, follow the above steps to check whether the service/environment, etc. are all started normally
 Troubleshoot basic problems according to some of the scenarios listed above
@@ -650,7 +1055,7 @@ Through the official website document search, for some problems, you can search 
 ![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)
 
 
-## 9. How to obtain relevant information
+## 10. How to obtain relevant information
 Linkis official website documents are constantly improving, you can view/keyword search related documents on this official website.
 Related blog post links
 - Linkis technical blog collection https://github.com/apache/incubator-linkis/issues/1233
