@@ -141,7 +141,7 @@ I checked:
 
 ** Email configuration reply default subject keywords **
 Chinese `Reply: `There will be problems
-![Email reply](/Images-en/Architecture/email-reply.png)
+![Email reply](/Images/Architecture/email-reply.png)
 
 Modify general mailbox settings
 ![mailbox-settings](/Images-zh/Architecture/mailbox-settings.png)
