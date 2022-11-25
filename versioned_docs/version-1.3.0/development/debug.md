@@ -52,6 +52,7 @@ The way to add to the dependency is as follows, modify the pom.xml file of the c
       <version>${mysql.connector.version}</version>
 </dependency>
 ````
+At the same time, it is necessary to keep whether the scope of mysql-connector-java dependency is set to test according to the <dependencyManagement> of pom.xml. If so, comments are required for local debugging
 
 ### 3.2 Adjust log4j2.xml configuration
 
