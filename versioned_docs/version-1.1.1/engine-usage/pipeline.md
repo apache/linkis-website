@@ -25,7 +25,7 @@ mvn clean install
 
 ### 1.2 Material deployment and loading
 
-将 1.1 The engine package compiled in step, located in
+Will 1.1 The engine package compiled in step, located in
 
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/pipeline/target/out/pipeline
