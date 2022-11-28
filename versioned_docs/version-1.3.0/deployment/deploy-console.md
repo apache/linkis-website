@@ -37,8 +37,8 @@ linkis_port="8088"
 #URL of the backend linkis gateway
 linkis_url="http://localhost:9001"
 
-#linkis ip address
-linkis_ipaddr=$(ip addr | awk '/^[0-9]+: / {}; /inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1" , "g", $2)}')
+#linkis ip address, replace `127.0.0.1` to real ip address if neccssary
+linkis_ipaddr=127.0.0.1
 ```
 
 #### 2.1.2 execute deployment script
