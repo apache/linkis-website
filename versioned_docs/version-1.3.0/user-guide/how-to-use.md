@@ -18,12 +18,12 @@ If you need to connect to other applications on the basis of Linkis, you need to
 
 If you need to use Linkis to complete interactive online analysis and processing, and you do not need data analysis application tools such as workflow development, workflow scheduling, data services, etc., you can Install [**Scriptis**](https://github.com/WeBankFinTech/Scriptis) separately. For detailed installation tutorial, please refer to its corresponding installation and deployment documents.
 
-## 2.1. Use Scriptis to execute scripts
+### 2.1. Use Scriptis to execute scripts
 
 Currently Scriptis supports submitting a variety of task types to Linkis, including Spark SQL, Hive SQL, Scala, PythonSpark, etc. In order to meet the needs of data analysis, the left side of Scriptis, Provides viewing user workspace information, user database and table information, user-defined functions, and HDFS directories. It also supports uploading and downloading, result set exporting and other functions. Scriptis is very simple to use Linkis, you can easily write scripts in the edit bar, and submit them to Linkis to run.
 ![Scriptis uses Linkis](/Images/manual/sparksql_run.png)
 
-## 2.2. Scriptis Management Console
+### 2.2. Scriptis Management Console
 
 Linkis provides an interface for resource configuration and management. If you want to configure and manage task resources, you can set it on the Scriptis management console interface, including queue settings and resource configuration , The number of engine instances, etc. Through the management console, you can easily configure the resources for submitting tasks to Linkis, making it more convenient and faster.
 ![Scriptis uses Linkis](/Images/manual/queue_set.png)

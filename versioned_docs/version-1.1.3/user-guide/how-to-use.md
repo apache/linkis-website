@@ -14,11 +14,11 @@ sidebar_position: 1
 - [**JDBC API Usage**](api/jdbc-api.md)
 - [**How ​​to use Java SDK**](../user-guide/sdk-manual.md)
 
-## 2. Scriptis uses Linkis
+### 2. Scriptis uses Linkis
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you need to use Linkis to complete interactive online analysis and processing, and you do not need data analysis application tools such as workflow development, workflow scheduling, data services, etc., you can Install [**Scriptis**](https://github.com/WeBankFinTech/Scriptis) separately. For detailed installation tutorial, please refer to its corresponding installation and deployment documents.
 
-## 2.1. Use Scriptis to execute scripts
+### 2.1. Use Scriptis to execute scripts
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Currently Scriptis supports submitting a variety of task types to Linkis, including Spark SQL, Hive SQL, Scala, PythonSpark, etc. In order to meet the needs of data analysis, the left side of Scriptis, Provides viewing user workspace information, user database and table information, user-defined functions, and HDFS directories. It also supports uploading and downloading, result set exporting and other functions. Scriptis is very simple to use Linkis, you can easily write scripts in the edit bar, and submit them to Linkis to run.
 ![Scriptis uses Linkis](/Images/manual/sparksql_run.png)
