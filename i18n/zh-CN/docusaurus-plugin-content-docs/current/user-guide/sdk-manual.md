@@ -6,33 +6,18 @@ sidebar_position: 3
 > Linkis 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-computation-client的模块就可以进行使用，1.0后新增支持带Label提交的方式，下面将对 SDK 使用方式进行介绍。
 
 
-**Linkis 支持的引擎版本**
-
-| 引擎         | 支持版本 |
-|-------------| ----   |
-| Spark      | 2.4.3 |
-| Hive        | 2.3.3 |
-| Python     |python2 |
-| Shell      | 1 |
-| JDBC        | 4 |
-| Flink      |1.12.2 |
-| OpenLooKeng | 1.5.0 |
-| Pipeline | 1 |
-| Presto | 0.234 |
-| Sqoop | 1.4.6 |
-| Elasticsearch | 7.6.2 |
-| trino | 371 |
-
-**引擎支持的脚本类型**
+**Linkis 支持的引擎版本及脚本类型**
 
 <table>
   <tr>
-	    <th>engine</th>
-	    <th>script types</th>
-	    <th>notes</th>  
+	    <th>引擎插件</th>
+      <th>默认支持的版本</th>
+	    <th>脚本类型</th>
+	    <th>类型说明</th>  
 	</tr>
   <tr>
     <th rowspan="3">Spark</th>
+    <th rowspan="3">2.4.3</th>
     <th>py</th>
     <th>python脚本</th>  
   </tr >
@@ -46,46 +31,61 @@ sidebar_position: 3
   </tr>
   <tr>
     <th>Hive</th>
+    <th>2.3.3</th>
     <th>hql</th>
     <th>hql脚本</th>  
   </tr >
   <tr>
     <th>Python</th>
+    <th>python2</th>
     <th>python</th>
     <th>python脚本</th>  
   </tr >
   <tr>
     <th>Shell</th>
+    <th>1</th>
     <th>shell</th>
     <th>shell脚本</th>  
   </tr >
   <tr>
     <th>JDBC</th>
+    <th>4</th>
     <th>jdbc</th>
     <th>sql脚本名</th>  
   </tr >
   <tr>
+    <th>Flink</th>
+    <th>1.12.2</th>
+    <th>sql</th>
+    <th>sql脚本</th>  
+  </tr >
+  <tr>
     <th>OpenLooKeng</th>
+    <th>1.5.0</th>
     <th>sql</th>
     <th>sql脚本</th>  
   </tr >
   <tr>
     <th>Pipeline</th>
+    <th>1</th>
     <th>pipeline</th>
     <th>文件导入导出</th>  
   </tr >
   <tr>
     <th>Presto</th>
+    <th>0.234</th>
     <th>psql</th>
     <th>sql脚本</th>  
   </tr >
   <tr>
     <th>Sqoop</th>
+    <th>1.4.6</th>
     <th>appconn</th>
     <th>文件导入导出</th>  
   </tr >
   <tr>
     <th rowspan="2">Elasticsearch</th>
+    <th rowspan="2">7.6.2</th>
     <th>esjson</th>
     <th>json脚本</th>  
   </tr >
@@ -95,7 +95,8 @@ sidebar_position: 3
   </tr >
   <tr>
     <th>trino</th>
-    <th>tsql</th>
+    <th>371</th>
+    <th>sql</th>
     <th>sql脚本</th>  
   </tr >
 </table>
