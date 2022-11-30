@@ -32,7 +32,7 @@ public class HelloUDF extends UDF{
 
 - Custom functions PythonUDF and ScalaUDF can only be used in the Spark engine
     - python function, based on functions written in python
-    - scala function, function written based on scala
+    - Scala functions, functions written based on scala
 
 
 ## 2. UDF additions, deletions and modifications
@@ -45,12 +45,18 @@ The UDF management console has two columns, "UDF Management" and "Function Manag
 The corresponding Jar package needs to be compiled first, and uploaded to the user's workspace directory
 Click the Add UDF button. There are two types of UDFs that can be added. Select the "General" type and register through the jar package. The registration format needs to write the fully qualified class name of the UDF implementation class.
 
+For example, the fully qualified class name of UDFServiceImpl in the figure below is: org.apache.linkis.udf.service.impl.UDFServiceImpl
+
+![](../images/udf-cllass.png)
 
 **Add Spark type UDF function**
 
-If you choose the "spark" type, select the defined scala or python function to register. After registration, it can also be used in sql, similar to: select hello("abc").
+If you select the "spark" type, select a defined scala or python function to register, and you need to write a scala or python script for the custom function. It can also be used in sql after registration, similar to: select hello("abc").
 
-It should be noted that after the udf is added, the corresponding jar package or script content will be uploaded to the bml storage. If the resource is modified locally, it needs to be updated to take effect.
+Notice:
+1. When registering, you should fill in the method name in the new script.
+2. After adding udf, the corresponding jar package or script content will be uploaded to bml storage. If the resource is modified locally, it needs to be updated to take effect.
+
 
 
 ### 2.2 UDF modification
@@ -66,9 +72,9 @@ Click the delete button corresponding to the udf. Note: all versions of the udf 
 ## 3. UDF usage
 If you want to make the UDF you created take effect and use it in the program, you need to load the UDF. The entry point of "loading"/"unloading" is: enter the UDF function on the left side of scriptis -> personal function, and the created UDFs are all in the personal function list.
 
-Note 1: If you do not actively cancel the check on the page when adding a UDF, it will be checked and loaded by default.
+Note 1: If you do not actively cancel the check on the page when adding a UDF, the load will be checked by default. At this time, you need to kill the corresponding engine and start a new engine for the operation to take effect.
 
-Note 2: The operation of loading/unloading udf needs to kill the corresponding engine and start a new engine before the operation will take effect
+Note 2: The operation of loading/unloading udf needs to kill the corresponding engine and start a new engine before the operation will take effect.
 
 Introduction to non-personal functions in the list:
 
@@ -101,7 +107,7 @@ If the user resigns, it may be necessary to hand over the personal udf to others
 
 **UDF expired**
 
-For a UDF shared with others, if it has been loaded by the sharing user, the UDF cannot be deleted directly, but the UDF can only be marked as expired. Temporarily only for marking function, does not affect the use.
+For a UDF shared with others, if it has been loaded by the sharing user, the UDF cannot be deleted directly, but the UDF can only be marked as expired. For the time being, it is only used for marking and does not affect the use.
 
 **UDF version list**
 

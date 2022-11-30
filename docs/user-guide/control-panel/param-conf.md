@@ -26,7 +26,7 @@ The engine is associated with the application, and the corresponding reference m
 
 
 ## 4. Editing Apps and Engines (admins only)
-Administrators can delete existing applications and engine configurations through the Edit Directory button (note! Deleting an application directly will delete all engine configurations under the application and cannot be restored), or add an engine.
+Administrators can delete existing applications and engine configurations through the Edit Directory button (Note! Deleting an application directly will delete all engine configurations under the application and cannot be restored), or add an engine.
 
 ![](../images/del-app.png)
 
@@ -35,6 +35,30 @@ Administrators can delete existing applications and engine configurations throug
 The global setting is mainly to configure the parameters of the queue resources, which will take effect for all application tasks after configuration.
 
 ![](../images/global-conf.png)
+
+### 5.1 Queue Settings
+
+**1. View available queues**
+
+Visit hadoop cluster to view available queues, address: http://ip:port/cluster/scheduler
+
+![](../images/yarn-deque.png)
+
+**2. Set up the queue**
+
+Set the name of the available queue queried in step 1 and save it.
+![](../images/yarn-write.png)
+
+**3. View the available resources of the set queue**
+
+Click the button in the lower right corner to view the available resources of the queue.
+![](../images/click-yarn.png)
+![](../images/deque-resource.png)
+
+**4. Set Resource Limits**
+
+Set resource limits based on the available resources (CPU and memory) of the queue queried in step 3, including the maximum number of queue instances, the upper limit of queue CPU usage, the upper limit of queue memory usage, and the upper limit of global memory usage of each engine.
+
 
 
 ## 6. Engine parameter modification

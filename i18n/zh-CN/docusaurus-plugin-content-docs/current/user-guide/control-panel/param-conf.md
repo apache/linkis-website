@@ -36,6 +36,30 @@ sidebar_position: 3
 
 ![](../images/global-conf.png)
 
+### 5.1 队列设置
+
+**1. 查看可用的队列**
+
+访问 hadoop 集群查看可用队列，地址：http://ip:port/cluster/scheduler
+
+![](../images/yarn-deque.png)
+
+**2. 设置队列**
+
+设置步骤1中查询的可用队列名称，并保存。
+![](../images/yarn-write.png)
+
+**3. 查看设置队列可用资源**
+
+点击右下角按钮查看队列可用资源。
+![](../images/click-yarn.png)
+![](../images/deque-resource.png)
+
+**4. 设置资源限制**
+
+根据步骤3中查询的队列可用资源（CPU、内存）设置资源限制，包括队列实例最大个数、队列CPU使用上限、队列内存使用上限、全局各个引擎内存使用上限等。
+
+
 
 ## 6. 引擎参数修改
 
