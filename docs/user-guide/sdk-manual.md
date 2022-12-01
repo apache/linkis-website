@@ -96,7 +96,7 @@ sidebar_position: 3
   <tr>
     <th>trino</th>
     <th>371</th>
-    <th>sql</th>
+    <th>tsql</th>
     <th>sql script</th>  
   </tr >
 </table>
