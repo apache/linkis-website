@@ -5,12 +5,12 @@ sidebar_position: 8
 
 本文主要介绍openLooKeng(>=1.1.1版本支持)引擎的配置、部署和使用。
 
-## 1 环境要求
+## 1. 环境要求
 
 如果您希望部署使用openLooKeng引擎，您需要准备一套可用的openLooKeng环境。
 
 
-## 2 配置和部署
+## 2. 配置和部署
 
 ### 2.1 版本的选择和编译
 注意: 编译openLooKeng引擎之前需要进行linkis项目全量编译  
@@ -49,7 +49,7 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 
 [EngineConnPlugin引擎插件安装](../deployment/install-engineconn) 
 
-## 3 引擎的使用
+## 3. 引擎的使用
 
 ### 准备操作
 

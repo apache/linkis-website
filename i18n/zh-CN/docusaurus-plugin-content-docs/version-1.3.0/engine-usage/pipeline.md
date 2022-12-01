@@ -4,7 +4,7 @@ sidebar_position: 10
 ---
 > Pipeline的主要用来文件的导入和导出,本文主要介绍`pipeline`(>=1.1.0版本支持)引擎的配置、部署和使用。
 
-## 1 配置和部署
+## 1. 配置和部署
 
 ### 1.1 引擎包的获取 
 
@@ -58,7 +58,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 [EngineConnPlugin引擎插件安装](../deployment/install-engineconn) 
 
 
-## 2 引擎的使用
+## 2. 引擎的使用
 
 >因为`pipeline`引擎主要用来导入导出文件为主，现在我们假设从A向B导入文件最为介绍案例
 

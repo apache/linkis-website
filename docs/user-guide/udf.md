@@ -3,7 +3,7 @@ title: UDF Manual
 sidebar_position: 2.2
 ---
 
-## 1 Introduction to UDFs
+## 1.Introduction to UDFs
 UDF: User Defined Function, user-defined function. In some scenarios, we need to use hive functions to process some data, such as count(), sum() functions are built-in. If we want to use some functions that do not come with them, we need to customize the function functions, which can be done by writing UDF.
 
 The way to implement a UDF is relatively simple: just inherit the UDF class and override the evaluate method.
@@ -36,7 +36,7 @@ PythonUDF and ScalaUDF can only be used in Spark engine
 - scala custom functions, functions written based on scala
 
 
-## 2 UDF additions, deletions and modifications
+## 2.UDF additions, deletions and modifications
 Click on the linkis management console: Home >> UDF Management
 ![](/Images/udf/udf_01.png)
 
@@ -81,7 +81,7 @@ Click the delete button of the corresponding udf, note: all versions of the udf 
 
 ![](/Images/udf/udf_07.png)
 
-## 3 UDF usage
+## 3.UDF usage
 If you want to make the UDF you created valid for use in the program, you need to load the UDF. The entrance of "load"/"unload" is: enter the UDF function on the left side of scriptis -> personal function, the created UDF is in the personal function list.
 
 Note 1: When adding a UDF, if it is not automatically unchecked on the page, it will be loaded by default.
@@ -100,7 +100,7 @@ Expiration function: It is also a shared function, but the sharer marks it as ex
 
 
 
-## 4 UDF sharing
+## 4.UDF sharing
 Prerequisite: The sharing function needs to be used by the user as an administrator, otherwise the front-end page will not provide an operation entry.
 
 Click the share button of udf: the content box will pop up, enter the list of users you want to share (comma separated).
@@ -111,7 +111,7 @@ Note: After sharing to others, others need to actively load the UDF before using
 
 After sharing, the shared user can find it in "Shared Function", check the load and use it.
 
-## 5 Introduction of other functions
+## 5.Introduction of other functions
 ### 5.1 UDF handover
 
 For example, when the user leaves the company, it may be necessary to hand over personal udf to others. Click the Handover button, select your handover object, and click OK.

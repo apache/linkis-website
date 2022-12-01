@@ -8,12 +8,12 @@ LinkisManager Architecture Design
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As an independent microservice of Linkis, LinkisManager provides AppManager (application management), ResourceManager (resource management), and LabelManager (label management) capabilities. It can support multi-active deployment and has the characteristics of high availability and easy expansion.  
 ## 1. Architecture Diagram
 ![Architecture Diagram](/Images/Architecture/LinkisManager/LinkisManager-01.png)  
-### Noun explanation
+### 1.1 Noun explanation
 - EngineConnManager (ECM): Engine Manager, used to start and manage engines.
 - EngineConn (EC): Engine connector, used to connect the underlying computing engine.
 - ResourceManager (RM): Resource Manager, used to manage node resources.
 ## 2. Introduction to the second-level module
-### 2.1. Application management module linkis-application-manager
+### 2.1 Application management module linkis-application-manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppManager is used for unified scheduling and management of engines:  
 
 | Core Interface/Class | Main Function |
@@ -34,7 +34,7 @@ LinkisManager Architecture Design
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The process of applying for an engine through AppManager is as follows:  
 ![AppManager](/Images/Architecture/LinkisManager/AppManager-01.png)  
-### 2. Label management module linkis-label-manager
+### 2.2 Label management module linkis-label-manager
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LabelManager provides label management and analysis capabilities.  
 
 | Core Interface/Class | Main Function |
@@ -44,5 +44,5 @@ LinkisManager Architecture Design
 |UserLabelService | Provides user label management functions |  
 The LabelManager architecture diagram is as follows:  
 ![ResourceManager](/Images/Architecture/LinkisManager/ResourceManager-01.png)  
-### 4. Monitoring module linkis-manager-monitor
+### 2.3 Monitoring module linkis-manager-monitor
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitor provides the function of node status monitoring.

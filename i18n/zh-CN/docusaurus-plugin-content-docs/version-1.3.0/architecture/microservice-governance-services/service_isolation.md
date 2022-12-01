@@ -4,11 +4,11 @@ sidebar_position: 2
 ---
 
 ## 1. 总述
-### 需求背景
+### 1.1 需求背景
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis在Gateway进行服务转发时是基于ribbon进行负载均衡的，但是有些情况下存在一些重要业务的任务希望做到服务级别的隔离，如果基于ribbon进行服务在均衡就会存在问题。比如租户A希望他的任务都路由到特定的Linkis-CG-Entrance服务，这样当其他的实例出现异常时可以不会影响到A服务的Entrance。
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另外支持服务的租户及隔离也可以做到快速隔离某个异常服务，支持灰度升级等场景。
 
-### 目标
+### 1.2 目标
 1. 支持通过解析请求的标签按照路由标签对服务进行转发
 2. 支持服务的标签注册和修改
 
@@ -33,7 +33,7 @@ sidebar_position: 2
 | Linkis | PS | InstanceLabel| InstanceLabel服务，完成服务和标签的关联|
 
 ## 3. 模块设计
-### 核心执行流程
+### 3.1 核心执行流程
 - [输入端] 输入端为请求Gatway的restful请求，且是参数中待用roure label的请求才会进行处理
 - [处理流程] Gateway会判断请求是否带有对应的RouteLabel，如果存在则基于RouteLabel来进行转发。
 调用时序图如下：
@@ -81,14 +81,14 @@ CREATE TABLE `linkis_ps_instance_label_relation` (
 ```
 ## 5. 如何使用：
 
-### add route label for entrance
+### 5.1 add route label for entrance
 ```
 echo "spring.eureka.instance.metadata-map.route=et1" >> $LINKIS_CONF_DIR/linkis-cg-entrance.properties 
 sh  $LINKIS_HOME/sbin/linkis-damemon.sh restart cg-entrance
 ```
 ![Time](/Images/Architecture/Gateway/service_isolation_time.png)
 
-### Use route label
+### 5.2 Use route label
 submit task:
 ```
 url:/api/v1/entrance/submit
@@ -122,7 +122,7 @@ or linkis-cli:
 sh bin/linkis-cli -submitUser  hadoop  -engineType shell-1 -codeType shell  -code "whoami" -labelMap route=et1 --gatewayUrl http://127.0.0.1:9101
 ```
 
-### Use non-existing label
+### 5.3 Use non-existing label
 submit task:
 ```
 url:/api/v1/entrance/submit
@@ -149,7 +149,7 @@ will get the error
 }
 ```
 
-### without label
+### 5.4 without label
 submit task:
 ```
 url:/api/v1/entrance/submit

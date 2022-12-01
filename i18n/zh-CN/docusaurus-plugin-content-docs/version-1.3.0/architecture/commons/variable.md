@@ -4,9 +4,9 @@ sidebar_position: 1
 ---
 
 ## 1. 总述
-### 需求背景
+### 1.1 需求背景
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户希望在写代码时，能够定义一些公共变量然后执行的时候进行替换，比如用户每天都会批量跑同一段sql，需要指定上一天的分区时间，如果基于sql去写会比较复杂如果系统提供一个run_date的变量将会非常方便使用。
-### 目标
+### 1.2 目标
 1. 支持任务代码的变量替换
 2. 支持自定义变量，支持用户在脚本和提交给Linkis的任务参数定义自定义变量，支持简单的+，-等计算
 3. 预设置系统变量：run_date,run_month，run_today等系统变量
@@ -19,7 +19,7 @@ sidebar_position: 1
 
 ![var_arc](/Images/Architecture/Commons/var_arc.png)
 
-### 3 功能介绍
+## 3.能介绍
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis支持的变量类型分为自定义变量和系统内置变量，内部变量是Linkis预先定义好的，可以直接进行使用。然后不同的变量类型支持不同的计算格式：String支持+、整数小数支持+-*/,日期支持+-。
 
 ### 3.1 内置变量

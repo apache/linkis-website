@@ -3,6 +3,8 @@ title: After Installation Directory
 sidebar_position: 3.2
 ---
 
+## 1.Directory structure
+
 > The directory structure of Linkis 1.0 is very different from the 0.X version. Each microservice in 0.X has a root directory that exists independently. The main advantage of this directory structure is that it is easy to distinguish microservices and facilitate individual Microservices are managed, but there are some obvious problems:
 
 1.	The microservice catalog is too complicated and it is not convenient to switch catalog management
@@ -119,11 +121,11 @@ The simplified directory structure of Linkis 1.0 is as follows.
     └── linkis-stop-all.sh ── Stop all microservice scripts with one click
 ````
 
-# Configuration item modification
+## 2.Configuration item modification
 
 After executing the install.sh in the bin directory to complete the Linkis installation, you need to modify the configuration items. All configuration items are located in the con directory. Normally, you need to modify the three configurations of db.sh, linkis.properties, and linkis-env.sh For documentation, project installation and configuration, please refer to the article "Linkis1.0 Installation"
 
-# Microservice start and stop
+## 3.Microservice start and stop
 
 After modifying the configuration items, you can start the microservice in the sbin directory. The names of all microservices are as follows:
 

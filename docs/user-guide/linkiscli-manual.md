@@ -3,11 +3,11 @@ title: Linkis-Cli Manual
 sidebar_position: 2.1
 ---
 
-## Introduction
+## 1.Introduction
 
 Linkis-Cli is a shell command line program used to submit tasks to Linkis.
 
-## Basic case
+## 2.Basic case
 
 You can simply submit a task to Linkis by referring to the example below
 
@@ -31,13 +31,13 @@ In the third step, you will see the information on the console that the task has
 Linkis-cli currently only supports synchronous submission, that is, after submitting a task to linkis, it will continue to inquire about the task status and pull task logs until the task ends. If the status is successful at the end of the task, linkis-cli will also actively pull the result set and output it.
 
 
-## How to use
+## 3.How to use
 
 ```bash
    sh ./bin/linkis-cli [parameter] [cli parameter]
 ```
 
-## Supported parameter list
+## 4.Supported parameter list
 
 * cli parameters
 
@@ -68,9 +68,9 @@ Linkis-cli currently only supports synchronous submission, that is, after submit
     | -sourceMap | Specify linkis sourceMap | Map | No |
 
 
-## Detailed example
+## 5.Detailed example
 
-#### One, add cli parameters
+### 5.1 add cli parameters
 
 Cli parameters can be passed in manually specified, this way will overwrite the conflicting configuration items in the default configuration file
 
@@ -78,7 +78,7 @@ Cli parameters can be passed in manually specified, this way will overwrite the 
     sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "select count(*) from testdb.test;" -submitUser hadoop -proxyUser hadoop --gwUrl http://127.0.0.1:9001- -authStg token --authKey [tokenKey] --authVal [tokenValue]
 ```
 
-#### Two, add engine initial parameters
+### 5.2 add engine initial parameters
 
 The initial parameters of the engine can be added through the `-confMap` parameter. Note that the data type of the parameter is Map. The input format of the command line is as follows:
 
@@ -92,7 +92,7 @@ For example: the following example sets startup parameters such as the yarn queu
 
 Of course, these parameters can also be read in a configuration file, we will talk about it later
 
-#### Three, add tags
+### 5.3 add tags
 
 Labels can be added through the `-labelMap` parameter. Like the `-confMap`, the type of the `-labelMap` parameter is also Map:
 
@@ -100,7 +100,7 @@ Labels can be added through the `-labelMap` parameter. Like the `-confMap`, the 
   sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -labelMap labelKey=labelVal -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop  
 ```
 
-#### Fourth, variable replacement
+### 5.4 variable replacement
 
 Linkis-cli variable substitution is realized by `${}` symbol and `-varMap`
 
@@ -116,7 +116,7 @@ During execution, the sql statement will be replaced with:
         
 Note that the escape character in `'\$'` is to prevent the parameter from being parsed in advance by linux. If `-codePath` specifies the local script mode, the escape character is not required
 
-#### Five, use user configuration
+### 5.5  use user configuration
 
 1. linkis-cli supports loading user-defined configuration files, the configuration file path is specified by the `--userConf` parameter, and the configuration file needs to be in the file format of `.properties`
         
@@ -180,7 +180,7 @@ Configure labelMap parameters:
    wds.linkis.client.label.myLabel=label123
 ```
         
-#### Six, output result set to file
+### 5.6 output result set to file
 
 Use the `-outPath` parameter to specify an output directory, linkis-cli will output the result set to a file, and each result set will automatically create a file. The output format is as follows:
 

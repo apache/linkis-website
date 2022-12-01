@@ -4,9 +4,9 @@ sidebar_position: 4
 ---
 
 ## 1. General
-### Requirements Background
+### 1.1 Requirements Background
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now LinkisManager only records the information and resource usage of the running EengineConn, but this information is lost after the task ends. It is inconvenient to do some statistics and view of historical ECs, or to view logs of ECs that have ended. It is more important to record the historical EC.
-### Target
+### 1.2 Target
 1. Complete the persistence of EC information and resource information to DB storage
 2. Support the viewing and searching of historical EC information through restful
 3. Support to view the logs of EC that has ended

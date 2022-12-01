@@ -4,10 +4,10 @@ sidebar_position: 7
 ---
 
 ## 1.总述
-### 需求背景
+### 1.1 需求背景
 用户希望在写代码时，对时间的格式要求千变万化,已有的[Linkis自定义变量](https://linkis.apache.org/docs/latest/architecture/commons/variable/)目前还不足以支撑这些需求。另外,已有的时间运算-1有些表示减一个月,有些则是减一天,用户很容易混淆
 
-### 目标
+### 1.2 目标
 * 其他日期内置变量都是相对run_date计算出来
 * 支持Pattern格式时间且用户可以自行随意指定
 * 支持±y/±M/±d/±H等等

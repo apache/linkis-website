@@ -4,9 +4,9 @@ sidebar_position: 1
 ---
 
 ## 1. General
-### Requirements Background
+### 1.1 Requirements Background
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Users want to be able to define some common variables when writing code and then replace them during execution. For example, users run the same sql in batches every day, and need to specify the partition time of the previous day. If based on sql It will be more complicated to write if the system provides a variable of run_date which will be very convenient to use.
-### Target
+### 1.2 Target
 1. Support variable substitution of task code
 2. Support custom variables, support users to define custom variables in scripts and task parameters submitted to Linkis, support simple +, - and other calculations
 3. Preset system variables: run_date, run_month, run_today and other system variables
@@ -19,7 +19,7 @@ sidebar_position: 1
 
 ![var_arc](/Images/Architecture/Commons/var_arc.png)
 
-### 3 Function introduction
+## 3.Function introduction
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The variable types supported by Linkis are divided into custom variables and system built-in variables. The internal variables are predefined by Linkis and can be used directly. Then different variable types support different calculation formats: String supports +, integer decimal supports +-*/, date supports +-.
 
 ### 3.1 Built-in variables

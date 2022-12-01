@@ -170,7 +170,7 @@ http://nginxIp:port/scriptis/#/home
 ````
 `nginxIp`: The ip of the nginx server deployed by the Linkis console, `port`: the port number of the nginx configuration startup, `scriptis` is the location address of the nginx configuration for requesting the static files of the scriptis project (can be customized)
 
-### 4.3 Using scriptis
+### 5.3 Using scriptis
 
 Take creating a new sql query task as an example.
 

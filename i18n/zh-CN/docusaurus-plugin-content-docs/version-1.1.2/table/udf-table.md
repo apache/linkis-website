@@ -3,7 +3,7 @@ title: UDF 的表结构
 sidebar_position: 2
 ---
 
-## 1 linkis_ps_udf_baseinfo
+## 1.linkis_ps_udf_baseinfo
 
 udf函数的基本信息表，存储udf名称/类型等基础信息
 
@@ -31,7 +31,7 @@ udf_type 3:自定义函数-python函数
 udf_type 4:自定义函数-scala 函数
 ```
 
-## 2 linkis_ps_udf_manager
+## 2.linkis_ps_udf_manager
 
 udf函数的管理员用户表，具有共享权限，只有udf管理员 前端才有共享的入口
 
@@ -40,7 +40,7 @@ udf函数的管理员用户表，具有共享权限，只有udf管理员 前端�
 | 1 | `id` |  | bigint(20) | PRI | NO | auto_increment |  |
 | 2 | `user_name` |  | varchar(20) |  | YES |  |  |
 
-## 3 linkis_ps_udf_shared_info
+## 3.linkis_ps_udf_shared_info
 
 udf共享的记录表
 
@@ -50,7 +50,7 @@ udf共享的记录表
 | 2 | `udf_id` | linkis_ps_udf_baseinfo的id | bigint(20) |  | NO |  |  |
 | 3 | `user_name` | 共享使用的用户名 | varchar(50) |  | NO |  |  |
 
-## 4 linkis_ps_udf_tree
+## 4.linkis_ps_udf_tree
 
 udf分类的树形层级记录表
 
@@ -65,7 +65,7 @@ udf分类的树形层级记录表
 | 7 | `update_time` |  | timestamp |  | NO |  | CURRENT_TIMESTAMP |
 | 8 | `category` | 类别区分 udf / function | varchar(50) |  | YES |  |  |
 
-## 5 linkis_ps_udf_user_load
+## 5.linkis_ps_udf_user_load
 
 udf是否默认加载的配置
 
@@ -75,7 +75,7 @@ udf是否默认加载的配置
 | 2 | `udf_id` | linkis_ps_udf_baseinfo的id | int(11) |  | NO |  |  |
 | 3 | `user_name` | 归属用户 | varchar(50) |  | NO |  |  |
 
-## 6 linkis_ps_udf_version
+## 6.linkis_ps_udf_version
 
 udf的版本信息表
 

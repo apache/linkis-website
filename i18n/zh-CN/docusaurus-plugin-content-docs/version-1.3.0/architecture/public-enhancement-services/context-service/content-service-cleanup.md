@@ -61,7 +61,7 @@ ContestService各模块访问关系如下图所示
 ①cs-server服务中restful api，会将请求封装成Job提交到队列并阻塞等待结果。新定义了CLEAR 的操作类型，便于匹配到清理相关接口。
 ②处理①中Job的Service服务，需要将名称定义为不包含ContextID，来避免HighAvailable模块的动态代理转换，这个转换仅对于请求内只有一个ContextID的接口，对于批量清理和批量查询接口无意义且影响性能。
 
-##4. 数据结构
+## 4. 数据结构
 ```
 # 主要涉及的context_id表结构如下，增加了create_time、update_time、expire_time字段
 CREATE TABLE `linkis_ps_cs_context_id` (
@@ -83,8 +83,8 @@ CREATE TABLE `linkis_ps_cs_context_id` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
-##5. 接口设计
-###5.1 Restful接口
+## 5. 接口设计
+### 5.1 Restful接口
 
 
 #### 搜索文本Id执行时间
@@ -264,7 +264,7 @@ CREATE TABLE `linkis_ps_cs_context_id` (
 }
 ```
 
-###5.2 JAVA SDK API
+### 5.2 JAVA SDK API
 ```
 # 引入pom
 <dependency>

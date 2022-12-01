@@ -95,7 +95,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 | wds.linkis.presto.http.connectTimeout | 60 | Presto client connect timeout (unit: seconds) | false |
 | wds.linkis.presto.http.readTimeout | 60 | Presto client read timeout (unit: seconds) | false |
 | wds.linkis.engineconn.concurrent.limit | 100 | The maximum number of concurrent Presto engines | false |
-## 3 The use of the engine
+## 3. The use of the engine
 
 ### 3.1 Preparing for Operation
 
