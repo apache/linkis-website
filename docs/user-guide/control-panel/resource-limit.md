@@ -26,9 +26,9 @@ Click Management Console--Parameter Configuration--Global Settings--Queue Resour
 ## 3. Global driver memory usage limit
 An error is reported during task execution: error code 12004, error message upper limit of global driver memory usage, lower driver memory can be set
 
-Click Management Console--Parameter Configuration--Global Settings--Queue Resources--Maximum Number of Yarn Queue Instances [wds.linkis.rm.yarnqueue.instance.max]
+Click Management Console--Parameter Configuration--Global Settings--Queue Resources--Maximum Number of Yarn Queue Memory 队列内存使用上限[wds.linkis.rm.yarnqueue.memory.max]
 
-![](../images/yarn-instance.png)
+![](../images/engine-memory.png)
 
 ## 4. Exceeded the upper limit of the CPU number of the global driver
 
@@ -36,7 +36,7 @@ An error is reported during task execution: error code 12005, the error message 
 
 Click Management Console - Parameter Configuration - Global Settings - Queue Resources - Queue CPU Usage Limit [wds.linkis.rm.yarnqueue.cores.max]
 
-![](../images/yarn-cpu.png)
+![](../images/global-cpu.png)
 
 Or solve it by cleaning idle engines.
 

@@ -26,9 +26,9 @@ sidebar_position: 5
 ## 3. 全局驱动器内存使用上限
 任务执行过程中报错：错误码 12004，错误信息 全局驱动器内存使用上限，可以设置更低的驱动内存
 
-点击管理台--参数配置--全局设置--队列资源--yarn队列实例最大个数[wds.linkis.rm.yarnqueue.instance.max]
+点击管理台--参数配置--全局设置--队列资源--队列内存使用上限[wds.linkis.rm.yarnqueue.memory.max]
 
-![](../images/yarn-instance.png)
+![](../images/engine-memory.png)
 
 ## 4. 超出全局驱动器CPU个数上限
 
@@ -36,7 +36,7 @@ sidebar_position: 5
 
 点击管理台--参数配置--全局设置--队列资源--队列CPU使用上限[wds.linkis.rm.yarnqueue.cores.max]
 
-![](../images/yarn-cpu.png)
+![](../images/global-cpu.png)
 
 或者通过清理空闲引擎解决。
 
