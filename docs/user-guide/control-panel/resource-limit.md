@@ -34,9 +34,9 @@ Click Management Console--Parameter Configuration--Global Settings--Queue Resour
 
 An error is reported during task execution: error code 12005, the error message exceeds the upper limit of the number of CPUs in the global drive, and idle engines can be cleaned up
 
-Click Management Console - Parameter Configuration - Global Settings - Queue Resources - Queue CPU Usage Limit [wds.linkis.rm.yarnqueue.cores.max]
+Click Management Console - Parameter Configuration - Global Settings - Queue Resources - Upper Limit of The Number of Engine Cores[wds.linkis.rm.client.core.max]
 
-![](../images/global-cpu.png)
+![](../images/global-core.png)
 
 Or solve it by cleaning idle engines.
 

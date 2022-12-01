@@ -34,9 +34,9 @@ sidebar_position: 5
 
 任务执行过程中报错：错误码 12005，错误信息 超出全局驱动器CPU个数上限，可以清理空闲引擎
 
-点击管理台--参数配置--全局设置--队列资源--队列CPU使用上限[wds.linkis.rm.yarnqueue.cores.max]
+点击管理台--参数配置--全局设置--队列资源--全局各个引擎核心个数上限[wds.linkis.rm.client.core.max]
 
-![](../images/global-cpu.png)
+![](../images/global-core.png)
 
 或者通过清理空闲引擎解决。
 

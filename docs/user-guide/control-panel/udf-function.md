@@ -89,9 +89,9 @@ Click the delete button corresponding to the udf. Note: all versions of the udf 
 ## 3 UDF usage
 If you want to make the UDF you created take effect and use it in the program, you need to load the UDF. The entry point of "loading"/"unloading" is: enter the UDF function on the left side of scriptis -> personal function, and the created UDFs are all in the personal function list.
 
-Note 1: If you do not actively cancel the check on the page when adding a UDF, it will be checked and loaded by default. At this time, you need to kill the corresponding engine to start a new engine, so that the operation will take effect.
+**Note 1: If you do not actively cancel the check on the page when adding a UDF, it will be checked and loaded by default. At this time, you need to kill the corresponding engine to start a new engine, so that the operation will take effect.**
 
-Note 2: The operation of loading/unloading udf needs to kill the corresponding engine and start a new engine before the operation will take effect
+**Note 2: The operation of loading/unloading udf needs to kill the corresponding engine and start a new engine before the operation will take effect**
 
 Introduction to non-personal functions in the list:
 
