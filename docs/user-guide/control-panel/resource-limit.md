@@ -1,5 +1,5 @@
 ---
-title: limit parameter adjustment
+title: Limit Parameter Adjustment
 sidebar_position: 5
 ---
 

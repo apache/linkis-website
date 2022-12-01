@@ -5,27 +5,23 @@ sidebar_position: 4
 
 本文介绍如何对 Spark 引擎进行参数调整。
 
-## 1. 查看或新增应用类型
 
-Linkis 可以对不同应用中的引擎进行参数设置。用户可以根据需求创建应用。
+## 1. 调整引擎参数
 
-![](../images/list-app.png)
-
-![](../images/add-app.png)
-
-
-## 2. 新增引擎
-选择 Spark 引擎，填写正确的 引擎版本。
-[查看 Linkis 支持的引擎版本](../../engine-usage/overview.md)
-
-![](../images/add-spark-engine.png)
-
-注意：新增引擎前，先选择对应的应用。
-
-
-## 3. 调整引擎参数
-
-新增 Spark 引擎后，点击 Spark 引擎会显示 Spark 可设置的参数。
+用户可以根据需求在管理台调整 Spark 参数。Linkis 管理台 ==》 参数设置 ==》 选择相应应用 ==》 点击 Spark 引擎会显示 Spark 可设置的参数。
 
 ![](../images/set-spark-param.png)
+
+## 2. 增加引擎执行速度
+
+如果想要引擎执行的更快，可以调整执行器个数，执行器核心个数越多执行效率越高。
+
+![](../images/executor-count.png)
+
+## 3. Driver 处理大数据
+
+如果需要拉取大数据再 Driver 处理，需要调整驱动内存参数。
+
+![](../images/executor-memory.png)
+
 

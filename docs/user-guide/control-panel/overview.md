@@ -1,5 +1,5 @@
 ---
-title: Description of the main interface of the management console
+title: Description of The Main Interface of The Management Console
 sidebar_position: 0
 ---
 

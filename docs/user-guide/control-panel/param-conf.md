@@ -1,5 +1,5 @@
 ---
-title: parameter configuration
+title: Parameter Configuration
 sidebar_position: 3
 ---
 

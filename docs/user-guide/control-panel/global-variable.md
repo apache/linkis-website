@@ -1,5 +1,5 @@
 ---
-title: global variable
+title: Global Variable
 sidebar_position: 4
 ---
 
