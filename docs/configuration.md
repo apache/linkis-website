@@ -1,5 +1,5 @@
 ---
-title: 建议配置
+title: Advice Configuration
 sidebar_position: 0.1
 ---
 
