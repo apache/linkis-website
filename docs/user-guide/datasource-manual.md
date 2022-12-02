@@ -117,6 +117,26 @@ linkis-public-enhancements/linkis-datasource
 
 See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/tuning-and-troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
 
+### 1.6 New Data Driven
+1.Background note: Because some database driver packages are not compatible with the Apache license, you need to introduce the driver yourself
+
+2.New Driver Directory：./lib/linkis-public-enhancements/linkis-ps-publicservice
+
+3.Driver list
+
+|  drive name   |  drive version | download link |
+| ----------- |  ----------- |----------- |
+| db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
+| dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
+| mysql | 5.1.34 | https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar |
+|kingbase| kingbase8 | http://maven.jeecg.org/nexus/content/repositories/jeecg/kingbase/kingbase8/8/kingbase8-8.jar |
+|greenplum | 5.1.4 | https://network.pivotal.io/products/vmware-tanzu-greenplum#/releases/985537/file_groups/5749 |
+| postgresql | 42.3.1 | https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar| 
+| sqlserver | sqlserver2000 | https://www.microsoft.com/en-us/download/details.aspx?id=11774 |
+| oracle | 11.2.0.3 | http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar |
+
+
+
 ## 2. Enable data source function
 
 In the startup script of linkis, the two services related to the data source (ps-data-source-manager, ps-metadatamanager) will not be started by default.
@@ -140,9 +160,11 @@ The use of data sources is divided into three steps:
 - step 3. Data source usage, query metadata information
 , hive/kafka/elasticsearch configuration is associated with the corresponding cluster environment configuration.
 
-### 3.1 Mysql data source
+### 3.1 jdbc data source
 #### 3.1.1 Created through the management console
 > You can only create configuration data sources, and test whether the data sources can be connected normally, and cannot directly query metadata
+
+The bottom layer is a general jdbc module, and any data source in 1.6 can be selected on the web interface, taking mysql as an example
 
 Data Source Management > New Data Source > Select MySQL Type
 
