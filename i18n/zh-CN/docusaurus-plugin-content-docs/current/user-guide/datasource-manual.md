@@ -94,7 +94,7 @@ linkis-public-enhancements/linkis-datasource
 │       ├── elasticsearch
 │       ├── hive 
 │       ├── kafka
-│       └── mysql
+│       └── jdbc
 
 
 ```
@@ -109,7 +109,7 @@ linkis-public-enhancements/linkis-datasource
 │       ├── elasticsearch
 │       ├── hive
 │       ├── kafka
-│       └── mysql
+│       └── jdbc
 ```
 `wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
 
@@ -127,7 +127,6 @@ linkis-public-enhancements/linkis-datasource
 |  drive name   |  drive version | download link |
 | ----------- |  ----------- |----------- |
 | db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
-|
 | dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
 | mysql | 5.1.34 | https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar |
 |kingbase| kingbase8 | http://maven.jeecg.org/nexus/content/repositories/jeecg/kingbase/kingbase8/8/kingbase8-8.jar |
