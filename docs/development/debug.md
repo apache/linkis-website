@@ -167,7 +167,6 @@ Set the startup Application of linkis-ps-publicservice
 ![publicservice-app](/Images/development/debug/publicservice.png)
 
 Parameter explanation:
-
 ```shell
 [Service Name]
 linkis-ps-publicservice
