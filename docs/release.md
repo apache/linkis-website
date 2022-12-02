@@ -1,7 +1,8 @@
 ---
-title: version overview
-sidebar_position: 0.1
+title: Version Overview
+sidebar_position: 0
 ---
+
 - [Trino engine usage instructions](/engine-usage/trino.md)
 - [Seatunnel Engine Usage Instructions](/engine-usage/seatunnel.md)
 - [Linkis console multi-datasource management]()
