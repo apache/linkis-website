@@ -1,6 +1,6 @@
 ---
 title: 版本总览
-sidebar_position: 0.1
+sidebar_position: 1
 --- 
 - [Linkis 容器化构建流程](/development/build-docker.md)
 - [Linkis 容器化体验版 LDH 快速部署](/deployment/deploy-to-kubernetes.md)

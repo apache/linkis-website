@@ -1,6 +1,6 @@
 ---
-title: Linkis-Cli 的使用
-sidebar_position: 2
+title: Shell Script Manual
+sidebar_position: 2.1
 ---
 
 ## 1. 介绍
