@@ -94,7 +94,7 @@ linkis-public-enhancements/linkis-datasource
 │       ├── elasticsearch
 │       ├── hive 
 │       ├── kafka
-│       └── mysql
+│       └── jdbc
 
 
 ```
@@ -109,13 +109,33 @@ linkis-public-enhancements/linkis-datasource
 │       ├── elasticsearch
 │       ├── hive
 │       ├── kafka
-│       └── mysql
+│       └── jdbc
 ```
 `wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
 
 ### 1.5 配置参数 
 
 参见[调优排障>参数列表#datasource配置参数](/docs/1.1.0/tuning-and-troubleshooting/configuration/#6-数据源及元数据服务配置参数)
+
+### 1.6 新增数据驱动
+1.背景说明：由于某些数据库驱动程序包与Apache许可证不兼容，需要自己引入驱动程序
+
+2.新驱动程序目录：./lib/linkis-public-enhancements/linkis-ps-publicservice
+
+3.驱动程序列表
+
+|  drive name   |  drive version | download link |
+| ----------- |  ----------- |----------- |
+| db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
+| dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
+| mysql | 5.1.34 | https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar |
+|kingbase| kingbase8 | http://maven.jeecg.org/nexus/content/repositories/jeecg/kingbase/kingbase8/8/kingbase8-8.jar |
+|greenplum | 5.1.4 | https://network.pivotal.io/products/vmware-tanzu-greenplum#/releases/985537/file_groups/5749 |
+| postgresql | 42.3.1 | https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar| 
+| sqlserver | sqlserver2000 | https://www.microsoft.com/en-us/download/details.aspx?id=11774 |
+| oracle | 11.2.0.3 | http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar |
+
+
 
 ## 2. 数据源功能的启用
 
@@ -140,9 +160,11 @@ linkis的启动脚本中默认不会启动数据源相关的服务两个服务�
 - step 3. 数据源使用，查询元数据信息
 ,hive/kafka/elasticsearch配置是关联对应的集群环境配置.
 
-### 3.1  Mysql 数据源
+### 3.1  jdbc 数据源
 #### 3.1.1 通过管理台创建
 >只能创建配置数据源，以及测试数据源是否能正常连接，无法进行直接进行元数据查询
+
+底层做个通用jdbc模块，web界面上可以选择1.6中任意一种数据源，以mysql为例
 
 数据源管理>新增数据源>选择mysql类型
 
