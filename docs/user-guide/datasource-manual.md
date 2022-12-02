@@ -160,9 +160,11 @@ The use of data sources is divided into three steps:
 - step 3. Data source usage, query metadata information
 , hive/kafka/elasticsearch configuration is associated with the corresponding cluster environment configuration.
 
-### 3.1 Mysql data source
+### 3.1 jdbc data source
 #### 3.1.1 Created through the management console
 > You can only create configuration data sources, and test whether the data sources can be connected normally, and cannot directly query metadata
+
+The bottom layer is a general jdbc module, and any data source in 1.6 can be selected on the web interface, taking mysql as an example
 
 Data Source Management > New Data Source > Select MySQL Type
 
