@@ -1,27 +1,118 @@
 ---
-title: JAVA SDK 的使用
+title: Use of Linkis SDK
 sidebar_position: 3
 ---
 
-> Linkis 提供了方便的JAVA和SCALA调用的接口，只需要引入linkis-computation-client的模块就可以进行使用，1.0后新增支持带Label提交的方式，下面将对兼容0.X的方式和1.0新增的方式进行介绍
+> Linkis provides a convenient interface for JAVA and SCALA calls. You only need to import the linkis-computation-client module to use it. After 1.0, it supports the method of submitting with Label. The following will introduce the way to use the SDK.
 
-## 1. 引入依赖模块
+
+**Engine version and script type supported by Linkis**
+
+<table>
+  <tr>
+	    <th>Engine plugin</th>
+      <th>Default supported versions</th>
+	    <th>Script type</th>
+	    <th>Type Description</th>  
+	</tr>
+  <tr>
+    <th rowspan="3">Spark</th>
+    <th rowspan="3">2.4.3</th>
+    <th>py</th>
+    <th>python script</th>  
+  </tr >
+  <tr>
+    <th>scala</th>
+    <th>scala script</th>  
+  </tr>
+  <tr>
+    <th>sql</th>
+    <th>sql script</th>  
+  </tr>
+  <tr>
+    <th>Hive</th>
+    <th>2.3.3</th>
+    <th>hql</th>
+    <th>hql script</th>  
+  </tr >
+  <tr>
+    <th>Python</th>
+    <th>python2</th>
+    <th>python</th>
+    <th>python script</th>  
+  </tr >
+  <tr>
+    <th>Shell</th>
+    <th>1</th>
+    <th>shell</th>
+    <th>shell script</th>  
+  </tr >
+  <tr>
+    <th>JDBC</th>
+    <th>4</th>
+    <th>jdbc</th>
+    <th>sql script name</th>  
+  </tr >
+  <tr>
+    <th>Flink</th>
+    <th>1.12.2</th>
+    <th>sql</th>
+    <th>sql script</th>  
+  </tr >
+  <tr>
+    <th>OpenLooKeng</th>
+    <th>1.5.0</th>
+    <th>sql</th>
+    <th>sql script</th>  
+  </tr >
+  <tr>
+    <th>Pipeline</th>
+    <th>1</th>
+    <th>pipeline</th>
+    <th>File import and export</th>  
+  </tr >
+  <tr>
+    <th>Presto</th>
+    <th>0.234</th>
+    <th>psql</th>
+    <th>sql script</th>  
+  </tr >
+  <tr>
+    <th>Sqoop</th>
+    <th>1.4.6</th>
+    <th>appconn</th>
+    <th>File import and export</th>  
+  </tr >
+  <tr>
+    <th rowspan="2">Elasticsearch</th>
+    <th rowspan="2">7.6.2</th>
+    <th>esjson</th>
+    <th>json script</th>  
+  </tr >
+  <tr>
+    <th>essql</th>
+    <th>sql script</th>  
+  </tr >
+  <tr>
+    <th>trino</th>
+    <th>371</th>
+    <th>tsql</th>
+    <th>sql script</th>  
+  </tr >
+</table>
+
+## 1. Import dependent modules
 ```
 <dependency>
   <groupId>org.apache.linkis</groupId>
   <artifactId>linkis-computation-client</artifactId>
   <version>${linkis.version}</version>
 </dependency>
-如：
-<dependency>
-  <groupId>org.apache.linkis</groupId>
-  <artifactId>linkis-computation-client</artifactId>
-  <version>1.0.3</version>
-</dependency>
 ```
 
-## 2. Java测试代码
-建立Java的测试类LinkisClientTest，具体接口含义可以见注释：
+## 2. Java test code
+Create a Java test class LinkisClientTest, the specific interface meaning can be found in the notes:
+
 ```java
 package org.apache.linkis.client.test;
 
@@ -65,8 +156,8 @@ public class LinkisClientTest {
     private static UJESClient client = new UJESClientImpl(clientConfig);
 
     public static void main(String[] args) {
-
-        String user = "hadoop"; // 用户需要和AuthTokenKey的值保持一致
+        // The user needs to be consistent with the value of AuthTokenKey
+        String user = "hadoop"; 
         String executeCode = "df=spark.sql(\"show tables\")\n" +
                 "show(df)"; // code support:sql/hql/py/scala
         try {
@@ -75,7 +166,7 @@ public class LinkisClientTest {
             // 3. build job and execute
             JobExecuteResult jobExecuteResult = toSubmit(user, executeCode);
             System.out.println("execId: " + jobExecuteResult.getExecID() + ", taskId: " + jobExecuteResult.taskID());
-            // 4. get job jonfo
+            // 4. get job info
             JobInfoResult jobInfoResult = client.getJobInfo(jobExecuteResult);
             int sleepTimeMills = 1000;
             int logFromLen = 0;
@@ -128,19 +219,18 @@ public class LinkisClientTest {
                 .setStartupParams(startupMap)
                 .setUser(user) //submit user
                 .addExecuteUser(user)  // execute user
-                .setLabels(labels)
+                .setLabels(labels) .
                 .build();
         // 3. to execute
         return client.submit(jobSubmitAction);
     }
 }
 ```
+Run the above code to complete task submission/execution/log/result set acquisition, etc.
 
-运行上述的代码即可以完成任务提交/执行/日志/结果集获取等
+## 3. Scala test code:
 
-## 3. Scala测试代码：
-
-```scala
+```java
 package org.apache.linkis.client.test
 
 import org.apache.commons.io.IOUtils
@@ -169,25 +259,25 @@ object LinkisClientTest {
     .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authen suppory static and Token
     .setAuthTokenKey("hadoop") // set submit user
     .setAuthTokenValue("hadoop") // set passwd or token (setAuthTokenValue("BML-AUTH"))
-    .setDWSVersion("v1") //linkis rest version v1
+    .setDWSVersion("v1") //link rest version v1
     .build();
 
   // 2. new Client(Linkis Client) by clientConfig
   val client = UJESClient(clientConfig)
 
   def main(args: Array[String]): Unit = {
-    val user = "hadoop" // execute user 用户需要和AuthTokenKey的值保持一致
+    val user = "hadoop" // execute user user needs to be consistent with the value of AuthTokenKey
     val executeCode = "df=spark.sql(\"show tables\")\n" +
       "show(df)"; // code support:sql/hql/py/scala
     try {
       // 3. build job and execute
       println("user : " + user + ", code : [" + executeCode + "]")
-      // 推荐使用submit，支持传递任务label
+      // It is recommended to use submit, which supports the transfer of task labels
       val jobExecuteResult = toSubmit(user, executeCode)
       println("execId: " + jobExecuteResult.getExecID + ", taskId: " + jobExecuteResult.taskID)
-      // 4. get job jonfo
+      // 4. get job info
       var jobInfoResult = client.getJobInfo(jobExecuteResult)
-      var logFromLen = 0
+      where logFromLen = 0
       val logSize = 100
       val sleepTimeMills: Int = 1000
       while (!jobInfoResult.isCompleted) {
@@ -234,8 +324,8 @@ object LinkisClientTest {
     // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
     val labels: util.Map[String, Any] = new util.HashMap[String, Any]
     labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
-    labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-APPName"); // 请求的用户和应用名，两个参数都不能少，其中APPName不能带有"-"建议替换为"_"
-    labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // 指定脚本类型
+    labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-APPName"); // The requested user and application name, both parameters must be missing, where APPName cannot contain "-", it is recommended to replace it with "_"
+    labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // specify the script type
 
     val startupMap = new java.util.HashMap[String, Any]()
     // Support setting engine native parameters,For example: parameters of engines such as spark/hive
@@ -248,7 +338,7 @@ object LinkisClientTest {
       .setStartupParams(startupMap)
       .setUser(user) //submit user
       .addExecuteUser(user) //execute user
-      .setLabels(labels)
+      .setLabels(labels) .
       .build
     // 3. to execute
     client.submit(jobSubmitAction)
