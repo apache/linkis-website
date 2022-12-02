@@ -128,6 +128,10 @@
   "sidebar.tutorialSidebar.category.Control Panel": {
     "message": "管理台的使用",
     "description": "control panel usage"
+  },
+  "sidebar.tutorialSidebar.category.Advice Configuration": {
+    "message": "建议配置",
+    "description": "Linkis advice configuration"
   }  
   
 }
