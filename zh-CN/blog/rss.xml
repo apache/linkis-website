@@ -4,9 +4,16 @@
         <title>Apache Linkis Blog</title>
         <link>https://linkis.incubator.apache.org/zh-CN/blog</link>
         <description>Apache Linkis Blog</description>
-        <lastBuildDate>Sun, 09 Oct 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 02 Dec 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[引擎物料管理]]></title>
+            <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/12/02/material-manage</link>
+            <guid>引擎物料管理</guid>
+            <pubDate>Fri, 02 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[背景]]></description>
+        </item>
         <item>
             <title><![CDATA[Linkis 1.3.0 PES(Public Enhancement Services) 服务组内部分服务的合并]]></title>
             <link>https://linkis.incubator.apache.org/zh-CN/blog/2022/10/09/linkis-service-merge</link>
