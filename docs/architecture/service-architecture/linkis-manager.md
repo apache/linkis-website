@@ -1,80 +1,68 @@
 ---
-title: Linkis Manager 架构
+title: Linkis Manager
 sidebar_position: 0.4
 ---
 
-
-LinkisManager架构设计
+LinkisManager Architecture Design
 ====================
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As an independent microservice of Linkis, LinkisManager provides AppManager (application management), ResourceManager (resource management), and LabelManager (label management) capabilities. It can support multi-active deployment and has the characteristics of high availability and easy expansion.  
+## 1. Architecture Diagram
+![Architecture Diagram](/Images/Architecture/LinkisManager/LinkisManager-01.png)  
+### Noun explanation
+- EngineConnManager (ECM): Engine Manager, used to start and manage engines.
+- EngineConn (EC): Engine connector, used to connect the underlying computing engine.
+- ResourceManager (RM): Resource Manager, used to manage node resources.
+## 2. Introduction to the second-level module
+### 2.1. Application management module linkis-application-manager
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppManager is used for unified scheduling and management of engines:  
 
-LinkisManager作为Linkis的一个独立微服务，对外提供了AppManager（应用管理）、ResourceManager（资源管理）、LabelManager（标签管理）的能力，能够支持多活部署，具备高可用、易扩展的特性。
-
-## 一. 架构图
-
-![01](/Images-zh/Architecture/LinkisManager/LinkisManager-01.png)
-
-### 名词解释
-- EngineConnManager（ECM）： 引擎管理器，用于启动和管理引擎
-- EngineConn（EC）：引擎连接器，用于连接底层计算引擎
-- ResourceManager（RM）：资源管理器，用于管理节点资源
-
-## 二. 二级模块介绍
-
-### 1. 应用管理模块 linkis-application-manager
-
-AppManager用于引擎的统一调度和管理
-
-| 核心接口/类 | 主要功能 |
+| Core Interface/Class | Main Function |
 |------------|--------|
-|EMInfoService | 定义了EngineConnManager信息查询、修改功能 |
-|EMRegisterService| 定义了EngineConnManager注册功能 |
-|EMEngineService | 定义了EngineConnManager对EngineConn的创建、查询、关闭功能 |
-|EngineAskEngineService | 定义了查询EngineConn的功能 |
-|EngineConnStatusCallbackService | 定义了处理EngineConn状态回调的功能 |
-|EngineCreateService | 定义了创建EngineConn的功能 |
-|EngineInfoService | 定义了EngineConn查询功能 |
-|EngineKillService | 定义了EngineConn的停止功能 |
-|EngineRecycleService | 定义了EngineConn的回收功能 |
-|EngineReuseService | 定义了EngineConn的复用功能 |
-|EngineStopService | 定义了EngineConn的自毁功能 |
-|EngineSwitchService | 定义了引擎切换功能 |
-|AMHeartbeatService | 提供了EngineConnManager和EngineConn节点心跳处理功能 |
+|EMInfoService | Defines EngineConnManager information query and modification functions |
+|EMRegisterService| Defines EngineConnManager registration function |
+|EMEngineService | Defines EngineConnManager's creation, query, and closing functions of EngineConn |
+|EngineAskEngineService | Defines the function of querying EngineConn |
 
+LinkisManager Architecture Design
+====================
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As an independent microservice of Linkis, LinkisManager provides AppManager (application management), ResourceManager (resource management), and LabelManager (label management) capabilities. It can support multi-active deployment and has the characteristics of high availability and easy expansion.  
+## 1. Architecture Diagram
+![Architecture Diagram](/Images/Architecture/LinkisManager/LinkisManager-01.png)  
+### Noun explanation
+- EngineConnManager (ECM): Engine Manager, used to start and manage engines.
+- EngineConn (EC): Engine connector, used to connect the underlying computing engine.
+- ResourceManager (RM): Resource Manager, used to manage node resources.
+## 2. Introduction to the second-level module
+### 2.1. Application management module linkis-application-manager
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppManager is used for unified scheduling and management of engines:  
 
-通过AppManager申请引擎流程如下：
-![](/Images-zh/Architecture/LinkisManager/AppManager-01.png)
-
-  
-### 2. 标签管理模块 linkis-label-manager
-
-LabelManager提供标签管理和解析能力
-
-| 核心接口/类 | 主要功能 |
+| Core Interface/Class | Main Function |
 |------------|--------|
-|LabelService | 提供了标签增删改查功能 |
-|ResourceLabelService | 提供了资源标签管理功能 |
-|UserLabelService | 提供了用户标签管理功能 |
+|EMInfoService | Defines EngineConnManager information query and modification functions |
+|EMRegisterService| Defines EngineConnManager registration function |
+|EMEngineService | Defines EngineConnManager's creation, query, and closing functions of EngineConn |
+|EngineAskEngineService | Defines the function of querying EngineConn |
+|EngineConnStatusCallbackService | Defines the function of processing EngineConn status callbacks |
+|EngineCreateService | Defines the function of creating EngineConn |
+|EngineInfoService | Defines EngineConn query function |
+|EngineKillService | Defines the stop function of EngineConn |
+|EngineRecycleService | Defines the recycling function of EngineConn |
+|EngineReuseService | Defines the reuse function of EngineConn |
+|EngineStopService | Defines the self-destruct function of EngineConn |
+|EngineSwitchService | Defines the engine switching function |
+|AMHeartbeatService | Provides EngineConnManager and EngineConn node heartbeat processing functions |
 
-LabelManager架构图如下：
-![](/Images-zh/Architecture/LinkisManager/LabelManager-01.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The process of applying for an engine through AppManager is as follows:  
+![AppManager](/Images/Architecture/LinkisManager/AppManager-01.png)  
+### 2. Label management module linkis-label-manager
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LabelManager provides label management and analysis capabilities.  
 
-
-
-### 3. 资源管理模块 linkis-resource-manager
-
-ResourceManager用于管理引擎和队列的所有资源分配
-
-| 核心接口/类 | 主要功能 |
+| Core Interface/Class | Main Function |
 |------------|--------|
-|RequestResourceService | 提供了EngineConn资源申请功能 |
-|ResourceManagerService | 提供了EngineConn资源释放功能 |
-|LabelResourceService | 提供了标签对应资源管理功能 |
-
-
-ResourceManager架构图如下：
-
-![](/Images-zh/Architecture/LinkisManager/ResourceManager-01.png)
-
-### 4. 监控模块 linkis-manager-monitor
-
-Monitor提供了节点状态监控的功能
+|LabelService | Provides the function of adding, deleting, modifying and checking labels |
+|ResourceLabelService | Provides resource label management functions |
+|UserLabelService | Provides user label management functions |  
+The LabelManager architecture diagram is as follows:  
+![ResourceManager](/Images/Architecture/LinkisManager/ResourceManager-01.png)  
+### 4. Monitoring module linkis-manager-monitor
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitor provides the function of node status monitoring.

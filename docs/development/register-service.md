@@ -1,4 +1,4 @@
 ---
-title: 如何注册一个新的微服务
+title: Register a New Microservice
 sidebar_position: 0.2
 ---

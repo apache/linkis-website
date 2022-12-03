@@ -1,4 +1,4 @@
 ---
-title: 代理用户说明
+title: Proxy User Description
 sidebar_position: 0.3
 ---

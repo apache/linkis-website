@@ -1,4 +1,4 @@
 ---
-title: 快速上手
+title: Quick Start
 sidebar_position: 0.1
 ---

@@ -1,34 +1,39 @@
 ---
-title: 网关 Gateway 架构
+title: Gateway Design
 sidebar_position: 0.1
 ---
-## Gateway 架构设计
 
-#### 简述
-Gateway网关是Linkis接受客户端以及外部请求的首要入口，例如接收作业执行请求，而后将执行请求转发到具体的符合条件的Entrance服务中去。
-整个架构底层基于SpringCloudGateway做扩展实现，上层叠加了与Http请求解析，会话权限，标签路由和WebSocket多路转发等相关的模组设计，整体架构可见如下。
+## Gateway Architecture Design
 
-### 整体架构示意图
+#### Brief
+The Gateway is the primary entry point for Linkis to accept client and external requests, such as receiving job execution requests, and then forwarding the execution requests to specific eligible Entrance services.
+The bottom layer of the entire architecture is implemented based on "SpringCloudGateway". The upper layer is superimposed with module designs related to Http request parsing, session permissions, label routing and WebSocket multiplex forwarding. The overall architecture can be seen as follows.
+### Architecture Diagram
 
-![Gateway整体架构示意图](/Images-zh/Architecture/Gateway/gateway_server_global.png)
+![Gateway diagram of overall architecture](/Images/Architecture/Gateway/gateway_server_global.png)
 
-#### 架构说明
-- gateway-core: Gateway的核心接口定义模块，主要定义了GatewayParser和GatewayRouter接口，分别对应请求的解析和根据请求进行路由选择；同时还提供了SecurityFilter的权限校验工具类。
-- spring-cloud-gateway: 该模块集成了所有与SpringCloudGateway相关的依赖，对HTTP和WebSocket两种协议类型的请求分别进行了处理转发。
-- gateway-server-support: Gateway的服务驱动模块，依赖spring-cloud-gateway模块，对GatewayParser、GatewayRouter分别做了实现，其中DefaultLabelGatewayRouter提供了请求标签路由的功能。
-- gateway-httpclient-support: 提供了Http访问Gateway服务的客户端通用类。
-- instance-label: 外联的实例标签模块，提供InsLabelService服务接口，用于路由标签的创建以及与应用实例关联。
+#### Architecture Introduction
+- gateway-core: Gateway's core interface definition module, mainly defines the "GatewayParser" and "GatewayRouter" interfaces, corresponding to request parsing and routing according to the request; at the same time, it also provides the permission verification tool class named "SecurityFilter".
+- spring-cloud-gateway: This module integrates all dependencies related to "SpringCloudGateway", process and forward requests of the HTTP and WebSocket protocol types respectively.
+- gateway-server-support: The driver module of Gateway, relies on the spring-cloud-gateway module to implement "GatewayParser" and "GatewayRouter" respectively, among which "DefaultLabelGatewayRouter" provides the function of label routing.
+- gateway-httpclient-support: Provides a client-side generic class for Http to access Gateway services, which can be implemented based on more.
+- instance-label: External instance label module, providing service interface named "InsLabelService" which used to create routing labels and associate with application instances.
 
-涉及的详细设计如下：
+The detailed design involved is as follows：
 
-#### 一、请求路由转发（带标签信息）
-请求的链路首先经SpringCloudGateway的Dispatcher分发后，进入网关的过滤器链表，进入GatewayAuthorizationFilter 和 SpringCloudGatewayWebsocketFilter 两大过滤器逻辑，过滤器集成了DefaultGatewayParser和DefaultGatewayRouter。
-从Parser到Router，执行相应的parse和route方法，DefaultGatewayParser和DefaultGatewayRouter内部还包含了自定义的Parser和Router，按照优先级顺序执行。最后由DefaultGatewayRouter输出路由选中的服务实例ServiceInstance，交由上层进行转发。
-现我们以具有标签信息的作业执行请求转发为例子，绘制如下流程图：  
-![Gateway请求路由转发](/Images-zh/Architecture/Gateway/gateway_server_dispatcher.png)
+#### 1、Request Routing And Forwarding (With Label Information)
+First, after the dispatcher of "SpringCloudGateway", the request enters the filter list of the gateway, and then enters the two main logic of "GatewayAuthorizationFilter" and "SpringCloudGatewayWebsocketFilter". 
+The filter integrates "DefaultGatewayParser" and "DefaultGatewayRouter" classes. From Parser to Router, execute the corresponding parse and route methods. 
+"DefaultGatewayParser" and "DefaultGatewayRouter" classes also contain custom Parser and Router, which are executed in the order of priority.
+Finally, the service instance selected by the "DefaultGatewayRouter" is handed over to the upper layer for forwarding.
+Now, we take the job execution request forwarding with label information as an example, and draw the following flowchart:  
+![Gateway Request Routing](/Images/Architecture/Gateway/gateway_server_dispatcher.png)
 
 
-#### 二、WebSocket连接转发管理
-默认情况下SpringCloudGateway对WebSocket请求只做一次路由转发，无法做动态的切换，而在Linkis Gateway架构下，每次信息的交互都会附带相应的uri地址，引导路由到不同的后端服务。
-除了负责与前端、客户端连接的webSocketService以及负责和后台服务连接的webSocketClient, 中间会缓存一系列GatewayWebSocketSessionConnection列表，一个GatewayWebSocketSessionConnection代表一个session会话与多个后台ServiceInstance的连接。  
-![Gateway的WebSocket转发管理](/Images-zh/Architecture/Gateway/gatway_websocket.png)
+#### 2、WebSocket Connection Forwarding Management
+By default, "Spring Cloud Gateway" only routes and forwards WebSocket request once, and cannot perform dynamic switching. 
+But under the Linkis's gateway architecture, each information interaction will be accompanied by a corresponding uri address to guide routing to different backend services.
+In addition to the "WebSocketService" which is responsible for connecting with the front-end and the client, 
+and the "WebSocketClient" which is responsible for connecting with the backend service, a series of "GatewayWebSocketSessionConnection" lists are cached in the middle.
+A "GatewayWebSocketSessionConnection" represents the connection between a session and multiple backend service instances.  
+![Gateway WebSocket Forwarding](/Images/Architecture/Gateway/gatway_websocket.png)

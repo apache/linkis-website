@@ -1,51 +1,52 @@
 ---
-title: EngineConnManager 架构
+title: EngineConnManager Architecture
 sidebar_position: 0.6
 ---
 
-EngineConnManager（ECM）：EngineConn的管理器，提供引擎的生命周期管理，同时向RM汇报负载信息和自身的健康状况。
+EngineConnManager architecture design
+-------------------------
 
-### 一、ECM架构
+EngineConnManager (ECM): EngineConn's manager, provides engine lifecycle management, and reports load information and its own health status to RM.
+###  ECM architecture
 
-![](/Images-zh/Architecture/engine/ecm-01.png)
+![](/Images/Architecture/engine/ecm-01.png)
 
-### 二、二级模块介绍
+###  Introduction to the second-level module
 
 **Linkis-engineconn-linux-launch**
 
-引擎启动器，核心类为LinuxProcessEngineConnLauch，用于提供执行命令的指令。
+The engine launcher, whose core class is LinuxProcessEngineConnLauch, is used to provide instructions for executing commands.
 
 **Linkis-engineconn-manager-core**
 
-ECM的核心模块，包含ECM健康上报、EngineConn健康上报功能的顶层接口，定义了ECM服务的相关指标，以及构造EngineConn进程的核心方法。
+The core module of ECM includes the top-level interface of ECM health report and EngineConn health report function, defines the relevant indicators of ECM service, and the core method of constructing EngineConn process.
 
-| 核心顶层接口/类     | 核心功能                                 |
-|---------------------|------------------------------------------|
-| EngineConn          | 定义了EngineConn的属性，包含的方法和参数 |
-| EngineConnLaunch    | 定义了EngineConn的启动方法和停止方法     |
-| ECMEvent            | 定义了ECM相关事件                        |
-| ECMEventListener    | 定义了ECM相关事件监听器                  |
-| ECMEventListenerBus | 定义了ECM的监听器总线                    |
-| ECMMetrics          | 定义了ECM的指标信息                      |
-| ECMHealthReport     | 定义了ECM的健康上报信息                  |
-| NodeHealthReport    | 定义了节点的健康上报信息                 |
+| Core top-level interface/class     | Core function                                                            |
+|------------------------------------|--------------------------------------------------------------------------|
+| EngineConn                         | Defines the properties of EngineConn, including methods and parameters   |
+| EngineConnLaunch                   | Define the start method and stop method of EngineConn                    |
+| ECMEvent                           | ECM related events are defined                                           |
+| ECMEventListener                   | Defined ECM related event listeners                                      |
+| ECMEventListenerBus                | Defines the listener bus of ECM                                          |
+| ECMMetrics                         | Defines the indicator information of ECM                                 |
+| ECMHealthReport                    | Defines the health report information of ECM                             |
+| NodeHealthReport                   | Defines the health report information of the node                        |
 
 **Linkis-engineconn-manager-server**
 
-ECM的服务端，定义了ECM健康信息处理服务、ECM指标信息处理服务、ECM注册服务、EngineConn启动服务、EngineConn停止服务、EngineConn回调服务等顶层接口和实现类，主要用于ECM对自己和EngineConn的生命周期管理以及健康信息上报、发送心跳等。
+The server side of ECM defines top-level interfaces and implementation classes such as ECM health information processing service, ECM indicator information processing service, ECM registration service, EngineConn start service, EngineConn stop service, EngineConn callback service, etc., which are mainly used for ECM to itself and EngineConn Life cycle management, health information reporting, heartbeat sending, etc.
+Core Service and Features module are as follows:
 
-模块中的核心Service和功能简介如下：
-
-| 核心service                     | 核心功能                                        |
+| Core service                    | Core function                                        |
 |---------------------------------|-------------------------------------------------|
-| EngineConnLaunchService         | 包含生成EngineConn和启动进程的核心方法          |
-| BmlResourceLocallizationService | 用于将BML的引擎相关资源下载并生成本地化文件目录 |
-| ECMHealthService                | 向AM定时上报自身的健康心跳                      |
-| ECMMetricsService               | 向AM定时上报自身的指标状况                      |
-| EngineConnKillSerivce           | 提供停止引擎的相关功能                          |
-| EngineConnListService           | 提供缓存和管理引擎的相关功能                    |
-| EngineConnCallBackService       | 提供回调引擎的功能                              |
+| EngineConnLaunchService         | Contains core methods for generating EngineConn and starting the process          |
+| BmlResourceLocallizationService | Used to download BML engine related resources and generate localized file directory |
+| ECMHealthService                | Report your own healthy heartbeat to AM regularly                      |
+| ECMMetricsService               | Report your own indicator status to AM regularly                      |
+| EngineConnKillSerivce           | Provides related functions to stop the engine                          |
+| EngineConnListService           | Provide caching and management engine related functions                    |
+| EngineConnCallBackService       | Provide the function of the callback engine                              |
 
-ECM构建EngineConn启动流程：
+ECM build engineConn startup process:
 
-![](/Images-zh/Architecture/engine/engineconn-01.png)
+![](/Images/Architecture/engine/engineconn-01.png)

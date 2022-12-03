@@ -1,96 +1,96 @@
 ---
-title: PES 架构
+title: PES Architecture
 sidebar_position: 0.3
 ---
 
-PublicEnhencementService（PS）架构设计
-======================================
+PublicEnhencementService (PS) architecture design
+=====================================
 
-PublicEnhancementService（PS）：公共增强服务，为其他微服务模块提供统一配置管理、上下文服务、物料库、数据源管理、微服务管理和历史任务查询等功能的模块。
+PublicEnhancementService (PS): Public enhancement service, a module that provides functions such as unified configuration management, context service, physical library, data source management, microservice management, and historical task query for other microservice modules.
 
-![](/Images-zh/Architecture/PublicEnhencement架构图.png)
+![](/Images/Architecture/PublicEnhencementArchitecture.png)
 
-二级模块介绍：
+Introduction to the second-level module:
 ==============
 
-BML物料库
+BML material library
 ---------
 
-是linkis的物料管理系统，主要用来存储用户的各种文件数据，包括用户脚本、资源文件、第三方Jar包等，也可以存储引擎运行时需要使用到的类库。
+It is the linkis material management system, which is mainly used to store various file data of users, including user scripts, resource files, third-party Jar packages, etc., and can also store class libraries that need to be used when the engine runs.
 
-| 核心类          | 核心功能                           |
+| Core Class | Core Function |
 |-----------------|------------------------------------|
-| UploadService   | 提供资源上传服务                   |
-| DownloadService | 提供资源下载服务                   |
-| ResourceManager | 提供了上传、下载资源的统一管理入口 |
-| VersionManager  | 提供了资源版本标记和版本管理功能   |
-| ProjectManager  | 提供了项目级的资源管控能力         |
+| UploadService | Provide resource upload service |
+| DownloadService | Provide resource download service |
+| ResourceManager | Provides a unified management entry for uploading and downloading resources |
+| VersionManager | Provides resource version marking and version management functions |
+| ProjectManager | Provides project-level resource management and control capabilities |
 
-Configuration统一配置管理
+Unified configuration management
 -------------------------
 
-Configuration提供了“用户—引擎—应用”三级配置管理方案，实现了为用户提供配置各种接入应用下自定义引擎参数的功能。
+Configuration provides a "user-engine-application" three-level configuration management solution, which provides users with the function of configuring custom engine parameters under various access applications.
 
-| 核心类               | 核心功能                       |
+| Core Class | Core Function |
 |----------------------|--------------------------------|
-| CategoryService      | 提供了应用和引擎目录的管理服务 |
-| ConfigurationService | 提供了用户配置统一管理服务     |
+| CategoryService | Provides management services for application and engine catalogs |
+| ConfigurationService | Provides a unified management service for user configuration |
 
-ContextService上下文服务
+ContextService context service
 ------------------------
 
-ContextService用于解决一个数据应用开发流程，跨多个系统间的数据和信息共享问题。
+ContextService is used to solve the problem of data and information sharing across multiple systems in a data application development process.
 
-| 核心类              | 核心功能                                 |
+| Core Class | Core Function |
 |---------------------|------------------------------------------|
-| ContextCacheService | 提供对上下文信息缓存服务                 |
-| ContextClient       | 提供其他微服务和CSServer组进行交互的能力 |
-| ContextHAManager    | 为ContextService提供高可用能力           |
-| ListenerManager     | 提供消息总线的能力                       |
-| ContextSearch       | 提供了查询入口                           |
-| ContextService      | 实现了上下文服务总体的执行逻辑           |
+| ContextCacheService | Provides a cache service for context information |
+| ContextClient | Provides the ability for other microservices to interact with the CSServer group |
+| ContextHAManager | Provide high-availability capabilities for ContextService |
+| ListenerManager | The ability to provide a message bus |
+| ContextSearch | Provides query entry |
+| ContextService | Implements the overall execution logic of the context service |
 
-Datasource数据源管理
+Datasource data source management
 --------------------
 
-Datasource为其他微服务提供不同数据源连接的能力。
+Datasource provides the ability to connect to different data sources for other microservices.
 
-| 核心类            | 核心功能                 |
+| Core Class | Core Function |
 |-------------------|--------------------------|
-| datasource-server | 提供不同数据源连接的能力 |
+| datasource-server | Provide the ability to connect to different data sources |
 
-InstanceLabel微服务管理
+InstanceLabel microservice management
 -----------------------
 
-InstanceLabel为其他接入linkis的微服务提供注册和标签功能。
+InstanceLabel provides registration and labeling functions for other microservices connected to linkis.
 
-| 核心类          | 核心功能                       |
+| Core Class | Core Function |
 |-----------------|--------------------------------|
-| InsLabelService | 提供微服务注册和标签管理的功能 |
+| InsLabelService | Provides microservice registration and label management functions |
 
-Jobhistory历史任务管理
+Jobhistory historical task management
 ----------------------
 
-Jobhistory为用户提供了linkis历史任务查询、进度、日志展示的相关功能，为管理员提供统一历史任务视图。
+Jobhistory provides users with linkis historical task query, progress, log display related functions, and provides a unified historical task view for administrators.
 
-| 核心类                 | 核心功能             |
+| Core Class | Core Function |
 |------------------------|----------------------|
-| JobHistoryQueryService | 提供历史任务查询服务 |
+| JobHistoryQueryService | Provide historical task query service |
 
-Variable用户自定义变量管理
+Variable user-defined variable management
 --------------------------
 
-Variable为用户提供自定义变量存储和使用的相关功能。
+Variable provides users with functions related to the storage and use of custom variables.
 
-| 核心类          | 核心功能                           |
-|-----------------|------------------------------------|
-| VariableService | 提供自定义变量存储和使用的相关功能 |
+| Core Class | Core Function |
+|-----------------|-------------------------------------|
+| VariableService | Provides functions related to the storage and use of custom variables |
 
-UDF用户自定义函数管理
+UDF user-defined function management
 ---------------------
 
-UDF为用户提供自定义函数的功能，用户可以在在编写代码时自行引入。
+UDF provides users with the function of custom functions, which can be introduced by users when writing code.
 
-| 核心类     | 核心功能               |
+| Core Class | Core Function |
 |------------|------------------------|
-| UDFService | 提供用户自定义函数服务 |
+| UDFService | Provide user-defined function service |

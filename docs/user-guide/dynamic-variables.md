@@ -1,8 +1,7 @@
 ---
-title: Built-in Time Variable
+title: Linkis built-in time variable introduction
 sidebar_position: 7
 ---
-
 ## 1. General
 ### Requirements Background
 Users hope that when writing code, the time format requirements are ever-changing, and the existing [Linkis custom variables](https://linkis.apache.org/docs/latest/architecture/commons/variable/) is currently not enough to support these requirements. In addition, some of the existing time operation -1 means minus one month, and some minus one day, which is easy for users to confuse
@@ -66,24 +65,24 @@ variable | result
 ```sql
 SELECT * FROM hive.tmp.fund_nav_histories
 WHERE dt <= DATE_FORMAT(DATE_ADD('day', -1, DATE(Date_parse('&{yyyyMMdd%-1d}', '%Y%m%d'))), '%Y%m%d')
-````
+```
 after rendering
 ```sql
 SELECT * FROM hive.tmp.fund_nav_histories
 WHERE dt <= DATE_FORMAT(DATE_ADD('day', -1, DATE(Date_parse('20220705', '%Y%m%d'))), '%Y%m%d')
-````
+```
 
 * Example 2: shell
 ```shell
 aws s3 ls s3://***/ads/tmp/dws_member_active_detail_d_20210601_20211231/pt=&{yyyyMMdd%-1d}/
-````
+```
 after rendering
 ```shell
 aws s3 ls s3://***/ads/tmp/dws_member_active_detail_d_20210601_20211231/pt=20220705/
-````
+```
 
 * Example 3: datax json
-````json
+```json
 {
   "job": {
     "setting": {
@@ -125,9 +124,9 @@ aws s3 ls s3://***/ads/tmp/dws_member_active_detail_d_20210601_20211231/pt=20220
     ]
   }
 }
-````
+```
 after rendering
-````json
+```json
 {
   "job": {
     "setting": {
@@ -169,12 +168,12 @@ after rendering
     ]
   }
 }
-````
+```
 * Example 4: python
-````python
+```python
 print(&{yyyyMMdd%-1d})
-````
+```
 after rendering
-````
+```
  20220705
-````
+```

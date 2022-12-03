@@ -108,16 +108,11 @@ sidebar_position: 3
   <artifactId>linkis-computation-client</artifactId>
   <version>${linkis.version}</version>
 </dependency>
-like:
-<dependency>
-  <groupId>org.apache.linkis</groupId>
-  <artifactId>linkis-computation-client</artifactId>
-  <version>1.0.3</version>
-</dependency>
 ```
 
 ## 2. Java test code
 Create a Java test class LinkisClientTest, the specific interface meaning can be found in the notes:
+
 ```java
 package org.apache.linkis.client.test;
 
@@ -154,15 +149,15 @@ public class LinkisClientTest {
             .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis authen suppory static and Token
             .setAuthTokenKey("hadoop")  // set submit user
             .setAuthTokenValue("123456")))  // set passwd or token (setAuthTokenValue("test"))
-            .setDWSVersion("v1") //link rest version v1
+            .setDWSVersion("v1") //linkis rest version v1
             .build();
 
     // 2. new Client(Linkis Client) by clientConfig
     private static UJESClient client = new UJESClientImpl(clientConfig);
 
     public static void main(String[] args) {
-
-        String user = "hadoop"; // The user needs to be consistent with the value of AuthTokenKey
+        // The user needs to be consistent with the value of AuthTokenKey
+        String user = "hadoop"; 
         String executeCode = "df=spark.sql(\"show tables\")\n" +
                 "show(df)"; // code support:sql/hql/py/scala
         try {
@@ -231,7 +226,6 @@ public class LinkisClientTest {
     }
 }
 ```
-
 Run the above code to complete task submission/execution/log/result set acquisition, etc.
 
 ## 3. Scala test code:

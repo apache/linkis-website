@@ -1,51 +1,51 @@
 ---
-title: Mapper XML 规范
+title: Mapper XML Specification
 sidebar_position: 10
 ---
 
-> Contributor为Apache Linkis贡献新的数据表，编写Mapper XML时需遵循如下规范进行开发。
+> Contributor contributes new data tables to Apache Linkis. When writing Mapper XML, the following specifications must be followed for development.
 
-## 基本遵循规范
-- 在mapper.xml中namespace等于java接口地址  
-- java接口中的方法名和XML中statement的id一致  
-- java接口中的方法输入参数类型和XML中statement的parameterType指定的类型一致
-- java接口中的方法返回值类型和XML中statement的resultType指定的类型一致
-- XML中所有mysql关键字统一使用小写
-- 对于过多的查询字段抽象出SQL片段
-- 对于整型返回值类型建议使用Integer，可以区分未赋值和值为0的情况，如确定返回值为数字可使用int。其它数据类型类似。
-- 对于占位符，使用#{name}，而不要使用${name}。模糊查询可以使用CONCAT('%',#{sname},'%')
-- 对于sql语句编写，不使用注解方式，统一写在XML文件中
+## Basically follow the specifications
+- In mapper.xml namespace is equal to java interface address  
+- The method name in the java interface is the same as the id of the statement in XML  
+- The input parameter type of the method in the java interface is the same as the type specified by the parameterType of the statement in XML
+- The return value type of the method in the java interface is the same as the type specified by the resultType of the statement in XML
+- All mysql keywords in XML use lowercase uniformly
+- Abstract SQL fragments for excessive query fields
+- It is recommended to use Integer for the integer return value type, which can distinguish between unassigned and 0 cases. For example, if the return value is determined to be a number, int can be used. Other data types are similar.
+- For placeholders, use #{name} instead of ${name}. Fuzzy query can use CONCAT('%',#{sname},'%')
+- For sql statement writing, no annotation method is used, and it is uniformly written in the XML file
 
-## 方法名称规范
+## Method name specification
 
-|方法名称|	说明|	核心点|    建议|
-|:----  |:---   |:---   |:---   |
-|insert	| 新增数据 | 如果是自增主键，应该返回主键ID| |	 
-|deleteById	| 根据主键ID删除数据|	sql默认加limit 1，防止多删数据	|此方法不建议有，建议逻辑删除|
-|updateById	| 根据主键ID修改数据|	sql默认加limit 1，防止多修改数据| |	 
-|selectById	| 根据主键查询数据|	查询一条数据	 | |
-|selectByIdForUpdate	| 根据主键加锁查询数据|	加锁查询一条数据，事务处理用	| | 
-|queryListByParam	| 根据输入条件查询数据列表|	多参数查询列表	 | |
-|queryCountByParam	| 根据输入条件查询总数|	多参数查询数量	 | |
+|Method Name|Description|Core Points|Recommendations|
+|:---- |:--- |:--- |:--- |
+|insert | New data | If it is an auto-incrementing primary key, it should return the primary key ID| |	 
+|deleteById | Delete data according to the primary key ID | sql adds limit 1 by default to prevent multiple deletion of data | This method is not recommended, it is recommended to logically delete |
+|updateById | Modify data according to the primary key ID | sql adds limit 1 by default to prevent multiple data modification | |	 
+|selectById | Query data by primary key | Query a piece of data | |
+|selectByIdForUpdate | Query data according to the primary key lock | Query a piece of data by locking, for transaction processing | |
+|queryListByParam | Query data list according to input conditions | Multi-parameter query list | |
+|queryCountByParam | The total number of queries based on input conditions | The number of multi-parameter queries | |
 
-## parameterType规范
-java接口中必须包含@Param，XML中可以不包含parameterType
-### 基本类型
-```java
-// java接口
+## parameterType specification
+The java interface must contain @Param, and the XML can not contain parameterType
+### basic type
+````java
+// java interface
 User selectUserById(@Param("id") Integer id);
-// XML文件
+// XML file
 <select id="selectUserById" resultType="userMap">
-    select id, name 
+    select id, name
 	from user
 	where id = #{id}
 </select>
-```
-### 集合类型
-```java
-// java接口
+````
+### Collection type
+````java
+// java interface
 List<User> userListByIds(@Param("ids") List<Integer> ids);
-// XML文件
+// XML file
 <select id="userListByIds" resultMap="userMap">
 	select id, name
 	from user
@@ -54,96 +54,96 @@ List<User> userListByIds(@Param("ids") List<Integer> ids);
 			#{item}
 		</foreach>
 </select>
-```
-### Map类型
-```java
-// java接口
+````
+### Map type
+````java
+// java interface
 User queryByParams(@Param("map") Map<String, Object> parasms);
-// XML文件
+// XML file
 <select id="queryByParams" resultMap="userMap">
 	select id, name
 	from user
 	where id = #{map.id} and name = #{map.name}
 </select>
-```
-### 实体类型
-```java
-// java接口
+````
+### Entity Type
+````java
+// java interface
 User queryByUser(@Param("user") User user);
-// XML文件
+// XML file
 <select id="queryByUser" resultMap="userMap">
 	select id, name
 	from user
 	where id = #{user.id} and name = #{user.name}
 </select>
-```
-### 多个参数类型
-```java
-// java接口
+````
+### Multiple parameter types
+````java
+// java interface
 User queryByIdAndName(@Param("id") Integer id, @Param("name") String name);
-// XML文件
+// XML file
 <select id="queryByIdAndName" resultMap="userMap">
 	select id, name
 	from user
 	where id = #{id} and name = #{name}
 </select>
-```
-## XML文件编写示例
-合理地使用空格和缩进来增强可读性，各类型sql语句示例如下
+````
+## XML file writing example
+Use spaces and indentation reasonably to enhance readability. Examples of various types of SQL statements are as follows
 ```sql
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.apache.linkins.dao.mapper.UserMapper">
-	-- 新增语句
+	-- add a statement
 	<insert id="insert">
 		insert into user (id, name)
-		values (1, 'z3');
+		values ​​(1, 'z3');
 	</insert>
 
-	-- 删除语句
+	-- delete statement
 	<delete id = "deleteUserByIdAndName">
 		delete from user
 		where name = #{name}
 			and id = #{id}
 	</delete>
 
-	-- 修改语句
+	-- modify the statement
 	<update id="updateUserById">
 		update user
 		set name = #{name}
 		where id = #{id}
 	</update>
 
-	-- 查询语句
+	-- Check for phrases
 	<select id="selectUserByName" resultMap="userMap">
 		select id, name
 		from user
 		where name = 'z3'
 	</select>
 
-	-- sql片段
+	-- sql fragment
 	<sql id="user">
 		id,
 		name
 	</sql>
-	-- 引用
-	<include refid="user"/> 
+	-- Quote
+	<include refid="user"/>
 
 	-- resultMap
 	<resultMap type="Assets" id="userMap">  
 		<id property="id" column="id" />  
 		<result property="name" column="name" />
 	</resultMap>
-	-- 引用
+	-- Quote
 	<select id="queryListByParam" parameterType="map" resultMap="userMap">
 		do...
 	</select>
 
-	-- 条件判断
+	-- conditional judgment
 	<if test="name != null and name != ''">  
 		name = #{name}  
 	</if>
 
-	-- 子查询
+	-- sub query
 	<select id="selectUserByTeacherIdAndName" resultMap="userMap">
 		select u.id, u.name
 		from user u
@@ -156,4 +156,4 @@ User queryByIdAndName(@Param("id") Integer id, @Param("name") String name);
 			and u.id = 2
 	</select>
 </mapper>
-```
+````

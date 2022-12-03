@@ -1,77 +1,148 @@
 ---
-title: 接口规范
+title: API Specification
 sidebar_position: 4
 ---
 
-> Contributor为Linkis贡献新的Restful接口时，需遵循如下接口规范进行接口开发。
+ > When Contributor contributes new RESTful interfaces to Linkis, it is required to follow the following interface specifications for interface development.
+
+
 
 ## 1. HTTP or WebSocket ?
 
-Linkis目前提供了两种接口方式：HTTP和WebSocket。
 
-WebSocket相比于HTTP的优势：
 
-- 对服务器产生的压力更小
-- 信息推送更加及时
-- 交互性更加友好
+Linkis currently provides two interfaces: HTTP and WebSocket.
 
-相应的，WebSocket也有如下的劣势：
 
-- WebSocket在使用时可能出现断开连接的情况
-- 对前端的技术要求更高
-- 一般要求前端有降级处理机制
 
-**如非必要，我们通常强烈建议Contributor尽量少用WebSocket的方式提供接口；**
+WebSocket advantages over HTTP:
 
-**如您觉得使用WebSocket很有必要，且愿意将开发的功能贡献给Linkis，建议您在开发前与我们取得沟通，多谢！**
 
-## 2. URL规范
+
+- Less stress on the server
+
+- More timely information push
+
+- Interactivity is more friendly
+
+
+
+Correspondingly, WebSocket has the following disadvantages:
+
+
+
+- The WebSocket may be disconnected while using
+
+- Higher technical requirements on the front end
+
+- It is generally required to have a front-end degradation handling mechanism
+
+
+
+**We generally strongly recommend that Contributor provide the interface using WebSocket as little as possible if not necessary;**
+
+
+
+**If you think it is necessary to use WebSocket and are willing to contribute the developed functions to Linkis, we suggest you communicate with us before the development, thank you!**
+
+
+
+## 2. URL specification
+
+
 
 ```
+
 /api/rest_j/v1/{applicationName}/.+
+
 /api/rest_s/v1/{applicationName}/.+
+
 ```
 
-**约定**：
 
- - rest_j表示接口符合Jersey规范
- - rest_s表示接口符合springMVC Rest规范
- - v1为服务的版本号，**版本号会随着Linkis版本进行升级**
- - {applicationName}为微服务名
 
-## 3. 接口请求格式
+**Convention** :
+
+
+
+- rest_j indicates that the interface complies with the Jersey specification
+
+- REST_S indicates that the interface complies with the SpringMVC REST specification
+
+- v1 is the version number of the service. ** version number will be updated with the Linkis version **
+
+- {applicationName} is the name of the micro-service
+
+
+
+## 3. Interface request format
+
+
 
 ```json
+
 {
- 	"method":"/api/rest_j/v1/entrance/execute",
- 	"data":{},
-	"websocketTag":"37fcbd8b762d465a0c870684a0261c6e"  // WebSocket请求的必需参数，HTTP请求可忽略
+
+"method":"/api/rest_j/v1/entrance/execute",
+
+"data":{},
+
+"WebsocketTag" : "37 fcbd8b762d465a0c870684a0261c6e" / / WebSocket requests require this parameter, HTTP requests can ignore
+
 }
+
 ```
 
-**约定**：
 
- - method：请求的Restful API URL。
- - data：请求的具体数据。
- - websocketTag：某一次WebSocket请求的唯一标识，后台也会带回该参数用于给前端进行识别。
 
-## 4. 接口返回格式
+**Convention** :
+
+
+
+- method: The requested RESTful API URL.
+
+- data: The specific data requested.
+
+- WebSocketTag: The unique identity of a WebSocket request. This parameter is also returned by the back end for the front end to identify.
+
+
+
+## 4. Interface response format
+
+
 
 ```json
-{"method":"/api/rest_j/v1/project/create","status":0, "message":"创建成功！","data":{}}
+
+{" method ":"/API/rest_j/v1 / project/create ", "status" : 0, "message" : "creating success!" ,"data":{}}
+
 ```
 
-**约定**：
 
- - method：返回请求的Restful API URL，主要是websocket模式需要使用。
- - status：返回状态信息，其中：-1表示没有登录，0表示成功，1表示错误，2表示验证失败，3表示没该接口的访问权限。
- - data：返回具体的数据。
- - message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。 
 
-另：根据status的不同，HTTP请求的状态码也不一样，一般情况下：
+**Convention** :
 
- - 当status为0时，HTTP的状态码为200
- - 当status为-1时，HTTP的状态码为401
- - 当status为1时，HTTP的状态码为400
- - 当status为2时，HTTP的状态码为412
- - 当status为3时，HTTP的状态码为403
+
+
+- method: Returns the requested RESTful API URL, mainly for the WebSocket mode.
+
+- status: Returns status information, where: -1 means not login, 0 means success, 1 means error, 2 means failed validation, and 3 means no access to the interface.
+
+- data: Returns the specific data.
+
+- message: Returns a prompt message for the request. If status is not 0, message will return an error message, where data may have a stack trace field, and return the specific stack information.
+
+
+
+In addition: Different status cause different HTTP status code, under normal circumstances:
+
+
+
+- When status is 0, the HTTP status code is 200
+
+- When the status is -1, the HTTP status code is 401
+
+- When status is 1, the HTTP status code is 400
+
+- When status is 2, the HTTP status code is 412
+
+- When status is 3, the HTTP status code is 403

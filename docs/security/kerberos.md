@@ -1,4 +1,4 @@
 ---
-title: Kerberos 说明
+title: Kerberos Description
 sidebar_position: 0.4
 ---
