@@ -182,13 +182,7 @@ export SERVER_HEAP_SIZE="512M"
 ##The decompression directory and the installation directory need to be inconsistent
 LINKIS_HOME=/appcom/Install/LinkisInstall
 ````
-#### Data source service is enabled (optional)
-> According to the actual situation, if you want to use the data source function, you need to adjust
 
-```shell script
-#If you want to start metadata related microservices, you can set this export ENABLE_METADATA_MANAGE=true
-export ENABLE_METADATA_QUERY=true
-````
 #### No HDFS mode deployment (optional >1.1.2 version support hold)
 
 > Deploy Linkis services in an environment without HDFS to facilitate more lightweight learning and debugging. Deploying in HDFS mode does not support tasks such as hive/spark/flink engines
@@ -203,7 +197,19 @@ RESULT_SET_ROOT_PATH=file:///tmp/linkis
 export ENABLE_HDFS=false
 export ENABLE_HIVE=false
 export ENABLE_SPARK=false
-````
+```
+
+#### kerberos authentication (optional)
+
+> By default, kerberos authentication is disabled on Linkis. If kerberos authentication is enabled in the hive cluster, you need to set the following parameters:
+
+Modify the `linkis-env.sh` file and modify the following
+
+```bash
+#HADOOP
+HADOOP_KERBEROS_ENABLE=true
+HADOOP_KEYTAB_PATH=/appcom/keytab/
+```
 
 ## 3. Install and start
 
@@ -246,22 +252,14 @@ cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-commons/public-modul
 ### 3.3 Configuration Adjustment (Optional)
 > The following operations are related to the dependent environment. According to the actual situation, determine whether the operation is required
 
-#### 3.3.1 kerberos authentication
-If the hive cluster used has kerberos mode authentication enabled, modify the configuration `${LINKIS_HOME}/conf/linkis.properties` (<=1.1.3) file
-```shell script
-#Append the following configuration
-echo "wds.linkis.keytab.enable=true" >> linkis.properties
-````
-#### 3.3.2 Yarn Authentication
+#### 3.3.1 Yarn Authentication
 
 When executing spark tasks, you need to use the ResourceManager of yarn, which is controlled by the configuration item `YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `.
 During installation and deployment, the `YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` information will be updated to the database table `linkis_cg_rm_external_resource_provider`. By default, access to yarn resources does not require permission verification.
 If password authentication is enabled in yarn's ResourceManager, please modify the yarn data information generated in the database table `linkis_cg_rm_external_resource_provider` after installation and deployment.
 For details, please refer to [Check whether the yarn address is configured correctly] (#811-Check whether the yarn address is configured correctly)
 
-
-
-#### 3.3.3 session
+#### 3.3.2 session
 If you are upgrading to Linkis. Deploy DSS or other projects at the same time, but the dependent linkis version introduced in other software is <1.1.1 (mainly in the lib package, the linkis-module-x.x.x.jar package of the dependent Linkis is <1.1.1), you need to modify the linkis located in ` ${LINKIS_HOME}/conf/linkis.properties` file
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
@@ -278,24 +276,19 @@ After the installation is complete, if you need to modify the configuration (bec
 
 ### 3.6 Check whether the service starts normally
 Visit the eureka service page (http://eurekaip:20303),
-The 1.x.x version will start 8 Linkis microservices by default, and the linkis-cg-engineconn service in the figure below will be started only for running tasks
-![Linkis1.0_Eureka](/Images/deployment/Linkis1.0_combined_eureka.png)
+The Linkis will start 6 microservices by default, and the linkis-cg-engineconn service in the figure below will be started only for running tasks
+![Linkis1.0_Eureka](./images/eureka.png)
 
 ```shell script
 LINKIS-CG-ENGINECONNMANAGER Engine Management Services
-LINKIS-CG-ENGINEPLUGIN Engine Plugin Management Service
 LINKIS-CG-ENTRANCE Computing Governance Entry Service
 LINKIS-CG-LINKISMANAGER Computing Governance Management Service
 LINKIS-MG-EUREKA Microservice registry service
 LINKIS-MG-GATEWAY gateway service
-LINKIS-PS-CS context service
 LINKIS-PS-PUBLICSERVICE Public Service
 ````
-If the data source service function is enabled (not enabled by default), you will see these two services
-```shell script
-LINKIS-PS-DATA-SOURCE-MANAGER
-LINKIS-PS-METADATAMANAGER
-````
+
+Note: Linkis-ps-cs, Linkis-ps-data-source-Manager and Linkis-Ps-Metadatamanager services have been merged into Linkis-Ps-PublicService in Linkis 1.3.1 and merge LINKIS-CG-ENGINECONNMANAGER services into LINKIS-CG-LINKISMANAGER.
 
 If any services are not started, you can view detailed exception logs in the corresponding log/${service name}.log file.
 
@@ -527,7 +520,7 @@ The normal is as follows:
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).
 
 - If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](install-engineconn#23-Engine Refresh)).
-- Check the specific reasons for material failure through `log/linkis-cg-engineplugin.log` log. In many cases, it may be caused by the lack of permissions in the hdfs directory
+- Check the specific reasons for material failure through `log/linkis-cg-linkismanager.log` log. In many cases, it may be caused by the lack of permissions in the hdfs directory
 - Check whether the gateway address configuration is correct. The configuration item `wds.linkis.gateway.url` of `conf/linkis.properties`
 
 The material resources of the engine are uploaded to the hdfs directory by default as `/apps-data/${deployUser}/bml`
