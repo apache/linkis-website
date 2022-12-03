@@ -52,7 +52,7 @@ mvn clean install -DskipTests
       <version>${mysql.connector.version}</version>
 </dependency>
 ```
-同时需要留意 根pom.xml的<dependencyManagement>中是否将mysql-connector-java依赖的scope设置为test，如是，本地调试时需要注释掉
+同时需要留意 根pom.xml的`<dependencyManagement>`中是否将mysql-connector-java依赖的scope设置为test，如是，本地调试时需要注释掉
 
 ### 3.2 调整log4j2.xml配置
 
