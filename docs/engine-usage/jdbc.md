@@ -115,17 +115,20 @@ After the data source is completed, you can use the JDBC multi-data source switc
 Parameter example:
 ```json
 {
-    "executionContent": {"code": "show databases", "runType":  "jdbc"},
-    "params": {"variable": {}, "configuration": {"startup":{}, 
-    "runtime": 
-    	{ 
-    		"dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
-    	}
-    }}},
+    "executionContent": {"code": "show tables", "runType":  "jdbc"},
+    "params": {
+        "variable": {}, 
+        "configuration": {
+            "startup":{}, 
+            "runtime":{ 
+                "wds.linkis.engine.runtime.datasource": "mysql-test"
+            }
+        }
+    },
     "source":  {"scriptPath": ""},
     "labels": {
         "engineType": "jdbc-4",
-        "userCreator": "linkis-IDE"
+        "userCreator": "hadoop-IDE"
     }
 }
 ```
