@@ -182,13 +182,7 @@ export SERVER_HEAP_SIZE="512M"
 ##The decompression directory and the installation directory need to be inconsistent
 LINKIS_HOME=/appcom/Install/LinkisInstall
 ```
-#### 数据源服务开启(可选)
-> 按实际情况，如果想使用数据源功能，则需要调整 
 
-```shell script
-#If you want to start metadata related microservices, you can set this export ENABLE_METADATA_MANAGE=true
-export ENABLE_METADATA_QUERY=true
-```
 #### 无HDFS模式部署(可选 >1.1.2版本支持) 
 
 > 在没有HDFS 的环境中部署 Linkis 服务，以方便更轻量化的学习使用和调试。去HDFS模式部署不支持hive/spark/flink引擎等任务
@@ -203,6 +197,17 @@ RESULT_SET_ROOT_PATH=file:///tmp/linkis
 export ENABLE_HDFS=false
 export ENABLE_HIVE=false
 export ENABLE_SPARK=false
+```
+
+#### kerberos 认证(可选)
+
+> 默认 Linkis 未开启 kerberos 认证，如果使用的hive集群开启了 kerberos 模式认证，需要配置如下参数。
+
+修改 `linkis-env.sh` 文件，修改内容如下
+```bash
+#HADOOP
+HADOOP_KERBEROS_ENABLE=true
+HADOOP_KEYTAB_PATH=/appcom/keytab/
 ```
 
 ## 3. 安装和启动
@@ -246,22 +251,14 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 ### 3.3 配置调整（可选）
 > 以下操作，跟依赖的环境有关，根据实际情况，确定是否需要操作 
 
-#### 3.3.1 kerberos认证 
-如果使用的hive集群开启了kerberos模式认证，修改配置`${LINKIS_HOME}/conf/linkis.properties`（<=1.1.3）文件
-```shell script
-#追加以下配置 
-echo "wds.linkis.keytab.enable=true" >> linkis.properties
-```
-#### 3.3.2 Yarn的认证 
+#### 3.3.1 Yarn的认证 
 
 执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
 执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
 如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
 详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)
 
-
-
-#### 3.3.3 session 
+#### 3.3.2 session 
 如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
@@ -278,24 +275,19 @@ sh sbin/linkis-start-all.sh
 
 ### 3.6 检查服务是否正常启动 
 访问eureka服务页面(http://eurekaip:20303)，
-1.x.x版本默认会启动8个Linkis微服务，其中图下linkis-cg-engineconn服务为运行任务才会启动
-![Linkis1.0_Eureka](/Images-zh/deployment/Linkis1.0_combined_eureka.png)
+默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动
+![Linkis1.0_Eureka](./images/eureka.png)
 
 ```shell script
 LINKIS-CG-ENGINECONNMANAGER 引擎管理服务 
-LINKIS-CG-ENGINEPLUGIN  引擎插件管理服务 
 LINKIS-CG-ENTRANCE  计算治理入口服务
 LINKIS-CG-LINKISMANAGER  计算治理管理服务 
 LINKIS-MG-EUREKA        微服务注册中心服务   
 LINKIS-MG-GATEWAY  网关服务 
-LINKIS-PS-CS 上下文服务
 LINKIS-PS-PUBLICSERVICE 公共服务 
 ```
-如果开启了数据源服务功能(默认未开启),会看到这两个服务 
-```shell script
-LINKIS-PS-DATA-SOURCE-MANAGER  
-LINKIS-PS-METADATAMANAGER
-```
+
+注意：在 Linkis 1.3.1 中已将 LINKIS-PS-CS、LINKIS-PS-DATA-SOURCE-MANAGER、LINKIS-PS-METADATAMANAGER服务合并到LINKIS-PS-PUBLICSERVICE，将LINKIS-CG-ENGINECONNMANAGER服务合并到LINKIS-CG-LINKISMANAGER。
 
 如果有服务未启动，可以在对应的log/${服务名}.log文件中查看详细异常日志。
 
@@ -527,7 +519,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
 
 - 如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](install-engineconn#23-引擎刷新))。
-- 通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致
+- 通过`log/linkis-cg-linkismanager.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致
 - 检查gateway地址配置是否正确`conf/linkis.properties`的配置项`wds.linkis.gateway.url`
 
 引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`
