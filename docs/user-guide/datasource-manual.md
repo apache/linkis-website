@@ -34,7 +34,7 @@ Metadata query module, service name ps-metadatamanager. It provides basic query 
 ### 1.3 Processing logic
 #### 1.3.1 LinkisDataSourceRemoteClient
 The functional structure diagram is as follows:
-![datasource](/Images-en/deployment/datasource/datasource.png)
+![datasource](/Images/deployment/datasource/datasource.png)
 
 - The LinkisDataSourceRemoteClient client assembles the http request according to the request parameters,
 - HTTP requests sent to linkis-ps-data-source-manager
@@ -62,7 +62,7 @@ LinkisDataSourceRemoteClient interface
 
 #### 1.3.2 LinkisMetaDataRemoteClient
 The functional structure diagram is as follows:
-![metadata](/Images-en/deployment/datasource/metadata.png)
+![metadata](/Images/deployment/datasource/metadata.png)
 
 - LinkisMetaDataRemoteClient client, according to the request parameters, assemble the http request,
 - HTTP request sent to ps-metadatamanager
