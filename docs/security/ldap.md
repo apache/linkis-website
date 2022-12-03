@@ -1,4 +1,4 @@
 ---
-title: LDAP 说明
+title: LDAP Description
 sidebar_position: 0.1
 ---

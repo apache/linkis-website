@@ -1,4 +1,4 @@
 ---
-title: 如何修改调试Bug
+title: How to Debug
 sidebar_position: 0.2
 ---

@@ -1,4 +1,4 @@
 ---
-title: TOKEN 说明
+title: Token Description
 sidebar_position: 0.2
 ---

@@ -1,13 +1,13 @@
 ---
-title: 总览
+title: Overview
 sidebar_position: 0
 ---
 
-# 概述
+# Overview
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis在设计之初就考虑接入方式的拓展性问题，针对不同的接入场景，Linkis提供了前端接入和SDK接入的方式，在前端接口上又提供了HTTP和WebSocket两种方式，如果对接入并使用Linkis感兴趣，可以参考以下文档：  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis considered the scalability of the access method at the beginning of the design. For different access scenarios, Linkis provides front-end access and SDK access. HTTP and WebSocket interfaces are also provided on the basis of front-end interfaces. If you are interested in accessing and using Linkis, you can refer to the following documents:
 
-- [如何使用Links](how-to-use.md)  
-- [Linkis-Cli的使用](linkiscli-manual.md)   
-- [Linkis JAVA SDK的使用](sdk-manual.md)   
-- [Linkis管理台的使用](console-manual.md)
+- [How to Use Links](how-to-use.md)
+- [Linkis Management Console Manual](console-manual.md)
+- [Linkis1.0 SDK Manual](sdk-manual.md)
+- [Linkis-Cli Manual](linkiscli-manual.md)

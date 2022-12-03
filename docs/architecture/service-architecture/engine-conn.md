@@ -1,104 +1,104 @@
 ---
-title: EngineConn 架构
+title: EngineConn Design
 sidebar_position: 0.8
 ---
 
-
-EngineConn架构设计
+EngineConn architecture design
 ==================
 
-EngineConn：引擎连接器，为其他微服务模块提供统一配置管理、上下文服务、物料库、数据源管理、微服务管理和历史任务查询等功能的模块。
+EngineConn: Engine connector, a module that provides functions such as unified configuration management, context service, physical library, data source management, microservice management, and historical task query for other microservice modules.
 
-一、EngineConn架构图
+EngineConn architecture diagram
 
-![EngineConn](/Images-zh/Architecture/EngineConn/engineconn-01.png)
+![EngineConn](/Images/Architecture/EngineConn/engineconn-01.png)
 
-二级模块介绍：
+Introduction to the second-level module:
 ==============
 
-linkis-computation-engineconn交互式引擎连接器
+linkis-computation-engineconn interactive engine connector
 ---------------------------------------------
 
-提供交互式计算任务的能力。
+The ability to provide interactive computing tasks.
 
-| 核心类               | 核心功能                                                   |
+| Core class               | Core function                                                   |
 |----------------------|------------------------------------------------------------|
-| EngineConnTask       | 定义了提交给EngineConn的交互式计算任务                     |
-| ComputationExecutor  | 定义了交互式Executor，具备状态查询、任务kill等交互式能力。 |
-| TaskExecutionService | 提供对交互式计算任务的管理功能                             |
+| EngineConnTask       | Defines the interactive computing tasks submitted to EngineConn                     |
+| ComputationExecutor  | Defined interactive Executor, with interactive capabilities such as status query and task kill. |
+| TaskExecutionService | Provides management functions for interactive computing tasks                             |
 
-linkis-engineconn-common引擎连接器的通用模块
+linkis-engineconn-common engine connector common module
 --------------------------------------------
 
-1.  定义了引擎连接器中最基础的实体类和接口。EngineConn是用于创建一个底层计算存储引擎的连接会话Session，包含引擎与具体集群的会话信息，是与具体引擎通信的client。
+Define the most basic entity classes and interfaces in the engine connector. EngineConn is used to create a connection session for the underlying computing storage engine, which contains the session information between the engine and the specific cluster, and is the client that communicates with the specific engine.
 
-| 核心Service           | 核心功能                                                             |
+| Core Service           | Core function                                                             |
 |-----------------------|----------------------------------------------------------------------|
-| EngineCreationContext | 包含了EngineConn在启动期间的上下文信息                               |
-| EngineConn            | 包含了EngineConn的具体信息，如类型、与层计算存储引擎的具体连接信息等 |
-| EngineExecution       | 提供Executor的创建逻辑                                               |
-| EngineConnHook        | 定义引擎启动各个阶段前后的操作                                       |
+| EngineCreationContext | Contains the context information of EngineConn during startup                               |
+| EngineConn            | Contains the specific information of EngineConn, such as type, specific connection information with layer computing storage engine, etc. |
+| EngineExecution       | Provide Executor creation logic                                               |
+| EngineConnHook        | Define the operations before and after each phase of engine startup                                       |
 
-linkis-engineconn-core引擎连接器的核心逻辑
+The core logic of linkis-engineconn-core engine connector
 ------------------------------------------
 
-定义了EngineConn的核心逻辑涉及的接口。
+Defines the interfaces involved in the core logic of EngineConn.
 
-| 核心类            | 核心功能                           |
+| Core class            | Core function                           |
 |-------------------|------------------------------------|
-| EngineConnManager | 提供创建、获取EngineConn的相关接口 |
-| ExecutorManager   | 提供创建、获取Executor的相关接口   |
-| ShutdownHook      | 定义引擎关闭阶段的操作             |
+| EngineConnManager | Provide related interfaces for creating and obtaining EngineConn |
+| ExecutorManager   | Provide related interfaces for creating and obtaining Executor   |
+| ShutdownHook      | Define the operation of the engine shutdown phase             |
 
-linkis-engineconn-launch引擎连接器启动模块
+linkis-engineconn-launch engine connector startup module
 ------------------------------------------
 
-定义了如何启动EngineConn的逻辑。
+Defines the logic of how to start EngineConn.
 
-| 核心类           | 核心功能                 |
+| Core class           | core function                 |
 |------------------|--------------------------|
-| EngineConnServer | EngineConn微服务的启动类 |
+| EngineConnServer | EngineConn microservice startup class |
 
-linkis-executor-core执行器的核心逻辑
+The core logic of the linkis-executor-core executor
 ------------------------------------
 
->   定义了执行器相关的核心类。执行器是真正的计算场景执行器，负责将用户代码提交给EngineConn。
+>   Defines the core classes related to the actuator. The executor is a real computing scene executor, responsible for submitting user code to EngineConn.
 
-| 核心类                     | 核心功能                                                   |
+| Core class                 | Core function                                                   |
 |----------------------------|------------------------------------------------------------|
-| Executor                   | 是实际的计算逻辑执行单元，并提供对引擎各种能力的顶层抽象。 |
-| EngineConnAsyncEvent       | 定义了EngineConn相关的异步事件                             |
-| EngineConnSyncEvent        | 定义了EngineConn相关的同步事件                             |
-| EngineConnAsyncListener    | 定义了EngineConn相关异步事件监听器                         |
-| EngineConnSyncListener     | 定义了EngineConn相关同步事件监听器                         |
-| EngineConnAsyncListenerBus | 定义了EngineConn异步事件的监听器总线                       |
-| EngineConnSyncListenerBus  | 定义了EngineConn同步事件的监听器总线                       |
-| ExecutorListenerBusContext | 定义了EngineConn事件监听器的上下文                         |
-| LabelService               | 提供标签上报功能                                           |
-| ManagerService             | 提供与LinkisManager进行信息传递的功能                      |
+| Executor | It is the actual computational logic execution unit and provides a top-level abstraction of the various capabilities of the engine. |
+| EngineConnAsyncEvent | Defines EngineConn-related asynchronous events |
+| EngineConnSyncEvent | Defines EngineConn-related synchronization events |
+| EngineConnAsyncListener | Defines EngineConn related asynchronous event listener |
+| EngineConnSyncListener | Defines EngineConn related synchronization event listener |
+| EngineConnAsyncListenerBus | Defines the listener bus for EngineConn asynchronous events |
+| EngineConnSyncListenerBus | Defines the listener bus for EngineConn synchronization events |
+| ExecutorListenerBusContext | Defines the context of the EngineConn event listener |
+| LabelService | Provide label reporting function |
+| ManagerService | Provides the function of information transfer with LinkisManager |
 
-linkis-callback-service回调逻辑
+linkis-callback-service callback logic
 -------------------------------
 
-| 核心类             | 核心功能                 |
+| Core Class         | Core Function |
 |--------------------|--------------------------|
-| EngineConnCallback | 定义EngineConn的回调逻辑 |
+| EngineConnCallback | Define EngineConn's callback logic |
 
-linkis-accessible-executor能够被访问的执行器
+linkis-accessible-executor can be accessed executor
 --------------------------------------------
 
-能够被访问的Executor。可以通过RPC请求与它交互，从而获取它的状态、负载、并发等基础指标Metrics数据。
+Executor that can be accessed. You can interact with it through RPC requests to get its status, load, concurrency and other basic indicators Metrics data.
 
-| 核心类                   | 核心功能                                        |
+
+| Core Class               | Core Function                                   |
 |--------------------------|-------------------------------------------------|
-| LogCache                 | 提供日志缓存的功能                              |
-| AccessibleExecutor       | 能够被访问的Executor，可以通过RPC请求与它交互。 |
-| NodeHealthyInfoManager   | 管理Executor的健康信息                          |
-| NodeHeartbeatMsgManager  | 管理Executor的心跳信息                          |
-| NodeOverLoadInfoManager  | 管理Executor的负载信息                          |
-| Listener                 | 提供与Executor相关的事件以及对应的监听器定义    |
-| EngineConnTimedLock      | 定义Executor级别的锁                            |
-| AccessibleService        | 提供Executor的启停、状态获取功能                |
-| ExecutorHeartbeatService | 提供Executor的心跳相关功能                      |
-| LockService              | 提供锁管理功能                                  |
-| LogService               | 提供日志管理功能                                |
+| LogCache | Provide log cache function |
+| AccessibleExecutor | The Executor that can be accessed can interact with it through RPC requests. |
+| NodeHealthyInfoManager | Manage Executor's Health Information |
+| NodeHeartbeatMsgManager | Manage the heartbeat information of Executor |
+| NodeOverLoadInfoManager | Manage Executor load information |
+| Listener | Provides events related to Executor and the corresponding listener definition |
+| EngineConnTimedLock | Define Executor level lock |
+| AccessibleService | Provides the start-stop and status acquisition functions of Executor |
+| ExecutorHeartbeatService | Provides heartbeat related functions of Executor |
+| LockService | Provide lock management function |
+| LogService | Provide log management functions |

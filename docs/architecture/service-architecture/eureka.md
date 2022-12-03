@@ -1,4 +1,4 @@
 ---
-title: Eureka 架构
+title: Eureka Architecture
 sidebar_position: 0
 ---
