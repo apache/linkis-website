@@ -1,16 +1,22 @@
 ---
-title: 如何编写单元测试代码
+title: How to Write Unit Test Code
 sidebar_position: 10
 ---
-## 框架选型 
-Junit5+Mockito+jacoco+h2本地数据库 
-Idea增强插件 
-- JUnitGenerator V2.​0  用于生成测试用例的标准模块
-- GenerateAllSet   用于快速new创建对象，并设置默认值
-- MybatisX  dao与mapper的关联映射 方便查看
 
-### 配置IDEA的Junit的模板 
+## Frame Selection
+
+Junit5 + mockito + Jacobo + H2 local database
+
+Idea enhancement plugin  
+
+- JUnitGenerator V2. 0 standard module for generating test cases
+- Create the allnewset object and set the default value for allnewset
+- The association mapping between mybatisx DAO and mapper is easy to view
+
+### Configure the Template of JUnit in Idea
+
 ```properties
+
 ######################################################################################## 
 ## 
 ## Available variables: 
@@ -35,9 +41,9 @@ Idea增强插件
 ## 
 ######################################################################################## 
 ## 
-## 首字母大写 
+## title case 
 #macro (cap $strIn)$strIn.valueOf($strIn.charAt(0)).toUpperCase()$strIn.substring(1)#end 
-## 首字母小写 自定义down
+## Initial lowercase custom down
 #macro (down $strIn)$strIn.valueOf($strIn.charAt(0)).toLowerCase()$strIn.substring(1)#end
 ## Iterate through the list and generate testcase for every entry. 
 #foreach ($entry in $entryList) 
@@ -113,153 +119,176 @@ public class $testClass {
 #end
 
 ```
-![test-0](https://user-images.githubusercontent.com/29391030/155080741-7e6b89db-0ee6-48e1-a858-4123d5bbf2f0.png) 
 
-1.配置配置测试类生成路径  
-原配置：${SOURCEPATH}/test/${PACKAGE}/${FILENAME}
-修改后配置：${SOURCEPATH}/../../test/java/${PACKAGE}/${FILENAME}
-如图：
-![test-1](https://user-images.githubusercontent.com/29391030/155080336-476feba6-2790-43b5-a572-ee0aa6a9586f.png)
-2.选择类——>右键——>Generate——>Junit Test，生成测试类  
-![test-2](https://user-images.githubusercontent.com/29391030/155080650-4fa68c66-5d7c-4e9f-ba63-0c7fc62d9df2.png)
+![test-0]( https://user-images.githubusercontent.com/29391030/155080741-7e6b89db-0ee6-48e1-a858-4123d5bbf2f0.png )
 
-## 单元测试准则
-### 目录以及命名准则
+1. Configure test class generation path  
 
-- 1.单元测试代码目录
-    必须写在如下工程目录：src/test/java，不允许写在业务代码目录下。   
-    说明：源码编译时会跳过此目录，而单元测试框架默认是扫描此目录，测试的配置文件必须放在:src/test/resources文件下
+   Original configuration: ${sourcepath}/test/${package}/${filename}  
+   Modified configuration: ${sourcepath}/..//test/java/${PACKAGE}/${FILENAME}  
 
-- 2.测试类所在的包名应该和被测试类所在的包名保持一致  
-    示例:  
-    业务类       src/main/java/org/apache/linkis/jobhistory/dao/JobDetailMapper.java  
-    对应的测试类 src/test/java/org/apache/linkis/jobhistory/dao/JobDetailMapperTest.java
+   As shown in the figure:  
+   ![test-1]( https://user-images.githubusercontent.com/29391030/155080336-476feba6-2790-43b5-a572-ee0aa6a9586f.png )
 
-- 3.测试类的命名定义规范：使用Test作为类名的后缀  
-    测试类的命名如下：  
-    被测试的业务+Test、被测试的接口+Test、被测试的类+Test
+2. Select class -> right click -> generate -> JUnit test to generate a test class
 
-- 4.测试用例的命名定义规范：使用test作为方法名的前缀    
-    测试用例的命名规则是：test+方法名。避免使用test1、test2没有含义的名称，其次需要有必要的函数方法注释。
+   ![test-2]( https://user-images.githubusercontent.com/29391030/155080650-4fa68c66-5d7c-4e9f-ba63-0c7fc62d9df2.png )
 
 
-### 编写准则
-- 1.单元测试中不准使用 System.out 来进行人肉验证，或则if判断来验证（可以使用log进行关键日志输出），必须使用断言 assert 来验证。
 
-- 2.保持单元测试的独立性。为了保证单元测试稳定可靠且便于维护，单元测试用例之间决不能互相调用，也不能依赖执行的先后次序。   
-    反例：method2 需要依赖 method1 的执行，将执行结果作为 method2 的输入
+## Unit Test Criteria
 
-- 3.单元测试必须可以重复执行的，不能受到外界环境的影响。 
-    说明：单元测试通常会被放到持续集成中，每次有代码 check in 时单元测试都会被执行。如果单测对外部环境（网络、服务、中间件等）有依赖，容易导致持续集成机制的不可用。   
-    正例：为了不受外界环境影响，要求设计代码时就把被测类的相关依赖改成注入，在测试时用 spring 这样的依赖注入框架注入一个本地（内存）实现或者 Mock 实现。
+### Catalogue And Naming Citeria
 
-- 4.增量代码确保单元测试通过。   
-    说明：新增代码必须补充单元测试，如果新增代码影响了原有单元测试，请修正
+- 1. Unit test code directory
+     It must be written in the following project directory: src/test/java. It is not allowed to write in the business code directory.  
+     Note: this directory will be skipped during source code compilation, while the unit test framework scans this directory by default. The test configuration file must be placed under the src/test/resources file
 
-- 5.对于单元测试，要保证测试粒度足够小，有助于精确定位问题。单测粒度一般都是方法级别(工具类或则枚举类等极少场景可以是类级别)。   
-    说明：只有测试粒度小才能在出错时尽快定位到出错位置。单测不负责检查跨类或者跨系统的交互逻辑，那是集成测试的领域。
+- 2. The package name of the test class should be consistent with the package name of the tested class  
+     Example:  
+     Business class： src/main/java/org/apache/linkis/jobhistory/dao/JobDetailMapper.java  
+     Corresponding test class：src/main/java/org/apache/linkis/jobhistory/dao/JobDetailMapperTest java  
+
+- 3. Naming and definition specification of test class: use test as the suffix of class name  
+     The test class is named as follows:  
+     Tested business + test, tested interface + test, tested class + test  
+
+- 4. Specification for naming and defining test cases: use test as the prefix of method names
+     The naming rule of test cases is: test + method name. Avoid using names that have no meaning in test1 and test2. Secondly, necessary function and method annotations are required.
+
+### Unit Coding Specifications
+
+- 1. System is not allowed to be used in unit test Out for human flesh verification, or if judgment for verification (log can be used for Key log output). Assertion assert must be used for verification.
+
+- 2. Maintain the independence of unit testing. In order to ensure that unit tests are stable, reliable and easy to maintain, unit test cases must not call each other or rely on the order of execution.
+     Counterexample: method2 needs to rely on the execution of method1 and take the execution result as the input of method2
+
+- 3. Unit tests must be repeatable and not affected by the external environment.  
+     Note: unit tests are usually put into continuous integration. Unit tests will be executed every time there is code check in. If the single test depends on the external environment (network, service, middleware, etc.), it is easy to lead to the unavailability of the continuous integration mechanism.  
+     Positive example: in order not to be affected by the external environment, it is required to change the relevant dependencies of the tested class into injection when designing the code, and inject a local (memory) implementation or mock implementation with a dependency injection framework such as spring during testing.
+
+- 4. Incremental code ensures that the unit test passes.
+     Note: the new code must supplement the unit test. If the new code affects the original unit test, please correct it
+
+- 5. For unit testing, it is necessary to ensure that the test granularity is small enough to help accurately locate the problem. Single test granularity is generally at the method level (very few scenarios such as tool classes or enumeration classes can be at the class level).  
+     Note: only with small test granularity can we locate the error location as soon as possible. Single test is not responsible for checking cross class or cross system interaction logic, which is the field of integration testing.
+
+## Use of Assertions    
+
+    The result verification of all test cases must use the assertion pattern     
+        use Assertions.assertEquals
+        Assertions.assertEquals(expectedJobDetail, actualJobDetail)
+        
+    The assertions assertion of junit5 is preferred, and the assertions of assertij are allowed in very few scenarios    
+        Comparison of objects before/after updating common scene databases
+        Asserting the usingrecursive comparison pattern using assertj's assertThat
+        Assertions.assertThat(actualObject).usingRecursiveComparison().isEqualTo(expectedObject);
 
 
- ## 断言的使用
-所有的测试用例的结果验证都必须使用断言模式
-优先使用Junit5的Assertions断言，极少数场景允许使用AssertJ的断言  
+### Junit5 General Assertion
 
-### Junit5常规断言
-
-| 方法 | 说明    | 备注 |
+| Method | description    | remarks |
 |--------|-------------|-------------|
-|assertEquals | 判断两个对象或两个原始类型是否相等|        | 
-|assertNotEquals| 判断两个对象或两个原始类型是否不相等|        | 
-|assertTrue| 判断给定的布尔值是否为 true|        | 
-|assertFalse| 判断给定的布尔值是否为 false   |       | 
-|assertNull| 判断给定的对象引用是否为 null|         | 
-|assertNotNull| 判断给定的对象引用是否不为 null |        | 
-|assertAll| 将多个判断逻辑放在一起处理，只要有一个报错就会导致整体测试不通过 |        | 
-### Junit5组合断言和异常断言
-**组合断言**
-assertAll方法可以将多个判断逻辑放在一起处理，只要有一个报错就会导致整体测试不通过：
-```java
+|Assertequals | judge whether two objects or two original types are equal|        | 
+|Assertnotequals | judge whether two objects or two original types are not equal|        | 
+|Asserttrue | judge whether the given Boolean value is true|        | 
+|Assertfalse | judge whether the given Boolean value is false|        | 
+|AssertNull | judge whether the given object reference is null|        | 
+|AssertNotNull | judge whether the given object reference is not null|        | 
+|Assert all | multiple judgment logics are processed together. As long as one error is reported, the overall test will fail|        | 
+
+### Junit5 Combined Assertion and Exception Assertion
+
+**Composite assertion**
+The assertall method can process multiple judgment logics together. As long as one error is reported, the overall test will fail:
+  ```java
     @Test
     @DisplayName("assert all")
     public void all() {
-    //将多个判断放在一起执行，只有全部通过才算通过
+    //Multiple judgments are executed together. Only when all judgments are passed can they be considered as passed
      assertAll("Math",
         () -> assertEquals(2, 1 + 1),
         () -> assertTrue(1 > 0)
      );
     }
-```
-**异常断言 **
-Assertions.assertThrows方法，用来测试Executable实例执行execute方法时是否抛出指定类型的异常；
-如果execute方法执行时不抛出异常，或者抛出的异常与期望类型不一致，都会导致测试失败；
-示例:
-```java
-    @Test
-    @DisplayName("异常的断言")
-    void exceptionTesting() {
-        // 其execute方法执行时，如果抛出了异常，并且异常的类型是assertThrows的第一个参数(这里是ArithmeticException.class)，
-        // 返回值是异常的实例
-        Exception exception = assertThrows(ArithmeticException.class, () -> Math.floorDiv(1,0));
-        log.info("assertThrows通过后，返回的异常实例：{}", exception.getMessage());
-    }
-```
-### 断言使用准则
-**对象实例是否相等断言**  
-1.是否是同一个对象实例
-  ```html
-    使用Junitd的Assertions.assertEquals
-    Assertions.assertEquals(expectedJobDetail, actualJobDetail)
   ```
 
+**Exception assertion**
 
-  不是同一个实例，但是比较实例的属性值是否完全相等
-  AssertJ
-  ```html
-    常用场景 数据库更新操作前/后的对象比较
-    使用AssertJ的assertThat断言usingRecursiveComparison模式
-    Assertions.assertThat(actualObject).usingRecursiveComparison().isEqualTo(expectedObject);
-  ```
+Assertions. The assertthrows method is used to test whether the executable instance throws an exception of the specified type when executing the execute method;    
+If the execute method does not throw an exception during execution, or the exception thrown is inconsistent with the expected type, the test will fail;    
+Example:  
 
-
-2.list等集合结果的断言 
-  结果集集合的大小需要断言 
-  范围或则具体大size 
-
-  结果集集合中的每个对象需要断言,推荐结合stream模式的Predicate进行使用
-  示例:
   ```java
-    ArrayList<JobRespProtocol> jobRespProtocolArrayList=service.batchChange(jobDetailReqBatchUpdate);
-    //list配和stream的predicate进行断言判断
-    Predicate<JobRespProtocol> statusPrecate = e -> e.getStatus()==0;
-    assertEquals(2, jobRespProtocolArrayList.size());
-    assertTrue(jobRespProtocolArrayList.stream().anyMatch(statusPrecate));
+    @Test
+    @DisplayName("Assertion of exception")
+    void exceptionTesting() {
+        // When the execute method is executed, if an exception is thrown and the type of the exception is the first parameter of assertthrows (here is arithmeticexception. Class)
+        // The return value is an instance of an exception
+        Exception exception = assertThrows(ArithmeticException.class, () -> Math.floorDiv(1,0));
+        log.info("assertThrows pass,return instance：{}", exception.getMessage());
+    }
   ```
 
-## Mock模拟返回数据
+### Assertion Usage Criteria
 
-有时我们单测一些api或者service模块,其中的service或者dao对于一些方法的返回值默认是null,但是逻辑里面有对这个返回null的对象进行判断或者二次取值的话,就是引发一些异常
+**Object instance equality assertion**
 
-示例:
+1. Is it the same object instance
+
+```html
+Use junitd's assertions assertEquals
+Assertions.assertEquals(expectedJobDetail, actualJobDetail)
+```
+
+Not the same instance, but whether the attribute values of the comparison instance are exactly equal  
+AssertJ
+
+```html
+Comparison of objects before/after updating common scene databases
+Asserting the usingrecursive comparison pattern using assertj's assertthat
+Assertions. assertThat(actualObject). usingRecursiveComparison(). isEqualTo(expectedObject);
+```
+
+2. Assertion of set results such as list
+The size of the result set needs to be asserted
+Scope or specific size
+Each object in the result set needs assertion, which is recommended to be used in combination with the predicate of stream mode
+Example:
+
+```java
+ArrayList<JobRespProtocol> jobRespProtocolArrayList=service. batchChange(jobDetailReqBatchUpdate);
+//List is matched with the predicate of stream for assertion judgment
+Predicate<JobRespProtocol> statusPrecate = e -> e.getStatus()==0;
+assertEquals(2, jobRespProtocolArrayList.size());
+assertTrue(jobRespProtocolArrayList.stream(). anyMatch(statusPrecate));
+```
+
+## Mock simulation return data
+
+Sometimes we just test some apis or service modules, where the service or dao returns null values for some methods by default, but if the logic includes the judgment or secondary value of the returned null object, it is to throw some exceptions
+
+Example:  
 
 ```java
     PageInfo<UDFAddVo> pageInfo =
         udfService.getManagerPages(udfName, udfTypes, userName, curPage, pageSize);
     message = Message.ok();
-    // 这里的pageInfo是null,后续的get方法就会出现异常
+    // The pageInfo here is null, and subsequent get methods will have exceptions
     message.data("infoList", pageInfo.getList());
     message.data("totalPage", pageInfo.getPages());
     message.data("total", pageInfo.getTotal());
 ```
 
-mock模拟数据示例:
+Example of mock simulation data:
 
 ```java
     PageInfo<UDFAddVo> pageInfo = new PageInfo<>();
     pageInfo.setList(new ArrayList<>());
     pageInfo.setPages(10);
     pageInfo.setTotal(100);
-    // 对 udfService.getManagerPages 方法进行任意传递参数,模拟返回pageInfo对象
-    // 有了这个模拟数据,上面示例在执行get方法的时候,就不会有异常
+    // For udfService.getManagerPages method passes parameters arbitrarily, and the simulation returns the pageInfo object
+    // With this simulation data, the above example will not have exceptions when executing the get method
     Mockito.when(
             udfService.getManagerPages(
                 Mockito.anyString(),
@@ -270,28 +299,31 @@ mock模拟数据示例:
         .thenReturn(pageInfo);
 ```
 
-## 单元测试的编写
+## Compilation of Unit Test
 
-### 类的划分
+### Class Division
 
-按类的大功能可以大体分类
-- Controller  提供http服务的controller 配合mockmvc做单元测试 
-- Service   业务逻辑代码的service层
-- Dao 与数据库操作的Dao层
-- util工具功能类 常用的功能工具
-- exception类  自定义的异常类
-- enum类 枚举类   
-- entity类  用于DB交互以及方法处理的参数VO对象等实体类（若除了正常得get set外还有其他自定义函数的需要进行单元测试）
+It can be roughly classified according to the major functions of the class
 
-### Controller类的单元测试
-使用Mockmvc
-主要验证 接口请求RequestMethod方式，基本参数，以及返回结果预期。
-主要场景:带上非必要参数和不带非必要参数的场景 异常
+-The controller of the HTTP service provided by the controller cooperates with mockmvc for unit testing
+-Service layer of service business logic code
+-Dao and Dao layer of database operation
+-Util tool function class is a common function tool
+-Exception class is a custom exception class
+-Enum class
+-Entity class is used for DB interaction and parameter VO object and other entity classes processed by methods (if there are other user-defined functions besides normal get set, unit test is required)
+
+
+### Unit Test of Controller class
+Using mockmvc
+
+It mainly verifies the requestmethod method of interface request, basic parameters and expected return results.  
+Main scenarios: scenarios with and without unnecessary parameters are abnormal  
 
 ```java
  @Test
     public void testList() throws Exception {
-        //带上非必要参数
+        //Bring unnecessary parameters
         MultiValueMap<String, String> paramsMap = new LinkedMultiValueMap<>();
         paramsMap.add("startDate", String.valueOf(System.currentTimeMillis()));
         MvcResult mvcResult = mockMvc.perform(get("/jobhistory/list")
@@ -304,7 +336,7 @@ mock模拟数据示例:
         assertEquals(res.getStatus(), MessageStatus.SUCCESS());
         logger.info(mvcResult.getResponse().getContentAsString());
 
-        //不带非必要参数
+        //Without unnecessary parameters
         mvcResult = mockMvc.perform(get("/jobhistory/list"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -317,19 +349,22 @@ mock模拟数据示例:
     }
 
 ```
-### Server 类的单元测试
-    //todo
-### Dao 类的单元测试
-使用H2数据库，配置文件中application.properties中需要配置H2数据库的基本信息，以及mybatis的相关路径信息
+
+### Unit Test of Server class
+   //todo
+
+### Unit Test of Dao class
+
+Use H2 database, application. In the configuration file In properties, you need to configure the basic information of H2 database and the relevant path information of mybatis  
 
 ```properties
-#h2数据库配置
+#h2 database configuration
 spring.datasource.driver-class-name=org.h2.Driver
-#连接数据库
+# Script to connect database
 spring.datasource.url=jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=true
-#初始化数据库表的脚本
+#Script to initialize database tables
 spring.datasource.schema=classpath:create.sql
-#初始化数据库表中的数据的脚本
+#Script to initialize data for database tables
 spring.datasource.data=classpath:data.sql
 spring.datasource.username=sa
 spring.datasource.password=
@@ -344,22 +379,16 @@ spring.datasource.hikari.idle-timeout=600000
 spring.datasource.hikari.leak-detection-threshold=0
 spring.datasource.hikari.initialization-fail-timeout=1
 
-#配置mybatis-plus的mapper信息 因为使用的是mybatis-plus，使用mybatis-plus浅醉
+#配置mybatis-plus的mapper信息 因为使用的是mybatis-plus，使用mybatis-plus
 mybatis-plus.mapper-locations=classpath:org/apache/linkis/jobhistory/dao/impl/JobDetailMapper.xml,classpath:org/apache/linkis/jobhistory/dao/impl/JobHistoryMapper.xml
 mybatis-plus.type-aliases-package=org.apache.linkis.jobhistory.entity
 mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 ```
 
-编写规范 
-1. 使用@Transactional以及@Rollback 实现数据回滚，避免数据污染
-2. 每一个DaoTest应该有一个创建初始化数据公共方法（或导入数据的方式csv）来准备数据,相关的查询，更新，删除等操作都应该先调用该公共方法进行数据的准备
-3. 创建测试的数据，如果某属性值是自增id，则不应该进行赋值
-4. 创建的测试数据，应尽可能和实际样例数据保持一致
-5. 更新数据测试时，如果字段允许，请带上`modify-原始值`前缀
+List is configured with predicate of stream to make assertion judgment and write specification
 
-
-
-
-
-
-
+1. Use @Transactional and @Rollback to realize data rollback and avoid data pollution
+2. Each DaoTest should have a public method for creating and initializing data (or the way of importing data CSV) to prepare data. For related queries, updates, deletions and other operations, the public method should be called first to prepare data
+3. Create test data. If an attribute value is a self increasing ID, it should not be assigned
+4. The test data created shall be consistent with the actual sample data as far as possible
+5. When updating the data test, if the field allows, please prefix it with 'modify original value'

@@ -1,23 +1,12 @@
 ---
-title: 日志规范
+title: Log Specification
 sidebar_position: 2
 ---
-1.  【**强制**】日志信息需要使用英文，不能使用中文。可选中英文混打。
 
-1.	【**约定**】Linkis选择slf4j和Log4j2作为日志打印框架，去除了Spring-Cloud包中自带的logback。由于Slf4j会随机选择一个日志框架进行绑定，所以以后在引入新maven包的时候，需要将诸如slf4j-log4j等桥接包exclude掉，不然日志打印会出现问题。但是如果新引入的maven包依赖log4j等包，不要进行exclude，不然代码运行可能会报错
-
-2.	【**配置**】log4j2的配置文件默认为log4j2.xml,需要放置在classpath中。如果需要和springcloud结合，可以在application.yml中加上logging:config:classpath:log4j2-spring.xml(配置文件的位置)
-
-3.	【**强制**】类中不可直接使用日志系统（log4j2、Log4j、Logback）中的API。java采用 LoggerFactory.getLogger(getClass).如果是Scala代码，强制继承Logging trait,Scala打印日志建议加上logger.info 不要直接用info等方法调用，不会打印正确的方法和行数。
-
-4.	【**开发约定**】由于EngineConn是由EngineConnManager通过命令行进行启动的，所以我们在命令行中指定了日志的配置文件的路径，同时也对日志的配置在代码运行中进行了改造，特别是将EngineConn的日志重定向到了系统的standard out中。所以约定EngineConn的日志配置文件在EnginePlugin中定义，名称为log4j2-engineconn.xml(这个是约定名，不能更改)
-
-5.	【**强制**】严格区分日志级别。Fatal级别的日志，在springcloud应用初始化的时候，就应该抛出来，并使用System.out(-1)退出。ERROR级别的异常为开发人员必须关注和处理的异常，不要随便用ERROR级别的。Warn级别是用户操作异常日志和一些方便日后排除BUG的日志。INFO为关键的流程日志。DEBUG为调式日志，尽量少写。
-
-6.	【**强制**】要求：INFO级别的日志，每个小模块都必须有，关键的流程，都至少有INFO级别的日志。守护线程清理资源等必须有WARN级别的日志。
-
-7.	【**强制**】异常信息应该包括两类信息：案发现场信息和异常堆栈信息。如果不处理，那么通过关键字throws往上抛出。 正例：logger.error(各类参数或者对象toString + "_" + e.getMessage(), e);
-
-8.  【**强制**】日志打印时禁止直接用 JSON 工具将对象转换成 String,如果你的类需要在log里面打印，请重写toString方法，不然不知道怎么找问题，只会打印对象名，不会知道具体的对象内容
-
-9. 【**强制**】在日志输出时，字符串变量之间的拼接使用占位符的方式
+1.	[**Convention**] Linkis chooses SLF4J and Log4J2 as the log printing framework, removing the logback in the Spring-Cloud package. Since SLF4J will randomly select a logging framework for binding, it is necessary to exclude bridging packages such as SLF4J-LOG4J after introducing new Maven packages in the future, otherwise log printing will be a problem. However, if the newly introduced Maven package depends on a package such as Log4J, do not exclude, otherwise the code may run with an error.
+2.	[**Configuration**] The log4j2 configuration file is default to log4j2.xml and needs to be placed in the classpath. If springcloud combination is needed, "logging:config:classpath:log4j2-spring.xml"(the location of the configuration file) can be added to application.yml.
+3.	[**Compulsory**] The API of the logging system (log4j2, Log4j, Logback) cannot be used directly in the class. For Scala code, force inheritance from Logging traits is required. For Java, use LoggerFactory.GetLogger(getClass).
+4.	[**Development Convention**] Since engineConn is started by engineConnManager from the command line, we specify the path of the log configuration file on the command line, and also modify the log configuration during the code execution. In particular, redirect the engineConn log to the system's standard out. So the log configuration file for the EngineConn convention is defined in the EnginePlugin and named log4j2-engineConn.xml (this is the convention name and cannot be changed).
+5.	[**Compulsory**] Strictly differentiate log levels. Fatal logs should be thrown and exited using System.out(-1) when the SpringCloud application is initialized. Error-level exceptions are those that developers must care about and handle. Do not use them casually. The WARN level is the logs of user action exceptions and some logs to troubleshoot bugs later. INFO is the key process log. Debug is a mode log, write as little as possible.
+6.	[**Compulsory**] Requirements: Every module must have INFO level log; Every key process must have INFO level log. The daemon thread must have a WARN level log to clean up resources, etc.
+7.	[**Compulsory**] Exception information should include two types of information: crime scene information and exception stack information. If not, then throw it by keyword. Example: logger.error(Parameters/Objects.toString + "_" + e.getMessage(), e);

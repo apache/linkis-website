@@ -1,13 +1,10 @@
 ---
-title: 并发规范
+title: Concurrent Specification
 sidebar_position: 5
 ---
-1.	【**强制**】获取单例对象要线程安全。在单例对象里面做操作也要保证线程安全。
 
-2.	【**强制**】线程资源必须通过线程池提供，不允许在应用中自行显式创建线程。
-
-3.	SimpleDateFormat 是线程不安全的类，建议使用使用DateUtils工具类。
-
-4.	【**强制**】高并发时，同步调用应该去考量锁的性能损耗。能用无锁数据结构，就不要用锁；能锁区块，就不要锁整个方法体；能用对象锁，就不要用类锁。
-
-5.	【**强制**】ThreadLocal尽量少用，用的时候如果存入的是一个需要close的对象，记得及时close释放掉。
+1. [**Compulsory**] Make sure getting a singleton object to be thread-safe. Operating inside singletons should also be kept thread-safe.
+2. [**Compulsory**] Thread resources must be provided through the thread pool, and it is not allowed to explicitly create threads in the application.
+3. SimpleDateFormat is a thread-unsafe class. It is recommended to use the DataUtils utility class.
+4. [**Compulsory**] At high concurrency, synchronous calls should consider the performance cost of locking. If you can use lockless data structures, don't use locks. If you can lock blocks, don't lock the whole method body. If you can use object locks, don't use class locks.
+5. [**Compulsory**] Use ThreadLocal as less as possible. Everytime using ThreadLocal and it holds an object which needs to be closed, remember to close it to release.

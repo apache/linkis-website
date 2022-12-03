@@ -1,13 +1,20 @@
 ---
-title: 路径规范
+title: Path Usage Specification
 sidebar_position: 6
 ---
 
-请注意：Linkis 提供了统一的 Storage模块，所以在使用路径或在配置文件中配置路径时，必须遵守 Linkis 路径规范。
+Please note: Linkis provides a unified Storage module, so you must follow the Linkis path specification when using the path or configuring the path in the configuration file.
 
-1.	【**强制**】使用文件路径时不管是本地，hdfs，http都必须带有schema信息。其中：
-    - 本地文件 的 Scheme 头为：file:///; 
-    - HDFS 的 Scheme 头为：hdfs:///；
-    - http 的 Scheme 头为：http:///。
 
-2.	路径中不应该存在特殊字符，尽量英文，下划线，数字进行组合。
+
+1. [**Compulsory**]When using a file path, whether it is local, HDFS, or HTTP, the schema information must be included. Among them:
+
+    - The Scheme header for local file is: file:///;
+
+    - The Scheme header for HDFS is: hdfs:///;
+
+    - The Scheme header for HTTP is: http:///.
+
+
+
+2. There should be no special characters in the path. Try to use the combination of English characters, underline and numbers.
