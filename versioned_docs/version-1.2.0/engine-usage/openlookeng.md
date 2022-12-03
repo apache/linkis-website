@@ -17,7 +17,7 @@ If you want to deploy the openlookeng engine, you need to prepare an available o
 Currently the openlookeng engine, the default version used by the client is `io.hetu.core:presto-client:1.5.0`
 
 This engine plug-in is not included in the released installation deployment package by default.
-You can follow this guide to deploy and install https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+You can follow this guide to deploy and install https://linkis.apache.org/blog/2022/04/15/how-to-download-engineconn-plugin
 , or follow the process below to manually compile and deploy
 
 

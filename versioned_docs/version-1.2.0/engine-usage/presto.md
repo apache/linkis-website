@@ -14,7 +14,7 @@ If you want to use the Presto engine on your server, you need to prepare the Pre
 ### 2.1 version selection and compilation
 Note: Before compiling the Presto engine, a full build of the Linkis project is required
 This engine plug-in is not included in the released installation deployment package by default.
-You can follow this guide to deploy and install https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+You can follow this guide to deploy and install https://linkis.apache.org/blog/2022/04/15/how-to-download-engineconn-plugin
  or follow the steps below to manually compile and deploy
 
 

@@ -50,7 +50,7 @@ Linkis provides several images, all of which have their Dockerfile and related s
 * `linkis-web`: Linkis Web console image, which contains the binary packages and various scripts of the Apache Linkis Web console, using nginx as the web server.
 * `linkis-ldh`: LDH is a test-oriented image, LDH image provides a complete, pseudo-distributed mode Apache Hadoop runtime environment, including HDFS, YARN, HIVE, Spark, Flink and Zookeeper, can be easily pulled up in the development environment of a fully real Hadoop environment to test the functionality of Linkis.
 
-For details, please refer to: [Linkis Docker Image Package](https://linkis.apache.org/zh-CN/docs/latest/development/linkis_docker_build_instrument). 
+For details, please refer to: [Linkis Docker Image Package](https://linkis.apache.org/docs/latest/development/linkis_docker_build_instrument). 
 
 ### Linkis Helm Chart
 
@@ -263,7 +263,7 @@ The following steps describe how to develop and debug using Linkis containerized
 1. whether the Docker engine is already installed on the development machine
 2. whether Helm is installed on the development machine 
 3. whether KinD has been installed on the development machine 
-4. whether the Linkis image has been created as described in [Linkis Docker image packaging](https://linkis.apache.org/zh-CN/docs/latest/development/linkis_docker_build_instrument)
+4. whether the Linkis image has been created as described in [Linkis Docker image packaging](https://linkis.apache.org/docs/latest/development/linkis_docker_build_instrument)
 
 ### Create Debugging Environment
 

@@ -5,7 +5,7 @@ sidebar_position: 4.5
 
 ## Linkis installation package decompressed directory structure
 
-Download the officially released [Compilation Complete Package](https://linkis.apache.org/zh-CN/download/main), and the decompressed directory structure is as follows:
+Download the officially released [Compilation Complete Package](https://linkis.apache.org/download/main), and the decompressed directory structure is as follows:
 
 ```html
 
