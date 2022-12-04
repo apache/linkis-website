@@ -252,7 +252,13 @@ cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-commons/public-modul
 ### 3.3 Configuration Adjustment (Optional)
 > The following operations are related to the dependent environment. According to the actual situation, determine whether the operation is required
 
-#### 3.3.1 Yarn Authentication
+#### 3.3.1 kerberos authentication
+If the hive cluster used has kerberos mode authentication enabled, modify the configuration `${LINKIS_HOME}/conf/linkis.properties` (<=1.1.3) file
+```shell script
+#Append the following configuration
+echo "wds.linkis.keytab.enable=true" >> linkis.properties
+````
+#### 3.3.2 Yarn Authentication
 
 When executing spark tasks, you need to use the ResourceManager of yarn, which is controlled by the configuration item `YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `.
 During installation and deployment, the `YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` information will be updated to the database table `linkis_cg_rm_external_resource_provider`. By default, access to yarn resources does not require permission verification.
@@ -281,10 +287,12 @@ The Linkis will start 6 microservices by default, and the linkis-cg-engineconn s
 
 ```shell script
 LINKIS-CG-ENGINECONNMANAGER Engine Management Services
+LINKIS-CG-ENGINEPLUGIN Engine Plugin Management Service
 LINKIS-CG-ENTRANCE Computing Governance Entry Service
 LINKIS-CG-LINKISMANAGER Computing Governance Management Service
 LINKIS-MG-EUREKA Microservice registry service
 LINKIS-MG-GATEWAY gateway service
+LINKIS-PS-CS context service
 LINKIS-PS-PUBLICSERVICE Public Service
 ````
 
@@ -520,7 +528,7 @@ The normal is as follows:
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).
 
 - If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](install-engineconn#23-Engine Refresh)).
-- Check the specific reasons for material failure through `log/linkis-cg-linkismanager.log` log. In many cases, it may be caused by the lack of permissions in the hdfs directory
+- Check the specific reasons for material failure through `log/linkis-cg-engineplugin.log` log. In many cases, it may be caused by the lack of permissions in the hdfs directory
 - Check whether the gateway address configuration is correct. The configuration item `wds.linkis.gateway.url` of `conf/linkis.properties`
 
 The material resources of the engine are uploaded to the hdfs directory by default as `/apps-data/${deployUser}/bml`

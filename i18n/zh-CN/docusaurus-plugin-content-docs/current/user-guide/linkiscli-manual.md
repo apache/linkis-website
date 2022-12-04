@@ -1,5 +1,5 @@
 ---
-title: Linkis-Cli 的使用
+title: Shell 脚本的使用
 sidebar_position: 2
 ---
 

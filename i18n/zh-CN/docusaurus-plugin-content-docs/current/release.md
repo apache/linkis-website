@@ -1,6 +1,6 @@
 ---
 title: 版本总览
-sidebar_position: 0.1
+sidebar_position: 1
 --- 
 - [Trino 引擎使用说明](/engine-usage/trino.md)
 - [Seatunnel 引擎使用说明](/engine-usage/seatunnel.md)

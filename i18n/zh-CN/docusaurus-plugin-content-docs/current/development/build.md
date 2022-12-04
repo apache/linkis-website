@@ -1,6 +1,6 @@
 ---
 title: 后端编译
-sidebar_position: 0
+sidebar_position: 0.2
 ---
 
 ## 1. 前置准备 

@@ -10,7 +10,7 @@ sidebar_position: 7
 ### 1.1 Concept
 
 - Data source: We call database services that can provide data storage as databases, such as mysql/hive/kafka. The data source defines the configuration information for connecting to the actual database. The configuration information is mainly the address required for connection and user authentication information , connection parameters, etc. Stored in the linkis_ps_dm_datasource_* table related to the linkis database
-- Metadata: single refers to the metadata of the database, which refers to the data that defines the data structure and the data of various object structures of the database. For example, the database name, table name, column name, field length, type and other information data in the database.
+- Metadata: simply refers to the metadata of the database, which refers to the data that defines the data structure and the data of various object structures of the database. For example, the database name, table name, column name, field length, type and other information data in the database.
 
 ### 1.2 Three main modules
 
@@ -97,7 +97,7 @@ linkis-public-enhancements/linkis-datasource
 │ └── mysql
 
 
-````
+```
 ### 1.4 Installation package directory structure
 
 ```shell script
@@ -110,32 +110,13 @@ linkis-public-enhancements/linkis-datasource
 │ ├── hive
 │ ├── kafka
 │ └── mysql
-````
+```
+
 `wds.linkis.server.mdm.service.lib.dir` controls the classpath loaded during reflection calls. The default value of the parameter is `/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
 
 ### 1.5 Configuration Parameters
 
 See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/tuning-and-troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
-
-### 1.6 New Data Driven
-1.Background note: Because some database driver packages are not compatible with the Apache license, you need to introduce the driver yourself
-
-2.New Driver Directory：./lib/linkis-public-enhancements/linkis-ps-publicservice
-
-3.Driver list
-
-|  drive name   |  drive version | download link |
-| ----------- |  ----------- |----------- |
-| db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
-| dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
-| mysql | 5.1.34 | https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar |
-|kingbase| kingbase8 | http://maven.jeecg.org/nexus/content/repositories/jeecg/kingbase/kingbase8/8/kingbase8-8.jar |
-|greenplum | 5.1.4 | https://network.pivotal.io/products/vmware-tanzu-greenplum#/releases/985537/file_groups/5749 |
-| postgresql | 42.3.1 | https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar| 
-| sqlserver | sqlserver2000 | https://www.microsoft.com/en-us/download/details.aspx?id=11774 |
-| oracle | 11.2.0.3 | http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar |
-
-
 
 ## 2. Enable data source function
 
@@ -160,11 +141,9 @@ The use of data sources is divided into three steps:
 - step 3. Data source usage, query metadata information
 , hive/kafka/elasticsearch configuration is associated with the corresponding cluster environment configuration.
 
-### 3.1 jdbc data source
+### 3.1 Mysql data source
 #### 3.1.1 Created through the management console
 > You can only create configuration data sources, and test whether the data sources can be connected normally, and cannot directly query metadata
-
-The bottom layer is a general jdbc module, and any data source in 1.6 can be selected on the web interface, taking mysql as an example
 
 Data Source Management > New Data Source > Select MySQL Type
 
@@ -329,24 +308,46 @@ object TestMysqlClient {
 
 First need to configure the cluster environment information
 Table `linkis_ps_dm_datasource_env`
-````roomsql
+```roomsql
 INSERT INTO `linkis_ps_dm_datasource_env`
 (`env_name`, `env_desc`, `datasource_type_id`, `parameter`, `create_user`, `modify_user`)
 VALUES
-('testEnv', 'TestEnv', 4, '{\r\n "keytab": "4dd408ad-a2f9-4501-83b3-139290977ca2",\r\n "uris": "thrift://clustername:9083 ",\r\n "principle":"hadoop@WEBANK.COM"\r\n}', 'user','user');
-
-````
-The primary key id, used as the envId, needs to pass the envId parameter to obtain information about the cluster configuration when establishing a connection.
+('testEnv', 'Test Environment', 4,
+'{\r\n "uris": "thrift://clustername:9083",\r\n "keytab": "4dd408ad-a2f9-4501-83b3-139290977ca2",\r\n "principle": "hadoop @WEBANK.COM",\r\n "hadoopConf":{"hive.metastore.execute.setugi":"true"}\r\n}',
+'user','user');
+```
+The primary key id is used as the envId. When establishing a connection, you need to use this envId parameter to obtain information about the cluster configuration.
 Explanation of configuration fields:
-````
+```
 {
-    "keytab": "bml resource id", //keytab stores the resourceId in the material library, which currently needs to be manually uploaded through the http interface.
-    "uris": "thrift://clustername:9083",
-    "principle":"hadoop@WEBANK.COM" //Authenticated principle
+    "uris": "thrift://clustername:9083", # Mandatory If kerberos authentication is not enabled, the following [keytab][principle] parameters can be empty
+    "keytab": "bml resource id", //keytab stores the resourceId in the material library, and currently needs to be manually uploaded through the http interface.
+    "principle": "hadoop@WEBANK.COM" //Authentication principle
+    "hadoopConf":{} //Additional connection parameters are optional
 }
-````
+```
 
-Create on the web side:
+The resourceId acquisition method of keytab, the basic data management function is still under planning, and can be obtained through the http interface request
+reference example
+```shell script
+curl --form "file=@file path" \
+--form system=subsystem name \
+-H "Token-Code: authentication token" \
+-H "Token-User: authentication user name" \
+http://linkis-gatewayip:port/api/rest_j/v1/bml/upload
+
+Example:
+curl --form "file=@/appcom/keytab/hadoop.keytab" \
+--form system=ABCD \
+-H "Token-Code:QML-AUTH" \
+-H "Token-User:hadoop" \
+http://127.0.0.1:9001/api/rest_j/v1/bml/upload
+
+The resourceId in the request result is the corresponding `bml resource id` value
+{"method":"/bml/upload","status":0,"message":"The task of submitting and uploading resources was successful","data":{"resourceId": "6e4e54fc-cc97-4d0d-8d5e-a311129ec84e","version":"v000001","taskId":35}}
+```
+
+Create on the web:
 
 ![create_hive](/Images/deployment/datasource/create_hive.png)
 

@@ -21,7 +21,7 @@ Request process:
 
 ## 3.How to use
  
-An available reids environment is required to support stand-alone redis and redis sentinel mode.
+An available reids environment is required, and stand-alone redis and redis sentinel modes are supported.
 
 After installing and deploying Linkis, modify the configuration file `${LINKIS_HOME}/conf/linkis.properties`
 ```shell script
@@ -34,11 +34,13 @@ linkis.session.redis.host=127.0.0.1
 linkis.session.redis.port=6379
 linkis.session.redis.password=test123
 
-# Sentinel mode
+# sentinel mode
 linkis.session.redis.sentinel.master=sentinel-master-name
 linkis.session.redis.sentinel.nodes=192.168.1.1:6381,192.168.2.1:6381,192.168.3.1:6381
 linkis.session.redis.password=test123
 
-````
+```
 
-The gateway can be enabled normally. After starting redis, for multiple gateway examples, when configuring on the nginx side, you can use the default load balancing mode of nginx.
+Just enable the gateway normally. After starting redis, for multiple gateway examples, you can use the nginx default load balancing mode when configuring on the nginx side.
+
+

@@ -1,5 +1,5 @@
 ---
-title: UDF 的表结构
+title: 表结构
 sidebar_position: 2
 ---
 

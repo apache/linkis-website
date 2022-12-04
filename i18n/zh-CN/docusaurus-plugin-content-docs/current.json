@@ -8,11 +8,11 @@
     "description": "The label for category Quick in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Deployment": {
-    "message": "安装部署",
-    "description": "The label for category Deployment in sidebar tutorialSidebar"
+    "message": "部署指南",
+    "description": "The label for category advanced Deployment in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.User Guide": {
-    "message": "用户手册",
+    "message": "使用指南",
     "description": "The label for category User Guide in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Engine Usage": {
@@ -37,15 +37,15 @@
   },
 
   "sidebar.tutorialSidebar.category.Architecture": {
-    "message": "技术架构",
+    "message": "架构设计",
     "description": "The label for category Architecture in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Commons": {
-    "message": "公共模块",
+    "message": "公共依赖模块",
     "description": "The label for category Commons in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Computation Governance Services": {
-    "message": "计算治理服务架构",
+    "message": "计算治理模块",
     "description": "The label for category Computation Governance Services in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Engine": {
@@ -57,7 +57,7 @@
     "description": "The label for category Linkis Manager in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Public Enhancement Services": {
-    "message": "公共增强服务",
+    "message": "公共增强模块",
     "description": "The label for category Public Enhancement Services in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Context Service": {
@@ -66,7 +66,7 @@
   },
 
   "sidebar.tutorialSidebar.category.Microservice Governance Services": {
-    "message": "微服务治理架构",
+    "message": "微服务实例模块",
     "description": "The label for category Microservice Governance Services in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Orchestrator": {
@@ -109,8 +109,33 @@
     "message": "公共服务",
     "description": "Public Service"
   },
-  "sidebar.tutorialSidebar.category.Context Service": {
-    "message": "上下文服务",
-    "description": "Context Service"
-  }
+  "sidebar.tutorialSidebar.category.Quick Start": {
+    "message": "快速上手",
+    "description": "quick start"
+  },
+  "sidebar.tutorialSidebar.category.Console Manual": {
+    "message": "管理台的使用",
+    "description": "console manual"
+  },
+  "sidebar.tutorialSidebar.category.Security": {
+    "message": "安全认证",
+    "description": "linkis security"
+  },
+  "sidebar.tutorialSidebar.category.Service Architecture": {
+    "message": "微服务架构",
+    "description": "linkis service architecture"
+  },
+  "sidebar.tutorialSidebar.category.Feature": {
+    "message": "关键特性架构",
+    "description": "key feature architechture"
+  },
+  "sidebar.tutorialSidebar.category.Control Panel": {
+    "message": "管理台的使用",
+    "description": "control panel usage"
+  },
+  "sidebar.tutorialSidebar.category.Advice Configuration": {
+    "message": "建议配置",
+    "description": "Linkis advice configuration"
+  }  
+  
 }
