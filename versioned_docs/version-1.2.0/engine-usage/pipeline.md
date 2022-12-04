@@ -13,7 +13,7 @@ Note: before compiling the `pipeline`engine, you need to compile the linkis proj
 Currently, the `pipeline` engine needs to be installed and deployed by itself
 
 This engine plug-in is not included in the published installation and deployment package by default,
-You can follow this guide to deploy the installation https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+You can follow this guide to deploy the installation https://linkis.apache.org/blog/2022/04/15/how-to-download-engineconn-plugin
 Or manually compile the deployment according to the following process
 
 Compile separately`pipeline` 

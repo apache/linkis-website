@@ -18,7 +18,7 @@ Note: The Linkis project needs to be fully compiled before ElasticSearch EngineC
 
 The published installation and deployment packages do not contain the engine plugin by default.
 
-You can click [Linkis engine installation guide](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)  to deployment installation, or according to the following process, Manual compilation and deployment
+You can click [Linkis engine installation guide](https://linkis.apache.org/blog/2022/04/15/how-to-download-engineconn-plugin)  to deployment installation, or according to the following process, Manual compilation and deployment
 
 Compile ElasticSearch engine separately
 

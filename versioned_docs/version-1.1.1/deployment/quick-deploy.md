@@ -42,7 +42,7 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 ### 2.1 Installation package preparation
 
-- Method 1: From the official website [download address](https://linkis.apache.org/zh-CN/download/main): https://linkis.apache.org/zh-CN/download/main, download the corresponding The installation package (project installation package and management console installation package)
+- Method 1: From the official website [download address](https://linkis.apache.org/download/main): https://linkis.apache.org/download/main, download the corresponding The installation package (project installation package and management console installation package)
 - Method 2: Compile the project installation package and management console according to [Linkis Compile and Package](../development/linkis-compile-and-package) and [Front-end Management Console Compile](../development/web-build) Installation package
 
 After uploading the installation package `apache-linkis-x.x.x-incubating-bin.tar.gz`, decompress the installation package
@@ -234,7 +234,7 @@ Because the mysql-connector-java driver is under the GPL2.0 protocol, it does no
 
 :::
 
-To download the mysql driver, take version 5.1.49 as an example: [download link](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49. jar) https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar
+To download the mysql driver, take version 5.1.49 as an example: [download link](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar)
 
 Copy the mysql driver package to the lib package
 ````
@@ -654,5 +654,5 @@ Linkis official website documents are constantly improving, you can view/keyword
 Related blog post links
 - Linkis technical blog collection https://github.com/apache/incubator-linkis/issues/1233
 - Technical blog post on the official account https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
-- Official website documentation https://linkis.apache.org/zh-CN/docs/latest/introduction
+- Official website documentation https://linkis.apache.org/docs/latest/introduction
 - bili technology sharing video https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2
