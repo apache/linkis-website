@@ -6,13 +6,13 @@ sidebar_position: 7
 Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18)。
 
 
-本次发布主要支持UDF多版本控制、UDF存储到BML的功能特性；提交任务支持Yarn队列资源使用统计采集和查看；新增对数据虚拟化引擎OpenLooKeng的支持；修复社区反馈的已知bug。
+本次发布主要支持UDF多版本控制、UDF存储到BML的功能特性；提交任务支持Yarn队列资源使用统计采集和查看；新增对数据虚拟化引擎openLooKeng的支持；修复社区反馈的已知bug。
 
 添加了以下主要功能：
 * 支持代理用户模式，A用户可以代理给B用户执行任务,一个代理用户可以代理多个用户
 * 支持UDF多版本控制和UDF存储到BML的功能特性
 * 提交任务支持Yarn队列资源使用统计数据的采集和管理台页面可视化查看
-* 新增对数据虚拟化引擎OpenLooKeng的支持
+* 新增对数据虚拟化引擎openLooKeng的支持
 
 缩写：
 - EC: Engineconn
@@ -28,7 +28,7 @@ Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://gith
 
 * \[Gateway&Entrance][[Linkis-1608]](https://github.com/apache/incubator-linkis/pull/1608) 支持代理用户模式，A用户可以代理给B用户执行任务，查询B用户的相关数据，一个代理用户可以代理多个用户
 * \[LM-ResourceManager][[Linkis-1616]](https://github.com/apache/incubator-linkis/pull/1616) YARN ResourceManager的资源地址配置支持高可用多地址配置，当前YARN ResourceManager转换状态或者停止时，将会从高可用地址列表中解析出主节点继续提供服务
-* \[EC-OpenLooKeng][[Linkis-1639]](https://github.com/apache/incubator-linkis/issues/1639) 新增对数据虚拟化引擎OpenLooKeng的支持
+* \[EC-openLooKeng][[Linkis-1639]](https://github.com/apache/incubator-linkis/issues/1639) 新增对数据虚拟化引擎openLooKeng的支持
 * \[UDF][[Linkis-1534]](https://github.com/apache/incubator-linkis/pull/1534) 支持UDF多版本控制和UDF存储到BML，提交任务支持Yarn队列资源使用统计数据的采集和管理台页面可视化查看
 * \[Client][[Linkis-1718]](https://github.com/apache/incubator-linkis/issues/1718) Linkis-cli客户端支持提交Once类型的任务，引擎进程启动后只运行一次任务，任务结束后自动销毁
 * \[ECP][[Linkis-1758]](https://github.com/apache/incubator-linkis/issues/1758) 新增引擎物料刷新接口，支持通过http接口调用方式刷新引擎物料资源

@@ -60,7 +60,7 @@ sidebar_position: 3
     <th>sql script</th>  
   </tr >
   <tr>
-    <th>OpenLooKeng</th>
+    <th>openLooKeng</th>
     <th>1.5.0</th>
     <th>sql</th>
     <th>sql script</th>  

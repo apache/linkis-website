@@ -6,13 +6,13 @@ sidebar_position: 7
 Apache Linkis(incubating) 1.1.1 includes all of [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18).
 
 
-This release mainly supports the functions of UDF multi-version control and UDF storage to BML; the submission task supports the collection and viewing of Yarn queue resource usage statistics; new support for the data virtualization engine OpenLooKeng; and known bugs reported by the community are fixed.
+This release mainly supports the functions of UDF multi-version control and UDF storage to BML; the submission task supports the collection and viewing of Yarn queue resource usage statistics; new support for the data virtualization engine openLooKeng; and known bugs reported by the community are fixed.
 
 The following key features have been added:
 * Support proxy user mode, user A can perform tasks on behalf of user B, one proxy user can proxy multiple users
 * Support UDF multi-version control and UDF storage to BML features
 * Submission of tasks supports the collection of Yarn queue resource usage statistics and the visual view of the management console page
-* Added support for data virtualization engine OpenLooKeng
+* Added support for data virtualization engine openLooKeng
 
 abbreviation:
 - EC: Engineconn
@@ -28,7 +28,7 @@ abbreviation:
 
 * \[Gateway&Entrance][[Linkis-1608]](https://github.com/apache/incubator-linkis/pull/1608) Support proxy user mode, user A can perform tasks on behalf of user B, query user B's Related data, a proxy user can proxy multiple users
 * \[LM-ResourceManager][[Linkis-1616]](https://github.com/apache/incubator-linkis/pull/1616) The resource address configuration of YARN ResourceManager supports high-availability multi-address configuration, the current YARN ResourceManager conversion When the status or stop, the master node will be resolved from the high-availability address list to continue to provide services
-* \[EC-OpenLooKeng][[Linkis-1639]](https://github.com/apache/incubator-linkis/issues/1639) Added support for data virtualization engine OpenLooKeng
+* \[EC-openLooKeng][[Linkis-1639]](https://github.com/apache/incubator-linkis/issues/1639) Added support for data virtualization engine openLooKeng
 * \[UDF][[Linkis-1534]](https://github.com/apache/incubator-linkis/pull/1534) Support UDF multi-version control and UDF storage to BML, submit tasks support Yarn queue resources Use statistics collection and management console page visualization
 * \[Client][[Linkis-1718]](https://github.com/apache/incubator-linkis/issues/1718) The Linkis-cli client supports submitting Once type tasks, which will only run once after the engine process is started Task, automatically destroyed after the task is over
 * \[ECP][[Linkis-1758]](https://github.com/apache/incubator-linkis/issues/1758) Add engine material refresh interface, support to refresh engine material resources through http interface call

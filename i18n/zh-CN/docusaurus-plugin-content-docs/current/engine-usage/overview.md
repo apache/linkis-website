@@ -20,7 +20,7 @@ sidebar_position: 0
 | [Shell](./shell.md)       | 是 | 1 |
 | [JDBC](./jdbc.md)        | 否 | 4 |
 | [Flink](./flink.md)       | 否 | 1.12.2 |
-| [OpenLooKeng](./openlookeng.md) | 否 | 1.5.0 |
+| [openLooKeng](./openlookeng.md) | 否 | 1.5.0 |
 | [Pipeline](./pipeline.md) | 否 | 1 |
 | [Presto](./presto.md) | 否 | 0.234 |
 | [Sqoop](./sqoop.md) | 否 | 1.4.6 |

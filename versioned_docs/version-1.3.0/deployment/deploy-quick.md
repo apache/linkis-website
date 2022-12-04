@@ -431,7 +431,7 @@ The list of supported engines that have been adapted in this version is as follo
 | Pipeline | >=1.0.0 Adapted | **Excludes** |
 | JDBC | >=1.0.0 Adapted | **Excludes** |
 | Flink | >=1.0.0 already adapted | **Not included** |
-| OpenLooKeng | >=1.1.1 has been adapted | **Not included** |
+| openLooKeng | >=1.1.1 has been adapted | **Not included** |
 | Sqoop | >=1.1.2 Adapted | **Excludes** |
 
 

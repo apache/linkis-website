@@ -1,5 +1,5 @@
 ---
-title: How to develop a new microservice
+title: How to Develop A New Microservice
 Sidebar position: 7
 ---
 

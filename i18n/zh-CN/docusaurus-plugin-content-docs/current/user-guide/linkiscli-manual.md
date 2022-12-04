@@ -1,5 +1,5 @@
 ---
-title: Shell 脚本的使用
+title: Shell 方式
 sidebar_position: 2
 ---
 

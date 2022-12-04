@@ -1,14 +1,14 @@
 ---
-title: OpenLooKeng 引擎
+title: openLooKeng 引擎
 sidebar_position: 8
 ---
 
-本文主要介绍在 `Linkis` `中，OpenLooKeng` 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` `中，openLooKeng` 引擎插件的安装、使用和配置。
 
 ## 1. 前置工作
 ### 1.1 环境安装
 
-如果您希望部署使用 `OpenLooKeng` 引擎，您需要准备一套可用的 `OpenLooKeng` 环境。
+如果您希望部署使用 `openLooKeng` 引擎，您需要准备一套可用的 `openLooKeng` 环境。
 
 ### 1.2 服务验证
 

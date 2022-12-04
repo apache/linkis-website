@@ -1,5 +1,5 @@
 ---
-title: 数据源功能使用
+title: 数据源功能
 sidebar_position: 6
 ---
 

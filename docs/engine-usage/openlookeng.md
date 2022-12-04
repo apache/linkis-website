@@ -1,15 +1,15 @@
 ---
-title: OpenLooKeng Engine
+title: openLooKeng Engine
 sidebar_position: 8
 ---
 
-This article mainly introduces the installation, usage and configuration of the OpenLooKeng engine plugin in `Linkis` `.
+This article mainly introduces the installation, usage and configuration of the openLooKeng engine plugin in `Linkis` `.
 
 ## 1. Environmental Requirements
 
 ### 1.1 Environment Installation
 
-If you wish to deploy the `OpenLooKeng` engine, you need to prepare a working `OpenLooKeng` environment.
+If you wish to deploy the `openLooKeng` engine, you need to prepare a working `openLooKeng` environment.
 
 ### 1.2 Service Authentication
 

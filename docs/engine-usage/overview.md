@@ -20,7 +20,7 @@ Supported engines and version information are as follows:
 | [Shell](./shell.md) | Yes | 1 |
 | [JDBC](./jdbc.md) | No | 4 |
 | [Flink](./flink.md) | No | 1.12.2 |
-| [OpenLooKeng](./openlookeng.md) | No | 1.5.0 |
+| [openLooKeng](./openlookeng.md) | No | 1.5.0 |
 | [Pipeline](./pipeline.md) | No | 1 |
 | [Presto](./presto.md) | No | 0.234 |
 | [Sqoop](./sqoop.md) | No | 1.4.6 |
