@@ -9,24 +9,47 @@ sidebar_position: 0.1
 The open source projects under the ASF (Apache Foundation) have extremely strict requirements for the license. When you contribute code to Linkis, you must follow the Apache rules. In order to avoid the contributors wasting too much time on the license,
 This article will explain the ASF-License and how to avoid the license risk when participating in the Linkis project development.
 
-## License file directory description
+## 1.License file directory description
+
+License related can be divided into 3 parts
+- The main scenarios that need to be paid attention to are: in the project source code, the resources are directly included in the project (such as the direct use of video files, sample files, code JAVA of other projects, additions, icons, audio sources) and other files, and modifications made on the basis )
+- The packaging of the project will be packaged and released. The main scenarios that need to be paid attention to are: the running and installation dependencies of the dependent jar packages in the dependencies, and the pom, that is, the packaging of the dependencies, will be packaged in
+- The situation that the material installation package of the management console needs to be paid attention to: the additional dependency packages that are dependent on the front-end web are configured through linkweb/package.json
+
 [Linkis source code](https://github.com/apache/incubator-linkis) The directory related to the license is as follows
 ```shell script
-# in the outermost directory
+# the outermost directory starts
 
-|-- LICENSE //LICENSE of the project source code
-|-- LICENSE-binary //LICENSE of binary package
-|-- LICENSE-binary-ui //LICENSE of the front-end web compilation package
-|-- NOTICE //NOTICE of project source code
-|-- NOTICE-binary // NOTICE of binary package
-|-- NOTICE-binary-ui //NOTICE of front-end web binary package
-|-- licenses-binary The detailed dependent license file of the binary package
-|-- licenses-binary-ui //The license file that the front-end web compilation package depends on in detail
+├── LICENSE  //LICENSE of the project source code Some files without asf header or the introduction of external resources need to be marked here
+├── NOTICE   //The NOTICE of the project source code generally does not change
+├── licenses  //Introduction of third-party component licenses at the project source level
+│   └── LICENSE-py4j-0.10.9.5-src.txt
+├── linkis-dist  
+│   └── release-docs 
+│       ├── LICENSE   //Summary of license information of the third-party jar packages that depend on the compiled installation package
+│       ├── licenses   //Details of the license information corresponding to the third-party jar package dependent on the compiled installation package
+│       │   ├── LICENSE-log4j-api.txt
+│       │   ├── LICENSE-log4j-core.txt
+│       │   ├── LICENSE-log4j-jul.txt
+│       │   ├── LICENSE-xxxx.txt
+│       └── NOTICE  //A summary of NOTICE of dependent third-party jar packages in the compiled installation package
+├── linkis-web 
+    └── release-docs
+        ├── LICENSE  //LICENSE information summary of the third-party npm dependencies of the front-end web compilation and installation package
+        ├── licenses  //The license information corresponding to the third-party npm dependencies of the front-end web compilation and installation package is detailed
+        │   ├── LICENSE-vuedraggable.txt
+        │   ├── LICENSE-vue-i18n.txt
+        │   ├── LICENSE-vue.txt
+        │   ├── LICENSE-vuescroll.txt
+        │   └── LICENSE-xxxx.txt
+        └── NOTICE //A summary of NOTICE dependent on third-party npm for front-end web compilation and installation packages
+
+
 
 ````
 
 
-## How to legally use third-party open source software on Linkis
+## 2.How to legally use third-party open source software on Linkis
 
 When the code you submit has the following scenarios:
 
@@ -39,7 +62,7 @@ When the code you submit has the following scenarios:
 We need to know the NOTICE/LICENSE of the files introduced by our project or jar dependencies, (most open source projects will have NOTICE files), these must be reflected in our project. In Apache's words, "Work" shall be mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a
 copyright notice that is included in or attached to the work.
 
-### Example Scenario 1
+### 2.1 Example Scenario 1
 For example, the third-party file `linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip` is introduced into the source code
 
 Find the source branch of the version corresponding to py4j-0.10.7-src.zip, if there is no `LICENSE/NOTICE` file in the corresponding version branch, select the main branch
@@ -51,7 +74,7 @@ The license information of `py4j-0.10.7-src.zip` needs to be specified in the `l
 The detailed license.txt file corresponding to `py4j-0.10.7-src.zip` is placed in the same level directory `linkis-engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10 .7-src.txt`
 Since https://github.com/bartdag/py4j/tree/0.10.7/py4j-python does not have a NOTICE file, there is no need to append to the `linkis/NOTICE` file.
 
-### Example Scene 2
+### 2.2 Example Scene 2
 
 The compilation of the project depends on `org.apache.ant:ant:1.9.1`, and ant-1.9.1.jar will be compiled and installed in the final package `target/apache-linkis-xxx-incubating-bin/linkis-package/lib `medium
 You can decompress ant-1.9.1.jar and extract the LICENSE/NOTICE file from the jar package. If not, you need to find the corresponding version source code
@@ -66,14 +89,14 @@ The detailed notice.txt corresponding to `ant-1.9.1.jar` is appended to the `NOT
 
 Regarding the specific open source protocol usage protocols, I will not introduce them one by one here. If you are interested, you can check them yourself.
 
-## License detection rules
+## 3.License detection rules
 We build a license-check script for our own project to ensure that we can avoid license problems as soon as we use it.
 
 When we need to add new Jars or other external resources, we need to follow these steps:
 
 * Add the jar name + version you need in tool/dependencies/known-dependencies.txt.
-* Add relevant license information in LICENSE/LICENSE-binary/LICENSE-binary-ui (depending on the actual situation).
-* Append the relevant NOTICE file to NOTICE/NOTICE-binary/NOTICE-binary-ui (determined according to the actual situation). This file must be consistent with the NOTICE file in the code version repository of the dependencies.
+* Add relevant license information in linkis-web/release-docs/LICENSE (depending on the actual situation).
+* Append the relevant NOTICE file to linkis-web/release-docs/NOTICE (determined according to the actual situation). This file must be consistent with the NOTICE file in the code version repository of the dependencies.
 
 :::caution Note
 If the scenario is to remove, then the corresponding reverse operation of the above steps needs to remove the corresponding LICENSE/NOTICE content in the corresponding file. In short, it is necessary to ensure that these files are consistent with the data of the actual source code/compiled package
@@ -102,7 +125,7 @@ In this case, we will get the error message of check dependency license fail in 
 Follow the steps to add jar to add it.
 
 
-## Appendix
+## 4.Appendix
 Attachment: Mail format of new jar
 ````
 [VOTE][New/Remove Jar] jetcd-core(registry plugin support etcd3 )
@@ -137,6 +160,6 @@ https://mvnrepository.com/artifact/io.etcd/jetcd-core
 https://mvnrepository.com/artifact/io.etcd/jetcd-launcher
 ````
 
-## Reference articles
+## 5.Reference articles
 * [COMMUNITY-LED DEVELOPMENT "THE APACHE WAY"](https://apache.org/dev/licensing-howto.html)
 * [ASF 3RD PARTY LICENSE POLICY](https://apache.org/legal/resolved.html)
