@@ -175,7 +175,7 @@ Used in classes to describe requests, response classes, and entity classes.
 |access|Class<?> parent|Void.class| Array of subtypes inherited from this model|
 |reference|boolean|false|Specifies a reference to the corresponding type definition, overriding any other metadata specified|
 
-##8 @ApiModelProperty
+## 8 @ApiModelProperty
 
 Used in classes to describe requests, response classes, and entity classes.
 

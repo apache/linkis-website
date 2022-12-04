@@ -10,13 +10,13 @@ This article describes how to deploy a Linkis service in a Kind Kubernetes envir
 kind github：https://github.com/kubernetes-sigs/kind   
 kind web site：[kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
 
-### Versions
+### 1.1 Versions
 - kind 0.14.0  
 - docker 20.10.17  
 - centos 7.6  
 - helm 3.x  
 
-### Notice
+### 1.2 Notice
 - 1. Ensure that the component depends on the version  
 - 2. kind means that the machine simulating node with docker container is restarted and the container has changed and the scheduler is not working anymore. This is a kind limitation and there is a detailed explanation in the official document.
 
@@ -43,60 +43,60 @@ vi /etc/docker/daemon.json
 
 ## 3. Install the kind
 
-### Step1 Manually download the kind binary
+### 3.1 Manually download the kind binary
 ```
 https://github.com/kubernetes-sigs/kind/releases
 ```
-### Step2 Install kind Binary
+### 3.2 Install kind Binary
 ```
 chmod +x ./kind
 mv kind-linux-amd64 /usr/bin/kind
 ```
 ## 4. Install linkis
-### Step1 Download linkis1.3.0 deployment package
+### 4.1 Download linkis1.3.0 deployment package
 ```
 apache-linkis-1.3.0-incubating-bin.tar.gz
 ```
-### Step2 Build directory
+### 4.2 Build directory
 ```
 mkdir -p /opt/data/common/extendlib
 ```
-### Step3 Copy driver to /opt/data/common/extendlib
+### 4.3 Copy driver to /opt/data/common/extendlib
 ```
 curl https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar -o /opt/data/common/extendlib/[mysql-connector-java-8.0.28.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar)
 ```
-### Step3 Reset kind (not necessary)
+### 4.4 Reset kind (not necessary)
 ```
 ./bin/install-linkis-to-kubernetes.sh reset
 ```
-### Step5 Pull the image
+### 4.5 Pull the image
 ```
 ./bin/install-linkis-to-kubernetes.sh pull -mghcr.dockerproxy.com
 ```
-### Step6 Install linkis to kind
+### 4.6 Install linkis to kind
 ```
 ./bin/install-linkis-to-kubernetes.sh install -l -mghcr.dockerproxy.com
 ```
-### Step7 Run commands to view services and wait until all services are successfully started
+### 4.7 Run commands to view services and wait until all services are successfully started
 ```
 kubectl get pods -A
 ```
 ![](/Images/deployment/kubernetes/pods.jpg)
 
-### Step8 Copy the ldh environment to linkis
+### 4.8 Copy the ldh environment to linkis
 ```
 ./helm/scripts/prepare-for-spark.sh
 ```
-### Step9 Enabling Port Mapping
+### 4.9 Enabling Port Mapping
 ```
 ./helm/scripts/remote-proxy.sh start
 ```
-### Step10 Access to the system
+### 4.10 Access to the system
 ```
 linkis-web: http://10.0.2.101:8088/
 eureka: http://10.0.2.101:20303/
 ```
-### Step11 Into the container
+### 4.11 Into the container
 ```
 ./helm/scripts/login-pod.sh cg-engineconnmanager
 Executing shell tests

@@ -6,7 +6,7 @@ sidebar_position: 10
 This article mainly introduces the configuration, deployment and use of pipeline (>=1.1.0 version support) engine.
 
 
-## 1 Configuration and deployment
+## 1. Configuration and deployment
 
 ### 1.1 Version selection and compilation
 Note: before compiling the `pipeline`engine, you need to compile the linkis project in full
@@ -65,7 +65,7 @@ Linkis1.XIt is carried out through labels, so it is necessary to insert data int
 [EngineConnPlugin Engine plug-in installation](../deployment/install-engineconn) 
 
 
-## 2 Use of engine
+## 2. Use of engine
 
 ### 2.1 Task submission via linkis cli
 

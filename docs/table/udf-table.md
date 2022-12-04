@@ -3,7 +3,7 @@ title: UDF Table Structure
 sidebar_position: 2
 ---
 
-## 1 linkis_ps_udf_baseinfo
+## 1. linkis_ps_udf_baseinfo
 
 The basic information table of udf function, which stores basic information such as udf name/type
 
@@ -31,7 +31,7 @@ udf_type 3: custom function - python function
 udf_type 4: custom function - scala function
 ````
 
-## 2 linkis_ps_udf_manager
+## 2. linkis_ps_udf_manager
 
 The administrator user table of the udf function, with sharing permissions, only the front end of the udf administrator has a shared entry
 
@@ -40,7 +40,7 @@ The administrator user table of the udf function, with sharing permissions, only
 | 1 | `id` | | bigint(20) | PRI | NO | auto_increment | |
 | 2 | `user_name` | | varchar(20) | | YES | | |
 
-## 3 linkis_ps_udf_shared_info
+## 3. linkis_ps_udf_shared_info
 
 udf shared record table
 
@@ -50,7 +50,7 @@ udf shared record table
 | 2 | `udf_id` | id of linkis_ps_udf_baseinfo | bigint(20) | | NO | | |
 | 3 | `user_name` | username used by the share | varchar(50) | | NO | | |
 
-## 4 linkis_ps_udf_tree
+## 4. linkis_ps_udf_tree
 
 Tree-level record table for udf classification
 
@@ -65,7 +65,7 @@ Tree-level record table for udf classification
 | 7 | `update_time` | | timestamp | | NO | | CURRENT_TIMESTAMP |
 | 8 | `category` | category distinction udf / function | varchar(50) | | YES | | |
 
-## 5 linkis_ps_udf_user_load
+## 5. linkis_ps_udf_user_load
 
 Whether udf is the configuration loaded by default
 
@@ -75,7 +75,7 @@ Whether udf is the configuration loaded by default
 | 2 | `udf_id` | id of linkis_ps_udf_baseinfo | int(11) | | NO | | |
 | 3 | `user_name` | user owned | varchar(50) | | NO | | |
 
-## 6 linkis_ps_udf_version
+## 6. linkis_ps_udf_version
 
 udf version information table
 

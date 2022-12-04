@@ -5,7 +5,7 @@ sidebar_position: 10
 
 > Contributor contributes new data tables to Apache Linkis. When writing Mapper XML, the following specifications must be followed for development.
 
-## Basically follow the specifications
+## 1.Basically follow the specifications
 - In mapper.xml namespace is equal to java interface address  
 - The method name in the java interface is the same as the id of the statement in XML  
 - The input parameter type of the method in the java interface is the same as the type specified by the parameterType of the statement in XML
@@ -16,7 +16,7 @@ sidebar_position: 10
 - For placeholders, use #{name} instead of ${name}. Fuzzy query can use CONCAT('%',#{sname},'%')
 - For sql statement writing, no annotation method is used, and it is uniformly written in the XML file
 
-## Method name specification
+## 2.Method name specification
 
 |Method Name|Description|Core Points|Recommendations|
 |:---- |:--- |:--- |:--- |
@@ -28,9 +28,9 @@ sidebar_position: 10
 |queryListByParam | Query data list according to input conditions | Multi-parameter query list | |
 |queryCountByParam | The total number of queries based on input conditions | The number of multi-parameter queries | |
 
-## parameterType specification
+## 3.parameterType specification
 The java interface must contain @Param, and the XML can not contain parameterType
-### basic type
+### 3.1 basic type
 ````java
 // java interface
 User selectUserById(@Param("id") Integer id);
@@ -41,7 +41,7 @@ User selectUserById(@Param("id") Integer id);
 	where id = #{id}
 </select>
 ````
-### Collection type
+### 3.2 Collection type
 ````java
 // java interface
 List<User> userListByIds(@Param("ids") List<Integer> ids);
@@ -55,7 +55,7 @@ List<User> userListByIds(@Param("ids") List<Integer> ids);
 		</foreach>
 </select>
 ````
-### Map type
+### 3.3 Map type
 ````java
 // java interface
 User queryByParams(@Param("map") Map<String, Object> parasms);
@@ -66,7 +66,7 @@ User queryByParams(@Param("map") Map<String, Object> parasms);
 	where id = #{map.id} and name = #{map.name}
 </select>
 ````
-### Entity Type
+### 3.4 Entity Type
 ````java
 // java interface
 User queryByUser(@Param("user") User user);
@@ -77,7 +77,7 @@ User queryByUser(@Param("user") User user);
 	where id = #{user.id} and name = #{user.name}
 </select>
 ````
-### Multiple parameter types
+### 3.5 Multiple parameter types
 ````java
 // java interface
 User queryByIdAndName(@Param("id") Integer id, @Param("name") String name);
@@ -88,7 +88,7 @@ User queryByIdAndName(@Param("id") Integer id, @Param("name") String name);
 	where id = #{id} and name = #{name}
 </select>
 ````
-## XML file writing example
+## 4.XML file writing example
 Use spaces and indentation reasonably to enhance readability. Examples of various types of SQL statements are as follows
 ```sql
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">

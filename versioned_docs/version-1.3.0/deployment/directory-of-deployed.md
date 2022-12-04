@@ -5,6 +5,7 @@ sidebar_position: 3.2
 
 > The directory structure of Linkis 1.0 is very different from the 0.X version. Each microservice in 0.X has a root directory that exists independently. The main advantage of this directory structure is that it is easy to distinguish microservices and facilitate individual Microservices are managed, but there are some obvious problems:
 
+## 1.Directory structure
 1.	The microservice catalog is too complicated and it is not convenient to switch catalog management
 2.	There is no unified startup script, which makes it more troublesome to start and stop microservices
 3.	There are a large number of duplicate service configurations, and the same configuration often needs to be modified in many places

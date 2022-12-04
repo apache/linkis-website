@@ -23,7 +23,7 @@ It is strongly recommended that you use the native Sqoop to execute the test tas
 | HCAT_HOME | HCAT config path | Not Required                    |
 | HBASE_HOME | HBASE config path | Not Required |
 
-表1-1 环境配置清单
+Table 1-1 Environment configuration list
 
 | Linkis Parameter Name       | Parameter Content                                          | Remark                                                       |
 | --------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |

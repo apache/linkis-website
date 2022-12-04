@@ -9,7 +9,7 @@ Linkis RPC是基于Spring Cloud + Feign实现的一套微服务间的异步请�
 
 
 
-## 1 简介
+## 1. 简介
 Linkis RPC作为底层的通信方案，将提供SDK集成到有需要的微服务之中。
 一个微服务既可以作为请求调用方，也可以作为请求接收方。
 
@@ -35,7 +35,7 @@ org.apache.linkis.rpc.Receiver
 
 
 
-## 2 实现
+## 2. 实现
 
 基于请求调用方的Sender体系和请求接收方的Receiver体系，构成了Linkis RPC的全部架构。
 ![](/Images/Architecture/RPC-01.png)

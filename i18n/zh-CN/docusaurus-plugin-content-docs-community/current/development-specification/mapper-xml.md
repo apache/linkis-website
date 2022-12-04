@@ -5,7 +5,7 @@ sidebar_position: 10
 
 > Contributor为Apache Linkis贡献新的数据表，编写Mapper XML时需遵循如下规范进行开发。
 
-## 基本遵循规范
+## 1.基本遵循规范
 - 在mapper.xml中namespace等于java接口地址  
 - java接口中的方法名和XML中statement的id一致  
 - java接口中的方法输入参数类型和XML中statement的parameterType指定的类型一致
@@ -16,7 +16,7 @@ sidebar_position: 10
 - 对于占位符，使用#{name}，而不要使用${name}。模糊查询可以使用CONCAT('%',#{sname},'%')
 - 对于sql语句编写，不使用注解方式，统一写在XML文件中
 
-## 方法名称规范
+## 2.方法名称规范
 
 |方法名称|	说明|	核心点|    建议|
 |:----  |:---   |:---   |:---   |
@@ -28,9 +28,9 @@ sidebar_position: 10
 |queryListByParam	| 根据输入条件查询数据列表|	多参数查询列表	 | |
 |queryCountByParam	| 根据输入条件查询总数|	多参数查询数量	 | |
 
-## parameterType规范
+## 3.parameterType规范
 java接口中必须包含@Param，XML中可以不包含parameterType
-### 基本类型
+### 3.1 基本类型
 ```java
 // java接口
 User selectUserById(@Param("id") Integer id);
@@ -41,7 +41,7 @@ User selectUserById(@Param("id") Integer id);
 	where id = #{id}
 </select>
 ```
-### 集合类型
+### 3.2 集合类型
 ```java
 // java接口
 List<User> userListByIds(@Param("ids") List<Integer> ids);
@@ -55,7 +55,7 @@ List<User> userListByIds(@Param("ids") List<Integer> ids);
 		</foreach>
 </select>
 ```
-### Map类型
+### 3.3 Map类型
 ```java
 // java接口
 User queryByParams(@Param("map") Map<String, Object> parasms);
@@ -66,7 +66,7 @@ User queryByParams(@Param("map") Map<String, Object> parasms);
 	where id = #{map.id} and name = #{map.name}
 </select>
 ```
-### 实体类型
+### 3.4 实体类型
 ```java
 // java接口
 User queryByUser(@Param("user") User user);
@@ -77,7 +77,7 @@ User queryByUser(@Param("user") User user);
 	where id = #{user.id} and name = #{user.name}
 </select>
 ```
-### 多个参数类型
+### 3.5 多个参数类型
 ```java
 // java接口
 User queryByIdAndName(@Param("id") Integer id, @Param("name") String name);
@@ -88,7 +88,7 @@ User queryByIdAndName(@Param("id") Integer id, @Param("name") String name);
 	where id = #{id} and name = #{name}
 </select>
 ```
-## XML文件编写示例
+## 4.XML文件编写示例
 合理地使用空格和缩进来增强可读性，各类型sql语句示例如下
 ```sql
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">

@@ -9,7 +9,7 @@ sidebar_position: 0.1
 The open source projects under the ASF (Apache Foundation) have extremely strict requirements for the license. When you contribute code to Linkis, you must follow the Apache rules. In order to avoid the contributors wasting too much time on the license,
 This article will explain the ASF-License and how to avoid the license risk when participating in the Linkis project development.
 
-## License file directory description
+## 1.License file directory description
 
 License related can be divided into 3 parts
 - The main scenarios that need to be paid attention to are: in the project source code, the resources are directly included in the project (such as the direct use of video files, sample files, code JAVA of other projects, additions, icons, audio sources) and other files, and modifications made on the basis )
@@ -49,7 +49,7 @@ License related can be divided into 3 parts
 ````
 
 
-## How to legally use third-party open source software on Linkis
+## 2.How to legally use third-party open source software on Linkis
 
 When the code you submit has the following scenarios:
 
@@ -62,7 +62,7 @@ When the code you submit has the following scenarios:
 We need to know the NOTICE/LICENSE of the files introduced by our project or jar dependencies, (most open source projects will have NOTICE files), these must be reflected in our project. In Apache's words, "Work" shall be mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a
 copyright notice that is included in or attached to the work.
 
-### Example Scenario 1
+### 2.1 Example Scenario 1
 For example, the third-party file `linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip` is introduced into the source code
 
 Find the source branch of the version corresponding to py4j-0.10.7-src.zip, if there is no `LICENSE/NOTICE` file in the corresponding version branch, select the main branch
@@ -74,7 +74,7 @@ The license information of `py4j-0.10.7-src.zip` needs to be specified in the `l
 The detailed license.txt file corresponding to `py4j-0.10.7-src.zip` is placed in the same level directory `linkis-engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10 .7-src.txt`
 Since https://github.com/bartdag/py4j/tree/0.10.7/py4j-python does not have a NOTICE file, there is no need to append to the `linkis/NOTICE` file.
 
-### Example Scene 2
+### 2.2 Example Scene 2
 
 The compilation of the project depends on `org.apache.ant:ant:1.9.1`, and ant-1.9.1.jar will be compiled and installed in the final package `target/apache-linkis-xxx-incubating-bin/linkis-package/lib `medium
 You can decompress ant-1.9.1.jar and extract the LICENSE/NOTICE file from the jar package. If not, you need to find the corresponding version source code
@@ -89,7 +89,7 @@ The detailed notice.txt corresponding to `ant-1.9.1.jar` is appended to the `NOT
 
 Regarding the specific open source protocol usage protocols, I will not introduce them one by one here. If you are interested, you can check them yourself.
 
-## License detection rules
+## 3.License detection rules
 We build a license-check script for our own project to ensure that we can avoid license problems as soon as we use it.
 
 When we need to add new Jars or other external resources, we need to follow these steps:
@@ -125,7 +125,7 @@ In this case, we will get the error message of check dependency license fail in 
 Follow the steps to add jar to add it.
 
 
-## Appendix
+## 4.Appendix
 Attachment: Mail format of new jar
 ````
 [VOTE][New/Remove Jar] jetcd-core(registry plugin support etcd3 )
@@ -160,6 +160,6 @@ https://mvnrepository.com/artifact/io.etcd/jetcd-core
 https://mvnrepository.com/artifact/io.etcd/jetcd-launcher
 ````
 
-## Reference articles
+## 5.Reference articles
 * [COMMUNITY-LED DEVELOPMENT "THE APACHE WAY"](https://apache.org/dev/licensing-howto.html)
 * [ASF 3RD PARTY LICENSE POLICY](https://apache.org/legal/resolved.html)

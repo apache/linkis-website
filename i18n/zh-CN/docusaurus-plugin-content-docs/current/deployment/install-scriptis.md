@@ -180,7 +180,7 @@ http://nginxIp:port/scriptis/#/home
 ```
 `nginxIp`:Linkis 管理台所部署的 nginx 服务器 ip，`port`:nginx 配置启动的端口号，`scriptis`为请求 scriptis 项目静态文件 nginx 配置的 location 地址（可自定义设置）
 
-### 4.3 使用 Scriptis
+### 5.3 使用 Scriptis
 
 以新建一个 sql 查询任务为例。
 

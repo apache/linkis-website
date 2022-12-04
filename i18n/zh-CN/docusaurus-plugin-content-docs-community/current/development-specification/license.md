@@ -9,7 +9,7 @@ sidebar_position: 0.1
 ASF(Apache基金会)下的开源项目，对于License有着极其严苛的要求，当您为Linkis贡献代码时，就必须按照Apache的规则来,为了避免贡献者在License上浪费过多的时间，
 本文将为您讲解ASF—License以及参与 Linkis 项目开发时如何规避掉License风险。
 
-## License 文件目录说明 
+## 1.License 文件目录说明 
 
 licence相关的可以划分为3部分
 - 源码级别  主要需要关注的场景是： 在项目工程源码中，直接引入第三方资源（如 直接使用了某个其他项目的代码JAVA文件，新增了文本、css、js、图片、图标、音视频等文件，以及在第三方基础上做的修改）
@@ -50,7 +50,7 @@ licence相关的可以划分为3部分
 ```
 
 
-## 如何在 Linkis 合法的使用第三方开源软件
+## 2.如何在 Linkis 合法的使用第三方开源软件
 
 当你提交的代码有如下场景时：
 
@@ -63,7 +63,7 @@ licence相关的可以划分为3部分
 我们需要知道被我们项目引入的文件或jar依赖的NOTICE/LICENSE,（绝大多数的开源项目都会有NOTICE文件），这些必须在我们的项目中体现，用Apache的话来讲，就是"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a
 copyright notice that is included in or attached to the work.
 
-### 示例 场景1
+### 2.1 示例 场景1
 比如源码中引入了`linkis-engineconn-plugins/python/src/main/py4j/py4j-0.10.7-src.zip`第三方文件
 
 找到py4j-0.10.7-src.zip 对应的版本源码分支，如果对应版本分支无`LICENSE/NOTICE`文件，则选择主分支
@@ -75,7 +75,7 @@ copyright notice that is included in or attached to the work.
 `py4j-0.10.7-src.zip`对应的详细的license.txt文件放在同级的目录下`linkis-engineconn-plugins/python/src/main/py4j/LICENSE-py4j-0.10.7-src.txt`
 因为https://github.com/bartdag/py4j/tree/0.10.7/py4j-python 没有NOTICE文件，所以`linkis/NOTICE`文件中无需追加。
 
-### 示例 场景 2
+### 2.2 示例 场景 2
 
 项目编译依赖了`org.apache.ant:ant:1.9.1`,ant-1.9.1.jar会在最后的编译安装包`target/apache-linkis-x.x.x-incubating-bin/linkis-package/lib`中
 可以解压ant-1.9.1.jar，从jar包中提取LICENSE/NOTICE文件，如果没有，则需要找到对应的版本源码 
@@ -90,7 +90,7 @@ copyright notice that is included in or attached to the work.
 
 关于具体的各个开源协议使用协议，在此不做过多篇幅一一介绍，有兴趣可以自行查询了解。
 
-##  license 检测规则
+##  3.license 检测规则
 我们为自己的项目建立license-check脚本，是为了确保我们在使用过程中能够第一时间避免License的问题。
 
 当我们需要添加新的Jar或其他外部资源的时候，我们需要按照以下步骤：
@@ -125,7 +125,7 @@ Error: Process completed with exit code 1.
 按照添加jar的步骤补充即可。
 
 
-## 附件
+## 4.附件
 附件：新jar的邮件格式 
 ```
 [VOTE][New/Remove Jar] jetcd-core(registry plugin support etcd3 ) 
@@ -160,7 +160,7 @@ https://mvnrepository.com/artifact/io.etcd/jetcd-core
 https://mvnrepository.com/artifact/io.etcd/jetcd-launcher
 ```
 
-## 参考文章
+## 5.参考文章
 * [COMMUNITY-LED DEVELOPMENT "THE APACHE WAY"](https://apache.org/dev/licensing-howto.html)
 * [ASF 3RD PARTY LICENSE POLICY](https://apache.org/legal/resolved.html)
 

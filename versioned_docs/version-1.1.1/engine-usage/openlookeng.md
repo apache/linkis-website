@@ -5,12 +5,12 @@ sidebar_position: 8
 
 This article mainly introduces the configuration, deployment and use of the openlookeng (>=1.1.1 version support) engine.
 
-## 1 Environmental Requirements
+## 1. Environmental Requirements
 
 If you want to deploy the openlookeng engine, you need to prepare an available openlookeng environment.
 
 
-## 2 Configuration and Deployment
+## 2. Configuration and Deployment
 
 ### 2.1 version selection and compilation
 
@@ -49,7 +49,7 @@ Linkis1.X is done through tags, so we need to insert data into our database, and
 
 [EngineConnPlugin engine plugin installation](../deployment/engine-conn-plugin-installation)
 
-## 3 The use of the engine
+## 3. The use of the engine
 
 ### Prepare for operation
 
