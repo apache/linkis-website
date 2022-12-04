@@ -1,6 +1,6 @@
 ---
 title: 如何实现新引擎
-sidebar_position: 3
+sidebar_position: 8.0
 ---
 
 ## 1. Linkis新引擎功能代码实现

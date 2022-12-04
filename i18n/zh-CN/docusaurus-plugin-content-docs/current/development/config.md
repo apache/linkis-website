@@ -1,6 +1,6 @@
 ---
 title: 配置参数介绍
-sidebar_position: 6
+sidebar_position: 11.0
 ---
 
 ## 1. 参数分类
