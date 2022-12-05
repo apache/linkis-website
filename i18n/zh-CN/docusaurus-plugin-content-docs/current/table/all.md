@@ -144,7 +144,6 @@ sidebar_position: 1
 | 14217 | 13266 | 14218 | 2022-11-12 23:09:36 | 2022-11-12 23:09:36 |
 | 14218 | 24 | 14219 | 2022-11-12 23:30:09 | 2022-11-12 23:30:09 |
 | 14219 | 13267 | 14220 | 2022-11-12 23:30:09 | 2022-11-12 23:30:09 |
-| 14220 | 418 | 14221 | 2022-11-12 23:30:47 | 2022-11-12 23:30:47 |
 
 
 
@@ -201,13 +200,6 @@ sidebar_position: 1
 | user | owenxu | 7589 | 2022-05-16 19:31:13 | 2022-05-16 19:31:13 |
 | creator | mide | 7511 | 2022-05-12 10:40:27 | 2022-05-12 10:40:27 |
 | user | davidhua | 7511 | 2022-05-12 10:40:27 | 2022-05-12 10:40:27 |
-| creator | davidhua | 7508 | 2022-05-12 10:34:04 | 2022-05-12 10:34:04 |
-| user | davidhua | 7508 | 2022-05-12 10:34:04 | 2022-05-12 10:34:04 |
-| creator | Schedulis | 7219 | 2022-04-29 11:08:24 | 2022-04-29 11:08:24 |
-| user | johnnwang | 7219 | 2022-04-29 11:08:24 | 2022-04-29 11:08:24 |
-| creator | Visualis | 7212 | 2022-04-29 10:25:36 | 2022-04-29 10:25:36 |
-| user | johnnwang | 7212 | 2022-04-29 10:25:36 | 2022-04-29 10:25:36 |
-
 
 
 ## 9. linkis_cg_manager_linkis_resources
@@ -235,8 +227,6 @@ sidebar_position: 1
 | 14219 | {"memory":21474836480,"cores":10,"instance":10} | {"memory":0,"cores":0,"instance":0} | {"memory":1073741824,"cores":1,"instance":1} | {"memory":20401094656,"cores":9,"instance":9} | \N | {"memory":0,"cores":0,"instance":0} | LoadInstance | \N | \N | 2022-11-12 23:30:09 | hadoop-IDE,hive-2.3.3 | hadoop-IDE,hive-2.3.3 |
 | 14220 | {"memory":1073741824,"cores":1,"instance":1} | {"memory":1073741824,"cores":1,"instance":1} | {"memory":1073741824,"cores":1,"instance":1} | {"memory":0,"cores":0,"instance":0} | \N | {"memory":0,"cores":0,"instance":0} | LoadInstance | 24f8c8a8-d481-4976-a11a-5765f81d9795 | \N | 2022-11-12 23:30:09 | hadoop-IDE,hive-2.3.3 | hadoop-IDE,hive-2.3.3 |
 | 14221 | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":21474836480,"cores":10,"instances":5},"yarnResource":{"queueMemory":322122547200,"queueCores":150,"queueInstances":30,"queueName":"dws","applicationId":""}}} | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":0,"cores":0,"instances":0},"yarnResource":{"queueMemory":0,"queueCores":0,"queueInstances":0,"queueName":"default","applicationId":""}}} | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":1073741824,"cores":1,"instances":1},"yarnResource":{"queueMemory":6442450944,"queueCores":4,"queueInstances":0,"queueName":"dws","applicationId":""}}} | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":20401094656,"cores":9,"instances":4},"yarnResource":{"queueMemory":315680096256,"queueCores":146,"queueInstances":30,"queueName":"dws","applicationId":""}}} | \N | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":0,"cores":0,"instances":0},"yarnResource":{"queueMemory":0,"queueCores":0,"queueInstances":0,"queueName":"dws","applicationId":""}}} | DriverAndYarn | \N | \N | 2022-11-12 23:30:47 | hadoop-IDE,spark-2.4.3 | hadoop-IDE,spark-2.4.3 |
-| 14222 | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":1073741824,"cores":1,"instances":1},"yarnResource":{"queueMemory":6442450944,"queueCores":4,"queueInstances":0,"queueName":"dws","applicationId":""}}} | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":1073741824,"cores":1,"instances":1},"yarnResource":{"queueMemory":6442450944,"queueCores":4,"queueInstances":0,"queueName":"dws","applicationId":""}}} | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":1073741824,"cores":1,"instances":1},"yarnResource":{"queueMemory":6442450944,"queueCores":4,"queueInstances":0,"queueName":"dws","applicationId":"application_1662051718074_320839"}}} | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":0,"cores":0,"instances":0},"yarnResource":{"queueMemory":0,"queueCores":0,"queueInstances":0,"queueName":"dws","applicationId":""}}} | \N | {"DriverAndYarnResource":{"loadInstanceResource":{"memory":0,"cores":0,"instances":0},"yarnResource":{"queueMemory":0,"queueCores":0,"queueInstances":0,"queueName":"dws","applicationId":""}}} | DriverAndYarn | 1ef47502-3825-4836-8188-adee82b5f49c | \N | 2022-11-12 23:30:48 | hadoop-IDE,spark-2.4.3 | hadoop-IDE,spark-2.4.3 |
-
 
 
 ## 10. linkis_cg_manager_lock
@@ -290,11 +280,8 @@ sidebar_position: 1
 | id | instance | name | owner | mark | update_time | create_time | updator | creator |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- |
 | 121637 | bdpdws110004:9102 | linkis-cg-engineconnmanager | hadoop | process | 2022-11-08 09:52:08 | 2022-11-08 09:52:08 | hadoop | hadoop |
-| 121638 | bdphdp11ide01:9102 | linkis-cg-engineconnmanager | hadoop | process | 2022-11-08 09:52:11 | 2022-11-08 09:52:11 | hadoop | hadoop |
-| 121639 | gz.xg.bdpdws110001.webank:9102 | linkis-cg-engineconnmanager | hadoop | process | 2022-11-08 09:52:11 | 2022-11-08 09:52:11 | hadoop | hadoop |
 | 121640 | bdpujes110002:9102 | linkis-cg-engineconnmanager | hadoop | process | 2022-11-08 09:52:16 | 2022-11-08 09:52:16 | hadoop | hadoop |
 | 121686 | gz.xg.bdpdws110001.webank:35932 | linkis-cg-engineconn | neiljianliu | process | 2022-11-08 10:40:39 | 2022-11-08 10:40:23 | neiljianliu | neiljianliu |
-| 121690 | gz.xg.bdpdws110001.webank:19219 | linkis-cg-engineconn | neiljianliu | process | 2022-11-08 10:40:39 | 2022-11-08 10:40:26 | neiljianliu | neiljianliu |
 
 
 
@@ -319,7 +306,6 @@ sidebar_position: 1
 | bdpdws110003:9102 | 5 | {"maxMemory":67385790464,"usedMemory":3662913536,"systemCPUUsed":null,"systemLeftMemory":63722876928} |  | {"nodeHealthy":"Healthy","msg":""} | 2022-11-16 14:29:56 | 2022-11-15 15:59:17 |
 | bdpdws110004:10781 | 1 | {"maxMemory":1073741824,"usedMemory":175014896,"systemCPUUsed":6.29,"systemLeftMemory":2746556416} | \N | {"nodeHealthy":"Healthy","msg":""} | 2022-11-16 14:30:18 | 2022-11-16 11:53:48 |
 | bdpdws110004:12845 | 1 | {"maxMemory":1073741824,"usedMemory":104839664,"systemCPUUsed":6.29,"systemLeftMemory":2800877568} | \N | {"nodeHealthy":"Healthy","msg":""} | 2022-11-16 14:30:17 | 2022-11-16 12:03:20 |
-| bdpdws110004:14354 | 1 | {"maxMemory":2147483648,"usedMemory":409771632,"systemCPUUsed":6.15,"systemLeftMemory":2227314688} | \N | {"nodeHealthy":"Healthy","msg":""} | 2022-11-16 14:30:03 | 2022-11-16 12:02:34 |
 
 
 ## 14. linkis_cg_rm_external_resource_provider
@@ -404,13 +390,6 @@ sidebar_position: 1
 | 2 | BML-AUTH | * | * | BDP | 2021-09-15 | 2021-09-15 | -1 | LINKIS |
 | 3 | WS-AUTH | * | * | BDP | 2021-09-15 | 2021-09-15 | -1 | LINKIS |
 | 4 | dss-AUTH | * | * | BDP | 2021-09-15 | 2021-09-15 | -1 | LINKIS |
-| 5 | QUALITIS-AUTH | * | * | BDP | 2021-09-15 | 2021-09-15 | -1 | LINKIS |
-| 6 | VALIDATOR-AUTH | * | * | BDP | 2021-09-15 | 2021-09-15 | -1 | LINKIS |
-| 7 | LINKISCLI-AUTH | * | * | BDP | 2021-09-15 | 2021-09-15 | -1 | LINKIS |
-| 8 | test | hduser05 | * | BDP | 2021-09-15 | 2021-09-15 | -1 | LINKIS |
-| 9 | test1 | hduser05 | 10.107.108.125 | BDP | 2021-09-15 | 2021-09-15 | -1 | LINKIS |
-
-
 
 ## 17. linkis_ps_bml_project
 
@@ -434,9 +413,6 @@ sidebar_position: 1
 | 2524 | metabase_test_ywz_1234 | dss | \N | jinyangrao 在bml创建的工程  | jinyangrao | 1 | 2022-11-16 09:36:58 |
 | 2523 | metabase_test_tjg_345 | dss | \N | jinyangrao 在bml创建的工程  | jinyangrao | 1 | 2022-11-16 09:11:08 |
 | 2522 | test_1114_54_copynull | dss | \N | stacyyan 在bml创建的工程  | stacyyan | 1 | 2022-11-15 10:44:27 |
-| 2521 | test_1109_1copy | dss | \N | stacyyan 在bml创建的工程  | stacyyan | 1 | 2022-11-15 10:37:06 |
-| 2520 | test_1114_54_copy2 | dss | \N | stacyyan 在bml创建的工程  | stacyyan | 1 | 2022-11-15 10:34:10 |
-
 
 ## 18. linkis_ps_bml_project_resource
 > bml项目和对应的资源id关系表
@@ -511,9 +487,6 @@ sidebar_position: 1
 | 332800 | 72eac098-0d71-42c9-962c-e9580ac5ac0b | 1 | \N | 72eac098-0d71-42c9-962c-e9580ac5ac0b | WTSS | 2022-07-27 09:47:06 | hadoop | 0 | \N | \N | 10 | 2022-07-27 09:47:06 | \N | 1 |
 | 398336 | 273611e6-e1be-480e-8556-c2534910e855 | 1 | \N | 273611e6-e1be-480e-8556-c2534910e855 | WTSS | 2022-07-29 06:31:44 | hadoop | 0 | \N | \N | 10 | 2022-07-29 06:31:44 | \N | 1 |
 | 463872 | a111ab00-bafd-4341-a17b-ab9101970abd | 1 | \N | a111ab00-bafd-4341-a17b-ab9101970abd | WTSS | 2022-08-03 06:18:32 | hadoop | 0 | \N | \N | 10 | 2022-08-03 06:18:32 | \N | 1 |
-| 529408 | b6d0862a-6d98-48f7-ac47-8ddbdc5de4fc | 1 | \N | b6d0862a-6d98-48f7-ac47-8ddbdc5de4fc | WTSS | 2022-09-22 11:33:21 | hadoop | 0 | \N | \N | 10 | 2022-09-22 11:33:21 | \N | 1 |
-| 594944 | 12f69570-bb1e-477e-94e9-cb35f0ed185d | 1 | \N | 12f69570-bb1e-477e-94e9-cb35f0ed185d | WTSS | 2022-10-19 20:19:05 | janicegong | 0 | \N | \N | 10 | 2022-10-19 20:19:05 | \N | 1 |
-| 5376 | 42694cb8-3f49-4278-a3c4-c01e7ba69bea | 1 | \N | 42694cb8-3f49-4278-a3c4-c01e7ba69bea | WTSS | 2021-07-22 11:16:01 | hadoop | 0 | \N | \N | 0 | 2021-07-22 11:16:01 | \N | 1 |
 
 
 ## 21. linkis_ps_bml_resources_permission
@@ -593,8 +566,6 @@ sidebar_position: 1
 | 1 | 863846e2-bd31-49ba-babe-9a2b96616d71 | b8fd956fd8f83d09d203bf9e4b40543f | v000001 | 1668 | 1 | 1668 | hdfs:///apps-data/hadoop/bml/20210429/863846e2-bd31-49ba-babe-9a2b96616d71 | \N | 2021-04-29 12:21:07 | 2021-04-29 12:21:07 | 10.107.118.104 | \N | 1 |
 | 2 | 9d39cb8e-1447-46d5-a11d-b597b2e3200f | 46bf4ff26651c448efb85ffa9c54907f | v000001 | 58965932 | 1 | 58965932 | hdfs:///apps-data/hadoop/bml/20210429/9d39cb8e-1447-46d5-a11d-b597b2e3200f | \N | 2021-04-29 12:21:10 | 2021-04-29 12:21:10 | 10.107.118.104 | \N | 1 |
 | 3 | bc620bfd-d3f4-4fa5-84f7-1c484fac2241 | 8e13ba687fa1ee04e113bff50290a5c6 | v000001 | 1745 | 1 | 1745 | hdfs:///apps-data/hadoop/bml/20210429/bc620bfd-d3f4-4fa5-84f7-1c484fac2241 | \N | 2021-04-29 12:21:14 | 2021-04-29 12:21:14 | 10.107.118.104 | \N | 1 |
-| 4 | ea66560d-2b18-4a4c-8ec9-fe18ffbfa772 | f524bca842644974ddebd5103c4774f6 | v000001 | 78014753 | 1 | 78014753 | hdfs:///apps-data/hadoop/bml/20210429/ea66560d-2b18-4a4c-8ec9-fe18ffbfa772 | \N | 2021-04-29 12:21:17 | 2021-04-29 12:21:17 | 10.107.118.104 | \N | 1 |
-| 5 | 4f804b7b-6430-4545-8036-c169727151ef | b44f5e0bef88c444c435f3970caca43d | v000001 | 488762 | 1 | 488762 | hdfs:///apps-data/hadoop/bml/20210429/4f804b7b-6430-4545-8036-c169727151ef | \N | 2021-04-29 12:21:18 | 2021-04-29 12:21:18 | 10.107.118.104 | \N | 1 |
 
 
 
@@ -631,9 +602,6 @@ sidebar_position: 1
 | 101 | 46586 | 1 |  | \N | 2021-08-19 20:07:09 | 2021-08-19 20:07:09 |
 | 102 | 46587 | 2 |  | \N | 2021-08-19 20:07:20 | 2021-08-19 20:07:20 |
 | 103 | 47340 | 1 |  | \N | 2021-08-23 10:50:02 | 2021-08-23 10:50:02 |
-| 104 | 47341 | 2 |  | \N | 2021-08-23 10:50:18 | 2021-08-23 10:50:18 |
-| 117 | 47362 | 2 |  | \N | 2021-08-23 11:52:46 | 2021-08-23 11:52:46 |
-| 221 | 63711 | 2 |  | \N | 2021-11-09 15:25:33 | 2021-11-09 15:25:33 |
 
 
 
@@ -665,12 +633,6 @@ sidebar_position: 1
 | 2 | wds.linkis.rm.yarnqueue.instance.max | 取值范围：1-128，单位：个 | yarn队列实例最大个数 | 30 | Regex | ^(?:[1-9]\d?|[1234]\d{2}|200)$ | \N | 1 | 0 | 1 | 队列资源 |
 | 3 | wds.linkis.rm.yarnqueue.cores.max | 取值范围：1-1500，单位：个 | 队列CPU使用上限 | 150 | Regex | ^(?:[1-9]\d{0,2}|1[0-4]\d{2}|1500)$ | \N | 0 | 0 | 1 | 队列资源 |
 | 4 | wds.linkis.rm.yarnqueue.memory.max | 取值范围：1-5000，单位：G | 队列内存使用上限 | 300G | Regex | ^([1-9]\d{0,2}|[1-4]\d{3}|5000)(G|g)$ | \N | 0 | 0 | 1 | 队列资源 |
-| 5 | wds.linkis.rm.client.memory.max | 取值范围：1-600，单位：G | 全局各个引擎内存使用上限 | 20G | Regex | ^([1-9]\d{0,1}|[1-5]\d{2}|600)(G|g)$ | \N | 0 | 0 | 1 | 队列资源 |
-| 6 | wds.linkis.rm.client.core.max | 取值范围：1-200，单位：个 | 全局各个引擎核心个数上限 | 10 | NumInterval | [1,200] | \N | 0 | 0 | 1 | 队列资源 |
-| 7 | wds.linkis.rm.instance | 范围：1-200，单位：个 | 全局各个引擎最大并发数 | 10 | NumInterval | [1,200] | \N | 0 | 0 | 1 | 队列资源 |
-| 8 | wds.linkis.rm.instance | 范围：1-200，单位：个 | spark引擎最大并发数 | 10 | NumInterval | [1,200] | spark | 0 | 0 | 1 | spark引擎资源上限 |
-| 9 | spark.executor.instances | 取值范围：1-40，单位：个 | worker并发数 | 2 | NumInterval | [1,40] | spark | 0 | 0 | 2 | worker资源设置 |
-
 
 
 ## 27. linkis_ps_configuration_config_value
@@ -691,12 +653,8 @@ sidebar_position: 1
 | id | config_key_id | config_value | config_label_id | update_time | create_time |
 | ---: | ---: | --- | ---: | --- | --- |
 | 57 | 1 | dws | 25716 | 2022-04-08 16:35:37 | 2021-06-08 16:07:49 |
-| 58 | 1 | dws | 26365 | 2022-08-04 14:45:22 | 2021-06-08 16:08:43 |
-| 59 | 1 | dws | 26364 | 2021-06-10 18:26:45 | 2021-06-08 16:09:38 |
-| 60 | 1 | dws | 10058 | 2022-06-29 13:58:24 | 2021-06-08 16:10:20 |
 | 61 | 30 | python2 | 30819 | 2022-07-04 11:17:25 | 2021-06-08 16:35:23 |
 | 62 | 1 | dws | 519 | 2022-11-07 19:13:29 | 2021-06-08 17:19:44 |
-| 63 | 1 | dws | 30873 | 2022-04-27 18:30:37 | 2021-06-08 17:23:36 |
 | 64 | 19 | python2 | 3300 | 2022-08-09 17:38:15 | 2021-06-08 20:15:04 |
 | 65 | 5 | 50G | 1348 | 2022-05-16 15:39:44 | 2021-06-10 17:55:11 |
 
@@ -764,21 +722,9 @@ linkis_ps_cs_context_id
 | id | user | application | source | expire_type | expire_time | instance | backup_instance | update_time | create_time | access_time |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 62131 | jinyangrao | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_1_dev | cs_1_dev | 2022-11-16 14:48:58 | 2022-11-16 14:48:58 | 2022-11-16 14:48:58 |
-| 62130 | jinyangrao | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_1_dev | cs_1_dev | 2022-11-16 14:48:52 | 2022-11-16 14:48:52 | 2022-11-16 14:48:52 |
-| 62129 | jinyangrao | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_1_dev | cs_1_dev | 2022-11-16 14:48:14 | 2022-11-16 14:48:14 | 2022-11-16 14:48:14 |
-| 62128 | jinyangrao | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_2_dev | cs_1_dev | 2022-11-16 14:47:32 | 2022-11-16 14:47:32 | 2022-11-16 14:47:32 |
-| 62127 | jinyangrao | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_1_dev | cs_1_dev | 2022-11-16 14:46:09 | 2022-11-16 14:46:09 | 2022-11-16 14:46:09 |
 | 62126 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_1_dev | cs_1_dev | 2022-11-16 14:45:49 | 2022-11-16 14:45:49 | 2022-11-16 14:45:49 |
-| 62125 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_1_dev | cs_1_dev | 2022-11-16 14:45:48 | 2022-11-16 14:45:48 | 2022-11-16 14:45:48 |
-| 62124 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_1_dev | cs_1_dev | 2022-11-16 14:45:39 | 2022-11-16 14:45:39 | 2022-11-16 14:45:39 |
-| 62123 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_1_dev | cs_1_dev | 2022-11-16 14:45:38 | 2022-11-16 14:45:38 | 2022-11-16 14:45:38 |
 | 62122 | stacyyan | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_2_dev | cs_1_dev | 2022-11-16 14:43:54 | 2022-11-16 14:43:54 | 2022-11-16 14:43:54 |
-| 62121 | stacyyan | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_2_dev | cs_1_dev | 2022-11-16 14:43:47 | 2022-11-16 14:43:47 | 2022-11-16 14:43:47 |
 | 62120 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_2_dev | cs_1_dev | 2022-11-16 14:32:16 | 2022-11-16 14:32:16 | 2022-11-16 14:32:16 |
-| 62119 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_2_dev | cs_1_dev | 2022-11-16 14:32:16 | 2022-11-16 14:32:16 | 2022-11-16 14:32:16 |
-| 62118 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_2_dev | cs_1_dev | 2022-11-16 14:32:07 | 2022-11-16 14:32:07 | 2022-11-16 14:32:07 |
-| 62117 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_2_dev | cs_1_dev | 2022-11-16 14:32:05 | 2022-11-16 14:32:05 | 2022-11-16 14:32:05 |
-| 62116 | alexwu | \N | {"className":"org.apache.linkis.cs.common.entity.source.LinkisHAWorkFlowContextID","subs":[],"fieldNames":[],"fieldValues":[],"fieldTypes":[]} | \N | \N | cs_2_dev | cs_1_dev | 2022-11-16 14:30:58 | 2022-11-16 14:30:58 | 2022-11-16 14:30:58 |
 
 
 
@@ -886,10 +832,6 @@ linkis_ps_cs_context_id
 | 4392 | 215 | col_3 |  | string |  |  |  | 0 | 0 | \N | \N |
 | 4391 | 215 | col_2 |  | string |  |  |  | 0 | 0 | \N | \N |
 | 4390 | 215 | col_1 |  | string |  |  |  | 0 | 0 | \N | \N |
-| 4389 | 214 | ds |  | string |  | \N | \N | 1 | 0 | 8 | \N |
-| 4388 | 214 | value | \N | string | \N | \N | \N | 0 | 0 | \N | \N |
-| 4387 | 214 | key | \N | string | \N | \N | \N | 0 | 0 | \N | \N |
-
 
 
 
@@ -910,9 +852,6 @@ linkis_ps_cs_context_id
 | 94 | 215 | 1 | {"exportPath":"/mnt/bdap/stacyyan/aa/aaa125.csv","type":"share","separator":",","chartset":"utf-8","quote":"","isHasHeader":"false"} |
 | 93 | 214 | 0 | {"database":"stacyyan_ind","table":"00153d26da1a11eb8c30813d0f05b1af1"} |
 | 92 | 213 | 2 | {"exportPath":"/mnt/bdap/stacyyan/aa/studentInfo.xlsx","type":"share","isHasHeader":"false"} |
-| 91 | 212 | 1 | {"exportPath":"/mnt/bdap/stacyyan/aa/aaa125.csv","type":"share","separator":",","chartset":"utf-8","quote":"","isHasHeader":"false"} |
-| 90 | 184 | 1 | {"exportPath":"/mnt/bdap/janicegong/a0904.csv","type":"share","separator":",","chartset":"utf-8","quote":"","isHasHeader":"false"} |
-| 89 | 171 | 2 | {"exportPath":"/apps-data/janicegong/createDirAuto348/upload2.xlsx","type":"hdfs","isHasHeader":"true"} |
 | 88 | 170 | 1 | {"exportPath":"/mnt/bdap/janicegong/file测试/上传文件/orc.csv","type":"share","separator":",","chartset":"utf-8","quote":"","isHasHeader":"false"} |
 | 87 | 169 | 1 | {"exportPath":"/mnt/bdap/johnnwang/test1_hql__1652150994191.csv","type":"share","separator":",","chartset":"utf-8","quote":"","isHasHeader":"false"} |
 
@@ -934,11 +873,6 @@ linkis_ps_cs_context_id
 | 40 | 214 | stacyyan_ind.00153d26da1a11eb8c30813d0f05b1af1 | 2022-11-08 21:14:41 |
 | 39 | 162 | janicegong_ind.aa | 2022-09-04 17:28:46 |
 | 38 | 156 | jin_ind.test_0902j | 2022-09-02 19:47:20 |
-| 37 | 152 | jin_ind.test0729n | 2022-07-29 19:08:54 |
-| 36 | 151 | jin_ind.test_more_5000 | 2022-07-29 16:01:20 |
-| 35 | 150 | stacyyan_ind.student | 2022-07-29 15:51:25 |
-| 34 | 146 | janicegong_ind.hive_txtfile_table | 2022-07-28 20:25:59 |
-
 
 
 
@@ -972,12 +906,6 @@ linkis_ps_cs_context_id
 | 216 | stacyyan_ind | aa_1109 | 表别名_1109 | stacyyan |  | 2022-11-09 16:15:03 |  |  |  | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
 | 215 | jin_ind | test_1109aaa | test_1109aaa | stacyyan |  | 2022-11-09 09:51:41 |  |  |  | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
 | 214 | stacyyan_ind | test_1108ar | test_1108ar | stacyyan |  | 2022-11-08 21:14:41 |  |  |  | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
-| 213 | stacyyan_ind | test_1108ac | test_1108ac | stacyyan |  | 2022-11-08 21:12:58 |  |  |  | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
-| 212 | stacyyan_ind | test_1108ab | test_1108ab | stacyyan |  | 2022-11-08 21:09:03 |  |  |  | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
-| 211 | dss_autotest | auto20221108 | 测试 | neiljianliu |  | 2022-11-08 11:03:52 |  |  |  | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
-| 208 | dss_autotest | auto20221107 | 测试 | janicegong |  | 2022-11-07 19:17:13 |  |  |  | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
-| 207 | johnnwang_ind | t6 | 123 | johnnwang |  | 2022-11-07 16:50:59 |  |  |  | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
-
 
 
 ## 39. linkis_ps_datasource_table_info
@@ -1118,13 +1046,6 @@ linkis_ps_cs_context_id
 | 4 | 1 | username | 用户名 | \N | TEXT | \N | 1 | 用户名 | ^[0-9A-Za-z_-]+$ | \N | \N | \N | 2022-04-12 22:34:11 | 2022-04-12 22:34:11 |
 | 5 | 1 | password | 密码 | \N | PASSWORD | \N | 1 | 密码 |  | \N | \N | \N | 2022-04-12 22:34:11 | 2022-04-12 22:34:11 |
 | 6 | 4 | envId | 集群环境 | \N | SELECT | \N | 1 | 集群环境 | \N | \N | \N | /data-source-manager/env-list/all/type/4 | 2022-04-12 22:34:11 | 2022-04-12 22:34:11 |
-| 7 | 6 | username | 用户名 | \N | TEXT | \N | 1 | 用户名 | ^[0-9A-Za-z_-]+$ | \N |  | \N | 2021-10-27 16:51:16 | 2021-10-27 16:51:16 |
-| 8 | 6 | password | 密码 | \N | PASSWORD | \N | 1 | 密码 |  | \N |  | \N | 2021-10-27 16:51:17 | 2021-10-27 16:51:17 |
-| 9 | 6 | database | 默认库 | \N | TEXT | \N | 1 | 默认库 | ^[0-9A-Za-z_-]+$ | \N |  | \N | 2021-10-27 16:51:16 | 2021-10-27 16:51:16 |
-| 10 | 6 | host | Host | \N | TEXT | \N | 1 | mongodb Host  | \N | \N | \N | \N | 2021-04-08 03:13:36 | 2021-04-08 03:13:36 |
-| 11 | 6 | port | 端口 | \N | TEXT | \N | 1 | 端口 | \N | \N | \N | \N | 2021-04-17 03:10:28 | 2021-04-17 03:10:28 |
-| 12 | 6 | params | 连接参数 | \N | TEXT | \N | 0 | 输入JSON格式: {"param":"value"} | \N | \N | \N | \N | 2021-12-06 10:35:00 | 2021-12-06 10:35:00 |
-
 
 
 
@@ -1170,11 +1091,6 @@ linkis_ps_cs_context_id
 | 2 | 01002 | Linkis服务负载过高，请联系管理员扩容 | Unexpected end of file from server | 0 |
 | 3 | 01003 | Linkis服务负载过高，请联系管理员扩容 | failed to ask linkis Manager Can be retried SocketTimeoutException | 0 |
 | 4 | 01004 | 引擎在启动时被Kill，请联系管理员 |  [0-9]+ Killed | 0 |
-| 5 | 01005 | 请求Yarn获取队列信息重试2次仍失败，请联系管理员 | Failed to request external resourceClassCastException | 0 |
-| 6 | 01101 | ECM资源不足，请联系管理员扩容 | ECM resources are insufficient | 0 |
-| 7 | 01102 | ECM 内存资源不足，请联系管理员扩容 | ECM memory resources are insufficient | 0 |
-
-
 
 ## 46. linkis_ps_instance_info
 
@@ -1226,8 +1142,6 @@ linkis_ps_cs_context_id
 | 1527 | bdpdws110004:8008 | visualis-prod | 2022-06-28 14:14:36 | 2022-06-28 14:14:36 |
 | 1537 | bdpdws110004:9008 | visualis-dev | 2022-06-30 15:39:19 | 2022-06-30 15:39:18 |
 | 1702 | bdpdws110004:9108 | linkis-ps-cs | 2022-11-08 09:51:23 | 2022-11-08 09:51:23 |
-| 1703 | bdphdp11ide01:9108 | linkis-ps-cs | 2022-11-08 09:51:26 | 2022-11-08 09:51:26 |
-
 
 
 ## 48. linkis_ps_instance_label_relation
@@ -1367,15 +1281,9 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | id | start_time | end_time | client_ip | state | resource_id | version | downloader |
 | ---: | --- | --- | --- | ---: | --- | --- | --- |
 | 1859617 | 2022-11-16 15:56:17 | 2022-11-16 15:56:18 | 10.107.118.104 | 0 | 11b8ca20-3437-4f31-a808-915a6f016a87 | v000001 | owenxu |
-| 1859616 | 2022-11-16 15:56:17 | 2022-11-16 15:56:17 | 10.107.118.104 | 0 | 665fe5ce-fdc6-4b9a-ab08-955e48b1f8d4 | v000001 | owenxu |
-| 1859615 | 2022-11-16 15:56:17 | 2022-11-16 15:56:17 | 10.107.118.104 | 0 | c31cc609-6eca-43df-bb8c-fed0731a40fa | v000001 | owenxu |
 | 1859614 | 2022-11-16 15:55:18 | 2022-11-16 15:55:18 | 10.107.118.104 | 0 | 836ba735-3a46-4303-8e9f-c4276a356386 | v000001 | owenxu |
 | 1859613 | 2022-11-16 15:53:06 | 2022-11-16 15:53:07 | 172.21.193.229 | 0 | cb407155-242b-4303-8365-1da6256a01e3 | v000173 | hadoop |
 | 1859612 | 2022-11-16 15:52:17 | 2022-11-16 15:52:17 | 10.107.118.104 | 0 | 665fe5ce-fdc6-4b9a-ab08-955e48b1f8d4 | v000001 | owenxu |
-| 1859611 | 2022-11-16 15:52:16 | 2022-11-16 15:52:17 | 10.107.118.104 | 0 | 11b8ca20-3437-4f31-a808-915a6f016a87 | v000001 | owenxu |
-| 1859610 | 2022-11-16 15:52:16 | 2022-11-16 15:52:16 | 10.107.118.104 | 0 | c31cc609-6eca-43df-bb8c-fed0731a40fa | v000001 | owenxu |
-| 1859609 | 2022-11-16 15:50:17 | 2022-11-16 15:50:17 | 10.107.118.104 | 0 | 836ba735-3a46-4303-8e9f-c4276a356386 | v000001 | owenxu |
-| 1859608 | 2022-11-16 15:48:21 | 2022-11-16 15:48:21 | 10.107.118.104 | 0 | 665fe5ce-fdc6-4b9a-ab08-955e48b1f8d4 | v000001 | owenxu |
 
 
 ## 53. linkis_ps_udf
@@ -1431,14 +1339,6 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 318 | neiljianliu | h01 | 3 | 1370 | 2022-08-08 19:39:39 | 2021-11-04 20:36:46 | IDE | all | 0 | 1 |
 | 321 | neiljianliu | h14 | 1 | 1331 | 2021-11-01 23:28:25 | 2021-10-29 10:39:08 | IDE | all | 0 | 0 |
 | 324 | stacyyan | udf_jar_834 | 0 | 133 | 2021-10-29 11:28:10 | 2021-10-29 11:28:10 | ide | all | 0 | 0 |
-| 328 | stacyyan | aadfdff_upd | 4 | 37 | 2021-10-26 20:48:41 | 2021-05-13 18:55:17 | ide | all | 0 | 0 |
-| 333 | stacyyan | udf_hello_0518 | 1 | 36 | 2021-05-20 10:28:49 | 2021-05-20 10:28:49 | ide | all | 0 | 1 |
-| 334 | janicegong | udf_hello_0519 | 1 | 1334 | 2021-12-01 16:51:15 | 2021-12-01 16:51:14 | ide | all | 1 | 1 |
-| 351 | stacyyan | udf_hello_0902 | 1 | 36 | 2021-10-11 09:59:02 | 2021-09-02 19:23:17 | ide | all | 1 | 1 |
-| 353 | neiljianliu | udf_haha | 1 | 33 | 2021-10-29 12:47:12 | 2021-10-29 12:47:11 | ide | all | 0 | 0 |
-| 355 | johnnwang | test001_update | 2 | 1187 | 2021-09-13 21:25:58 | 2021-09-13 21:25:58 | ide | all | 0 | 0 |
-
-
 
 ## 55. linkis_ps_udf_manager
 
@@ -1454,9 +1354,6 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 1 | stacyyan |
 | 2 | johnnwang |
 | 3 | neiljianliu |
-| 111 | janicegong |
-| 112 | hadoop |
-| 113 | alexyang |
 
 
 
@@ -1477,8 +1374,6 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 2 | 36 | stacyyan |
 | 3 | 38 | shanhuang |
 | 4 | 38 | stacyyan |
-| 5 | 39 | shanhuang |
-| 6 | 39 | stacyyan |
 
 
 
@@ -1508,20 +1403,6 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 64 | 119 | neiljianliu |
 | 65 | 119 | johnnwang |
 | 66 | 126 | jianfuzhang |
-| 67 | 128 | neiljianliu |
-| 68 | 128 | johnnwang |
-| 69 | 129 | neiljianliu |
-| 70 | 130 | neiljianliu |
-| 71 | 133 | neiljianliu |
-| 72 | 134 | neiljianliu |
-| 122 | 147 | neiljianliu |
-| 150 | 231 | janicegong |
-| 152 | 231 | stacyyan |
-| 178 | 336 | neiljianliu |
-| 179 | 336 | johnnwang |
-| 180 | 337 | neiljianliu |
-| 181 | 338 | neiljianliu |
-| 182 | 341 | neiljianliu |
 
 
 
@@ -1588,19 +1469,7 @@ linkis_ps_udf_tree
 | 34 | neiljianliu |
 | 109 | stacyyan |
 | 110 | stacyyan |
-| 111 | stacyyan |
-| 112 | stacyyan |
-| 113 | stacyyan |
-| 114 | stacyyan |
-| 115 | stacyyan |
-| 118 | neiljianliu |
-| 119 | johnnwang |
-| 120 | stacyyan |
-| 121 | stacyyan |
-| 122 | stacyyan |
-| 123 | stacyyan |
-| 124 | stacyyan |
-| 127 | neiljianliu |
+
 
 
 
@@ -1615,23 +1484,12 @@ linkis_ps_udf_tree
 
 
 **示例数据**
----
-| udf_id | user_name |
-| ---: | --- |
-| 1 | stacyyan |
-| 2 | stacyyan |
-| 4 | stacyyan |
-| 6 | stacyyan |
-| 9 | stacyyan |
-| 10 | stacyyan |
-| 21 | stacyyan |
-| 27 | stacyyan |
-| 28 | stacyyan |
-| 29 | stacyyan |
-| 36 | jianfuzhang |
-| 50 | neiljianliu |
-| 51 | neiljianliu |
-| 62 | stacyyan |
+
+| id | udf_id | user_name | 
+| ---: | ---: | --- | 
+| 1 | 13 | hadoop | 
+| 2 | 14 | bob | 
+| 3 | 18 | testuser | 
 
 
 
@@ -1657,21 +1515,10 @@ linkis_ps_udf_tree
 | ---: | ---: | --- | --- | --- | ---: | --- | --- | --- | --- | --- |
 | 80 | 34 | file:///mnt/bdap/johnnwang/wds_functions1_0_0.jar | aee4698a-0aad-4dfe-9e3c-0d2c674c81f9 | v000001 | 0 | create temporary function cf_charcount_s as "com.webank.wedatasphere.willink.bdp.udf.CountTotalCharInStr" | int cf_charcount_s(string,string) |  | 2021-10-20 16:50:57 | \N |
 | 93 | 34 | file:///mnt/bdap/johnnwang/wds_functions1_0_0.jar | aee4698a-0aad-4dfe-9e3c-0d2c674c81f9 | v000002 | 1 | create temporary function cf_charcount_s as "com.webank.wedatasphere.willink.bdp.udf.CountTotalCharInStr" | int cf_charcount_s(string,string) |  | 2021-10-20 18:53:59 | \N |
-| 138 | 34 | file:///mnt/bdap/johnnwang/wds_functions1_0_0.jar | aee4698a-0aad-4dfe-9e3c-0d2c674c81f9 | v000003 | 1 | create temporary function cf_charcount_s as "com.webank.wedatasphere.willink.bdp.udf.CountTotalCharInStr" | int cf_charcount_s(string,string) |  | 2021-10-21 10:39:05 | \N |
-| 145 | 34 | file:///mnt/bdap/johnnwang/wds_functions1_0_0.jar | aee4698a-0aad-4dfe-9e3c-0d2c674c81f9 | v000004 | 0 | create temporary function cf_charcount_s as "com.webank.wedatasphere.willink.bdp.udf.CountTotalCharInStr" | int cf_charcount_s(string,string) |  | 2021-10-21 10:59:43 | \N |
-| 146 | 34 | file://file:///mnt/bdap/johnnwang/wds_functions1_0_0.jar | aee4698a-0aad-4dfe-9e3c-0d2c674c81f9 | v000005 | \N | create temporary function cf_charcount_s as "com.webank.wedatasphere.willink.bdp.udf.CountTotalCharInStr" | int cf_charcount_s(string,string) | v05 | 2021-10-21 11:00:12 | \N |
 | 205 | 96 | file:///mnt/bdap/stacyyan/tm_client_1.6_cp.jar | 759c6179-060e-4c61-9ff9-8f6e18d0efaf | v000001 | 0 | create temporary function udf_jar_834 as "com.webank.bdp.mask.udf.BdpBankCardNoFirstEightMask" | udf_jar_834() |  | 2021-10-23 16:57:00 | \N |
 | 250 | 109 | file:///mnt/bdap/stacyyan/scala系统函数调用.scala | 4519f563-ac8a-48a3-a487-36b0d629bc59 | v000001 | 0 | \N | String aadfdff() |  | 2021-10-25 16:56:04 | \N |
 | 251 | 110 | file:///mnt/bdap/stacyyan/scala系统函数调用.scala | e0caa4a5-754e-4517-9d0d-5610c7712d82 | v000001 | 0 | \N | String df78() |  | 2021-10-25 16:56:28 | \N |
-| 252 | 111 | file:///mnt/bdap/stacyyan/scala系统函数调用.scala | fcdda897-b57c-4803-bbbe-10e034a3d55b | v000001 | 0 | \N | String aadfdff() |  | 2021-10-25 17:07:38 | \N |
-| 253 | 112 | file:///mnt/bdap/stacyyan/scala系统函数调用.scala | 15a48005-1f16-49b0-8776-097a75e056c5 | v000001 | 0 | \N | String df78() |  | 2021-10-25 17:08:02 | \N |
-| 254 | 113 | file:///mnt/bdap/stacyyan/scala系统函数调用.scala | 452a7c51-a1a3-4938-9b6c-7b231e3fdcde | v000001 | 0 | \N | String fdsf() |  | 2021-10-25 17:30:39 | \N |
-| 255 | 114 | file:///mnt/bdap/stacyyan/scala系统函数调用.scala | 1cc00032-f546-4fab-81f5-ef56557aac92 | v000001 | 0 | \N | String fdf() |  | 2021-10-25 17:31:28 | \N |
-| 256 | 115 | file:///mnt/bdap/stacyyan/scala系统函数调用.scala | 2ced391f-f9de-42c5-87e2-92daa2fe6003 | v000001 | 0 | \N | Init df54() |  | 2021-10-25 17:31:29 | \N |
 | 257 | 116 | file:///mnt/bdap/udf/udf_pyspark_011621477729461.py | 2917d57a-0078-455f-8eda-45d18d90adb3 | v000001 | 1 | udf.register("udf_hello_0518",hello) | String udf_hello_0518(String) | aaaad | 2021-10-25 17:31:43 | \N |
-| 258 | 117 | file:///mnt/bdap/udf/udf_pyspark_011621479737694.py | 901beb0e-be0e-46a2-9daf-eebc8d800708 | v000001 | 1 | udf.register("udf_hello_0519",hello) | String udf_hello_0519(String) |  | 2021-10-25 17:31:56 | \N |
-| 259 | 118 | file:///mnt/bdap/udf/udf_pyspark_011623155459249.py | 91560cc1-901b-42cd-96f6-9900328e7f49 | v000001 | 1 | udf.register("udf_hello_0608",hello) | String udf_hello_0608(String) | aaa | 2021-10-25 17:31:57 | \N |
-
 
 
 ## 63. linkis_ps_variable_key
@@ -1695,17 +1542,6 @@ linkis_ps_udf_tree
 | 2 | table_a | \N | \N | -1 | \N | \N | \N |
 | 3 | table_a | \N | \N | -1 | \N | \N | \N |
 | 4 | aaaa | \N | \N | -1 | \N | \N | \N |
-| 5 | testzy | \N | \N | -1 | \N | \N | \N |
-| 6 | var1 | \N | \N | -1 | \N | \N | \N |
-| 7 | tablename0729 | \N | \N | -1 | \N | \N | \N |
-| 15 | globalpara | \N | \N | -1 | \N | \N | \N |
-| 16 | tablename0902 | \N | \N | -1 | \N | \N | \N |
-| 17 | a | \N | \N | -1 | \N | \N | \N |
-| 20 | globalpara | \N | \N | -1 | \N | \N | \N |
-| 25 | v2 | \N | \N | -1 | \N | \N | \N |
-| 26 | mytest | \N | \N | -1 | \N | \N | \N |
-| 27 | mytest1 | \N | \N | -1 | \N | \N | \N |
-| 31 | date | \N | \N | -1 | \N | \N | \N |
 
 
 
@@ -1727,14 +1563,4 @@ linkis_ps_udf_tree
 | 1 | -1 | 1 | neiljianliu | d |
 | 2 | -1 | 2 | stacyyan | student |
 | 3 | -1 | 3 | jianfuzhang | a_01 |
-| 4 | -1 | 4 | neiljianliu | 333 |
-| 5 | -1 | 5 | neiljianliu | 1122 |
-| 6 | -1 | 6 | johnnwang | 1 |
-| 7 | -1 | 7 | neiljianliu | abtag_behave_stats_homepage |
-| 15 | -1 | 15 | neiljianliu | 100 |
-| 16 | -1 | 16 | neiljianliu | zy_hbase2 |
-| 17 | -1 | 17 | stacyyan | "a" |
-| 20 | -1 | 20 | stacyyan | 100 |
-| 25 | -1 | 25 | allenlliu | 20190128 |
-| 26 | -1 | 26 | allenlliu | 123 |
-| 27 | -1 | 27 | allenlliu | 234 |
+
