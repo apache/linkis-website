@@ -1,4 +1,7 @@
-## linkis_install_test tables message
+---
+title: 库表结构
+sidebar_position: 1
+---
 
 ## 1. linkis_cg_ec_resource_info_record
 
@@ -25,7 +28,7 @@
 
 
 
-示例数据
+**示例数据**
 ---
 | id | label_value | create_user | service_instance | ecm_instance | ticket_id | status | log_dir_suffix | request_times | request_resource | used_times | used_resource | release_times | released_resource | release_time | used_time | create_time |
 | ---: | --- | --- | --- | --- | --- | --- | --- | ---: | --- | ---: | --- | ---: | --- | --- | --- | --- |
@@ -51,7 +54,7 @@
 | 9 | `create_time` | created time | datetime |  | NO |  | CURRENT_TIMESTAMP |
 | 10 | `last_update_time` | updated time | datetime |  | NO |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | engine_conn_type | version | file_name | file_size | last_modified | bml_resource_id | bml_resource_version | create_time | last_update_time |
 | ---: | --- | --- | --- | ---: | ---: | --- | --- | --- | --- |
@@ -73,7 +76,7 @@
 | 4 | `update_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 | 5 | `create_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | engine_instance | em_instance | update_time | create_time |
 | ---: | --- | --- | --- | --- |
@@ -97,7 +100,7 @@
 | 7 | `create_time` |  | datetime |  | NO |  | CURRENT_TIMESTAMP |
 
 
-示例数据
+**示例数据**
 ---
 | id | label_key | label_value | label_feature | label_value_size | update_time | create_time |
 | ---: | --- | --- | --- | ---: | --- | --- |
@@ -134,7 +137,7 @@
 | 4 | `update_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 | 5 | `create_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | label_id | resource_id | update_time | create_time |
 | ---: | ---: | ---: | --- | --- |
@@ -157,7 +160,7 @@
 | 5 | `create_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
 
-示例数据
+**示例数据**
 ---
 | id | label_id | service_instance | update_time | create_time |
 | ---: | ---: | --- | --- | --- |
@@ -190,7 +193,7 @@
 | 6 | `create_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
 
-示例数据
+**示例数据**
 ---
 | label_value_key | label_value_content | label_id | update_time | create_time |
 | --- | --- | ---: | --- | --- |
@@ -225,7 +228,7 @@
 | 12 | `updator` |  | varchar(255) |  | YES |  |  |
 | 13 | `creator` |  | varchar(255) |  | YES |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | max_resource | min_resource | used_resource | left_resource | expected_resource | locked_resource | resourceType | ticketId | update_time | create_time | updator | creator |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -238,7 +241,7 @@
 
 ## 10. linkis_cg_manager_lock
 
-> 通用的用于实现 分部署锁
+> 通用的用于实现分布式锁
 
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
@@ -282,7 +285,7 @@
 | 8 | `updator` |  | varchar(32) |  | YES |  |  |
 | 9 | `creator` |  | varchar(32) |  | YES |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | instance | name | owner | mark | update_time | create_time | updator | creator |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -309,7 +312,7 @@
 | 6 | `update_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 | 7 | `create_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | instance | instance_status | overload | heartbeat_msg | healthy_status | update_time | create_time |
 | --- | ---: | --- | --- | --- | --- | --- |
@@ -338,7 +341,7 @@
   val DEFAULT_YARN_TYPE = CommonVars("wds.linkis.rm.default.yarn.cluster.type", "Yarn")
 ```
 
-示例数据
+**示例数据**
 ---
 | id | resource_type | name | labels | config |
 | ---: | --- | --- | --- | --- |
@@ -366,7 +369,7 @@
 | 10 | `update_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 | 11 | `create_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | label_value | ticket_id | request_times | request_resource_all | used_times | used_resource_all | release_times | release_resource_all | update_time | create_time |
 | ---: | --- | --- | ---: | --- | ---: | --- | ---: | --- | --- | --- |
@@ -394,7 +397,7 @@
 | 9 | `update_by` |  | varchar(32) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | token_name | legal_users | legal_hosts | business_owner | create_time | update_time | elapse_day | update_by |
 | ---: | --- | --- | --- | --- | --- | --- | ---: | --- |
@@ -412,6 +415,7 @@
 ## 17. linkis_ps_bml_project
 
 > bml 物料管理工程项目记录 主要提供给dss 工程空间的项目列表
+
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | `id` |  | int(10) | PRI | NO | auto_increment |  |
@@ -423,7 +427,7 @@
 | 7 | `enabled` |  | tinyint(4) |  | YES |  | 1 |
 | 8 | `create_time` |  | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | name | system | source | description | creator | enabled | create_time |
 | ---: | --- | --- | --- | --- | --- | ---: | --- |
@@ -444,7 +448,7 @@
 | 3 | `resource_id` | 资源存储的resource id | varchar(128) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | project_id | resource_id |
 | ---: | ---: | --- |
@@ -455,7 +459,9 @@
 
 
 ## 19. linkis_ps_bml_project_user
+
 > bml项目和用户关系表  
+
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | `id` |  | int(10) | PRI | NO | auto_increment |  |
@@ -467,7 +473,7 @@
 | 7 | `expire_time` |  | datetime |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | project_id | username | priv | creator | create_time | expire_time |
 | ---: | ---: | --- | ---: | --- | --- | --- |
@@ -479,6 +485,7 @@
 
 ## 20. linkis_ps_bml_resources
 > bml 物料资源存储信息表 
+
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | `id` | Primary key | bigint(20) | PRI | NO | auto_increment |  |
@@ -497,7 +504,7 @@
 | 14 | `updator` | updator | varchar(50) |  | YES |  |  |
 | 15 | `enable_flag` | 状态，1：正常，0：冻结 | tinyint(1) |  | NO |  | 1 |
 
-示例数据
+**示例数据**
 ---
 | id | resource_id | is_private | resource_header | downloaded_file_name | sys | create_time | owner | is_expire | expire_type | expire_time | max_version | update_time | updator | enable_flag |
 | ---: | --- | ---: | ---: | --- | --- | --- | --- | ---: | --- | --- | ---: | --- | --- | ---: |
@@ -510,7 +517,9 @@
 
 
 ## 21. linkis_ps_bml_resources_permission
+
  // todo 未使用？  
+ 
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | `id` | Primary key | bigint(20) | PRI | NO | auto_increment |  |
@@ -542,7 +551,7 @@
 | 13 | `end_time` | 结束时间 | datetime |  | YES |  |  |
 | 14 | `last_update_time` | 最后更新时间 | datetime |  | NO |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | resource_id | version | operation | state | submit_user | system | instance | client_ip | extra_params | err_msg | start_time | end_time | last_update_time |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -577,7 +586,7 @@
 | 14 | `enable_flag` | 状态，1：正常，0：冻结| tinyint(1) |  | NO |  | 1 |
 
 
-示例数据 
+**示例数据** 
 ---
 | id | resource_id | file_md5 | version | size | start_byte | end_byte | resource | description | start_time | end_time | client_ip | updator | enable_flag |
 | ---: | --- | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- | --- | --- | ---: |
@@ -590,7 +599,7 @@
 
 
 ## 24. linkis_ps_common_lock
-> 通用的用于实现 分部署锁
+> 通用的用于实现 分布式锁
 
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
@@ -603,6 +612,7 @@
 
 ## 25. linkis_ps_configuration_category
 > 参数配置目录树表  对应于管理台的`参数配置页面`
+
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | `id` |  | int(20) | PRI | NO | auto_increment |  |
@@ -614,7 +624,7 @@
 | 7 | `create_time` |  | datetime |  | NO |  | CURRENT_TIMESTAMP |
 
 
-示例数据 
+**示例数据** 
 ---
 | id | label_id | level | description | tag | update_time | create_time |
 | ---: | ---: | ---: | --- | --- | --- | --- |
@@ -628,6 +638,7 @@
 
 
 ## 26. linkis_ps_configuration_config_key
+
 > 引擎相关参数的配置表 
 
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
@@ -646,7 +657,7 @@
 | 12 | `treeName` | 配置项的engineType的子目录分类 | varchar(20) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | key | description | name | default_value | validate_type | validate_range | engine_conn_type | is_hidden | is_advanced | level | treeName |
 | ---: | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | --- |
@@ -663,7 +674,8 @@
 
 
 ## 27. linkis_ps_configuration_config_value
-> 参数配置项配置的值 
+
+> 参数配置项key对应的配置值表 
 
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
@@ -674,7 +686,7 @@
 | 5 | `update_time` |  | datetime |  | NO |  | CURRENT_TIMESTAMP |
 | 6 | `create_time` |  | datetime |  | NO |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | config_key_id | config_value | config_label_id | update_time | create_time |
 | ---: | ---: | --- | ---: | --- | --- |
@@ -800,7 +812,7 @@ linkis_ps_cs_context_id
 | 10 | `create_time` | create time | datetime |  | NO |  | CURRENT_TIMESTAMP |
 | 11 | `access_time` | last access time | datetime |  | NO |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | key | context_scope | context_type | props | value | context_id | keywords | update_time | create_time | access_time |
 | ---: | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -863,7 +875,7 @@ linkis_ps_cs_context_id
 | 11 | `length` |  | int(11) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | table_id | name | alias | type | comment | express | rule | is_partition_field | is_primary | length | mode_info |
 | ---: | ---: | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | --- |
@@ -891,7 +903,7 @@ linkis_ps_cs_context_id
 | 4 | `args` |  | varchar(255) |  | NO |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | table_id | import_type | args |
 | ---: | ---: | ---: | --- |
@@ -915,7 +927,7 @@ linkis_ps_cs_context_id
 | 3 | `source_table` |  | varchar(64) |  | YES |  |  |
 | 4 | `update_time` |  | datetime |  | YES |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | table_id | source_table | update_time |
 | ---: | ---: | --- | --- |
@@ -953,7 +965,7 @@ linkis_ps_cs_context_id
 | 17 | `is_available` |  | tinyint(1) |  | NO |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | database | name | alias | creator | comment | create_time | product_name | project_name | usage | lifecycle | use_way | is_import | model_level | is_external_use | is_partition_table | is_available |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -1006,7 +1018,7 @@ linkis_ps_cs_context_id
 | 15 | `published_version_id` |数据源发布版本号   | int(11) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | datasource_name | datasource_desc | datasource_type_id | create_identify | create_system | parameter | create_time | modify_time | create_user | modify_user | labels | version_id | expire | published_version_id |
 | ---: | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -1034,7 +1046,7 @@ linkis_ps_cs_context_id
 | 9 | `modify_user` |  | varchar(255) |  | YES |  |  |
 
 
-示例数据 
+**示例数据** 
 ---
 | id | env_name | env_desc | datasource_type_id | parameter | create_time | create_user | modify_time | modify_user |
 | ---: | --- | --- | ---: | --- | --- | --- | --- | --- |
@@ -1057,7 +1069,7 @@ linkis_ps_cs_context_id
 | 6 | `icon` |  数据源图片显示路径| varchar(255) |  | YES |  |  |
 | 7 | `layers` | 数据源类型层次 | int(3) |  | NO |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | name | description | option | classifier | icon | layers |
 | ---: | --- | --- | --- | --- | --- | ---: |
@@ -1096,7 +1108,7 @@ linkis_ps_cs_context_id
 | 16 | `update_time` |  | datetime |  | NO |  | CURRENT_TIMESTAMP |
 | 17 | `create_time` |  | datetime |  | NO |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | data_source_type_id | key | name | default_value | value_type | scope | require | description | value_regex | ref_id | ref_value | data_source | update_time | create_time |
 | ---: | ---: | --- | --- | --- | --- | --- | ---: | --- | --- | ---: | --- | --- | --- | --- |
@@ -1118,6 +1130,7 @@ linkis_ps_cs_context_id
 
 ## 44. linkis_ps_dm_datasource_version
 > 数据源版本信息表
+
 | 序号 | 名称 | 描述 | 类型 | 键 | 为空 | 额外 | 默认值 |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 1 | `version_id` | 数据源版本ID  | int(11) | PRI | NO | auto_increment |  |
@@ -1128,7 +1141,7 @@ linkis_ps_cs_context_id
 | 6 | `create_user` |  | varchar(255) |  | YES |  |  |
 
 
-示例数据 
+**示例数据** 
 ---
 | version_id | datasource_id | parameter | comment | create_time | create_user |
 | ---: | ---: | --- | --- | --- | --- |
@@ -1149,7 +1162,7 @@ linkis_ps_cs_context_id
 | 5 | `error_type` |  | int(3) |  | YES |  | 0 |
 
 
-示例数据 
+**示例数据** 
 ---
 | id | error_code | error_desc | error_regex | error_type |
 | ---: | --- | --- | --- | ---: |
@@ -1187,7 +1200,7 @@ linkis_ps_cs_context_id
 | 7 | `create_time` | update unix timestamp | datetime |  | NO |  | CURRENT_TIMESTAMP |
 
 
-示例数据
+**示例数据**
 ---
 | id | label_key | label_value | label_feature | label_value_size | update_time | create_time |
 | ---: | --- | --- | --- | ---: | --- | --- |
@@ -1206,7 +1219,7 @@ linkis_ps_cs_context_id
 
 
 
-示例数据
+**示例数据**
 ---
 | id | instance | name | update_time | create_time |
 | ---: | --- | --- | --- | --- |
@@ -1227,7 +1240,7 @@ linkis_ps_cs_context_id
 | 4 | `update_time` | update unix timestamp | datetime |  | YES |  | CURRENT_TIMESTAMP |
 | 5 | `create_time` | create unix timestamp | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | id | label_id | service_instance | update_time | create_time |
 | ---: | ---: | --- | --- | --- |
@@ -1247,7 +1260,7 @@ linkis_ps_cs_context_id
 | 5 | `update_time` | update unix timestamp | datetime |  | YES |  | CURRENT_TIMESTAMP |
 | 6 | `create_time` | create unix timestamp | datetime |  | YES |  | CURRENT_TIMESTAMP |
 
-示例数据
+**示例数据**
 ---
 | label_value_key | label_value_content | label_id | update_time | create_time |
 | --- | --- | ---: | --- | --- |
@@ -1273,7 +1286,7 @@ linkis_ps_cs_context_id
 | 9 | `status` | status | varchar(32) |  | YES |  |  |
 | 10 | `priority` | order of subjob | int(4) |  | YES |  | 0 |
 
-示例数据
+**示例数据**
 ---
 | id | job_history_id | result_location | execution_content | result_array_size | job_group_info | created_time | updated_time | status | priority |
 | ---: | ---: | --- | --- | ---: | --- | --- | --- | --- | ---: |
@@ -1313,7 +1326,7 @@ linkis_ps_cs_context_id
 | 19 | `result_location` | File path of the resultsets | varchar(500) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | job_req_id | submit_user | execute_user | source | labels | params | progress | status | log_path | error_code | error_desc | created_time | updated_time | instances | metrics | engine_type | execution_code | result_location |
 | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1349,7 +1362,7 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 8 | `downloader` | Downloader | varchar(50) |  | NO |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | start_time | end_time | client_ip | state | resource_id | version | downloader |
 | ---: | --- | --- | --- | ---: | --- | --- | --- |
@@ -1384,7 +1397,7 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 13 | `update_time` |  | timestamp |  | NO |  | CURRENT_TIMESTAMP |
 
 
-示例数据
+**示例数据**
 ---
 | id | create_user | udf_name | udf_type | path | register_format | use_format | description | is_expire | is_shared | tree_id | create_time | update_time |
 | ---: | --- | --- | ---: | --- | --- | --- | --- | ---: | ---: | ---: | --- | --- |
@@ -1411,7 +1424,7 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 11 | `is_shared` |  | bit(1) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | create_user | udf_name | udf_type | tree_id | create_time | update_time | sys | cluster_name | is_expire | is_shared |
 | ---: | --- | --- | ---: | ---: | --- | --- | --- | --- | ---: | ---: |
@@ -1434,7 +1447,7 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 1 | `id` |  | bigint(20) | PRI | NO | auto_increment |  |
 | 2 | `user_name` |  | varchar(20) |  | YES |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | user_name |
 | ---: | --- |
@@ -1456,7 +1469,7 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 2 | `udf_id` |  | bigint(20) |  | NO |  |  |
 | 3 | `shared_group` |  | varchar(50) |  | NO |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | udf_id | user_name |
 | ---: | ---: | --- |
@@ -1487,7 +1500,7 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 2 | `udf_id` |  | bigint(20) |  | NO |  |  |
 | 3 | `user_name` |  | varchar(50) |  | NO |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | udf_id | user_name |
 | ---: | ---: | --- |
@@ -1526,7 +1539,7 @@ org.apache.linkis.engineplugin.spark.imexport.LoadData.loadDataToTableByFile(spa
 | 8 | `category` | Used to distinguish between udf and function | varchar(50) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | parent | name | user_name | description | create_time | update_time | category |
 | ---: | ---: | --- | --- | --- | --- | --- | --- |
@@ -1566,7 +1579,7 @@ linkis_ps_udf_tree
 | 2 | `udf_id` |  | bigint(20) |  | NO |  |  |
 | 3 | `user_name` |  | varchar(50) |  | NO |  |  |
 
-示例数据
+**示例数据**
 ---
 | udf_id | user_name |
 | ---: | --- |
@@ -1601,7 +1614,7 @@ linkis_ps_udf_tree
 | 3 | `user_name` |  | varchar(50) |  | NO |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | udf_id | user_name |
 | ---: | --- |
@@ -1638,7 +1651,7 @@ linkis_ps_udf_tree
 | 10 | `create_time` |  | timestamp |  | NO | on update CURRENT_TIMESTAMP | CURRENT_TIMESTAMP |
 | 11 | `md5` |  | varchar(100) |  | YES |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | udf_id | path | bml_resource_id | bml_resource_version | is_published | register_format | use_format | description | create_time | md5 |
 | ---: | ---: | --- | --- | --- | ---: | --- | --- | --- | --- | --- |
@@ -1674,7 +1687,7 @@ linkis_ps_udf_tree
 | 7 | `value_type` | Reserved word | varchar(50) |  | YES |  |  |
 | 8 | `value_regex` | Reserved word | varchar(100) |  | YES |  |  |
 
-示例数据
+**示例数据**
 ---
 | id | key | description | name | application_id | default_value | value_type | value_regex |
 | ---: | --- | --- | --- | ---: | --- | --- | --- |
@@ -1707,7 +1720,7 @@ linkis_ps_udf_tree
 | 5 | `value` | Value of the global variable | varchar(200) |  | YES |  |  |
 
 
-示例数据
+**示例数据**
 ---
 | id | application_id | key_id | user_name | value |
 | ---: | ---: | ---: | --- | --- |
