@@ -167,10 +167,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Doc',
           position: 'right',
           items: [
-            {label: '1.3.0', to: '/docs/latest/about/introduction'},
+            {label: '1.3.0', to: '/docs/latest/introduction'},
             {label: '1.2.0', to: '/docs/1.2.0/introduction'},
             {label: '1.1.1', to: '/docs/1.1.1/introduction'},
-            {label: 'Next(1.3.1)', to: '/docs/1.3.1/introduction'},
+            {label: 'Next(1.3.1)', to: '/docs/1.3.1/about/introduction'},
             {label: 'All Version', to: '/versions'}
           ]
         },
@@ -225,7 +225,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           title: 'Linkis',
           items: [{
               label: 'Document',
-              href: '/docs/latest/about/introduction',
+              href: '/docs/latest/introduction',
             },
             {
               label: 'FAQ',
