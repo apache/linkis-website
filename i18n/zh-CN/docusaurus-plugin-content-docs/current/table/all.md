@@ -1,7 +1,5 @@
 ## linkis_install_test tables message
 
- <!-- 2022/12/5 -->
-2022/12/5
 ## 1. linkis_cg_ec_resource_info_record
 
 > 历史引擎信息记录表  ec 为`engine conn` 缩写  ecm为 engineconn manager 服务缩写
