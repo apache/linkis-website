@@ -22,6 +22,26 @@ LinkisManager Architecture Design
 |EMRegisterService| Defines EngineConnManager registration function |
 |EMEngineService | Defines EngineConnManager's creation, query, and closing functions of EngineConn |
 |EngineAskEngineService | Defines the function of querying EngineConn |
+
+LinkisManager Architecture Design
+====================
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As an independent microservice of Linkis, LinkisManager provides AppManager (application management), ResourceManager (resource management), and LabelManager (label management) capabilities. It can support multi-active deployment and has the characteristics of high availability and easy expansion.  
+## 1. Architecture Diagram
+![Architecture Diagram](/Images/Architecture/LinkisManager/LinkisManager-01.png)  
+### Noun explanation
+- EngineConnManager (ECM): Engine Manager, used to start and manage engines.
+- EngineConn (EC): Engine connector, used to connect the underlying computing engine.
+- ResourceManager (RM): Resource Manager, used to manage node resources.
+## 2. Introduction to the second-level module
+### 2.1. Application management module linkis-application-manager
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppManager is used for unified scheduling and management of engines:  
+
+| Core Interface/Class | Main Function |
+|------------|--------|
+|EMInfoService | Defines EngineConnManager information query and modification functions |
+|EMRegisterService| Defines EngineConnManager registration function |
+|EMEngineService | Defines EngineConnManager's creation, query, and closing functions of EngineConn |
+|EngineAskEngineService | Defines the function of querying EngineConn |
 |EngineConnStatusCallbackService | Defines the function of processing EngineConn status callbacks |
 |EngineCreateService | Defines the function of creating EngineConn |
 |EngineInfoService | Defines EngineConn query function |

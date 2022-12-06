@@ -1,6 +1,6 @@
 ---
 title: 无 HDFS 部署
-sidebar_position: 1.20
+sidebar_position: 3
 ---
 
 这篇文章介绍一下如何在没有部署 HDFS 的环境中部署 Linkis 服务，以方便更轻量化的学习使用和调试。

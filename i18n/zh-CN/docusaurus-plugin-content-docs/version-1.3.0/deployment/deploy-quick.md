@@ -431,7 +431,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 | Pipeline      | >=1.0.0 已适配   | **不包含** |
 | JDBC          | >=1.0.0 已适配   | **不包含** |
 | Flink         | >=1.0.0 已适配   | **不包含** |
-| OpenLooKeng   | >=1.1.1 已适配   | **不包含** |
+| openLooKeng   | >=1.1.1 已适配   | **不包含** |
 | Sqoop         | >=1.1.2 已适配  | **不包含** |
 
 

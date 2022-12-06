@@ -18,7 +18,7 @@ DataSphereStudio作为对接了Linkis的一站式数据操作平台，用户可�
 | Shell       | 支持 | 支持 |
 | JDBC        | 支持 | 支持 |
 | Flink       | 支持 | 支持 |
-| OpenLooKeng | 支持 | 支持 |
+| openLooKeng | 支持 | 支持 |
 
 ## 2. 文档结构
 已经接入的引擎相关文档可以参考如下文档。  
@@ -28,7 +28,7 @@ DataSphereStudio作为对接了Linkis的一站式数据操作平台，用户可�
 - [Shell 引擎使用](shell.md)  
 - [JDBC 引擎使用](jdbc.md)  
 - [Flink 引擎使用](flink.md)  
-- [OpenLooKeng 引擎使用](openlookeng.md) 
+- [openLooKeng 引擎使用](openlookeng.md) 
 - [PipeLine 引擎使用](pipeline.md) 
 - [Sqoop 引擎使用](sqoop.md) 
 - [Presto 引擎使用](presto.md) 

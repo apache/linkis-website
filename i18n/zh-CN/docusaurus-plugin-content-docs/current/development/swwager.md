@@ -1,6 +1,6 @@
 ---
 title: Swagger 注解使用
-sidebar_position: 5
+sidebar_position: 10.0
 ---
 
 ## 1. Swagger注解的作用域

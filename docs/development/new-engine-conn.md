@@ -9,7 +9,7 @@ Implementing a new engine is actually implementing a new EngineConnPlugin (ECP) 
 
 ### 1.1 Create a new maven module and introduce the maven dependency of ECP
 
-![maven依赖](/Images/EngineConnNew/engine_jdbc_dependency.png)
+![maven dep](/Images/EngineConnNew/engine_jdbc_dependency.png)
 
 ```xml
 <dependency>

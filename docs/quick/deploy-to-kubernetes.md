@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Deployment
-sidebar_position: 1.4
+sidebar_position: 2
 ---
 
 This article describes how to deploy a Linkis service in a Kind Kubernetes environment for easier learning and debugging.

@@ -1,6 +1,6 @@
 ---
-title: 编译 Docker 镜像
-sidebar_position: 1.2
+title: Docker 编译
+sidebar_position: 5.0
 ---
 
 ## Linkis 镜像组成

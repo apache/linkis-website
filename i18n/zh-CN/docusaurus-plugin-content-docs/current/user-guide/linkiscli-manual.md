@@ -1,5 +1,5 @@
 ---
-title: Linkis-Cli 的使用
+title: Shell 方式
 sidebar_position: 2
 ---
 

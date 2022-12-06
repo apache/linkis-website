@@ -1,6 +1,6 @@
 ---
-title: 调试指引
-sidebar_position: 2
+title: 调试 Debug 指引
+sidebar_position: 6.0
 ---
 
 > 导语：本文详细记录了如何在IDEA中配置和启动Linkis的各个微服务，并实现JDBC、Python、Shell等脚本的提交和执行。在Mac OS上，Linkis的各个微服务都支持本地调试。

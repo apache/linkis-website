@@ -1,6 +1,6 @@
 ---
 title: Linkis-Cli Manual
-sidebar_position: 2.1
+sidebar_position: 3
 ---
 
 ## 1.Introduction
@@ -183,11 +183,12 @@ Configure labelMap parameters:
 ### 5.6 output result set to file
 
 Use the `-outPath` parameter to specify an output directory, linkis-cli will output the result set to a file, and each result set will automatically create a file. The output format is as follows:
-
+```
         task-[taskId]-result-[idx].txt
-        
+```        
 E.g:
-
+```
         task-906-result-1.txt
         task-906-result-2.txt
         task-906-result-3.txt
+```
