@@ -1,6 +1,6 @@
 ---
 title: EngineConnManager Architecture
-sidebar_position: 0.6
+sidebar_position: 6
 ---
 
 EngineConnManager architecture design

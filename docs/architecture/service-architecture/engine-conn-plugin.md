@@ -1,6 +1,6 @@
 ---
 title: EngineConnPlugin (ECP) Design
-sidebar_position: 0.7
+sidebar_position: 7
 ---
 
 

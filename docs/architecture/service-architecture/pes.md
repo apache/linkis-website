@@ -1,6 +1,6 @@
 ---
 title: PES Architecture
-sidebar_position: 0.3
+sidebar_position: 4
 ---
 
 PublicEnhencementService (PS) architecture design

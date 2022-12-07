@@ -1,6 +1,6 @@
 ---
 title: EngineConnManager 架构
-sidebar_position: 0.6
+sidebar_position: 6
 ---
 
 EngineConnManager（ECM）：EngineConn的管理器，提供引擎的生命周期管理，同时向RM汇报负载信息和自身的健康状况。

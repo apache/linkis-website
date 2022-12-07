@@ -1,6 +1,6 @@
 ---
 title: 总览
-sidebar_position: 0.4
+sidebar_position: 0
 ---
 ## **背景**
 

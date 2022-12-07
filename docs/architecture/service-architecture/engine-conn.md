@@ -1,6 +1,6 @@
 ---
 title: EngineConn Design
-sidebar_position: 0.8
+sidebar_position: 8
 ---
 
 EngineConn architecture design

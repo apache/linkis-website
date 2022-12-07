@@ -1,6 +1,6 @@
 ---
 title: Service Isolation Design
-sidebar_position: 2
+sidebar_position: 9
 ---
 
 ## 1. General

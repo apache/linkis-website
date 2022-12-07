@@ -1,5 +1,5 @@
 ---
-title: Use of Linkis SDK
+title: Linkis SDK Manual
 sidebar_position: 3
 ---
 
