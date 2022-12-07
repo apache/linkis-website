@@ -1,6 +1,6 @@
 ---
 title: EngineConnPlugin 服务架构
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 引擎连接器插件是一种能够动态加载引擎连接器并减少版本冲突发生的实现，具有方便扩展、快速刷新、选择加载的特性。为了能让开发用户自由扩展Linkis的Engine引擎，并动态加载引擎依赖避免版本冲突，设计研发了EngineConnPlugin，允许以实现既定的插件化接口的方式引入新引擎到计算中间件的执行生命周期里，
