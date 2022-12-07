@@ -1,6 +1,6 @@
 ---
 title: 建议配置
-sidebar_position: 0.3
+sidebar_position: 0.2
 ---
 
 # 一、软硬件环境建议配置

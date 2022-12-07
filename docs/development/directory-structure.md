@@ -1,6 +1,6 @@
 ---
 title:  Directory Structure
-Sidebar position: 7
+Sidebar position: 2
 ---
 
 > linkis code hierarchy structure, as well as package structure and deployment directory structure description description, if you explain, if you want to explain, if you want to know more about each module module module module

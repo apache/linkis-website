@@ -1,6 +1,6 @@
 ---
 title: recommended configuration
-sidebar_position: 0.3
+sidebar_position: 0.2
 ---
 
 # 1. Suggested configuration of hardware and software environment

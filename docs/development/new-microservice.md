@@ -1,6 +1,6 @@
 ---
 title: How to Develop A New Microservice
-Sidebar position: 7
+Sidebar position: 9
 ---
 
 > This article introduces how to develop, debug and deploy a new microservice in the local area based on the existing Linkis microservice architecture, so as to facilitate the need for logs of new applications.

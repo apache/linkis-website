@@ -1,6 +1,6 @@
 ---
 title: Configuration Parameters
-sidebar_position: 6
+sidebar_position: 11
 ---
 
 ## 1. Parameter classification
