@@ -8,7 +8,7 @@ sidebar_position: 1
 ### 1.1 Linux Server
 
 **Hardware requirements**
-Install nearly 10 linkis microservices with at least 3G memory. **The size of the jvm -Xmx memory started by the default configuration of each microservice is 512M (if the memory is not enough, you can try to reduce it to 256/128M, and you can also increase it if the memory is sufficient)
+Install nearly 10 linkis microservices with at least 3G memory. The size of the jvm -Xmx memory started by the default configuration of each microservice is 512M (if the memory is not enough, you can try to reduce it to 256/128M, and you can also increase it if the memory is sufficient)
 
 
 ### 1.2 Add deployment user

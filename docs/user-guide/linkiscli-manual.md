@@ -1,5 +1,5 @@
 ---
-title: Linkis-Cli Manual
+title: Shell Scripts Manual
 sidebar_position: 3
 ---
 

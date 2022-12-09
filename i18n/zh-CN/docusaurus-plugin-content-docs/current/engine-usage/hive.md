@@ -1,14 +1,14 @@
 ---
-title: Hive 引擎
+title: Hive 引擎连接器
 sidebar_position: 2
 ---
 
-本文主要介绍在 `Linkis` 中， `Hive` 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` 中， `Hive` 引擎连接器的安装、使用和配置。
 
 ## 1. 前置工作
 ### 1.1 擎使用前的环境配置
 
-如果您希望在您的服务器上使用 `Hive` 引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
+如果您希望在您的服务器上使用 `Hive` 引擎连接器，您需要保证以下的环境变量已经设置正确并且引擎连接器的启动用户是有这些环境变量的。
 
 强烈建议您在执行 `Hive` 任务之前，检查下执行用户的这些环境变量。
 
@@ -69,14 +69,14 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 ```
 
-## 4. 引擎配置说明
+## 4. 引擎连接器配置说明
 
 ### 4.1 默认配置说明
 | 配置                     | 默认值          |是否必须    | 说明                                     |
 | ------------------------ | ------------------- | ---|---------------------------------------- |
-| wds.linkis.rm.instance        | 10    |否  | 引擎最大并发数 |
-| wds.linkis.engineconn.java.driver.memory        | 1g            |否  | 引擎初始化内存大小 |
-| wds.linkis.engineconn.max.free.time       | 1h    |否              | 引擎空闲退出时间 |
+| wds.linkis.rm.instance        | 10    |否  | 引擎连接器最大并发数 |
+| wds.linkis.engineconn.java.driver.memory        | 1g            |否  | 引擎连接器初始化内存大小 |
+| wds.linkis.engineconn.max.free.time       | 1h    |否              | 引擎连接器空闲退出时间 |
 
 ### 4.2 队列资源配置
 `Hive` 的 `MapReduce` 任务是需要用到 `yarn` 的资源，所以需要设置队列。
@@ -121,19 +121,19 @@ http 请求参数示例
 }
 ```
 
-### 4.4 引擎相关数据表
+### 4.4 引擎连接器相关数据表
 
-`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎连接器标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
-linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
-linkis_cg_manager_label：插入引擎label如：hive-2.3.3
-linkis_ps_configuration_category： 插入引擎的目录关联关系
-linkis_ps_configuration_config_value： 插入引擎需要展示的配置
-linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
+linkis_ps_configuration_config_key:  插入引擎连接器的配置参数的key和默认values
+linkis_cg_manager_label：插入引擎连接器标签如：hive-2.3.3
+linkis_ps_configuration_category： 插入引擎连接器的目录关联关系
+linkis_ps_configuration_config_value： 插入引擎连接器需要展示的配置
+linkis_ps_configuration_key_engine_relation:配置项和引擎连接器的关联关系
 ```
 
-表中与引擎相关的初始数据如下
+表中与引擎连接器相关的初始数据如下
 
 ```sql
 -- set variable
@@ -149,11 +149,11 @@ select @label_id := id from linkis_cg_manager_label where `label_value` = @HIVE_
 insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
 
 -- configuration key
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.instance', '范围：1-20，单位：个', 'hive引擎最大并发数', '10', 'NumInterval', '[1,20]', '0', '0', '1', '队列资源', 'hive');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.java.driver.memory', '取值范围：1-10，单位：G', 'hive引擎初始化内存大小','1g', 'Regex', '^([1-9]|10)(G|g)$', '0', '0', '1', 'hive引擎设置', 'hive');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('hive.client.java.opts', 'hive客户端进程参数', 'hive引擎启动时jvm参数','', 'None', NULL, '1', '1', '1', 'hive引擎设置', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.instance', '范围：1-20，单位：个', 'hive引擎连接器最大并发数', '10', 'NumInterval', '[1,20]', '0', '0', '1', '队列资源', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.java.driver.memory', '取值范围：1-10，单位：G', 'hive引擎连接器初始化内存大小','1g', 'Regex', '^([1-9]|10)(G|g)$', '0', '0', '1', 'hive引擎连接器设置', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('hive.client.java.opts', 'hive客户端进程参数', 'hive引擎连接器启动时jvm参数','', 'None', NULL, '1', '1', '1', 'hive引擎连接器设置', 'hive');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('mapred.reduce.tasks', '范围：-1-10000，单位：个', 'reduce数', '-1', 'NumInterval', '[-1,10000]', '0', '1', '1', 'hive资源设置', 'hive');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.max.free.time', '取值范围：3m,15m,30m,1h,2h', '引擎空闲退出时间','1h', 'OFT', '[\"1h\",\"2h\",\"30m\",\"15m\",\"3m\"]', '0', '0', '1', 'hive引擎设置', 'hive');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.max.free.time', '取值范围：3m,15m,30m,1h,2h', '引擎连接器空闲退出时间','1h', 'OFT', '[\"1h\",\"2h\",\"30m\",\"15m\",\"3m\"]', '0', '0', '1', 'hive引擎连接器设置', 'hive');
 
 -- key engine relation
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
@@ -168,7 +168,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 
 ## 5. Hive修改日志展示
 默认的日志界面是不显示 `application_id` 以及 `task` 完成数量的,用户可以根据需要输出该日志
-引擎内的 `log4j2-engineconn.xml/log4j2.xml` 配置文件中需要修改的代码块如下
+引擎连接器内的 `log4j2-engineconn.xml/log4j2.xml` 配置文件中需要修改的代码块如下
 1. `appenders` 组件下需要添加
 ```xml
         <Send name="SendPackage" >

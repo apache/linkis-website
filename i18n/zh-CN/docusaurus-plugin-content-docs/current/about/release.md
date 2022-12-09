@@ -4,8 +4,8 @@ sidebar_position: 0.1
 --- 
 - [Trino 引擎使用说明](/engine-usage/trino.md)
 - [Seatunnel 引擎使用说明](/engine-usage/seatunnel.md)
-- [Linkis 管理台多数据源管理]
-- [多数据源使用文档]
+- Linkis 管理台多数据源管理
+- 多数据源使用
 - [版本的 Release-Notes](/download/release-notes-1.3.1)
 
 
@@ -13,7 +13,7 @@ sidebar_position: 0.1
 
 | 模块名(服务名)| 类型  |     参数名                                                | 默认值             | 描述                                                    |
 | ----------- | ----- | -------------------------------------------------------- | ---------------- | ------------------------------------------------------- |
-| linkis.trino.url                  | http://127.0.0.1:8080 | Trino 集群连接 URL                             | true |
+| es-trino | 新增 | linkis.trino.url                  | http://127.0.0.1:8080 | Trino 集群连接 URL                              |
 | ec-trino | 新增 | linkis.trino.default.limit | 5000 | 结果集条数限制 |
 | ec-trino | 新增 | linkis.trino.http.connectTimeout | 60 | 连接超时时间（秒） |
 | ec-trino | 新增 | linkis.trino.http.readTimeout | 60 | 传输超时时间（秒）|

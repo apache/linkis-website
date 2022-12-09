@@ -127,7 +127,7 @@
     "description": "console manual"
   },
   "sidebar.tutorialSidebar.category.Auth": {
-    "message": "Auth 认证"
+    "message": "身份认证"
   },
   "sidebar.tutorialSidebar.category.Service Architecture": {
     "message": "微服务架构",

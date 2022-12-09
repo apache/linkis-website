@@ -9,6 +9,11 @@ export default function() {
 
   const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
   const dataSource = config?.[language];
+
+  let timer = setTimeout(()=>{
+    window.location.href = '/zh-CN/docs/latest/deployment/deploy-quick'
+  },100)
+
   return (
    <div>
      <div className="home-page slogan">

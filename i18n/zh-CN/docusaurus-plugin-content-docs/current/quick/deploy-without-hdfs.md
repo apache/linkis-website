@@ -7,7 +7,7 @@ sidebar_position: 3
 
 部署整体流程参考 "快速部署"，需要修改如下少许内容。
 
-去HDFS模式部署不支持hive/spark/flink引擎等任务
+去HDFS模式部署不支持 hive/spark/flink 引擎等任务
 
 ## 1. 配置修改
 修改 `linkis-env.sh` 文件，修改以下内容：

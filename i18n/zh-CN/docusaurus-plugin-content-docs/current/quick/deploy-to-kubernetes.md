@@ -3,21 +3,21 @@ title: 容器化部署
 sidebar_position: 2
 ---
 
-这篇文章介绍一下如何在就Kind的Kubernetes的环境中部署 Linkis 服务，以方便更轻量化的学习使用和调试。
+这篇文章介绍一下如何在就 Kind 的 Kubernetes 的环境中部署 Linkis 服务，以方便更轻量化的学习使用和调试。
 
 ## 1. 依赖版本
-kind github：https://github.com/kubernetes-sigs/kind  
-kind官网：[kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
+- kind github：https://github.com/kubernetes-sigs/kind  
+- kind官网：[kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
 
 ### 1.1 版本:
-kind 0.14.0
-docker 20.10.17
-centos 7.6
-helm 3.x
+- kind 0.14.0
+- docker 20.10.17
+- centos 7.6
+- helm 3.x
 
 ### 1.2 注意：
-1.确保组件依赖版本
-2.kind是用docker容器模拟节点的 机器重启回来容器都变了 调度器就不工作了 这个是kind的limitation,官方文档有详细说明。
+- 1.确保组件依赖版本
+- 2.kind 是用 docker 容器模拟节点的，机器重启回来容器都变了，调度器就不工作了，这个是kind的limitation ，官方文档有详细说明。
 
 ## 2.安装docker
 ### 2.1 安装教程
@@ -40,7 +40,7 @@ vi /etc/docker/daemon.json
 }
 ```
 
-## 3. 安装kind
+## 3. 安装 kind
 ###  3.1 手工下载kind二进制
 ```
 https://github.com/kubernetes-sigs/kind/releases
@@ -51,10 +51,10 @@ chmod +x ./kind
 mv kind-linux-amd64 /usr/bin/kind
 ```
 ## 4. 安装linkis
-### 4.1 下载或自行编译linkis1.3.0部署包
-使用版本：dev1.3.0分支编译版本
+### 4.1 下载或自行编译 linkis1.3.1 部署包
+使用版本：dev-1.3.1 分支编译版本
 ```
-apache-linkis-1.3.0-incubating-bin.tar.gz
+apache-linkis-1.3.1-incubating-bin.tar.gz
 ```
 ### 4.2 创建目录
 ```
@@ -62,7 +62,7 @@ mkdir -p /opt/data/common/extendlib
 ```
 ### 4.3 拷贝驱动
 
-拷贝mysql驱动到 /opt/data/common/extendlib
+拷贝 mysql 驱动到 /opt/data/common/extendlib
 ```
 curl https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar -o /opt/data/common/extendlib/[mysql-connector-java-8.0.28.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar)
 ```
@@ -85,7 +85,7 @@ kubectl get pods -A
 ![](/Images/deployment/kubernetes/pods.jpg)
 
 
-### 4.8 拷贝ldh环境到linkis
+### 4.8 拷贝 ldh 环境到 linkis
 ```
 ./helm/scripts/prepare-for-spark.sh
 ```
@@ -101,7 +101,7 @@ eureka: http://10.0.2.101:20303/
 
 ![](/Images/deployment/kubernetes/eureka.png)
 
-### 4.11 执行linkis-cli执行任务
+### 4.11 执行 linkis-cli 执行任务
 ```
 进入容器
 ./helm/scripts/login-pod.sh cg-engineconnmanager
