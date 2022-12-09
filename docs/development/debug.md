@@ -1,6 +1,6 @@
 ---
 title: Debug Guide
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 > Introduction: This article records in detail how to configure and start various microservices of Linkis in IDEA, and implement the submission and execution of scripts such as JDBC, Python, and Shell. On Mac OS, each microservice of Linkis supports local debugging.

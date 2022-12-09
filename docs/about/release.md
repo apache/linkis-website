@@ -5,8 +5,8 @@ sidebar_position: 2
 
 - [Trino engine usage instructions](/engine-usage/trino.md)
 - [Seatunnel Engine Usage Instructions](/engine-usage/seatunnel.md)
-- Linkis console multi-datasource management
-- Multiple data sources usage
+- [Linkis console multi-datasource management](/user-guide/control-panel/datasource-management)
+- [Multiple data sources usage](/user-guide/datasource-manual#3-use-of-data-sources)
 - [Version Release-Notes](/download/release-notes-1.3.1)
 
 
