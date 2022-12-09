@@ -7,11 +7,11 @@ sidebar_position: 1
 
 请注意：本文只给出了 Linkis 所有对运行性能有影响或是环境依赖相关的配置参数，很多无需用户关心的配置参数已略去，如果用户感兴趣，可以翻阅源码查看。
 
-### 1 通用配置
+## 1 通用配置
 
 通用配置可在全局的`linkis.properties`当中设置即可，一处设置，各个微服务都可生效。
 
-#### 1.1 全局配置参数
+### 1.1 全局配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -22,7 +22,7 @@ sidebar_position: 1
 | wds.linkis.home | /appcom/Install/LinkisInstall | Linkis 安装目录，如果不存在，会自动获取 LINKIS_HOME的值 |
 | wds.linkis.httpclient.default.connect.timeOut | 50000 | Linkis HttpClient的默认连接超时时间 |
 
-#### 1.2 LDAP配置参数
+### 1.2 LDAP配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -30,7 +30,7 @@ sidebar_position: 1
 | wds.linkis.ldap.proxy.baseDN | 无 | LDAP baseDN地址 |
 | wds.linkis.ldap.proxy.userNameFormat | 无 |  |
 
-#### 1.3 Hadoop配置参数
+### 1.3 Hadoop配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -43,7 +43,7 @@ sidebar_position: 1
 | hadoop.config.dir | 无 | 如果不配置，将从环境变量 HADOOP_CONF_DIR读取 |
 | wds.linkis.hadoop.external.conf.dir.prefix | /appcom/config/external-conf/hadoop | hadoop额外配置 |
 
-#### 1.4 Linkis RPC配置参数
+### 1.4 Linkis RPC配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -58,9 +58,9 @@ sidebar_position: 1
 | wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer最大空闲时间 |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Sender 消费队列最大缓存数 |
 
-### 2. 计算治理配置参数
+## 2. 计算治理配置参数
 
-#### 2.1 Entrance配置参数
+### 2.1 Entrance配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -87,7 +87,7 @@ sidebar_position: 1
 | wds.linkis.sql.default.limit | 5000 | SQL默认的最大返回结果集行数 |
 
 
-#### 2.2 EngineConn配置参数
+### 2.2 EngineConn配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -101,7 +101,7 @@ sidebar_position: 1
 | wds.linkis.engineconn.max.free.time | 1h | EngineConn的最大空闲时间 |
 
 
-#### 2.3 EngineConnManager的配置参数
+### 2.3 EngineConnManager的配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -113,7 +113,7 @@ sidebar_position: 1
 | wds.linkis.ecm.protected.engine.instances | 2 | ECM的保护实例数 |
 | wds.linkis.engineconn.wait.callback.pid | 3s | 等待EngineConn回传pid的等待时间 |
 
-#### 2.4 LinkisManager的配置参数
+### 2.4 LinkisManager的配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -127,9 +127,9 @@ sidebar_position: 1
 | wds.linkis.rm.yarnqueue.instance.max | 30 | 每个用户在每个引擎的队列中最多启动的应用数 |
 
 
-### 3. 各引擎配置参数
+## 3. 各引擎配置参数
 
-#### 3.1 JDBC引擎配置参数
+### 3.1 JDBC引擎配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -138,14 +138,14 @@ sidebar_position: 1
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | 最大并行SQL执行数 |
 
 
-#### 3.2 Python引擎配置参数
+### 3.2 Python引擎配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | pythonVersion | /appcom/Install/anaconda3/bin/python | Python命令路径 |
 | python.path | 无 | 指定Python额外的path，该路径只接受共享存储的路径 |
 
-#### 3.3 Spark引擎配置参数
+### 3.3 Spark引擎配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -154,9 +154,9 @@ sidebar_position: 1
 | wds.linkis.server.spark-submit | spark-submit | spark-submit命令路径 |
 
 
-### 4. PublicEnhancements配置参数
+## 4. PublicEnhancements配置参数
 
-#### 4.1 BML配置参数
+### 4.1 BML配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -165,7 +165,7 @@ sidebar_position: 1
 | wds.linkis.bml.auth.token.value | BML-AUTH | BML请求的免密token-value |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | BML文件存储在hdfs上的前缀文件路径 |
 
-#### 4.2 Metadata配置参数
+### 4.2 Metadata配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -176,14 +176,14 @@ sidebar_position: 1
 | hive.meta.password | 无 | HiveMetaStore数据库的password |
 
 
-#### 4.3 JobHistory配置参数
+### 4.3 JobHistory配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.jobhistory.admin | 无 | 默认的Admin账号，用于指定哪些用户可以查看所有人的执行历史 |
 
 
-#### 4.4 FileSystem配置参数
+### 4.4 FileSystem配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -195,15 +195,15 @@ sidebar_position: 1
 | wds.linkis.workspace.resultset.download.maxsize.excel | 5000 | 当结果集下载为Excel文件时，限制的下载条数 |
 | wds.linkis.workspace.filesystem.get.timeout | 2000L | 请求底层文件系统的最大超时时间。（**如果您的HDFS或Linux机器性能较低，建议适当调大该查数**） |
 
-#### 4.5 UDF配置参数
+### 4.5 UDF配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.udf.share.path | /mnt/bdap/udf | 共享UDF的存储路径，建议设置为HDFS路径 |
 
-### 5. MicroService配置参数
+## 5. MicroService配置参数
 
-#### 5.1 Gateway配置参数
+### 5.1 Gateway配置参数
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -221,9 +221,9 @@ sidebar_position: 1
 | wds.linkis.enable.gateway.auth | false | 是否开启Gateway IP白名单机制 |
 | wds.linkis.gateway.auth.file | auth.txt | IP白名单存储文件 |
 
-### 6. 数据源及元数据服务配置参数
+## 6. 数据源及元数据服务配置参数
 
-#### 6.1 元数据服务配置参数
+### 6.1 元数据服务配置参数
 
 |引入版本| 参数名                                                   | 默认值                                                   | 描述                                                    |
 |-------| -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
@@ -241,9 +241,9 @@ sidebar_position: 1
 |v1.1.0 | wds.linkis.server.mdm.service.temp.location              | /tmp/keytab                                           | 设置服务的本地临时存储路径，主要是存储从bml物料服务下载的认证文件|
 
 
-### 7. 常用场景参数
+## 7. 常用场景参数
 
-#### 7.1 开启测试模式
+### 7.1 开启测试模式
 开发过程需要免密接口，可在`linkis.properties`替换或追加此配置
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -252,7 +252,7 @@ sidebar_position: 1
 | wds.linkis.test.user | hadoop | 当wds.linkis.test.mode=true时，免密登录的默认登录用户 |
 
 
-#### 7.2 登录用户设置
+### 7.2 登录用户设置
 Apache Linkis 默认使用配置文件来管理admin用户，可以在`linkis-mg-gateway.properties`替换或追加此配置。如需多用户可接入LDAP实现。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -260,7 +260,7 @@ Apache Linkis 默认使用配置文件来管理admin用户，可以在`linkis-mg
 | wds.linkis.admin.user | hadoop | 管理员用户名 |
 | wds.linkis.admin.password | 123456 | 管理员用户密码 |
 
-#### 7.3 LDAP设置
+### 7.3 LDAP设置
 Apache Linkis 可以通过参数接入LDAP实现多用户管理，可以在`linkis-mg-gateway.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -269,21 +269,21 @@ Apache Linkis 可以通过参数接入LDAP实现多用户管理，可以在`link
 | wds.linkis.ldap.proxy.baseDN | 无 | LDAP baseDN地址 |
 | wds.linkis.ldap.proxy.userNameFormat | 无 |  |
 
-#### 7.4 关闭资源检查
+### 7.4 关闭资源检查
 Apache Linkis 提交任务时有时会调试异常，如：资源不足；可以在`linkis-cg-linkismanager.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.manager.rm.request.enable | true | 资源检查 |
 
-#### 7.5 开启引擎调试
+### 7.5 开启引擎调试
 Apache Linkis EC可以开启调试模式，可以在`linkis-cg-linkismanager.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.engineconn.debug.enable | false | 是否开启引擎调试 |
 
-#### 7.6 Hive元数据配置
+### 7.6 Hive元数据配置
 Apache Linkis 的public-service服务需要读取hive的元数据；可以在`linkis-ps-publicservice.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -292,7 +292,7 @@ Apache Linkis 的public-service服务需要读取hive的元数据；可以在`li
 | hive.meta.user | 无 | HiveMetaStore数据库的user |
 | hive.meta.password | 无 | HiveMetaStore数据库的password |
 
-#### 7.7 Linkis 数据库配置
+### 7.7 Linkis 数据库配置
 Apache Linkis 访问默认使用Mysql作为数据存储，可以在`linkis.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -301,7 +301,7 @@ Apache Linkis 访问默认使用Mysql作为数据存储，可以在`linkis.prope
 | wds.linkis.server.mybatis.datasource.username | 无 | 数据库用户名，例如：root |
 | wds.linkis.server.mybatis.datasource.password | 无 | 数据库密码，例如：root |
 
-#### 7.8 Linkis Session 缓存配置
+### 7.8 Linkis Session 缓存配置
 Apache Linkis 支持使用redis进行session的共享；可以在`linkis.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -313,7 +313,7 @@ Apache Linkis 支持使用redis进行session的共享；可以在`linkis.propert
 
 
 
-#### 7.9 Linkis 模块开发配置
+### 7.9 Linkis 模块开发配置
 Apache Linkis 开发时可通过此参数，自定义加载模块的数据库、Rest接口、实体对象；可以在`linkis-ps-publicservice.properties`进行修改，多个模块之间使用逗号分割。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -323,14 +323,14 @@ Apache Linkis 开发时可通过此参数，自定义加载模块的数据库、
 | wds.linkis.server.mybatis.typeAliasesPackage | 无 | 实体别名扫描包，例如：org.apache.linkis.basedatamanager.server.domain |
 | wds.linkis.server.mybatis.BasePackage | 无 | 数据库dao层扫描，例如：org.apache.linkis.basedatamanager.server.dao |
 
-#### 7.10 Linkis 模块开发配置
+### 7.10 Linkis 模块开发配置
 Apache Linkis 开发时可通过此参数，自定义加载模块的路由；可以在`linkis.properties`进行修改，多个模块之间使用逗号分割。
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.gateway.conf.publicservice.list | cs,contextservice,data-source-manager,metadataQuery,metadatamanager,query,jobhistory,application,configuration,filesystem,udf,variable,microservice,errorcode,bml,datasource,basedata-manager | publicservice服务支持路由的模块 |
 
-#### 7.11 Linkis 文件系统及物料存放路径
+### 7.11 Linkis 文件系统及物料存放路径
 Apache Linkis 开发时可通过此参数，自定义加载模块的路由；可以在`linkis.properties`进行修改，多个模块之间使用逗号分割。
 
 |           参数名          | 默认值   |  描述                                                       |

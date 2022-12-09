@@ -9,11 +9,11 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please be noticed: This article only lists all the configuration parameters related to Linkis that have an impact on operating performance or environment dependence. Many configuration parameters that do not need users to care about have been omitted. If users are interested, they can browse through the source code.
 
-### 1 General configuration
+## 1 General configuration
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The general configuration can be set in the global linkis.properties, one setting, each microservice can take effect.
 
-#### 1.1 Global configurations
+### 1.1 Global configurations
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -24,7 +24,7 @@ sidebar_position: 1
 | wds.linkis.home | /appcom/Install/LinkisInstall | Linkis installation directory, if it does not exist, it will automatically get the value of LINKIS_HOME |
 | wds.linkis.httpclient.default.connect.timeOut | 50000 | Linkis HttpClient default connection timeout |
 
-#### 1.2 LDAP configurations
+### 1.2 LDAP configurations
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -32,7 +32,7 @@ sidebar_position: 1
 | wds.linkis.ldap.proxy.baseDN | None | LDAP baseDN address |
 | wds.linkis.ldap.proxy.userNameFormat | None | |
 
-#### 1.3 Hadoop configuration parameters
+### 1.3 Hadoop configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -45,7 +45,7 @@ sidebar_position: 1
 | hadoop.config.dir | None | If not configured, it will be read from the environment variable HADOOP_CONF_DIR |
 | wds.linkis.hadoop.external.conf.dir.prefix | /appcom/config/external-conf/hadoop | hadoop additional configuration |
 
-#### 1.4 Linkis RPC configuration parameters
+### 1.4 Linkis RPC configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -60,9 +60,9 @@ sidebar_position: 1
 | wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer Maximum Free Time |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Sender consumption queue maximum buffer number |
 
-### 2. Calculate governance configuration parameters
+## 2. Calculate governance configuration parameters
 
-#### 2.1 Entrance configuration parameters
+### 2.1 Entrance configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -89,7 +89,7 @@ sidebar_position: 1
 | wds.linkis.sql.default.limit | 5000 | SQL default maximum return result set rows |
 
 
-#### 2.2 EngineConn configuration parameters
+### 2.2 EngineConn configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -103,7 +103,7 @@ sidebar_position: 1
 | wds.linkis.engineconn.max.free.time | 1h | EngineConn's maximum free time |
 
 
-#### 2.3 EngineConnManager configuration parameters
+### 2.3 EngineConnManager configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -115,7 +115,7 @@ sidebar_position: 1
 | wds.linkis.ecm.protected.engine.instances | 2 | Number of protected instances of ECM |
 | wds.linkis.engineconn.wait.callback.pid | 3s | Waiting time for EngineConn to return pid |
 
-#### 2.4 LinkisManager configuration parameters
+### 2.4 LinkisManager configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -139,14 +139,14 @@ sidebar_position: 1
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | Maximum number of concurrent SQL executions |
 
 
-#### 3.2 Python engine configuration parameters
+### 3.2 Python engine configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
 | pythonVersion | /appcom/Install/anaconda3/bin/python | Python command path |
 | python.path | None | Specify an additional path for Python, which only accepts shared storage paths |
 
-#### 3.3 Spark engine configuration parameters
+### 3.3 Spark engine configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -154,9 +154,9 @@ sidebar_position: 1
 | PYSPARK_DRIVER_PYTHON | python | Python command path |
 | wds.linkis.server.spark-submit | spark-submit | spark-submit command path |
 
-### 4. PublicEnhancements configuration parameters
+## 4. PublicEnhancements configuration parameters
 
-#### 4.1 BML configuration parameters
+### 4.1 BML configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -165,7 +165,7 @@ sidebar_position: 1
 | wds.linkis.bml.auth.token.value | BML-AUTH | Password-free token-value requested by BML |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | The prefix file path of the BML file stored on hdfs |
 
-#### 4.2 Metadata configuration parameters
+### 4.2 Metadata configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -176,14 +176,14 @@ sidebar_position: 1
 | hive.meta.password | None | Password of the HiveMetaStore database |
 
 
-#### 4.3 JobHistory configuration parameters
+### 4.3 JobHistory configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
 | wds.linkis.jobhistory.admin | None | The default Admin account is used to specify which users can view the execution history of everyone |
 
 
-#### 4.4 FileSystem configuration parameters
+### 4.4 FileSystem configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -195,15 +195,15 @@ sidebar_position: 1
 | wds.linkis.workspace.resultset.download.maxsize.excel | 5000 | When the result set is downloaded as an Excel file, the number of downloads is limited |
 | wds.linkis.workspace.filesystem.get.timeout | 2000L | The maximum timeout period for requesting the underlying file system. (**If the performance of your HDFS or Linux machine is low, it is recommended to increase the check number appropriately**) |
 
-#### 4.5 UDF configuration parameters
+### 4.5 UDF configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
 | wds.linkis.udf.share.path | /mnt/bdap/udf | The storage path of the shared UDF, it is recommended to set it to the HDFS path |
 
-### 5. MicroService configuration parameters
+## 5. MicroService configuration parameters
 
-#### 5.1 Gateway configuration parameters
+### 5.1 Gateway configuration parameters
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -221,9 +221,9 @@ sidebar_position: 1
 | wds.linkis.enable.gateway.auth | false | Whether to enable the Gateway IP whitelist mechanism |
 | wds.linkis.gateway.auth.file | auth.txt | IP whitelist storage file |
 
-### 6. DataSource and Metadata Service configuration parameters
+## 6. DataSource and Metadata Service configuration parameters
 
-#### 6.1 MetaData Service configuration parameters
+### 6.1 MetaData Service configuration parameters
 
 |From Version| Parameter name                                           | Default value                                        | Description                                                  |
 |-------    | -------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ |
