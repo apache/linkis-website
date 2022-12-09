@@ -3,6 +3,7 @@ title: Recommended Configuration
 sidebar_position: 3
 ---
 
+
 # 1. Recommended configuration of hardware and software environment
 
 Linkis builds a layer of computing middleware between the upper application and the underlying engine. As an open source distributed computing middleware, it can be well deployed and run on Intel architecture servers and mainstream virtualization environments, and supports mainstream Linux operating system environments
