@@ -4,8 +4,8 @@ sidebar_position: 0.1
 --- 
 - [Trino 引擎使用说明](/engine-usage/trino.md)
 - [Seatunnel 引擎使用说明](/engine-usage/seatunnel.md)
-- [Linkis 管理台多数据源管理](/user-guide/control-panel/datasource-management)
-- [多数据源使用](/user-guide/datasource-manual#3--数据源的使用)
+- [Linkis 管理台多数据源管理](/user-guide/control-panel/datasource-management.md)
+- [多数据源使用](/user-guide/datasource-manual.md#3--数据源的使用)
 - [版本的 Release-Notes](/download/release-notes-1.3.1)
 
 
