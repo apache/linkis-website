@@ -1,6 +1,6 @@
 ---
 title: Quickly Implement New Engine
-sidebar_position: 7
+sidebar_position: 7.0
 ---
 
 ## 1. Linkis new engine function code implementation

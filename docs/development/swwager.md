@@ -1,6 +1,6 @@
 ---
 title: Swagger Annotation
-sidebar_position: 9
+sidebar_position: 9.0
 ---
 
 ## 1. Scope of swagger annotations
