@@ -41,9 +41,9 @@ chmod +x ./kind
 mv kind-linux-amd64 /usr/bin/kind
 ```
 ## 4. Install linkis
-### Step1 Download linkis1.3.0 deployment package
+### Step1 Download linkis1.3.1 deployment package
 ```
-apache-linkis-1.3.0-incubating-bin.tar.gz
+apache-linkis-1.3.1-incubating-bin.tar.gz
 ```
 ### Step2 Build directory
 ```

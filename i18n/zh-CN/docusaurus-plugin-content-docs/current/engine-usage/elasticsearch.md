@@ -1,17 +1,17 @@
 ---
-title: ElasticSearch 引擎
+title: ElasticSearch 引擎连接器
 sidebar_position: 11
 ---
 
-本文主要介绍在 `Linkis` 中，`ElasticSearch` 引擎插件的安装、使用和配置。
+本文主要介绍在 `Linkis` 中，`ElasticSearch` 引擎连接器的安装、使用和配置。
 
 ## 1. 前置工作
-### 1.1 引擎安装
+### 1.1 引擎连接器安装
 
-如果您希望在您的 `Linkis` 服务上使用 `ElasticSearch` 引擎，您需要安装 `ElasticSearch` 服务并保证服务可用。
+如果您希望在您的 `Linkis` 服务上使用 `ElasticSearch` 引擎连接器，您需要安装 `ElasticSearch` 服务并保证服务可用。
 
 ### 1.2 服务验证
-通过如下命令验证 `ElasticSearch` 引擎服务是否可用，如服务已开启用户验证则需要增加  `--user username:password`
+通过如下命令验证 `ElasticSearch` 引擎连接器服务是否可用，如服务已开启用户验证则需要增加  `--user username:password`
 ```
 curl [--user username:password] http://ip:port/_cluster/healty?pretty
 ```
@@ -35,29 +35,29 @@ curl [--user username:password] http://ip:port/_cluster/healty?pretty
   "active_shards_percent_as_number" : 100.0
 }
 ```
-## 2. 引擎插件安装
+## 2. 引擎连接器安装
 
-### 2.1 引擎插件准备（二选一）[非默认引擎](./overview.md)
+### 2.1 引擎连接器准备（二选一）[非默认引擎连接器](./overview.md)
 
-方式一：直接下载引擎插件包
+方式一：直接下载引擎连接器包
 
-[Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
+[Linkis 引擎连接器下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-方式二：单独编译引擎插件（需要有 `maven` 环境）
+方式二：单独编译引擎连接器（需要有 `maven` 环境）
 
 ```
 # 编译
 cd ${linkis_code_dir}/linkis-engineconn-plugins/elasticsearch/
 mvn clean install
-# 编译出来的引擎插件包，位于如下目录中
+# 编译出来的引擎连接器包，位于如下目录中
 ${linkis_code_dir}/linkis-engineconn-plugins/elasticsearch/target/out/
 ```
 
-[EngineConnPlugin 引擎插件安装](../deployment/install-engineconn.md)
+[EngineConnPlugin 引擎连接器安装](../deployment/install-engineconn.md)
 
-### 2.2 引擎插件的上传和加载
+### 2.2 引擎连接器的上传和加载
 
-将 2.1 中的引擎插件包上传到服务器的引擎目录下
+将 2.1 中的引擎连接器包上传到服务器的引擎连接器目录下
 ```bash 
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
@@ -72,16 +72,16 @@ linkis-engineconn-plugins/
 │   └── plugin
 │       └── 7.6.2
 ```
-### 2.3 引擎刷新
+### 2.3 引擎连接器刷新
 
 #### 2.3.1 重启刷新
-通过重启 `linkis-cg-linkismanager` 服务刷新引擎
+通过重启 `linkis-cg-linkismanager` 服务刷新引擎连接器
 ```bash
 cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-linkismanager
 ```
 
-### 2.3.2 检查引擎是否刷新成功
+### 2.3.2 检查引擎连接器是否刷新成功
 可以查看数据库中的 `linkis_engine_conn_plugin_bml_resources` 这张表的`last_update_time` 是否为触发刷新的时间。
 
 ```sql
@@ -89,12 +89,12 @@ sh linkis-daemon.sh restart cg-linkismanager
 select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
-## 3.引擎使用
+## 3.引擎连接器使用
 
 ### 3.1 通过 `Linkis-cli` 提交任务
 **`-codeType` 参数说明**
-- `essql`：通过 `SQL` 脚本的方式执行 `ElasticSearch` 引擎任务
-- `esjson`：通过 `JSON` 脚本的方式执行 `ElasticSearch` 引擎任务
+- `essql`：通过 `SQL` 脚本的方式执行 `ElasticSearch` 引擎连接器任务
+- `esjson`：通过 `JSON` 脚本的方式执行 `ElasticSearch` 引擎连接器任务
 
 **`essql` 方式示例**
 
@@ -122,7 +122,7 @@ sh ./bin/linkis-cli -submitUser hadoop \
 
 更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-## 4. 引擎配置说明
+## 4. 引擎连接器配置说明
 
 ### 4.1 默认配置说明
 
@@ -139,7 +139,7 @@ sh ./bin/linkis-cli -submitUser hadoop \
 | linkis.es.sql.endpoint   | /_sql             |否  | SQL 脚本调用的 Endpoint                  |
 | linkis.es.sql.format     | {"query":"%s"} |否| SQL 脚本调用的模板，%s 替换成 SQL 作为请求体请求Es 集群 |
 | linkis.es.headers.* | 无 |否| 客户端 Headers 配置 |
-| linkis.engineconn.concurrent.limit | 100|否 | 引擎最大并发 |
+| linkis.engineconn.concurrent.limit | 100|否 | 引擎连接器最大并发 |
 
 ### 4.2 配置修改
 如果默认参数不满足时，有如下几中方式可以进行一些基础参数配置
@@ -188,19 +188,19 @@ http 请求参数示例
 
 ![](./images/es-config.png)
 
-### 4.3 引擎相关数据表
+### 4.3 引擎连接器相关数据表
 
-`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+`Linkis` 是通过引擎连接器标签来进行管理的，所涉及的数据表信息如下所示。
 
 ```
-linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
-linkis_cg_manager_label：插入引擎label如：elasticsearch-7.6.2
-linkis_ps_configuration_category： 插入引擎的目录关联关系
-linkis_ps_configuration_config_value： 插入引擎需要展示的配置
-linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
+linkis_ps_configuration_config_key:  插入引擎连接器的配置参数的key和默认values
+linkis_cg_manager_label：插入引擎连接器label如：elasticsearch-7.6.2
+linkis_ps_configuration_category： 插入引擎连接器的目录关联关系
+linkis_ps_configuration_config_value： 插入引擎连接器需要展示的配置
+linkis_ps_configuration_key_engine_relation:配置项和引擎连接器的关联关系
 ```
 
-表中与引擎相关的初始数据如下
+表中与引擎连接器相关的初始数据如下
 
 ```sql
 -- set variable
@@ -228,7 +228,7 @@ INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, 
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.endpoint', '/_sql', 'SQL 脚本调用的 Endpoint', '/_sql', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.sql.format', 'SQL 脚本调用的模板，%s 替换成 SQL 作为请求体请求Es 集群', '请求体', '{"query":"%s"}', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
 INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.es.headers.*', '客户端 Headers 配置', '客户端 Headers 配置', '无', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
-INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.engineconn.concurrent.limit', '引擎最大并发', '引擎最大并发', '100', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `engine_conn_type`, `is_hidden`, `is_advanced`, `level`, `treeName`) VALUES ('linkis.engineconn.concurrent.limit', '引擎连接器最大并发', '引擎连接器最大并发', '100', 'None', '', @ENGINE_NAME, 0, 0, 1, '数据源配置');
 
 -- key engine relation
 insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)

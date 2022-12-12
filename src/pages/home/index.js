@@ -9,6 +9,7 @@ export default function() {
 
   const language = isBrowser && location.pathname.indexOf('/zh-CN/') === 0 ? 'zh-CN' : 'en';
   const dataSource = config?.[language];
+
   return (
    <div>
      <div className="home-page slogan">

@@ -8,7 +8,7 @@ sidebar_position: 1
 ### 1.1 Linux服务器
 
 **硬件要求**  
-安装linkis 微服务近10个，至少3G内存。**每个微服务默认配置启动的jvm -Xmx 内存大小为 512M(内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大)
+安装linkis 微服务近10个，至少3G内存。每个微服务默认配置启动的jvm -Xmx 内存大小为 512M（内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大）
 
 
 ### 1.2 添加部署用户
@@ -43,7 +43,7 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ### 2.1 安装包准备
 
 - 方式1：从官网[下载地址](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main
-，下载对应的安装包(项目安装包和管理台安装包)
+，下载对应的安装包（项目安装包和管理台安装包）
 - 方式2：根据[Linkis 编译打包](../development/build)和[前端管理台编译](../development/build-console) 自行编译出项目安装包和管理台安装包
 
 上传安装包`apache-linkis-x.x.x-incubating-bin.tar.gz`后，进行解压安装包 
@@ -96,7 +96,7 @@ HIVE_META_PASSWORD=demo123    # HiveMeta元数据库的密码
 deployUser=hadoop #执行部署的用户，为 1.2 步骤给中创建的用户
 ```
 
-#### 基础目录配置(可选)
+#### 基础目录配置（可选）
 :::caution 注意
 根据实际情况确定是否需要调整，可以选择使用默认值
 :::
@@ -154,7 +154,7 @@ SPARK_CONF_DIR=/appcom/config/spark-config
 ```
 
 
-#### LDAP 登录配置(可选)
+#### LDAP 登录配置（可选）
 
 :::caution 注意
 默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
@@ -183,7 +183,7 @@ export SERVER_HEAP_SIZE="512M"
 LINKIS_HOME=/appcom/Install/LinkisInstall
 ```
 
-#### 无HDFS模式部署(可选 >1.1.2版本支持) 
+#### 无HDFS模式部署（可选 >1.1.2版本支持） 
 
 > 在没有HDFS 的环境中部署 Linkis 服务，以方便更轻量化的学习使用和调试。去HDFS模式部署不支持hive/spark/flink引擎等任务
 
@@ -199,7 +199,7 @@ export ENABLE_HIVE=false
 export ENABLE_SPARK=false
 ```
 
-#### kerberos 认证(可选)
+#### kerberos 认证（可选）
 
 > 默认 Linkis 未开启 kerberos 认证，如果使用的hive集群开启了 kerberos 模式认证，需要配置如下参数。
 
@@ -274,7 +274,7 @@ sh sbin/linkis-start-all.sh
 
 
 ### 3.6 检查服务是否正常启动 
-访问eureka服务页面(http://eurekaip:20303)，
+访问eureka服务页面（http://eurekaip:20303），
 默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动
 ![Linkis1.0_Eureka](./images/eureka.png)
 
@@ -534,7 +534,7 @@ hdfs dfs -chown hadoop:hadoop   /apps-data
 ### 8.3 登陆密码问题
 
 linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于
-`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
+`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`（>=1.0.3版本）
 
 ### 8.4 版本兼容性问题
 
@@ -570,12 +570,12 @@ lib -> /appcom/tmp/engineConnPublickDir/45bf0e6b-0fa5-47da-9532-c2a9f3ec764d/v00
 logs #引擎启动执行的相关日志  
 ```
 
-** step2：查看引擎的日志 **
+**step2：查看引擎的日志**
 ```shell script
 less logs/stdout  
 ```
 
-** step3：尝试手动执行脚本(如果需要) **  
+**step3：尝试手动执行脚本（如果需要）**  
 可以通过尝试手动执行脚本，进行调试
 ``` 
 sh -x engineConnExec.sh  

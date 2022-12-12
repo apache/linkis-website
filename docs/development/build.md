@@ -1,6 +1,6 @@
 ---
 title: How to Build
-sidebar_position: 1
+sidebar_position: 2.0
 ---
 
 ## 1. Preparation

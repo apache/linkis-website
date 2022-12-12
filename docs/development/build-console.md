@@ -1,6 +1,6 @@
 ---
 title: How to Build Console
-sidebar_position: 1.1
+sidebar_position: 3.0
 ---
 
 ## Start the process

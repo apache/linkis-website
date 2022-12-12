@@ -1,6 +1,6 @@
 ---
 title: Development & Debugging with Kubernetes
-sidebar_position: 2.1
+sidebar_position: 6.0
 ---
 
 ## Preface

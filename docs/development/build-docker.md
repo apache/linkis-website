@@ -1,6 +1,6 @@
 ---
 title: How to Build Docker Image
-sidebar_position: 1.2
+sidebar_position: 4.0
 ---
 
 ## Linkis Image Components

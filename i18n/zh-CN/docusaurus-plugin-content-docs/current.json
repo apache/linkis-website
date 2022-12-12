@@ -126,8 +126,8 @@
     "message": "管理台的使用",
     "description": "console manual"
   },
-  "sidebar.tutorialSidebar.category.Auth": {
-    "message": "Auth 认证"
+  "sidebar.tutorialSidebar.category.Security Authentication": {
+    "message": "安全认证"
   },
   "sidebar.tutorialSidebar.category.Service Architecture": {
     "message": "微服务架构",

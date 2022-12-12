@@ -1,5 +1,5 @@
 ---
-title: openLooKeng Engine
+title: OpenLooKeng Engine
 sidebar_position: 8
 ---
 
