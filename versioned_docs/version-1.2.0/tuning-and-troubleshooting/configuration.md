@@ -3,7 +3,7 @@ title:   Configurations
 sidebar_position: 1
 ---
 
-# Linkis1.0 Configurations
+# Linkis1.0 configuration
 
 > The configuration of Linkis1.0 is simplified on the basis of Linkis0.x. A public configuration file linkis.properties is provided in the conf directory to avoid the need for common configuration parameters to be configured in multiple microservices at the same time. This document will list the parameters of Linkis1.0 in modules.
 
@@ -32,7 +32,7 @@ sidebar_position: 1
 | wds.linkis.ldap.proxy.baseDN | None | LDAP baseDN address |
 | wds.linkis.ldap.proxy.userNameFormat | None | |
 
-### 1.3 Hadoop configuration parameters
+### 1.3 Hadoop configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -45,7 +45,7 @@ sidebar_position: 1
 | hadoop.config.dir | None | If not configured, it will be read from the environment variable HADOOP_CONF_DIR |
 | wds.linkis.hadoop.external.conf.dir.prefix | /appcom/config/external-conf/hadoop | hadoop additional configuration |
 
-### 1.4 Linkis RPC configuration parameters
+### 1.4 Linkis RPC configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -60,9 +60,9 @@ sidebar_position: 1
 | wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer Maximum Free Time |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Sender consumption queue maximum buffer number |
 
-## 2. Calculate governance configuration parameters
+## 2. Calculate governance configuration  
 
-### 2.1 Entrance configuration parameters
+### 2.1 Entrance configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -89,7 +89,7 @@ sidebar_position: 1
 | wds.linkis.sql.default.limit | 5000 | SQL default maximum return result set rows |
 
 
-### 2.2 EngineConn configuration parameters
+### 2.2 EngineConn configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -103,7 +103,7 @@ sidebar_position: 1
 | wds.linkis.engineconn.max.free.time | 1h | EngineConn's maximum free time |
 
 
-### 2.3 EngineConnManager configuration parameters
+### 2.3 EngineConnManager configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -115,7 +115,7 @@ sidebar_position: 1
 | wds.linkis.ecm.protected.engine.instances | 2 | Number of protected instances of ECM |
 | wds.linkis.engineconn.wait.callback.pid | 3s | Waiting time for EngineConn to return pid |
 
-### 2.4 LinkisManager configuration parameters
+### 2.4 LinkisManager configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -128,9 +128,9 @@ sidebar_position: 1
 | wds.linkis.rm.yarnqueue.memory.max | 450g | The maximum amount of memory per user in each engine's use queue |
 | wds.linkis.rm.yarnqueue.instance.max | 30 | The maximum number of applications launched by each user in the queue of each engine |
 
-### 3. Each engine configuration parameter
+### 3. Each engine configuration  
 
-#### 3.1 JDBC engine configuration parameters
+#### 3.1 JDBC engine configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -139,14 +139,14 @@ sidebar_position: 1
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | Maximum number of concurrent SQL executions |
 
 
-### 3.2 Python engine configuration parameters
+### 3.2 Python engine configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
 | pythonVersion | /appcom/Install/anaconda3/bin/python | Python command path |
 | python.path | None | Specify an additional path for Python, which only accepts shared storage paths |
 
-### 3.3 Spark engine configuration parameters
+### 3.3 Spark engine configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -154,9 +154,9 @@ sidebar_position: 1
 | PYSPARK_DRIVER_PYTHON | python | Python command path |
 | wds.linkis.server.spark-submit | spark-submit | spark-submit command path |
 
-## 4. PublicEnhancements configuration parameters
+## 4. PublicEnhancements configuration  
 
-### 4.1 BML configuration parameters
+### 4.1 BML configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -165,7 +165,7 @@ sidebar_position: 1
 | wds.linkis.bml.auth.token.value | BML-AUTH | Password-free token-value requested by BML |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | The prefix file path of the BML file stored on hdfs |
 
-### 4.2 Metadata configuration parameters
+### 4.2 Metadata configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -176,14 +176,14 @@ sidebar_position: 1
 | hive.meta.password | None | Password of the HiveMetaStore database |
 
 
-### 4.3 JobHistory configuration parameters
+### 4.3 JobHistory configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
 | wds.linkis.jobhistory.admin | None | The default Admin account is used to specify which users can view the execution history of everyone |
 
 
-### 4.4 FileSystem configuration parameters
+### 4.4 FileSystem configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -195,15 +195,15 @@ sidebar_position: 1
 | wds.linkis.workspace.resultset.download.maxsize.excel | 5000 | When the result set is downloaded as an Excel file, the number of downloads is limited |
 | wds.linkis.workspace.filesystem.get.timeout | 2000L | The maximum timeout period for requesting the underlying file system. (**If the performance of your HDFS or Linux machine is low, it is recommended to increase the check number appropriately**) |
 
-### 4.5 UDF configuration parameters
+### 4.5 UDF configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
 | wds.linkis.udf.share.path | /mnt/bdap/udf | The storage path of the shared UDF, it is recommended to set it to the HDFS path |
 
-## 5. MicroService configuration parameters
+## 5. MicroService configuration  
 
-### 5.1 Gateway configuration parameters
+### 5.1 Gateway configuration  
 
 | Parameter name | Default value | Description |
 | ------------------------- | ------- | --------------- --------------------------------------------|
@@ -221,9 +221,9 @@ sidebar_position: 1
 | wds.linkis.enable.gateway.auth | false | Whether to enable the Gateway IP whitelist mechanism |
 | wds.linkis.gateway.auth.file | auth.txt | IP whitelist storage file |
 
-## 6. DataSource and Metadata Service configuration parameters
+## 6. DataSource and Metadata Service configuration  
 
-### 6.1 MetaData Service configuration parameters
+### 6.1 MetaData Service configuration  
 
 |From Version| Parameter name                                           | Default value                                        | Description                                                  |
 |-------    | -------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ |
