@@ -55,9 +55,9 @@ sidebar_position: 1
 | 3 | `version` | 物料版本 | varchar(100) |  | YES |  |  |
 | 4 | `file_name` | 文件名 conf.zip/lib.zip | varchar(255) |  | YES |  |  |
 | 5 | `file_size` | 大小 byte | bigint(20) |  | NO |  | 0 |
-| 6 | `last_modified` |文件的md5值| bigint(20) |  | YES |  |  |
-| 7 | `bml_resource_id` | Owning system | varchar(100) |  | NO |  |  |
-| 8 | `bml_resource_version` | Resource owner | varchar(200) |  | NO |  |  |
+| 6 | `last_modified` |最新修改时间| bigint(20) |  | YES |  |  |
+| 7 | `bml_resource_id` | bml物料id  | varchar(100) |  | NO |  |  |
+| 8 | `bml_resource_version` | bml物料版本 | varchar(200) |  | NO |  |  |
 | 9 | `create_time` | created time | datetime |  | NO |  | CURRENT_TIMESTAMP |
 | 10 | `last_update_time` | updated time | datetime |  | NO |  | CURRENT_TIMESTAMP |
 
