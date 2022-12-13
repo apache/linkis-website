@@ -263,4 +263,4 @@ cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-modu
 
 #### (3)、查看服务是否正常
 1. 服务启动成功后您可以通过，安装前端管理台，来检验服务的正常性，[点击跳转管理台安装文档](web-install.md) 
-2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](../user-guide/overview.md)
+2. 您也可以通过Linkis用户手册来测试Linis是否能正常运行任务，[点击跳转用户手册](/user-guide/overview.md)
