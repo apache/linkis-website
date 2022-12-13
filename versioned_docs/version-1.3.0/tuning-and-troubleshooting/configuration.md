@@ -7,11 +7,11 @@ sidebar_position: 1
 
 Please note: This article only gives all the configuration parameters of Linkis that affect the running performance or depend on the environment. Many configuration parameters that do not need to be cared about by the user have been omitted. If the user is interested, you can browse the source code to view it.
 
-## 1 General configuration
+## 1 General Configuration
 
 The general configuration can be set in the global `linkis.properties`. One setting can take effect for each microservice.
 
-### 1.1 Global configuration  
+### 1.1 Global Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -22,7 +22,7 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.home | /appcom/Install/LinkisInstall | Linkis installation directory, if it does not exist, it will automatically get the value of LINKIS_HOME |
 | wds.linkis.httpclient.default.connect.timeOut | 50000 | Linkis HttpClient default connection timeout |
 
-### 1.2 LDAP configuration  
+### 1.2 LDAP Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -30,7 +30,7 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.ldap.proxy.baseDN | None | LDAP baseDN address |
 | wds.linkis.ldap.proxy.userNameFormat | None | |
 
-### 1.3 Hadoop configuration  
+### 1.3 Hadoop Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -43,7 +43,7 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | hadoop.config.dir | None | If not configured, it will be read from the environment variable HADOOP_CONF_DIR |
 | wds.linkis.hadoop.external.conf.dir.prefix | /appcom/config/external-conf/hadoop | hadoop extra configuration |
 
-### 1.4 Linkis RPC configuration  
+### 1.4 Linkis RPC Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -58,9 +58,9 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer maximum idle time |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Maximum buffer size of Sender consumption queue |
 
-## 2. Calculate governance configuration  
+## 2. Calculate Governance Configuration  
 
-### 2.1 Entrance configuration  
+### 2.1 Entrance Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -87,7 +87,7 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.sql.default.limit | 5000 | SQL default maximum number of returned result set rows |
 
 
-### 2.2 EngineConn configuration  
+### 2.2 EngineConn Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -101,7 +101,7 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.engineconn.max.free.time | 1h | Maximum idle time of EngineConn |
 
 
-### 2.3 EngineConnManager configuration
+### 2.3 EngineConnManager Configuration
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -113,7 +113,7 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.ecm.protected.engine.instances | 2 | Number of protected instances of ECM |
 | wds.linkis.engineconn.wait.callback.pid | 3s | Waiting time for EngineConn to return pid |
 
-### 2.4 LinkisManager configuration
+### 2.4 LinkisManager Configuration
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -127,9 +127,9 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.rm.yarnqueue.instance.max | 30 | The maximum number of applications launched by each user in the queue of each engine |
 
 
-## 3. Engine configuration  
+## 3. Engine Configuration  
 
-### 3.1 JDBC engine configuration  
+### 3.1 JDBC Engine Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -138,14 +138,14 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | Maximum number of parallel SQL executions |
 
 
-### 3.2 Python engine configuration  
+### 3.2 Python Engine Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | pythonVersion | /appcom/Install/anaconda3/bin/python | Python command path |
 | python.path | None | Specifies an additional path for Python, which only accepts shared storage paths |
 
-### 3.3 Spark engine configuration  
+### 3.3 Spark Engine Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -154,9 +154,9 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.server.spark-submit | spark-submit | spark-submit command path |
 
 
-## 4. PublicEnhancements configuration  
+## 4. PublicEnhancements Configuration  
 
-### 4.1 BML configuration  
+### 4.1 BML Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -165,7 +165,7 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.bml.auth.token.value | BML-AUTH | Password-free token-value for BML requests |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | Prefix file path where BML files are stored on hdfs |
 
-### 4.2 Metadata configuration  
+### 4.2 Metadata Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -176,14 +176,14 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | hive.meta.password | none | password for the HiveMetaStore database |
 
 
-### 4.3 JobHistory configuration  
+### 4.3 JobHistory Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.jobhistory.admin | None | The default Admin account, which is used to specify which users can view everyone's execution history |
 
 
-### 4.4 FileSystem configuration  
+### 4.4 FileSystem Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -195,15 +195,15 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.workspace.resultset.download.maxsize.excel | 5000 | When the result set is downloaded as an Excel file, the limited number of downloads |
 | wds.linkis.workspace.filesystem.get.timeout | 2000L | The maximum timeout for requests to the underlying filesystem. (**If the performance of your HDFS or Linux machine is low, it is recommended to increase the query number**) |
 
-### 4.5 UDF configuration  
+### 4.5 UDF Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.udf.share.path | /mnt/bdap/udf | Shared UDF storage path, it is recommended to set it to HDFS path |
 
-## 5. MicroService configuration  
+## 5. MicroService Configuration  
 
-### 5.1 Gateway configuration  
+### 5.1 Gateway Configuration  
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -221,9 +221,9 @@ The general configuration can be set in the global `linkis.properties`. One sett
 | wds.linkis.enable.gateway.auth | false | Whether to enable the Gateway IP whitelist mechanism |
 | wds.linkis.gateway.auth.file | auth.txt | IP whitelist storage file |
 
-## 6. Data source and metadata service configuration  
+## 6. Data Source And Metadata Service Configuration  
 
-### 6.1 Metadata service configuration  
+### 6.1 Metadata Service configuration  
 
 |Introduced Version| Parameter Name | Default Value | Description               |
 |-------| -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
@@ -240,9 +240,9 @@ The general configuration can be set in the global `linkis.properties`. One sett
 |v1.1.0 | wds.linkis.server.mdm.service.sql.socket.timeout | 6000 | Set the socket timeout time for the mysql service to open the mysql service |
 |v1.1.0 | wds.linkis.server.mdm.service.temp.location | /tmp/keytab | Set the local temporary storage path of the service, mainly to store the authentication files downloaded from the bml material service|
 
-## 7. Common scene parameters
+## 7. Common Scene Parameters
 
-### 7.1 Open test mode
+### 7.1 Open Test Mode
 The development process requires a password-free interface, which can be replaced or appended to `linkis.properties`
 
 | parameter name | default value | description                                                    |
@@ -268,21 +268,21 @@ Apache Linkis can access LDAP through parameters to achieve multi-user managemen
 | wds.linkis.ldap.proxy.baseDN | None | LDAP baseDN address |
 | wds.linkis.ldap.proxy.userNameFormat | None | |
 
-### 7.4 Turn off resource checking
+### 7.4 Turn Off Resource Checking
 Apache Linkis sometimes debugs exceptions when submitting tasks, such as: insufficient resources; you can replace or append this configuration in `linkis-cg-linkismanager.properties`.
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.manager.rm.request.enable | true | resource check |
 
-### 7.5 Turn on engine debugging
+### 7.5 Turn On Engine Debugging
 Apache Linkis EC can enable debugging mode, and this configuration can be replaced or added in `linkis-cg-linkismanager.properties`.
 
 | parameter name | default value | description                                                    |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.engineconn.debug.enable | false | Whether to enable engine debugging |
 
-### 7.6 Hive metadata configuration
+### 7.6 Hive Metadata Configuration
 The public-service service of Apache Linkis needs to read hive metadata; this configuration can be replaced or appended in `linkis-ps-publicservice.properties`.
 
 | parameter name | default value | description                                                    |
@@ -291,7 +291,7 @@ The public-service service of Apache Linkis needs to read hive metadata; this co
 | hive.meta.user | none | user of the HiveMetaStore database |
 | hive.meta.password | none | password for the HiveMetaStore database |
 
-### 7.7 Linkis database configuration
+### 7.7 Linkis Database Configuration
 Apache Linkis access uses Mysql as data storage by default, you can replace or append this configuration in `linkis.properties`.
 
 | parameter name | default value | description                                                    |
@@ -300,7 +300,7 @@ Apache Linkis access uses Mysql as data storage by default, you can replace or a
 | wds.linkis.server.mybatis.datasource.username | none | database user name, for example: root |
 | wds.linkis.server.mybatis.datasource.password | None | Database password, for example: root |
 
-### 7.8 Linkis Session cache configuration
+### 7.8 Linkis Session Cache Configuration
 Apache Linkis supports using redis for session sharing; this configuration can be replaced or appended in `linkis.properties`.
 
 | parameter name | default value | description                                                    |
@@ -312,7 +312,7 @@ Apache Linkis supports using redis for session sharing; this configuration can b
 
 
 
-### 7.9 Linkis module development configuration
+### 7.9 Linkis Module Development Configuration
 When developing Apache Linkis, you can use this parameter to customize the database, Rest interface, and entity objects of the loading module; you can modify it in `linkis-ps-publicservice.properties`, and use commas to separate multiple modules.
 
 | parameter name | default value | description                                                    |
@@ -322,7 +322,7 @@ When developing Apache Linkis, you can use this parameter to customize the datab
 | wds.linkis.server.mybatis.typeAliasesPackage | None | Entity alias scanning package, for example: org.apache.linkis.basedatamanager.server.domain |
 | wds.linkis.server.mybatis.BasePackage | None | Database dao layer scan, for example: org.apache.linkis.basedatamanager.server.dao |
 
-### 7.10 Linkis module development configuration
+### 7.10 Linkis Module Development Configuration
 This parameter can be used to customize the route of loading modules during Apache Linkis development; it can be modified in `linkis.properties`, and commas are used to separate multiple modules.
 
 | parameter name | default value | description                                                    |
