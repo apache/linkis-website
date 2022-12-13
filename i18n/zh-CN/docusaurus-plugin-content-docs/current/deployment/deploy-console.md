@@ -167,8 +167,6 @@ wds.linkis.admin.user= #用户
 wds.linkis.admin.password= #密码
 
 ```
-管理台使用指引见[使用手册](../user-guide/console-manual.md)
-
 
 ## 4 注意事项 
 
