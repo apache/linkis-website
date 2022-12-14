@@ -9,7 +9,7 @@ sidebar_position: 3
 
 Linkis defines a set of its own interface norms when interacting at the back and back end.
 
-If you are interested in interface specifications, please click here[to view interface norms](/1.3.1/development/development-specification/api)
+If you are interested in interface specifications, please click here[to view interface norms](/1.3.1/development/development-specification/api.md)
 
 ## 2 WebSocket Interface Summary
 

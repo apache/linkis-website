@@ -9,7 +9,7 @@ sidebar_position: 3
 
 Linkis在前后端进行交互的时候，定义了一套自己的接口规范。
 
-如果您对接口规范感兴趣，请点击这里[查看接口规范](1.3.1/development/development-specification/api)
+如果您对接口规范感兴趣，请点击这里[查看接口规范](1.3.1/development/development-specification/api.md)
 
 ## 2 WebSocket接口汇总
 
