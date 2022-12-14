@@ -9,7 +9,7 @@ sidebar_position: 1
 
 Linkis defines its own set of interface specifications when interacting between the front and back ends.
 
-If you are interested in the interface specification, please click here [view interface specification](/community/development-specification/api)
+If you are interested in the interface specification, please click here [view interface specification](/docs/1.3.1/development/development-specification/api)
 
 ## 2 How to achieve login-free
 

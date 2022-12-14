@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ## 1.Precautions
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**If you are using Linkis for the first time, you can ignore this chapter; if you are already a user of Linkis, it is recommended to read it before installing or upgrading：[Brief description of the difference between Linkis1.0 and Linkis0.X](architecture/difference-between-1.0-and-0.x.md)**.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**If you are using Linkis for the first time, you can ignore this chapter; if you are already a user of Linkis, it is recommended to read it before installing or upgrading：[Brief description of the difference between Linkis1.0 and Linkis0.X](../architecture/difference-between-1.0-and-0.x.md)**.
 
 ## 2. Service upgrade installation
 
@@ -15,7 +15,7 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;  If you need to keep 0.X data during the upgrade, you must select 1 to skip the table building statement (see the code below).
 
-&nbsp;&nbsp;&nbsp;&nbsp;  For the installation of Linkis1.0, please refer to [Quick Deployment Linkis1.0](deployment/deploy-quick.md)
+&nbsp;&nbsp;&nbsp;&nbsp;  For the installation of Linkis1.0, please refer to [Quick Deployment Linkis1.0](../deployment/deploy-quick.md)
 
 ```
 Do you want to clear Linkis table information in the database?
@@ -75,4 +75,4 @@ source linkis_configuration_dml.sql
 
 ## 4. Installation and startup Linkis1.0
 
-&nbsp;&nbsp;&nbsp;&nbsp;  Start Linkis 1.0  to verify whether the service has been started normally and provide external services. For details, please refer to: [Quick Deployment Linkis1.0](deployment/deploy-quick.md)
+&nbsp;&nbsp;&nbsp;&nbsp;  Start Linkis 1.0  to verify whether the service has been started normally and provide external services. For details, please refer to: [Quick Deployment Linkis1.0](../deployment/deploy-quick.md)

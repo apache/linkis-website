@@ -20,7 +20,7 @@ sidebar_position: 3
  - data：返回具体的数据。
  - message：返回请求的提示信息。如果status非0时，message返回的是错误信息，其中data有可能存在stack字段，返回具体的堆栈信息。 
  
-更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](/community/development-specification/api)
+更多关于 Linkis Restful 接口的规范，请参考：[Linkis Restful 接口规范](/docs/1.3.1/development/development-specification/api)
 
 ### 1. 提交执行
 
