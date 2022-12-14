@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ## 1.Precautions
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**If you are using Linkis for the first time, you can ignore this chapter; if you are already a user of Linkis, it is recommended to read it before installing or upgrading：[Brief description of the difference between Linkis1.0 and Linkis0.X](../architecture/difference-between-1.0-and-0.x.md)**.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**If you are using Linkis for the first time, you can ignore this chapter;**.
 
 ## 2. Service upgrade installation
 
