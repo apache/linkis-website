@@ -259,12 +259,13 @@ mvn --encrypt-password <apache password>
 从待发布分支拉取新分支作为待发布分支，如现在要发布$`{release_version}`版本，则从待发布分支拉取新分支`release-${release_version}-${condition_version}`，
 此后所有操作都在`release-${release_version}-${condition_version}`分支上进行。
 
-step1 基于待发布的开发分支，创建release-${release_version}-rcx分支
+#### 2.1.1 基于待发布的开发分支，创建release-${release_version}-rcx分支
 
 如当前开发的源码分支为dev-1.1.2，需要发布1.1.2的版本，创建分支：release-1.1.2-rc1
+
 ![image](https://user-images.githubusercontent.com/7869972/172558655-c734e37d-b005-4016-9821-e6ee047faf1e.png)
 
-step2 clone对应的release分支到本地 
+#### 2.1.2 clone对应的release分支到本地 
 ```shell script
 #-b release-1.12-rc1 指定clone分支  -c(config) 指定使用的配置  core.autocrlf=false 关闭自动换行符的转换 
 git clone -b release-1.1.2-rc1  -c core.autocrlf=false  git@github.com:apache/incubator-linkis.git 
@@ -858,9 +859,11 @@ On behalf of Apache Linkis(Incubating) community
 
 所有邮件存档都可以在[dev@linkis.apache.org](https://lists.apache.org/list.html?dev@linkis.apache.org) 查到，一个邮件线程，可以通过下方的[Permanent link to this email]
 获取到该邮件的可访问的url地址 
+
 ![image](https://user-images.githubusercontent.com/7869972/201943103-9add304d-ca25-4b78-8282-38424f73a28b.png)
 
 有些邮箱163/sina 回复时候 默认是带上中文“回复”会导致apache 邮件 识别为一封新线程邮件，需要修改配置。
+
 ![image](https://user-images.githubusercontent.com/7869972/201942374-5d9b7b93-5211-4c9b-be53-86c9b4ec7bfe.png)
 
 
@@ -961,12 +964,12 @@ Linkis Resources:
 
 ## 8 更新 Clutch Status 的信息
 
-step1 克隆状态记录的文件 
+### step1 克隆状态记录的文件 
 ```shell script
 svn co https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/
 ```
 
-step2 修改 linkis.xml 中的new信息
+### step2 修改 linkis.xml 中的new信息
 增加发布记录信息 
 ```shell script
 <section id="News">
@@ -981,7 +984,7 @@ step2 修改 linkis.xml 中的new信息
       </ul>
     </section>
 ```
-step3 更新提交后，信息会在这里呈现 
+### step3 更新提交后，信息会在这里呈现 
 
 https://incubator.apache.org/clutch/linkis.html
 
