@@ -70,12 +70,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           blogSidebarCount: 'ALL'
         },
-      community: {
-          // routeBasePath: '/',
-          path: 'community',
-          sidebarPath: require.resolve('./sidebars.js'),
-          sidebarCollapsible: true,
-            },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
         },
