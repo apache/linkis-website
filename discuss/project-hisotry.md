@@ -151,5 +151,5 @@ If so, for the toolkit installed by the yum command, it seems that the indirect 
 3. https://github.com/apache/incubator-linkis/blob/dev-1.3.0/linkis-dist/docker/ldh.Dockerfile
 
 Best Regards!
-Apache Linkis(Incubating)
+Apache Linkis
 Chen Xia

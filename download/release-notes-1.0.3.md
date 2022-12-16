@@ -3,7 +3,7 @@ title: Release Notes 1.0.3
 sidebar_position: 9
 --- 
 
-Apache Linkis(incubating) 1.0.3 includes all of [Project Linkis-1.0.3](https://github.com/apache/incubator-linkis/projects/13).
+Apache Linkis 1.0.3 includes all of [Project Linkis-1.0.3](https://github.com/apache/incubator-linkis/projects/13).
 
 This version is the first version of Linkis entering Apache incubation. It mainly completes the ASF infrastructure construction, including license improvement/package name modification, etc. In addition, features such as EngineConn support for Operators are added, and bugs in version 1.0.2 reported by the community are fixed.
 
@@ -103,4 +103,4 @@ Abbreviations:
 
 ## Credits 
 
-The release of Apache Linkis(incubating) 1.0.3 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors! 
+The release of Apache Linkis 1.0.3 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors! 

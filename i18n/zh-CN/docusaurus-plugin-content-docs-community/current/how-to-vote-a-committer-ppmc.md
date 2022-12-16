@@ -195,7 +195,7 @@ Hello Joe Bloggs,
         https://www.apache.org/licenses/#submitting
     
         3. When you transmit the completed iCLA, request 
-        to notify the Apache Linkis(Incubating) and choose a 
+        to notify the Apache Linkis and choose a 
         unique Apache ID. Look to see if your preferred 
         ID is already taken at 
         https://people.apache.org/committer-index.html
@@ -208,7 +208,7 @@ Hello Joe Bloggs,
 
     With the expectation of your acceptance, welcome!
 
-The Apache Linkis(Incubating) PPMC
+The Apache Linkis PPMC
 ```
 
 ### 2.6 接受邀请流程
@@ -222,9 +222,9 @@ The Apache Linkis(Incubating) PPMC
 Hello Apache Linkis PPMC,
 
 I accept the invitation.
-Thanks to the  Apache Linkis(Incubating) Community PPMC for
+Thanks to the  Apache Linkis Community PPMC for
 recognizing my work, I will continue to actively participate in the
-work of the  Apache Linkis(Incubating). Next, I will follow the
+work of the  Apache Linkis. Next, I will follow the
 instructions to complete the next steps: Signing and submitting iCLA
 and registering Apache ID.
 
@@ -289,7 +289,7 @@ Hi all:
     Welcome ${Candidate Name}, and please enjoy your journey.:)
 
 Thanks!
-The Apache Linkis(Incubating) PPMC
+The Apache Linkis PPMC
 ```
    
 到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PPMC。

@@ -3,7 +3,7 @@ title: Release Notes 1.3.1-RC1
 sidebar_position: 0.16
 ---
 
-Apache Linkis(incubating) 1.3.1 includes all [Project Linkis-1.3.0](https://github.com/apache/incubator-linkis/projects/23).
+Apache Linkis 1.3.1 includes all [Project Linkis-1.3.0](https://github.com/apache/incubator-linkis/projects/23).
 
 Linkis 1.3.1 mainly supports Trino engine and SeaTunnel engine. Added management console data source management module. And enhanced data sources, including oracle, kingbase, postgresql, sqlserver, db2, greenplum, dm.
 
@@ -73,5 +73,5 @@ abbreviation:
 + \[EC][LINKIS-3552](https://github.com/apache/incubator-linkis/pull/3552) fix ES EC actuator directory
 
 ## Acknowledgments
-The release of Apache Linkis(incubating) 1.3.1 is inseparable from the contributors of the Linkis community, thanks to all community contributors, including but not limited to the following Contributors (in no particular order):
+The release of Apache Linkis 1.3.1 is inseparable from the contributors of the Linkis community, thanks to all community contributors, including but not limited to the following Contributors (in no particular order):
 AaronLinOops, Alexkun, jacktao007, legendtkl, peacewong, casionone, QuintinTao, cydenghua, jackxu2011, ruY9527, huiyuanjjjjuice, binbinCheng, yyuser5201314, Beacontownfc, duhanmin, whiterxine, aiceflower, weipengfei-sj, zhaoyun006, CCweixiao, Beacontownfc, mayinrain

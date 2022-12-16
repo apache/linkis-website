@@ -3,7 +3,7 @@ title: Release Notes 1.1.3
 sidebar_position: 0.2
 ---
 
-Apache Linkis(incubating) 1.1.3 includes all of [Project Linkis-1.1.3](https://github.com/apache/incubator-linkis/projects/19).
+Apache Linkis 1.1.3 includes all of [Project Linkis-1.1.3](https://github.com/apache/incubator-linkis/projects/19).
 
 
 This release mainly integrates Prometheus to provide the basic capability of monitoring on linkis microservice; add task retries parameter for task submission; add records for the relationship between tasks and execution EC; Flink engine supports downloading Yarn logs to EC log directory; front-end page Support watermark; upgrade some security vulnerability components, etc.; fix known bugs reported by the community.
@@ -76,4 +76,4 @@ Abbreviations:
 * \[Common][[Linkis-2182]](https://github.com/apache/incubator-linkis/pull/2182) Bump gson:2.8.5 to gson:2.8.9
 
 ## Thanks
-The release of Apache Linkis(incubating) 1.1.3 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order): Alexkun, CCweixiao, Davidhua1996, QuintinTao, caseone, det101 , doroxinrui, huiyuanjjjjuice, husofskyzy, hzdhgf, jackxu2011, legendtkl, liuyou2, peacewong, pjfanning, ruY9527, saLeox, seayi, wForget, wallezhang, yyuser5201314
+The release of Apache Linkis 1.1.3 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order): Alexkun, CCweixiao, Davidhua1996, QuintinTao, caseone, det101 , doroxinrui, huiyuanjjjjuice, husofskyzy, hzdhgf, jackxu2011, legendtkl, liuyou2, peacewong, pjfanning, ruY9527, saLeox, seayi, wForget, wallezhang, yyuser5201314

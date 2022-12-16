@@ -3,7 +3,7 @@ title: Release Notes 1.3.1-RC1
 sidebar_position: 0.16
 ---
 
-Apache Linkis(incubating) 1.3.1 包括所有 [Project Linkis-1.3.0](https://github.com/apache/incubator-linkis/projects/23).
+Apache Linkis 1.3.1 包括所有 [Project Linkis-1.3.0](https://github.com/apache/incubator-linkis/projects/23).
 
 Linkis 1.3.1 版本主要支持 Trino 引擎 和 SeaTunnel 引擎。增加了管理台数据源管理模块。并且对数据源进行了增强，包括 oracle、kingbase、 postgresql、sqlserver、db2、greenplum、dm. 
 
@@ -73,5 +73,5 @@ Linkis 1.3.1 版本主要支持 Trino 引擎 和 SeaTunnel 引擎。增加了管
 + \[EC][LINKIS-3552](https://github.com/apache/incubator-linkis/pull/3552) 修复 ES EC 的执行器目录
 
 ## 致谢
-Apache Linkis(incubating) 1.3.1 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不发先后）:
+Apache Linkis 1.3.1 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不发先后）:
 AaronLinOops, Alexkun, jacktao007, legendtkl, peacewong, casionone, QuintinTao, cydenghua, jackxu2011, ruY9527, huiyuanjjjjuice, binbinCheng, yyuser5201314, Beacontownfc, duhanmin, whiterxine, aiceflower, weipengfei-sj, zhaoyun006, CCweixiao, Beacontownfc, mayinrain

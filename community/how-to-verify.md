@@ -228,7 +228,6 @@ $ tar -xvf  apache-linkis-${release_version}-incubating-bin.tar.gz -C  apache-li
 $ cd apache-linkis-${release_version}-incubating-bin
 ```
 and check as follows:
-- [ ] Folder contains the word `incubating`
 - [ ] There are `LICENSE` and `NOTICE` files
 - [ ] There is a `DISCLAIMER` or `DISCLAIMER-WIP` file
 - [ ] The year in the `NOTICE` file is correct

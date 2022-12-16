@@ -207,7 +207,6 @@ $ npm install
 进行如下检查:
 
 - [ ] 检查源码包是否包含由于包含不必要文件，致使tar包过于庞大
-- [ ] 文件夹包含单词`incubating`
 - [ ] 存在`LICENSE`和`NOTICE`文件
 - [ ] 存在`DISCLAIMER`或`DISCLAIMER-WIP`文件
 - [ ] `NOTICE`文件中的年份正确
@@ -231,7 +230,6 @@ $ cd apache-linkis-${release_version}-incubating-bin
 ```
 
 进行如下检查：
-- [ ] 文件夹包含单词`incubating`
 - [ ] 存在`LICENSE`和`NOTICE`文件
 - [ ] 存在`DISCLAIMER`或`DISCLAIMER-WIP`文件
 - [ ] `NOTICE`文件中的年份正确

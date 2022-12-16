@@ -3,7 +3,7 @@ title: Release Notes 1.3.0
 sidebar_position: 0.17
 ---
 
-Apache Linkis(incubating) 1.3.0 includes all [Project Linkis-1.3.0](https://github.com/apache/incubator-linkis/projects/14).
+Apache Linkis 1.3.0 includes all [Project Linkis-1.3.0](https://github.com/apache/incubator-linkis/projects/14).
 
 The release of Linkis 1.3.0 mainly merge some services in the PES(Public Enhancement Services) service group; 
 SSO login session information supports redis memory shared storage, and supports distributed deployment of gateway services;
@@ -76,6 +76,6 @@ abbreviation:
 + \[EC][[LINKIS-3298]](https://github.com/apache/incubator-linkis/pull/3298) fix EC indicator update delay
 
 ## Thanks
-The release of Apache Linkis(incubating) 1.3.0 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order):
+The release of Apache Linkis 1.3.0 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order):
 AaronLinOops, Alexkun, jacktao007, legendtkl, peacewong, casionone, QuintinTao, cydenghua, jackxu2011, ruY9527, huiyuanjjjjuice,
 binbinCheng, yyuser5201314, Beacontownfc, duhanmin, whiterxine, aiceflower, weipengfei-sj, zhaoyun006, CCweixiao, Beacontownfc, mayinrain

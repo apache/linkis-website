@@ -3,7 +3,7 @@ title: Release Notes 1.1.1
 sidebar_position: 7
 ---
 
-Apache Linkis(incubating) 1.1.1 includes all of [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18).
+Apache Linkis 1.1.1 includes all of [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18).
 
 
 This release mainly supports the functions of UDF multi-version control and UDF storage to BML; the submission task supports the collection and viewing of Yarn queue resource usage statistics; new support for the data virtualization engine openLooKeng; and known bugs reported by the community are fixed.
@@ -79,4 +79,4 @@ abbreviation:
 
 ## Credits 
 
-The release of Apache Linkis(incubating) 1.1.1 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors: AbnerHung, Alexkun, barry8023, CCweixiao, Davidhua1996, Fuu3214, Liveipool, casinoone, demonray , husofskyzy, jackxu2011, legendtkl, lizheng920625, maidangdang44, peacewong, seedscoder
+The release of Apache Linkis 1.1.1 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors: AbnerHung, Alexkun, barry8023, CCweixiao, Davidhua1996, Fuu3214, Liveipool, casinoone, demonray , husofskyzy, jackxu2011, legendtkl, lizheng920625, maidangdang44, peacewong, seedscoder

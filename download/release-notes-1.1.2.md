@@ -3,7 +3,7 @@ title: Release Notes 1.1.2
 sidebar_position: 6
 ---
 
-Apache Linkis(incubating) 1.1.2 includes all of [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20).
+Apache Linkis 1.1.2 includes all of [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20).
 
 
 This release mainly supports simplified deployment in an environment without HDFS (supports some engines), which is convenient for more lightweight learning, use and debugging; new support for data migration tool Sqoop engine; exception handling log optimization; some security vulnerabilities Component upgrades, etc.; fix known bugs reported by the community
@@ -90,4 +90,4 @@ Abbreviations:
 * \[Web][[Linkis-2336]](https://github.com/apache/incubator-linkis/pull/2336) Introduce the dependency of the web component jsencrypt-3.2.1 as a login password encryption and decryption tool
 
 ## Thanks
-The release of Apache Linkis(incubating) 1.1.2 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order): Alexyang, Casion, David hua, GodfreyGuo, Jack Xu , Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, Li Wei
+The release of Apache Linkis 1.1.2 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following Contributors (in no particular order): Alexyang, Casion, David hua, GodfreyGuo, Jack Xu , Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, Li Wei

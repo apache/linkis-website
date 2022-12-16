@@ -541,7 +541,7 @@ git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确
 
 进入到创建页面 https://github.com/apache/incubator-linkis/releases/new
 基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc1`的tag，
-填写标题`Apache Linkis(incubating) Release-1.1.2-incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
+填写标题`Apache Linkis Release-1.1.2-incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
 
 ![image](https://user-images.githubusercontent.com/7869972/180214706-7228e5ae-f810-4e07-80fc-67fcf01688eb.png)
 
@@ -587,18 +587,18 @@ git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确
 
 #### 5.1.1 Linkis 社区投票模板
 
-参考示例:[\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/8j8f8vqotpg4f2kjwq3gg436vtx40p20)  
+参考示例:[\[VOTE\] Release Apache Linkis 1.1.2-RC2](https://lists.apache.org/thread/8j8f8vqotpg4f2kjwq3gg436vtx40p20)  
 https://lists.apache.org/thread/8j8f8vqotpg4f2kjwq3gg436vtx40p20
 
 ```html
 邮件标题：
-[VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+[VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 邮件正文：
 
 Hello Linkis Community,
 
-    This is a call for vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
+    This is a call for vote to release Apache Linkis version ${release_version}-${rc_version}.
 
 	Release notes:
 	    https://linkis.apache.org/download/release-notes-${release_version}
@@ -665,7 +665,7 @@ ${Linkis Release Manager}
 
 ```html
 邮件标题：
-[CANCEL][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+[CANCEL][VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 邮件正文：
 Hello Linkis Community,
@@ -687,11 +687,11 @@ ${Linkis Release Manager}
 
 #### 5.1.4 宣布投票结果模板
 
-参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3) https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3
+参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis 1.1.2-RC2](https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3) https://lists.apache.org/thread/gh1b1t3cjom8bq9o3xbntbjgrkp0vly3
 备注：该邮件thread地址，可以通过访问`https://lists.apache.org/list?dev@linkis.apache.org `这个页面查到（注意加载时间可能会比较长），然后选择相应邮件，点击进去后即可生成thread链接;
 ```html
 邮件标题：
-[RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+[RESULT][VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 邮件正文：
 Hello Apache Linkis PPMC and Community,
@@ -724,20 +724,20 @@ ${Linkis Release Manager}
 
 #### 5.2.1 Incubator 社区投票模板
 
-参考示例:[\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/9jr6hsf53jmwvnkh8nkt6spwcwc1q42j) https://lists.apache.org/thread/9jr6hsf53jmwvnkh8nkt6spwcwc1q42j
+参考示例:[\[VOTE\] Release Apache Linkis 1.1.2-RC2](https://lists.apache.org/thread/9jr6hsf53jmwvnkh8nkt6spwcwc1q42j) https://lists.apache.org/thread/9jr6hsf53jmwvnkh8nkt6spwcwc1q42j
 
 ```html
-邮件标题：[VOTE] Release Apache Linkis(Incubating) ${release_version} ${rc_version}
+邮件标题：[VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 邮件正文：
 
 Hello Incubator Community,
 
-    This is a call for a vote to release Apache Linkis(Incubating) version
+    This is a call for a vote to release Apache Linkis version
     ${release_version} ${rc_version}
 
     The Apache Linkis community has voted on and approved a proposal to release
-    Apache Linkis(Incubating) version ${release_version} ${rc_version}
+    Apache Linkis version ${release_version} ${rc_version}
 
     We now kindly request the Incubator PMC members review and vote on this
     incubator release.
@@ -776,7 +776,7 @@ Hello Incubator Community,
 
 
 Thanks,
-On behalf of Apache Linkis(Incubating) community
+On behalf of Apache Linkis community
 
 ```
 
@@ -792,7 +792,7 @@ this vote thread and the results will be tallied.
 
 Best wishes!
 
-Apache Linkis(Incubating) community
+Apache Linkis community
 ```
 
 #### 5.2.3 取消投票（如果需要取消） 
@@ -801,7 +801,7 @@ Apache Linkis(Incubating) community
 
 ```html
 邮件标题：
-[CANCEL][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+[CANCEL][VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 邮件正文：
 Hello Incubator Community,
@@ -816,20 +816,20 @@ Hello Incubator Community,
     
     Thanks a lot for all your help.
 
-Apache Linkis(Incubating) community
+Apache Linkis community
 ```
 
 
 #### 5.2.4 宣布投票结果模板
 
-参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis (Incubating) 1.1.2-RC2](https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63) https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63
+参考示例:[\[RESULT\]\[VOTE\] Release Apache Linkis 1.1.2-RC2](https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63) https://lists.apache.org/thread/l6xtpt8g1wxwnbotods11fzd1hkoqx63
 ```html
 邮件标题：[RESULT][VOTE] Release Apache Linkis ${release_version} {rc_version}
 
 邮件正文：
 Hi all
 
-Thanks for reviewing and voting for Apache Linkis(Incubating) ${release_version} {rc_version}
+Thanks for reviewing and voting for Apache Linkis ${release_version} {rc_version}
 release, I am happy to announce the release voting has passed with [投票结果数]
 binding votes, no +0 or -1 votes. Binding votes are from IPMC
 
@@ -841,11 +841,11 @@ The voting thread is:
 [Incubator社区投票链接]
 
 Many thanks for all our mentors helping us with the release procedure, and
-all IPMC helped us to review and vote for Apache Linkis(Incubating) release. I will
+all IPMC helped us to review and vote for Apache Linkis release. I will
 be working on publishing the artifacts soon.
 
 Thanks
-On behalf of Apache Linkis(Incubating) community
+On behalf of Apache Linkis community
 ```
 
 ### 5.3 其他 
@@ -853,7 +853,7 @@ On behalf of Apache Linkis(Incubating) community
 **因投票邮件内容有问题（非物料问题，如链接问题**
 
 - 如果发现得比较早，可以取消之前的投票，进行再次投票 ，如果已经进行比较久，可以由发布经理直接对投票邮件进行回复说明。 
-- RCX 可以保持不变,源码物料不做修改，邮件标题可以添加（Round2）区分 如`[VOTE] Release Apache Linkis (Incubating) 1.3.0-RC2 (Round2）`
+- RCX 可以保持不变,源码物料不做修改，邮件标题可以添加（Round2）区分 如`[VOTE] Release Apache Linkis 1.3.0-RC2 (Round2）`
 
 **邮件线程问题**
 
@@ -939,14 +939,14 @@ linkis的官网下载地址应该指向apache的官方地址
 发邮件到 `dev@linkis.apache.org` 、 `announce@apache.org`和`general@incubator.apache.org`
 ```html
 邮件标题：
-[ANNOUNCE] Apache Linkis (Incubating) ${release_version} available
+[ANNOUNCE] Apache Linkis ${release_version} available
 
 邮件正文：
 Hi all,
 
-Apache Linkis (Incubating) Team is glad to announce the new release of Apache Linkis (Incubating) ${release_version}.
+Apache Linkis Team is glad to announce the new release of Apache Linkis ${release_version}.
 
-Apache Linkis (Incubating) builds a computation middleware layer to decouple the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), while enables cross engine context sharing, unified job& engine governance and orchestration.
+Apache Linkis builds a computation middleware layer to decouple the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), while enables cross engine context sharing, unified job& engine governance and orchestration.
 
 Download Links: https://linkis.apache.org/download/main/
 
@@ -958,7 +958,7 @@ Linkis Resources:
 - Issue: https://github.com/apache/incubator-linkis/issues
 - Mailing list: dev@linkis.apache.org
 
-- Apache Linkis (Incubating) Team
+- Apache Linkis Team
 
 ```
 
