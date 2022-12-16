@@ -39,8 +39,8 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `inx_tid` | 将`ticket_id` 列设置为普通索引 | INDEX | `ticket_id` |
-| 2 | `uni_tid_lv` | 将`ticket_id`,`label_value`列设置为唯一索引 | UNIQUE KEY | `ticket_id`,`label_value` |
+| 1 | `idx_tid` | 将`ticket_id` 列设置为普通索引 | INDEX | `ticket_id` |
+| 2 | `uniq_tid_lv` | 将`ticket_id`,`label_value`列设置为唯一索引 | UNIQUE KEY | `ticket_id`,`label_value` |
 
 
 
@@ -135,7 +135,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_lk_lv` | 将`label_key`,`label_value` 列设置为唯一索引 | UNIQUE KEY | `label_key`,`label_value` |
+| 1 | `uniq_lk_lv` | 将`label_key`,`label_value` 列设置为唯一索引 | UNIQUE KEY | `label_key`,`label_value` |
 
 
 
@@ -164,7 +164,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_label_id` | 将`label_id` 列设置为唯一索引 | UNIQUE KEY | `label_id` |
+| 1 | `uniq_label_id` | 将`label_id` 列设置为唯一索引 | UNIQUE KEY | `label_id` |
 
 
 
@@ -194,7 +194,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_lid_instance` | 将`label_id`,`service_instance` 列设置为普通索引 |  INDEX | `label_id`,`service_instance` |
+| 1 | `idx_lid_instance` | 将`label_id`,`service_instance` 列设置为普通索引 |  INDEX | `label_id`,`service_instance` |
 
 
 
@@ -224,7 +224,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_lvk_lid` | 将`label_value_key`,`label_id` 列设置为唯一索引 | UNIQUE KEY | `label_value_key`,`label_id` |
+| 1 | `uniq_lvk_lid` | 将`label_value_key`,`label_id` 列设置为唯一索引 | UNIQUE KEY | `label_value_key`,`label_id` |
 
 
 
@@ -324,7 +324,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_instance` | 将`instance` 列设置为唯一索引 | UNIQUE KEY | `instance` |
+| 1 | `uniq_instance` | 将`instance` 列设置为唯一索引 | UNIQUE KEY | `instance` |
 
 
 
@@ -438,7 +438,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_token_name` | 将`token_name` 列设置为唯一索引 | UNIQUE KEY | `token_name` |
+| 1 | `uniq_token_name` | 将`token_name` 列设置为唯一索引 | UNIQUE KEY | `token_name` |
 
 
 
@@ -469,7 +469,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_name` | 将`name` 列设置为唯一索引 | UNIQUE KEY | `name` |
+| 1 | `uniq_name` | 将`name` 列设置为唯一索引 | UNIQUE KEY | `name` |
 
 
 
@@ -521,7 +521,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_name_pid` | 将`username`, `project_id` 列设置为唯一索引 | UNIQUE KEY | `username`, `project_id` |
+| 1 | `uniq_name_pid` | 将`username`, `project_id` 列设置为唯一索引 | UNIQUE KEY | `username`, `project_id` |
 
 
 
@@ -639,7 +639,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_rid_version` | 将`resource_id`, `version` 列设置为唯一索引 | UNIQUE KEY | `resource_id`, `version` |
+| 1 | `uniq_rid_version` | 将`resource_id`, `version` 列设置为唯一索引 | UNIQUE KEY | `resource_id`, `version` |
 
 
 
@@ -674,7 +674,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_lock_object` | 将`lock_object` 列设置为唯一索引 | UNIQUE KEY | `lock_object` |
+| 1 | `uniq_lock_object` | 将`lock_object` 列设置为唯一索引 | UNIQUE KEY | `lock_object` |
 
 
 **示例数据** 
@@ -689,7 +689,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_label_id` | 将`uni_label_id` 列设置为唯一索引 | UNIQUE INDEX | `uni_label_id` |
+| 1 | `uniq_label_id` | 将`label_id` 列设置为唯一索引 | UNIQUE INDEX | `label_id` |
 
 
 
@@ -750,7 +750,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_kid_lid` | 将 `config_key_id`, `config_label_id` 列设置为唯一索引 | UNIQUE INDEX | `config_key_id`, `config_label_id` |
+| 1 | `uniq_kid_lid` | 将 `config_key_id`, `config_label_id` 列设置为唯一索引 | UNIQUE INDEX | `config_key_id`, `config_label_id` |
 
 
 
@@ -780,7 +780,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_kid_lid` | 将`config_key_id`, `engine_type_label_id` 列设置为唯一索引 | UNIQUE INDEX | `config_key_id`, `engine_type_label_id` |
+| 1 | `uniq_kid_lid` | 将`config_key_id`, `engine_type_label_id` 列设置为唯一索引 | UNIQUE INDEX | `config_key_id`, `engine_type_label_id` |
 
 
 
@@ -802,7 +802,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `inx_keyword` | 将`keyword` 列设置为普通索引 | INDEX | `keyword` |
+| 1 | `idx_keyword` | 将`keyword` 列设置为普通索引 | INDEX | `keyword` |
 
 
 
@@ -837,9 +837,9 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `inx_instance` | 将`instance` 列设置为普通索引 | INDEX | `instance` |
-| 2 | `inx_backup_instance` | 将`backup_instance` 列设置为普通索引 | INDEX | `backup_instance` |
-| 3 | `inx_instance_bin` | 将`instance`(128),`backup_instance` 列设置为普通索引 | INDEX | `instance`(128),`backup_instance` |
+| 1 | `idx_instance` | 将`instance` 列设置为普通索引 | INDEX | `instance` |
+| 2 | `idx_backup_instance` | 将`backup_instance` 列设置为普通索引 | INDEX | `backup_instance` |
+| 3 | `idx_instance_bin` | 将`instance`(128),`backup_instance` 列设置为普通索引 | INDEX | `instance`(128),`backup_instance` |
 
 
 
@@ -895,8 +895,8 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_key_cid_ctype` | 将`key`,`context_id`,`context_type`列设置为唯一索引 | UNIQUE INDEX | `key`,`context_id`,`context_type` |
-| 2 | `inx_keywords` | 将`keywords`列设置为普通索引 |  INDEX | `keywords` |
+| 1 | `uniq_key_cid_ctype` | 将`key`,`context_id`,`context_type`列设置为唯一索引 | UNIQUE INDEX | `key`,`context_id`,`context_type` |
+| 2 | `idx_keywords` | 将`keywords`列设置为普通索引 |  INDEX | `keywords` |
 
 
 ## 33. linkis_ps_cs_context_map_listener
@@ -1031,7 +1031,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_db_name` | 将`database`,`name` 列设置为唯一索引 | UNIQUE INDEX |`database`,`name` |
+| 1 | `uniq_db_name` | 将`database`,`name` 列设置为唯一索引 | UNIQUE INDEX |`database`,`name` |
 
 
 
@@ -1112,8 +1112,8 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_env_name` | 将`env_name` 列设置为唯一索引 | UNIQUE KEY | `env_name` |
-| 2 | `uni_name_dtid` | 将`env_name`, `datasource_type_id` 列设置为唯一索引 | UNIQUE INDEX | `env_name`, `datasource_type_id` |
+| 1 | `uniq_env_name` | 将`env_name` 列设置为唯一索引 | UNIQUE KEY | `env_name` |
+| 2 | `uniq_name_dtid` | 将`env_name`, `datasource_type_id` 列设置为唯一索引 | UNIQUE INDEX | `env_name`, `datasource_type_id` |
 
 
 
@@ -1185,7 +1185,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_dstid_key` | 将`data_source_type_id`, `key` 列设置为唯一索引 | UNIQUE KEY | `data_source_type_id`, `key` |
+| 1 | `uniq_dstid_key` | 将`data_source_type_id`, `key` 列设置为唯一索引 | UNIQUE KEY | `data_source_type_id`, `key` |
 
 
 
@@ -1247,7 +1247,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_instance` | 将`instance` 列设置为唯一索引 | UNIQUE KEY | `instance` |
+| 1 | `uniq_instance` | 将`instance` 列设置为唯一索引 | UNIQUE KEY | `instance` |
 
 
 
@@ -1285,7 +1285,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_lk_lv` | 将`label_key`,`label_value` 列设置为唯一索引 | UNIQUE KEY | `label_key`,`label_value` |
+| 1 | `uniq_lk_lv` | 将`label_key`,`label_value` 列设置为唯一索引 | UNIQUE KEY | `label_key`,`label_value` |
 
 
 
@@ -1320,7 +1320,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_lid_instance` | 将`label_id`,`service_instance` 列设置为唯一索引 | UNIQUE KEY | `label_id`,`service_instance` |
+| 1 | `uniq_lid_instance` | 将`label_id`,`service_instance` 列设置为唯一索引 | UNIQUE KEY | `label_id`,`service_instance` |
 
 
 
@@ -1348,7 +1348,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_lvk_lid` | 将`label_value_key`,`label_id` 列设置为唯一索引 | UNIQUE KEY | `label_value_key`,`label_id` |
+| 1 | `uniq_lvk_lid` | 将`label_value_key`,`label_id` 列设置为唯一索引 | UNIQUE KEY | `label_value_key`,`label_id` |
 
 
 
@@ -1425,8 +1425,8 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `inx_created_time` | 将`created_time` 列设置为普通索引 | INDEX | `created_time` |
-| 2 | `inx_submit_user` | 将`submit_user` 列设置为普通索引 | INDEX | `submit_user` |
+| 1 | `idx_created_time` | 将`created_time` 列设置为普通索引 | INDEX | `created_time` |
+| 2 | `idx_submit_user` | 将`submit_user` 列设置为普通索引 | INDEX | `submit_user` |
 
 
 ## 52. linkis_ps_resources_download_history
@@ -1710,7 +1710,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `inx_aid` | 将`application_id` 列设置为普通索引 |  INDEX | `application_id` |
+| 1 | `idx_aid` | 将`application_id` 列设置为普通索引 |  INDEX | `application_id` |
 
 
 
@@ -1737,9 +1737,9 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `inx_key_id` | 将`key_id` 列设置为普通索引 | INDEX | `key_id` |
-| 2 | `uni_aid_kid_uname` | 将`application_id`,`key_id`,`user_name` 列设置为普通索引 | INDEX | `application_id`,`key_id`,`user_name` |
-| 3 | `inx_aid` | 将`application_id` 列设置为普通索引 | INDEX | `application_id` |
+| 1 | `idx_key_id` | 将`key_id` 列设置为普通索引 | INDEX | `key_id` |
+| 2 | `uniq_aid_kid_uname` | 将`application_id`,`key_id`,`user_name` 列设置为普通索引 | INDEX | `application_id`,`key_id`,`user_name` |
+| 3 | `idx_aid` | 将`application_id` 列设置为普通索引 | INDEX | `application_id` |
 
 ## 65.linkis_cg_user_ip_config
 
@@ -1758,7 +1758,7 @@ sidebar_position: 1
 
 | 序号 | 名称 | 描述 | 类型 | 字段 |
 | :--: | :--: | :--: | :--: | :--: |
-| 1 | `uni_user_creator` | 将`user`,`creator` 列设置为唯一索引 | UNIQUE KEY  | `user`,`creator` |
+| 1 | `uniq_user_creator` | 将`user`,`creator` 列设置为唯一索引 | UNIQUE KEY  | `user`,`creator` |
 
 
 ## 66.linkis_cg_tenant_label_config
