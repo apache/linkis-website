@@ -1,6 +1,6 @@
 ---
 title: 数据源功能
-sidebar_position: 6
+sidebar_position: 4
 ---
 
 > 介绍一下如何使用1.1.0版本的新特性功能数据源

@@ -1,5 +1,5 @@
 ---
-title: MetaData Manager Server 架构
+title: 元数据管理服务架构
 sidebar_position: 3
 ---
 ## 背景

@@ -1,6 +1,6 @@
 ---
-title: Seatunnel 引擎
-sidebar_position: 14
+title: Seatunnel
+sidebar_position: 13
 ---
 
 本文主要介绍在 `Linkis` 中，`Seatunnel` 引擎插件的安装、使用和配置。

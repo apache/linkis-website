@@ -1,6 +1,6 @@
 ---
 title: Linkis Client 架构设计
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 为用户提供向Linkis提交执行任务的轻量级客户端。

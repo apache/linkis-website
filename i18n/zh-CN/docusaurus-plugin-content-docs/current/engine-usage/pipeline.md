@@ -1,6 +1,6 @@
 ---
-title: Pipeline 引擎
-sidebar_position: 10
+title: Pipeline
+sidebar_position: 9
 ---
 `Pipeline` 主要是用来对文件进行导入和导出的。本文主要介绍在 `Linkis` 中， `Pipeline` 引擎插件的安装、使用和配置。
 

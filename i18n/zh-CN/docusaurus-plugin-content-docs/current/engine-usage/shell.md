@@ -1,6 +1,6 @@
 ---
-title: Shell 引擎
-sidebar_position: 6
+title: Shell
+sidebar_position: 4
 ---
 
 本文主要介绍在 `Linkis` 中， `Shell` 引擎插件的安装、使用和配置。

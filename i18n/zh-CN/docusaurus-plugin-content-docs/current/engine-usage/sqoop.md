@@ -1,6 +1,6 @@
 ---
-title: Sqoop 引擎
-sidebar_position: 9
+title: Sqoop
+sidebar_position: 8
 ---
 
 本文主要介绍在 `Linkis` 中， `Sqoop` 引擎插件的安装、使用和配置。

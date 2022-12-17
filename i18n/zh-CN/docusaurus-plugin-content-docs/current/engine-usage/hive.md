@@ -1,5 +1,5 @@
 ---
-title: Hive 引擎连接器
+title: Hive
 sidebar_position: 2
 ---
 

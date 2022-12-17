@@ -1,6 +1,6 @@
 ---
 title: LDAP
-sidebar_position: 0.1
+sidebar_position: 1
 ---
 
 TODO

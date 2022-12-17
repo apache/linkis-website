@@ -1,6 +1,6 @@
 ---
-title: ElasticSearch 引擎连接器
-sidebar_position: 11
+title: ElasticSearch
+sidebar_position: 10
 ---
 
 本文主要介绍在 `Linkis` 中，`ElasticSearch` 引擎连接器的安装、使用和配置。

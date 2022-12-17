@@ -1,6 +1,6 @@
 ---
-title: openLooKeng 引擎
-sidebar_position: 8
+title: openLooKeng
+sidebar_position: 7
 ---
 
 本文主要介绍在 `Linkis` `中，openLooKeng` 引擎插件的安装、使用和配置。
