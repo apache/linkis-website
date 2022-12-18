@@ -380,7 +380,6 @@ wds.linkis.admin.user= #用户
 wds.linkis.admin.password= #密码
 
 ```
-管理台使用指引见[使用手册](../user-guide/console-manual.md)
 
 ## 5. 验证基础功能
 >根据实际需求，验证对应的引擎任务
@@ -404,7 +403,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 ## 6 开发工具IDE（Scriptis）的安装(可选)
 >安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本
 
-详细指引见[工具Scriptis的安装部署](./install-scriptis)
+详细指引见[工具Scriptis的安装部署](integrated/install-scriptis)
 
 ## 7. 支持的引擎 
 
