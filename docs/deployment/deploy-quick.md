@@ -389,7 +389,6 @@ wds.linkis.admin.user= #User
 wds.linkis.admin.password= #Password
 
 ````
-Refer to the [User Manual](../user-guide/console-manual.md) for the usage guide of the console
 
 ## 5. Verify basic functionality
 >Verify the corresponding engine tasks according to actual needs
@@ -413,7 +412,7 @@ If the verification fails, please refer to [Step 8] for troubleshooting
 ## 6 Installation of development tool IDE (Scriptis) (optional)
 >After installing the Scripti tool, it can support writing SQL, Pyspark, HiveQL and other scripts online on the web page
 
-For detailed instructions, see [Installation and Deployment of Tool Scriptis](./install-scriptis)
+For detailed instructions, see [Installation and Deployment of Tool Scriptis](integrated/install-scriptis)
 
 ## 7. Supported Engines
 

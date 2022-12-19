@@ -60,7 +60,7 @@ We provide the following login-related interfaces:
 - data: return specific data.
 - message: return the requested prompt message. If the status is not 0, the message returns an error message, and the data may have a stack field, which returns specific stack information.
  
-For more information about the Linkis Restful interface specification, please refer to: [Linkis Restful Interface Specification](/community/development-specification/api)
+For more information about the Linkis Restful interface specification, please refer to: [Linkis Restful Interface Specification](../development/development-specification/api)
 
 ### 1). Login In
 

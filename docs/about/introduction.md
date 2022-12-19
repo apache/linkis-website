@@ -54,8 +54,9 @@ Please follow [Compile Guide](../development/build.md) to compile Linkis from so
 Please refer to [Deployment_Documents](../deployment/deploy-quick.md) to do the deployment. 
 
 ## Examples and Guidance
-You can find examples and guidance for how to use and manage Linkis in [User_Manual](../user-guide/overview.md), [engine-usage_Documents](../engine-usage/overview.md) and [API_Documents](../api/overview.md).
-
+- [Engine Usage Guidelines](../engine-usage/overview.md)
+- [API Documentation](../api/overview.md)
+- 
 ## Documentation
 
 The documentation of linkis is in [Linkis-WebSite](https://github.com/apache/incubator-linkis-website)
