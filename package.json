@@ -16,11 +16,11 @@
     "crowdin": "crowdin"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.6",
-    "@docusaurus/plugin-client-redirects": "2.0.0-beta.6",
-    "@docusaurus/plugin-content-docs": "2.0.0-beta.6",
-    "@docusaurus/preset-classic": "2.0.0-beta.6",
-    "@docusaurus/theme-search-algolia": "2.0.0-beta.6",
+    "@docusaurus/core": "2.2.0",
+    "@docusaurus/plugin-client-redirects": "2.2.0",
+    "@docusaurus/plugin-content-docs": "2.2.0",
+    "@docusaurus/preset-classic": "2.2.0",
+    "@docusaurus/theme-search-algolia": "2.2.0",
     "docusaurus-plugin-less": "^2.0.2",
     "lodash-es": "^4.17.21",
     "prism-react-renderer": "^1.2.1",
