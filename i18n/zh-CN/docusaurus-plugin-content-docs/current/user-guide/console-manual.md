@@ -25,7 +25,7 @@ Linkis计算治理台管理员可以通过linkis.properties中的下方参数配
 
 
 ## 2. 全局历史
->   ![](images/全局历史界面.png)
+>   ![](images/global-history-interface.png)
 
 全局历史界面提供了用户自身的linkis任务提交记录，各个任务的执行状态都可以在此显示，任务执行的失败原因也可以点击任务左侧的查看按钮查询
 
