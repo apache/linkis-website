@@ -1,6 +1,6 @@
 ---
 title: 总览
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 Linkis 1.0 将所有微服务总体划分为三大类：公共增强服务、计算治理服务、微服务治理服务。如下图所示为Linkis 1.0 的架构图。

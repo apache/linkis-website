@@ -1,6 +1,6 @@
 ---
 title: Entrance Architecture Design
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 The Links task submission portal is used to receive, schedule, forward execution requests, life cycle management services for computing tasks, and can return calculation results, logs, and progress to the caller. It is split from the Entrance of Linkis0.X Native capabilities.

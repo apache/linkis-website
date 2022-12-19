@@ -1,6 +1,6 @@
 ---
-title: JDBC 引擎
-sidebar_position: 7
+title: JDBC
+sidebar_position: 5
 ---
 
 本文主要介绍在 `Linkis` 中， `JDBC` 引擎插件的安装、使用和配置。

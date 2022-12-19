@@ -1,6 +1,6 @@
 ---
-title: Python 引擎
-sidebar_position: 5
+title: Python
+sidebar_position: 3
 ---
 
 本文主要介绍在 `Linkis` 中， `Python` 引擎插件的安装、使用和配置。

@@ -144,6 +144,16 @@
   "sidebar.tutorialSidebar.category.Advice Configuration": {
     "message": "建议配置",
     "description": "Linkis advice configuration"
-  }  
+  },
+  "sidebar.tutorialSidebar.category.LinkisManger Services": {
+    "message": "LinkisManger 服务",
+    "description": "LinkisManger Services"
+  },
+  "sidebar.tutorialSidebar.category.Entrance Services": {
+    "message": "Entrance 服务",
+    "description": "Entrance Services"
+  } 
+  
+  
   
 }

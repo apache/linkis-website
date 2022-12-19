@@ -1,6 +1,6 @@
 ---
 title: 分布式部署
-sidebar_position: 1.1
+sidebar_position: 2
 ---
 
 Linkis的单机部署方式简单，过多的进程在同一个服务器上会让服务器压力过大，生产环境为了保证服务的高可用，推荐使用分部署部署。 

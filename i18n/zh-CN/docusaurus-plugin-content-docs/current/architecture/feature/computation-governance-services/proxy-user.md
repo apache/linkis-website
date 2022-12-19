@@ -1,6 +1,6 @@
 ---
 title: Linkis 支持代理用户提交架构设计
-sidebar_position: 2
+sidebar_position: 6
 ---
 
 ## 1 背景

@@ -1,6 +1,6 @@
 ---
-title: Trino 引擎
-sidebar_position: 13
+title: Trino
+sidebar_position: 12
 ---
 
 本文主要介绍在 `Linkis` 中，`Trino` 引擎插件的安装、使用和配置。

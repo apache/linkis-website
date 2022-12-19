@@ -1,6 +1,6 @@
 ---
 title: 数据源 SDK
-sidebar_position: 7
+sidebar_position: 5
 ---
 
 > Linkis DataSource 提供了方便的JAVA和SCALA调用的Client SDK 接口，只需要引入linkis-datasource-client的模块就可以进行使用，

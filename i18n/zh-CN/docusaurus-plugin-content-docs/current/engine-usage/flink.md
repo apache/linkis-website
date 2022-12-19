@@ -1,6 +1,6 @@
 ---
-title: Flink 引擎连接器
-sidebar_position: 8
+title: Flink
+sidebar_position: 6
 ---
 
 # Flink 引擎使用文档

@@ -1,6 +1,6 @@
 ---
-title: PublicService 公共服务架构
-sidebar_position: 1
+title: 公共服务架构
+sidebar_position: 2
 ---
 ## **背景**
 
