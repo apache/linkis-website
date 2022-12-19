@@ -193,7 +193,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: "Privacy",
-              to: "https://www.apache.org/foundation/policies/privacy.html",
+              to: "https://privacy.apache.org/policies/privacy-policy-public.html",
             },
             {
               label: "Thanks",
