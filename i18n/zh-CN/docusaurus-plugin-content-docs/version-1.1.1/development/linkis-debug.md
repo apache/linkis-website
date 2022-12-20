@@ -488,7 +488,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 明确需要调试的包所在的服务，并根据需要调试的代码位置,确定其所属的服务
 
 ### 4.2 进入{LINKIS_HOME}/sbin/ext,修改模块配置文件开启远程调用端口
-![c-port](https://user-images.githubusercontent.com/29391030/167364775-4f5d2774-b6b9-4a65-b69c-69319db870c4.png)
+![c-port](images/c-port.png)
 
 ### 4.3 重启需要调试的服务
 
@@ -501,9 +501,9 @@ sh linkis-daemon.sh restart ps-publicservice
 ### 4.4 编译器配置远程调试
 
 如下图所示打开窗口并配置远程调试的端口,服务,以及模块  
-![c-debug](https://user-images.githubusercontent.com/29391030/167364896-29805938-157f-47a2-baf4-f52cb63c64d1.png)
+![c-debug](images/c-debug.png)
 
 ### 4.5 开始调试
 
 点击调试按钮,出现如下信息代表可以开始调试  
-![企业微信截图_16500167527083](https://user-images.githubusercontent.com/29391030/163559920-05aba3c3-b146-4f62-8e20-93f94a65158d.png)
+![debug](images/debug.png)

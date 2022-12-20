@@ -113,15 +113,15 @@ public class $testClass {
 #end
 
 ```
-![test-0](https://user-images.githubusercontent.com/29391030/155080741-7e6b89db-0ee6-48e1-a858-4123d5bbf2f0.png) 
+![test-0](../images/test-0.png) 
 
 1.配置配置测试类生成路径  
 原配置：${SOURCEPATH}/test/${PACKAGE}/${FILENAME}
 修改后配置：${SOURCEPATH}/../../test/java/${PACKAGE}/${FILENAME}
 如图：
-![test-1](https://user-images.githubusercontent.com/29391030/155080336-476feba6-2790-43b5-a572-ee0aa6a9586f.png)
+![test-1](../images/test-1.png)
 2.选择类——>右键——>Generate——>Junit Test，生成测试类  
-![test-2](https://user-images.githubusercontent.com/29391030/155080650-4fa68c66-5d7c-4e9f-ba63-0c7fc62d9df2.png)
+![test-2](../images/test-2.png)
 
 ## 2.单元测试准则
 ### 2.1 目录以及命名准则

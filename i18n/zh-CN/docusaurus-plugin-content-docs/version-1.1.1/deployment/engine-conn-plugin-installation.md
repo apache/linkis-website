@@ -177,6 +177,6 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 
 正常如下： 
-![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
+![bml](images/bml.png)
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。

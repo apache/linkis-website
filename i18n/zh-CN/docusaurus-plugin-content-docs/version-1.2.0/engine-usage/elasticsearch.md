@@ -111,7 +111,7 @@ INNER JOIN `linkis_cg_manager_label` label ON relation.engine_type_label_id = la
 ### 3.1 准备操作
 您需要配置ElasticSearch的连接信息，包括连接地址信息或用户名密码(如果启用)等信息。
 
-![ElasticSearch](https://user-images.githubusercontent.com/22620332/182787195-8051bf25-1e1e-47e5-ad88-4896278857f2.png)  
+![ElasticSearch](images/elasticSearch.png)  
 
 图3-1 ElasticSearch配置信息
 

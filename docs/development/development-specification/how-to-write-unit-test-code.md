@@ -120,7 +120,7 @@ public class $testClass {
 
 ```
 
-![test-0]( https://user-images.githubusercontent.com/29391030/155080741-7e6b89db-0ee6-48e1-a858-4123d5bbf2f0.png )
+![test-0](../images/test-0.png)
 
 1. Configure test class generation path  
 
@@ -128,12 +128,11 @@ public class $testClass {
    Modified configuration: ${sourcepath}/..//test/java/${PACKAGE}/${FILENAME}  
 
    As shown in the figure:  
-   ![test-1]( https://user-images.githubusercontent.com/29391030/155080336-476feba6-2790-43b5-a572-ee0aa6a9586f.png )
+   ![test-1](../images/test-1.png)
 
 2. Select class -> right click -> generate -> JUnit test to generate a test class
 
-   ![test-2]( https://user-images.githubusercontent.com/29391030/155080650-4fa68c66-5d7c-4e9f-ba63-0c7fc62d9df2.png )
-
+   ![test-2](../images/test-2.png)
 
 
 ## 2.Unit Test Criteria

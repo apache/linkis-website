@@ -478,7 +478,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 
 After logging in, check whether the yarn queue resources can be displayed normally (click the button in the lower right corner of the page) (the front end needs to be installed first)
 Normally as shown below:
-![yarn-normal](https://user-images.githubusercontent.com/7869972/159955494-2f305a38-a3d6-4798-83aa-58cde23bc436.png)
+![yarn-normal](images/yarn-normal.png)
 
 If it cannot be displayed: You can adjust it according to the following guidelines
 
@@ -522,7 +522,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 ````
 
 The normal is as follows:
-![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
+![bml](images/bml.png)
 
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).
 
@@ -563,7 +563,7 @@ less log/* |grep -5n exception (or less log/* |grep -5n ERROR)
 ** step1: Find the startup deployment directory of the engine **
 
 - Method 1: If it is displayed in the execution log, you can view it on the management console as shown below:
-![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
+  ![engine-log](images/engine-log.png)
 - Method 2: If it is not found in method 1, you can find the parameter `wds.linkis.engineconn.root.dir` configured in `conf/linkis-cg-engineconnmanager.properties`, which is the directory where the engine is started and deployed. Subdirectories are segregated by the user executing the engine
 
 ```shell script
@@ -626,7 +626,7 @@ For details, please refer to the CDH adaptation blog post
 - Method 1 can enable [Login-Free Mode Guide] (/docs/latest/api/login-api/#2 Login-Free Configuration)
 - In method 2 postman, the request header brings the cookie value of the successful login
   The cookie value can be obtained after successful login on the browser side
-  ![bml](https://user-images.githubusercontent.com/7869972/157619718-3afb480f-6087-4d5c-9a77-5e75c8cb4a3c.png)
+  ![bml](images/bml-cookie.png)
 
 ```shell script
 Cookie: bdp-user-ticket-id=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -645,10 +645,9 @@ First, follow the above steps to check whether the service/environment, etc. are
 Troubleshoot basic problems according to some of the scenarios listed above
 [QA documentation](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq) Find out if there is a solution, link: https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq
 See if you can find a solution by searching the content in the issue
-![issues](https://user-images.githubusercontent.com/29391030/156343419-81cc25e0-aa94-4c06-871c-bb036eb6d4ff.png)
+![issues](images/issues.png)   
 Through the official website document search, for some problems, you can search for keywords through the official website, such as searching for "deployment". (If 404 appears, please refresh your browser)
-![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)
-
+![search](images/search.png)
 
 ## 9. How to obtain relevant information
 Linkis official website documents are constantly improving, you can view/keyword search related documents on this official website.

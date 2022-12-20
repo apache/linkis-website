@@ -67,6 +67,6 @@ python的执行逻辑是通过 Py4j的方式，启动一个的python
 
 除了以上引擎配置，用户还可以进行自定义的设置，比如python的版本和以及python需要加载的一些module等。
 
-![python](https://user-images.githubusercontent.com/29391030/168045185-f25c61b6-8727-434e-8150-e13cc4a04ade.png)  
+![python](images/python.png)  
 
 图4-1 python的用户自定义配置管理台
