@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklinkis_web_apache=self.webpackChunklinkis_web_apache||[]).push([[15748],{90826:a=>{a.exports=JSON.parse('{"label":"linki1.1.1","permalink":"/blog/tags/linki-1-1-1","allTagsPath":"/blog/tags","count":2}')}}]);
