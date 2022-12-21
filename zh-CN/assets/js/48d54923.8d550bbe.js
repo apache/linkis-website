@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklinkis_web_apache=self.webpackChunklinkis_web_apache||[]).push([[22528],{41288:a=>{a.exports=JSON.parse('{"allTagsPath":"/zh-CN/blog/tags","slug":"/zh-CN/blog/tags/blog","name":"blog","count":4,"permalink":"/zh-CN/blog/tags/blog"}')}}]);
