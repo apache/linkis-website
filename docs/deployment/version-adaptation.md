@@ -1,6 +1,10 @@
-#  Version adaptation 
+#  Version Adaptation 
 
-### 1. Compilation instruction
+## 1. Function description
+
+Explain where manual modification is required for Apache, CDH, HDP and other version adaptations
+
+## 2. Compilation instruction
 
 Enter the root directory of the project and execute the following commands in sequence
 
@@ -9,7 +13,7 @@ mvn -N  install
 mvn clean install -Dmaven.test.skip=true
 ```
 
-### 2. SQL Script Switch
+## 3. SQL Script Switch
 
 linkis-dist -> package -> linkis-dml.sql(db folder)
 
@@ -32,7 +36,7 @@ SET @IO_FILE_LABEL="io_file-1.0";
 SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 ```
 
-## 3. Linkis official version
+## 4. Linkis official version
 
 | engine | version |
 | ------ | ------- |
@@ -41,9 +45,9 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 | spark  | 2.4.3   |
 | flink  | 1.12.2  |
 
-## 3. Apache version adaptation
+## 5. Apache version adaptation
 
-### 3.1 Apache3.1.x version
+### 5.1 Apache3.1.x version
 
 | engine | version |
 | ------ | ------- |
@@ -52,7 +56,7 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 | spark  | 3.0.1   |
 | flink  | 1.13.2  |
 
-#### 3.1.1 The pom file of linkis
+#### 5.1.1 The pom file of linkis
 
 ```xml
 <hadoop.version>3.1.1</hadoop.version>
@@ -67,7 +71,7 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 <dependency>
 ```
 
-#### 3.1.2  The pom file of linkis-hadoop-common
+#### 5.1.2  The pom file of linkis-hadoop-common
 
 ```xml
 <!-- Notice here <version>${hadoop.version}</version> , adjust according to whether you have encountered errors --> 
@@ -78,19 +82,19 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 </dependency>
 ```
 
-#### 3.1.3 The pom file of linkis-engineplugin-hive
+#### 5.1.3 The pom file of linkis-engineplugin-hive
 
 ```xml
 <hive.version>3.1.2</hive.version>
 ```
 
-#### 3.1.4 The pom file of linkis-engineplugin-spark
+#### 5.1.4 The pom file of linkis-engineplugin-spark
 
 ```xml
 <spark.version>3.0.1</spark.version>
 ```
 
-#### 3.1.5 The pom file of flink-engineconn-flink
+#### 5.1.5 The pom file of flink-engineconn-flink
 
 ```xml
 <flink.version>1.13.2</flink.version>
@@ -106,7 +110,7 @@ org.apache.flink.table.client.gateway.local.CollectBatchTableSink
 org.apache.flink.table.client.gateway.local.CollectStreamTableSink
 ```
 
-#### 3.1.6 linkis-label-commo adjustment
+#### 5.1.6 linkis-label-commo adjustment
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig  file adjustment
 
@@ -118,7 +122,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig  file adjustment
             CommonVars.apply("wds.linkis.hive.engine.version", "3.1.2");
 ```
 
-#### 3.1.7 linkis-computation-governance-common adjustment
+#### 5.1.7 linkis-computation-governance-common adjustment
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 
@@ -128,9 +132,9 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
   val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.2")
 ```
 
-## 4. HDP version adaptation
+## 6. HDP version adaptation
 
-### 4.1 HDP3.0.1 version
+### 6.1 HDP3.0.1 version
 
 | engine         | version |
 | -------------- | ------- |
@@ -139,7 +143,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 | spark          | 2.3.2   |
 | json4s.version | 3.2.11  |
 
-#### 4.1.1 The pom file of linkis
+#### 6.1.1 The pom file of linkis
 
 ```xml
 <hadoop.version>3.1.1</hadoop.version>
@@ -153,19 +157,19 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 <dependency>
 ```
 
-#### 4.1.2 The pom file of linkis-engineplugin-hive
+#### 6.1.2 The pom file of linkis-engineplugin-hive
 
 ```xml
 <hive.version>3.1.0</hive.version>
 ```
 
-#### 4.1.3 The pom file of linkis-engineplugin-spark
+#### 6.1.3 The pom file of linkis-engineplugin-spark
 
 ```xml
 <spark.version>2.3.2</spark.version>
 ```
 
-#### 4.1.4 linkis-label-common adjustment
+#### 6.1.4 linkis-label-common adjustment
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig file adjustment
 
@@ -177,7 +181,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig file adjustment
             CommonVars.apply("wds.linkis.hive.engine.version", "3.1.0");
 ```
 
-#### 4.1.5 linkis-computation-governance-common adjustment
+#### 6.1.5 linkis-computation-governance-common adjustment
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 
@@ -187,11 +191,11 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
   val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.0")
 ```
 
-## 5 CDH Version adaptation
+## 7 CDH Version adaptation
 
-### 5.1 maven Configure address
+### 7.1 maven Configure address
 
-#### 5.1.1 setting file
+#### 7.1.1 setting file
 
 ```xml
 <mirrors>
@@ -235,7 +239,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 </mirrors>
 ```
 
-#### 5.1.2 The pom file of linkis
+#### 7.1.2 The pom file of linkis
 
 ```xml
     <repositories>
@@ -257,7 +261,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
     </repositories>
 ```
 
-### 5.2 CDH5.12.1 version
+### 7.2 CDH5.12.1 version
 
 | engine    | version         |
 | --------- | --------------- |
@@ -268,7 +272,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 | flink     | 1.12.4          |
 | python    | python3         |
 
-#### 5.2.1 The pom file of linkis
+#### 7.2.1 The pom file of linkis
 
 ```xml
 <hadoop.version>2.6.0-cdh5.12.1</hadoop.version>
@@ -276,7 +280,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 <scala.version>2.11.8</scala.version>
 ```
 
-#### 5.2.2 The pom file of linkis-engineplugin-hive
+#### 7.2.2 The pom file of linkis-engineplugin-hive
 
 ```xml
 -- update
@@ -312,25 +316,25 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
      */
   ```
 
-#### 5.2.3  The pom file of linkis-engineplugin-flink
+#### 7.2.3  The pom file of linkis-engineplugin-flink
 
 ```xml
 <flink.version>1.12.4</flink.version>
 ```
 
-#### 5.2.4 The pom file of linkis-engineplugin-spark
+#### 7.2.4 The pom file of linkis-engineplugin-spark
 
 ```xml
 <spark.version>2.3.4</spark.version>
 ```
 
-#### 5.2.5 The pom file of linkis-engineplugin-python
+#### 7.2.5 The pom file of linkis-engineplugin-python
 
 ```xml
 <python.version>python3</python.version>
 ```
 
-#### 5.2.6 linkis-label-common adjustment
+#### 7.2.6 linkis-label-common adjustment
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig  file adjustment
 
@@ -344,7 +348,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig  file adjustment
 			CommonVars.apply("wds.linkis.python.engine.version", "python3")
 ```
 
-#### 5.2.7 linkis-computation-governance-common adjustment
+#### 7.2.7 linkis-computation-governance-common adjustment
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 
@@ -356,7 +360,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
   val PYTHON_ENGINE_VERSION = CommonVars("wds.linkis.python.engine.version", "python3")
 ```
 
-### 5.3 CDH6.3.2
+### 7.3 CDH6.3.2
 
 | engine | version        |
 | ------ | -------------- |
@@ -364,14 +368,14 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 | hive   | 2.1.1-cdh6.3.2 |
 | spark  | 3.0.0          |
 
-#### 5.3.1 The pom file of linkis
+#### 7.3.1 The pom file of linkis
 
 ```xml
 <hadoop.version>3.0.0-cdh6.3.2</hadoop.version> 
 <scala.version>2.12.10</scala.version>
 ```
 
-#### 5.3.2  The pom file of linkis-hadoop-common
+#### 7.3.2  The pom file of linkis-hadoop-common
 
 ```xml
    <!-- hadoop-hdfs replace with hadoop-hdfs-client --> 
@@ -381,7 +385,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
     </dependency>
 ```
 
-#### 5.3.3 The pom file of linkis-engineplugin-hive
+#### 7.3.3 The pom file of linkis-engineplugin-hive
 
 ```xml
 -- update
@@ -398,13 +402,13 @@ update assembly under distribution.xml file
 <outputDirectory>plugin/${package.hive.version}</outputDirectory>
 ```
 
-#### 5.3.4  The pom file of linkis-engineplugin-spark
+#### 7.3.4  The pom file of linkis-engineplugin-spark
 
 ```xml
 <spark.version>3.0.0</spark.version>
 ```
 
-#### 5.3.5 linkis-label-common adjustment
+#### 7.3.5 linkis-label-common adjustment
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig  file adjustment
 
@@ -416,7 +420,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig  file adjustment
             CommonVars.apply("wds.linkis.hive.engine.version", "2.1.1_cdh6.3.2");
 ```
 
-#### 5.3.6 linkis-computation-governance-common adjustment
+#### 7.3.6 linkis-computation-governance-common adjustment
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 
@@ -426,7 +430,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
   val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "2.1.1_cdh6.3.2")
 ```
 
-## 6 Compilation Skills
+## 8 Compilation Skills
 
 - If the class is missing or the method in the class is missing, find the corresponding package dependency, and how to try to switch to the version with the corresponding package or class
 -  If the engine version needs to use -, use _  to replace, add<package.(engine name).version>to specify the  replaced version, and use ${package.(engine name). version} in the  corresponding engine distribution file to replace the original

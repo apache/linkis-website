@@ -1,6 +1,10 @@
 # 版本适配
 
-### 1. 编译指令
+## 1. 功能说明
+
+针对Apache,CDH,HDP等版本适配需要手动修改的地方进行说明
+
+## 2. 编译指令
 
 进入到项目的根目录下,依次执行如下指令
 
@@ -9,7 +13,7 @@ mvn -N  install
 mvn clean install -Dmaven.test.skip=true
 ```
 
-### 2. SQL脚本切换
+## 3. SQL脚本切换
 
 linkis-dist -> package -> db 下的 linkis-dml.sql 脚本
 
@@ -32,7 +36,7 @@ SET @IO_FILE_LABEL="io_file-1.0";
 SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 ```
 
-## 3. Linkis官方版本
+## 4. Linkis官方版本
 
 | 引擎   | 版本   |
 | ------ | ------ |
@@ -41,9 +45,9 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 | spark  | 2.4.3  |
 | flink  | 1.12.2 |
 
-## 3. Apache版本适配
+## 5. Apache版本适配
 
-### 3.1 Apache3.1.x版本
+### 5.1 Apache3.1.x版本
 
 | 引擎   | 版本   |
 | ------ | ------ |
@@ -52,7 +56,7 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 | spark  | 3.0.1  |
 | flink  | 1.13.2 |
 
-#### 3.1.1 linkis的pom文件
+#### 5.1.1 linkis的pom文件
 
 ```java
 <hadoop.version>3.1.1</hadoop.version>
@@ -67,7 +71,7 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 <dependency>
 ```
 
-#### 3.1.2 linkis-hadoop-common的pom文件
+#### 5.1.2 linkis-hadoop-common的pom文件
 
 ```java
 <!-- 注意这里的 <version>${hadoop.version}</version> , 根据你有没有遇到错误来进行调整 --> 
@@ -78,19 +82,19 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 </dependency>
 ```
 
-#### 3.1.3 linkis-engineplugin-hive的pom文件
+#### 5.1.3 linkis-engineplugin-hive的pom文件
 
 ```java
 <hive.version>3.1.2</hive.version>
 ```
 
-#### 3.1.4 linkis-engineplugin-spark的pom文件
+#### 5.1.4 linkis-engineplugin-spark的pom文件
 
 ```java
 <spark.version>3.0.1</spark.version>
 ```
 
-#### 3.1.5 flink-engineconn-flink的pom文件
+#### 5.1.5 flink-engineconn-flink的pom文件
 
 ```java
 <flink.version>1.13.2</flink.version>
@@ -106,7 +110,7 @@ org.apache.flink.table.client.gateway.local.CollectBatchTableSink
 org.apache.flink.table.client.gateway.local.CollectStreamTableSink
 ```
 
-#### 3.1.6 linkis-label-common调整
+#### 5.1.6 linkis-label-common调整
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
 
@@ -118,7 +122,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
             CommonVars.apply("wds.linkis.hive.engine.version", "3.1.2");
 ```
 
-#### 3.1.7 linkis-computation-governance-common调整
+#### 5.1.7 linkis-computation-governance-common调整
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 
@@ -128,9 +132,9 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
   val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.2")
 ```
 
-## 4. HDP版本适配
+## 6. HDP版本适配
 
-### 4.1 HDP3.0.1版本
+### 6.1 HDP3.0.1版本
 
 | 引擎           | 版本   |
 | -------------- | ------ |
@@ -139,7 +143,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 | spark          | 2.3.2  |
 | json4s.version | 3.2.11 |
 
-#### 4.1.1 linkis的pom文件
+#### 6.1.1 linkis的pom文件
 
 ```java
 <hadoop.version>3.1.1</hadoop.version>
@@ -153,19 +157,19 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 <dependency>
 ```
 
-#### 4.1.2 linkis-engineplugin-hive的pom文件
+#### 6.1.2 linkis-engineplugin-hive的pom文件
 
 ```java
 <hive.version>3.1.0</hive.version>
 ```
 
-#### 4.1.3 linkis-engineplugin-spark的pom文件
+#### 6.1.3 linkis-engineplugin-spark的pom文件
 
 ```java
 <spark.version>2.3.2</spark.version>
 ```
 
-#### 4.1.4 linkis-label-common调整
+#### 6.1.4 linkis-label-common调整
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
 
@@ -177,7 +181,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
             CommonVars.apply("wds.linkis.hive.engine.version", "3.1.0");
 ```
 
-#### 4.1.5 linkis-computation-governance-common调整
+#### 6.1.5 linkis-computation-governance-common调整
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 
@@ -187,11 +191,11 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
   val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "3.1.0")
 ```
 
-## 5 CDH版本适配
+## 7 CDH版本适配
 
-### 5.1 maven配置地址
+### 7.1 maven配置地址
 
-#### 5.1.1 setting文件
+#### 7.1.1 setting文件
 
 ```xml
 <mirrors>
@@ -235,7 +239,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 </mirrors>
 ```
 
-#### 5.1.2 linkis的pom文件
+#### 7.1.2 linkis的pom文件
 
 ```xml
     <repositories>
@@ -257,7 +261,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
     </repositories>
 ```
 
-### 5.2 CDH5.12.1版本
+### 7.2 CDH5.12.1版本
 
 | 引擎      | 版本            |
 | --------- | --------------- |
@@ -268,7 +272,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 | flink     | 1.12.4          |
 | python    | python3         |
 
-#### 5.2.1 linkis的pom文件
+#### 7.2.1 linkis的pom文件
 
 ```xml
 <hadoop.version>2.6.0-cdh5.12.1</hadoop.version>
@@ -276,7 +280,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 <scala.version>2.11.8</scala.version>
 ```
 
-#### 5.2.2 linkis-engineplugin-hive的pom文件
+#### 7.2.2 linkis-engineplugin-hive的pom文件
 
 ```xml
 -- 修改
@@ -312,25 +316,25 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
      */
   ```
 
-#### 5.2.3 linkis-engineplugin-flink的pom文件
+#### 7.2.3 linkis-engineplugin-flink的pom文件
 
 ```xml
 <flink.version>1.12.4</flink.version>
 ```
 
-#### 5.2.4 linkis-engineplugin-spark的pom文件
+#### 7.2.4 linkis-engineplugin-spark的pom文件
 
 ```xml
 <spark.version>2.3.4</spark.version>
 ```
 
-#### 5.2.5 linkis-engineplugin-python的pom文件
+#### 7.2.5 linkis-engineplugin-python的pom文件
 
 ```xml
 <python.version>python3</python.version>
 ```
 
-#### 5.2.6 linkis-label-common调整
+#### 7.2.6 linkis-label-common调整
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
 
@@ -344,7 +348,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
 			CommonVars.apply("wds.linkis.python.engine.version", "python3")
 ```
 
-#### 5.2.7 linkis-computation-governance-common调整
+#### 7.2.7 linkis-computation-governance-common调整
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 
@@ -356,7 +360,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
   val PYTHON_ENGINE_VERSION = CommonVars("wds.linkis.python.engine.version", "python3")
 ```
 
-### 5.3 CDH6.3.2
+### 7.3 CDH6.3.2
 
 | 引擎   | 版本           |
 | ------ | -------------- |
@@ -364,14 +368,14 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 | hive   | 2.1.1-cdh6.3.2 |
 | spark  | 3.0.0          |
 
-#### 5.3.1 linkis的pom文件
+#### 7.3.1 linkis的pom文件
 
 ```xml
 <hadoop.version>3.0.0-cdh6.3.2</hadoop.version> 
 <scala.version>2.12.10</scala.version>
 ```
 
-#### 5.3.2 linkis-hadoop-common
+#### 7.3.2 linkis-hadoop-common
 
 ```xml
    <!-- 将hadoop-hdfs 切换 hadoop-hdfs-client --> 
@@ -381,7 +385,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
     </dependency>
 ```
 
-#### 5.3.3 linkis-engineplugin-hive的pom文件
+#### 7.3.3 linkis-engineplugin-hive的pom文件
 
 ```xml
 -- 修改
@@ -398,13 +402,13 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 <outputDirectory>plugin/${package.hive.version}</outputDirectory>
 ```
 
-#### 5.3.4 linkis-engineplugin-spark的pom文件
+#### 7.3.4 linkis-engineplugin-spark的pom文件
 
 ```xml
 <spark.version>3.0.0</spark.version>
 ```
 
-#### 5.3.5 linkis-label-common调整
+#### 7.3.5 linkis-label-common调整
 
 org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
 
@@ -416,7 +420,7 @@ org.apache.linkis.manager.label.conf.LabelCommonConfig 文件调整
             CommonVars.apply("wds.linkis.hive.engine.version", "2.1.1_cdh6.3.2");
 ```
 
-#### 5.3.6 linkis-computation-governance-common调整
+#### 7.3.6 linkis-computation-governance-common调整
 
 org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 
@@ -426,7 +430,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
   val HIVE_ENGINE_VERSION = CommonVars("wds.linkis.hive.engine.version", "2.1.1_cdh6.3.2")
 ```
 
-## 6 编译技巧
+## 8 编译技巧
 
 - 如果遇到类缺少或者类中方法缺少的情况下,找到对应引用这个包依赖,如何尝试切换到有对应包或者类的版本中来
 - 引擎版本如果需要使用到-的话,使用_来进行替换,并且加上<package.引擎名字.version>来指定替换后的版本,同时在对应的引擎distribution文件中使用${package.引擎名字.version}来替换原有的
