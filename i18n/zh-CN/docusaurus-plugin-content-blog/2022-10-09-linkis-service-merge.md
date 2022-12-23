@@ -359,4 +359,4 @@ if [ "$ENABLE_METADATA_QUERY" == "true" ]; then
 fi
 
 ```
-更多服务合并变动细节参见：https://github.com/apache/incubator-linkis/pull/2927/files
+更多服务合并变动细节参见：https://github.com/apache/linkis/pull/2927/files

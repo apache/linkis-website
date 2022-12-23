@@ -21,4 +21,4 @@ sidebar_position: 0.1
 |common | 修改  | spring.spring.cloud.config.enabled                   | false|                                |
 
 ## 数据库表变化 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.1.3_schema`文件
+详细见代码仓库(https://github.com/apache/linkis) 对应分支中的升级schema`db/upgrade/1.1.3_schema`文件

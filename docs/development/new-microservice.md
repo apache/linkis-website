@@ -200,7 +200,7 @@ linkis-new-microservice
 linkis-new-microservice
 
 [VM Opitons]
--DserviceName=linkis-new-microservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-new-microservice -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf 
 
 [main Class]
 org.apache.linkis.newmicroservice.server.LinkisNewmicroserviceApplication

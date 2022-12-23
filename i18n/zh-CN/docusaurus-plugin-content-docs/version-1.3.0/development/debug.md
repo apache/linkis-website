@@ -16,8 +16,8 @@ sidebar_position: 2
 ## 2. 准备代码并编译
 
 ```shell
-git clone git@github.com:apache/incubator-linkis.git
-cd incubator-linkis
+git clone git@github.com:apache/linkis.git
+cd linkis
 git checkout dev-1.2.0
 ```
 
@@ -29,7 +29,7 @@ mvn -N install
 mvn clean install -DskipTests
 ```
 
-编译命令运行成功之后，在目录incubator-linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-incubating-bin.tar.gz
+编译命令运行成功之后，在目录linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-incubating-bin.tar.gz
 
 ## 3. 配置并启动服务
 
@@ -104,14 +104,14 @@ linkis-eureka
 org.apache.linkis.eureka.SpringCloudEurekaApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
 ```
 
 注意调试配置中涉及到的本地路径，需要要修改成自己设置的路径；
-在Windows中路径书写规则是：D:\{YourPathPrefix}\incubator-linkis\linkis-dist\package\conf
+在Windows中路径书写规则是：D:\{YourPathPrefix}\linkis\linkis-dist\package\conf
 （针对以下微服务同样适用）
 
 如果不想默认的20303端口可以修改端口配置：
@@ -151,7 +151,7 @@ linkis-mg-gateway
 linkis-gateway-server-support
 
 [VM Opitons]
--DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
@@ -177,7 +177,7 @@ linkis-ps-publicservice
 linkis-public-enhancements
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf 
 
 [main Class]
 org.apache.linkis.filesystem.LinkisPublicServiceApp
@@ -223,7 +223,7 @@ linkis-cg-linkismanager
 linkis-application-manager
 
 [VM Opitons]
--DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.manager.am.LinkisManagerApplication
@@ -246,7 +246,7 @@ linkis-cg-entrance
 linkis-entrance
 
 [VM Opitons]
--DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\linkis\linkis-dist\package\conf
 
 [main Class]
 org.apache.linkis.entrance.LinkisEntranceApplication
@@ -269,7 +269,7 @@ linkis-cg-engineplugin
 linkis-engineconn-plugin-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
@@ -313,7 +313,7 @@ linkis-cg-engineconnmanager
 linkis-engineconn-manager-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
+-DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
 
 [main Class]
 org.apache.linkis.ecm.server.LinkisECMApplication
@@ -378,9 +378,9 @@ wds.linkis.engineconn.root.dir={YourPathPrefix}/linkis/data/engineconnRootDir
 #### 3.10.4 conf/linkis-cg-engineplugin.properties
 
 ```properties
-wds.linkis.engineconn.home={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.home={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
 
-wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
 ```
 
 这里两个配置主要为了指定引擎存储的根目录，指定为target/out的主要目的是，引擎相关代码或配置改动后可以直接重启engineplugin服务后生效。

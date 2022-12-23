@@ -16,8 +16,8 @@ sidebar_position: 2
 ## 2. Prepare the code and compile
 
 ```shell
-git clone git@github.com:apache/incubator-linkis.git
-cd incubator-linkis
+git clone git@github.com:apache/linkis.git
+cd linkis
 git checkout dev-1.2.0
 ````
 
@@ -29,7 +29,7 @@ mvn -N install
 mvn clean install -DskipTests
 ````
 
-After the compilation command runs successfully, the compiled installation package can be found in the directory incubator-linkis/linkis-dist/target/: apache-linkis-version-incubating-bin.tar.gz
+After the compilation command runs successfully, the compiled installation package can be found in the directory linkis/linkis-dist/target/: apache-linkis-version-incubating-bin.tar.gz
 
 ## 3. Configure and start the service
 
@@ -104,14 +104,14 @@ linkis-eureka
 org.apache.linkis.eureka.SpringCloudEurekaApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
 ````
 
 Note that the local path involved in the debugging configuration needs to be modified to the path set by yourself;
-The path writing rule in Windows is: D:\{YourPathPrefix}\incubator-linkis\linkis-dist\package\conf
+The path writing rule in Windows is: D:\{YourPathPrefix}\linkis\linkis-dist\package\conf
 (The same applies to the following microservices)
 
 If you don't want the default 20303 port, you can modify the port configuration:
@@ -151,7 +151,7 @@ linkis-mg-gateway
 linkis-gateway-server-support
 
 [VM Opitons]
--DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
@@ -177,7 +177,7 @@ linkis-ps-publicservice
 linkis-public-enhancements
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.filesystem.LinkisPublicServiceApp
@@ -223,7 +223,7 @@ linkis-cg-linkismanager
 linkis-application-manager
 
 [VM Opitons]
--DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.manager.am.LinkisManagerApplication
@@ -246,7 +246,7 @@ linkis-cg-entrance
 linkis-entrance
 
 [VM Opitons]
--DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\linkis\linkis-dist\package\conf
 
 [main Class]
 org.apache.linkis.entrance.LinkisEntranceApplication
@@ -269,7 +269,7 @@ linkis-cg-engineplugin
 linkis-engineconn-plugin-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
@@ -313,7 +313,7 @@ linkis-cg-engineconnmanager
 linkis-engineconn-manager-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
+-DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
 
 [main Class]
 org.apache.linkis.ecm.server.LinkisECMApplication
@@ -375,9 +375,9 @@ If you do not modify it, you may encounter an exception that the path does not e
 #### 3.10.4 conf/linkis-cg-engineplugin.properties
 
 ````properties
-wds.linkis.engineconn.home={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.home={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
 
-wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
 ````
 
 The two configurations here are mainly to specify the root directory of the engine storage, and the main purpose of specifying it as target/out is that after the engine-related code or configuration changes, the engineplugin service can be restarted directly to take effect.

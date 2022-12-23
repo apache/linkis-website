@@ -13,7 +13,7 @@
   },
   "link.item.label.Releases": {
     "message": "版本",
-    "description": "The label of footer link with label=Releases linking to https://github.com/apache/incubator-linkis/releases"
+    "description": "The label of footer link with label=Releases linking to https://github.com/apache/linkis/releases"
   },
   "link.title.Community": {
     "message": "社区",
@@ -21,16 +21,16 @@
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/apache/incubator-linkis"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/apache/linkis"
   },
   "link.item.label.Issue Tracker": {
     "message": "Issue Tracker",
-    "description": "The label of footer link with label=Issue Tracker linking to https://github.com/apache/incubator-linkis/issues"
+    "description": "The label of footer link with label=Issue Tracker linking to https://github.com/apache/linkis/issues"
   },
 
   "link.item.label.Pull Requests": {
     "message": "Pull Requests",
-    "description": "The label of footer link with label=Pull Requests linking to https://github.com/apache/incubator-linkis/pulls"
+    "description": "The label of footer link with label=Pull Requests linking to https://github.com/apache/linkis/pulls"
   },
 
   "link.title.Subscribe Mailing List": {

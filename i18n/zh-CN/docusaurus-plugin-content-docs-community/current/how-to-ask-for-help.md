@@ -11,9 +11,9 @@ sidebar_position: 0.1
 
 <!--
 ## Github-Discussion 提问 
-入口:https://github.com/apache/incubator-linkis/discussions
-提问模板:https://github.com/apache/incubator-linkis/discussions/2548
-step1: 查看模板以及注意事项和要求 https://github.com/apache/incubator-linkis/discussions/2548
+入口:https://github.com/apache/linkis/discussions
+提问模板:https://github.com/apache/linkis/discussions/2548
+step1: 查看模板以及注意事项和要求 https://github.com/apache/linkis/discussions/2548
 
 step2 拷贝模板内容
 -->
@@ -42,7 +42,7 @@ step2 拷贝模板内容
 :::
     
 ### 2.填写说明
-- 入口:https://github.com/apache/incubator-linkis/issues 
+- 入口:https://github.com/apache/linkis/issues 
 
 ** Step1:进入issue栏，点击创建issue **
 

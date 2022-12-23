@@ -13,7 +13,7 @@ sidebar_position: 4
 
 ## 1.2 源码获取
 
-- 方式1：从[github仓库](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis 获取项目的源代码。
+- 方式1：从[github仓库](https://github.com/apache/linkis) https://github.com/apache/linkis 获取项目的源代码。
 - 方式2：从[linkis的官方下载页面](https://linkis.apache.org/download/main) https://linkis.apache.org/download/main 下载所需版本的源码包。
 
 
@@ -24,7 +24,7 @@ sidebar_position: 4
 在终端命令行中执行以下指令：
 ```
 #进入项目WEB根目录
-$ cd incubator-linkis/web
+$ cd linkis/web
 #安装项目所需依赖
 $ npm install
 ```

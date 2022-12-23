@@ -268,7 +268,7 @@ mvn --encrypt-password <apache password>
 #### 2.1.2 clone对应的release分支到本地 
 ```shell script
 #-b release-1.12-rc1 指定clone分支  -c(config) 指定使用的配置  core.autocrlf=false 关闭自动换行符的转换 
-git clone -b release-1.1.2-rc1  -c core.autocrlf=false  git@github.com:apache/incubator-linkis.git 
+git clone -b release-1.1.2-rc1  -c core.autocrlf=false  git@github.com:apache/linkis.git 
 
 ```
 
@@ -396,7 +396,7 @@ $ cp  linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz   dist/apache
 在终端命令行中执行以下指令：
 ```
 #进入项目WEB根目录
-$ cd incubator-linkis/linkis-web
+$ cd linkis/linkis-web
 #安装项目所需依赖
 $ npm install
 ```
@@ -539,7 +539,7 @@ git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确
 
 **step1 创建新的 github release**
 
-进入到创建页面 https://github.com/apache/incubator-linkis/releases/new
+进入到创建页面 https://github.com/apache/linkis/releases/new
 基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc1`的tag，
 填写标题`Apache Linkis Release-1.1.2-incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
 
@@ -610,7 +610,7 @@ Hello Linkis Community,
         https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
 
 	Git tag for the release:
-	    https://github.com/apache/incubator-linkis/tree/${release_version}-${rc_version}
+	    https://github.com/apache/linkis/tree/${release_version}-${rc_version}
 
 	Keys to verify the Release Candidate:
 	    https://downloads.apache.org/incubator/linkis/KEYS
@@ -752,7 +752,7 @@ Hello Incubator Community,
         • https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
 
     Git tag for the release:
-        • https://github.com/apache/incubator-linkis/tree/${release_version}-${rc_version}
+        • https://github.com/apache/linkis/tree/${release_version}-${rc_version}
 
     Release notes:
         • https://linkis.apache.org/download/release-notes-${release_version}
@@ -929,7 +929,7 @@ linkis的官网下载地址应该指向apache的官方地址
 
 1. 合并`${release_version}-RC`分支到`master`分支(如果未合并)
 2. 打正式版本tag，投票过程中的RC版本tag可以移除
-3. 在 [GitHub Releases](https://github.com/apache/incubator-linkis/releases) 页面，更新版本号及版本说明等
+3. 在 [GitHub Releases](https://github.com/apache/linkis/releases) 页面，更新版本号及版本说明等
 
 
 ## 7 邮件通知版本发布完成
@@ -955,7 +955,7 @@ Release Notes: https://linkis.apache.org/download/release-notes-${release_versio
 Website: https://linkis.apache.org/
 
 Linkis Resources:
-- Issue: https://github.com/apache/incubator-linkis/issues
+- Issue: https://github.com/apache/linkis/issues
 - Mailing list: dev@linkis.apache.org
 
 - Apache Linkis Team

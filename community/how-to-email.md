@@ -54,14 +54,14 @@ Therefore, it is necessary to modify the configuration of the email reply. For d
 ** \[DISCUSS/Proposal] Mail **
 
 - Title `[DISCUSS][module name] XXXX` (if it is a specific module, it is recommended to bring the module name)
-- Generally, create a corresponding issue on Github's [issues column](https://github.com/apache/incubator-linkis/issues), and then initiate an email discussion
+- Generally, create a corresponding issue on Github's [issues column](https://github.com/apache/linkis/issues), and then initiate an email discussion
 - Briefly describe clearly the content of the discussion/proposal (eg: background/what problem you want to solve/how to solve it)
 - Modules involved (if one or two specific modules are involved)
 - Graphical and textual information such as relevant design instructions can be placed in the corresponding issue for easy modification, and the link can be quoted in the email.
 - The corresponding Chinese translation can be attached
 
 ** \[HELP] Mail**
-- Please confirm [QA documentation](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)/[issues](https://github.com/apache/incubator-linkis/issues) and [archived mail]( Is this question not included in https://lists.apache.org/list.html?dev@linkis.apache.org)
+- Please confirm [QA documentation](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)/[issues](https://github.com/apache/linkis/issues) and [archived mail]( Is this question not included in https://lists.apache.org/list.html?dev@linkis.apache.org)
 - Detailed description of the problems encountered
 - How to reproduce this problem
 - You can create a corresponding issue on git

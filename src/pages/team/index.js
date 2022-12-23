@@ -102,14 +102,14 @@ export default function() {
         </table>
 
         <h3 className="normal-title">
-          <a target="_blank" href="https://github.com/apache/incubator-linkis">Contributors of Apache Linkis</a>
+          <a target="_blank" href="https://github.com/apache/linkis">Contributors of Apache Linkis</a>
         </h3>
-        <Contributors repo="apache/incubator-linkis"/>
+        <Contributors repo="apache/linkis"/>
 
         <h3 className="normal-title">
-         <a target="_blank" href="https://github.com/apache/incubator-linkis-website">Contributors of Apache Linkis WebSite</a>
+         <a target="_blank" href="https://github.com/apache/linkis-website">Contributors of Apache Linkis WebSite</a>
          </h3>
-        <Contributors repo="apache/incubator-linkis-website"/>
+        <Contributors repo="apache/linkis-website"/>
 
       </div>
       </Layout>

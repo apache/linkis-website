@@ -26,13 +26,13 @@ It is strongly recommended to subscribe to the Apache mail to keep abreast of th
 
 
 ## Regular meetings held
-- [Meeting 1: 2022-01-19](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810585)
-- [Meeting 2: 2022-02-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810803) 
-- [Meeting 3: 2022-02-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810948)
-- [Meeting 4: 2022-03-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812549)
-- [Meeting 5: 2022-03-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812700)
-- [Meeting 6: 2022-04-06](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813196)
-- [Meeting 7: 2022-04-20](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813537)
-- [Meeting 8: 2022-05-11](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813976)
-- [Meeting 9: 2022-05-25](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1139226462)
+- [Meeting 1: 2022-01-19](https://github.com/apache/linkis/issues/2106#issuecomment-1124810585)
+- [Meeting 2: 2022-02-09](https://github.com/apache/linkis/issues/2106#issuecomment-1124810803) 
+- [Meeting 3: 2022-02-23](https://github.com/apache/linkis/issues/2106#issuecomment-1124810948)
+- [Meeting 4: 2022-03-09](https://github.com/apache/linkis/issues/2106#issuecomment-1124812549)
+- [Meeting 5: 2022-03-23](https://github.com/apache/linkis/issues/2106#issuecomment-1124812700)
+- [Meeting 6: 2022-04-06](https://github.com/apache/linkis/issues/2106#issuecomment-1124813196)
+- [Meeting 7: 2022-04-20](https://github.com/apache/linkis/issues/2106#issuecomment-1124813537)
+- [Meeting 8: 2022-05-11](https://github.com/apache/linkis/issues/2106#issuecomment-1124813976)
+- [Meeting 9: 2022-05-25](https://github.com/apache/linkis/issues/2106#issuecomment-1139226462)
 

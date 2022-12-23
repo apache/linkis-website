@@ -9,12 +9,12 @@ sidebar_position: 0
 
 ## 1. 社区Issue搜索关键词
 
-在[issue专栏](https://github.com/apache/incubator-linkis/issues), filter过滤器中搜索关键词。如：
+在[issue专栏](https://github.com/apache/linkis/issues), filter过滤器中搜索关键词。如：
 filter:`is:issue spark3`
 ![](/Images-zh/tuning-and-troubleshooting/issue-searching-keywords.png)
 
 <!--
-在[Disscuess的Q&A专栏](https://github.com/apache/incubator-linkis/discussions/categories/q-a) 中进行关键字搜索
+在[Disscuess的Q&A专栏](https://github.com/apache/linkis/discussions/categories/q-a) 中进行关键字搜索
 ![](/Images-zh/tuning-and-troubleshooting/disscues-searching-keywords.png)
 -->
 

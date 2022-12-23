@@ -42,7 +42,7 @@ Apache为每一个项目都配置了一系列的邮件列表，邮件列表作�
 
 ## 3. Issues相关
 
-> linkis的issues地址 [https://github.com/apache/incubator-linkis/issues](https://github.com/apache/incubator-linkis/issues)
+> linkis的issues地址 [https://github.com/apache/linkis/issues](https://github.com/apache/linkis/issues)
 
 对于新的问题/想法 可以通过new issues 来创建一个新的issues，尽可能将issues描述详细，方便社区人员跟进探讨解决。项目的任何问题都建议优先创建issues来记录跟进，这样能很好的保留存档整个过程，方便后续用户进行检索。
 

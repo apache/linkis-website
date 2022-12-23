@@ -13,7 +13,7 @@ sidebar_position: 0
    如果您想使用Hadoop、Hive、Spark的其他版本对Linkis进行编译，您可以进入Linkis源码包根目录，手动修改 pom.xml 文件相关版本信息，具体如下：
 
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     vim pom.xml
 ```
 
@@ -33,14 +33,14 @@ sidebar_position: 0
    (1) **如果您是本地第一次使用，必须在 Linkis 源码包根目录先执行以下命令**：
    
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn -N  install
 ```
 
    (2) 在Linkis 源码包根目录执行以下命令:
     
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn clean install
 ```  
 
@@ -57,7 +57,7 @@ sidebar_position: 0
 （1） **如果您是本地第一次使用，必须在 Linkis 源码包根目录先执行以下命令**：
    
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn -N  install
 ```
          

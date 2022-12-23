@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   // omit unrelated docusaurus options
   title: 'Apache Linkis',
   tagline: 'Apache Linkis',
-  url: 'https://linkis.incubator.apache.org',
+  url: 'https://linkis.apache.org',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
@@ -38,7 +38,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           sidebarCollapsible: true,
           editLocalizedFiles: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
+          editUrl: 'https://github.com/apache/linkis-website/edit/dev/',
           versions: {
             current: {
               path: '1.3.1',
@@ -58,9 +58,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             blogPath
           }) => {
             if (locale !== 'en') {
-              return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}`;
+              return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}`;
             }
-            return `https://github.com/apache/incubator-linkis-website/edit/dev/${blogDirPath}/${blogPath}`;
+            return `https://github.com/apache/linkis-website/edit/dev/${blogDirPath}/${blogPath}`;
           },
 
           postsPerPage: 5,
@@ -88,7 +88,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     },
     //     announcementBar: {
     //       id: 'announcementBar-2', // Increment on change
-    //       content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-linkis">GitHub</a>`,
+    //       content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/linkis">GitHub</a>`,
     //       backgroundColor: "#BBDFFF",
     //     },
     navbar: {
@@ -202,7 +202,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           ],
         },
         {
-          href: 'https://github.com/apache/incubator-linkis',
+          href: 'https://github.com/apache/linkis',
           'aria-label': 'GitHub',
           className: 'header-github-link',
           position: 'right',
@@ -227,7 +227,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: 'Releases',
-              href: 'https://github.com/apache/incubator-linkis/releases',
+              href: 'https://github.com/apache/linkis/releases',
             },
           ],
         },
@@ -235,15 +235,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           title: 'Community',
           items: [{
               label: 'GitHub',
-              href: 'https://github.com/apache/incubator-linkis',
+              href: 'https://github.com/apache/linkis',
             },
             {
               label: 'Issue Tracker',
-              href: 'https://github.com/apache/incubator-linkis/issues',
+              href: 'https://github.com/apache/linkis/issues',
             },
             {
               label: 'Pull Requests',
-              href: 'https://github.com/apache/incubator-linkis/pulls',
+              href: 'https://github.com/apache/linkis/pulls',
             },
           ],
         },
@@ -264,7 +264,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           ],
         },
       ],
-      copyright: `<div><img style="height:50px" alt="Apache Software Foundation" src="/img/incubator-logo.svg" /><p style="color: #999999;  padding: 0 20px 30px;font-weight:400;text-align:left">Apache Linkis is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p></p>
+      copyright: `<div><img style="height:50px" alt="Apache Software Foundation" src="/img/logo.svg" /><p style="color: #999999;  padding: 0 20px 30px;font-weight:400;text-align:left">Apache Linkis is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</p></p>
              <p style="padding: 0 20px 30px;color: #999999;font-weight: 400;"> Copyright © ${new Date().getFullYear()} The Apache Software Foundation. Licensed under the Apache License, Version 2.0. Apache Linkis, Apache Incubator, Apache, the Apache feather logo, the Apache Linkis logo and the Apache Incubator project logo are trademarks of The Apache Software Foundation.</p>
              <div>`,
     },
@@ -298,9 +298,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docPath
         }) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
       },
     ],
@@ -316,9 +316,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docPath
         }) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
       },
     ],
@@ -335,9 +335,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docPath
         }) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
       },
     ],
@@ -362,9 +362,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     //        routeBasePath: 'blog',
     //        editUrl: ({locale, versionDocsDirPath, docPath}) => {
     //          if (locale !== 'en') {
-    //            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+    //            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
     //          }
-    //          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+    //          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
     //        },
     //      },
     //    ],
@@ -377,9 +377,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     //        routeBasePath: 'blog',
     //        editUrl: ({locale, versionDocsDirPath, docPath}) => {
     //          if (locale !== 'en') {
-    //            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+    //            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
     //          }
-    //          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+    //          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
     //        },
     //      },
     //    ],

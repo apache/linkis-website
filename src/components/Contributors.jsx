@@ -9,7 +9,7 @@ export default (props) => {
     const [contributers, setContributers] = useState([]);
 
     useEffect(() => {
-       const repo = props.repo ?? 'apache/incubator-linkis';
+       const repo = props.repo ?? 'apache/linkis';
 
  /*      if (!contributers || contributers.length === 0) {
                     fetch(`https://api.github.com/repos/${repo}/contributors?page=1&per_page=10000`)
@@ -20,14 +20,14 @@ export default (props) => {
                     }).catch((response) => {
                         //use local contributors data
                         console.log(contributors)
-                        if(repo=="apache/incubator-linkis-website")
+                        if(repo=="apache/linkis-website")
                          setContributers(contributorsWebSite)
                         else
                          setContributers(contributors)
                     });
         }
 */
-      if(repo=="apache/incubator-linkis-website")
+      if(repo=="apache/linkis-website")
         setContributers(contributorsWebSite)
       else
         setContributers(contributors)

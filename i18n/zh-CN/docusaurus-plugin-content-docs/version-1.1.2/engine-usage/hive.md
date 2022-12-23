@@ -27,7 +27,7 @@ sidebar_position: 2
 Hive的版本是支持hive1.x和hive2.x，默认是支持hive on MapReduce，如果您想改成Hive
 on Tez，需要您按照此pr进行一下修改。
 
-<https://github.com/apache/incubator-linkis/pull/541>
+<https://github.com/apache/linkis/pull/541>
 
 默认支持的hive版本是1.2.1,如果您想修改hive的版本，比如想要修改成2.3.3，您可以找到linkis-engineplugin-hive模块，将\<hive.version\>标签进行改成2.3.3，然后单独编译此模块即可
 

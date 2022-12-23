@@ -11,9 +11,9 @@ Before asking for help, please take a moment to confirm that there are already q
 
 <!--
 ## Github-Discussion Questions
-Entry: https://github.com/apache/incubator-linkis/discussions
-Question template: https://github.com/apache/incubator-linkis/discussions/2548
-step1: Review the template and notes and requirements https://github.com/apache/incubator-linkis/discussions/2548
+Entry: https://github.com/apache/linkis/discussions
+Question template: https://github.com/apache/linkis/discussions/2548
+step1: Review the template and notes and requirements https://github.com/apache/linkis/discussions/2548
 
 step2 Copy the template content
 -->
@@ -42,7 +42,7 @@ The log file should not exceed 25MB
 :::
     
 ### 2.Completion instructions
-- Entry: https://github.com/apache/incubator-linkis/issues
+- Entry: https://github.com/apache/linkis/issues
 
 ** Step1: Enter the issue column, click to create issue **
 

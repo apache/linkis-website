@@ -40,7 +40,7 @@ The binary installation package released by `linkis` includes the `Hive` engine 
 
 The version of `Hive` supports `hive1.x` and `hive2.x`. The default is to support `hive on MapReduce`. If you want to change to `Hive on Tez`, you need to modify it according to this `pr`.
 
-<https://github.com/apache/incubator-linkis/pull/541>
+<https://github.com/apache/linkis/pull/541>
 
 The `hive` version supported by default is 2.3.3, if you want to modify the `hive` version, you can find the `linkis-engineplugin-hive` module, modify the \<hive.version\> tag, and then compile this module separately Can
 

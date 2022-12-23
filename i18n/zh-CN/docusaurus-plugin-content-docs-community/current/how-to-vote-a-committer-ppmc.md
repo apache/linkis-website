@@ -5,7 +5,7 @@ sidebar_position: 6
 > 介绍Committer 和 PPMC 的推选要求以及流程。官方指引可参见：https://incubator.apache.org/guides/ppmc.html
 
 ## 1.候选人要求
-在投票时，所有 PPMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索[邮件列表](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/incubator-linkis/issues)/[官网文档贡献](https://github.com/apache/incubator-linkis-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
+在投票时，所有 PPMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索[邮件列表](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/linkis/issues)/[官网文档贡献](https://github.com/apache/linkis-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
 
 以下是在评估候选人的承诺资格时需要考虑的一些要点。
 1. 与社区开发合作的能力？
@@ -58,8 +58,8 @@ Hi all:
   
     So I nominated ${Candidate Name} as ${Committer/PPMC} of the Linkis project.
   
-    1. https://github.com/apache/incubator-linkis/issues/created_by/${Candidate Githubid} 
-    2. https://github.com/apache/incubator-linkis/commits?author=${Candidate Githubid} 
+    1. https://github.com/apache/linkis/issues/created_by/${Candidate Githubid} 
+    2. https://github.com/apache/linkis/commits?author=${Candidate Githubid} 
     3. https://lists.apache.org/list?dev@linkis.apache.org?xxxx
     4. ....
 Thanks!
@@ -86,8 +86,8 @@ Hi all:
     [ ] -1 disapprove with the reason  
    
     Here are three links to his contributions to Linkis:
-    1. https://github.com/apache/incubator-linkis/issues/created_by/${Candidate Githubid} 
-    2. https://github.com/apache/incubator-linkis/commits?author=${Candidate Githubid}
+    1. https://github.com/apache/linkis/issues/created_by/${Candidate Githubid} 
+    2. https://github.com/apache/linkis/commits?author=${Candidate Githubid}
     3. Others: https://xxx.com/xxx/xxx/
 
 Thanks!

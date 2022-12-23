@@ -51,7 +51,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 ## Download
 
-Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/releases) to download a compiled distribution or a source code package of Linkis.
+Please go to the [Linkis releases page](https://github.com/apache/linkis/releases) to download a compiled distribution or a source code package of Linkis.
 
 ## Compile and deploy
 Please follow [Compile Guide](development/linkis-compile-and-package.md) to compile Linkis from source code.  
@@ -62,7 +62,7 @@ You can find examples and guidance for how to use and manage Linkis in [User_Man
 
 ## Documentation
 
-The documentation of linkis is in [Linkis-WebSite](https://github.com/apache/incubator-linkis-website)
+The documentation of linkis is in [Linkis-WebSite](https://github.com/apache/linkis-website)
 
 ## Architecture
 Linkis services could be divided into three categories: computation governance services, public enhancement services and microservice governance services.  
@@ -107,5 +107,5 @@ Meetup videos on [Bilibili](https://space.bilibili.com/598542776?from=search&sei
 
 ## Who is Using Linkis
 
-We opened [an issue](https://github.com/apache/incubator-linkis/issues/23) for users to feedback and record who is using Linkis.  
+We opened [an issue](https://github.com/apache/linkis/issues/23) for users to feedback and record who is using Linkis.  
 Since the first release of Linkis in 2019, it has accumulated more than **700** trial companies and **1000+** sandbox trial users, which involving diverse industries, from finance, banking, tele-communication, to manufactory, internet companies and so on.

@@ -228,11 +228,11 @@ If the source branch currently developed is dev-1.0.3, version 1.0.3 needs to be
 -Create tag: release-1.0.3-rc1
 
 Sort out the content description of this change and release, sort by \[module]\[pr_url].
-Enter the creation page https://github.com/apache/incubator-linkis/releases/new
+Enter the creation page https://github.com/apache/linkis/releases/new
 Create a release based on the previous release-1.0.3-rc1 tag, and check `This is a pre-release` to write the release notes.
 
 :::caution Note
-- After the main repository apache/incubator-linkis is ready to release the branch/tag/release notes, please fork to your own repository and perform the following steps
+- After the main repository apache/linkis is ready to release the branch/tag/release notes, please fork to your own repository and perform the following steps
 :::
 
 ### 2.2 Version number confirmation
@@ -315,7 +315,7 @@ Download Node.js to the local and install it. Download link: [http://nodejs.cn/d
 Execute the following commands in the terminal command line:
 ```shell
 #Enter the project WEB root directory
-$ cd incubator-linkis/linkis-web
+$ cd linkis/linkis-web
 #Required dependencies for installation project
 $ npm install
 ```
@@ -478,7 +478,7 @@ Hello Linkis Community,
     This is a call for vote to release Apache Linkis version ${release_version}-${rc_version}.
 
     Release notes:
-        https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
+        https://github.com/apache/linkis/releases/tag/v${release_version}-${rc_version}
     
     The release candidates:
         https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
@@ -487,7 +487,7 @@ Hello Linkis Community,
         https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
     
     Git tag for the release:
-        https://github.com/apache/incubator-linkis/tree/v${release_version}-${rc_version}
+        https://github.com/apache/linkis/tree/v${release_version}-${rc_version}
     
     Keys to verify the Release Candidate:
         https://downloads.apache.org/incubator/linkis/KEYS
@@ -579,10 +579,10 @@ Hello Incubator Community,
     • https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
 
     Git tag for the release:
-    • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+    • https://github.com/apache/linkis/releases/tag/${release_version}-${rc_version}
 
     Release notes:
-    • https://github.com/apache/incubator-linkis/releases/tag/${release_version}-${rc_version}
+    • https://github.com/apache/linkis/releases/tag/${release_version}-${rc_version}
 
     The artifacts signed with PGP key [fill in your personal KEY], corresponding to [fill in your personal email], that can be found in keys file:
     • https://downloads.apache.org/incubator/linkis/KEYS
@@ -683,7 +683,7 @@ After waiting and confirming that the new release version is synced to the Apach
 
 1. Merge `${release_version}-RC` branch to `master` branch (if not merged)
 2. Tag the official version, and the RC version tag during the voting process can be removed
-3. On the [GitHub Releases](https://github.com/apache/incubator-linkis/releases) page, update the version number and version description, etc.
+3. On the [GitHub Releases](https://github.com/apache/linkis/releases) page, update the version number and version description, etc.
 
 
 ## 7 Email notification version is released
@@ -710,7 +710,7 @@ Release Notes: https://linkis.apache.org/download/release-${release_version}/
 Website: https://linkis.apache.org/
 
 Linkis Resources:
-- Issue: https://github.com/apache/incubator-linkis/issues
+- Issue: https://github.com/apache/linkis/issues
 - Mailing list: dev@linkis.apache.org
 
 - Apache Linkis Team

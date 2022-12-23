@@ -39,8 +39,8 @@ There are many branches,including temporary branches,in Linkis repository,but on
 - feature-*: Development branches for some larger new features that need to be jointly developed by the community
 
 #### 2.1.1 Concept
-Original warehouse: https://github.com/apache/incubator-linkis The apache warehouse of linkis is called the original warehouse in the text  
-Fork library: From https://github.com/apache/incubator-linkis fork to your own personal repository to become a fork library
+Original warehouse: https://github.com/apache/linkis The apache warehouse of linkis is called the original warehouse in the text  
+Fork library: From https://github.com/apache/linkis fork to your own personal repository to become a fork library
 
 #### 2.1.2 Synchronize the latest code of the original warehouse branch to your own fork library
 1. Enter the user project page and select the branch to be updated
@@ -56,7 +56,7 @@ Operate in your own clone's local project
 1. Add the original apache warehouse image to the local
 
 ````
-git remote add apache git@github.com:apache/incubator-linkis.git
+git remote add apache git@github.com:apache/linkis.git
 ````
 2. Pull the apache image information to the local
 
@@ -111,7 +111,7 @@ We recommend to clone the dev branch and name it dev-fix for development. At the
 
 ```bash
 //pull the branch
-git clone https://github.com/{githubid}/incubator-linkis.git --branch dev
+git clone https://github.com/{githubid}/linkis.git --branch dev
 //Generate local dev-fix branch according to dev
 git checkout -b dev-fix dev
 //Push the local dev-fix branch to your own repository
@@ -172,7 +172,7 @@ Modify the `application.yml` file in the resources/ directory of each microservi
 ### 2.3 Issue submission guidelines
 - If you still don’t know how to initiate a PR to an open source project, please refer to [About issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues)
 - Issue name, which should briefly describe your problem or suggestion in one sentence; for the international promotion of the project, please write the issue in English or both Chinese and English.
-- For each Issue, please bring at least two labels, component and type, such as component=Computation Governance/EngineConn, type=Improvement. Reference: [issue #590](https://github.com/apache/incubator-linkis/issues/590)
+- For each Issue, please bring at least two labels, component and type, such as component=Computation Governance/EngineConn, type=Improvement. Reference: [issue #590](https://github.com/apache/linkis/issues/590)
 
 ### 2.4 Pull Request(PR) submission guidelines
 

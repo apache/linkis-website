@@ -116,7 +116,7 @@ For example: **The deploy user is hadoop**.
 
 ### c. Preparing installation package
 
-Download the latest installation package from the Linkis release. ([Click here to enter the download page](https://github.com/apache/incubator-linkis/releases))
+Download the latest installation package from the Linkis release. ([Click here to enter the download page](https://github.com/apache/linkis/releases))
 
 Decompress the installation package to the installation directory and modify the configuration of the decompressed file.
 

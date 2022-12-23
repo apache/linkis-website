@@ -34,4 +34,4 @@ sidebar_position: 0.1
 | ec-seatunnel | 新增 | wds.linkis.engine.seatunnel.plugin.home | /opt/linkis/seatunnel | Seatunnel安装路径 |
 
 ## 数据库表变化 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.3.1_schema`文件
+详细见代码仓库(https://github.com/apache/linkis) 对应分支中的升级schema`db/upgrade/1.3.1_schema`文件

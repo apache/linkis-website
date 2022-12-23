@@ -39,7 +39,7 @@ EngineConn的新增，是Linkis计算治理的计算任务准备阶段的核心�
 2. EngineConnPluginServer服务在接收到资源请求后，会先通过传递过来的标签找到对应的引擎标签，通过引擎标签选择对应引擎的EngineConnPlugin。然后通过EngineConnPlugin的资源生成器，对客户端传入的引擎启动参数进行计算，算出本次申请新EngineConn所需的资源，然后返回给LinkisManager。
    
    **名词解释：**
-- EgineConnPlugin：是Linkis对接一个新的计算存储引擎必须要实现的接口，该接口主要包含了这种EngineConn在启动过程中必须提供的几个接口能力，包括EngineConn资源生成器、EngineConn启动命令生成器、EngineConn引擎连接器。具体的实现可以参考Spark引擎的实现类：[SparkEngineConnPlugin](https://github.com/apache/incubator-linkis/blob/master/linkis-engineconn-plugins/engineconn-plugins/spark/src/main/scala/com/webank/wedatasphere/linkis/engineplugin/spark/SparkEngineConnPlugin.scala)。
+- EgineConnPlugin：是Linkis对接一个新的计算存储引擎必须要实现的接口，该接口主要包含了这种EngineConn在启动过程中必须提供的几个接口能力，包括EngineConn资源生成器、EngineConn启动命令生成器、EngineConn引擎连接器。具体的实现可以参考Spark引擎的实现类：[SparkEngineConnPlugin](https://github.com/apache/linkis/blob/master/linkis-engineconn-plugins/engineconn-plugins/spark/src/main/scala/com/webank/wedatasphere/linkis/engineplugin/spark/SparkEngineConnPlugin.scala)。
 
 - EngineConnPluginServer：是加载了所有的EngineConnPlugin，对外提供EngineConn的所需资源生成能力和EngineConn的启动命令生成能力的微服务。
 

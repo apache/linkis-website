@@ -50,4 +50,4 @@ sidebar_position: 0.1
 |ec-jdbc | Modify  | wds.linkis.jdbc.password            	| None								|	jdbc conn password			|
 
 ## DB Table Changes
-For details, see the upgrade schema`db/upgrade/1.2.0_schema` file in the corresponding branch of the code repository (https://github.com/apache/incubator-linkis).
+For details, see the upgrade schema`db/upgrade/1.2.0_schema` file in the corresponding branch of the code repository (https://github.com/apache/linkis).

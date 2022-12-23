@@ -15,7 +15,7 @@ In order to maintain uniformity and facilitate writing, the following specificat
 ````
 Service name abbreviation: The change of this pr, at the code level, the corresponding service name abbreviation of the main service
 For example, a pr made bug fixes to the JDBC engine, which is a JDBC module under the linkis-cg-engineconn service
-EG:[EC-Jdbc][[Linkis-1851]](https://github.com/apache/incubator-linkis/issues/1851) Fix the jdbc engine, when there are multiple sql statements in one task execution, it cannot be executed normally The problem
+EG:[EC-Jdbc][[Linkis-1851]](https://github.com/apache/linkis/issues/1851) Fix the jdbc engine, when there are multiple sql statements in one task execution, it cannot be executed normally The problem
 If the L1-module does not exist, or it is the adjustment of the entire service level, the lower-level module may not be written, such as Entrance
 ````
 

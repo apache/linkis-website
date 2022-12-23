@@ -9,7 +9,7 @@ sidebar_position: 2
 ## 1 升级说明
 
 - 如果是第一次安装使用 Linkis，或重装 Linkis，无需关注 Linkis 升级指南。
-- 如果涉及到其他平台的组件（DataSphereStudio/Qualitis/Visualis等），升级前，请确认版本之间的兼容性，最好使用推荐的版本，可参考 https://github.com/apache/incubator-linkis#ecosystem。
+- 如果涉及到其他平台的组件（DataSphereStudio/Qualitis/Visualis等），升级前，请确认版本之间的兼容性，最好使用推荐的版本，可参考 https://github.com/apache/linkis#ecosystem。
 - 建议通过软链方式来进行版本管控，可以通过修改软链的目标地址 来切换版本 如:`linkis -> /appcom/Install/LinkisInstall/linkis-1.1.3.20220615210213` 
 - 升级过程主要是需要关注数据库表结构的调整和部分配置参数的调整 
 - 除了后端服务的升级，linkis的管理台资源也需要一并升级  

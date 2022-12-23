@@ -40,7 +40,7 @@ default
 
 `Hive` 的版本是支持 `Hive1.x` 和` Hive2.x` ，默认是支持 `Hive on MapReduce` ，如果您想改成 `Hive on Tez` ，需要您按照此 `PR` 进行一下修改。
 
-<https://github.com/apache/incubator-linkis/pull/541>
+<https://github.com/apache/linkis/pull/541>
 
 默认支持的 `Hive` 版本是2.3.3，如果您想修改 `Hive` 的版本，您可以找到 `linkis-engineplugin-hive` 模块，修改 `<hive.version\>` 标签，然后单独编译此模块即可
 
