@@ -138,8 +138,8 @@ gpg:              unchanged: 1
 
 > 这个步骤需要使用SVN，请先下载安装SVN客户端，Apache使用svn托管项目的发布内容
 
-- Linkis DEV分支 https://dist.apache.org/repos/dist/dev/incubator/linkis
-- Linkis Release分支 https://dist.apache.org/repos/dist/release/incubator/linkis
+- Linkis DEV分支 https://dist.apache.org/repos/dist/dev/linkis
+- Linkis Release分支 https://dist.apache.org/repos/dist/release/linkis
 
 #### 1.5.1 在dev分支中添加公钥到KEYS
 
@@ -147,7 +147,7 @@ gpg:              unchanged: 1
 $ mkdir -p linkis_svn/dev
 $ cd linkis_svn/dev
 
-$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis 
+$ svn co https://dist.apache.org/repos/dist/dev/linkis 
 # 这个步骤比较慢，会把所有版本都拷贝下来，如果网断了，用svn cleanup删掉锁，重新执行一下，会断点续传
 $ cd linkis_svn/dev/linkis
 
@@ -166,7 +166,7 @@ $ svn ci -m "add gpg key for YOUR_NAME"
 $ mkdir -p linkis_svn/release
 $ cd linkis_svn/release
 
-$ svn co https://dist.apache.org/repos/dist/release/incubator/linkis
+$ svn co https://dist.apache.org/repos/dist/release/linkis
 # 这个步骤比较慢，会把所有版本都拷贝下来，如果网断了，用svn cleanup删掉锁，重新执行一下，会断点续传
 
 $ cd  linkis
@@ -362,7 +362,7 @@ $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  -DretryFailedDeplo
 访问https://repository.apache.org/#stagingRepositories, 使用Apache的LDAP账户登录后，就会看到上传的版本，
 `Repository`列的内容即为${STAGING.REPOSITORY}。 **点击`Close`来告诉Nexus这个构建已经完成，只有这样该版本才是可用的**。 
 如果电子签名等出现问题，`Close`会失败，可以通过`Activity`查看失败信息。
-同时也生成了二进制文件 `linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz`
+同时也生成了二进制文件 `linkis-dist/target/apache-linkis-1.1.2-bin.tar.gz`
 
 
 步骤2.4-3.3执行命令，合并在release.sh脚本中，也可以通过release.sh脚本(见文末附录)来执行 
@@ -372,18 +372,18 @@ $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true  -DretryFailedDeplo
 ```shell
 $ mkdir -p dist/apache-linkis
 #基于release-1.1.2-rc1分支打包源码的tar.gz物料 
-#--prefix=apache-linkis-1.1.2-incubating-src/  注意带上`/`  压缩包解压后会是在apache-linkis-1.1.2-incubating-src文件夹中
+#--prefix=apache-linkis-1.1.2-src/  注意带上`/`  压缩包解压后会是在apache-linkis-1.1.2-src文件夹中
 #会生成一个pax_global_header文件 记录的是commitid信息，不加--prefix会导致解压后pax_global_header 和源码文件同级目录
 
-$ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.1.2-incubating-src.tar.gz"  --prefix=apache-linkis-1.1.2-incubating-src/  release-1.1.2-rc1
+$ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.1.2-src.tar.gz"  --prefix=apache-linkis-1.1.2-src/  release-1.1.2-rc1
 ```
 
 
 ### 2.5 拷贝二进制文件
 
-步骤2.3执行后，二进制文件已经生成，位于linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz
+步骤2.3执行后，二进制文件已经生成，位于linkis-dist/target/apache-linkis-1.1.2-bin.tar.gz
 ```shell
-$ cp  linkis-dist/target/apache-linkis-1.1.2-incubating-bin.tar.gz   dist/apache-linkis
+$ cp  linkis-dist/target/apache-linkis-1.1.2-bin.tar.gz   dist/apache-linkis
 ```
 
 ### 2.6 打包前端管理台
@@ -408,7 +408,7 @@ $ npm install
 ```
 $ npm run build
 ```
-上述命令执行成功后，会生成前端管理台安装包 `apache-linkis-${version}-incubating-web-bin.tar.gz`
+上述命令执行成功后，会生成前端管理台安装包 `apache-linkis-${version}-web-bin.tar.gz`
 
 注意：
 
@@ -434,16 +434,16 @@ $ npm install
 
 #### 2.6.4 拷贝前端管理台安装包
 
-步骤2.6.3执行后，前端管理台安装包已经生成，位于 `linkis-web/apache-linkis-1.1.2-incubating-web-bin.tar.gz`
+步骤2.6.3执行后，前端管理台安装包已经生成，位于 `linkis-web/apache-linkis-1.1.2-web-bin.tar.gz`
 ```shell
-$ cp  linkis-web/apache-linkis-1.1.2-incubating-web-bin.tar.gz   dist/apache-linkis
+$ cp  linkis-web/apache-linkis-1.1.2-web-bin.tar.gz   dist/apache-linkis
 ```
 
 ### 2.7 对源码包/二进制包进行签名/sha512
 ```shell
 $ cd  dist/apache-linkis
 
-# 如果是window cmd 命令无法识别时，可以单独计算签名 如:gpg --armor --output apache-linkis-1.1.2-incubating-src.tar.gz.asc --detach-sig apache-linkis-1.1.2-incubating-src.tar.gz
+# 如果是window cmd 命令无法识别时，可以单独计算签名 如:gpg --armor --output apache-linkis-1.1.2-src.tar.gz.asc --detach-sig apache-linkis-1.1.2-src.tar.gz
 $ for i in *.tar.gz; do echo $i; gpg --armor --output $i.asc --detach-sig $i ; done # 计算签名
 
 $ for i in *.tar.gz; do echo $i; sha512sum  $i > $i.sha512 ; done # 计算SHA512
@@ -457,7 +457,7 @@ $ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i ; done
 ```
 出现类似以下内容则说明签名正确，关键字：**`Good signature`**
 ```shell
-    apache-linkis-xxx-incubating-src.tar.gz
+    apache-linkis-xxx-src.tar.gz
     gpg: Signature made XXXX
     gpg:                using RSA key XXXXX
     gpg: Good signature from "xxx @apache.org>"
@@ -474,8 +474,8 @@ $ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 ## 3 发布Apache SVN仓库
 
-- Linkis [DEV分支](https://dist.apache.org/repos/dist/dev/incubator/linkis) 用来存储候选版本的源码和二进制等原始物料
-- Linkis [Release分支](https://dist.apache.org/repos/dist/release/incubator/linkis) 投票通过的RC版本，最终会移动到release库中
+- Linkis [DEV分支](https://dist.apache.org/repos/dist/dev/linkis) 用来存储候选版本的源码和二进制等原始物料
+- Linkis [Release分支](https://dist.apache.org/repos/dist/release/linkis) 投票通过的RC版本，最终会移动到release库中
 
 
 ### 3.1 检出Linkis发布目录
@@ -483,7 +483,7 @@ $ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 从Apache SVN dev目录检出Linkis发布目录。
 
 ```shell
-$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis  dist/linkis_svn_dev
+$ svn co https://dist.apache.org/repos/dist/dev/linkis  dist/linkis_svn_dev
 
 ```
 
@@ -541,7 +541,7 @@ git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确
 
 进入到创建页面 https://github.com/apache/linkis/releases/new
 基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc1`的tag，
-填写标题`Apache Linkis Release-1.1.2-incubating-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
+填写标题`Apache Linkis Release-1.1.2-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
 
 ![image](https://user-images.githubusercontent.com/7869972/180214706-7228e5ae-f810-4e07-80fc-67fcf01688eb.png)
 
@@ -562,7 +562,7 @@ git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确
 :::caution 注意
 
 所有指向校验和、签名和公钥的链接都必须引用Apache主网站https://downloads.apache.org/并应使用https://(SSL)。
-例如：https://downloads.apache.org/incubator/linkis/KEYS
+例如：https://downloads.apache.org/linkis/KEYS
 
 目前是用的DISCLAIMER-WIP免责申明，请在邮件中加入此说明`As the DISCLAIMER-WIP shows....`。
 如果后续解决了WIP待处理的问题后，可以去掉。WIP的使用，详细可见 https://issues.apache.org/jira/browse/LEGAL-469
@@ -604,7 +604,7 @@ Hello Linkis Community,
 	    https://linkis.apache.org/download/release-notes-${release_version}
 
     The release candidates:
-    	https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+    	https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/
 
     Maven artifacts are available in a staging repository at:
         https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
@@ -613,7 +613,7 @@ Hello Linkis Community,
 	    https://github.com/apache/linkis/tree/${release_version}-${rc_version}
 
 	Keys to verify the Release Candidate:
-	    https://downloads.apache.org/incubator/linkis/KEYS
+	    https://downloads.apache.org/linkis/KEYS
 
 	GPG user ID:
 	${YOUR.GPG.USER.ID}
@@ -749,7 +749,7 @@ Hello Incubator Community,
         • [Linkis社区投票结果链接]
 
     The release candidate:
-        • https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+        • https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/
 
     Git tag for the release:
         • https://github.com/apache/linkis/tree/${release_version}-${rc_version}
@@ -758,7 +758,7 @@ Hello Incubator Community,
         • https://linkis.apache.org/download/release-notes-${release_version}
 
     The artifacts signed with PGP key [填写你个人的KEY], corresponding to [填写你个人的邮箱], that can be found in keys file:
-        • https://downloads.apache.org/incubator/linkis/KEYS
+        • https://downloads.apache.org/linkis/KEYS
 
     The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -878,27 +878,27 @@ release的分支路径名不能带rc标识
 
 ```shell
 #移动源码包与二进制包
-# 如 svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/1.2.0-RC1 https://dist.apache.org/repos/dist/release/incubator/linkis/release-1.2.0  -m "transfer packages for ${release_version}-${rc_version}" 
-$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/linkis/${release_version} -m "transfer packages for ${release_version}-${rc_version}" 
+# 如 svn mv https://dist.apache.org/repos/dist/dev/linkis/1.2.0-RC1 https://dist.apache.org/repos/dist/release/linkis/release-1.2.0  -m "transfer packages for ${release_version}-${rc_version}" 
+$ svn mv https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/linkis/${release_version} -m "transfer packages for ${release_version}-${rc_version}" 
 
 # 下面操作 按实际情况 决定是否更新release 分支的key
 # 清除原有release目录下的KEYS
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS" 
+$ svn delete https://dist.apache.org/repos/dist/release/linkis/KEYS -m "delete KEYS" 
 
 # 拷贝dev目录KEYS到release目录
-$ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
+$ svn cp https://dist.apache.org/repos/dist/dev/linkis/KEYS https://dist.apache.org/repos/dist/release/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
 ```
 
 ### 6.2 确认dev和release下的包是否正确
 
-- 确认[dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/)下的`${release_version}-${rc_version}`已被删除, 如果在正式发布前有多个RC版本，多个RC版本均需要删除
-- 删除[release](https://dist.apache.org/repos/dist/release/incubator/linkis/)目录下 上一个版本的发布包，这些包会被自动保存在[这里](https://downloads.apache.org/incubator/linkis/)
+- 确认[dev](https://dist.apache.org/repos/dist/dev/linkis/)下的`${release_version}-${rc_version}`已被删除, 如果在正式发布前有多个RC版本，多个RC版本均需要删除
+- 删除[release](https://dist.apache.org/repos/dist/release/linkis/)目录下 上一个版本的发布包，这些包会被自动保存在[这里](https://downloads.apache.org/linkis/)
 
 ```shell
-#删除前请确认上一个版本发布包已更新至https://downloads.apache.org/incubator/linkis/
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
+#删除前请确认上一个版本发布包已更新至https://downloads.apache.org/linkis/
+$ svn delete https://dist.apache.org/repos/dist/release/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ```
-同步至https://downloads.apache.org/incubator/linkis/ 至少需要1小时 
+同步至https://downloads.apache.org/linkis/ 至少需要1小时 
 
 ### 6.3 在Apache Staging仓库发布版本
 
@@ -916,7 +916,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 linkis的官网下载地址应该指向apache的官方地址
 
-等待并确认新的发布版本同步至Apache镜像(https://downloads.apache.org/incubator/linkis/) 后，更新如下页面：
+等待并确认新的发布版本同步至Apache镜像(https://downloads.apache.org/linkis/) 后，更新如下页面：
 - https://linkis.apache.org/zh-CN/download/main
 - https://linkis.apache.org/download/main
 - https://linkis.apache.org/zh-CN/download/release-notes-x.x.x(移除rc)
@@ -966,7 +966,7 @@ Linkis Resources:
 
 ### step1 克隆状态记录的文件 
 ```shell script
-svn co https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/
+svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
 ```
 
 ### step2 修改 linkis.xml 中的new信息
@@ -1025,11 +1025,11 @@ rm -rf dist
 mkdir -p  dist/apache-linkis
 
 #step1 打包源码文件
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz"  --prefix=apache-linkis-$release_version-incubating-src/   $git_branch
-echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz' --prefix=apache-linkis-$release_version-incubating-src/   $git_branch"
+git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-src.tar.gz"  --prefix=apache-linkis-$release_version-src/   $git_branch
+echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-src.tar.gz' --prefix=apache-linkis-$release_version-src/   $git_branch"
 
 #step2 拷贝二进制编译包
-cp  linkis-dist/target/apache-linkis-$release_version-incubating-bin.tar.gz   dist/apache-linkis
+cp  linkis-dist/target/apache-linkis-$release_version-bin.tar.gz   dist/apache-linkis
 
 #step3 打包web(如果需要发布前端)
 
@@ -1037,7 +1037,7 @@ cd linkis-web
 #安装依赖
 npm install
 npm run build
-cp  apache-linkis-*-incubating-web-bin.tar.gz  ../dist/apache-linkis
+cp  apache-linkis-*-web-bin.tar.gz  ../dist/apache-linkis
 
 #step4 签名
 
@@ -1055,7 +1055,7 @@ for i in *.tar.gz; do echo $i; sha512sum --check  $i.sha512; done
 
 cd ../
 rm -rf linkis-svn-dev
-svn co https://dist.apache.org/repos/dist/dev/incubator/linkis   linkis-svn-dev
+svn co https://dist.apache.org/repos/dist/dev/linkis   linkis-svn-dev
 
 
 mkdir -p linkis-svn-dev/${release_version}-${rc_version}

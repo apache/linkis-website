@@ -131,9 +131,9 @@ Go directly to https://keyserver.ubuntu.com/ and enter the username mingXiao to 
 
 >  This step requires the use of SVN, please download and install the SVN client first, Apache uses svn to host the project’s published content
 
-- Linkis DEV branch https://dist.apache.org/repos/dist/dev/incubator/linkis
+- Linkis DEV branch https://dist.apache.org/repos/dist/dev/linkis
 
--  Linkis Release branch https://dist.apache.org/repos/dist/release/incubator/linkis
+-  Linkis Release branch https://dist.apache.org/repos/dist/release/linkis
 
 #### 1.5.1 Add public key to keys in dev branch
 
@@ -143,7 +143,7 @@ Used to release RC version
 $ mkdir -p linkis_svn/dev
 $ cd linkis_svn/dev
 
-$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis
+$ svn co https://dist.apache.org/repos/dist/dev/linkis
 # This step is relatively slow, and all versions will be copied. If the network is broken, use svn cleanup to delete the lock and re-execute it, and the upload will be resumed.
 $ cd linkis_svn/dev/linkis
 
@@ -164,7 +164,7 @@ Used to release the official version
 $ mkdir -p linkis_svn/release
 $ cd linkis_svn/release
 
-$ svn co https://dist.apache.org/repos/dist/release/incubator/linkis
+$ svn co https://dist.apache.org/repos/dist/release/linkis
 # This step is relatively slow, and all versions will be copied. If the network is broken, use svn cleanup to delete the lock and re-execute it, and the upload will be resumed.
 
 $ cd linkis
@@ -284,7 +284,7 @@ $ mvn -DskipTests deploy -Prelease -Dmaven.javadoc.skip=true
 :::
 
 After the above command is executed successfully, the release package will be automatically uploaded to Apache's staging repository. All Artifacts deployed to the remote [maven repository](http://repository.apache.org/) will be in the staging state. Visit https://repository.apache.org/#stagingRepositories and log in using the Apache LDAP account. You will see the uploaded version, and the content in the `Repository` column is ${STAGING.REPOSITORY}. Click `Close` to tell Nexus that the build is complete, and only then is the version available. If there is a problem with the electronic signature, `Close` will fail. You can check the failure information through `Activity`.
-At the same time, the binary file linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz is also generated
+At the same time, the binary file linkis-dist/target/apache-linkis-1.0.3-bin.tar.gz is also generated
 
 Step 2.4-3.3 execute the command, merge it in the release.sh script, or execute it through the release.sh script (See appendix at the end of this article)
 ### 2.4 Package source code
@@ -293,16 +293,16 @@ Step 2.4-3.3 execute the command, merge it in the release.sh script, or execute 
 $ mkdir -p dist/apache-linkis
 
 #based on the release-1.0.3-rc1 branch to package the source code tar.gz material
-#--prefix=apache-linkis-1.0.3-incubating-src/ Note that the `/` archive will be in the apache-linkis-1.0.3-incubating-src folder after decompression
+#--prefix=apache-linkis-1.0.3-src/ Note that the `/` archive will be in the apache-linkis-1.0.3-src folder after decompression
 #A pax_global_header file will be generated to record the commitid information. Without the --prefix, it will cause pax_global_header to be in the same level directory as the source file after decompression
 
-$ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-incubating-src.tar.gz" --prefix=apache-linkis-1.0.3-incubating-src/  release-1.0.3-rc1
+$ git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-1.0.3-src.tar.gz" --prefix=apache-linkis-1.0.3-src/  release-1.0.3-rc1
 ```
 ### 2.5 Copy binary files
 
-After step 2.3 is executed, the binary file has been generated, located in linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz
+After step 2.3 is executed, the binary file has been generated, located in linkis-dist/target/apache-linkis-1.0.3-bin.tar.gz
 ```shell
-$ cp linkis-dist/target/apache-linkis-1.0.3-incubating-bin.tar.gz dist/apache-linkis
+$ cp linkis-dist/target/apache-linkis-1.0.3-bin.tar.gz dist/apache-linkis
 ```
 
 ### 2.6 Package front-end management console
@@ -348,13 +348,13 @@ Check linkis-web/package.json, linkis-web/.env files, and check whether the vers
 ```shell
 $ npm run build
 ```
-After the above command is successfully executed, the front-end management console installation package `apache-linkis-${version}-incubating-web-bin.tar.gz` will be generated
+After the above command is successfully executed, the front-end management console installation package `apache-linkis-${version}-web-bin.tar.gz` will be generated
 
 #### 2.6.4 Copy console installation package
 
-After step 2.6.3 is executed, the front-end management console installation package has been generated, located at linkis-web/apache-linkis-1.0.3-incubating-web-bin.tar.gz
+After step 2.6.3 is executed, the front-end management console installation package has been generated, located at linkis-web/apache-linkis-1.0.3-web-bin.tar.gz
 ```shell
-$ cp linkis-web/apache-linkis-1.0.3-incubating-web-bin.tar.gz dist/apache-linkis
+$ cp linkis-web/apache-linkis-1.0.3-web-bin.tar.gz dist/apache-linkis
 ```
 
 ### 2.7 Sign the source package/binary package/sha512
@@ -375,7 +375,7 @@ $ for i in *.tar.gz; do echo $i; gpg --verify $i.asc $i; done
 
 If something like the following appears, the signature is correct. Keyword: **`Good signature`**
 ```shell
-     apache-linkis-xxx-incubating-src.tar.gz
+     apache-linkis-xxx-src.tar.gz
      gpg: Signature made XXXX
      gpg: using RSA key XXXXX
      gpg: Good signature from "xxx @apache.org>"
@@ -394,15 +394,15 @@ The detailed verification process can be found in [Verification Candidate Versio
 
 ## 3 Publish the apache svn repository
 
-- The Linkis [DEV branch](https://dist.apache.org/repos/dist/dev/incubator/linkis) is used to store the source code and binary materials of the candidate version
-- The RC version voted by the Linkis [Release branch](https://dist.apache.org/repos/dist/release/incubator/linkis) will eventually be moved to the release library
+- The Linkis [DEV branch](https://dist.apache.org/repos/dist/dev/linkis) is used to store the source code and binary materials of the candidate version
+- The RC version voted by the Linkis [Release branch](https://dist.apache.org/repos/dist/release/linkis) will eventually be moved to the release library
 
 ### 3.1 Check out the Linkis release directory
 
 Check out the Linkis distribution directory from the Apache SVN dev directory.
 
 ```shell
-$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis dist/linkis_svn_dev
+$ svn co https://dist.apache.org/repos/dist/dev/linkis dist/linkis_svn_dev
 
 ```
 
@@ -452,7 +452,7 @@ Please use your apache.org mailbox to send emails, and use `plain text mode`, fo
 
 :::caution Note
 
-All links to checksums, signatures, and public keys must refer to the main Apache website https://downloads.apache.org/ and should use https://(SSL). For example: https://downloads.apache.org/incubator/linkis/KEYS
+All links to checksums, signatures, and public keys must refer to the main Apache website https://downloads.apache.org/ and should use https://(SSL). For example: https://downloads.apache.org/linkis/KEYS
 
 The DISCLAIMER-WIP disclaimer is currently used, please add this description `As the DISCLAIMER-WIP shows....` to the email. If the WIP pending problem is solved later, it can be removed. Use of WIP, see https://issues.apache.org/jira/browse/LEGAL-469 for details
 :::
@@ -481,7 +481,7 @@ Hello Linkis Community,
         https://github.com/apache/linkis/releases/tag/v${release_version}-${rc_version}
     
     The release candidates:
-        https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+        https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/
     
      Maven artifacts are available in a staging repository at:
         https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
@@ -490,7 +490,7 @@ Hello Linkis Community,
         https://github.com/apache/linkis/tree/v${release_version}-${rc_version}
     
     Keys to verify the Release Candidate:
-        https://downloads.apache.org/incubator/linkis/KEYS
+        https://downloads.apache.org/linkis/KEYS
     
     GPG user ID:
     ${YOUR.GPG.USER.ID}
@@ -576,7 +576,7 @@ Hello Incubator Community,
     • [Link to linkis Community voting results]
 
     The release candidate:
-    • https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+    • https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/
 
     Git tag for the release:
     • https://github.com/apache/linkis/releases/tag/${release_version}-${rc_version}
@@ -585,7 +585,7 @@ Hello Incubator Community,
     • https://github.com/apache/linkis/releases/tag/${release_version}-${rc_version}
 
     The artifacts signed with PGP key [fill in your personal KEY], corresponding to [fill in your personal email], that can be found in keys file:
-    • https://downloads.apache.org/incubator/linkis/KEYS
+    • https://downloads.apache.org/linkis/KEYS
 
     As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
 
@@ -638,24 +638,24 @@ Move source and binary packages from svn's `dev` directory to the `release` dire
 
 ```shell
 #Mobile source package and binary package
-$ svn mv https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/incubator/ linkis/ -m "transfer packages for ${release_version}-${rc_version}"
+$ svn mv https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/ linkis/ -m "transfer packages for ${release_version}-${rc_version}"
 
 # The following operations decide whether to update the key of the release branch according to the actual situation
 # Clear the KEYS in the original release directory
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/KEYS -m "delete KEYS"
+$ svn delete https://dist.apache.org/repos/dist/release/linkis/KEYS -m "delete KEYS"
 
 # Copy the dev directory KEYS to the release directory
-$ svn cp https://dist.apache.org/repos/dist/dev/incubator/linkis/KEYS https://dist.apache.org/repos/dist/release/incubator/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
+$ svn cp https://dist.apache.org/repos/dist/dev/linkis/KEYS https://dist.apache.org/repos/dist/release/linkis/ -m "transfer KEYS for ${release_version}-${rc_version}"
 ```
 
 ### 6.2 Confirm whether the packages under dev and release are correct
 
-- Confirm that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/incubator/linkis/) has been removed
-- Delete the release packages of the previous version in the [release](https://dist.apache.org/repos/dist/release/incubator/linkis/) directory, these packages will be automatically saved [here](https://downloads.apache.org/incubator/linkis/)
+- Confirm that `${release_version}-${rc_version}` under [dev](https://dist.apache.org/repos/dist/dev/linkis/) has been removed
+- Delete the release packages of the previous version in the [release](https://dist.apache.org/repos/dist/release/linkis/) directory, these packages will be automatically saved [here](https://downloads.apache.org/linkis/)
 
 ```shell
-#Before deleting, please confirm that the previous version release package has been updated to https://downloads.apache.org/incubator/linkis/
-$ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_release_version} -m "Delete ${last_release_version}"
+#Before deleting, please confirm that the previous version release package has been updated to https://downloads.apache.org/linkis/
+$ svn delete https://dist.apache.org/repos/dist/release/linkis/${last_release_version} -m "Delete ${last_release_version}"
 ````
 
 ### 6.3 Release version in apache staging repository
@@ -674,7 +674,7 @@ $ svn delete https://dist.apache.org/repos/dist/release/incubator/linkis/${last_
 
 The official website download address of linkis should point to the official address of apache
 
-After waiting and confirming that the new release version is synced to the Apache mirror (https://downloads.apache.org/incubator/linkis/), update the following page:
+After waiting and confirming that the new release version is synced to the Apache mirror (https://downloads.apache.org/linkis/), update the following page:
 
 - https://linkis.apache.org/en-US/download/main
 - https://linkis.apache.org/download/main
@@ -754,11 +754,11 @@ rm -rf dist
 mkdir -p dist/apache-linkis
 
 #step1 Packaging source files
-git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz"  --prefix=apache-linkis-$release_version-incubating-src/   $git_branch
-echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-incubating-src.tar.gz' --prefix=apache-linkis-$release_version-incubating-src/   $git_branch"
+git archive --format=tar.gz --output="dist/apache-linkis/apache-linkis-$release_version-src.tar.gz"  --prefix=apache-linkis-$release_version-src/   $git_branch
+echo  "git archive --format=tar.gz --output='dist/apache-linkis/apache-linkis-$release_version-src.tar.gz' --prefix=apache-linkis-$release_version-src/   $git_branch"
 
 #step2 Copy the binary package
-cp linkis-dist/target/apache-linkis-$release_version-incubating-bin.tar.gz dist/apache-linkis
+cp linkis-dist/target/apache-linkis-$release_version-bin.tar.gz dist/apache-linkis
 
 #step3 Package the web (if you need to publish the front end)
 
@@ -766,7 +766,7 @@ cd linkis-web
 #Installation dependencies
 npm install
 npm run build
-cp apache-linkis-*-incubating-web-bin.tar.gz ../dist/apache-linkis
+cp apache-linkis-*-web-bin.tar.gz ../dist/apache-linkis
 
 #step4 Signature
 
@@ -784,7 +784,7 @@ for i in *.tar.gz; do echo $i; sha512sum --check $i.sha512; done
 
 cd ../
 rm -rf linkis-svn-dev
-svn co https://dist.apache.org/repos/dist/dev/incubator/linkis linkis-svn-dev
+svn co https://dist.apache.org/repos/dist/dev/linkis linkis-svn-dev
 
 
 mkdir -p linkis-svn-dev/${release_version}-${rc_version}
