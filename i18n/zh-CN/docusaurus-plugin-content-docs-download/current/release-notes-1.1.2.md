@@ -3,7 +3,7 @@ title: Release Notes 1.1.2
 sidebar_position: 6
 --- 
 
-Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20)。
+Apache Linkis 1.1.2 包括所有 [Project Linkis-1.1.2](https://github.com/apache/incubator-linkis/projects/20)。
 
 
 本次发布主要 支持在无HDFS的环境下进行精简化部署（支持部分引擎），方便更轻量化的学习使用和调试；新增对数据迁移工具 Sqoop 引擎的支持；异常处理日志优化；部分安全漏洞组件升级等；修复社区反馈的已知 bug
@@ -92,4 +92,4 @@ Apache Linkis(incubating) 1.1.2 包括所有 [Project Linkis-1.1.2](https://gith
 
 
 ## 致谢
-Apache Linkis(incubating) 1.1.2的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexyang, Casion, David hua, GodfreyGuo, Jack Xu, Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, 李为
+Apache Linkis 1.1.2的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexyang, Casion, David hua, GodfreyGuo, Jack Xu, Zosimer, allenlliu, casionone, ericlu, huapan123456, husofskyzy, iture123, legendtkl, luxl@chinatelecom.cn, maidangdang44, peacewong, pengfeiwei, seedscoder, weixiao, xiaojie19852006, めぐみん, 李为

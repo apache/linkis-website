@@ -3,7 +3,7 @@ title: Release Notes 1.1.1
 sidebar_position: 7
 --- 
 
-Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18)。
+Apache Linkis 1.1.1 包括所有 [Project Linkis-1.1.1](https://github.com/apache/incubator-linkis/projects/18)。
 
 
 本次发布主要支持UDF多版本控制、UDF存储到BML的功能特性；提交任务支持Yarn队列资源使用统计采集和查看；新增对数据虚拟化引擎openLooKeng的支持；修复社区反馈的已知bug。
@@ -79,6 +79,6 @@ Apache Linkis(incubating) 1.1.1 包括所有 [Project Linkis-1.1.1](https://gith
 
 ## 致谢 
 
-Apache Linkis(incubating) 1.1.1的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors: 
+Apache Linkis 1.1.1的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors: 
 AbnerHung、Alexkun、barry8023、CCweixiao 、Davidhua1996、Fuu3214、Liveipool、
 casionone、demonray、husofskyzy、jackxu2011 、legendtkl、lizheng920625、maidangdang44、peacewong、seedscoder

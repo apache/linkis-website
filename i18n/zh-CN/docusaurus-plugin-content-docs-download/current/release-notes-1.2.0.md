@@ -3,7 +3,7 @@ title: Release Notes 1.2.0
 sidebar_position: 0.18
 ---
 
-Apache Linkis(incubating) 1.2.0 包括所有 [Project Linkis-1.2.0](https://github.com/apache/incubator-linkis/projects/12).
+Apache Linkis 1.2.0 包括所有 [Project Linkis-1.2.0](https://github.com/apache/incubator-linkis/projects/12).
 
 Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引擎新增特性，以支持数据源模式；减少和优化Linkis模块；数据源功能优化；改进部分引擎的测试用例，并进行了大量的bug修复和功能改进。
 
@@ -148,7 +148,7 @@ Linkis 1.2.0 版本发布主要支持Presto和ElasticSearch引擎；对JDBC引�
 + \[CG][[LINKIS-2452]](https://github.com/apache/incubator-linkis/issues/2452) oshi-core 版本升级
 
 ## 致谢
-Apache Linkis(incubating) 1.2.0的发布离不开Linkis社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: 
+Apache Linkis 1.2.0的发布离不开Linkis社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: 
 CCweixiao, Dlimeng, QuintinTao, WenxiangFan, aiceflower, barry8023, binbinCheng, casionone,
  duhanmin, gabeng1996, huangKai-2323, huapan123456, huiyuanjjjjuice, hunter-cloud09, jackxu2011,
 legendtkl, liangqilang, liuyou2, mindflow94, peacewong, ruY9527, seedscoder, wForget, yyuser5201314

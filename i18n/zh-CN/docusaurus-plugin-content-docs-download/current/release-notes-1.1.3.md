@@ -3,7 +3,7 @@ title: Release Notes 1.1.3
 sidebar_position: 0.2
 --- 
 
-Apache Linkis(incubating) 1.1.3 包括所有 [Project Linkis-1.1.3](https://github.com/apache/incubator-linkis/projects/19)。
+Apache Linkis 1.1.3 包括所有 [Project Linkis-1.1.3](https://github.com/apache/incubator-linkis/projects/19)。
 
 
 本次发布主要 集成Prometheus，提供linkis微服务监控的基础能力；任务提交新增任务重试次数参数；增加任务与执行EC的关联信息记录；Flink引擎支持将 Yarn 日志下载到 EC 日志目录；前端页面支持水印；部分安全漏洞组件升级等；修复社区反馈的已知 bug
@@ -75,6 +75,6 @@ Apache Linkis(incubating) 1.1.3 包括所有 [Project Linkis-1.1.3](https://gith
 * \[Common][[Linkis-2182]](https://github.com/apache/incubator-linkis/pull/2182) 升级 gson:2.8.5 至gson:2.8.9版本 
 
 ## 致谢
-Apache Linkis(incubating) 1.1.3的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexkun、CCweixiao、Davidhua1996、QuintinTao、casionone、det101、doroxinrui、huiyuanjjjjuice、husofskyzy、hzdhgf、jackxu2011、legendtkl、liuyou2、peacewong 、pjfanning、ruY9527、saLeox、seayi、wForget、wallezhang、yyuser5201314
+Apache Linkis 1.1.3的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexkun、CCweixiao、Davidhua1996、QuintinTao、casionone、det101、doroxinrui、huiyuanjjjjuice、husofskyzy、hzdhgf、jackxu2011、legendtkl、liuyou2、peacewong 、pjfanning、ruY9527、saLeox、seayi、wForget、wallezhang、yyuser5201314
 
 

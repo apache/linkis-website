@@ -1,4 +1,4 @@
-# Maturity Self Assessment for Apache Linkis (incubating)
+# Maturity Self Assessment for Apache Linkis
 
 The goals of this maturity model are to describe how Apache projects operate in a concise and high-level way, and to provide a basic framework that projects may choose to use to evaluate themselves.
 

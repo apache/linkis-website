@@ -469,13 +469,13 @@ The DISCLAIMER-WIP disclaimer is currently used, please add this description `As
 
 ```html
 title:
-[VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+[VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 content:
 
 Hello Linkis Community,
 
-    This is a call for vote to release Apache Linkis (Incubating) version ${release_version}-${rc_version}.
+    This is a call for vote to release Apache Linkis version ${release_version}-${rc_version}.
 
     Release notes:
         https://github.com/apache/incubator-linkis/releases/tag/v${release_version}-${rc_version}
@@ -525,7 +525,7 @@ ${Linkis Release Manager}
 
 ```html
 title:
-[RESULT][VOTE] Release Apache Linkis (Incubating) ${release_version} ${rc_version}
+[RESULT][VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 content:
 Hello Apache Linkis PPMC and Community,
@@ -554,17 +554,17 @@ ${Linkis Release Manager}
 #### 5.2.1 Incubator community voting template
 
 ```html
-Title: [VOTE] Release Apache Linkis(Incubating) ${release_version} ${rc_version}
+Title: [VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 content:
 
 Hello Incubator Community,
 
-    This is a call for a vote to release Apache Linkis(Incubating) version
+    This is a call for a vote to release Apache Linkis version
     ${release_version} ${rc_version}
 
     The Apache Linkis community has voted on and approved a proposal to release
-    Apache Linkis(Incubating) version ${release_version} ${rc_version}
+    Apache Linkis version ${release_version} ${rc_version}
 
     We now kindly request the Incubator PMC members review and vote on this
     incubator release.
@@ -598,7 +598,7 @@ Hello Incubator Community,
     [] -1 disapprove with the reason
 
 Thanks,
-On behalf of Apache Linkis(Incubating) community
+On behalf of Apache Linkis community
 
 ```
 
@@ -610,7 +610,7 @@ Title: [RESULT][VOTE] Release Apache Linkis ${release_version} {rc_version}
 content:
 Hi all
 
-Thanks for reviewing and voting for Apache Linkis(Incubating) ${release_version} {rc_version}
+Thanks for reviewing and voting for Apache Linkis ${release_version} {rc_version}
 release, I am happy to announce the release voting has passed with [Number of voting results]
 binding votes, no +0 or -1 votes. Binding votes are from IPMC
 
@@ -622,11 +622,11 @@ The voting thread is:
 [Incubator community Vote Link]
 
 Many thanks for all our mentors helping us with the release procedure, and
-all IPMC helped us to review and vote for Apache Linkis(Incubating) release. I will
+all IPMC helped us to review and vote for Apache Linkis release. I will
 be working on publishing the artifacts soon.
 
 Thanks
-On behalf of Apache Linkis(Incubating) community
+On behalf of Apache Linkis community
 ```
 ## 6 Official release
 
@@ -693,15 +693,15 @@ After waiting and confirming that the new release version is synced to the Apach
 Send email to `dev@linkis.apache.org`, `announce@apache.org` and `general@incubator.apache.org`
 ```html
 title:
-[ANNOUNCE] Apache Linkis (Incubating) ${release_version} available
+[ANNOUNCE] Apache Linkis ${release_version} available
 
 content:
 
 Hi all,
 
-Apache Linkis (Incubating) Team is glad to announce the new release of Apache Linkis (Incubating) ${release_version}.
+Apache Linkis  Team is glad to announce the new release of Apache Linkis ${release_version}.
 
-Apache Linkis (Incubating) builds a computation middleware layer to decouple the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), while enables cross engine context sharing, unified job& engine governance and orchestration.
+Apache Linkis builds a computation middleware layer to decouple the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), while enables cross engine context sharing, unified job& engine governance and orchestration.
 
 Download Links: https://linkis.apache.org/download/main/
 
@@ -713,7 +713,7 @@ Linkis Resources:
 - Issue: https://github.com/apache/incubator-linkis/issues
 - Mailing list: dev@linkis.apache.org
 
-- Apache Linkis (Incubating) Team
+- Apache Linkis Team
 
 ```
 

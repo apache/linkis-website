@@ -3,7 +3,7 @@ title: Release Notes 1.1.0
 sidebar_position: 8
 --- 
 
-Apache Linkis(incubating) 1.1.0 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3).
+Apache Linkis 1.1.0 includes all of [Project Linkis-1.1.0](https://github.com/apache/incubator-linkis/projects/3).
 
 This release mainly adds datasource and metadata source management services, supports metadata information query for hive/mysql/kafka/elasticsearch, and fixes bugs in version 1.0.3 reported by the community.
 
@@ -76,4 +76,4 @@ Abbreviations:
 
 ## Credits 
 
-The release of Apache Linkis(incubating) 1.1.0 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following contributors for this version: Alexkun, CCweixiao, Celebrate-future, Davidhua1996, FireFoxAhri, WenxiangFan , Zosimer, aleneZeng, casionone, dddyszy, det101, ganlangjie, huapan123456, huiyuanjjjjuice, husofskyzy, iture123, jianwei2, legendtkl, peacewong, pjfanning, silent-carbon, xiaojie19852006
+The release of Apache Linkis 1.1.0 is inseparable from the contributors of the Linkis community. Thanks to all the community contributors, including but not limited to the following contributors for this version: Alexkun, CCweixiao, Celebrate-future, Davidhua1996, FireFoxAhri, WenxiangFan , Zosimer, aleneZeng, casionone, dddyszy, det101, ganlangjie, huapan123456, huiyuanjjjjuice, husofskyzy, iture123, jianwei2, legendtkl, peacewong, pjfanning, silent-carbon, xiaojie19852006

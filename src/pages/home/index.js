@@ -15,7 +15,7 @@ export default function() {
      <div className="home-page slogan">
        <div className="ctn-block">
          <div className="banner text-center">
-           <h1 className="home-title"><span className="apache">Apache</span> <span className="linkis">Linkis</span> <span className="badge">Incubating</span></h1>
+           <h1 className="home-title"><span className="apache">Apache</span> <span className="linkis">Linkis</span></h1>
            <p className="home-desc">{dataSource.home.banner.slogan}</p>
            <div className="botton-row center">
               {
