@@ -546,88 +546,24 @@ Thank you for your support.
 ${Linkis Release Manager}
 ```
 
-### 5.2 Incubator community voting stage
+### 5.2 Others
 
-- To vote in the Incubator community, send a voting email to `general@incubator.apache.org`, and 3 `+1 IPMC Member` votes are required to proceed to the next stage.
-- Announce the result of the poll, send an email to `general@incubator.apache.org` and send a copy to `dev@linkis.apache.org`.
+**Because there is a problem with the content of the voting email (not a material problem, such as a link problem**
 
-#### 5.2.1 Incubator community voting template
+- If it is discovered earlier, you can cancel the previous vote and vote again. If it has been done for a long time, the release manager can directly reply to the voting email.
+- RCX can remain unchanged, the source material will not be modified, and the title of the email can be added (Round2) to distinguish such as `[VOTE] Release Apache Linkis 1.3.0-RC2 (Round2)`
 
-```html
-Title: [VOTE] Release Apache Linkis ${release_version} ${rc_version}
+**Mail thread problem**
 
-content:
+All mailing archives can be found at [dev@linkis.apache.org](https://lists.apache.org/list.html?dev@linkis.apache.org), a mailing thread, via the [ Permanent link to this email]
+Get the accessible url address of the email
 
-Hello Incubator Community,
+![image](https://user-images.githubusercontent.com/7869972/201943103-9add304d-ca25-4b78-8282-38424f73a28b.png)
 
-    This is a call for a vote to release Apache Linkis version
-    ${release_version} ${rc_version}
+Some mailboxes 163/sina reply with the Chinese "reply" by default, which will cause the apache mail to be recognized as a new thread mail, and the configuration needs to be modified.
 
-    The Apache Linkis community has voted on and approved a proposal to release
-    Apache Linkis version ${release_version} ${rc_version}
+![image](https://user-images.githubusercontent.com/7869972/201942374-5d9b7b93-5211-4c9b-be53-86c9b4ec7bfe.png)
 
-    We now kindly request the Incubator PMC members review and vote on this
-    incubator release.
-
-    Linkis community vote thread:
-    • [Linkis Community Vote Link]
-
-    Vote result thread:
-    • [Link to linkis Community voting results]
-
-    The release candidate:
-    • https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/
-
-    Git tag for the release:
-    • https://github.com/apache/linkis/releases/tag/${release_version}-${rc_version}
-
-    Release notes:
-    • https://github.com/apache/linkis/releases/tag/${release_version}-${rc_version}
-
-    The artifacts signed with PGP key [fill in your personal KEY], corresponding to [fill in your personal email], that can be found in keys file:
-    • https://downloads.apache.org/linkis/KEYS
-
-    As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
-
-    The vote will be open for at least 72 hours or until necessary number of votes are reached.
-
-    Please vote accordingly:
-
-    [] +1 approve
-    [] +0 no opinion
-    [] -1 disapprove with the reason
-
-Thanks,
-On behalf of Apache Linkis community
-
-```
-
-#### 5.2.2 Announce voting result template
-
-```html
-Title: [RESULT][VOTE] Release Apache Linkis ${release_version} {rc_version}
-
-content:
-Hi all
-
-Thanks for reviewing and voting for Apache Linkis ${release_version} {rc_version}
-release, I am happy to announce the release voting has passed with [Number of voting results]
-binding votes, no +0 or -1 votes. Binding votes are from IPMC
-
-   -xxx
-   -xxx
-   -xxx
-
-The voting thread is:
-[Incubator community Vote Link]
-
-Many thanks for all our mentors helping us with the release procedure, and
-all IPMC helped us to review and vote for Apache Linkis release. I will
-be working on publishing the artifacts soon.
-
-Thanks
-On behalf of Apache Linkis community
-```
 ## 6 Official release
 
 ### 6.1 Migrating source and binary packages
