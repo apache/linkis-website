@@ -9,8 +9,8 @@ sidebar_position: 10
 :::caution be careful
 Premise: the linkis service (back-end and management console services) has been successfully installed and can be used normally. See [rapid deployment of linkis] (deployment/quick-deploy) for the deployment process of linkis
 Example description:
-- The address of the linkis gateway service is 10.10.10.10 and the port is 9001
-- The management console nginx of linkis is deployed on port 8080 of 10.10.10.10
+- The address of the linkis gateway service is 127.0.0.1 and the port is 9001
+- The management console nginx of linkis is deployed on port 8080 of 127.0.0.1
   :::
 
 
@@ -58,8 +58,8 @@ If the service is started locally, you need to configure the back-end linkis gat
 Configuration is not required when packaging deployment
 ```shell script
 // Backend linkis gatway service address
-VUE_APP_HOST=http://10.10.10.10:9001
-VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
+VUE_APP_HOST=http://127.0.0.1:9001
+VUE_APP_MN_CONFIG_PREFIX=http://127.0.0.1:9001/api/rest_j/v1
 ```
 #### 2.3.2 Running scripts module
 
@@ -116,7 +116,7 @@ server {
         .......
 
 location /api {
-            proxy_pass http://10.10.10.10:9001; #Address of gatway
+            proxy_pass http://127.0.0.1:9001; #Address of gatway
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -154,7 +154,7 @@ Note the difference between root and alias in nginx
 
 ### 4.1 Log in to the linkis management console normally
 ```shell script
-#http://10.10.10.10:8080/#/
+#http://127.0.0.1:8080/#/
 http://nginxIp:port/#/
 ```
 Because scripts requires login verification, you need to log in first to get the cookie.
@@ -162,7 +162,7 @@ Because scripts requires login verification, you need to log in first to get the
 ### 4.2 Visit the scripts page after successful login
 
 ```shell script
-#http://10.10.10.10:8080/scriptis/
+#http://127.0.0.1:8080/scriptis/
 http://nginxIp:port/scriptis/
 ```
 Nginxip:nginx server IP, port:linkis management console nginx configuration start port number, `scripts` is the location address configured for the static file nginx of the requested scripts project (customizable)

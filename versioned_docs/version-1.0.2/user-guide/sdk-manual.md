@@ -52,7 +52,7 @@ public class JavaClientTest {
 
     // 1. build config: linkis gateway url
     private static DWSClientConfig clientConfig = ((DWSClientConfigBuilder) (DWSClientConfigBuilder.newBuilder()
-            .addServerUrl("http://10.107.118.104:9001/")   //set linkis-mg-gateway url: http://{ip}:{port}
+            .addServerUrl("http://127.0.0.14:9001/")   //set linkis-mg-gateway url: http://{ip}:{port}
             .connectionTimeout(30000)   //connectionTimeOut
             .discoveryEnabled(false) //disable discovery
             .discoveryFrequency(1, TimeUnit.MINUTES)  // discovery frequency
@@ -203,7 +203,7 @@ object ScalaClientTest {
 
   // 1. build config: linkis gateway url
   val clientConfig = DWSClientConfigBuilder.newBuilder()
-    .addServerUrl("http://10.107.118.104:9001/")   //set linkis-mg-gateway url: http://{ip}:{port}
+    .addServerUrl("http://127.0.0.14:9001/")   //set linkis-mg-gateway url: http://{ip}:{port}
     .connectionTimeout(30000)   //connectionTimeOut
     .discoveryEnabled(false) //disable discovery
     .discoveryFrequency(1, TimeUnit.MINUTES)  // discovery frequency

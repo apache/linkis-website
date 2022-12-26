@@ -148,7 +148,7 @@ To submit a task through linkis-cli, you need to specify the corresponding Engin
 
 If the management console, task interface, and configuration file are not configured, they can be configured in the cli client through the `-runtimeMap` property
 ```shell
-sh ./bin/linkis-cli -engineType presto-0.234 -codeType tsql -code 'show tables;' -runtimeMap wds.linkis.presto.url=http://172.22.32.11:50070 -runtimeMap wds.linkis.presto. catalog=hive -runtimeMap wds.linkis.presto.schema=default -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType presto-0.234 -codeType tsql -code 'show tables;' -runtimeMap wds.linkis.presto.url=http://127.0.0.1:50070 -runtimeMap wds.linkis.presto. catalog=hive -runtimeMap wds.linkis.presto.schema=default -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
 ```
 
 For specific usage, please refer to: [Linkis CLI Manual](..//user-guide/linkiscli-manual.md).

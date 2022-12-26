@@ -179,7 +179,7 @@ linkis-cg-engineconnmanager(ecm)：暂时ecm启动引擎使用的是unix的方�
 LinkisInstallDir:完整linkis的安装目录
 
 [linkis-mg-eureka]
-nohup java  -DserviceName=linkis-mg-eureka -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-mg-eureka-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-spring-cloud-services/linkis-mg-eureka/* org.apache.linkis.eureka.SpringCloudEurekaApplication  --eureka.instance.hostname=bdpujes110001 --spring.profiles.active=eureka 2>&1 > /data/LinkisInstallDir/logs/linkis-mg-eureka.out &
+nohup java  -DserviceName=linkis-mg-eureka -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-mg-eureka-gc.log   -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-spring-cloud-services/linkis-mg-eureka/* org.apache.linkis.eureka.SpringCloudEurekaApplication  --eureka.instance.hostname=localhost110001 --spring.profiles.active=eureka 2>&1 > /data/LinkisInstallDir/logs/linkis-mg-eureka.out &
 
 [linkis-mg-gateway]
 nohup java  -DserviceName=linkis-mg-gateway -Xmx512M -XX:+UseG1GC -Xloggc:/data/LinkisInstallDir/logs/linkis-mg-gateway-gc.log  -cp /data/LinkisInstallDir/conf/:/data/LinkisInstallDir/lib/linkis-spring-cloud-services/linkis-mg-gateway/* org.apache.linkis.gateway.springcloud.LinkisGatewayApplication  2>&1 >  /data/LinkisInstallDir/logs/linkis-mg-gateway.out &

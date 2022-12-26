@@ -1037,7 +1037,7 @@
                 "name": "keyTab file",
                 "valueType": "FILE",
                 "require": false,
-                "dataSource": "http://172.22.32.6:9001/api/rest_j/v1/bml/upload"
+                "dataSource": "http://127.0.0.1:9001/api/rest_j/v1/bml/upload"
             }
         ]
     }

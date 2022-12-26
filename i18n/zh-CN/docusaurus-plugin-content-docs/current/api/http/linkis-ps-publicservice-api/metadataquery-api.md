@@ -179,7 +179,7 @@ sidebar_position: 3
             "colelction.delim": "-",
             "serialization.lib": "org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe",
             "name": "dss_autotest.demo_data",
-            "location": "hdfs://bdpdev01/user/hive/warehouse/hadoop/dss_autotest.db/demo_data",
+            "location": "hdfs://localhost01/user/hive/warehouse/hadoop/dss_autotest.db/demo_data",
             "mapkey.delim": ":",
             "file.inputformat": "org.apache.hadoop.mapred.TextInputFormat",
             "serialization.format": ",",

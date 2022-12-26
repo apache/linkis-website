@@ -78,7 +78,7 @@ Linkis在前后端进行交互的时候，定义了一套自己的接口规范�
  "status": 0,
  "message": "请求执行成功",
  "data": {
-   "execID": "030418IDEhivebdpdwc010004:10087IDE_johnnwang_21",
+   "execID": "030418IDEhivelocalhost010004:10087IDE_johnnwang_21",
    "taskID": "123"  
  }
 }

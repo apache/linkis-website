@@ -173,7 +173,7 @@ ENGINECONN_ROOT_PATH=/appcom/tmp #存放执行引擎的工作路径，需要部�
 
 #### HIVE的META配置
 ```shell script
-HIVE_META_URL=jdbc:mysql://10.10.10.10:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8 # HiveMeta元数据库的URL
+HIVE_META_URL=jdbc:mysql://127.0.0.1:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8 # HiveMeta元数据库的URL
 HIVE_META_USER=demo   # HiveMeta元数据库的用户
 HIVE_META_PASSWORD=demo123    # HiveMeta元数据库的密码
 ```

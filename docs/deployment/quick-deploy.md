@@ -81,7 +81,7 @@ MYSQL_PASSWORD=xxxxx
 
 # Provide the DB information of the Hive metadata database. If the hive engine is not involved (or just a simple trial), you can not configure it
 #Mainly used with scripts, if not configured, it will try to obtain it through the configuration file in $HIVE_CONF_DIR by default
-HIVE_META_URL="jdbc:mysql://10.10.10.10:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8"
+HIVE_META_URL="jdbc:mysql://127.0.0.1:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8"
 HIVE_META_USER=demo # User of HiveMeta Metabase
 HIVE_META_PASSWORD=demo123 # HiveMeta metabase password
 ````

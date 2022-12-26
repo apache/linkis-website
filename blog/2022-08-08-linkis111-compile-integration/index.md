@@ -587,7 +587,7 @@ For example, for qualitis, the following IP and host ports are determined accord
 
 ```
 qualitis
-172.21.129.78
+127.0.0.1
 8090
 ```
 
@@ -631,14 +631,14 @@ index  index.html index.html;
 }
 
 location /ws {
-proxy_pass http://172.21.129.210:9001;#Address of back-end linkis
+proxy_pass http://127.0.0.1:9001;#Address of back-end linkis
 proxy_http_version 1.1;
 proxy_set_header Upgrade $http_upgrade;
 proxy_set_header Connection upgrade;
 }
 
 location /api {
-proxy_pass http://172.21.129.210:9001; #Address of back-end linkis
+proxy_pass http://127.0.0.1:9001; #Address of back-end linkis
 proxy_set_header Host $host;
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header x_real_ipP $remote_addr;
@@ -678,7 +678,7 @@ server {
             }
 
             location /api {
-            proxy_pass http://172.21.129.210:9001;  # The address of the backend link needs to be modified
+            proxy_pass http://127.0.0.1:9001;  # The address of the backend link needs to be modified
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -715,7 +715,7 @@ server {
         index  index.html index.html;
     }
     location /api {
-    proxy_pass http://172.21.129.210:9001;        # The address of the backend link needs to be modified
+    proxy_pass http://127.0.0.1:9001;        # The address of the backend link needs to be modified
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header x_real_ipP $remote_addr;

@@ -93,7 +93,7 @@ Requested task is to submit user's assignment to Linkis for execution interface
  "status": 0,
  "message": "The request was executed successfully",
  "data": {
-   "execID": "030418IDEhivebdpdwc010004:10087IDE_johnnwang_21",
+   "execID": "030418IDEhivelocalhost010004:10087IDE_johnnwang_21",
    "taskID": "123"  
  }
 }

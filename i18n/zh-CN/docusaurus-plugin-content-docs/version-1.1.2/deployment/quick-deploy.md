@@ -81,7 +81,7 @@ MYSQL_PASSWORD=xxxxx
 
 # 提供 Hive 元数据数据库的 DB 信息，如果不涉及hive引擎（或则只是简单试用），可以不配置 
 #主要是配合scriptis一起使用，如果不配置，会默认尝试通过$HIVE_CONF_DIR 中的配置文件获取
-HIVE_META_URL="jdbc:mysql://10.10.10.10:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8" 
+HIVE_META_URL="jdbc:mysql://127.0.0.1:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8" 
 HIVE_META_USER=demo   # HiveMeta元数据库的用户
 HIVE_META_PASSWORD=demo123    # HiveMeta元数据库的密码
 ```

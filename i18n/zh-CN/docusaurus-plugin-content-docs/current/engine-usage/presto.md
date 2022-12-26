@@ -150,7 +150,7 @@ http 请求参数示例
 如果管理台，任务接口，配置文件，均未配置时可在 cli 客户端中通过`-runtimeMap`属性进行配置
 
 ```shell
-sh ./bin/linkis-cli -engineType presto-0.234 -codeType  tsql -code 'show tables;'  -runtimeMap wds.linkis.presto.url=http://172.22.32.11:50070 -runtimeMap wds.linkis.presto.catalog=hive -runtimeMap  wds.linkis.presto.schema=default  -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType presto-0.234 -codeType  tsql -code 'show tables;'  -runtimeMap wds.linkis.presto.url=http://127.0.0.1:50070 -runtimeMap wds.linkis.presto.catalog=hive -runtimeMap  wds.linkis.presto.schema=default  -runtimeMap wds.linkis.presto.catalog=hive -submitUser hadoop -proxyUser hadoop
 ```
 
 具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).

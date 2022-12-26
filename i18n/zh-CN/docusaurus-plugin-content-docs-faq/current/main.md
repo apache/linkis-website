@@ -286,7 +286,7 @@ INSERT INTO `linkis_cg_rm_external_resource_provider` (`resource_type`, `name`, 
 
 config 字段示例
 {
-"rmWebAddress": "http://10.10.10.10:8080",
+"rmWebAddress": "http://127.0.0.1:8080",
 "hadoopVersion": "2.7.2",
 "authorEnable":true,
 "user":"hadoop",

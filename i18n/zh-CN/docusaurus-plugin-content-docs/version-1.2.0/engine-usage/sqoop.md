@@ -14,7 +14,7 @@ Sqoop引擎主要依赖Hadoop基础环境，如果该节点需要部署Sqoop引�
 #验证sqoop环境是否可用 参考示例：将hdfs的/user/hive/warehouse/hadoop/test_linkis_sqoop文件数据导入到mysql表 test_sqoop中
 
 sqoop export \
---connect  jdbc:mysql://10.10.10.10/test \
+--connect  jdbc:mysql://127.0.0.1/test \
 --username test \
 --password test123\
 --table test_sqoop \
@@ -81,7 +81,7 @@ hdfs文件导出到mysql
 ```shell script
 sh linkis-cli-sqoop export \
 -D mapreduce.job.queuename=ide \
---connect jdbc:mysql://10.10.10.10:9600/testdb \
+--connect jdbc:mysql://127.0.0.1:9600/testdb \
 --username password@123 \
 --password password@123  \
 --table test_sqoop_01_copy \
@@ -95,7 +95,7 @@ mysql数据导入到hive库
 mysql导入到hive 库linkis_test_ind.test_import_sqoop_1,表test_import_sqoop_1不存在 需要添加参数 --create-hive-table 
 
 sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
---connect jdbc:mysql://10.10.10.10:3306/casion_test \
+--connect jdbc:mysql://127.0.0.1:3306/casion_test \
 --username hadoop \
 --password password@123 \
 --table test_sqoop_01 \
@@ -113,7 +113,7 @@ sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
 
 mysql导入到hive 库linkis_test_ind.test_import_sqoop_1,表test_import_sqoop_1存在 移除参数--create-hive-table \
 sh linkis-cli-sqoop import -D mapreduce.job.queuename=dws \
---connect jdbc:mysql://10.10.10.10:9600/testdb \
+--connect jdbc:mysql://127.0.0.1:9600/testdb \
 --username testdb \
 --password password@123 \
 --table test_sqoop_01 \
