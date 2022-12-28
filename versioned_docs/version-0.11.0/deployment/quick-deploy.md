@@ -74,7 +74,7 @@ sidebar_position: 1
 
 ### 2.3 Installation package preparation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)), Download the latest installation package.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/linkis/releases)), Download the latest installation package.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First decompress the installation package to the installation directory, and modify the configuration of the decompressed files.
 
@@ -178,7 +178,7 @@ sidebar_position: 1
 
 ### 3.4 Installation package preparation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)), Download the latest installation package.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/linkis/releases)), Download the latest installation package.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First decompress the installation package to the installation directory, and modify the configuration of the decompressed files.
 
@@ -306,7 +306,7 @@ erties
 
 ### 4.4 Installation package preparation
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/incubator-linkis/releases)), Download the latest installation package.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the released release of Linkis ([click here to enter the download page](https://github.com/apache/linkis/releases)), Download the latest installation package.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First decompress the installation package to the installation directory, and modify the configuration of the decompressed files.
 

@@ -4,7 +4,7 @@ sidebar_position: 7
 ---
 
 ## Apache sign icla guide {#apache-sign-icla-guide}
-Note: This article refers to the Apache icla signing process guide document of the incubator-shenyu-website project https://shenyu.apache.org/community/icla
+Note: This article refers to the Apache icla signing process guide document of the shenyu-website project https://shenyu.apache.org/community/icla
 
 Apache CLA short for Apache Contributor License Agreement, the purpose of this agreement is to clearly define the terms under which intellectual property has been contributed to the ASF and thereby allow us to defend the project should there be a legal dispute regarding the software at some future time.
 A signed ICLA is required to be on file before an individual is given commit rights to any ASF project.
@@ -70,4 +70,4 @@ Here is a specific example:
 > - Convert photos into **single pdf** file
 > - Send to the specified mailbox
 
-For example files, please refer to https://github.com/casionone/incubator-linkis-website/tree/dev/resource/wangming-icla.pdf
+For example files, please refer to https://github.com/casionone/linkis-website/tree/dev/resource/wangming-icla.pdf

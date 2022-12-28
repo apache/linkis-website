@@ -6,11 +6,11 @@ sidebar_position: 1
 ## 1. Preparation
 **Environment requirements:** Version of JDK must be higher then **JDK8**,  **Oracle/Sun** and **OpenJDK** are both supported.
 
-After obtaining the project code from [github repository](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis, use maven to compile the project installation package.
+After obtaining the project code from [github repository](https://github.com/apache/linkis) https://github.com/apache/linkis, use maven to compile the project installation package.
 
 ### 1.1 Source code acquisition
 
-- Method 1: Obtain the source code of the project from [github repository](https://github.com/apache/incubator-linkis) https://github.com/apache/incubator-linkis.
+- Method 1: Obtain the source code of the project from [github repository](https://github.com/apache/linkis) https://github.com/apache/linkis.
 - Method 2: Download the source code package of the required version from the [linkis official download page](https://linkis.apache.org/download/main) https://linkis.apache.org/download/main.
 
 **Notice** : The official recommended versions for compiling Linkis are hadoop-2.7.2, hive-1.2.1, spark-2.4.3, and Scala-2.11.12.
@@ -38,7 +38,7 @@ Because the mysql-connector-java driver is under the GPL2.0 agreement and does n
 
 **If you are compiling and using it locally for the first time, you must first execute the following command in the root directory of the Linkis source code package**:
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn -N install
 ```
 
@@ -46,7 +46,7 @@ Because the mysql-connector-java driver is under the GPL2.0 agreement and does n
 Execute the following commands in the root directory of the Linkis source code package:
     
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn clean install
 
 ```
@@ -56,7 +56,7 @@ The compiled complete installation package is in the assembly-combined-package->
 
 ```bash
     #Detailed path is as follows
-    incubator-linkis-x.x.x/assembly-combined-package/target/apache-linkis-x.x.x-incubating-bin.tar.gz
+    linkis-x.x.x/assembly-combined-package/target/apache-linkis-x.x.x-incubating-bin.tar.gz
 ```
 
 ## 3. Compile a single module
@@ -65,14 +65,14 @@ The compiled complete installation package is in the assembly-combined-package->
 **If you are compiling and using it locally for the first time, you must first execute the following command in the root directory of the Linkis source code package**:
 
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn -N install
 ```
 ### step2 Enter the corresponding module to compile
 Enter the corresponding module to compile, for example, if you want to recompile Entrance, the command is as follows:
    
 ```bash
-    cd incubator-linkis-x.x.x/linkis-computation-governance/linkis-entrance
+    cd linkis-x.x.x/linkis-computation-governance/linkis-entrance
     mvn clean install
 ```
 
@@ -80,7 +80,7 @@ Enter the corresponding module to compile, for example, if you want to recompile
 Get the installation package, there will be a compiled package in the ->target directory of the corresponding module:
    
 ```
-    incubator-linkis-x.x.x/linkis-computation-governance/linkis-entrance/target/linkis-entrance.x.x.x.jar
+    linkis-x.x.x/linkis-computation-governance/linkis-entrance/target/linkis-entrance.x.x.x.jar
 ```
 
 ## 4. Compile an engine
@@ -91,21 +91,21 @@ Here's an example of the Spark engine that builds Linkis:
 **If you are using it locally for the first time, you must first execute the following command in the root directory of the Linkis source code package**:
    
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn -N install
 ```
 ### step2 Enter the corresponding module to compile
 Enter the directory where the Spark engine is located to compile and package, the command is as follows:
    
 ```bash
-    cd incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
+    cd linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
     mvn clean install
 ```
 ### step3 Obtain the installation package
 Get the installation package, there will be a compiled package in the ->target directory of the corresponding module:
    
 ```
-   incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.jar
+   linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark/target/linkis-engineplugin-spark-x.x.x.jar
 ```
 
 How to install Spark engine separately? Please refer to [Linkis Engine Plugin Installation Document](../deployment/engine-conn-plugin-installation)
@@ -122,7 +122,7 @@ Specifically, the version of Hadoop can be modified in a different way than Spar
 Enter the source package root directory of Linkis, and manually modify the Hadoop version information of the pom.xml file, as follows:
 
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     vim pom.xml
 ```
 
@@ -159,7 +159,7 @@ Modify the dependency hadoop-hdfs to hadoop-hdfs-client:
 Here's an example of changing the version of Spark. Go to the directory where the Spark engine is located and manually modify the Spark version information of the pom.xml file as follows:
 
 ```bash
-    cd incubator-linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
+    cd linkis-x.x.x/linkis-engineconn-plugins/engineconn-plugins/spark
     vim pom.xml
 ```
 

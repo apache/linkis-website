@@ -46,8 +46,8 @@ Linkis 源码可能会产生一些临时分支，但真正有明确意义的只�
 - feature-*: 针对某些较大、需要社区联合开发的新特性的开发分支
 
 #### 2.1.1 概念 
-原仓库:https://github.com/apache/incubator-linkis linkis的apache仓库文中称为原仓库   
-fork库: 从https://github.com/apache/incubator-linkis fork到自己个人仓库 成为fork库  
+原仓库:https://github.com/apache/linkis linkis的apache仓库文中称为原仓库   
+fork库: 从https://github.com/apache/linkis fork到自己个人仓库 成为fork库  
 
 #### 2.1.2 同步原仓库分支最新代码到自己的fork库   
 1.进入用户项目页面,选中要更新的分支  
@@ -63,7 +63,7 @@ fork库: 从https://github.com/apache/incubator-linkis fork到自己个人仓库
 1. 添加apache原仓库镜像到本地  
 
 ```
-git remote add apache git@github.com:apache/incubator-linkis.git
+git remote add apache git@github.com:apache/linkis.git
 ```
 2. 拉去apache镜像信息到本地  
 
@@ -119,7 +119,7 @@ Linkis 前后端代码共用同一个代码库，但在开发上是分离的。�
 
 ```bash
 //拉取分支
-git clone https://github.com/{githubid}/incubator-linkis.git --branch dev
+git clone https://github.com/{githubid}/linkis.git --branch dev
 //根据dev生成本地dev-fix分支
 git checkout -b dev-fix dev
 //把本地dev-fix分支推到自己的仓库
@@ -180,7 +180,7 @@ git push origin dev-fix dev-fix
 ### 2.3 Issue 提交指引
 - 如果您还不知道怎样向开源项目发起 PR，请参考[About issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues)
 - Issue 名称，应一句话简单描述您的问题或建议；为了项目的国际化推广，请用英文，或中英文双语书写 issue.
-- 每个Issue，请至少带上component 和type 两个label，如component=Computation Governance/EngineConn，type=Improvement.参考:[issue #590](https://github.com/apache/incubator-linkis/issues/590)
+- 每个Issue，请至少带上component 和type 两个label，如component=Computation Governance/EngineConn，type=Improvement.参考:[issue #590](https://github.com/apache/linkis/issues/590)
 
 ### 2.4 Pull Request(PR) 提交指引
 

@@ -16,7 +16,7 @@ License related can be divided into 3 parts
 - The packaging of the project will be packaged and released. The main scenarios that need to be paid attention to are: the running and installation dependencies of the dependent jar packages in the dependencies, and the pom, that is, the packaging of the dependencies, will be packaged in
 - The situation that the material installation package of the management console needs to be paid attention to: the additional dependency packages that are dependent on the front-end web are configured through linkweb/package.json
 
-[Linkis source code](https://github.com/apache/incubator-linkis) The directory related to the license is as follows
+[Linkis source code](https://github.com/apache/linkis) The directory related to the license is as follows
 ```shell script
 # the outermost directory starts
 

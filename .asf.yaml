@@ -19,7 +19,7 @@ github:
     # Enable issue management
     issues: true
   description: Apache Linkis documents
-  homepage: https://linkis.incubator.apache.org
+  homepage: https://linkis.apache.org
   labels:
     - linkis
     - website

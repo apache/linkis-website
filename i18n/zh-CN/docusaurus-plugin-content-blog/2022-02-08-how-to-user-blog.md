@@ -10,8 +10,8 @@ tags: [blog,guide]
 <!--truncate-->
 ## 资源路径 
 
-- 中文博文仓库路径:https://github.com/apache/incubator-linkis-website/tree/dev/i18n/zh-CN/docusaurus-plugin-content-blog
-- 英文博文仓库路径:https://github.com/apache/incubator-linkis-website/tree/dev/blog
+- 中文博文仓库路径:https://github.com/apache/linkis-website/tree/dev/i18n/zh-CN/docusaurus-plugin-content-blog
+- 英文博文仓库路径:https://github.com/apache/linkis-website/tree/dev/blog
 
 每篇博文需要支持中文和英文，提交时请不要遗漏对应的英文文档。
 

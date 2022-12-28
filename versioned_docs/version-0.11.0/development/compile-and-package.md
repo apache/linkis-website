@@ -13,7 +13,7 @@ sidebar_position: 0
    If you want to use other versions of Hadoop, Hive, and Spark to compile Linkis, you can enter the root directory of the Linkis source code package and manually modify the relevant version information of the pom.xml file, as follows:
 
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     vim pom.xml
 ```
 
@@ -33,14 +33,14 @@ sidebar_position: 0
    (1) **If you are using it locally for the first time, you must first execute the following command in the root directory of the Linkis source code package**:
    
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn -N install
 ```
 
    (2) Execute the following command in the root directory of the Linkis source code package:
     
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn clean install
 ```
 
@@ -57,7 +57,7 @@ sidebar_position: 0
 (1) **If you are using it locally for the first time, you must first execute the following command in the root directory of the Linkis source code package**:
    
 ```bash
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn -N install
 ```
          

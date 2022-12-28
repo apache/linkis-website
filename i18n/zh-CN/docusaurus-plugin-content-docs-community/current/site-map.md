@@ -40,7 +40,7 @@ sidebar_position: 12
 
 ## Linkis相关的链接 
 - linkis-logo  https://svn.apache.org/repos/asf/comdev/project-logos/originals/
-- 项目列表 https://projects.apache.org/project.html?incubator-linkis
+- 项目列表 https://projects.apache.org/project.html?linkis
 - 维护IP Clearance https://svn.apache.org/repos/asf/incubator/public/trunk/content/ip-clearance/
 - Board Reports https://whimsy.apache.org/board/minutes/Linkis.html
 - Linkis的名字申请jira  https://issues.apache.org/jira/projects/PODLINGNAMESEARCH/issues/PODLINGNAMESEARCH-192?filter=allissues 
@@ -53,13 +53,13 @@ sidebar_position: 12
 
 
 - 查看某段时间内的提交用户  
-https://github.com/apache/incubator-linkis/graphs/contributors?from=2021-08-02&to=2022-07-21&type=c
+https://github.com/apache/linkis/graphs/contributors?from=2021-08-02&to=2022-07-21&type=c
 
 - 查看某段时间内 closed的pr 
 `\[Filters] is:pr is:closed closed:>2021-08-02 `
-https://github.com/apache/incubator-linkis/pulls?q=is%3Apr+is%3Aclosed+closed%3A%3E2021-08-02
+https://github.com/apache/linkis/pulls?q=is%3Apr+is%3Aclosed+closed%3A%3E2021-08-02
 
 
 - 查看某段时间内  close的issue 
 `\[Filters] is:pr is:closed closed:>2021-08-02 `
-https://github.com/apache/incubator-linkis/issues?q=is%3Aissue+is%3Aclosed+closed%3A%3E2021-08-02
+https://github.com/apache/linkis/issues?q=is%3Aissue+is%3Aclosed+closed%3A%3E2021-08-02

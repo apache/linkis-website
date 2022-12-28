@@ -21,13 +21,13 @@ jobs:
       - name: scheduled crawl linkis website contributor
         uses: ./.github/actions/Contributor_crawler
         with:
-          repo: apache/incubator-linkis-website
+          repo: apache/linkis-website
           num: 1000
       
       - name: scheduled crawl linkis contributor
         uses: ./.github/actions/Contributor_crawler
         with:
-          repo: apache/incubator-linkis
+          repo: apache/linkis
           num: 1000
         
       - name: scheduled commit contributor 

@@ -546,7 +546,7 @@ By default, linkis uses a static user and password. The static user is the deplo
 
 ### 8.4 version compatibility issues
 
-The engine supported by linkis by default, the compatibility with dss can be viewed [this document](https://github.com/apache/incubator-linkis/blob/master/README.md)
+The engine supported by linkis by default, the compatibility with dss can be viewed [this document](https://github.com/apache/linkis/blob/master/README.md)
 
 
 ### 8.5 How to locate the server exception log
@@ -653,7 +653,7 @@ Through the official website document search, for some problems, you can search 
 ## 9. How to obtain relevant information
 Linkis official website documents are constantly improving, you can view/keyword search related documents on this official website.
 Related blog post links
-- Linkis technical blog collection https://github.com/apache/incubator-linkis/issues/1233
+- Linkis technical blog collection https://github.com/apache/linkis/issues/1233
 - Technical blog post on the official account https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
 - Official website documentation https://linkis.apache.org/docs/latest/introduction
 - bili technology sharing video https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2

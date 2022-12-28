@@ -70,7 +70,7 @@
         },
         {
           "versionLabel": "0.11.0",
-          "downloadUrl": "https://github.com/apache/incubator-linkis/releases/tag/0.11.0",
+          "downloadUrl": "https://github.com/apache/linkis/releases/tag/0.11.0",
           "docUrl": "/zh-CN/docs/0.11.0/introduction",
           "sourceTag":"0.11.0"
         }
@@ -148,7 +148,7 @@
         },
         {
           "versionLabel": "0.11.0",
-          "releaseNotes": "https://github.com/apache/incubator-linkis/releases/tag/0.11.0",
+          "releaseNotes": "https://github.com/apache/linkis/releases/tag/0.11.0",
           "docUrl": "/docs/0.11.0/introduction",
           "sourceTag":"0.11.0"
         }

@@ -12,8 +12,8 @@ sidebar_position: 2
 ## step 1 准备源码并编译
 
 ```plain
-git clone https://github.com/apache/incubator-linkis.git
-cd incubator-linkis
+git clone https://github.com/apache/linkis.git
+cd linkis
 #如果需要 可以切换到对应的分支上
 #git checkout dev-xxx
 mvn -N install 
@@ -22,13 +22,13 @@ mvn clean install
 
 ## step2 必要的参数配置
 
-对于incubator-linkis/assembly-combined-package/assembly-combined/conf/下的配置文件，需要对数据库以及hive meta等必要启动参数进行配置。 
+对于linkis/assembly-combined-package/assembly-combined/conf/下的配置文件，需要对数据库以及hive meta等必要启动参数进行配置。 
 
 ## step3 调整log4j.xml配置
 
 为了方便调试的时候将日志打印到控制台，需要修改下默认的log4j2.xml文件，修改appender默认为console。需要移除默认的RollingFile的append，增加console的appender,如下所示：
 ![](/Images/development/debug_log.png)
-log4j2.xml 路径 incubator-linkis/assembly-combined-package/assembly-combined/conf/log4j2.xml
+log4j2.xml 路径 linkis/assembly-combined-package/assembly-combined/conf/log4j2.xml
 
 ```plain
  <?xml version="1.0" encoding="UTF-8"?>
@@ -72,7 +72,7 @@ Linkis和DSS的服务都依赖Eureka，所以需要首先启动Eureka服务，Eu
 org.apache.linkis.eureka.SpringCloudEurekaApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-eureka -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
@@ -103,7 +103,7 @@ server:
 org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
 linkis-gateway-server-support
@@ -120,7 +120,7 @@ linkis-gateway-server-support
 org.apache.linkis.jobhistory.LinkisPublicServiceApp
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [Use classpath of module]
 #linkis < 1.1.0  为linkis-jobhistory  
@@ -135,7 +135,7 @@ linkis-jobhistory
 org.apache.linkis.cs.server.LinkisCSApplication
 
 [VM Opitons]
--DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [Use classpath of module]
 linkis-cs-server
@@ -149,7 +149,7 @@ linkis-cs-server
 org.apache.linkis.manager.am.LinkisManagerApplication
 
 [VM Opitons]
--DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [Use classpath of module]
 linkis-application-manager
@@ -160,7 +160,7 @@ linkis-application-manager
 org.apache.linkis.entrance.LinkisEntranceApplication
 
 [VM Opitons]
--DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [Use classpath of module]
 linkis-entrance

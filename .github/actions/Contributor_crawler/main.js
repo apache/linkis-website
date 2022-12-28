@@ -3,10 +3,10 @@ const fs = require('fs');
 let num = process.env['INPUT_NUM'];
 let repo = process.env['INPUT_REPO'];
 
-let name = repo == 'apache/incubator-linkis-website' ?  'contributorsWebsite.json' : 'contributors.json'
+let name = repo == 'apache/linkis-website' ?  'contributorsWebsite.json' : 'contributors.json'
 const options = {headers: {'User-Agent': 'request'}};
 
-// repo such as apache/incubator-linkis-website
+// repo such as apache/linkis-website
 https.get(`https://api.github.com/repos/${repo}/contributors?page=1&per_page=${num}`, options, res => {
     let chunks = [];
     res.on('data', chunk => {

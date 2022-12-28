@@ -108,7 +108,7 @@ Server: mail-relay.apache.org Port: 587 (STARTTLS), 465 (SSL) User/Pass: {Your L
 |:-----|:--------|:------|:-------|:-----|
 | [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | linkis的社区活动信息,项目的讨论公告等 | [订阅](mailto:dev-subscribe@linkis.apache.org)   | [退订](mailto:dev-unsubscribe@linkis.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/linkis-dev)   |
 | [private@linkis.apache.org](mailto:private@linkis.apache.org) |此邮件列表是不公开的，PPMC内部可见，主要用于内部讨论 | [订阅](mailto:private-subscribe@linkis.apache.org)   | [退订](mailto:private-unsubscribe@linkis.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/linkis-private)   |
-| [general@incubator.apache.org](mailto:general@incubator.apache.org) | 孵化社区的公开邮件，主要是孵化项目的相关动态 | [订阅](mailto:general-subscribe@incubator.apache.org)   | [退订](mailto:general-unsubscribe@incubator.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/incubator-general)   |
+| [general@incubator.apache.org](mailto:general@incubator.apache.org) | 孵化社区的公开邮件，主要是孵化项目的相关动态 | [订阅](mailto:general-subscribe@incubator.apache.org)   | [退订](mailto:general-unsubscribe@incubator.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/general)   |
 
 订阅操作可以见指引[订阅邮件列表](how-to-subscribe.md)
 :::caution 注意

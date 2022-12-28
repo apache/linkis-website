@@ -35,4 +35,4 @@ sidebar_position: 2
 | ec-seatunnel | new | wds.linkis.engine.seatunnel.plugin.home | /opt/linkis/seatunnel | Seatunnel installation path |
 
 ## Database table changes
-For details, see the upgrade schema `db/upgrade/1.3.1_schema` file in the corresponding branch of the code warehouse (https://github.com/apache/incubator-linkis)
+For details, see the upgrade schema `db/upgrade/1.3.1_schema` file in the corresponding branch of the code warehouse (https://github.com/apache/linkis)

@@ -17,7 +17,7 @@ licence相关的可以划分为3部分
 - 管理台的安装物料包  主要需要关注的场景是：前端web编译依赖的第三方npm依赖包 通过linkis-web/package.json 配置引入
 
 
-[Linkis源码](https://github.com/apache/incubator-linkis)涉及到license的目录如下
+[Linkis源码](https://github.com/apache/linkis)涉及到license的目录如下
 
 ```shell script
 # 最外层目录开始

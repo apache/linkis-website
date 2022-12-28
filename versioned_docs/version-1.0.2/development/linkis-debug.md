@@ -12,8 +12,8 @@ sidebar_position: 2
 ## step 1 Prepare source code and compile
 
 ```plain
-git clone https://github.com/apache/incubator-linkis.git
-cd incubator-linkis
+git clone https://github.com/apache/linkis.git
+cd linkis
 #If needed, you can switch to the corresponding branch
 #git checkout dev-xxx
 mvn -N install
@@ -22,7 +22,7 @@ mvn clean install
 
 ## step2 Necessary parameter configuration
 
-For the configuration file under incubator-linkis/assembly-combined-package/assembly-combined/conf/, you need to configure the database and hive meta and other necessary startup parameters.
+For the configuration file under linkis/assembly-combined-package/assembly-combined/conf/, you need to configure the database and hive meta and other necessary startup parameters.
 
 
 
@@ -31,7 +31,7 @@ For the configuration file under incubator-linkis/assembly-combined-package/asse
 
 In order to facilitate the printing of logs to the console during debugging, you need to modify the default log4j2.xml file and modify the appender to default to console. You need to remove the append of the default RollingFile and add the appender of the console, as shown below:
 ![](/Images/development/debug_log.png)
-log4j2.xml path incubator-linkis/assembly-combined-package/assembly-combined/conf/log4j2.xml
+log4j2.xml path linkis/assembly-combined-package/assembly-combined/conf/log4j2.xml
 
 ```plain
  <?xml version="1.0" encoding="UTF-8"?>
@@ -76,7 +76,7 @@ By checking Include dependencies with "Provided" scope, you can introduce provid
 org.apache.linkis.eureka.SpringCloudEurekaApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-eureka -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
@@ -104,7 +104,7 @@ After startup, you can view the list of eureka services through [http://localhos
 org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
 linkis-gateway-server-support
@@ -121,7 +121,7 @@ Please exclude, the dependency on spring-boot-starter-logging
 org.apache.linkis.jobhistory.LinkisPublicServiceApp
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
 linkis-jobhistory
@@ -134,7 +134,7 @@ linkis-jobhistory
 org.apache.linkis.cs.server.LinkisCSApplication
 
 [VM Opitons]
--DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-ps-cs -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
 linkis-cs-server
@@ -149,7 +149,7 @@ linkis-cs-server
 org.apache.linkis.manager.am.LinkisManagerApplication
 
 [VM Opitons]
--DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
 linkis-application-manager
@@ -160,7 +160,7 @@ linkis-application-manager
 org.apache.linkis.entrance.LinkisEntranceApplication
 
 [VM Opitons]
--DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\assembly-combined-package\assembly-combined\conf
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\linkis\assembly-combined-package\assembly-combined\conf
 
 [User classpath of module]
 linkis-entrance

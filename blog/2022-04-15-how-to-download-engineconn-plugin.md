@@ -7,7 +7,7 @@ tags: [engine,guide]
 
 Considering the size of the release package and the use of plug-ins, the binary installation package released by linkis only contains some common engines /hive/spark/python/shell.
 Very useful engine, there are corresponding modules `flink/io_file/pipeline/sqoop` in the project code (there may be differences between different versions),
-In order to facilitate everyone's use, based on the release branch code of each version of linkis: https://github.com/apache/incubator-linkis, this part of the engine is compiled for everyone to choose and use.
+In order to facilitate everyone's use, based on the release branch code of each version of linkis: https://github.com/apache/linkis, this part of the engine is compiled for everyone to choose and use.
 
  ## Download link
 | **linkis version** | **engines included** |**engine material package download link** |

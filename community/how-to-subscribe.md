@@ -39,7 +39,7 @@ The steps for unsubscribing to a mailing list are similar to those for subscribi
 
 ## 3. Issues related
 
-> Linkis's issues address [https://github.com/apache/incubator-linkis/issues](https://github.com/apache/incubator-linkis/issues)
+> Linkis's issues address [https://github.com/apache/linkis/issues](https://github.com/apache/linkis/issues)
 
 For new problem/ideas, you can create a new issue through \[new issues\], and describe the issues in detail as much as possible, so that community members can follow up, discuss and solve them. For any problems of the project, it is recommended to create issues first to record and follow up, so that the entire process can be well preserved and archived to facilitate subsequent users to retrieve.
 

@@ -12,14 +12,14 @@ sidebar_position: 4
 在终端命令行中执行以下指令：
 
 ```
-git clone git@github.com:apache/incubator-linkis.git
-cd incubator-linkis/web
+git clone git@github.com:apache/linkis.git
+cd linkis/web
 npm install
 ```
 
 指令简介：
 1. 将项目包从远程仓库拉取到电脑本地
-2. 进入项目WEB根目录：cd incubator-linkis/web
+2. 进入项目WEB根目录：cd linkis/web
 3. 安装项目所需依赖：npm install
 
 **该步骤仅第一次使用时需要执行。**

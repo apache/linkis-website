@@ -25,7 +25,7 @@ A: This is because eureka does not use nohup when starting the Java process. Aft
 
 ![](/faq/q3_1.png)
 
-You can refer to PR: https://github.com/apache/incubator-linkis/pull/837/files
+You can refer to PR: https://github.com/apache/linkis/pull/837/files
 
 ## Q4: Linkis Entrance LogWriter missing dependencies
 A: Hadoop 3 needs to modify the linkis-hadoop-common pom file, see: https://linkis.apache.org/zh-CN/docs/next/development/linkis-compile-and-package/
@@ -444,7 +444,7 @@ Error message: F12 view vue.runtime.esm.js:6785 GET http://10.0.xx.xx:29008/udes
 ## Q25: There is an infinite loop in configuring atlas in HIVE, resulting in stack overflow
 You need to add all the content jar packages and subdirectories under ${ATLAS_HOME}/atlas/hook/hive/ to the lib directory of hive engine, otherwise AtlasPluginClassLoader cannot find the correct implementation class and finds the one under hive-bridge-shim class, resulting in an infinite loop
 However, the current execution method of Linkis (1.0.2) does not support subdirectories under lib, and the code needs to be modified. Refer to:
-https://github.com/apache/incubator-linkis/pull/1058
+https://github.com/apache/linkis/pull/1058
 
 ## Q26: Linkis1.0.X compiles based on spark3 hadoop3 hive3 or hdp3.1.4, please refer to:
 https://github.com/lordk911/Linkis/commits/master
@@ -458,7 +458,7 @@ Solution 1:
 Documentation: Temporary fixes for JDBC issues.note
 Link: http://note.youdao.com/noteshare?id=08163f429dd2e226a13877eba8bad1e3&sub=4ADEE86F433B4A59BBB20621A1C4B2AE
 Solution 2: Compare and modify this file
-https://github.com/apache/incubator-linkis/blob/319213793881b0329022cf4137ee8d4c502395c7/linkis-engineconn-plugins/engineconn-plugins/jdbc/src/main/scala/com/webank/wedatasphere/linkis/manager/engineplugin/jdbc/ executor/JDBCEngineConnExecutor.scala
+https://github.com/apache/linkis/blob/319213793881b0329022cf4137ee8d4c502395c7/linkis-engineconn-plugins/engineconn-plugins/jdbc/src/main/scala/com/webank/wedatasphere/linkis/manager/engineplugin/jdbc/ executor/JDBCEngineConnExecutor.scala
 
 ## Q28: After changing the hive version in the configuration before installation, the configuration of the management console still shows the version as 2.3.3
 
@@ -519,7 +519,7 @@ at org.springframework.boot.web.embedded.jetty.JettyEmbeddedWebAppContext$JettyE
 at
 ```
 Reason: This is due to the conflict between the classPath and Linkis that CDH-Spark depends on at the bottom.
-Solution: On the machine where linkis is deployed, you can check the classPath in spark-env.sh, comment it out, and run it again. For details, please refer to [3282](https://github.com/apache/incubator-linkis/issues/3282)
+Solution: On the machine where linkis is deployed, you can check the classPath in spark-env.sh, comment it out, and run it again. For details, please refer to [3282](https://github.com/apache/linkis/issues/3282)
 
 ## Q34: An error is reported when running the flink task: Failed to create engineConnPlugin: com.webank.wedatasphere.linkis.engineplugin.hive.HiveEngineConnPluginjava.lang.ClassNotFoundException: com.webank.wedatasphere.linkis.engineplugin.hive.HiveEngineConnPlugin
 ![](/faq/q53_1.png)

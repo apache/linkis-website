@@ -46,14 +46,14 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 ** \[DISCUSS/Proposal] 邮件 **
 
 - 标题`[DISCUSS][模块名] XXXX`(如果是某个具体模块的话，建议带上模块名)
-- 一般先在Github 的[issues栏](https://github.com/apache/incubator-linkis/issues)上创建对应的issue，再发起邮件讨论
+- 一般先在Github 的[issues栏](https://github.com/apache/linkis/issues)上创建对应的issue，再发起邮件讨论
 - 简要描述清楚讨论/提议的内容（如:背景/希望解决什么问题/怎么解决）
 - 涉及到的模块（如果是涉及到某一两个具体的模块）
 - 相关的设计说明等图文信息可以放在对应的issue中，方便修改，邮件中引用链接即可。
 - 可以附上对应的中文翻译 
 
 ** \[HELP] 邮件 **
-- 请先确认[QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)/[issues](https://github.com/apache/incubator-linkis/issues)以及[存档邮件](https://lists.apache.org/list.html?dev@linkis.apache.org)中是否未收录此问题
+- 请先确认[QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)/[issues](https://github.com/apache/linkis/issues)以及[存档邮件](https://lists.apache.org/list.html?dev@linkis.apache.org)中是否未收录此问题
 - 详细描述清楚遇到的问题
 - 如何复现此问题
 - 可以在git上创建对应的issue

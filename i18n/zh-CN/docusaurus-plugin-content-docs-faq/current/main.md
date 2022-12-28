@@ -25,7 +25,7 @@ A: 这个是因为eureka的启动Java进程时没有使用nohup当会话退出�
 
 ![](/faq/q3_1.png)
 
-可以参考PR：https://github.com/apache/incubator-linkis/pull/837/files
+可以参考PR：https://github.com/apache/linkis/pull/837/files
 
 ## Q4: Linkis Entrance LogWriter 缺依赖包
 A: Hadoop 3需修改linkis-hadoop-common pom文件，详见：https://linkis.apache.org/zh-CN/docs/next/development/linkis-compile-and-package/
@@ -444,7 +444,7 @@ Exception in thread "main" java.lang.NullPointerException
 ## Q25:  HIVE 里面配置atlas出现死循环导致堆栈溢出
 需要将${ATLAS_HOME}/atlas/hook/hive/ 下所有内容jar包及子目录加入到hive engine 的 lib目录下，不然AtlasPluginClassLoader找不到正确的实现类而找到的是hive-bridge-shim下的类，导致死循环
 但是Linkis（1.0.2）现在的执行方式不支持lib下有子目录，需要修改代码，参考：
-https://github.com/apache/incubator-linkis/pull/1058
+https://github.com/apache/linkis/pull/1058
 
 ## Q26:  Linkis1.0.X基于 spark3 hadoop3 hive3 或 hdp3.1.4 编译需要修改的地方请参考：
 https://github.com/lordk911/Linkis/commits/master
@@ -458,7 +458,7 @@ https://github.com/lordk911/Linkis/commits/master
 文档：JDBC问题临时修复方法.note
 链接：http://note.youdao.com/noteshare?id=08163f429dd2e226a13877eba8bad1e3&sub=4ADEE86F433B4A59BBB20621A1C4B2AE 
 解决方法2：对比修改此文件
-https://github.com/apache/incubator-linkis/blob/319213793881b0329022cf4137ee8d4c502395c7/linkis-engineconn-plugins/engineconn-plugins/jdbc/src/main/scala/com/webank/wedatasphere/linkis/manager/engineplugin/jdbc/executer/JDBCEngineConnExecutor.scala
+https://github.com/apache/linkis/blob/319213793881b0329022cf4137ee8d4c502395c7/linkis-engineconn-plugins/engineconn-plugins/jdbc/src/main/scala/com/webank/wedatasphere/linkis/manager/engineplugin/jdbc/executer/JDBCEngineConnExecutor.scala
 
 ## Q28:  安装前更改配置中的hive版本后，管理台的配置中仍然显示版本为2.3.3
 
@@ -519,7 +519,7 @@ at org.springframework.boot.web.embedded.jetty.JettyEmbeddedWebAppContext$JettyE
 at
 ```
 原因：这个是因为CDH—Spark底层依赖的classPath和Linkis的存在冲突导致
-解决办法：在linkis部署的机器上面可以检查spark-env.sh里面的classPath并进行注释掉，重新运行。详情可以参考[3282](https://github.com/apache/incubator-linkis/issues/3282)
+解决办法：在linkis部署的机器上面可以检查spark-env.sh里面的classPath并进行注释掉，重新运行。详情可以参考[3282](https://github.com/apache/linkis/issues/3282)
 
 ## Q34: 运行flink任务时报错：Failed to create engineConnPlugin: com.webank.wedatasphere.linkis.engineplugin.hive.HiveEngineConnPluginjava.lang.ClassNotFoundException: com.webank.wedatasphere.linkis.engineplugin.hive.HiveEngineConnPlugin
 ![](/faq/q53_1.png)

@@ -57,8 +57,8 @@ Schedulis,Qualitis,Exchangis,Streamis,Visualis等系统,都是通过各自的app
 ### linkis
 
 由于spark是采用了3.x版本的,scala也是需要升级到12版本
-[原项目代码地址](https://github.com/apache/incubator-linkis/tree/release-1.1.1)
-[适配修改代码参考地址](https://github.com/ruY9527/incubator-linkis/tree/release-1.1.1-hadoop3.x)
+[原项目代码地址](https://github.com/apache/linkis/tree/release-1.1.1)
+[适配修改代码参考地址](https://github.com/ruY9527/linkis/tree/release-1.1.1-hadoop3.x)
 
 #### linkis的pom文件
 
@@ -129,7 +129,7 @@ org.apache.flink.table.client.gateway.local.CollectStreamTableSink
 
 #### linkis-engineplugin-python
 
-[参考pr](https://github.com/apache/incubator-linkis/commit/7a26e85c53fc7cd55ddefbd78b1748b00f85ddd6)
+[参考pr](https://github.com/apache/linkis/commit/7a26e85c53fc7cd55ddefbd78b1748b00f85ddd6)
 如果linkis-engineplugin-python下的resource/python的python.py文件中,有import pandas as pd , 如果不想安装pandas的话,需对其进行移除
 
 #### linkis-label-common
@@ -161,7 +161,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf
 确保以上修改和环境都有,依次执行
 
 ```shell
-    cd incubator-linkis-x.x.x
+    cd linkis-x.x.x
     mvn -N  install
     mvn clean install -DskipTests
 ```

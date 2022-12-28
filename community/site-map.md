@@ -40,7 +40,7 @@ sidebar_position: 12
 
 ## Linkis related links
 - linkis-logo https://svn.apache.org/repos/asf/comdev/project-logos/originals/
-- Project list https://projects.apache.org/project.html?incubator-linkis
+- Project list https://projects.apache.org/project.html?linkis
 - Maintain IP Clearance https://svn.apache.org/repos/asf/incubator/public/trunk/content/ip-clearance/
 - Board Reports https://whimsy.apache.org/board/minutes/Linkis.html
 - Linkis name application jira https://issues.apache.org/jira/projects/PODLINGNAMESEARCH/issues/PODLINGNAMESEARCH-192?filter=allissues
@@ -53,13 +53,13 @@ sidebar_position: 12
 
 
 - View submitting users over a period of time
-https://github.com/apache/incubator-linkis/graphs/contributors?from=2021-08-02&to=2022-07-21&type=c
+https://github.com/apache/linkis/graphs/contributors?from=2021-08-02&to=2022-07-21&type=c
 
 - View closed pr for a certain period of time
 `\[Filters] is:pr is:closed closed:>2021-08-02 `
-https://github.com/apache/incubator-linkis/pulls?q=is%3Apr+is%3Aclosed+closed%3A%3E2021-08-02
+https://github.com/apache/linkis/pulls?q=is%3Apr+is%3Aclosed+closed%3A%3E2021-08-02
 
 
 - View closed issues within a certain period of time
 `\[Filters] is:pr is:closed closed:>2021-08-02 `
-https://github.com/apache/incubator-linkis/issues?q=is%3Aissue+is%3Aclosed+closed%3A%3E2021-08-02
+https://github.com/apache/linkis/issues?q=is%3Aissue+is%3Aclosed+closed%3A%3E2021-08-02

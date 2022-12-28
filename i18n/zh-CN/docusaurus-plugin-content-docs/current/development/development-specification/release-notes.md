@@ -15,7 +15,7 @@ sidebar_position: 9
 ```
 服务名缩写：此pr的变动，在代码层面上，主要归属的服务对应的服务名缩写
 比如某pr是对JDBC引擎做了bug修复，在代码层面上，它是linkis-cg-engineconn 服务下的JDBC模块
-EG:[EC-Jdbc][[Linkis-1851]](https://github.com/apache/incubator-linkis/issues/1851) 修复jdbc引擎，一次任务执行中存在多条sql语句时无法正常执行的问题
+EG:[EC-Jdbc][[Linkis-1851]](https://github.com/apache/linkis/issues/1851) 修复jdbc引擎，一次任务执行中存在多条sql语句时无法正常执行的问题
 若 L1 maven module 不存在，或则是整个服务级别的调整，下级模块可以不写，比如Entrance
 ```
 

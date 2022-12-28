@@ -546,7 +546,7 @@ linkis默认是使用静态用户和密码,静态用户即部署用户，静态�
 
 ### 8.4 版本兼容性问题
 
-linkis默认支持的引擎，与dss兼容关系可以查看[此文档](https://github.com/apache/incubator-linkis/blob/master/README.md)
+linkis默认支持的引擎，与dss兼容关系可以查看[此文档](https://github.com/apache/linkis/blob/master/README.md)
 
 
 ### 8.5 如何定位服务端异常日志
@@ -653,7 +653,7 @@ Token-User:hadoop
 ## 9. 相关的资料如何获取
 linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索相关文档。  
 相关博文链接
-- Linkis的技术博文集  https://github.com/apache/incubator-linkis/issues/1233
+- Linkis的技术博文集  https://github.com/apache/linkis/issues/1233
 - 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
 - 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction
 - bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  

@@ -108,7 +108,7 @@ Every PPMC member is required to subscribe to the following mailing lists:
 |:-----|:-------|:------|:-------|:-----|
 | [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | Linkis community activity information, project discussion announcements, etc. | [Subscribe](mailto:dev-subscribe@linkis.apache.org) | [unsubscribe](mailto:dev-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-dev) |
 | [private@linkis.apache.org](mailto:private@linkis.apache.org) |This mailing list is private, visible inside PPMC, mainly for internal discussions | [Subscribe](mailto:private-subscribe@ linkis.apache.org) | [unsubscribe](mailto:private-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-private) |
-| [general@incubator.apache.org](mailto:general@incubator.apache.org) | Public emails from the incubator community, mainly related to incubation projects | [Subscribe](mailto:general-subscribe@incubator.apache. org) | [unsubscribe](mailto:general-unsubscribe@incubator.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/incubator-general) |
+| [general@incubator.apache.org](mailto:general@incubator.apache.org) | Public emails from the incubator community, mainly related to incubation projects | [Subscribe](mailto:general-subscribe@incubator.apache. org) | [unsubscribe](mailto:general-unsubscribe@incubator.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/general) |
 
 Subscription operations can be found in the guide [Subscribe to the mailing list](how-to-subscribe.md)
 :::caution note

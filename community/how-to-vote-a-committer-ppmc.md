@@ -5,7 +5,7 @@ sidebar_position: 6
 > Introduce the selection requirements and process for Committer and PPMC. Official guidelines can be found at: https://incubator.apache.org/guides/ppmc.html
 
 ## 1. Candidate requirements
-When voting, all PPMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/incubator-linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/incubator-linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
+When voting, all PPMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
 
 Below are some points to consider when evaluating candidates for commitment eligibility.
 1. Ability to develop collaboration with the community?
@@ -57,8 +57,8 @@ Hi all:
   
     So I nominated ${Candidate Name} as ${Committer/PPMC} of the Linkis project.
   
-    1. https://github.com/apache/incubator-linkis/issues/created_by/${Candidate Githubid} 
-    2. https://github.com/apache/incubator-linkis/commits?author=${Candidate Githubid} 
+    1. https://github.com/apache/linkis/issues/created_by/${Candidate Githubid} 
+    2. https://github.com/apache/linkis/commits?author=${Candidate Githubid} 
     3. https://lists.apache.org/list?dev@linkis.apache.org?xxxx
     4. ....
 Thanks!
@@ -85,8 +85,8 @@ Hi all:
     [ ] -1 disapprove with the reason
    
     Here are three links to his contributions to Linkis:
-    1. https://github.com/apache/incubator-linkis/issues/created_by/${Candidate Githubid} 
-    2. https://github.com/apache/incubator-linkis/commits?author=${Candidate Githubid}
+    1. https://github.com/apache/linkis/issues/created_by/${Candidate Githubid} 
+    2. https://github.com/apache/linkis/commits?author=${Candidate Githubid}
     3. Others: https://xxx.com/xxx/xxx/
 
 Thanks!

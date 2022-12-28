@@ -20,7 +20,7 @@ export default function() {
          <div  style={{'fontSize':'18px','textAlign': 'center'}} dangerouslySetInnerHTML={{__html:dataSource.common.tip}}>
            {/* 下列公司已经在使用Linkis
            <br/>如果你也在使用?
-           <a href="https://github.com/apache/incubator-linkis-website/edit/dev/src/pages/user/data.json" target="_blank" rel="noopener">
+           <a href="https://github.com/apache/linkis-website/edit/dev/src/pages/user/data.json" target="_blank" rel="noopener">
              <u>可以在这里添加</u>
            </a> */}
            {/* {dataSource.common.tip} */}

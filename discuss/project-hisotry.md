@@ -82,8 +82,8 @@ https://cwiki.apache.org/confluence/display/MXNET/ICLA+Progress
 - 孵化信息: https://incubator.apache.org/projects/shenyu.html
 - 反馈的问题:
     - 主页描述不够精简 最好用简短而清晰的句子来 说明它在做什么
-    -  网站上提到了 5 个版本，而不是 4 个,在孵化之前的需要标识出  There's no 2.3.0 version release. And the 2.3.0 document is marked legacy now https://github.com/ apache/incubator-shenyu-website/pull/604
-    -  文档中名字最好带上 Apache 前缀  https://github.com/apache/incubator-shenyu/pull/3568
+    -  网站上提到了 5 个版本，而不是 4 个,在孵化之前的需要标识出  There's no 2.3.0 version release. And the 2.3.0 document is marked legacy now https://github.com/ apache/shenyu-website/pull/604
+    -  文档中名字最好带上 Apache 前缀  https://github.com/apache/shenyu/pull/3568
     -  商标问题 \[Branding Issue] Shenyu is still decleared as a project of dromara community https://lists.apache.org/thread/o9bwzkl3cjbrmzx4n36l63xbv0q112px
 
 
@@ -131,7 +131,7 @@ If so, for the toolkit installed by the yum command, it seems that the indirect 
 
 1. https://issues.apache.org/jira/browse/INFRA-22785
 2. https://incubator.apache.org/guides/distribution.html#docker 
-3. https://github.com/apache/incubator-linkis/blob/dev-1.3.0/linkis-dist/docker/ldh.Dockerfile
+3. https://github.com/apache/linkis/blob/dev-1.3.0/linkis-dist/docker/ldh.Dockerfile
 
 
 We applied for the Docker Hub permission before[1], but the feedback Docker Hub is out of seats. 
@@ -148,7 +148,7 @@ If so, for the toolkit installed by the yum command, it seems that the indirect 
 
 1. https://issues.apache.org/jira/browse/INFRA-22785
 2. https://incubator.apache.org/guides/distribution.html#docker 
-3. https://github.com/apache/incubator-linkis/blob/dev-1.3.0/linkis-dist/docker/ldh.Dockerfile
+3. https://github.com/apache/linkis/blob/dev-1.3.0/linkis-dist/docker/ldh.Dockerfile
 
 Best Regards!
 Apache Linkis

@@ -48,4 +48,4 @@ sidebar_position: 0.1
 |ec-jdbc | 修改  | wds.linkis.jdbc.password            	| 无								|	jdbc连接密码			|
 
 ## 数据库表变化 
-详细见代码仓库(https://github.com/apache/incubator-linkis) 对应分支中的升级schema`db/upgrade/1.2.0_schema`文件
+详细见代码仓库(https://github.com/apache/linkis) 对应分支中的升级schema`db/upgrade/1.2.0_schema`文件

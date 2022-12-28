@@ -477,7 +477,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 
 ### 6.1 Version compatibility issues
 
- The engine supported by linkis by default, for compatibility with dss, you can view this document https://github.com/apache/incubator-linkis/blob/master/README.md
+ The engine supported by linkis by default, for compatibility with dss, you can view this document https://github.com/apache/linkis/blob/master/README.md
    
 ### 6.2 How to locate the server exception log
 
@@ -540,7 +540,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 Linkis official website documents are constantly improving, you can view/keyword search related documents on this official website.
 
 Related blog post links  
-- Linkis technical blog collection https://github.com/apache/incubator-linkis/issues/1233  
+- Linkis technical blog collection https://github.com/apache/linkis/issues/1233  
 - Official account technical blog post https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18  
 - Official website documentation https://linkis.apache.org/docs/latest/introduction/  
 - bili technology sharing video https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  

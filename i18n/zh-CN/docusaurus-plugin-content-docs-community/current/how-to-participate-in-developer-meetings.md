@@ -24,13 +24,13 @@ sidebar_position: 2.2
 3、[《问题收集》](https://docs.qq.com/sheet/DUlJIREJKaHlVVUVU?u=444994d9ce1841d3af5bb0d65efbe4a9&tab=ggfj6i)：记录社区开发者提问、答疑等信息
 
 ## 已举办的例会
--   [第1期：2022-01-19](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810585)
--   [第2期：2022-02-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810803)
--   [第3期：2022-02-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124810948)
--   [第4期：2022-03-09](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812549)
--   [第5期：2022-03-23](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124812700)
--   [第6期：2022-04-06](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813196)
--   [第7期：2022-04-20](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813537)
--   [第8期：2022-05-11](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1124813976)
--   [第9期：2022-05-25](https://github.com/apache/incubator-linkis/issues/2106#issuecomment-1139226462)
+-   [第1期：2022-01-19](https://github.com/apache/linkis/issues/2106#issuecomment-1124810585)
+-   [第2期：2022-02-09](https://github.com/apache/linkis/issues/2106#issuecomment-1124810803)
+-   [第3期：2022-02-23](https://github.com/apache/linkis/issues/2106#issuecomment-1124810948)
+-   [第4期：2022-03-09](https://github.com/apache/linkis/issues/2106#issuecomment-1124812549)
+-   [第5期：2022-03-23](https://github.com/apache/linkis/issues/2106#issuecomment-1124812700)
+-   [第6期：2022-04-06](https://github.com/apache/linkis/issues/2106#issuecomment-1124813196)
+-   [第7期：2022-04-20](https://github.com/apache/linkis/issues/2106#issuecomment-1124813537)
+-   [第8期：2022-05-11](https://github.com/apache/linkis/issues/2106#issuecomment-1124813976)
+-   [第9期：2022-05-25](https://github.com/apache/linkis/issues/2106#issuecomment-1139226462)
 

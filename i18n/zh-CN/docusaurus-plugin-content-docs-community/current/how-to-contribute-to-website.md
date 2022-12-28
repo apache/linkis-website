@@ -18,7 +18,7 @@ asf-staging 官网测试环境  通过https://linkis.staged.apache.org 访问
 本网站是使用node编译的，使用的是Docusaurus框架组件
 
 1. 下载并安装 nodejs(version>12.5.0)
-2. 克隆代码到本地 `git clone  git@github.com:{githubid}/incubator-linkis-website.git`
+2. 克隆代码到本地 `git clone  git@github.com:{githubid}/linkis-website.git`
 2. 运行 `npm install` 来安装所需的依赖库。
 3. 在根目录运行`npm run start`，可以访问http://localhost:3000查看站点英文模式预览
 4. 在根目录运行`npm run start-zh`，可以访问http://localhost:3000查看站点的中文模式预览
