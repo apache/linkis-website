@@ -4,27 +4,9 @@ sidebar_position: 1
 ---
 
 
-## **背景**
+## **总述**
 
-**Linkis0.X的架构主要存在以下问题**
-
-1.核心处理流程和层级模块边界模糊
-
--   Entrance 和 EngineManager 功能边界模糊
-
--   任务提交执行主流程不够清晰
-
--   扩展新引擎较麻烦，需要实现多个模块的代码
-
--   只支持计算请求场景，存储请求场景和常驻服务模式（Cluster）难以支持
-
-2.更丰富强大计算治理功能需求
-
--   计算任务管理策略支持度不够
-
--   标签能力不够强大，制约计算策略和资源管理
-
-Linkis1.0计算治理服务的新架构可以很好的解决这些问题。
+计算治理服务组,CGS：Computation Governance Services.完成计算任务和请求的提交、准备、执行、返回结果等主要步骤，是Linkis的核心模块
 
 ## **架构图**
 ![](/Images-zh/Architecture/linkis-computation-gov-01.png)
@@ -66,7 +48,7 @@ Linkis1.0将优化Job的整体执行流程，从提交 —\> 准备 —\>
 
  EngineConnManager (简称ECM)是 Linkis0.X EngineManager 的精简升级版。Linkis1.0下的ECM去除了引擎的申请能力，整个微服务完全无状态，将聚焦于支持各类 EngineConn 的启动和销毁。
  
- [进入EngineConnManager架构设计](engine/engine-conn-manager.md)
+ [进入EngineConnManager架构设计](engine-conn-manager.md)
 
 ### 5、EngineConn
 
