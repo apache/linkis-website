@@ -281,7 +281,7 @@ mock模拟数据示例:
 - util工具功能类 常用的功能工具
 - exception类  自定义的异常类
 - enum类 枚举类   
-- entity类  用于DB交互以及方法处理的参数VO对象等实体类（若除了正常得get set外还有其他自定义函数的需要进行单元测试）
+- entity类  用于DB交互以及方法处理的参数VO对象等实体类（若除了正常的get set外还有其他自定义函数的需要进行单元测试）
 
 ### 5.2 Controller类的单元测试
 使用Mockmvc

@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ## 1.Precautions
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**If you are using Linkis for the first time, you can ignore this chapter;**.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**If you are using Linkis for the first time, you can ignore this chapter.**.
 
 ## 2. Service upgrade installation
 

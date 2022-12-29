@@ -228,7 +228,7 @@ public class LinkisClientTest {
 ```
 Run the above code to complete task submission/execution/log/result set acquisition, etc.
 
-## 3. Scala test code:
+## 3. Scala test code
 
 ```java
 package org.apache.linkis.client.test

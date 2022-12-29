@@ -6,7 +6,7 @@ sidebar_position: 9
 ## 1. General
 ### 1.1 Requirements Background
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis now performs load balancing based on the ribbon when it forwards services in the Gateway, but in some cases, there are some important business tasks that want to achieve service level isolation, if the service is based on the ribbon There will be problems in equilibrium. For example, tenant A wants his tasks to be routed to a specific Linkis-CG-Entrance service, so that when other instances are abnormal, the Entrance of service A will not be affected.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In addition, tenants and isolation of support services can also quickly isolate an abnormal service and support scenarios such as grayscale upgrades.
+In addition, tenants and isolation of support services can also quickly isolate an abnormal service and support scenarios such as grayscale upgrades.
 
 ### 1.2 Target
 1. Support forwarding the service according to the routing label by parsing the label of the request

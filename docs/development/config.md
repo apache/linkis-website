@@ -32,8 +32,8 @@ sidebar_position: 10.0
 │ ├── linkis-ps-publicservice.properties
 │ ├── log4j2.xml
 ````
-Each service loads two property configuration files, a common main configuration file linkis.properties, and a service configuration file linkis-serviceName.properties. The priority of settings is that the service profile is higher than the main profile
-It is recommended that common parameters be placed in the main configuration file, and individual configuration files are placed in the service configuration file
+Each service will load two property configuration files, a common main configuration file linkis.properties, and a service configuration file linkis-serviceName.properties. The priority of the setting is that the service configuration file is higher than the main configuration file
+It is recommended that general parameters be placed in the main configuration file, and personalized configuration files be placed in the service configuration file
 
 2. Spring parameters
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis service is based on SpringBoot application, Spring related parameters can be set in application-linkis.yml or in linkis configuration file. The configuration in the linkis configuration file needs to be prefixed with spring. as follows:

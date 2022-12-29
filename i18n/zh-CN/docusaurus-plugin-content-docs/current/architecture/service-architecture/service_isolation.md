@@ -5,8 +5,7 @@ sidebar_position: 9
 
 ## 1. 总述
 ### 1.1 需求背景
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis在Gateway进行服务转发时是基于ribbon进行负载均衡的，但是有些情况下存在一些重要业务的任务希望做到服务级别的隔离，如果基于ribbon进行服务在均衡就会存在问题。比如租户A希望他的任务都路由到特定的Linkis-CG-Entrance服务，这样当其他的实例出现异常时可以不会影响到A服务的Entrance。
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;另外支持服务的租户及隔离也可以做到快速隔离某个异常服务，支持灰度升级等场景。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis在Gateway进行服务转发时是基于ribbon进行负载均衡的，但是有些情况下存在一些重要业务的任务希望做到服务级别的隔离，如果基于ribbon进行服务在均衡就会存在问题。比如租户A希望他的任务都路由到特定的Linkis-CG-Entrance服务，这样当其他的实例出现异常时可以不会影响到A服务的Entrance。另外支持服务的租户及隔离也可以做到快速隔离某个异常服务，支持灰度升级等场景。
 
 ### 1.2 目标
 1. 支持通过解析请求的标签按照路由标签对服务进行转发

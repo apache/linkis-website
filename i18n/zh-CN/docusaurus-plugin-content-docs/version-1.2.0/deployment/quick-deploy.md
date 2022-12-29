@@ -18,7 +18,7 @@ Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`s
 
 以hadoop用户为例:
 
-先查看系统中是否已经有 hadoop 用户，若已经存在，则直接授权即可；若不存在，先创建用户，再授权。
+先查看系统中是否已经有 hadoop 用户，若已经存在，则直接授权即可，若不存在，先创建用户，再授权。
 
 查看是否已存在 hadoop 用户
 ```shell script
@@ -410,15 +410,13 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 如果验证失败，请参考【步骤8】进行排查
 
 ## 6 开发工具IDE（Scriptis）的安装(可选)
->安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本
-
-详细指引见[工具Scriptis的安装部署](./linkis-scriptis-install)
+安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本，详细指引见[工具Scriptis的安装部署](./linkis-scriptis-install)
 
 ## 7. 支持的引擎 
 
 ### 7.1 引擎适配列表
 
-请注意：Linkis的单独安装包默认只包含的：Python/Shell/Hive/Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](engine-conn-plugin-installation)。
+请注意：Linkis的单独安装包默认只包含Python、Shell、Hive、Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](engine-conn-plugin-installation)。
 
 本版本已适配的支持引擎列表如下：
 
@@ -591,6 +589,7 @@ sh -x engineConnExec.sh
 
 ### 8.7 如何修改注册中心eureka的端口
 有时候当eureka的端口被其他服务占用,无法使用默认的eureka端口的时候,需要对eureka端口进行修改,这里把对eureka端口的修改分为执行安装之前和执行安装之后两种情况。
+
 1.执行安装之前修改注册中心eureka端口
 ```
 1. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录

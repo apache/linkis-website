@@ -1,3 +1,8 @@
+---
+title: 版本适配
+sidebar_position: 8
+---
+
 # 版本适配
 
 ## 1. 功能说明

@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ## 1. 注意事项
 
-**如果您是首次接触并使用Linkis，您可以忽略该章节；如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference-between-1.0-and-0.x.md)**。
+**如果您是首次接触并使用Linkis，您可以忽略该章节，如果您已经是 Linkis 的使用用户，安装或升级前建议先阅读：[Linkis1.0 与 Linkis0.X 的区别简述](architecture/difference-between-1.0-and-0.x.md)**。
 
 ## 2. 服务升级安装
 

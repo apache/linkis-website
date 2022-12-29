@@ -4,11 +4,11 @@ sidebar_position: 3
 ---
 
 
-# 1. Recommended configuration of hardware and software environment
+## 1. Recommended configuration of hardware and software environment
 
 Linkis builds a layer of computing middleware between the upper application and the underlying engine. As an open source distributed computing middleware, it can be well deployed and run on Intel architecture servers and mainstream virtualization environments, and supports mainstream Linux operating system environments
 
-## 1.1. Linux operating system version requirements
+### 1.1. Linux operating system version requirements
 
 | OS | Version |
 | --- | --- |
@@ -19,11 +19,11 @@ Linkis builds a layer of computing middleware between the upper application and 
 
 > **Note:** The above Linux operating systems can run on physical servers and mainstream virtualization environments such as VMware, KVM, and XEN
 
-## 1.2. Server recommended configuration
+### 1.2. Server recommended configuration
 
 Linkis supports 64-bit general-purpose hardware server platforms running on the Intel x86-64 architecture. The following recommendations are made for the server hardware configuration of the production environment:
 
-### Production Environment
+#### Production Environment
 
 | **CPU** | **Memory** | **Disk type** | **Network** | **Number of instances** |
 | --- | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ Linkis supports 64-bit general-purpose hardware server platforms running on the 
 > - The above recommended configuration is the minimum configuration for deploying Linkis, and a higher configuration is strongly recommended for production environments
 > - The hard disk size configuration is recommended to be 50GB+, and the system disk and data disk are separated
 
-## 1.3. Software requirements
+### 1.3. Software requirements
 
 Linkis binary packages are compiled based on the following software versions:
 
@@ -53,14 +53,14 @@ Linkis binary packages are compiled based on the following software versions:
 > **Note:**
 > If the locally installed component version is inconsistent with the above, you need to modify the corresponding component version and compile the binary package yourself for installation.
 
-## 1.4. Client web browser requirements
+### 1.4. Client web browser requirements
 
 Linkis recommends Chrome version 73 for front-end access
 
 
-# 2. Common scenarios
+## 2. Common scenarios
 
-## 2.1 Open test mode
+### 2.1 Open test mode
 The development process requires a password-free interface, which can be replaced or appended to `linkis.properties`
 
 | parameter name | default value | description |
@@ -71,7 +71,7 @@ The development process requires a password-free interface, which can be replace
 ![](./images/test-mode.png)
 
 
-## 2.2 Login user settings
+### 2.2 Login user settings
 Apache Linkis uses configuration files to manage admin users by default, and this configuration can be replaced or appended to `linkis-mg-gateway.properties`. For multi-user access LDAP implementation.
 
 | parameter name | default value | description |
@@ -82,7 +82,7 @@ Apache Linkis uses configuration files to manage admin users by default, and thi
 ![](./images/login-user.png)
 
 
-## 2.3 LDAP Settings
+### 2.3 LDAP Settings
 Apache Linkis can access LDAP through parameters to achieve multi-user management, and this configuration can be replaced or added in `linkis-mg-gateway.properties`.
 
 | parameter name | default value | description |
@@ -93,7 +93,7 @@ Apache Linkis can access LDAP through parameters to achieve multi-user managemen
 
 ![](./images/ldap.png)
 
-## 2.4 Turn off resource checking
+### 2.4 Turn off resource checking
 Apache Linkis sometimes debugs exceptions when submitting tasks, such as: insufficient resources; you can replace or append this configuration in `linkis-cg-linkismanager.properties`.
 
 | parameter name | default value | description |
@@ -102,7 +102,7 @@ Apache Linkis sometimes debugs exceptions when submitting tasks, such as: insuff
 
 ![](./images/resource-enable.png)
 
-## 2.5 Enable engine debugging
+### 2.5 Enable engine debugging
 Apache Linkis EC can enable debugging mode, and this configuration can be replaced or added in `linkis-cg-linkismanager.properties`.
 
 | parameter name | default value | description |
@@ -111,7 +111,7 @@ Apache Linkis EC can enable debugging mode, and this configuration can be replac
 
 ![](./images/engine-debug.png)
 
-## 2.6 Hive metadata configuration
+### 2.6 Hive metadata configuration
 The public-service service of Apache Linkis needs to read hive metadata; this configuration can be replaced or appended in `linkis-ps-publicservice.properties`.
 
 | parameter name | default value | description |
@@ -122,7 +122,7 @@ The public-service service of Apache Linkis needs to read hive metadata; this co
 
 ![](./images/hive-meta.png)
 
-## 2.7 Linkis database configuration
+### 2.7 Linkis database configuration
 Apache Linkis access uses Mysql as data storage by default, you can replace or append this configuration in `linkis.properties`.
 
 | parameter name | default value | description |
@@ -133,7 +133,7 @@ Apache Linkis access uses Mysql as data storage by default, you can replace or a
 
 ![](./images/linkis-db.png)
 
-## 2.8 Linkis Session cache configuration
+### 2.8 Linkis Session cache configuration
 Apache Linkis supports using redis for session sharing; this configuration can be replaced or appended in `linkis.properties`.
 
 | parameter name | default value | description |
@@ -145,7 +145,7 @@ Apache Linkis supports using redis for session sharing; this configuration can b
 
 ![](./images/redis.png)
 
-## 2.9 Linkis module development configuration
+### 2.9 Linkis module development configuration
 When developing Apache Linkis, you can use this parameter to customize the database, Rest interface, and entity objects of the loading module; you can modify it in `linkis-ps-publicservice.properties`, and use commas to separate multiple modules.
 
 | parameter name | default value | description |
@@ -157,7 +157,7 @@ When developing Apache Linkis, you can use this parameter to customize the datab
 
 ![](./images/deverlop-conf.png)
 
-## 2.10 Linkis module development configuration
+### 2.10 Linkis module development configuration
 This parameter can be used to customize the route of loading modules during Apache Linkis development; it can be modified in `linkis.properties`, and commas are used to separate multiple modules.
 
 | parameter name | default value | description |
@@ -166,7 +166,7 @@ This parameter can be used to customize the route of loading modules during Apac
 
 ![](./images/list-conf.png)
 
-## 2.11 Linkis file system and material storage path
+### 2.11 Linkis file system and material storage path
 This parameter can be used to customize the route of loading modules during Apache Linkis development; it can be modified in `linkis.properties`, and commas are used to separate multiple modules.
 
 | parameter name | default value | description |

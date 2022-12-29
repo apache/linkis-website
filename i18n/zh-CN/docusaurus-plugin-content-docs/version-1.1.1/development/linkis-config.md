@@ -33,7 +33,7 @@ Linkis配置文件格式如下所示：
 │   ├── log4j2.xml                                                                                                 
 ```
 每个服务会加载两个属性配置文件，一个为公用的主配置文件linkis.properties，以及服务配置文件linkis-serviceName.properties。设置的优先级为服务配置文件高于主配置文件
-建议通用的参数放置在主配置文件，个性话配置文件放在服务配置文件
+建议通用的参数放置在主配置文件，个性化配置文件放在服务配置文件
 
 2. Spring 参数
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis服务是基于SpringBoot应用的，Spring相关的参数支持在application-linkis.yml进行设置，也支持在linkis配置文件里面进行配置。在linkis配置文件里面配置需要加上spring.的前缀。如下：

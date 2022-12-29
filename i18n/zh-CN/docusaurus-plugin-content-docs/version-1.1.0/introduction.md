@@ -59,7 +59,7 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 - 公共增强服务，包括上下文服务、物料管理服务及数据源服务等;
 - 微服务治理服务，包括定制化的Spring Cloud Gateway、Eureka、Open Feign。
 
-下面是Linkis 的架构概要图. 更多详细架构文档请见 [Linkis/Architecture](architecture/overview.md).
+下面是Linkis 的架构概要图，更多详细架构文档请见 [Linkis/Architecture](architecture/overview.md).
 ![architecture](/Images/Linkis_1.0_architecture.png)
 
 基于Linkis 计算中间件，我们在大数据平台套件[WeDataSphere](https://github.com/WeBankFinTech/WeDataSphere) 中构建了许多应用和工具系统，下面是目前可用的开源项目。

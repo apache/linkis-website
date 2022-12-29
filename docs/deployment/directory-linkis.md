@@ -1,5 +1,5 @@
 ---
-title: linkis directory structure
+title: directory structure
 Sidebar position: 7
 ---
 
