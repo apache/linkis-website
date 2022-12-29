@@ -24,8 +24,8 @@ The following takes 163 mailboxes as an example:
 The subject of the email can be roughly divided into the following types
 - **\[DISCUSS]** Discussion on a feature/function/logic modification/CI/CD, which can be implementation/design/optimization suggestion, etc.
 - **\[PROPOSAL]** Proposals, such as adding/removing certain features, are not much different from \[DISCUSS]
-- **\[VOTE]** Vote for changes/elect Committer/elect new PPMC members, etc., such as version release, each version will be voted on in the community dev mailing list; you can also choose multiple options ,Poll.
-- **\[ANNOUNCE]** Announce the completion of the release of the new version, announcing the new Committer/PPMC elected, etc.
+- **\[VOTE]** Vote for changes/elect Committer/elect new PMC members, etc., such as version release, each version will be voted on in the community dev mailing list; you can also choose multiple options ,Poll.
+- **\[ANNOUNCE]** Announce the completion of the release of the new version, announcing the new Committer/PMC elected, etc.
 - **\[NOTICE]** Mainly used to notify some temporary announcements, etc., such as the community sandbox environment is suspended for maintenance/upgrade, the web official website is abnormally unavailable, etc.; as well as online and offline weekly meetings/exchange meetings and various Event information announcements, etc.
 - **\[HELP]** Ask for help, because there are many git code notifications, and sometimes it is impossible to check them in time; in addition, github network access is limited, and some students may not be able to submit issues through github smoothly. Initiated by email, it is easier to identify and be perceived.
 - **\[VOTE]\[RESULT]** Announce the results of the release vote
@@ -36,7 +36,7 @@ The subject of the email can be roughly divided into the following types
 
 ** General**
 - Whenever possible do not send plain HTML messages, but plain text. If you use QQ mailbox, its email content is in html format by default. Please switch to plain text text format when writing. For detailed switching instructions, see the appendix of this article.
-- Developers/community users/PPMC members initiate email discussions/needs for help/notifications for the content of the above scenarios, please send them to dev@linkis.apache.org
+- Developers/community users/PMC members initiate email discussions/needs for help/notifications for the content of the above scenarios, please send them to dev@linkis.apache.org
 - Please put the corresponding type prefix before the email subject: such as `[HELP] XXXXXXX`, `[DISCUSS] XXXXXXX`
 
 For more information, please refer to the official [Mail Etiquette](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips

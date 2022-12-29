@@ -4,6 +4,7 @@ sidebar_position: 3
 ---
 
 # Apache publishing guide
+
 > This article takes the release of 1.0.3 Apache version as an example. If it is a non-Apache version, please refer to the [detailed information](https://incubator.apache.org/guides/releasemanagement.html) https://incubator.apache.org/guides/releasemanagement.html
 
 Understand the content and process of Apache's release. Source Release is the focus of Apache’s attention and is also a required content for release; Binary Release is optional. Please refer to the following link to find more ASF release guidelines:
@@ -219,7 +220,7 @@ For encryption settings, please refer to [here](http://maven.apache.org/guides/m
 
 ## 2 Prepare material package & release of apache nexus
 
-### 2.1 Prepare branch/tag/\release notes
+### 2.1 Prepare branch/tag/release notes
 
 Pull the new branch from the branch to be released as the branch to be released. If you want to release the $`{release_version}` version now, check out the new branch `release-${release_version}-${condition_version}` from the branch to be released, and all after that The operations are all performed on the `release-${release_version}-${condition_version}` branch, and merge into the main branch after the final release is completed.
 
@@ -451,14 +452,10 @@ Please use your apache.org mailbox to send emails, and use `plain text mode`, fo
 :::
 
 :::caution Note
-
 All links to checksums, signatures, and public keys must refer to the main Apache website https://downloads.apache.org/ and should use https://(SSL). For example: https://downloads.apache.org/linkis/KEYS
-
-The DISCLAIMER-WIP disclaimer is currently used, please add this description `As the DISCLAIMER-WIP shows....` to the email. If the WIP pending problem is solved later, it can be removed. Use of WIP, see https://issues.apache.org/jira/browse/LEGAL-469 for details
 :::
 
 - To vote in the Linkis community, send an email to: `dev@linkis.apache.org`
-- To vote in the incubator community, send an email to: `general@incubator.apache.org` After Linkis graduates, you only need to vote in the Linkis community
 
 ### 5.1 Linkis community voting stage
 
@@ -495,8 +492,6 @@ Hello Linkis Community,
     GPG user ID:
     ${YOUR.GPG.USER.ID}
     
-    As the DISCLAIMER-WIP shows, this release still left some license problems, which will be gradually resolved during incubation.
-
     The vote will be open for at least 72 hours or until necessary number of votes are reached.
     
     Please vote accordingly:
@@ -514,9 +509,6 @@ Hello Linkis Community,
     [] All files have license headers if necessary.
     [] No unlicensed compiled archives bundled in source archive.
     
-    More detail checklist please refer:
-        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
-    
 Thanks,
 ${Linkis Release Manager}
 ```
@@ -528,18 +520,16 @@ title:
 [RESULT][VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 content:
-Hello Apache Linkis PPMC and Community,
+Hello Apache Linkis PMC and Community,
 
     The vote closes now as 72hr have passed. The vote PASSES with
 
-    xx (+1 non-binding) votes from the PPMC,
-    xx (+1 binding) votes from the IPMC,
+    xx (+1 non-binding) votes from the PMC,
     xx (+1 non-binding) votes from the rest of the developer community,
     and no further 0 or -1 votes.
 
     The vote thread: {vote_mail_address}
 
-    I will now bring the vote to general@incubator.apache.org to get approval by the IPMC.
     If this vote passes also, the release is accepted and will be published.
 
 Thank you for your support.
@@ -626,7 +616,7 @@ After waiting and confirming that the new release version is synced to the Apach
 
 > Please make sure that the Apache Staging repository has been published successfully, usually mail is published 24 hours after this step
 
-Send email to `dev@linkis.apache.org`, `announce@apache.org` and `general@incubator.apache.org`
+Send email to `dev@linkis.apache.org`, `announce@apache.org`
 ```html
 title:
 [ANNOUNCE] Apache Linkis ${release_version} available
