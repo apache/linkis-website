@@ -19,7 +19,7 @@ sidebar_position: 1
 
 **Executor:** The scheduling executor used to accept the task passed by the caller (such as: Entrance), and finally submit the task to the underlying engine Session for execution. Different tasks implement different Executor classes. The most used is the interactive ComputationExecutor, which is used to accept tasks and push task information to the caller in real time. And the non-interactive ManageableOnceExecutor that accepts only one task is used to complete the submission and execution of the task started by EngineConn.
 
-![arc](/Images/Architecture/EngineConn/ec_arc_01.png)
+![arc](/Images/Architecture/engine/ec_arc_01.png)
 
 ### 2.2 Business Architecture
 
@@ -39,7 +39,7 @@ Output: return task information such as execution status, results, logs, etc.
 
 Key logic: the timing diagram of the key logic of task execution
 
-![time](/Images/Architecture/EngineConn/ec_arc_02.png)
+![time](/Images/Architecture/engine/ec_arc_02.png)
 
 Key Notes:
 

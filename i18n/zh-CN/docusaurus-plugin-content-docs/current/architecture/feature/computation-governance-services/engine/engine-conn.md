@@ -20,7 +20,7 @@ EngineConn：引擎连接器，用于连接底层的计算存储引擎，完成�
 
 **Executor：**用于接受调用方(如：Entrance)传过来的任务的调度执行器，并将任务最终提交给底层的引擎Session进行执行，不同的任务实现不同的Executor类。使用最多的是交互式ComputationExecutor，用于接受任务并实时推送任务信息给到调用方。以及非交互式的只接受一次任务的ManageableOnceExecutor，用于完成对EngineConn启动的任务的提交执行。
 
-![arc](/Images/Architecture/EngineConn/ec_arc_01.png)
+![arc](/Images/Architecture/engine/ec_arc_01.png)
 
 ### 2.2 业务架构
 
@@ -40,7 +40,7 @@ EngineConn：引擎连接器，用于连接底层的计算存储引擎，完成�
 
 关键逻辑：任务执行的关键逻辑的时序图
 
-![time](/Images/Architecture/EngineConn/ec_arc_02.png)
+![time](/Images/Architecture/engine/ec_arc_02.png)
 
 关键说明：
 
