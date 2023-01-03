@@ -24,6 +24,11 @@
       "apacheId": "shaofengshi",
       "githubId": "shaofengshi",
       "publicName": "Shao Feng Shi"
+    },
+    {
+      "apacheId": "allenlliu",
+      "githubId": "liuyou2",
+      "publicName": "You Liu"
     }
   ],
   "committer": [
@@ -148,11 +153,6 @@
       "apacheId": "seayi",
       "githubId": "seayi",
       "publicName": "Xiaohua Yi"
-    },
-    {
-      "apacheId": "allenlliu",
-      "githubId": "liuyou2",
-      "publicName": "You Liu"
     },
     {
       "apacheId": "wangzhen",

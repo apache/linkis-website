@@ -40,7 +40,7 @@ Subject: Accept to become a linkis committer
 Content:
 
 Hello Apache Incubator:
-    I have accepted the Apache Linkis(Incubator) PPMC 
+    I have accepted the Apache Linkis(Incubator) PMC 
 invitation to become linkis committer, the attachment 
 is my ICLA information.
 Thanks!

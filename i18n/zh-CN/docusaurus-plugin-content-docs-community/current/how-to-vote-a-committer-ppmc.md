@@ -1,11 +1,11 @@
 ---
-title: 如何提名新的Committer 和 PPMC
+title: 如何提名新的Committer 和 PMC
 sidebar_position: 6
 ---
-> 介绍Committer 和 PPMC 的推选要求以及流程。官方指引可参见：https://incubator.apache.org/guides/ppmc.html
+> 介绍Committer 和 PMC 的推选要求以及流程。官方指引可参见：https://community.apache.org/newcommitter.html
 
 ## 1.候选人要求
-在投票时，所有 PPMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索[邮件列表](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/linkis/issues)/[官网文档贡献](https://github.com/apache/linkis-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
+在投票时，所有 PMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索[邮件列表](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/linkis/issues)/[官网文档贡献](https://github.com/apache/linkis-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
 
 以下是在评估候选人的承诺资格时需要考虑的一些要点。
 1. 与社区开发合作的能力？
@@ -22,41 +22,41 @@ sidebar_position: 6
    - 对项目有扎实的总体了解
    - 电子邮件中讨论的质量
    - 他们的补丁（如果适用）是否易于应用，只需粗略的审查
-5. PPMC 的能力要求
+5. PMC 的能力要求
    - 对项目有比较全面的了解
    - 能够把控项目进度和版本质量
    - 积极参与/主导社区建设，推动社区健康发展，主动承当项目的责任和治理工作
    - 积极回复 ASF 董事会提出的问题，并采取必要的行动
    - 熟悉 ASF 的版本发布流程
 
-在大多数情况下，新的 PPMC 成员是从 Committer 团队中提名的。但也可以直接成为 PPMC 成员，只要 PPMC 同意提名，并确信候选人已经准备好。例如，这可以通过他/她曾是 Apache 成员、Apache 官员或另一个项目的 PPMC 成员这一事实来证明。
+在大多数情况下，新的 PMC 成员是从 Committer 团队中提名的。但也可以直接成为 PMC 成员，只要 PMC 同意提名，并确信候选人已经准备好。例如，这可以通过他/她曾是 Apache 成员、Apache 官员或另一个项目的 PMC 成员这一事实来证明。
 
 ## 2. 推举详细流程
 
 :::tip 
 ${Candidate Name}：代表被选举人 如：Joe Bloggs
 
-${Committer/PPMC}：代表推选的类型 Committer/PPMC
+${Committer/PMC}：代表推选的类型 Committer/PMC
 :::
 
 ### 2.1 发起社区邮件讨论
 
->任何linkis的 PPMC 成员都可以发起投票讨论，在 PPMC 发现社区贡献者任何有价值的贡献并取得候选人本人同意后，可以在linkis的private邮件列表发起讨论。讨论邮件里提议者要把候选人的贡献说清楚，并且给出复核对应贡献的地址，便于大家讨论分析。讨论邮件主送private@linkis.apache.org邮箱，讨论将持续至少72个小时，项目组成员，包括mentor们会针对提议邮件充分发表自己的看法。
+>任何linkis的 PMC 成员都可以发起投票讨论，在 PMC 发现社区贡献者任何有价值的贡献并取得候选人本人同意后，可以在linkis的private邮件列表发起讨论。讨论邮件里提议者要把候选人的贡献说清楚，并且给出复核对应贡献的地址，便于大家讨论分析。讨论邮件主送private@linkis.apache.org邮箱，讨论将持续至少72个小时，项目组成员，包括mentor们会针对提议邮件充分发表自己的看法。
 
 
 如下是讨论邮件样例：
 
 ```html
 To: private@linkis.apache.org
-Subject: [DISCUSS]  ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
+Subject: [DISCUSS]  ${Candidate Name} as an Linkis ${Committer/PMC} candidate
 Content:
 
 Hi all:
-    I nominate ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
+    I nominate ${Candidate Name} as an Linkis ${Committer/PMC} candidate
  
     Judging from the contributions in recent months, ${Candidate Name} has submitted many implementations[1],[2] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in the actual project optimization and improvement, to let the project more perfect and easier to use.
   
-    So I nominated ${Candidate Name} as ${Committer/PPMC} of the Linkis project.
+    So I nominated ${Candidate Name} as ${Committer/PMC} of the Linkis project.
   
     1. https://github.com/apache/linkis/issues/created_by/${Candidate Githubid} 
     2. https://github.com/apache/linkis/commits?author=${Candidate Githubid} 
@@ -66,17 +66,17 @@ Thanks!
 ```
     
 ### 2.2 发起社区邮件投票
->如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在linkis的private邮件列表发起Committer或 PPMC 的选举投票。投票邮件主送private@linkis.apache.org，至少持续72小时，至少要3票+1通过；如果存在-1投票则整个投票失败；投票人需要把-1的原因说清楚，便于大家理解和知晓。
+>如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在linkis的private邮件列表发起Committer或 PMC 的选举投票。投票邮件主送private@linkis.apache.org，至少持续72小时，至少要3票+1通过；如果存在-1投票则整个投票失败；投票人需要把-1的原因说清楚，便于大家理解和知晓。
 
 如下是投票邮件样例：
 ```html
 To: private@linkis.apache.org
-Subject: [VOTE] ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
+Subject: [VOTE] ${Candidate Name} as an Linkis ${Committer/PMC} candidate
 Content: 
 Hi all:
     Judging from the contributions in recent months, ${Candidate Name} has submitted many implementations[1],[2],[3] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in the actual project optimization and improvement, to let the project more perfect and easier to use.
 
-    I think making him a ${Committer/PPMC} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PPMC}.
+    I think making him a ${Committer/PMC} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PMC}.
   
     Voting will continue for at least 72 hours or until the required number of votes is reached.
  
@@ -98,15 +98,15 @@ Thanks!
 如下投票结果样例：
 ```html
 To: private@linkis.apache.org
-Subject: [RESULTS][VOTE] ${Candidate Name} as an Linkis ${Committer/PPMC}
+Subject: [RESULTS][VOTE] ${Candidate Name} as an Linkis ${Committer/PMC}
 Content: 
 
 Hi all:
-    The vote for "${Candidate Name} as an Linkis ${Committer/PPMC}" has PASSED and closed now.
+    The vote for "${Candidate Name} as an Linkis ${Committer/PMC}" has PASSED and closed now.
 
     The result is as follows:
 
-    3 PPMC  +1 Votes
+    3 PMC  +1 Votes
     - aaa
     - bbb
     - ccc
@@ -119,26 +119,24 @@ Hi all:
     Thanks for everyone's support!   
 Thanks!
 ```
-**备注：如果是未通过，结果是 "The vote for "${Candidate Name} as an Linkis ${Committer/PPMC}" has FAILED and closed now."**
+**备注：如果是未通过，结果是 "The vote for "${Candidate Name} as an Linkis ${Committer/PMC}" has FAILED and closed now."**
    
-### 2.4 新增 PPMC 的通知邮件
+### 2.4 新增 PMC 的通知邮件
 
->该步骤只针对新的 PPMC 推举流程，如果选举的是Committer，该步跳过不执行。
->投票发起者需要发送至IPMC private@incubator.apache.org邮件组发送知会邮件，并等待至少72小时；
->邮件发送 private@incubator.apache.org，抄送private@linkis.apache.org；IPMC们会分析合规性，直到没有异议。
+> 该步骤只针对新的 PMC 推举流程，如果选举的是Committer，该步跳过不执行。
+> 投票发起者需要发送至 board@apache.apache.org 邮件组发送知会邮件，并等待至少72小时。
+> 邮件发送 board@apache.org，抄送private@linkis.apache.org；PMC们会分析合规性，直到没有异议。
 
-发送至IPMC private@incubator.apache.org  抄送 private@linkis.apache.org 。 从 PPMC 向 IPMC 发送通知到 PPMC 正式邀请被提议的成员，之间要有 72 小时的宽限期
-
-如下是新增推选 PPMC 的通知邮件样例：
+如下是新增推选 PMC 的通知邮件样例：
 ```html
-To: private@incubator.apache.org
+To: board@apache.org
 Cc: private@linkis.apache.org
 
-Subject：[NOTICE] ${Candidate Name} for Linkis PPMC
+Subject：[NOTICE] ${Candidate Name} for Linkis PMC
 Content:
 Hi everyone,
 
-    ${Candidate Name} has been voted as a new member of the Linkis PPMC. 
+    ${Candidate Name} has been voted as a new member of the Linkis PMC. 
 
     The vote thread is at:
     https://lists.apache.org/thread/xx
@@ -146,7 +144,7 @@ Hi everyone,
 Thanks!
 ```
 
-72 小时后，如果IPMC不反对提名（大多数情况下不会反对），则可以向候选人发送邀请。
+72 小时后，如果董事会不反对提名（大多数情况下不会反对），则可以向候选人发送邀请。
 
 
 ### 2.5 向候选人发起邮件邀请 
@@ -161,16 +159,16 @@ Subject: Invitation to become Linkis committer: Joe Bloggs
     
 Hello Joe Bloggs,
 
-    The Linkis Podling Project Management Committee] (PPMC) 
+    The Linkis Podling Project Management Committee] (PMC) 
     hereby offers you committer privileges to the project 
-    [as well as membership in the PPMC]. These privileges are
+    [as well as membership in the PMC]. These privileges are
     offered on the understanding that you'll use them
     reasonably and with common sense. We like to work on trust
     rather than unnecessary constraints. 
     
     Being a committer enables you to more easily make 
     changes without needing to go through the patch 
-    submission process. [Being a PPMC member enables you 
+    submission process. [Being a PMC member enables you 
     to guide the direction of the project.]
     
     Being a committer does not require you to 
@@ -199,7 +197,7 @@ Hello Joe Bloggs,
         unique Apache ID. Look to see if your preferred 
         ID is already taken at 
         https://people.apache.org/committer-index.html
-        This will allow the Secretary to notify the PPMC 
+        This will allow the Secretary to notify the PMC 
         when your iCLA has been recorded.
     
     When recording of your iCLA is noted, you will 
@@ -208,21 +206,21 @@ Hello Joe Bloggs,
 
     With the expectation of your acceptance, welcome!
 
-The Apache Linkis PPMC
+The Apache Linkis PMC
 ```
 
 ### 2.6 接受邀请流程
 >需要候选人进行处理
 
 新的 Committer 应回复 `private@linkis.apache.org`（选择`reply all`），并表达他/她接受邀请。
-然后，该邀请将被项目的 PPMC 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
+然后，该邀请将被项目的 PMC 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
 
 接受邀请，回复邮件示例 
 ```
-Hello Apache Linkis PPMC,
+Hello Apache Linkis PMC,
 
 I accept the invitation.
-Thanks to the  Apache Linkis Community PPMC for
+Thanks to the  Apache Linkis Community PMC for
 recognizing my work, I will continue to actively participate in the
 work of the  Apache Linkis. Next, I will follow the
 instructions to complete the next steps: Signing and submitting iCLA
@@ -236,7 +234,7 @@ XXXX
 - 选择一个未被使用过 [apache committers list page](http://people.apache.org/committer-index.html) 的 Apache ID。
 - 下载 ICLA 并签署 指引见[ICLA 签署流程](how-to-sign-apache-icla)。
 
-- PPMC 将等待Apache秘书确认ICLA（或CCLA）备案。新的提交者和 PPMC 将收到以下电子邮件：
+- PMC 将等待Apache秘书确认ICLA（或CCLA）备案。新的提交者和 PMC 将收到以下电子邮件：
 
 ```html
 Dear ${Candidate Name},
@@ -250,12 +248,12 @@ Please refer to https://www.apache.org/foundation/how-it-works.html#developers
 for more information about roles at Apache.
 ```
 
-万一该帐户未被处理，PPMC 成员应联系项目[Apache Incubator的VP](https://www.apache.org/foundation/), 可以通过 [Apache Account Submission Helper Form](https://whimsy.apache.org/officers/acreq) 请求。
+万一该帐户未被处理，PMC 成员应联系项目[Apache Incubator的VP](https://www.apache.org/foundation/), 可以通过 [Apache Account Submission Helper Form](https://whimsy.apache.org/officers/acreq) 请求。
 
 几天后，新的提交者将收到一封来自root@apache.org帐户通知账号创建的电子邮件，标题为`Welcome to the Apache Software Foundation (ASF)!`。
 
-收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知Linkis PPMC，你的Apache Id账号已经创建，请求将你的Apache Id添加到Linkis的官方提交者列表中。
-(告知负责提名你的PPMC通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中）
+收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知Linkis PMC，你的Apache Id账号已经创建，请求将你的Apache Id添加到Linkis的官方提交者列表中。
+(告知负责提名你的PMC通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中）
 
 ### 2.7 设置 Apache ID 和开发环境
 
@@ -265,7 +263,7 @@ for more information about roles at Apache.
 - 使用【GitBox Account Linking Utility】（https://gitbox.apache.org/setup/）获取Linkis项目的写权限。
 - [linkis-website](https://linkis.apache.org/team)相关页面更新
 
-详细指引见[PPMC/Committer 相关权限配置](ppmc-related-permission-configuration.md)
+详细指引见[PMC/Committer 相关权限配置](ppmc-related-permission-configuration.md)
 
 如果您想在 Apache GitHub 组织中公开露面，您需要前往 [Apache GitHub 人员页面](https://github.com/orgs/apache/people)，
 搜索自己，然后选择`Organization visibility`为`Public`。
@@ -277,27 +275,27 @@ for more information about roles at Apache.
 如下是通知邮件样例：
 ```html
 To: dev@linkis.apache.org
-Subject: [ANNOUNCE] New ${Committer/PPMC}: ${Candidate Name}
+Subject: [ANNOUNCE] New ${Committer/PMC}: ${Candidate Name}
 Content: 
 Hi all:
     Hi everyone,
 
-    The Project Management Committee(PMC) for Apache Linkis has invited ${Candidate Name} to become a ${Committer/PPMC} and we are pleased to announce that he has accepted.
+    The Project Management Committee(PMC) for Apache Linkis has invited ${Candidate Name} to become a ${Committer/PMC} and we are pleased to announce that he has accepted.
 
     ${Candidate Name} is being active in the Linkis community, and we are glad to see his more interactions with the community in the future.
 
     Welcome ${Candidate Name}, and please enjoy your journey.:)
 
 Thanks!
-The Apache Linkis PPMC
+The Apache Linkis PMC
 ```
    
-到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PPMC。
+到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PMC。
 
 ## 4 更新 Clutch Status信息
 step1 克隆状态记录的文件 
 ```shell script
-svn co https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/
+svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
 ```
 
 step2 修改 linkis.xml 中的new信息

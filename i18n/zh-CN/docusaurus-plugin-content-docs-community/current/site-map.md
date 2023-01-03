@@ -52,7 +52,7 @@ sidebar_position: 12
 - Board Reports https://whimsy.apache.org/board/minutes/Linkis.html
 - Linkis的名字申请工单  https://issues.apache.org/jira/projects/PODLINGNAMESEARCH/issues/PODLINGNAMESEARCH-192?filter=allissues 
 - 项目状态文件  https://incubator.apache.org/projects/linkis.html
-- ppmc 邮件等信息查看 https://whimsy.apache.org/roster/ppmc/linkis
+- PMC 邮件等信息查看 https://whimsy.apache.org/roster/committee/linkis#pmc 
 - project 文件  https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/linkis.xml 
 - podling 文件 https://svn.apache.org/repos/asf/incubator/public/trunk/content/podlings/linkis.yml
 - 毕业后report上报工具 https://reporter.apache.org/wizard/ （主席和PMC可查看） 

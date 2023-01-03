@@ -35,9 +35,9 @@ One other thing you might want to correct, all of the download links to previous
 - 毕业讨论邮件: https://lists.apache.org/thread/jvrtvcw1zb8gf286css7tvol94r3qd68
 - 孵化信息: https://incubator.apache.org/projects/age.html
 - 反馈的问题:
-    - 三名 PPMC 成员未订阅私人邮件列表。
-    - 包括一些 PPMC 成员在内的四名 Committer 没有将他们的 apache id 映射到他们的 GitHub id。他们如何做出贡献？
-    - 没有人加入PPMC
+    - 三名 PMC 成员未订阅私人邮件列表。
+    - 包括一些 PMC 成员在内的四名 Committer 没有将他们的 apache id 映射到他们的 GitHub id。他们如何做出贡献？
+    - 没有人加入PMC
 
 讨论指出的问题比较多，多次发起了 
 
