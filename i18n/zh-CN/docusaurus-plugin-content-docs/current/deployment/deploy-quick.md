@@ -8,17 +8,17 @@ sidebar_position: 1
 ### 1.1 Linux服务器
 
 **硬件要求**  
-安装linkis 微服务近10个，至少3G内存。每个微服务默认配置启动的jvm -Xmx 内存大小为 512M（内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大）
+安装linkis 微服务近10个，至少3G内存。每个微服务默认配置启动的jvm -Xmx 内存大小为 512M（内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大）。
 
 
 ### 1.2 添加部署用户
  
 >部署用户: linkis核心进程的启动用户，同时此用户会默认作为管理员权限，<font color="red">部署过程中会生成对应的管理员登录密码，位于`conf/linkis-mg-gateway.properties`文件中</font>
-Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`sudo -u  ${linkis-user}` 切换到对应用户下，然后执行对应的引擎启动命令，所以引擎`linkis-engine`进程归属的用户是任务的执行者（因此部署用户需要有sudo权限，而且是免密的）
+Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`sudo -u  ${linkis-user}` 切换到对应用户下，然后执行对应的引擎启动命令，所以引擎`linkis-engine`进程归属的用户是任务的执行者（因此部署用户需要有sudo权限，而且是免密的）。
 
 以hadoop用户为例:
 
-先查看系统中是否已经有 hadoop 用户，若已经存在，则直接授权即可；若不存在，先创建用户，再授权。
+先查看系统中是否已经有 hadoop 用户，若已经存在，则直接授权即可，若不存在，先创建用户，再授权。
 
 查看是否已存在 hadoop 用户
 ```shell script
@@ -43,8 +43,8 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ### 2.1 安装包准备
 
 - 方式1：从官网[下载地址](https://linkis.apache.org/zh-CN/download/main):https://linkis.apache.org/zh-CN/download/main
-，下载对应的安装包（项目安装包和管理台安装包）
-- 方式2：根据[Linkis 编译打包](../development/build)和[前端管理台编译](../development/build-console) 自行编译出项目安装包和管理台安装包
+，下载对应的安装包（项目安装包和管理台安装包）。
+- 方式2：根据[Linkis 编译打包](../development/build)和[前端管理台编译](../development/build-console) 自行编译出项目安装包和管理台安装包。
 
 上传安装包`apache-linkis-x.x.x-incubating-bin.tar.gz`后，进行解压安装包 
 
@@ -89,7 +89,7 @@ HIVE_META_PASSWORD=demo123    # HiveMeta元数据库的密码
 
 ### 2.3 配置基础变量
 
-文件位于`deploy-config/linkis-env.sh`
+文件位于`deploy-config/linkis-env.sh`。
 
 #### 部署用户 
 ```shell script
@@ -134,7 +134,7 @@ YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088
 #### 基础组件环境信息 
 
 :::caution 注意
-可以通过用户的系统环境变量配置, 如果通过系统环境变量配置的，deploy-config/linkis-env.sh配置文件中可以不进行配置 直接注释掉
+可以通过用户的系统环境变量配置, 如果通过系统环境变量配置的，deploy-config/linkis-env.sh配置文件中可以不进行配置 直接注释掉。
 :::
 
 ```shell script
@@ -157,7 +157,11 @@ SPARK_CONF_DIR=/appcom/config/spark-config
 #### LDAP 登录配置（可选）
 
 :::caution 注意
+<<<<<<< HEAD
+默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)。
+=======
 默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
+>>>>>>> origin/dev
 :::
 
 
@@ -223,8 +227,8 @@ install.sh脚本会询问您是否需要初始化数据库并导入元数据。�
 **<font color="red">第一次安装必须选清空数据库</font>**
 
 :::tip 注意
-- 如果出现报错，又不清楚具体是执行什么命令报错，可以加 -x 参数`sh -x bin/install.sh`，将shell脚本执行过程日志打印出来，方便定位问题
-- 权限问题:`mkdir: cannot create directory ‘xxxx’: Permission denied`,请确认部署用户是否拥有该路径的读写权限 
+- 如果出现报错，又不清楚具体是执行什么命令报错，可以加 -x 参数`sh -x bin/install.sh`，将shell脚本执行过程日志打印出来，方便定位问题。
+- 权限问题:`mkdir: cannot create directory ‘xxxx’: Permission denied`,请确认部署用户是否拥有该路径的读写权限。
 :::
 
 执行成功提示如下:
@@ -236,7 +240,7 @@ Your default account password is [hadoop/5e8e312b4]`
 ### <font color="red">3.2 添加mysql驱动包</font>
 
 :::caution 注意
-因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包（**若是通过集成的全家桶物料包安装，则无需手动添加**），安装部署时需要自行添加依赖到对应的lib包中。 可以在对应的目录下查看是否存在，如果不存在则需要添加
+因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包（**若是通过集成的全家桶物料包安装，则无需手动添加**），安装部署时需要自行添加依赖到对应的lib包中。 可以在对应的目录下查看是否存在，如果不存在则需要添加。
 
 :::
 
@@ -256,10 +260,10 @@ cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-commons/public-mod
 执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
 执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
 如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
-详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)
+详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)。
 
 #### 3.3.2 session 
-如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件
+如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件。
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```
@@ -270,12 +274,12 @@ sh sbin/linkis-start-all.sh
 ```
 
 ### 3.5 安装后配置的修改
-安装完成后，如果需要修改配置（因端口冲突或则某些配置有问题需要调整配置），可以重新执行安装，或则修改对应服务的配置`${LINKIS_HOME}/conf/*properties`文件后，重启对应的服务，如：`sh sbin/linkis-daemon.sh start ps-publicservice`
+安装完成后，如果需要修改配置（因端口冲突或则某些配置有问题需要调整配置），可以重新执行安装，或则修改对应服务的配置`${LINKIS_HOME}/conf/*properties`文件后，重启对应的服务，如：`sh sbin/linkis-daemon.sh start ps-publicservice`。
 
 
 ### 3.6 检查服务是否正常启动 
 访问eureka服务页面（http://eurekaip:20303），
-默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动
+默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动。
 ![Linkis1.0_Eureka](./images/eureka.png)
 
 ```shell script
@@ -364,17 +368,21 @@ nginx的日志文件在 `/var/log/nginx/access.log` 和`/var/log/nginx/error.log
 
 如果需要修改端口或则静态资源目录等，请修改`/etc/nginx/conf.d/linkis.conf` 文件后执行 `sudo nginx -s reload` 命令
 :::caution 注意
-- 目前暂未集成visualis功能，安装过程中如果提示安装linkis/visualis失败，可以忽略 
-- 查看nginx是否正常启动：检查nginx进程是否存在 `ps -ef |grep nginx` 
-- 检查nginx的配置是否正确 `sudo nginx -T ` 
-- 如果端口被占用，可以修改nginx启动的服务端口`/etc/nginx/conf.d/linkis.conf`listen端口值，保存后重新启动
-- 如果访问管理台出现接口502，或则`Unexpected token < in JSON at position 0`异常，请确认linkis-mg-gateway是否正常启动，如果正常启动，查看nginx配置文件中配置的linkis-mg-gateway服务地址是否正确
+- 目前暂未集成visualis功能，安装过程中如果提示安装linkis/visualis失败，可以忽略 。
+- 查看nginx是否正常启动：检查nginx进程是否存在 `ps -ef |grep nginx` 。
+- 检查nginx的配置是否正确 `sudo nginx -T ` 。
+- 如果端口被占用，可以修改nginx启动的服务端口`/etc/nginx/conf.d/linkis.conf`listen端口值，保存后重新启动。
+- 如果访问管理台出现接口502，或则`Unexpected token < in JSON at position 0`异常，请确认linkis-mg-gateway是否正常启动，如果正常启动，查看nginx配置文件中配置的linkis-mg-gateway服务地址是否正确。
 :::
 
 ### 4.4 登录管理台
 
 浏览器登陆 `http://xx.xx.xx.xx:8188/#/login`
+<<<<<<< HEAD
+用户名/密码在`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看。
+=======
 用户名/密码在`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看
+
 ```shell script
 wds.linkis.admin.user= #用户
 wds.linkis.admin.password= #密码
@@ -398,18 +406,16 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -c
 #python引擎任务
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
 ```
-如果验证失败，请参考【步骤8】进行排查
+如果验证失败，请参考【步骤8】进行排查。
 
-## 6 开发工具IDE（Scriptis）的安装(可选)
->安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本
-
-详细指引见[工具Scriptis的安装部署](integrated/install-scriptis)
+## 6. 开发工具IDE（Scriptis）的安装(可选)
+安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本，详细指引见[工具Scriptis的安装部署](integrated/install-scriptis)。
 
 ## 7. 支持的引擎 
 
 ### 7.1 引擎适配列表
 
-请注意：Linkis的单独安装包默认只包含的：Python/Shell/Hive/Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](install-engineconn)。
+请注意：Linkis的单独安装包默认只包含Python、Shell、Hive、Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](install-engineconn)。
 
 本版本已适配的支持引擎列表如下：
 
@@ -467,7 +473,8 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 >如果需要使用到spark/hive/flink引擎
 
-登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)(需要先安装前端)  
+登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)(需要先安装前端)。
+
 正常如下图所示:    
 ![yarn-normal](images/yarn-normal.png)
 
@@ -492,15 +499,15 @@ config字段属性
 "pwd":"pwd"//密码
 
 ```
-更新后，因为程序中有使用到缓存，想要立即生效，需要重启linkis-cg-linkismanager服务
+更新后，因为程序中有使用到缓存，想要立即生效，需要重启linkis-cg-linkismanager服务。
 ```shell script
 sh sbin/linkis-daemon.sh  restart cg-linkismanager
 ```
 
 #### 8.1.2 查看yarn队列是否存在
-异常信息:`desc: queue ide is not exists in YARN.`表明配置的yarn队列不存在，需要进行调整
+异常信息:`desc: queue ide is not exists in YARN.`表明配置的yarn队列不存在，需要进行调整。
 
-修改方式:`linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue]`，修改一个可以使用的yarn队列，以使用的yarn 队列可以在 `rmWebAddress:http://xx.xx.xx.xx:8088/cluster/scheduler` 上查看到
+修改方式:`linkis管理台/参数配置>全局设置>yarn队列名[wds.linkis.rm.yarnqueue]`，修改一个可以使用的yarn队列，以使用的yarn 队列可以在 `rmWebAddress:http://xx.xx.xx.xx:8088/cluster/scheduler` 上查看到。
 
 查看可用的yarn队列
 - 查看yarn队列地址：http://ip:8888/cluster/scheduler
@@ -515,13 +522,13 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 正常如下：
 ![bml](images/bml.png)
 
-查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
+查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)
 
 - 如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](install-engineconn#23-引擎刷新))。
-- 通过`log/linkis-cg-linkismanager.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致
-- 检查gateway地址配置是否正确`conf/linkis.properties`的配置项`wds.linkis.gateway.url`
+- 通过`log/linkis-cg-linkismanager.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致。
+- 检查gateway地址配置是否正确`conf/linkis.properties`的配置项`wds.linkis.gateway.url`。
 
-引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`
+引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`。
 
 ```shell script
 hdfs dfs -ls /apps-data/hadoop/bml
@@ -533,16 +540,17 @@ hdfs dfs -chown hadoop:hadoop   /apps-data
 ### 8.3 登陆密码问题
 
 linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于
-`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`（>=1.0.3版本）
+
+`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`（>=1.0.3版本）。
 
 ### 8.4 版本兼容性问题
 
-linkis默认支持的引擎，与dss兼容关系可以查看[此文档](https://github.com/apache/linkis/blob/master/README.md)
+linkis默认支持的引擎，与dss兼容关系可以查看[此文档](https://github.com/apache/linkis/blob/master/README.md) 。
 
 
 ### 8.5 如何定位服务端异常日志
 
-linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式
+linkis的微服务比较多，若对系统不熟悉，有时候无法定位到具体哪个模块出现了异常，可以通过全局日志搜索方式。
 ```shell script
 tail -f log/* |grep -5n exception(或则tail -f log/* |grep -5n ERROR)  
 less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)  
@@ -582,6 +590,7 @@ sh -x engineConnExec.sh
 
 ### 8.7 如何修改注册中心eureka的端口
 有时候当eureka的端口被其他服务占用,无法使用默认的eureka端口的时候,需要对eureka端口进行修改,这里把对eureka端口的修改分为执行安装之前和执行安装之后两种情况。
+
 1.执行安装之前修改注册中心eureka端口
 ```
 1. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
@@ -632,18 +641,19 @@ Token-User:hadoop
 
 ### 8.10 异常问题的排查流程
 
-首先要按上述步骤检查服务/环境等是否都正常启动  
-按上述罗列的一些场景的方式进行基础问题的排查  
+首先要按上述步骤检查服务/环境等是否都正常启动,然后按上述罗列的一些场景的方式进行基础问题的排查 。
+
 [QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)中查找是否有解决方案，链接：https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq  
-通过搜索issue中的内容,看是否能找到解决方案        
+通过搜索issue中的内容,看是否能找到解决方案。    
 ![issues](images/issues.png)    
 通过官网文档搜索，对于某些问题，可以通过官网搜索关键字进行查询，比如搜索"部署"相关。(如果出现404,请浏览器中刷新一下)          
 ![search](images/search.png)
 
 
 ## 9. 相关的资料如何获取
-linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索相关文档。  
-相关博文链接
+linkis官网文档正在不断的完善,可以在本官网查看相关文档。
+
+相关博文链接如下。
 - Linkis的技术博文集  https://github.com/apache/linkis/issues/1233
 - 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
 - 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction

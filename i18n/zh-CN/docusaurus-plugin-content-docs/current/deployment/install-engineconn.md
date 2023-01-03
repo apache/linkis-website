@@ -5,7 +5,7 @@ sidebar_position: 4
 
 > 本文主要介绍对于官方安装包中，未包含的引擎物料(jdbc/sqoop/flink等)/或则自定义实现的新引擎，如何进行安装部署，以支持对应的任务
 
-## 1 引擎插件目录结构 
+## 1. 引擎插件目录结构 
 
 Linkis的引擎物料包安装目录为`${LINKIS_HOME}/lib/linkis-engineconn-plugins`，目录结构如下:
 
