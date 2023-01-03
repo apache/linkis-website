@@ -39,8 +39,8 @@ To: secretary@apache.org
 Subject: Accept to become a linkis committer
 Content:
 
-Hello Apache Incubator:
-    I have accepted the Apache Linkis(Incubator) PMC 
+Hello Apache Linkis PMC:
+    I have accepted the Apache Linkis PMC 
 invitation to become linkis committer, the attachment 
 is my ICLA information.
 Thanks!
