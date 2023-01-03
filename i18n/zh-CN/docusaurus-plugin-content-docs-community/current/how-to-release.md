@@ -571,18 +571,17 @@ git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确
 :::
 
 
-> Linkis 仍在孵化阶段，需要进行两次投票
+> Linkis 已经孵化毕业，自需要进行社区投票
 
 - Linkis 社区投票，发送邮件至：`dev@linkis.apache.org`
-- incubator 社区投票，发送邮件至：`general@incubator.apache.org` Linkis毕业后，只需要在Linkis社区投票
 - 在社区投票的邮件正文中的${Linkis Release Manager}，填写负责本次发布的人员，一般是邮件发送人，如`Shuai Di`
 
 
 ### 5.1 Linkis 社区投票阶段
 
-1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1` PMC member票后，才可进入下一阶段的投票。
+1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1` PMC member票后，才能结束投票。
 
-2. 宣布投票结果,发起投票结果邮件到`dev@linkis.apache.org`。
+2. 宣布投票结果, 发起投票结果邮件到`dev@linkis.apache.org`。
 
 
 #### 5.1.1 Linkis 社区投票模板
@@ -635,8 +634,6 @@ Hello Linkis Community,
 	[ ] All files have license headers if necessary.
 	[ ] No unlicensed compiled archives bundled in source archive.
 
-	More detail checklist  please refer:
-        https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist
     Steps to validate the release，Please refer to: 
         https://linkis.apache.org/community/how-to-verify
 
@@ -694,26 +691,23 @@ ${Linkis Release Manager}
 [RESULT][VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 邮件正文：
-Hello Apache Linkis PPMC and Community,
+Hello Apache Linkis PMC and Community,
 
     The vote closes now as 72hr have passed. The vote PASSES with
 
-    xx (+1 binding) votes from the PPMC,
-    xx (+1 binding) votes from the IPMC,
+    xx (+1 binding) votes from the PMC,
     xx (+1 non-binding) votes from the rest of the developer community,
     and no further 0 or -1 votes.
 
     The vote thread: {vote_mail_address}
 
-    I will now bring the vote to general@incubator.apache.org to get approval by the IPMC.
     If this vote passes also, the release is accepted and will be published.
 
 Thank you for your support.
 ${Linkis Release Manager}
 ```
 注: 
-- PPMC:podling Project Management Committee (PPMC) linkis的ppmc 
-- IPMC: Incubator Project Management Committee (IPMC)  一般是孵化社区的PMC，linkis的导师都是这个角色 
+- PMC: Project Management Committee (PMC) linkis的pmc 
 
 ### 5.2 其他 
 
@@ -803,7 +797,8 @@ linkis的官网下载地址应该指向apache的官方地址
 
 > 请确保Apache Staging仓库已发布成功，一般是在该步骤的24小时后发布邮件
 
-发邮件到 `dev@linkis.apache.org` 、 `announce@apache.org`和`general@incubator.apache.org`
+发邮件到 `dev@linkis.apache.org` 、 `announce@apache.org`
+
 ```html
 邮件标题：
 [ANNOUNCE] Apache Linkis ${release_version} available

@@ -161,7 +161,7 @@ sudo systemctl restart nginx
 
 浏览器访问`http://linkis_ipaddr:linkis_port` 其中linkis_port为config.sh里面配置的端口，linkis_ipaddr为安装机器的IP
 
-用户名/密码在`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看
+用户名/密码在`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看
 ```shell script
 wds.linkis.admin.user= #用户
 wds.linkis.admin.password= #密码

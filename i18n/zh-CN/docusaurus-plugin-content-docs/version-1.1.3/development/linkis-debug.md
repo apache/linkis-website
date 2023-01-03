@@ -496,7 +496,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 sh linkis-daemon.sh restart ps-publicservice
 ```
 
-(如果不确定服务名称,在 {LINKIS_HOME}/sbin/linkis-start-all.sh 内查询)
+(如果不确定服务名称,在 ${LINKIS_HOME}/sbin/linkis-start-all.sh 内查询)
 
 ### 4.4 编译器配置远程调试
 

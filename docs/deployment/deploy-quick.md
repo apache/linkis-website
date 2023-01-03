@@ -157,7 +157,7 @@ SPARK_CONF_DIR=/appcom/config/spark-config
 #### LDAP login configuration (optional)
 
 :::caution note
-The default is to use a static user and password. The static user is the deployment user. The static password will generate a random password string during deployment and store it in `{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3 Version)
+The default is to use a static user and password. The static user is the deployment user. The static password will generate a random password string during deployment and store it in `${LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3 Version)
 :::
 
 
@@ -245,8 +245,8 @@ To download the mysql driver, take version 5.1.49 as an example: [download link]
 
 Copy the mysql driver package to the lib package
 ````
-cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-5.1.49.jar ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ````
 
 ### 3.3 Configuration Adjustment (Optional)
@@ -383,7 +383,7 @@ If you need to modify the port or static resource directory, etc., please modify
 ### 4.4 Login to the console
 
 Browser login `http://xx.xx.xx.xx:8188/#/login`
-Username/password can be found in `{LINKIS_HOME}/conf/linkis-mg-gateway.properties`
+Username/password can be found in `${LINKIS_HOME}/conf/linkis-mg-gateway.properties`
 ```shell script
 wds.linkis.admin.user= #User
 wds.linkis.admin.password= #Password
@@ -540,7 +540,7 @@ hdfs dfs -chown hadoop:hadoop/apps-data
 ### 8.3 Login password problem
 
 By default, linkis uses a static user and password. The static user is the deployment user. The static password will randomly generate a password string during deployment and store it in
-`{LINKIS_HOME}/conf/linkis-mg-gateway.properties` (>=1.0.3 version)
+`${LINKIS_HOME}/conf/linkis-mg-gateway.properties` (>=1.0.3 version)
 
 ### 8.4 version compatibility issues
 

@@ -193,7 +193,7 @@ org.apache.linkis.filesystem.LinkisPublicServiceApp
 需要把公共依赖的模块加到linkis-public-enhancements模块的classpath下，修改pes的pom增加以下依赖：
 linkis-public-enhancements/pom.xml
 ```xml
- <dependency>
+    <dependency>
       <groupId>org.apache.linkis</groupId>
       <artifactId>linkis-dist</artifactId>
       <version>${project.version}</version>
@@ -203,7 +203,7 @@ linkis-public-enhancements/pom.xml
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql.connector.version}</version>
-</dependency>
+    </dependency>
 
 ```
 
@@ -285,7 +285,7 @@ org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
 需要把公共依赖的模块加到ecp模块的classpath下，修改pes的pom增加以下依赖：
 linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
 ```xml
- <dependency>
+    <dependency>
       <groupId>org.apache.linkis</groupId>
       <artifactId>linkis-dist</artifactId>
       <version>${project.version}</version>
@@ -295,7 +295,7 @@ linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql.connector.version}</version>
-</dependency>
+    </dependency>
 
 ```
 
@@ -505,7 +505,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 sh linkis-daemon.sh restart ps-publicservice
 ```
 
-(如果不确定服务名称,在 {LINKIS_HOME}/sbin/linkis-start-all.sh 内查询)
+(如果不确定服务名称,在 ${LINKIS_HOME}/sbin/linkis-start-all.sh 内查询)
 
 ### 4.4 编译器配置远程调试
 
