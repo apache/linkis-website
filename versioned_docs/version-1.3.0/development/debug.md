@@ -493,7 +493,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 
 Identify the service where the package that needs to be debugged is located, and determine the service to which it belongs according to the location of the code to be debugged
 
-### 4.2 Enter {LINKIS_HOME}/sbin/ext, modify the module configuration file to open the remote call port
+### 4.2 Enter ${LINKIS_HOME}/sbin/ext, modify the module configuration file to open the remote call port
 ![c-port](images/c-port.png)
 
 ### 4.3 Restart the service that needs to be debugged
@@ -502,7 +502,7 @@ Identify the service where the package that needs to be debugged is located, and
 sh linkis-daemon.sh restart ps-publicservice
 ````
 
-(If you are not sure about the service name, check in {LINKIS_HOME}/sbin/linkis-start-all.sh )
+(If you are not sure about the service name, check in ${LINKIS_HOME}/sbin/linkis-start-all.sh )
 
 ### 4.4 Compiler configuration remote debugging
 

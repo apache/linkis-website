@@ -232,8 +232,8 @@ Linkis1.0.3 默认已适配的引擎列表如下：
 
 拷贝mysql 驱动包至lib包下 
 ```
-cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
 
 
