@@ -292,7 +292,7 @@ The Apache Linkis PMC
    
 到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PMC。
 
-## 4 更新 Clutch Status信息
+## 4 更新项目状态信息
 step1 克隆状态记录的文件 
 ```shell script
 svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
@@ -314,7 +314,7 @@ step2 修改 linkis.xml 中的new信息
     </section>
 ```
 step3 更新提交后，信息会在这里呈现 
-https://incubator.apache.org/clutch/linkis.html
+https://incubator.apache.org/projects/linkis.html
 
 
 ## 5 操作流程总结
