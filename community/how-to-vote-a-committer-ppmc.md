@@ -123,7 +123,7 @@ Thanks!
 ### 2.4 Added PMC notification email
 > his step is only for the new PMC election process. If the Committer is elected, this step is skipped and not executed.
 > The initiator of the vote needs to send a notification email to the board@apache.org mailing group and wait at least 72 hours;
-> Email board@apache.org, cc private@linkis.apache.org; PMC will analyze compliance until there is no objection.
+> Email board@apache.org, cc private@linkis.apache.org; board will analyze compliance until there is no objection.
 
 The following is a sample notification email for adding a PMC:
 ```html
