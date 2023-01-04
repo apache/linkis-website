@@ -12,8 +12,8 @@ Prerequisite: The Linkis service (backend and management desk service) has been 
 
 Example description:
 
-- The address of the linkis-gateway service is 10.10.10.10 and the port is 9001
-- Linkis console nginx is deployed on 10.10.10.10 port 8080
+- The address of the linkis-gateway service is 127.0.0.1 and the port is 9001
+- Linkis console nginx is deployed on 127.0.0.1 port 8080
 
 ## 2. Environment preparation
 
@@ -59,8 +59,8 @@ If you start the service locally, you need to configure the backend linkis-gatew
 No configuration is required when packaging and deploying
 ```shell script
 // Backend linkis-gatway service address
-VUE_APP_HOST=http://10.10.10.10:9001
-VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
+VUE_APP_HOST=http://127.0.0.1:9001
+VUE_APP_MN_CONFIG_PREFIX=http://127.0.0.1:9001/api/rest_j/v1
 ````
 #### 3.2.2 Running the scriptis module
 
@@ -118,7 +118,7 @@ server {
         ......
 
 location /api {
-            proxy_pass http://10.10.10.10:9001; address of #gatway
+            proxy_pass http://127.0.0.1:9001; address of #gatway
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -157,7 +157,7 @@ Note the difference between root and alias in the location configuration block i
 
 ### 5.1 Log in to Linkis console normally
 ```shell script
-#http://10.10.10.10:8080/#/
+#http://127.0.0.1:8080/#/
 http://nginxIp:port/#/
 ````
 Because access to scriptis requires login verification, you need to log in first, obtain and cache cookies.
@@ -165,7 +165,7 @@ Because access to scriptis requires login verification, you need to log in first
 ### 5.2 Access the scriptis page after successful login
 
 ```shell script
-#http://10.10.10.10:8080/scriptis/#/home
+#http://127.0.0.1:8080/scriptis/#/home
 http://nginxIp:port/scriptis/#/home
 ````
 `nginxIp`: The ip of the nginx server deployed by the Linkis console, `port`: the port number of the nginx configuration startup, `scriptis` is the location address of the nginx configuration for requesting the static files of the scriptis project (can be customized)

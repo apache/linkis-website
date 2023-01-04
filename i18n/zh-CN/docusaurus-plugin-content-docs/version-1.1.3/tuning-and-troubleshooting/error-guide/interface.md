@@ -128,6 +128,6 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 ### 5. 异常定位
 `ECMResourceClear failed, ecm current resource:bdpuje
 s110003:9102{"instance":0,"memory":"0.0 B","cpu":0} org.apache.linkis.manager.exception.PersistenceErrorException: errCode: 210001 ,desc: label not found, this label may be removed a
-lready. , ip: bdpujes110003 ,port: 9101 ,serviceKind: linkis-cg-linkismanager`
+lready. , ip: localhost110003 ,port: 9101 ,serviceKind: linkis-cg-linkismanager`
 
 其中IP和端口是对应的服务地址，serviceKind是对应的服务名称，如果是RPC调用的日志失败，可以通过这个信息找到对应的服务

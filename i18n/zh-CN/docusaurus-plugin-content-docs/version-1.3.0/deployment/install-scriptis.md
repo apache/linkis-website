@@ -12,8 +12,8 @@ sidebar_position: 4.1
 
 示例说明:
 
-- linkis-gateway 服务的地址为 10.10.10.10 端口为 9001
-- Linkis 的管理台 nginx 部署在 10.10.10.10 端口为 8080
+- linkis-gateway 服务的地址为 127.0.0.1 端口为 9001
+- Linkis 的管理台 nginx 部署在 127.0.0.1 端口为 8080
 
 
 ## 2 物料准备 方式1-直接下载
@@ -69,8 +69,8 @@ lerna bootstrap
 打包部署时不需要进行配置
 ```shell script
 // 后端 linkis-gatway 服务地址
-VUE_APP_HOST=http://10.10.10.10:9001
-VUE_APP_MN_CONFIG_PREFIX=http://10.10.10.10:9001/api/rest_j/v1
+VUE_APP_HOST=http://127.0.0.1:9001
+VUE_APP_MN_CONFIG_PREFIX=http://127.0.0.1:9001/api/rest_j/v1
 ```
 #### 3.3.2 运行 Scriptis 模块
 
@@ -126,7 +126,7 @@ server {
         .......
 
 location /api {
-            proxy_pass http://10.10.10.10:9001; #gatway 的地址
+            proxy_pass http://127.0.0.1:9001; #gatway 的地址
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -167,7 +167,7 @@ sudo nginx -s reload
 ### 5.1 正常登录 Linkis 管理台
 
 ```shell script
-#http://10.10.10.10:8080/#/
+#http://127.0.0.1:8080/#/
 http://nginxIp:port/#/
 ```
 因访问 scriptis 需要进行登录验证，所以需要先进行登录，获取并缓存 cookie。
@@ -175,7 +175,7 @@ http://nginxIp:port/#/
 ### 5.2 登录成功后 访问 Scriptis 页面
 
 ```shell script
-#http://10.10.10.10:8080/scriptis/#/home
+#http://127.0.0.1:8080/scriptis/#/home
 http://nginxIp:port/scriptis/#/home
 ```
 `nginxIp`:Linkis 管理台所部署的 nginx 服务器 ip，`port`:nginx 配置启动的端口号，`scriptis`为请求 scriptis 项目静态文件 nginx 配置的 location 地址（可自定义设置）

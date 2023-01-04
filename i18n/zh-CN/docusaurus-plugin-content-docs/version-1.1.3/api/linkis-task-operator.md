@@ -65,7 +65,7 @@ sidebar_position: 3
  "status": 0,
  "message": "请求执行成功",
  "data": {
-   "execID": "030418IDEhivebdpdwc010004:10087IDE_hadoop_21",
+   "execID": "030418IDEhivelocalhost010004:10087IDE_hadoop_21",
    "taskID": "123"  
  }
 }
@@ -395,7 +395,7 @@ sidebar_position: 3
  "status": 0,
  "message": "Request executed successfully",
  "data": {
-   "execID": "030418IDEhivebdpdwc010004:10087IDE_hadoop_21",
+   "execID": "030418IDEhivelocalhost010004:10087IDE_hadoop_21",
    "taskID": "123"
  }
 }

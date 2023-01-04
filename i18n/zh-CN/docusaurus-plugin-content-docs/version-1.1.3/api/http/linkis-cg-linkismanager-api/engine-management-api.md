@@ -330,7 +330,7 @@ sidebar_position: 2
 	em: {
 		serviceInstance: {
 			applicationName: "linkis-cg-engineconnmanager",
-			instance: "bdpdws110003:9102"
+			instance: "localhost110003:9102"
 		}
 	}
 }

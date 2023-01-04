@@ -128,6 +128,6 @@ Front end error reporting display
 ### 5.Exception location
 `ECMResourceClear failed, ecm current resource:bdpuje
 s110003:9102{"instance":0,"memory":"0.0 B","cpu":0} org.apache.linkis.manager.exception.PersistenceErrorException: errCode: 210001 ,desc: label not found, this label may be removed a
-lready. , ip: bdpujes110003 ,port: 9101 ,serviceKind: linkis-cg-linkismanager`
+lready. , ip: localhost110003 ,port: 9101 ,serviceKind: linkis-cg-linkismanager`
 
 Where IP and port are the corresponding service addresses, and servicekind is the corresponding service name. If the RPC call log fails, you can use this information to find the corresponding service

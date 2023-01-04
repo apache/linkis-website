@@ -172,7 +172,7 @@ Note: Confirm whether the deployment user has read and write permissions for the
 
 #### META configuration for HIVE
 ```shell script
-HIVE_META_URL=jdbc:mysql://10.10.10.10:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8 # URL of HiveMeta meta database
+HIVE_META_URL=jdbc:mysql://127.0.0.1:3306/hive_meta_demo?useUnicode=true&amp;characterEncoding=UTF-8 # URL of HiveMeta meta database
 HIVE_META_USER=demo # User of HiveMeta Metabase
 HIVE_META_PASSWORD=demo123 # HiveMeta metabase password
 ````

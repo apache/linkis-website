@@ -444,24 +444,24 @@ body参数：
     "message": "OK",
     "data": {
         "taskID": 1,
-        "execID": "exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0"
+        "execID": "exec_id018017linkis-cg-entrance127.0.0.1:9104IDE_leojie_shell_0"
     }
 }
 ```
 
 最后检查任务运行状态和获取运行结果集：
 
-GET http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0/progress
+GET http://127.0.0.1:9001/api/rest_j/v1/entrance/exec_id018017linkis-cg-entrance127.0.0.1:9104IDE_leojie_shell_0/progress
 
 ```json
 {
-    "method": "/api/entrance/exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0/progress",
+    "method": "/api/entrance/exec_id018017linkis-cg-entrance127.0.0.1:9104IDE_leojie_shell_0/progress",
     "status": 0,
     "message": "OK",
     "data": {
         "progress": 1,
         "progressInfo": [],
-        "execID": "exec_id018017linkis-cg-entrance192.168.3.13:9104IDE_leojie_shell_0"
+        "execID": "exec_id018017linkis-cg-entrance127.0.0.1:9104IDE_leojie_shell_0"
     }
 }
 ```

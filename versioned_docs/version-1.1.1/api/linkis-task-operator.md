@@ -71,7 +71,7 @@ For more information about the Linkis Restful interface specification, please re
  "status": 0,
  "message": "Request executed successfully",
  "data": {
-   "execID": "030418IDEhivebdpdwc010004:10087IDE_hadoop_21",
+   "execID": "030418IDEhivelocalhost010004:10087IDE_hadoop_21",
    "taskID": "123"
  }
 }
@@ -419,7 +419,7 @@ binary stream
   "status": 0,
   "message": "Request executed successfully",
   "data": {
-    "execID": "030418IDEhivebdpdwc010004:10087IDE_hadoop_21",
+    "execID": "030418IDEhivelocalhost010004:10087IDE_hadoop_21",
     "taskID": "123"
   }
 }

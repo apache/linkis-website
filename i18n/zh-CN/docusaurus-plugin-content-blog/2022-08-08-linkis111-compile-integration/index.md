@@ -587,7 +587,7 @@ qualitis,exchangis,streamis,visualis是分别要从各种的模块中编译好,c
 
 ```
 qualitis
-172.21.129.78
+127.0.0.1
 8090
 ```
 
@@ -631,14 +631,14 @@ index  index.html index.html;
 }
 
 location /ws {
-proxy_pass http://172.21.129.210:9001;#后端Linkis的地址
+proxy_pass http://127.0.0.1:9001;#后端Linkis的地址
 proxy_http_version 1.1;
 proxy_set_header Upgrade $http_upgrade;
 proxy_set_header Connection upgrade;
 }
 
 location /api {
-proxy_pass http://172.21.129.210:9001; #后端Linkis的地址
+proxy_pass http://127.0.0.1:9001; #后端Linkis的地址
 proxy_set_header Host $host;
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header x_real_ipP $remote_addr;
@@ -678,7 +678,7 @@ server {
             }
 
             location /api {
-            proxy_pass http://172.21.129.210:9001;  # 后端Linkis的地址，需要修改
+            proxy_pass http://127.0.0.1:9001;  # 后端Linkis的地址，需要修改
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header x_real_ipP $remote_addr;
@@ -715,7 +715,7 @@ server {
         index  index.html index.html;
     }
     location /api {
-    proxy_pass http://172.21.129.210:9001; #后端Linkis的地址,请修改成Linkis网关的ip和端口
+    proxy_pass http://127.0.0.1:9001; #后端Linkis的地址,请修改成Linkis网关的ip和端口
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header x_real_ipP $remote_addr;
