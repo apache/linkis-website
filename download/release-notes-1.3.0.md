@@ -19,7 +19,7 @@ The main functions are as follows:
 * Added mirror LDH (Linkis Distribution, including Apache Hadoop) build of Hadoop ecosystem All-in-one, which supports one-click deployment of Hive/Spark and other environments and linkis services
 * Optimize the performance of distributed locks of Manager, and fix the problem of slow SQL query caused by high concurrency scenarios
 
-abbreviation:
+Abbreviations:
 - COMMON: Linkis Common
 - ENTRANCE: Linkis Entrance
 - EC: Engineconn
