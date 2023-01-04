@@ -34,7 +34,7 @@ public class LinkisJDBCTest {
         Class.forName("org.apache.linkis.ujes.jdbc.UJESSQLDriver");
 
         //2. Get Connection：jdbc:linkis://gatewayIP:gatewayPort/dbName?EngineType=hive&creator=test, user/password   
-        Connection connection =  DriverManager.getConnection("jdbc:linkis://10.107.118.104:9001/default?EngineType=hive&creator=test","hadoop","hadoop");
+        Connection connection =  DriverManager.getConnection("jdbc:linkis://127.0.0.1:9001/default?EngineType=hive&creator=test","hadoop","hadoop");
         //3. Create statement 
         Statement st= connection.createStatement();
         ResultSet rs=st.executeQuery("show tables");

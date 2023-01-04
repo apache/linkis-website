@@ -166,7 +166,7 @@ No
 ````javascript
 {
 	applicationName: "linkis-ps-cs"
-	instance: "bdpdws110004:9108"
+	instance: "localhost110004:9108"
 	labels: [{
 		labelKey: "route",
 		stringValue: "cs_2_dev"
