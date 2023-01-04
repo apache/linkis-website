@@ -7,11 +7,11 @@ sidebar_position: 1
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请注意：本文只给出了 Linkis 所有对运行性能有影响或是环境依赖相关的配置参数，很多无需用户关心的配置参数已略去，如果用户感兴趣，可以翻阅源码查看。
 
-### 1 通用配置
+## 1 通用配置
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通用配置可在全局的linkis.properties当中设置即可，一处设置，各个微服务都可生效。
 
-#### 1.1 全局配置参数
+### 1.1 全局配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -22,7 +22,7 @@ sidebar_position: 1
 | wds.linkis.home | /appcom/Install/LinkisInstall | Linkis 安装目录，如果不存在，会自动获取 LINKIS_HOME的值 |
 | wds.linkis.httpclient.default.connect.timeOut | 50000 | Linkis HttpClient的默认连接超时时间 |
 
-#### 1.2 LDAP配置参数
+### 1.2 LDAP配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -30,7 +30,7 @@ sidebar_position: 1
 | wds.linkis.ldap.proxy.baseDN | 无 | LDAP baseDN地址 |
 | wds.linkis.ldap.proxy.userNameFormat | 无 |  |
 
-#### 1.3 Hadoop配置参数
+### 1.3 Hadoop配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -43,7 +43,7 @@ sidebar_position: 1
 | hadoop.config.dir | 无 | 如果不配置，将从环境变量 HADOOP_CONF_DIR读取 |
 | wds.linkis.hadoop.external.conf.dir.prefix | /appcom/config/external-conf/hadoop | hadoop额外配置 |
 
-#### 1.4 Linkis RPC配置参数
+### 1.4 Linkis RPC配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -58,9 +58,9 @@ sidebar_position: 1
 | wds.linkis.rpc.sender.asyn.consumer.freeTime.max | 2m | Sender Consumer最大空闲时间 |
 | wds.linkis.rpc.sender.asyn.queue.size.max | 300 | Sender 消费队列最大缓存数 |
 
-### 2. 计算治理配置参数
+## 2. 计算治理配置
 
-#### 2.1 Entrance配置参数
+### 2.1 Entrance配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -87,7 +87,7 @@ sidebar_position: 1
 | wds.linkis.sql.default.limit | 5000 | SQL默认的最大返回结果集行数 |
 
 
-#### 2.2 EngineConn配置参数
+### 2.2 EngineConn配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -101,7 +101,7 @@ sidebar_position: 1
 | wds.linkis.engineconn.max.free.time | 1h | EngineConn的最大空闲时间 |
 
 
-#### 2.3 EngineConnManager的配置参数
+### 2.3 EngineConnManager的配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -113,7 +113,7 @@ sidebar_position: 1
 | wds.linkis.ecm.protected.engine.instances | 2 | ECM的保护实例数 |
 | wds.linkis.engineconn.wait.callback.pid | 3s | 等待EngineConn回传pid的等待时间 |
 
-#### 2.4 LinkisManager的配置参数
+### 2.4 LinkisManager的配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -127,9 +127,9 @@ sidebar_position: 1
 | wds.linkis.rm.yarnqueue.instance.max | 30 | 每个用户在每个引擎的队列中最多启动的应用数 |
 
 
-### 3. 各引擎配置参数
+## 3. 各引擎配置
 
-#### 3.1 JDBC引擎配置参数
+### 3.1 JDBC引擎配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -138,14 +138,14 @@ sidebar_position: 1
 | wds.linkis.engineconn.jdbc.concurrent.limit | 100 | 最大并行SQL执行数 |
 
 
-#### 3.2 Python引擎配置参数
+### 3.2 Python引擎配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | pythonVersion | /appcom/Install/anaconda3/bin/python | Python命令路径 |
 | python.path | 无 | 指定Python额外的path，该路径只接受共享存储的路径 |
 
-#### 3.3 Spark引擎配置参数
+### 3.3 Spark引擎配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -154,9 +154,9 @@ sidebar_position: 1
 | wds.linkis.server.spark-submit | spark-submit | spark-submit命令路径 |
 
 
-### 4. PublicEnhancements配置参数
+## 4. PublicEnhancements配置
 
-#### 4.1 BML配置参数
+### 4.1 BML配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -165,7 +165,7 @@ sidebar_position: 1
 | wds.linkis.bml.auth.token.value | BML-AUTH | BML请求的免密token-value |
 | wds.linkis.bml.hdfs.prefix | /tmp/linkis | BML文件存储在hdfs上的前缀文件路径 |
 
-#### 4.2 Metadata配置参数
+### 4.2 Metadata配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -176,14 +176,14 @@ sidebar_position: 1
 | hive.meta.password | 无 | HiveMetaStore数据库的password |
 
 
-#### 4.3 JobHistory配置参数
+### 4.3 JobHistory配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.jobhistory.admin | 无 | 默认的Admin账号，用于指定哪些用户可以查看所有人的执行历史 |
 
 
-#### 4.4 FileSystem配置参数
+### 4.4 FileSystem配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -195,15 +195,15 @@ sidebar_position: 1
 | wds.linkis.workspace.resultset.download.maxsize.excel | 5000 | 当结果集下载为Excel文件时，限制的下载条数 |
 | wds.linkis.workspace.filesystem.get.timeout | 2000L | 请求底层文件系统的最大超时时间。（**如果您的HDFS或Linux机器性能较低，建议适当调大该查数**） |
 
-#### 4.5 UDF配置参数
+### 4.5 UDF配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
 | wds.linkis.udf.share.path | /mnt/bdap/udf | 共享UDF的存储路径，建议设置为HDFS路径 |
 
-### 5. MicroService配置参数
+## 5. MicroService配置
 
-#### 5.1 Gateway配置参数
+### 5.1 Gateway配置
 
 |           参数名          | 默认值   |  描述                                                       |
 | ------------------------- | -------  | -----------------------------------------------------------|
@@ -221,9 +221,9 @@ sidebar_position: 1
 | wds.linkis.enable.gateway.auth | false | 是否开启Gateway IP白名单机制 |
 | wds.linkis.gateway.auth.file | auth.txt | IP白名单存储文件 |
 
-### 6. 数据源及元数据服务配置参数
+## 6. 数据源及元数据服务配置
 
-#### 6.1 元数据服务配置参数
+### 6.1 元数据服务配置
 
 |引入版本| 参数名                                                   | 默认值                                                   | 描述                                                    |
 |-------| -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |

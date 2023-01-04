@@ -18,7 +18,7 @@ Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`s
 
 以hadoop用户为例:
 
-先查看系统中是否已经有 hadoop 用户，若已经存在，则直接授权即可；若不存在，先创建用户，再授权。
+先查看系统中是否已经有 hadoop 用户，若已经存在，则直接授权即可，若不存在，先创建用户，再授权。
 
 查看是否已存在 hadoop 用户
 ```shell script
@@ -157,7 +157,7 @@ SPARK_CONF_DIR=/appcom/config/spark-config
 #### LDAP 登录配置(可选)
 
 :::caution 注意
-默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
+默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
 :::
 
 
@@ -238,8 +238,8 @@ Your default account password is [hadoop/5e8e312b4]`
 
 拷贝mysql 驱动包至lib包下 
 ```
-cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar  {LINKIS_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
 
 ### 3.3 配置调整（可选）
@@ -378,7 +378,7 @@ nginx的日志文件在 `/var/log/nginx/access.log` 和`/var/log/nginx/error.log
 ### 4.4 登录管理台
 
 浏览器登陆 `http://xx.xx.xx.xx:8188/#/login`
-用户名/密码在`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看
+用户名/密码在`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看
 ```shell script
 wds.linkis.admin.user= #用户
 wds.linkis.admin.password= #密码
@@ -406,15 +406,13 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 如果验证失败，请参考【步骤6】进行排查
 
 ## 6 开发工具IDE（Scriptis）的安装(可选)
->安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本
-
-详细指引见[工具Scriptis的安装部署](./linkis-scriptis-install)
+安装Scripti工具后，可以支持在web页面在线写SQL、Pyspark、HiveQL等脚本，详细指引见[工具Scriptis的安装部署](./linkis-scriptis-install)
 
 ## 7 支持的引擎 
 
 ### 7.1 引擎适配列表
 
-请注意：Linkis的单独安装包默认只包含的：Python/Shell/Hive/Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](engine-conn-plugin-installation)。
+请注意：Linkis的单独安装包默认只包含Python、Shell、Hive、Spark四个引擎，如果有其他的引擎(如jdbc/flink/sqoop等引擎)使用场景，可以手动安装，具体请参考 [EngineConnPlugin引擎插件安装文档](engine-conn-plugin-installation)。
 
 本版本已适配的支持引擎列表如下：
 
@@ -427,7 +425,7 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 | Pipeline      | >=1.0.0 已适配   | **不包含** |
 | JDBC          | >=1.0.0 已适配   | **不包含** |
 | Flink         | >=1.0.0 已适配   | **不包含** |
-| OpenLooKeng   | >=1.1.1 已适配   | **不包含** |
+| openLooKeng   | >=1.1.1 已适配   | **不包含** |
 | Sqoop         | >=1.1.2 已适配  | **不包含** |
 
 
@@ -474,7 +472,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)(需要先安装前端)  
 正常如下图所示:    
-![yarn-normal](https://user-images.githubusercontent.com/7869972/159955494-2f305a38-a3d6-4798-83aa-58cde23bc436.png)
+![yarn-normal](images/yarn-normal.png)
 
 若如果无法显示：可以按以下指引调整
 
@@ -518,7 +516,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 
 正常如下：
-![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
+![bml](images/bml.png)
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
 
@@ -537,11 +535,11 @@ hdfs dfs -chown hadoop:hadoop   /apps-data
 
 ### 8.3 登陆密码问题
 linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于
-`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
+`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
 
 ### 8.4 版本兼容性问题
 
-linkis默认支持的引擎，与dss兼容关系可以查看[此文档](https://github.com/apache/incubator-linkis/blob/master/README.md)
+linkis默认支持的引擎，与dss兼容关系可以查看[此文档](https://github.com/apache/linkis/blob/master/README.md)
 
 ### 8.5 如何定位服务端异常日志
 
@@ -557,7 +555,7 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 ** step1:找到引擎的启动部署目录 **  
 
 - 方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
-![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
+![engine-log](images/engine-log.png)
 - 方式2:如果方式1中没有找到，可以通过找到`conf/linkis-cg-engineconnmanager.properties`配置的`wds.linkis.engineconn.root.dir`的参数，该值就是引擎启动部署的目录，子目录按执行引擎的用户进行了隔离
 
 ```shell script
@@ -586,6 +584,7 @@ sh -x engineConnExec.sh
 
 ### 8.7 如何修改注册中心eureka的端口
 有时候当eureka的端口被其他服务占用,无法使用默认的eureka端口的时候,需要对eureka端口进行修改,这里把对eureka端口的修改分为执行安装之前和执行安装之后两种情况。
+
 1.执行安装之前修改注册中心eureka端口
 ```
 1. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
@@ -620,7 +619,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 - 方式1 可以开启[免登陆模式指引](/docs/latest/api/login-api/#2免登录配置)
 - 方式2 postman中的，请求头带上登陆成功的cookie值
   cookie值可以在浏览器端登陆成功后，获取
-  ![bml](https://user-images.githubusercontent.com/7869972/157619718-3afb480f-6087-4d5c-9a77-5e75c8cb4a3c.png)
+  ![bml](images/bml-cookie.png)
 
 ```shell script
 Cookie: bdp-user-ticket-id=xxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -639,15 +638,15 @@ Token-User:hadoop
 按上述罗列的一些场景的方式进行基础问题的排查  
 [QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)中查找是否有解决方案，链接：https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq  
 通过搜索issue中的内容,看是否能找到解决方案        
-![issues](https://user-images.githubusercontent.com/29391030/156343419-81cc25e0-aa94-4c06-871c-bb036eb6d4ff.png)    
+![issues](images/issues.png)    
 通过官网文档搜索，对于某些问题，可以通过官网搜索关键字进行查询，比如搜索"部署"相关。(如果出现404,请浏览器中刷新一下)          
-![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)
+![search](images/search.png)
 
 
 ## 9. 相关的资料如何获取
 linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索相关文档。  
 相关博文链接
-- Linkis的技术博文集  https://github.com/apache/incubator-linkis/issues/1233
+- Linkis的技术博文集  https://github.com/apache/linkis/issues/1233
 - 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
 - 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction
 - bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  

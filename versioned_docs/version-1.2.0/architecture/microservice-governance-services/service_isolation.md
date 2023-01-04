@@ -1,14 +1,14 @@
 ---
-title: Service isolation Design
+title: Service Isolation Design
 sidebar_position: 2
 ---
 
 ## 1. General
-### Requirements Background
+### 1.1 Requirements Background
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linkis now performs load balancing based on the ribbon when it forwards services in the Gateway, but in some cases, there are some important business tasks that want to achieve service level isolation, if the service is based on the ribbon There will be problems in equilibrium. For example, tenant A wants his tasks to be routed to a specific Linkis-CG-Entrance service, so that when other instances are abnormal, the Entrance of service A will not be affected.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In addition, tenants and isolation of support services can also quickly isolate an abnormal service and support scenarios such as grayscale upgrades.
 
-### Target
+### 2.1 Target
 1. Support forwarding the service according to the routing label by parsing the label of the request
 2. Tag Registration and Modification of Support Services
 
@@ -33,7 +33,7 @@ A few notes:
 | Linkis | PS | InstanceLabel| InstanceLabel service, completes the association between services and labels|
 
 ## 3. Module Design
-### Core execution flow
+### 3.1 Core execution flow
 [Input] The input is the restful request requesting Gatway, and only the request with the roure label to be used in the parameter will be processed.
 [Processing process] The Gateway will determine whether the request has a corresponding RouteLabel, and if it exists, it will be forwarded based on the RouteLabel.
 The call sequence diagram is as follows:
@@ -81,7 +81,7 @@ CREATE TABLE `linkis_ps_instance_label_relation` (
 ````
 ## 5. How to use:
 
-### add route label for entrance
+### 5.1 add route label for entrance
 
 ````
 echo "spring.eureka.instance.metadata-map.route=et1" >> $LINKIS_CONF_DIR/linkis-cg-entrance.properties
@@ -90,7 +90,7 @@ sh $LINKIS_HOME/sbin/linkis-damemon.sh restart cg-entrance
 
 ![Time](/Images/Architecture/Gateway/service_isolation_time.png)
 
-### Use route label
+### 5.2 Use route label
 submit task:
 ````
 url:/api/v1/entrance/submit
@@ -124,7 +124,7 @@ or linkis-cli:
 sh bin/linkis-cli -submitUser hadoop -engineType shell-1 -codeType shell -code "whoami" -labelMap route=et1 --gatewayUrl http://127.0.0.1:9101
 ````
 
-### Use non-existing label
+### 5.3 Use non-existing label
 submit task:
 ````
 url:/api/v1/entrance/submit
@@ -152,7 +152,7 @@ will get the error
 }
 ````
 
-### without label
+### 5.4 without label
 submit task:
 ````
 url:/api/v1/entrance/submit

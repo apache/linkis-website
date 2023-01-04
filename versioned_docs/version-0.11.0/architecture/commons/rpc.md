@@ -3,14 +3,14 @@ title: RPC Architecture
 sidebar_position: 2
 ---
 
-## 1 Background
+## 1. Background
 
 The call of HTTP interface between Feign-based microservices can only satisfy a simple A microservice instance that randomly selects a service instance in B microservices according to simple rules, and if this B microservice instance wants to asynchronously return information To the caller, it is simply impossible to achieve.
 
 At the same time, because Feign only supports simple service selection rules, it cannot forward the request to the specified microservice instance, and cannot broadcast a request to all instances of the recipient microservice.
 
 
-## 2 Introduction
+## 2. Introduction
 
 Linkis has implemented a set of its own underlying RPC communication scheme based on Feign.
 
@@ -23,7 +23,7 @@ As the request caller, the Receiver of the target receiver's microservice will b
 ![Linkis RPC architecture diagram](../../images/ch4/rpc1.png)
 
 
-## 3 Implementation
+## 3. Implementation
 
 Based on the Sender system of the requesting party and the Receiver system of the requesting party, the entire structure of Linkis RPC is formed.
 

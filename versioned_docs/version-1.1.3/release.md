@@ -6,7 +6,7 @@ sidebar_position: 0.1
 - [Enable Prometheus monitoring](/deployment/involve-prometheus-into-linkis.md)
 - [Custom Variable Design & Built-in Variables](/architecture/commons/variable.md)
 - [EngineConn History Information Recording Features](/architecture/computation-governance-services/engine/engine-conn-history.md)
-- [EngineConn Metrics reporting feature](/architecture/computation-governance-services/engine/engine-conn-metrics.md)
+- [EngineConn Metrics Reporting Feature](/architecture/computation-governance-services/engine/engine-conn-metrics.md)
 - [ContextService cleanup interface features](/architecture/public-enhancement-services/context-service/content-service-cleanup.md)
 - [Release-Notes](/download/release-notes-1.1.3)
 
@@ -22,4 +22,4 @@ sidebar_position: 0.1
 |common | modify | spring.spring.cloud.config.enabled | false | |
 
 ## DB Table Changes
-For details, see the upgrade schema`db/upgrade/1.1.3_schema` file in the corresponding branch of the code repository (https://github.com/apache/incubator-linkis).
+For details, see the upgrade schema`db/upgrade/1.1.3_schema` file in the corresponding branch of the code repository (https://github.com/apache/linkis).

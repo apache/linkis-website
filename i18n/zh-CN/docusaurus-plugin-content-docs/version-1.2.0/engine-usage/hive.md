@@ -27,7 +27,7 @@ sidebar_position: 2
 Hive的版本是支持hive1.x和hive2.x，默认是支持hive on MapReduce，如果您想改成Hive
 on Tez，需要您按照此pr进行一下修改。
 
-<https://github.com/apache/incubator-linkis/pull/541>
+<https://github.com/apache/linkis/pull/541>
 
 默认支持的hive版本是1.2.1,如果您想修改hive的版本，比如想要修改成2.3.3，您可以找到linkis-engineplugin-hive模块，将\<hive.version\>标签进行改成2.3.3，然后单独编译此模块即可
 
@@ -49,7 +49,7 @@ Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入�
 
 hive的MapReduce任务是需要用到yarn的资源，所以需要您在一开始就设置队列
 
-![yarn](https://user-images.githubusercontent.com/29391030/168044735-99bc50cb-2521-4bc9-badb-305fd7cb82d6.png)    
+![yarn](images/yarn.png)    
 
 图3-1 队列设置
 
@@ -89,7 +89,7 @@ hive引擎的实现方式通过实例化hive的Driver实例，然后由Driver来
 
 除了以上引擎配置，用户还可以进行自定义的设置，包括hive Driver进程的内存大小等。
 
-![hive](https://user-images.githubusercontent.com/29391030/168044822-f217e4bb-a323-4837-bb26-fbfb6c138512.png)  
+![hive](images/hive.png)  
 
 图4-1 hive的用户自定义配置管理台
 

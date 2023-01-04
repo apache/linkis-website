@@ -3,12 +3,12 @@ title: Console User Manual
 sidebar_position: 4
 ---
 
-> Linkis1.0 has added a new Computatoin Governance Console page, which can provide users with an interactive UI interface for viewing the execution of Linkis tasks, custom parameter configuration, engine health status, resource surplus, etc, and then simplify user development and management efforts.
+> Linkis1.0 has added a new Computation Governance Console page, which can provide users with an interactive UI interface for viewing the execution of Linkis tasks, custom parameter configuration, engine health status, resource surplus, etc, and then simplify user development and management efforts.
 
-## 1. Structure of Computatoin Governance Console
+## 1. Structure of Computation Governance Console
 
 
-> The Computatoin Governance Console is mainly composed of the following functional pages:
+> The Computation Governance Console is mainly composed of the following functional pages:
 
 - Global History
 - Resource Management

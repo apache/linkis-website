@@ -1,6 +1,6 @@
 ---
-title: How To Quickly Implement A New Engine
-sidebar_position: 3
+title: Quickly Implement New Engine
+sidebar_position: 7.0
 ---
 
 ## 1. Linkis new engine function code implementation
@@ -9,7 +9,7 @@ Implementing a new engine is actually implementing a new EngineConnPlugin (ECP) 
 
 ### 1.1 Create a new maven module and introduce the maven dependency of ECP
 
-![maven依赖](/Images/EngineConnNew/engine_jdbc_dependency.png)
+![maven dep](/Images/EngineConnNew/engine_jdbc_dependency.png)
 
 ```xml
 <dependency>
@@ -138,7 +138,7 @@ If this operation is not done, the variables in the JDBC script cannot be stored
 val CODE_TYPE_AND_RUN_TYPE_RELATION = CommonVars("wds.linkis.codeType.runType.relation", "sql=>sql|hql|jdbc|hive|psql|fql,python=>python|py|pyspark,java=>java,scala=>scala,shell=>sh|shell")
 ```
 
-Refer to PR：https://github.com/apache/incubator-linkis/pull/2047
+Refer to PR：https://github.com/apache/linkis/pull/2047
 
 ### 2.6 Add JDBC engine text prompts or icons to the Linkis administrator console interface engine manager
 

@@ -269,7 +269,7 @@ Your default account password is [hadoop/5e8e312b4]`
 
 ### 3.4 添加mysql驱动(>=1.0.3)版本 
 因为license原因，linkis官方发布包中(dss集成的全家桶会包含，无需手动添加)移除了mysql-connector-java，需要手动添加  
-具体参见[ 添加mysql驱动包](/docs/latest/deployment/quick-deploy#-44-添加mysql驱动包)
+具体参见[ 添加mysql驱动包](/docs/latest/deployment/deploy-quick#-44-添加mysql驱动包)
 
 ### 3.5 启动服务
 ```shell script
@@ -435,7 +435,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
   
-如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](/docs/latest/deployment/engine-conn-plugin-installation#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
+如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](/docs/latest/deployment/install-engineconn#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
 
 引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`  
 ```shell script
@@ -498,7 +498,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
       
 ### 9.1 版本兼容性问题   
 
-linkis默认支持的引擎，与dss兼容关系可以查看此文档 https://github.com/apache/incubator-linkis/blob/master/README.md   
+linkis默认支持的引擎，与dss兼容关系可以查看此文档 https://github.com/apache/linkis/blob/master/README.md   
 
 ### 9.2 如何定位服务端异常日志 
 
@@ -575,7 +575,7 @@ Token-User:hadoop
 ## 10. 相关的资料如何获取 
 linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索相关文档。  
 相关博文链接  
-- Linkis的技术博文集  https://github.com/apache/incubator-linkis/issues/1233  
+- Linkis的技术博文集  https://github.com/apache/linkis/issues/1233  
 - 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18  
 - 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction  
 - bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  

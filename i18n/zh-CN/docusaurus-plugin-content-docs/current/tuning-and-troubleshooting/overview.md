@@ -9,12 +9,12 @@ sidebar_position: 0
 
 ## 1. 社区Issue搜索关键词
 
-在[issue专栏](https://github.com/apache/incubator-linkis/issues), filter过滤器中搜索关键词。如：
+在[issue专栏](https://github.com/apache/linkis/issues), filter过滤器中搜索关键词。如：
 filter:`is:issue spark3`
 ![](/Images-zh/tuning-and-troubleshooting/issue-searching-keywords.png)
 
 <!--
-在[Disscuess的Q&A专栏](https://github.com/apache/incubator-linkis/discussions/categories/q-a) 中进行关键字搜索
+在[Disscuess的Q&A专栏](https://github.com/apache/linkis/discussions/categories/q-a) 中进行关键字搜索
 ![](/Images-zh/tuning-and-troubleshooting/disscues-searching-keywords.png)
 -->
 
@@ -127,7 +127,7 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 ** step1:找到EngineConn的启动部署目录 **  
 
 - 方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
-![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
+![engine-log](images/engine-log.png)
 - 方式2:如果方式1中没有找到，可以通过找到`conf/linkis-cg-engineconnmanager.properties`配置的`wds.linkis.engineconn.root.dir`的参数，该值就是引擎启动部署的目录，子目录按执行引擎的用户进行了隔离
 
 ```shell script
@@ -165,6 +165,6 @@ sh -x engineConnExec.sh
 ### 5. 定位源码远程debug
 
 通常情况下，对源码远程debug是定位问题最有效的方式，但相对查阅文档来说，需要用户对源码结构有一定的了解，
-这里建议您在远程debug前查阅《 [Linkis源码层级结构详解](deployment/sourcecode-hierarchical-structure.md) 》,对项目的源码结构进行初步的了解，
-有一定程度上的熟悉之后，可以参考《 [如何DebugLinkis](development/linkis-debug.md) 》一文 调试对应微服务下的代码。
+这里建议您在远程debug前查阅《 [Linkis源码层级结构详解](../development/directory-structure.md) 》,对项目的源码结构进行初步的了解，
+有一定程度上的熟悉之后，可以参考《 [如何DebugLinkis](../development/debug.md) 》一文 调试对应微服务下的代码。
 

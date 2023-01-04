@@ -30,7 +30,7 @@ export default function() {
                            <a href={item.downloadUrl}>{dataSource.table.release}</a>
                        </td>
                        <td>
-                           <a target="_blank" href={"https://github.com/apache/incubator-linkis/tree/"+item.sourceTag}>{dataSource.table.source}</a>
+                           <a target="_blank" href={"https://github.com/apache/linkis/tree/"+item.sourceTag}>{dataSource.table.source}</a>
                        </td>
                        </tr>
                       ))
@@ -74,7 +74,7 @@ export default function() {
                         </td>
                        }
                        <td>
-                          <a target="_blank" href={"https://github.com/apache/incubator-linkis/tree/"+item.sourceTag}>{dataSource.table.source}</a>
+                          <a target="_blank" href={"https://github.com/apache/linkis/tree/"+item.sourceTag}>{dataSource.table.source}</a>
                        </td>
                        </tr>
                       ))

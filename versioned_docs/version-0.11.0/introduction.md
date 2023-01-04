@@ -7,7 +7,7 @@ sidebar_position: 0
 
 ## Introduction
 
-Linkis Github repo: https://github.com/apache/incubator-linkis
+Linkis Github repo: https://github.com/apache/linkis
 
 Linkis, a single computing storage engine such as Spark, TiSpark, Hive, Python and HBase, provides a unified REST/WebSocket/JDBC interface to submit data intermediaries for implementation of SQL, Pyspark, HiveQL, Scala.
 

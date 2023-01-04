@@ -1,70 +1,55 @@
 ---
-title: Shell 引擎
-sidebar_position: 6
+title: Shell
+sidebar_position: 4
 ---
 
-本文主要介绍在Linkis1.X中，Shell引擎的配置、部署和使用。
+本文主要介绍在 `Linkis` 中， `Shell` 引擎插件的安装、使用和配置。
 
-## 1.Shell引擎使用前的环境配置
+## 1. 前置工作
 
-如果您希望在您的服务器上使用shell引擎，您需要保证用户的PATH中是有bash的执行目录和执行权限。
+### 1.1 环境安装
+如果您希望在您的服务器上使用 `Shell` 引擎，您需要保证用户的 `PATH` 中是有 `bash` 的执行目录和执行权限。
 
-| 环境变量名 | 环境变量内容 | 备注         |
-|------------|--------------|--------------|
-| sh执行环境 | bash环境变量 | 建议使用bash |
+### 1.2 环境验证
+```
+echo $SHELL
+```
+输出如下信息代表shell环境可用
+```
+/bin/bash
+```
+或
+```
+/bin/sh
+```
 
-表1-1 环境配置清单
+## 2. 引擎插件安装 [默认引擎](./overview.md)
 
-## 2.Shell引擎的配置和部署
+`Linkis` 发布的二进制安装包中默认包含了 `Shell` 引擎插件，用户无需额外安装。
 
-### 2.1 Shell版本的选择和编译
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
-Shell引擎不需要用户自行编译，直接使用编译好的shell引擎插件包即可。
+## 3. 引擎的使用
 
-### 2.2 shell engineConn部署和加载
+### 3.1 通过 `Linkis-cli` 提交任务
 
-此处可以使用默认的加载方式即可正常使用。
+```shell
+sh ./bin/linkis-cli -engineType shell-1 \
+-codeType shell -code "echo \"hello\" " \
+-submitUser hadoop -proxyUser hadoop
+```
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-### 2.3 shell引擎的标签
+### 3.2 通过Linkis SDK提交任务
 
-此处可以使用默认的dml.sql进行插入即可正常使用。
-
-## 3.Shell引擎的使用
-
-### 准备操作
-
-在linkis上提交shell之前，您只需要保证您的用户的\$PATH中有shell的路径即可。
-
-### 3.1 通过Linkis SDK进行使用
-
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于Shell任务你只需要修改Demo中的EngineConnType和CodeType参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务。具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。 对于 `Shell` 任务您只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 
 ```java
-        Map<String, Object> labels = new HashMap<String, Object>();
-        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "shell-1"); // required engineType Label
-        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
-        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "shell"); // required codeType
+Map<String, Object> labels = new HashMap<String, Object>();
+labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "shell-1"); // required engineType Label
+labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+labels.put(LabelKeyConstant.CODE_TYPE_KEY, "shell"); // required codeType
 ```
+## 4. 引擎配置说明
 
-### 3.2 通过Linkis-cli进行任务提交
-
-Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Shell的使用如下：
-```shell
-sh ./bin/linkis-cli -engineType shell-1 -codeType shell -code "echo \"hello\" "  -submitUser hadoop -proxyUser hadoop
-```
-具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
-
-### 3.3 Scriptis的使用方式
-
-Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建shell脚本并编写shell代码并点击执行。
-
-shell的执行原理是shell引擎通过java自带的ProcessBuilder启动一个系统进程来进行执行，并且将进程的输出重定向到引擎并写入到日志中。
-
-![](/Images-zh/EngineUsage/shell-run.png)
-
-图3-1 shell的执行效果截图
-
-## 4.Shell引擎的用户设置
-
-shell引擎一般可以设置引擎JVM的最大内存。
+`Shell` 引擎一般可以设置引擎 `JVM` 的最大内存。

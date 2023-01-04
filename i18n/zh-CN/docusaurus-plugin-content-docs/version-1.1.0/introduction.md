@@ -41,7 +41,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 |TiSpark|1.1|\>=0.5.0|ongoing|TiSpark EngineConn. 支持用SparkSQL 查询TiDB.|
 
 ## 下载
-请前往[Linkis releases 页面](https://github.com/apache/incubator-linkis/releases) 下载Linkis 已编译的部署安装包或源码包。
+请前往[Linkis releases 页面](https://github.com/apache/linkis/releases) 下载Linkis 已编译的部署安装包或源码包。
 
 ## 编译和安装部署
 请参照[编译指引](development/linkis-compile-and-package.md) 来编译Linkis 源码。  
@@ -51,7 +51,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 请到[用户手册](user-guide/overview.md), [各引擎使用指引](engine-usage/overview.md) 和[API 文档](api/overview.md) 中，查看如何使用和管理Linkis 的示例和指引。
 
 ## 文档
-完整的Linkis文档代码存放在[linkis-website仓库中](https://github.com/apache/incubator-linkis-website) 
+完整的Linkis文档代码存放在[linkis-website仓库中](https://github.com/apache/linkis-website) 
 
 ## 架构概要
 Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服务、公共增强服务和微服务治理服务。  
@@ -59,7 +59,7 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 - 公共增强服务，包括上下文服务、物料管理服务及数据源服务等;
 - 微服务治理服务，包括定制化的Spring Cloud Gateway、Eureka、Open Feign。
 
-下面是Linkis 的架构概要图. 更多详细架构文档请见 [Linkis/Architecture](architecture/overview.md).
+下面是Linkis 的架构概要图，更多详细架构文档请见 [Linkis/Architecture](architecture/overview.md).
 ![architecture](/Images/Linkis_1.0_architecture.png)
 
 基于Linkis 计算中间件，我们在大数据平台套件[WeDataSphere](https://github.com/WeBankFinTech/WeDataSphere) 中构建了许多应用和工具系统，下面是目前可用的开源项目。
@@ -92,5 +92,5 @@ Linkis 基于微服务架构开发，其服务可以分为3类:计算治理服�
 Meetup 视频 [Bilibili](https://space.bilibili.com/598542776?from=search&seid=14344213924133040656)。
 
 ## 谁在使用Linkis
-我们创建了[一个 issue](https://github.com/apache/incubator-linkis/issues/23) 以便用户反馈和记录谁在使用Linkis。  
+我们创建了[一个 issue](https://github.com/apache/linkis/issues/23) 以便用户反馈和记录谁在使用Linkis。  
 Linkis 自2019年开源发布以来，累计已有700多家试验企业和1000+沙盒试验用户，涉及金融、电信、制造、互联网等多个行业。

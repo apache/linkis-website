@@ -237,8 +237,8 @@ To download the mysql driver, take version 5.1.49 as an example: [download link]
 
 Copy the mysql driver package to the lib package path
 ```
-cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-5.1.49.jar ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
 
 ### 5. Linkis quick startup

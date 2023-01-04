@@ -420,7 +420,7 @@ normal as follows
 
 
 Check whether the material record of the engine exists (if there is an update, check whether the update time is correct).  
-If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](docs/latest/deployment/engine-conn-plugin-installation#23-Engine Refresh)). Check the `log/linkis-cg-engineplugin.log` log to check the specific reasons for the failure of the material. In many cases, it may be caused by the lack of permissions in the hdfs directory. Check whether the gateway address configuration is correct `conf/linkis.properties:wds.linkis.gateway.url`
+If it does not exist or is not updated, first try to manually refresh the material resource (for details, see [Engine Material Resource Refresh](docs/latest/deployment/install-engineconn#23-Engine Refresh)). Check the `log/linkis-cg-engineplugin.log` log to check the specific reasons for the failure of the material. In many cases, it may be caused by the lack of permissions in the hdfs directory. Check whether the gateway address configuration is correct `conf/linkis.properties:wds.linkis.gateway.url`
 
 The material resources of the engine are uploaded to the hdfs directory by default as `/apps-data/${deployUser}/bml`
 ```shell script
@@ -477,7 +477,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 
 ### 6.1 Version compatibility issues
 
- The engine supported by linkis by default, for compatibility with dss, you can view this document https://github.com/apache/incubator-linkis/blob/master/README.md
+ The engine supported by linkis by default, for compatibility with dss, you can view this document https://github.com/apache/linkis/blob/master/README.md
    
 ### 6.2 How to locate the server exception log
 
@@ -540,7 +540,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 Linkis official website documents are constantly improving, you can view/keyword search related documents on this official website.
 
 Related blog post links  
-- Linkis technical blog collection https://github.com/apache/incubator-linkis/issues/1233  
+- Linkis technical blog collection https://github.com/apache/linkis/issues/1233  
 - Official account technical blog post https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18  
 - Official website documentation https://linkis.apache.org/docs/latest/introduction/  
 - bili technology sharing video https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  

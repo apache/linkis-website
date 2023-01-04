@@ -23,7 +23,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
     Supported scripting languages: SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala and JDBC, etc.  
 - **Powerful task/request governance capabilities**. With services such as Orchestrator, Label Manager and customized Spring Cloud Gateway, Linkis is able to provide multi-level labels based, cross-cluster/cross-IDC fine-grained routing, load balance, multi-tenancy, traffic control, resource control, and orchestration strategies like dual-active, active-standby, etc.  
 - **Support full stack computation/storage engine**. As a computation middleware, it will receive, execute and manage tasks and requests for various computation storage engines, including batch tasks, interactive query tasks, real-time streaming tasks and storage tasks;
-- **Resource management capabilities**.  ResourceManager is not only capable of managing resources for Yarn and Linkis EngineManger as in Linkis 0.X, but also able to provide label-based multi-level resource allocation and recycling, allowing itself to have powerful resource management capabilities across mutiple Yarn clusters and mutiple computation resource types;
+- **Resource management capabilities**.  ResourceManager is not only capable of managing resources for Yarn and Linkis EngineManger as in Linkis 0.X, but also able to provide label-based multi-level resource allocation and recycling, allowing itself to have powerful resource management capabilities across multiple Yarn clusters and multiple computation resource types;
 - **Unified Context Service**. Generate Context ID for each **task**/request,  associate and manage user and system resource files (JAR, ZIP, Properties, etc.), result set, parameter variable, function, etc., across user, system, and computing engine. Set in one place, automatic reference everywhere;
 - **Unified materials**. System and user-level unified material management, which can be shared and transferred across users and systems.
 - **Unified Data Source Manage**. Provides functions such as adding, deleting, checking, and modifying data sources of hive, es, mysql, and kafka types, version control, and connection testing.
@@ -48,7 +48,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 ## Download
 
-Please go to the [Linkis releases page](https://github.com/apache/incubator-linkis/releases) to download a compiled distribution or a source code package of Linkis.
+Please go to the [Linkis releases page](https://github.com/apache/linkis/releases) to download a compiled distribution or a source code package of Linkis.
 
 ## Compile and deploy
 Please follow [Compile Guide](development/linkis-compile-and-package.md) to compile Linkis from source code.  
@@ -59,7 +59,7 @@ You can find examples and guidance for how to use and manage Linkis in [User_Man
 
 ## Documentation
 
-The documentation of linkis is in [Linkis-WebSite](https://github.com/apache/incubator-linkis-website)
+The documentation of linkis is in [Linkis-WebSite](https://github.com/apache/linkis-website)
 
 ## Architecture
 Linkis services could be divided into three categories: computation governance services, public enhancement services and microservice governance services.  
@@ -104,5 +104,5 @@ Meetup videos on [Bilibili](https://space.bilibili.com/598542776?from=search&sei
 
 ## Who is Using Linkis
 
-We opened [an issue](https://github.com/apache/incubator-linkis/issues/23) for users to feedback and record who is using Linkis.  
+We opened [an issue](https://github.com/apache/linkis/issues/23) for users to feedback and record who is using Linkis.  
 Since the first release of Linkis in 2019, it has accumulated more than **700** trial companies and **1000+** sandbox trial users, which involving diverse industries, from finance, banking, tele-communication, to manufactory, internet companies and so on.

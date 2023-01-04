@@ -118,7 +118,7 @@ Linkis1.0 默认已适配的引擎列表如下：
 
 ### c. 安装包准备
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从Linkis已发布的release中（[点击这里进入下载页面](https://github.com/apache/incubator-linkis/releases)），下载最新安装包。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从Linkis已发布的release中（[点击这里进入下载页面](https://github.com/apache/linkis/releases)），下载最新安装包。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;先解压安装包到安装目录，并对解压后的文件进行配置修改。
 

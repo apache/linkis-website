@@ -37,29 +37,39 @@ sidebar_position: 12
 
 - 孵化器主页  https://incubator.apache.org/ 有相关的视频分享和ppt
 
+- 项目主席查询 https://people.apache.org/phonebook.html?service=pmc-chairs
+
+- 如何履行PMC主席的职责  https://www.apache.org/dev/pmc.html#chair%7D
+
+- 项目VP信息表  https://www.apache.org/foundation/#who-runs-the-asf
+
+
 
 ## Linkis相关的链接 
 - linkis-logo  https://svn.apache.org/repos/asf/comdev/project-logos/originals/
-- 项目列表 https://projects.apache.org/project.html?incubator-linkis
-- 维护IP Clearance https://svn.apache.org/repos/asf/incubator/public/trunk/content/ip-clearance/
+- 项目列表 https://projects.apache.org/project.html?linkis
+- IP Clearance https://svn.apache.org/repos/asf/incubator/public/trunk/content/ip-clearance/
 - Board Reports https://whimsy.apache.org/board/minutes/Linkis.html
-- Linkis的名字申请jira  https://issues.apache.org/jira/projects/PODLINGNAMESEARCH/issues/PODLINGNAMESEARCH-192?filter=allissues 
+- Linkis的名字申请工单  https://issues.apache.org/jira/projects/PODLINGNAMESEARCH/issues/PODLINGNAMESEARCH-192?filter=allissues 
 - 项目状态文件  https://incubator.apache.org/projects/linkis.html
-- 官网合法性检查  https://whimsy.apache.org/pods/project/linkis
-- ppmc 邮件等信息查看 https://whimsy.apache.org/roster/ppmc/linkis
+- PMC 邮件等信息查看 https://whimsy.apache.org/roster/committee/linkis#pmc 
 - project 文件  https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/linkis.xml 
 - podling 文件 https://svn.apache.org/repos/asf/incubator/public/trunk/content/podlings/linkis.yml
-- clutch  https://incubator.apache.org/clutch/linkis.html
-
+- 毕业后report上报工具 https://reporter.apache.org/wizard/ （主席和PMC可查看） 
+- 项目健康度评分  https://reporter.apache.org/chi.py#linkis 
+- PMC信息更新  https://svn.apache.org/repos/private/committers/board/committee-info.txt （主席和PMC可查看） 
 
 - 查看某段时间内的提交用户  
-https://github.com/apache/incubator-linkis/graphs/contributors?from=2021-08-02&to=2022-07-21&type=c
+https://github.com/apache/linkis/graphs/contributors?from=2021-08-02&to=2022-07-21&type=c
 
 - 查看某段时间内 closed的pr 
 `\[Filters] is:pr is:closed closed:>2021-08-02 `
-https://github.com/apache/incubator-linkis/pulls?q=is%3Apr+is%3Aclosed+closed%3A%3E2021-08-02
+https://github.com/apache/linkis/pulls?q=is%3Apr+is%3Aclosed+closed%3A%3E2021-08-02
 
 
 - 查看某段时间内  close的issue 
 `\[Filters] is:pr is:closed closed:>2021-08-02 `
-https://github.com/apache/incubator-linkis/issues?q=is%3Aissue+is%3Aclosed+closed%3A%3E2021-08-02
+https://github.com/apache/linkis/issues?q=is%3Aissue+is%3Aclosed+closed%3A%3E2021-08-02
+
+- ~~官网合法性检查  https://whimsy.apache.org/pods/project/linkis~~
+- ~~clutch  https://incubator.apache.org/clutch/linkis.html~~ 

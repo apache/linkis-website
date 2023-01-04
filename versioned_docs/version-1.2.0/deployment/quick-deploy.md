@@ -42,7 +42,7 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 ### 2.1 Installation package preparation
 
-- Method 1: From the official website [download address](https://linkis.apache.org/zh-CN/download/main): https://linkis.apache.org/zh-CN/download/main, download the corresponding The installation package (project installation package and management console installation package)
+- Method 1: From the official website [download address](https://linkis.apache.org/download/main): https://linkis.apache.org/download/main, download the corresponding The installation package (project installation package and management console installation package)
 - Method 2: Compile the project installation package and management console according to [Linkis Compile and Package](../development/linkis-compile-and-package) and [Front-end Management Console Compile](../development/web-build) Installation package
 
 After uploading the installation package `apache-linkis-x.x.x-incubating-bin.tar.gz`, decompress the installation package
@@ -156,7 +156,7 @@ SPARK_CONF_DIR=/appcom/config/spark-config
 #### LDAP login configuration (optional)
 
 :::caution note
-The default is to use a static user and password. The static user is the deployment user. The static password will generate a random password string during deployment and store it in `{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3 Version)
+The default is to use a static user and password. The static user is the deployment user. The static password will generate a random password string during deployment and store it in `${LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3 Version)
 :::
 
 
@@ -234,12 +234,12 @@ Because the mysql-connector-java driver is under the GPL2.0 protocol, it does no
 
 :::
 
-To download the mysql driver, take version 5.1.49 as an example: [download link](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49. jar) https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar
+To download the mysql driver, take version 5.1.49 as an example: [download link](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar)
 
 Copy the mysql driver package to the lib package
 ````
-cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar {LINKIS_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-5.1.49.jar ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-5.1.49.jar ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ````
 
 ### 3.3 Configuration Adjustment (Optional)
@@ -381,7 +381,7 @@ If you need to modify the port or static resource directory, etc., please modify
 ### 4.4 Login to the console
 
 Browser login `http://xx.xx.xx.xx:8188/#/login`
-Username/password can be found in `{LINKIS_HOME}/conf/linkis-mg-gateway.properties`
+Username/password can be found in `${LINKIS_HOME}/conf/linkis-mg-gateway.properties`
 ```shell script
 wds.linkis.admin.user= #User
 wds.linkis.admin.password= #Password
@@ -430,7 +430,7 @@ The list of supported engines that have been adapted in this version is as follo
 | Pipeline | >=1.0.0 Adapted | **Excludes** |
 | JDBC | >=1.0.0 Adapted | **Excludes** |
 | Flink | >=1.0.0 already adapted | **Not included** |
-| OpenLooKeng | >=1.1.1 has been adapted | **Not included** |
+| openLooKeng | >=1.1.1 has been adapted | **Not included** |
 | Sqoop | >=1.1.2 Adapted | **Excludes** |
 
 
@@ -541,11 +541,11 @@ hdfs dfs -chown hadoop:hadoop/apps-data
 ### 8.3 Login password problem
 
 By default, linkis uses a static user and password. The static user is the deployment user. The static password will randomly generate a password string during deployment and store it in
-`{LINKIS_HOME}/conf/linkis-mg-gateway.properties` (>=1.0.3 version)
+`${LINKIS_HOME}/conf/linkis-mg-gateway.properties` (>=1.0.3 version)
 
 ### 8.4 version compatibility issues
 
-The engine supported by linkis by default, the compatibility with dss can be viewed [this document](https://github.com/apache/incubator-linkis/blob/master/README.md)
+The engine supported by linkis by default, the compatibility with dss can be viewed [this document](https://github.com/apache/linkis/blob/master/README.md)
 
 
 ### 8.5 How to locate the server exception log
@@ -652,7 +652,7 @@ Through the official website document search, for some problems, you can search 
 ## 9. How to obtain relevant information
 Linkis official website documents are constantly improving, you can view/keyword search related documents on this official website.
 Related blog post links
-- Linkis technical blog collection https://github.com/apache/incubator-linkis/issues/1233
+- Linkis technical blog collection https://github.com/apache/linkis/issues/1233
 - Technical blog post on the official account https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
-- Official website documentation https://linkis.apache.org/zh-CN/docs/latest/introduction
+- Official website documentation https://linkis.apache.org/docs/latest/introduction
 - bili technology sharing video https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2

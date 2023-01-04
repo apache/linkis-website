@@ -23,7 +23,7 @@ It is strongly recommended that you use the native Sqoop to execute the test tas
 | HCAT_HOME | HCAT config path | Not Required                    |
 | HBASE_HOME | HBASE config path | Not Required |
 
-表1-1 环境配置清单
+Table 1-1 Environment configuration list
 
 | Linkis Parameter Name       | Parameter Content                                          | Remark                                                       |
 | --------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
@@ -60,7 +60,7 @@ cd ${LINKIS_HOME}/sbin
 sh linkis-daemon.sh restart cg-engineplugin
 ```
 More engineplugin details can be found in the following article.  
-https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation
+https://linkis.apache.org/docs/1.1.1/deployment/engine-conn-plugin-installation
 
 ## 3.Sqoop Engine Usage 
 

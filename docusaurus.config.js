@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   // omit unrelated docusaurus options
   title: 'Apache Linkis',
   tagline: 'Apache Linkis',
-  url: 'https://linkis.incubator.apache.org',
+  url: 'https://linkis.apache.org',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
@@ -38,13 +38,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           sidebarCollapsible: true,
           editLocalizedFiles: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/apache/incubator-linkis-website/edit/dev/',
+          editUrl: 'https://github.com/apache/linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.3.0',
-              label: 'Next(1.3.0)'
+              path: '1.3.1',
+              label: 'Next(1.3.1)'
             },
-            '1.2.0': {
+            '1.3.0': {
               path: 'latest',
             },
           }
@@ -58,9 +58,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             blogPath
           }) => {
             if (locale !== 'en') {
-              return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}`;
+              return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}`;
             }
-            return `https://github.com/apache/incubator-linkis-website/edit/dev/${blogDirPath}/${blogPath}`;
+            return `https://github.com/apache/linkis-website/edit/dev/${blogDirPath}/${blogPath}`;
           },
 
           postsPerPage: 5,
@@ -70,12 +70,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
           blogSidebarCount: 'ALL'
         },
-      community: {
-          // routeBasePath: '/',
-          path: 'community',
-          sidebarPath: require.resolve('./sidebars.js'),
-          sidebarCollapsible: true,
-            },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
         },
@@ -94,11 +88,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     },
     //     announcementBar: {
     //       id: 'announcementBar-2', // Increment on change
-    //       content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/incubator-linkis">GitHub</a>`,
+    //       content: `⭐️ &nbsp; If you like Apache Linkis , give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/apache/linkis">GitHub</a>`,
     //       backgroundColor: "#BBDFFF",
     //     },
     navbar: {
-      title: 'Apache Linkis(Incubating)',
+      title: 'Apache Linkis',
       logo: {
         alt: 'Apache Linkis Logo',
         src: 'img/logo.png',
@@ -167,15 +161,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Doc',
           position: 'right',
           items: [
-            {label: 'Next(1.3.0)', to: '/docs/1.3.0/introduction'},
-            {label: '1.2.0', to: '/docs/latest/introduction'},
-            {label: '1.1.3', to: '/docs/1.1.3/introduction'},
-            {label: '1.1.2', to: '/docs/1.1.2/introduction'},
+            {label: '1.3.0', to: '/docs/latest/introduction'},
+            {label: '1.2.0', to: '/docs/1.2.0/introduction'},
             {label: '1.1.1', to: '/docs/1.1.1/introduction'},
-            {label: '1.1.0', to: '/docs/1.1.0/introduction'},
-            {label: '1.0.3', to: '/docs/1.0.3/introduction'},
-            {label: '1.0.2', to: '/docs/1.0.2/introduction'},
-            {label: '0.11.0', to: '/docs/0.11.0/introduction'},
+            {label: 'Next(1.3.1)', to: '/docs/1.3.1/about/introduction'},
             {label: 'All Version', to: '/versions'}
           ]
         },
@@ -204,7 +193,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: "Privacy",
-              to: "https://www.apache.org/foundation/policies/privacy.html",
+              to: "https://privacy.apache.org/policies/privacy-policy-public.html",
             },
             {
               label: "Thanks",
@@ -213,7 +202,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           ],
         },
         {
-          href: 'https://github.com/apache/incubator-linkis',
+          href: 'https://github.com/apache/linkis',
           'aria-label': 'GitHub',
           className: 'header-github-link',
           position: 'right',
@@ -238,7 +227,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: 'Releases',
-              href: 'https://github.com/apache/incubator-linkis/releases',
+              href: 'https://github.com/apache/linkis/releases',
             },
           ],
         },
@@ -246,15 +235,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           title: 'Community',
           items: [{
               label: 'GitHub',
-              href: 'https://github.com/apache/incubator-linkis',
+              href: 'https://github.com/apache/linkis',
             },
             {
               label: 'Issue Tracker',
-              href: 'https://github.com/apache/incubator-linkis/issues',
+              href: 'https://github.com/apache/linkis/issues',
             },
             {
               label: 'Pull Requests',
-              href: 'https://github.com/apache/incubator-linkis/pulls',
+              href: 'https://github.com/apache/linkis/pulls',
             },
           ],
         },
@@ -309,9 +298,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docPath
         }) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
       },
     ],
@@ -327,9 +316,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docPath
         }) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
       },
     ],
@@ -346,9 +335,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docPath
         }) => {
           if (locale !== 'en') {
-            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
         },
       },
     ],
@@ -358,7 +347,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         createRedirects(existingPath) {
           if (existingPath.includes('/latest')) {
             return [
-              existingPath.replace('/latest', '/1.2.0'),
+              existingPath.replace('/latest', '/1.3.0'),
             ];
           }
           return undefined; // Return a false value: no redirect created
@@ -373,9 +362,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     //        routeBasePath: 'blog',
     //        editUrl: ({locale, versionDocsDirPath, docPath}) => {
     //          if (locale !== 'en') {
-    //            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+    //            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
     //          }
-    //          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+    //          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
     //        },
     //      },
     //    ],
@@ -388,9 +377,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     //        routeBasePath: 'blog',
     //        editUrl: ({locale, versionDocsDirPath, docPath}) => {
     //          if (locale !== 'en') {
-    //            return `https://github.com/apache/incubator-linkis-website/edit/dev/i18n/${locale}/${docPath}`;
+    //            return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
     //          }
-    //          return `https://github.com/apache/incubator-linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+    //          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
     //        },
     //      },
     //    ],

@@ -14,7 +14,7 @@ If you want to use the Presto engine on your server, you need to prepare the Pre
 ### 2.1 version selection and compilation
 Note: Before compiling the Presto engine, a full build of the Linkis project is required
 This engine plug-in is not included in the released installation deployment package by default.
-You can follow this guide to deploy and install https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+You can follow this guide to deploy and install https://linkis.apache.org/blog/2022/04/15/how-to-download-engineconn-plugin
  or follow the steps below to manually compile and deploy
 
 
@@ -95,7 +95,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 | wds.linkis.presto.http.connectTimeout | 60 | Presto client connect timeout (unit: seconds) | false |
 | wds.linkis.presto.http.readTimeout | 60 | Presto client read timeout (unit: seconds) | false |
 | wds.linkis.engineconn.concurrent.limit | 100 | The maximum number of concurrent Presto engines | false |
-## 3 The use of the engine
+## 3. The use of the engine
 
 ### 3.1 Preparing for Operation
 

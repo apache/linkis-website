@@ -11,17 +11,17 @@ sidebar_position: 0.1
 
 <!--
 ## Github-Discussion 提问 
-入口:https://github.com/apache/incubator-linkis/discussions
-提问模板:https://github.com/apache/incubator-linkis/discussions/2548
-step1: 查看模板以及注意事项和要求 https://github.com/apache/incubator-linkis/discussions/2548
+入口:https://github.com/apache/linkis/discussions
+提问模板:https://github.com/apache/linkis/discussions/2548
+step1: 查看模板以及注意事项和要求 https://github.com/apache/linkis/discussions/2548
 
 step2 拷贝模板内容
 -->
 
 
-## 方式1 Github-Issue 提问(推荐)
+## 1.方式1 Github-Issue 提问(推荐)
 
-### 注意事项
+### 1.1 注意事项
 :::caution 注意
 - 请按格式规范提问，方便社区同学解答，提问后请后续持续关注你的问题
 - 请特别注意除了截图，请把错误日志<font color="red">以文字方式贴入</font>，只有图片日志的问题，不会优先安排解答
@@ -30,7 +30,7 @@ step2 拷贝模板内容
 - 如果是运行阶段的报错，请将Eureka注册中心服务列表截图附上 
 :::
 
-### 日志附件&图片的上传
+### 1.2 日志附件&图片的上传
 如果要附加文件附件，请将其拖放到评论框中。或者单击评论框底部的栏来浏览、选择和添加计算机中的文件。
 ![img](/Images-zh/community/upload-file.png)
 
@@ -41,8 +41,8 @@ step2 拷贝模板内容
 日志文件不要超过 25MB
 :::
     
-### 填写说明
-- 入口:https://github.com/apache/incubator-linkis/issues 
+### 2.填写说明
+- 入口:https://github.com/apache/linkis/issues 
 
 ** Step1:进入issue栏，点击创建issue **
 
@@ -66,7 +66,7 @@ step2 拷贝模板内容
 
 
 
-## 方式2 邮件咨询 
+## 3.方式2 邮件咨询 
 
 邮件提问流程
 

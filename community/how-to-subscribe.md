@@ -11,7 +11,7 @@ As long as you subscribe to this mailing list, you can get the latest developmen
 
 **Linkis project mailing list**
 
-|name|description|Subscribe|Unsubscribe|archive|
+|Name|Description|Subscribe|Unsubscribe|Archive|
 |:-----|:--------|:------|:-------|:-----|
 | [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | community activity information | [subscribe](mailto:dev-subscribe@linkis.apache.org) | [unsubscribe](mailto:dev-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-dev) |
 | [commits@linkis.apache.org](mailto:commits@linkis.apache.org) | Code repo update information | [subscribe](mailto:commits-subscribe@linkis.apache.org) | [unsubscribe](mailto:commits-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-commits) |
@@ -39,8 +39,13 @@ The steps for unsubscribing to a mailing list are similar to those for subscribi
 
 ## 3. Issues related
 
-> Linkis's issues address [https://github.com/apache/incubator-linkis/issues](https://github.com/apache/incubator-linkis/issues)
+> Linkis's issues address [https://github.com/apache/linkis/issues](https://github.com/apache/linkis/issues)
 
 For new problem/ideas, you can create a new issue through \[new issues\], and describe the issues in detail as much as possible, so that community members can follow up, discuss and solve them. For any problems of the project, it is recommended to create issues first to record and follow up, so that the entire process can be well preserved and archived to facilitate subsequent users to retrieve.
 
 For existing issues, if you are interested, you can reply and discuss as much as you want. For tasks/bug-type issues, if you are interested, you can follow or directly participate in the task. Community partners are very welcome to contribute their efforts to Linkis.
+
+
+## 4. Mail usage 
+
+Please refer to [How to use the mailing list](./how-to-email.md) for email specifications and tips

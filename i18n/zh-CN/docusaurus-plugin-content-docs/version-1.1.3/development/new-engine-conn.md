@@ -136,7 +136,7 @@ object LinkisStorageConf{
 val CODE_TYPE_AND_RUN_TYPE_RELATION = CommonVars("wds.linkis.codeType.runType.relation", "sql=>sql|hql|jdbc|hive|psql|fql,python=>python|py|pyspark,java=>java,scala=>scala,shell=>sh|shell")
 ```
 
-参考PR：https://github.com/apache/incubator-linkis/pull/2047
+参考PR：https://github.com/apache/linkis/pull/2047
 
 ### 2.6 Linkis管理员台界面引擎管理器中加入JDBC引擎文字提示或图标
 

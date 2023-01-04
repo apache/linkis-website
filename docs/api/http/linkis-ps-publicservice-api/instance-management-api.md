@@ -1,5 +1,5 @@
 ---
-title: Instance Management Api
+title: Instance Management API
 sidebar_position: 26
 ---
 ** InstanceRestful class **

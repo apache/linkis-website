@@ -1,84 +1,157 @@
 ---
-title: Python 引擎
-sidebar_position: 5
+title: Python
+sidebar_position: 3
 ---
 
-本文主要介绍在Linkis1.X中，Python引擎的配置、部署和使用。
+本文主要介绍在 `Linkis` 中， `Python` 引擎插件的安装、使用和配置。
 
-## 1.Python引擎使用前的环境配置
+## 1. 前置工作
+### 1.1 环境安装
 
-如果您希望在您的服务器上使用python引擎，您需要保证用户的PATH中是有python的执行目录和执行权限。
+如果您希望在您的服务器上使用 `Python` 引擎，您需要保证用户的 `PATH` 中是有 `Python` 的执行目录和执行权限。
 
-| 环境变量名 | 环境变量内容    | 备注                           |
-|------------|-----------------|--------------------------------|
-| python     | python执行环境  | 建议使用anaconda的python执行器 |
-
-表1-1 环境配置清单
-
-## 2.Python引擎的配置和部署
-
-### 2.1 Python版本的选择和编译
-
-Python是支持python2 和
-python3的，您可以简单更改配置就可以完成Python版本的切换，不需要重新编译python的引擎版本，具体配置如下。
-
-
+### 1.2 环境验证
 ```
-#1：cli的方式提交任务进行版本切换,命令末端设置版本 python.version=python3 (python3：创建软连接时生成文件的名称，可自定义命名)
-sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python.version=python3
-
-#2：cli的方式提交任务进行版本切换,命令设置加入版本路径 python.version=/usr/bin/python (/usr/bin/python：创建软连接时生成文件的路径)
-sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop  -confMap  python.version=/usr/bin/python
-
+python --version
 ```
-页面配置：
-![](/Images/EngineUsage/python-configure.png)
+正常输出 `Python` 版本信息代表 `Python` 环境可用
+```
+Python 3.6.0
+```
 
-### 2.2 python engineConn部署和加载
+## 2. 引擎插件安装 [默认引擎](./overview.md)
 
-此处可以使用默认的加载方式即可正常使用。
+`Linkis` 发布的二进制安装包中默认包含了 `Python` 引擎插件，用户无需额外安装。
 
-## 3.Python引擎的使用
+[EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
-### 准备操作
+## 3. 引擎的使用
 
-在linkis上提交python之前，您只需要保证您的用户的$PATH中有python的路径即可。
+### 3.1 通过 `Linkis-cli` 提交任务
 
-### 3.1 通过Linkis SDK进行使用
+```shell
+sh ./bin/linkis-cli -engineType python-python2 \
+-codeType python -code "print(\"hello\")"  \
+-submitUser hadoop -proxyUser hadoop
+```
+更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
-Linkis提供了Java和Scala 的SDK向Linkis服务端提交任务. 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md).
-对于Python任务您只需要修改Demo中的EngineConnType和CodeType参数即可:
+### 3.2 通过 `Linkis SDK` 提交任务
+
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务。 具体可以参考 [JAVA SDK Manual](../user-guide/sdk-manual.md)。对于 `Python` 任务您只需要修改 `EngineConnType` 和 `CodeType` 参数即可。
 
 ```java
-        Map<String, Object> labels = new HashMap<String, Object>();
-        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "python-python2"); // required engineType Label
-        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
-        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "python"); // required codeType 
+Map<String, Object> labels = new HashMap<String, Object>();
+labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "python-python2"); // required engineType Label
+labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
+labels.put(LabelKeyConstant.CODE_TYPE_KEY, "python"); // required codeType 
 ```
 
-### 3.2 通过Linkis-cli进行任务提交
+## 4. 引擎配置说明
 
-Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Python的使用如下：
+### 4.1 配置修改
+`Python` 引擎插件支持 `Python2` 和 `Python3` ，您可以简单更改配置就可以完成 `Python` 版本的切换，不需要重新编译 `Python` 的引擎版本。 `Python` 引擎支持多种配置修改方式，具体操作如下。
+
+#### 4.1.1 通过命令参数显示指定（仅当前命令生效）
+
 ```shell
-sh ./bin/linkis-cli -engineType python-python2 -codeType python -code "print(\"hello\")"  -submitUser hadoop -proxyUser hadoop
+#1：cli的方式提交任务进行版本切换,命令末端设置版本 python.version=python3 (python3：创建软连接时生成文件的名称，可自定义命名)
+sh ./bin/linkis-cli -engineType python-python2 \
+-codeType python -code "print(\"hello\")"  \
+-submitUser hadoop -proxyUser hadoop  \
+-confMap  python.version=python3
+
+#2：cli的方式提交任务进行版本切换,命令设置加入版本路径 python.version=/usr/bin/python (/usr/bin/python：创建软连接时生成文件的路径)
+sh ./bin/linkis-cli -engineType python-python2 \
+-codeType python -code "print(\"hello\")"  \
+-submitUser hadoop -proxyUser hadoop  \
+-confMap  python.version=/usr/bin/python
+
 ```
-具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
 
-### 3.3 Scriptis的使用方式
+#### 4.1.2 管理台配置
 
-Scriptis的使用方式是最简单的，您可以直接进入Scriptis，右键目录然后新建python脚本并编写python代码并点击执行。
+![](./images/python-config.png)
 
-python的执行逻辑是通过 Py4j的方式，启动一个的python
-的gateway，然后Python引擎将代码提交到python的执行器进行执行。
+注意: 修改IDE标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
 
-![](/Images-zh/EngineUsage/python-run.png)
+```shell
+sh ./bin/linkis-cli -creator IDE -engineType \
+python-python2 -codeType python -code "print(\"hello\")"  \
+-submitUser hadoop -proxyUser hadoop  \
+-confMap  python.version=python3
+```
 
-图3-1 python的执行效果截图
+#### 4.2.2 任务接口配置
+提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
-## 4.Python引擎的用户设置
+```shell
+http 请求参数示例 
+{
+    "executionContent": {"code": "print(\"hello\")", "runType":  "python"},
+    "params": {
+                "variable": {},
+                "configuration": {
+                        "runtime": {
+                                "python.version":"python2",
+                                "wds.linkis.engineconn.max.free.time":"1h"
+                        }
+                }
+        },
+    "labels": {
+        "engineType": "python-python2",
+        "userCreator": "IDE"
+    }
+}
+```
 
-除了以上引擎配置，用户还可以进行自定义的设置，比如python的版本和以及python需要加载的一些module等。
+#### 4.2.3 文件配置
+通过修改目录 `${LINKIS_HOME}/lib/linkis-engineconn-plugins/python/dist/vpython2/conf/` 中的 `linkis-engineconn.properties` 文件进行配置，如下图：
 
-![python](https://user-images.githubusercontent.com/29391030/168045185-f25c61b6-8727-434e-8150-e13cc4a04ade.png)  
+![](./images/python-conf.png)
 
-图4-1 python的用户自定义配置管理台
+### 4.3 引擎相关数据表
+
+`Linkis` 是通过引擎标签来进行管理的，所涉及的数据表信息如下所示。
+
+```
+linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
+linkis_cg_manager_label：插入引擎label如：python-python2
+linkis_ps_configuration_category： 插入引擎的目录关联关系
+linkis_ps_configuration_config_value： 插入引擎需要展示的配置
+linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
+```
+
+表中与引擎相关的初始数据如下
+
+```sql
+-- set variable
+SET @PYTHON_LABEL="python-python2";
+SET @PYTHON_ALL=CONCAT('*-*,',@PYTHON_LABEL);
+SET @PYTHON_IDE=CONCAT('*-IDE,',@PYTHON_LABEL);
+
+-- engine label
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @PYTHON_ALL, 'OPTIONAL', 2, now(), now());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @PYTHON_IDE, 'OPTIONAL', 2, now(), now());
+
+select @label_id := id from linkis_cg_manager_label where `label_value` = @PYTHON_IDE;
+insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
+
+-- configuration key
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.client.memory.max', '取值范围：1-100，单位：G', 'python驱动器内存使用上限', '20G', 'Regex', '^([1-9]\\d{0,1}|100)(G|g)$', '0', '0', '1', '队列资源', 'python');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.client.core.max', '取值范围：1-128，单位：个', 'python驱动器核心个数上限', '10', 'Regex', '^(?:[1-9]\\d?|[1234]\\d{2}|128)$', '0', '0', '1', '队列资源', 'python');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.instance', '范围：1-20，单位：个', 'python引擎最大并发数', '10', 'NumInterval', '[1,20]', '0', '0', '1', '队列资源', 'python');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.java.driver.memory', '取值范围：1-2，单位：G', 'python引擎初始化内存大小', '1g', 'Regex', '^([1-2])(G|g)$', '0', '0', '1', 'python引擎设置', 'python');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('python.version', '取值范围：python2,python3', 'python版本','python2', 'OFT', '[\"python3\",\"python2\"]', '0', '0', '1', 'python引擎设置', 'python');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.max.free.time', '取值范围：3m,15m,30m,1h,2h', '引擎空闲退出时间','1h', 'OFT', '[\"1h\",\"2h\",\"30m\",\"15m\",\"3m\"]', '0', '0', '1', 'python引擎设置', 'python');
+
+-- key engine relation
+insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
+(select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
+INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'python' and label_value = @PYTHON_ALL);
+
+-- engine default configuration
+insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
+(select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
+INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @PYTHON_ALL);
+```

@@ -13,8 +13,8 @@ Download Node.js to your computer and install it. Download link: [http://nodejs.
 Execute the following commands in the terminal command line:
 
 ```
-git clone git@github.com:apache/incubator-linkis.git
-cd incubator-linkis/web
+git clone git@github.com:apache/linkis.git
+cd linkis/web
 npm install
 ```
 

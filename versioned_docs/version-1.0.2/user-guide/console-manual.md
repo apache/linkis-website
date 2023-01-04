@@ -3,15 +3,15 @@ title: Console User Manual
 sidebar_position: 4
 ---
 
-Introduction to Computatoin Governance Console
+Introduction to Computation Governance Console
 ==============
 
-> Linkis1.0 has added a new Computatoin Governance Console page, which can provide users with an interactive UI interface for viewing the execution of Linkis tasks, custom parameter configuration, engine health status, resource surplus, etc, and then simplify user development and management efforts.
+> Linkis1.0 has added a new Computation Governance Console page, which can provide users with an interactive UI interface for viewing the execution of Linkis tasks, custom parameter configuration, engine health status, resource surplus, etc, and then simplify user development and management efforts.
 
-Structure of Computatoin Governance Console
+Structure of Computation Governance Console
 ==============
 
-> The Computatoin Governance Console is mainly composed of the following functional pages:
+> The Computation Governance Console is mainly composed of the following functional pages:
 
 - [Global History]
 - [Resource Management]
@@ -28,7 +28,7 @@ Structure of Computatoin Governance Console
 
 > wds.linkis.governance.station.admin=hadoop (multiple administrator usernames are separated by ‘,’)
 
-Introduction to the functions and use of Computatoin Governance Console
+Introduction to the functions and use of Computation Governance Console
 ========================
 
 Global history

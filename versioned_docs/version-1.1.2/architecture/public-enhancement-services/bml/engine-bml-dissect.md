@@ -1,5 +1,5 @@
 ---
-title: Analysis of engin BML
+title: Analysis of Engine BML
 sidebar_position: 1
 ---
 
@@ -27,7 +27,7 @@ The BML architecture diagram is as follows:
 
 ![BML Architecture](/Images/Architecture/Public_Enhancement_Service/engine_bml/bml-jiagou.png)
 
-For the above overview of the BML architecture, please refer to the official website document: https://linkis.apache.org/zh-CN/docs/latest/architecture/public-enhancement-services/bml
+For the above overview of the BML architecture, please refer to the official website document: https://linkis.apache.org/docs/latest/architecture/public-enhancement-services/bml
 
 ## 2. BML material library service underlying table model
 

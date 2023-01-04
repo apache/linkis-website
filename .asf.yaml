@@ -19,10 +19,19 @@ github:
     # Enable issue management
     issues: true
   description: Apache Linkis documents
-  homepage: https://linkis.incubator.apache.org
+  homepage: https://linkis.apache.org
   labels:
     - linkis
     - website
+  collaborators:
+    - aiceflower
+    - brucedchen1991
+    - binbinCheng
+    - ws00428637
+    - yyuser5201314
+    - KangTomwk
+    - guoshupei
+    - rarexixi
 notifications:
   commits: commits@linkis.apache.org
   issues: commits@linkis.apache.org

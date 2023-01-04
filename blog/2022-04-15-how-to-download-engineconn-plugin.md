@@ -7,11 +7,12 @@ tags: [engine,guide]
 
 Considering the size of the release package and the use of plug-ins, the binary installation package released by linkis only contains some common engines /hive/spark/python/shell.
 Very useful engine, there are corresponding modules `flink/io_file/pipeline/sqoop` in the project code (there may be differences between different versions),
-In order to facilitate everyone's use, based on the release branch code of each version of linkis: https://github.com/apache/incubator-linkis, this part of the engine is compiled for everyone to choose and use.
+In order to facilitate everyone's use, based on the release branch code of each version of linkis: https://github.com/apache/linkis, this part of the engine is compiled for everyone to choose and use.
 
  ## Download link
 | **linkis version** | **engines included** |**engine material package download link** |
 |:---- |:---- |:---- |
+|1.3.0|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>|[1.3.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.3.0-engineconn-plugin.tar)|
 |1.2.0|jdbc<br/>pipeline<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>|[1.2.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.2.0-engineconn-plugin.tar)|
 |1.1.3|jdbc<br/>pipeline<br/>flink<br/>openlookeng<br/>sqoop|[1.1.3-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.1.3-engineconn-plugin.tar)|
 |1.1.2|jdbc<br/>pipeline<br/>flink<br/>openlookeng<br/>sqoop|[1.1.2-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.1.2-engineconn-plugin.tar)|
@@ -47,4 +48,4 @@ cd 1.0.3-engineconn-plugin
 
 Copy the engine material package to be used to the engine plug-in directory of linkis, and then refresh the engine material.
 
-For the detailed process, refer to [Installing the EngineConnPlugin Engine](https://linkis.apache.org/zh-CN/docs/latest/deployment/engine-conn-plugin-installation).
+For the detailed process, refer to [Installing the EngineConnPlugin Engine](https://linkis.apache.org/zh-CN/docs/latest/deployment/install-engineconn).

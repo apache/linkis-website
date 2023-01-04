@@ -16,8 +16,8 @@ sidebar_position: 2
 ## 2. 准备代码并编译
 
 ```shell
-git clone git@github.com:apache/incubator-linkis.git
-cd incubator-linkis
+git clone git@github.com:apache/linkis.git
+cd linkis
 git checkout dev-1.2.0
 ```
 
@@ -29,7 +29,7 @@ mvn -N install
 mvn clean install -DskipTests
 ```
 
-编译命令运行成功之后，在目录incubator-linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-incubating-bin.tar.gz
+编译命令运行成功之后，在目录linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-incubating-bin.tar.gz
 
 ## 3. 配置并启动服务
 
@@ -103,14 +103,14 @@ linkis-eureka
 org.apache.linkis.eureka.SpringCloudEurekaApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
 ```
 
 注意调试配置中涉及到的本地路径，需要要修改成自己设置的路径；
-在Windows中路径书写规则是：D:\{YourPathPrefix}\incubator-linkis\linkis-dist\package\conf
+在Windows中路径书写规则是：D:\{YourPathPrefix}\linkis\linkis-dist\package\conf
 （针对以下微服务同样适用）
 
 如果不想默认的20303端口可以修改端口配置：
@@ -150,7 +150,7 @@ linkis-mg-gateway
 linkis-gateway-server-support
 
 [VM Opitons]
--DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
@@ -176,7 +176,7 @@ linkis-ps-publicservice
 linkis-public-enhancements
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf 
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf 
 
 [main Class]
 org.apache.linkis.filesystem.LinkisPublicServiceApp
@@ -192,7 +192,7 @@ org.apache.linkis.filesystem.LinkisPublicServiceApp
 需要把公共依赖的模块加到linkis-public-enhancements模块的classpath下，修改pes的pom增加以下依赖：
 linkis-public-enhancements/pom.xml
 ```xml
- <dependency>
+    <dependency>
       <groupId>org.apache.linkis</groupId>
       <artifactId>linkis-dist</artifactId>
       <version>${project.version}</version>
@@ -202,7 +202,7 @@ linkis-public-enhancements/pom.xml
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql.connector.version}</version>
-</dependency>
+    </dependency>
 
 ```
 
@@ -222,7 +222,7 @@ linkis-cg-linkismanager
 linkis-application-manager
 
 [VM Opitons]
--DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.manager.am.LinkisManagerApplication
@@ -245,7 +245,7 @@ linkis-cg-entrance
 linkis-entrance
 
 [VM Opitons]
--DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\linkis\linkis-dist\package\conf
 
 [main Class]
 org.apache.linkis.entrance.LinkisEntranceApplication
@@ -268,7 +268,7 @@ linkis-cg-engineplugin
 linkis-engineconn-plugin-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
@@ -284,7 +284,7 @@ org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
 需要把公共依赖的模块加到ecp模块的classpath下，修改pes的pom增加以下依赖：
 linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
 ```xml
- <dependency>
+    <dependency>
       <groupId>org.apache.linkis</groupId>
       <artifactId>linkis-dist</artifactId>
       <version>${project.version}</version>
@@ -294,7 +294,7 @@ linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql.connector.version}</version>
-</dependency>
+    </dependency>
 
 ```
 
@@ -312,7 +312,7 @@ linkis-cg-engineconnmanager
 linkis-engineconn-manager-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
+-DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
 
 [main Class]
 org.apache.linkis.ecm.server.LinkisECMApplication
@@ -377,9 +377,9 @@ wds.linkis.engineconn.root.dir={YourPathPrefix}/linkis/data/engineconnRootDir
 #### 3.10.4 conf/linkis-cg-engineplugin.properties
 
 ```properties
-wds.linkis.engineconn.home={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.home={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
 
-wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
 ```
 
 这里两个配置主要为了指定引擎存储的根目录，指定为target/out的主要目的是，引擎相关代码或配置改动后可以直接重启engineplugin服务后生效。
@@ -496,7 +496,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 明确需要调试的包所在的服务，并根据需要调试的代码位置,确定其所属的服务
 
 ### 4.2 进入{LINKIS_HOME}/sbin/ext,修改模块配置文件开启远程调用端口
-![c-port](https://user-images.githubusercontent.com/29391030/167364775-4f5d2774-b6b9-4a65-b69c-69319db870c4.png)
+![c-port](images/c-port.png)
 
 ### 4.3 重启需要调试的服务
 
@@ -504,14 +504,14 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 sh linkis-daemon.sh restart ps-publicservice
 ```
 
-(如果不确定服务名称,在 {LINKIS_HOME}/sbin/linkis-start-all.sh 内查询)
+(如果不确定服务名称,在 ${LINKIS_HOME}/sbin/linkis-start-all.sh 内查询)
 
 ### 4.4 编译器配置远程调试
 
 如下图所示打开窗口并配置远程调试的端口,服务,以及模块  
-![c-debug](https://user-images.githubusercontent.com/29391030/167364896-29805938-157f-47a2-baf4-f52cb63c64d1.png)
+![c-debug](images/c-debug.png)
 
 ### 4.5 开始调试
 
 点击调试按钮,出现如下信息代表可以开始调试  
-![debug](https://user-images.githubusercontent.com/29391030/163559920-05aba3c3-b146-4f62-8e20-93f94a65158d.png)
+![debug](images/debug.png)

@@ -16,8 +16,8 @@ sidebar_position: 2
 ## 2. Prepare the code and compile
 
 ```shell
-git clone git@github.com:apache/incubator-linkis.git
-cd incubator-linkis
+git clone git@github.com:apache/linkis.git
+cd linkis
 git checkout dev-1.2.0
 ````
 
@@ -29,7 +29,7 @@ mvn -N install
 mvn clean install -DskipTests
 ````
 
-After the compilation command runs successfully, the compiled installation package can be found in the directory incubator-linkis/linkis-dist/target/: apache-linkis-version-incubating-bin.tar.gz
+After the compilation command runs successfully, the compiled installation package can be found in the directory linkis/linkis-dist/target/: apache-linkis-version-incubating-bin.tar.gz
 
 ## 3. Configure and start the service
 
@@ -52,6 +52,7 @@ The way to add to the dependency is as follows, modify the pom.xml file of the c
       <version>${mysql.connector.version}</version>
 </dependency>
 ````
+At the same time, it is necessary to keep whether the scope of mysql-connector-java dependency is set to test according to the `<dependencyManagement>` of pom.xml. If so, comments are required for local debugging
 
 ### 3.2 Adjust log4j2.xml configuration
 
@@ -103,14 +104,14 @@ linkis-eureka
 org.apache.linkis.eureka.SpringCloudEurekaApplication
 
 [VM Opitons]
--DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-eureka -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [Program arguments]
 --spring.profiles.active=eureka --eureka.instance.preferIpAddress=true
 ````
 
 Note that the local path involved in the debugging configuration needs to be modified to the path set by yourself;
-The path writing rule in Windows is: D:\{YourPathPrefix}\incubator-linkis\linkis-dist\package\conf
+The path writing rule in Windows is: D:\{YourPathPrefix}\linkis\linkis-dist\package\conf
 (The same applies to the following microservices)
 
 If you don't want the default 20303 port, you can modify the port configuration:
@@ -150,7 +151,7 @@ linkis-mg-gateway
 linkis-gateway-server-support
 
 [VM Opitons]
--DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-mg-gateway -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.gateway.springcloud.LinkisGatewayApplication
@@ -176,7 +177,7 @@ linkis-ps-publicservice
 linkis-public-enhancements
 
 [VM Opitons]
--DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-ps-publicservice -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.filesystem.LinkisPublicServiceApp
@@ -222,7 +223,7 @@ linkis-cg-linkismanager
 linkis-application-manager
 
 [VM Opitons]
--DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-linkismanager -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.manager.am.LinkisManagerApplication
@@ -245,7 +246,7 @@ linkis-cg-entrance
 linkis-entrance
 
 [VM Opitons]
--DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\incubator-linkis\linkis-dist\package\conf
+-DserviceName=linkis-cg-entrance -Xbootclasspath/a:D:\yourDir\linkis\linkis-dist\package\conf
 
 [main Class]
 org.apache.linkis.entrance.LinkisEntranceApplication
@@ -268,7 +269,7 @@ linkis-cg-engineplugin
 linkis-engineconn-plugin-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf
+-DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
 
 [main Class]
 org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
@@ -312,7 +313,7 @@ linkis-cg-engineconnmanager
 linkis-engineconn-manager-server
 
 [VM Opitons]
--DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/incubator-linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
+-DserviceName=linkis-cg-engineconnmanager -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf -DJAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/
 
 [main Class]
 org.apache.linkis.ecm.server.LinkisECMApplication
@@ -374,9 +375,9 @@ If you do not modify it, you may encounter an exception that the path does not e
 #### 3.10.4 conf/linkis-cg-engineplugin.properties
 
 ````properties
-wds.linkis.engineconn.home={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.home={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
 
-wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/incubator-linkis/linkis-engineconn-plugins/shell/target/out
+wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
 ````
 
 The two configurations here are mainly to specify the root directory of the engine storage, and the main purpose of specifying it as target/out is that after the engine-related code or configuration changes, the engineplugin service can be restarted directly to take effect.
@@ -492,7 +493,7 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 
 Identify the service where the package that needs to be debugged is located, and determine the service to which it belongs according to the location of the code to be debugged
 
-### 4.2 Enter {LINKIS_HOME}/sbin/ext, modify the module configuration file to open the remote call port
+### 4.2 Enter ${LINKIS_HOME}/sbin/ext, modify the module configuration file to open the remote call port
 ![c-port](https://user-images.githubusercontent.com/29391030/167364775-4f5d2774-b6b9-4a65-b69c-69319db870c4.png)
 
 ### 4.3 Restart the service that needs to be debugged
@@ -501,7 +502,7 @@ Identify the service where the package that needs to be debugged is located, and
 sh linkis-daemon.sh restart ps-publicservice
 ````
 
-(If you are not sure about the service name, check in {LINKIS_HOME}/sbin/linkis-start-all.sh )
+(If you are not sure about the service name, check in ${LINKIS_HOME}/sbin/linkis-start-all.sh )
 
 ### 4.4 Compiler configuration remote debugging
 

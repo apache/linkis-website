@@ -9,7 +9,7 @@ sidebar_position: 0.1
 - [Data source function module interface optimization](/api/http/linkis-ps-publicservice-api/metadataquery-api.md)
 - [JDBC engine supports data source schema](/engine-usage/jdbc.md)
 - [EC History List Architecture Design](/architecture/computation-governance-services/linkis-manager/ec-history-arc.md)
-- [Service isolation Design](/architecture/microservice-governance-services/service_isolation.md)
+- [Service Isolation Design](/architecture/microservice-governance-services/service_isolation.md)
 - [version of Release-Notes](/download/release-notes-1.2.0)
 
 
@@ -50,4 +50,4 @@ sidebar_position: 0.1
 |ec-jdbc | Modify  | wds.linkis.jdbc.password            	| None								|	jdbc conn password			|
 
 ## DB Table Changes
-For details, see the upgrade schema`db/upgrade/1.2.0_schema` file in the corresponding branch of the code repository (https://github.com/apache/incubator-linkis).
+For details, see the upgrade schema`db/upgrade/1.2.0_schema` file in the corresponding branch of the code repository (https://github.com/apache/linkis).

@@ -2,129 +2,174 @@
 title: Pipeline Engine
 sidebar_position: 10
 ---
+`Pipeline` is mainly used to import and export files. This article mainly introduces the installation, use and configuration of the `Hive` engine plugin in `Linkis`.
 
-This article mainly introduces the configuration, deployment and use of pipeline (>=1.1.0 version support) engine.
+## 1. Engine plugin installation
 
+### 1.1 Engine plugin preparation (choose one) [non-default engine](./overview.md)
 
-## 1 Configuration and deployment
+Method 1: Download the engine plug-in package directly
 
-### 1.1 Version selection and compilation
-Note: before compiling the `pipeline`engine, you need to compile the linkis project in full
-Currently, the `pipeline` engine needs to be installed and deployed by itself
+[Linkis Engine Plugin Download](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
 
-This engine plug-in is not included in the published installation and deployment package by default,
-You can follow this guide to deploy the installation https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
-Or manually compile the deployment according to the following process
-
-Compile separately`pipeline` 
+Method 2: Compile the engine plug-in separately (maven environment is required)
 
 ```
-${linkis_code_dir}/linkis-enginepconn-pugins/engineconn-plugins/pipeline/
+# compile
+cd ${linkis_code_dir}/linkis-engineconn-plugins/pipeline/
 mvn clean install
+# The compiled engine plug-in package is located in the following directory
+${linkis_code_dir}/linkis-engineconn-plugins/pipeline/target/out/
 ```
+[EngineConnPlugin engine plugin installation](../deployment/install-engineconn.md)
 
-### 1.2 Material deployment and loading
+### 1.2 Uploading and loading of engine plugins
 
-将 1.1 The engine package compiled in step, located in
-
-```bash
-${linkis_code_dir}/linkis-engineconn-pluginspipeline/target/out/pipeline
-```
-Upload to the engine directory of the server
-
+Upload the engine plug-in package in 1.1 to the engine directory of the server
 ```bash 
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
+The directory structure after uploading is as follows
+```
+linkis-engineconn-plugins/
+├── pipeline
+│   ├── dist
+│ │ └── v1
+│   │       ├── conf
+│ │ └── lib
+│   └── plugin
+│ └── 1
+```
+### 1.3 Engine refresh
 
-And restart the `linkis engineplugin` to refresh the engine
+#### 1.3.1 Restart and refresh
+Refresh the engine by restarting the `linkis-cg-linkismanager` service
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart cg-linkismanager
 ```
-Or refresh through the engine interface. After the engine is placed in the corresponding directory, send a refresh request to the `linkis CG engineconplugin service` through the HTTP interface.
-- Interface`http://${engineconn-plugin-server-IP}:${port}/api/rest_j/v1/rpc/receiveAndReply`
 
-- Request mode `POST`
-
-```json
-{
-  "method": "/enginePlugin/engineConn/refreshAll"
-}
-```
-Check whether the engine is refreshed successfully: if you encounter problems during the refresh process and need to confirm whether the refresh is successful, you can view the`linkis_engine_conn_plugin_bml_resources`Of this table`last_update_time`Whether it is the time when the refresh is triggered.
+### 1.3.2 Check if the engine is refreshed successfully
+You can check whether the `last_update_time` of the `linkis_engine_conn_plugin_bml_resources` table in the database is the time to trigger the refresh.
 
 ```sql
-#Log in to the database of linkis
-select *  from linkis_cg_engine_conn_plugin_bml_resources
+#Log in to the linkis database
+select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```
 
-### 1.3 Engine label
+## 2 Engine usage
 
-Linkis1.XIt is carried out through labels, so it is necessary to insert data into our database. The insertion method is shown below.
+Because the `pipeline` engine is mainly used to import and export files, now we assume that importing files from A to B is an introduction case
 
-[EngineConnPlugin Engine plug-in installation](../deployment/engine-conn-plugin-installation) 
+### 2.1 Submit tasks through `Linkis-cli`
 
-
-## 2 Use of engine
-
-### 2.1 Task submission via linkis cli
-
-Link 1.0 provides cli to submit tasks. We only need to specify the corresponding enginecon and codetype tag types. The use of pipeline is as follows:
-- Note that the enginetype pipeline-1 engine version setting is prefixed. If the pipeline version is V1 , it is set to pipeline-1 
 ```shell
-sh bin/linkis-cli -submitUser  hadoop  -engineType pipeline-1  -codeType pipeline  -code "from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv"
+sh bin/linkis-cli -submitUser Hadoop \
+-engineType pipeline-1  -codeType pipeline  \
+-code "from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv"
 ```
-from hdfs:///000/000/000/A.dolphin  to file:///000/000/000/B.csv 3.3 Explained
+`from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv` This content is explained in 2.3
 
-For specific use, please refer to： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
+More `Linkis-Cli` command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
 
-because`pipeline`The engine is mainly used to import and export files. Now let's assume that importing files from a to B is the most introduced case
+## 3. Engine configuration instructions
 
-### 2.2 New script
-Right click the workspace module and select Create a new workspace of type`storage`Script for
+### 3.1 Default configuration description
 
-![](/Images-zh/EngineConnNew/new_pipeline_script.png)
+| Configuration | Default | Required | Description |
+| ------------------------ | ------------------- | ---| ------------------------------------------- |
+| pipeline.output.mold | csv | no | result set export type |
+| pipeline.field.split | , |no | csv separator |
+| pipeline.output.charset | gbk | no | result set export character set |
+| pipeline.output.isoverwrite | true | no | overwrite |
+| wds.linkis.rm.instance | 3 | No | Maximum concurrent number of pipeline engines |
+| pipeline.output.shuffle.null.type | NULL | No | Null replacement |
+| wds.linkis.engineconn.java.driver.memory | 2g | no | pipeline engine initialization memory size |
 
-### 2.3 Script
+### 4.2 Configuration modification
+If the default parameters are not satisfied, there are the following ways to configure some basic parameters
 
-##### Syntax is：from path to path
+#### 4.2.1 Management console configuration
 
-The syntax is file copy rule:`dolphin`Suffix type files are result set files that can be converted to`.csv`Type and`.xlsx`Type file, other types can only be copied from address a to address B, referred to as handling
+![](./images/pipeline-conf.png)
 
-```bash
-#dolphin type
-from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv
-from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.xlsx
+Note: After modifying the configuration under the `IDE` tag, you need to specify `-creator IDE` to take effect (other tags are similar), such as:
 
-#Other types
-from hdfs:///000/000/000/A.txt to file:///000/000/000/B.txt
+```shell
+sh bin/linkis-cli -creator IDE \
+-submitUser hadoop \
+-engineType pipeline-1  \
+-codeType pipeline \
+-code "from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv"
 ```
 
+#### 4.2.2 Task interface configuration
+Submit the task interface, configure it through the parameter `params.configuration.runtime`
 
-A file importing script to B folder
-```bash
-from hdfs:///000/000/000/A.csv to file:///000/000/B/
+```shell
+Example of http request parameters
+{
+    "executionContent": {"code": "from hdfs:///000/000/000/A.dolphin to file:///000/000/000/B.csv", "runType":  "pipeline"},
+    "params": {
+                    "variable": {},
+                    "configuration": {
+                            "runtime": {
+                                "pipeline.output.mold":"csv",
+                                "pipeline.output.charset":"gbk"
+                                }
+                            }
+                    },
+    "labels": {
+        "engineType": "pipeline-1",
+        "userCreator": "hadoop-IDE"
+    }
+}
 ```
-- `from` grammar，`to`：grammar
-- `hdfs:///000/000/000/A.csv`：Input file path
-- `file:///000/000/B/`： Output path
 
+### 4.3 Engine related data sheet
 
-file B is exported as file A
-```bash
-from hdfs:///000/000/000/B.csv to file:///000/000/000/A.CSV
+`Linkis` is managed through engine tags, and the data table information involved is as follows.
+
 ```
-- `hdfs:///000/000/000/B.csv`： Input file path
-- `file:///000/000/000/A.CSV`： Output file path
+linkis_ps_configuration_config_key: key and default values ​​of configuration parameters inserted into the engine
+linkis_cg_manager_label: insert engine label such as: pipeline-1
+linkis_ps_configuration_category: The directory association relationship of the insertion engine
+linkis_ps_configuration_config_value: Insert the configuration that the engine needs to display
+linkis_ps_configuration_key_engine_relation: The relationship between the configuration item and the engine
+```
 
-![](/Images-zh/EngineConnNew/to_write.png)
+The initial data related to the engine in the table is as follows
 
-Note: no semicolon is allowed at the end of the syntax; Otherwise, the syntax is incorrect.
+```sql
+-- set variable
+SET @PIPELINE_LABEL="pipeline-1";
+SET @PIPELINE_ALL=CONCAT('*-*,',@PIPELINE_LABEL);
+SET @PIPELINE_IDE=CONCAT('*-IDE,',@PIPELINE_LABEL);
 
-### 2.4 result
-speed of progress
+-- engine label
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @PIPELINE_ALL, 'OPTIONAL', 2, now(), now());
+insert into `linkis_cg_manager_label` (`label_key`, `label_value`, `label_feature`, `label_value_size`, `update_time`, `create_time`) VALUES ('combined_userCreator_engineType', @PIPELINE_IDE, 'OPTIONAL', 2, now(), now());
 
-![](/Images-zh/EngineConnNew/job_state.png)
+select @label_id := id from linkis_cg_manager_label where `label_value` = @PIPELINE_IDE;
+insert into linkis_ps_configuration_category (`label_id`, `level`) VALUES (@label_id, 2);
 
-historical information
-![](/Images-zh/EngineConnNew/historical_information.png)
+-- configuration key
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('pipeline.output.mold', 'Value range: csv or excel', 'Result set export type','csv', 'OFT', '[\"csv\",\"excel\"]' , '0', '0', '1', 'pipeline engine settings', 'pipeline');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('pipeline.field.split', 'value range:, or \\t', 'csv delimiter',',', 'OFT', '[\",\",\"\\\\ t\"]', '0', '0', '1', 'pipeline engine settings', 'pipeline');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('pipeline.output.charset', 'value range: utf-8 or gbk', 'result set export character set','gbk', 'OFT', '[\"utf-8\",\" gbk\"]', '0', '0', '1', 'pipeline engine settings', 'pipeline');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('pipeline.output.isoverwrite', 'Value range: true or false', 'Whether to overwrite','true', 'OFT', '[\"true\",\"false\"]', '0', '0', '1', 'pipeline engine settings', 'pipeline');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.rm.instance', 'Range: 1-3, Unit: Piece', 'Maximum concurrent number of pipeline engines','3', 'NumInterval', '[1,3]', '0 ', '0', '1', 'pipeline engine settings', 'pipeline');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('wds.linkis.engineconn.java.driver.memory', 'value range: 1-10, unit: G', 'pipeline engine initialization memory size','2g', 'Regex', '^([ 1-9]|10)(G|g)$', '0', '0', '1', 'pipeline resource settings', 'pipeline');
+INSERT INTO `linkis_ps_configuration_config_key` (`key`, `description`, `name`, `default_value`, `validate_type`, `validate_range`, `is_hidden`, `is_advanced`, `level`, `treeName`, `engine_conn_type`) VALUES ('pipeline.output.shuffle.null.type', 'Value range: NULL or BLANK', 'Null value replacement','NULL', 'OFT', '[\"NULL\",\"BLANK\ "]', '0', '0', '1', 'pipeline engine settings', 'pipeline');
+
+-- key engine relation
+insert into `linkis_ps_configuration_key_engine_relation` (`config_key_id`, `engine_type_label_id`)
+(select config.id as `config_key_id`, label.id AS `engine_type_label_id` FROM linkis_ps_configuration_config_key config
+INNER JOIN linkis_cg_manager_label label ON config.engine_conn_type = 'pipeline' and label_value = @PIPELINE_ALL);
+
+-- engine default configuration
+insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_value`, `config_label_id`)
+(select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
+INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @PIPELINE_ALL);
+
+```

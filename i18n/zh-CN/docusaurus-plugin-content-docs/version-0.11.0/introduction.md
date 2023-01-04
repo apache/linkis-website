@@ -7,7 +7,7 @@ sidebar_position: 0
 
 ## 引言
 
-Linkis Github repo: https://github.com/apache/incubator-linkis
+Linkis Github repo: https://github.com/apache/linkis
 
 Linkis，一个打通了多个计算存储引擎如Spark、TiSpark、Hive、Python和HBase等，对外提供统一REST/WebSocket/JDBC接口，提交执行SQL、Pyspark、HiveQL、Scala等脚本的数据中间件。
 

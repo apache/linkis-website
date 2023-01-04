@@ -1,5 +1,5 @@
 ---
-title: How to Participate in the Official Website Contribution
+title: How to Participate in Website Project Contribution
 sidebar_position: 2.1
 ---
 
@@ -19,7 +19,7 @@ asf-staging #The asf-staging official website test environment is accessed throu
 This website is compiled using node, using Docusaurus framework components
 
 1. Download and install nodejs (version>12.5.0)
-2. Clone the code to the local `git clone git@github.com:{githubid}/incubator-linkis-website.git`
+2. Clone the code to the local `git clone git@github.com:{githubid}/linkis-website.git`
 2. Run `npm install` to install the required dependent libraries.
 3. Run `npm run start` in the root directory, you can visit http://localhost:3000 to view the English mode preview of the site
 4. Run `npm run start-zh` in the root directory, you can visit http://localhost:3000 to view the Chinese mode preview of the site
@@ -103,7 +103,7 @@ Positive example: `render-dom.js / signup.css / index.html / company-logo.png`
 
 Counter example: `renderDom.js / UserManagement.html`
 
-### 3.3 Resource Path
+### 3.3 Resource path
 
 Image resources are unified under `static/{module name}`
 
@@ -186,5 +186,11 @@ After the verification is correct, the asf-staging branch can be merged to the a
 - When adding a document, pay attention to the document node name and node sorting fields, as shown in the following figure  
 ![pg-eng](https://user-images.githubusercontent.com/29391030/161210331-497bbc90-369d-4401-b9dd-fe63bbaba850.png)
 
-## 7 Other
+## 7 Acknowledgments
+
+[![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg "Deploys by Netlify")](https://www.netlify.com/) 
+[Netlify](https://www.netlify.com) kindly provides pull request builds, checks and previews for this website.
+
+## 8 Other
 The naming convention refers to "Alibaba Front-end Development Specification"
+

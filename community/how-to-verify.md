@@ -3,7 +3,7 @@ title: How to Verify Release
 sidebar_position: 4
 ---
 
-# Verify the Candidate Version
+# Verify the candidate version
 
 For detailed check list, please refer to the official [check list](https://cwiki.apache.org/confluence/display/INCUBATOR/Incubator+Release+Checklist)
 
@@ -17,9 +17,10 @@ If the network is poor, downloading may be time-consuming. The download is compl
 :::
 ```shell
 #If there is svn locally, you can clone to the local
-$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+
+$ svn co https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/
 #or download the material file directly
-$ wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/xxx.xxx
+$ wget https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/xxx.xxx
 
 ```
 ## 2. Verify that the uploaded version is compliant
@@ -38,7 +39,7 @@ First import the publisher's public key. Import KEYS from the svn repository to 
 
 #### 2.2.1 Import public key
 ```shell
-$ curl  https://downloads.apache.org/incubator/linkis/KEYS > KEYS # Download KEYS
+$ curl  https://downloads.apache.org/linkis/KEYS > KEYS # Download KEYS
 $ gpg --import KEYS # Import KEYS to local
 ```
 #### 2.2.2 Trust the public key
@@ -82,7 +83,7 @@ check result
 > If something like the following appears, it means the signature is correct. Keyword: **`Good signature`**
 
 ```shell
-apache-linkis-xxx-incubating-src.tar.gz
+apache-linkis-xxx-src.tar.gz
 gpg: Signature made XXXX
 gpg: using RSA key XXXXX
 gpg: Good signature from "xxx @apache.org>"
@@ -107,20 +108,20 @@ $ sha512sum --check apache-linkis-${release_version}-bin.tar.gz.sha512
 > Windows
 
 ```shell
-$ certUtil -hashfile apache-linkis-${release_version}-incubating-xxx.tar.gz SHA512
-#Compare the output content with the content of the apache-linkis-${release_version}-incubating-xxx.tar.gz.sha512 file
+$ certUtil -hashfile apache-linkis-${release_version}-xxx.tar.gz SHA512
+#Compare the output content with the content of the apache-linkis-${release_version}-xxx.tar.gz.sha512 file
 ```
 
 
 ### 2.4. Check the file content of the source package
 
-Unzip `apache-linkis-${release_version}-incubating-src.tar.gz` 
+Unzip `apache-linkis-${release_version}-src.tar.gz` 
 ```text
-$ tar -xvf apache-linkis-${release_version}-incubating-src.tar.gz
+$ tar -xvf apache-linkis-${release_version}-src.tar.gz
 
-$ cd apache-linkis-${release_version}-incubating-src
+$ cd apache-linkis-${release_version}-src
 ```
-#### 2.4.1 ASF License RAT Check
+#### 2.4.1 Asf license rat check
 Mac OS/Linux
 ```shell
 #normally can be executed within 5 minutes
@@ -174,7 +175,7 @@ Next, build the project：
 ```shell
 npm run build
 ```
-The console installation package `apache-linkis-${version}-incubating-web-bin.tar.gz` will be generated after the above command is successfully executed
+The console installation package `apache-linkis-${version}-web-bin.tar.gz` will be generated after the above command is successfully executed
 
 :::caution
 1.An error occured when running `npm install`:
@@ -209,7 +210,6 @@ and check as follows:
 - [ ] Check whether the source package contains unnecessary files, which makes the tar package too large
 - [ ] Folder contains the word `incubating`
 - [ ] There are `LICENSE` and `NOTICE` files
-- [ ] There is a `DISCLAIMER` or `DISCLAIMER-WIP` file
 - [ ] The year in the `NOTICE` file is correct
 - [ ] Only text files exist, not binary files
 - [ ] All files have ASF license at the beginning
@@ -220,17 +220,15 @@ and check as follows:
 ### 2.5 Check the binary package
 > If the binary/web-binary package is uploaded, check the binary package. 
 
-Unzip `apache-linkis-${release_version}-incubating-bin.tar.gz` 
+Unzip `apache-linkis-${release_version}-bin.tar.gz` 
 
 ```shell
-$ mkdir apache-linkis-${release_version}-incubating-bin
-$ tar -xvf  apache-linkis-${release_version}-incubating-bin.tar.gz -C  apache-linkis-${release_version}-incubating-bin
-$ cd apache-linkis-${release_version}-incubating-bin
+$ mkdir apache-linkis-${release_version}-bin
+$ tar -xvf  apache-linkis-${release_version}-bin.tar.gz -C  apache-linkis-${release_version}-bin
+$ cd apache-linkis-${release_version}-bin
 ```
 and check as follows:
-- [ ] Folder contains the word `incubating`
 - [ ] There are `LICENSE` and `NOTICE` files
-- [ ] There is a `DISCLAIMER` or `DISCLAIMER-WIP` file
 - [ ] The year in the `NOTICE` file is correct
 - [ ] All text files have ASF license at the beginning
 - [ ] Check the third-party dependent license:
@@ -248,23 +246,11 @@ If you initiate a posting vote, you can refer to this response example to reply 
 <font color="red">
 When replying to the email, you must bring the information that you have checked by yourself. Simply replying to `+1 approve` is invalid.
 
-When PPMC votes in the dev@linkis.apache.org linkis community, Please bring the binding suffix to indicate that it has a binding vote for the vote in the linkis community, and it is convenient to count the voting results.
-
-When IPMC votes in the general@incubator.apache.org incubator community. Please bring the binding suffix to indicate that the voting in the incubator community has a binding vote, which is convenient for counting the voting results.
+When PMC votes in the dev@linkis.apache.org linkis community, Please bring the binding suffix to indicate that it has a binding vote for the vote in the linkis community, and it is convenient to count the voting results.
 </font>
 
-:::caution note
-If you have already voted on dev@linkis.apache.org, you can take it directly to the incubator community when you reply to the vote, such as:
 
-```html
-//Incubator community voting, only IPMC members have binding binding，PPMC needs to be aware of binding changes
-Forward my +1 from dev@linkis (non-binding)
-Copy my +1 from linkis DEV ML (non-binding)
-````
-:::
-
-
-Non-PPMC/Non-IPMC member
+Non-PMC member
 ```html
 +1 (non-binding)
 I checked:
@@ -275,9 +261,8 @@ I checked:
      5.  
 ````
 
-PPMC/IPMC member
+PMC member
 ```html
-//Incubator community voting, only IPMC members have binding binding
 +1 (binding)
 I checked:
      1. All download links are valid
@@ -293,6 +278,5 @@ I checked:
 If you have maven tools installed, you can replace ./mvnw or mvnw.cmd with your own mvn command
 
 mvnw is short for Maven Wrapper. It can support running Maven projects without installing Maven and configuring environment variables. If it can't find it, it will download the corresponding Maven version according to the configuration file
-
 
 </font>

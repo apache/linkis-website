@@ -3,8 +3,8 @@ title: ICLA Signing Process
 sidebar_position: 7
 ---
 
-## Apache Sign ICLA Guide {#apache-sign-icla-guide}
-Note: This article refers to the Apache icla signing process guide document of the incubator-shenyu-website project https://shenyu.apache.org/community/icla
+## Apache sign icla guide {#apache-sign-icla-guide}
+Note: This article refers to the Apache icla signing process guide document of the shenyu-website project https://shenyu.apache.org/community/icla
 
 Apache CLA short for Apache Contributor License Agreement, the purpose of this agreement is to clearly define the terms under which intellectual property has been contributed to the ASF and thereby allow us to defend the project should there be a legal dispute regarding the software at some future time.
 A signed ICLA is required to be on file before an individual is given commit rights to any ASF project.
@@ -32,15 +32,16 @@ Apache only accept hand-written signature or [PDF signature software](https://sm
 
 ![sign](https://user-images.githubusercontent.com/29391030/153529853-e6869cd4-7193-4403-8ebe-3d5b65e1d310.png)
 
-**5.After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor (The email address is `secretary@apache.org`), here is the mail template:**
+**5. After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor (The email address is `secretary@apache.org`), here is the mail template:**
 
 ```html
 To: secretary@apache.org
+Cc: private@linkis.apache.org
 Subject: Accept to become a linkis committer
 Content:
 
-Hello Apache Incubator:
-    I have accepted the Apache Linkis(Incubator) PPMC 
+Hello everyone:
+    I have accepted the Apache Linkis PMC 
 invitation to become linkis committer, the attachment 
 is my ICLA information.
 Thanks!
@@ -50,9 +51,9 @@ Here is a specific example:
 
 ![example](../static/img/community/email-example.png)
 
-**6.After the email is sent successfully, Apache ShenYu official community informs**
+**6. After the email is sent successfully, Apache Linkis official community informs**
 
-## Manual signature and PDF software signature Demo {#manual-signature-and-pdf-software-signature-demo}
+## Manual signature and PDF software signature demo {#manual-signature-and-pdf-software-signature-demo}
 
 > PDF online signature
 > - Download the PDF source file
@@ -70,4 +71,4 @@ Here is a specific example:
 > - Convert photos into **single pdf** file
 > - Send to the specified mailbox
 
-For example files, please refer to https://github.com/casionone/incubator-linkis-website/tree/dev/resource/wangming-icla.pdf
+For example files, please refer to https://github.com/casionone/linkis-website/tree/dev/resource/wangming-icla.pdf

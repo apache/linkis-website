@@ -6,14 +6,14 @@ sidebar_position: 10
 This article mainly introduces the configuration, deployment and use of pipeline (>=1.1.0 version support) engine.
 
 
-## 1 Configuration and deployment
+## 1. Configuration and deployment
 
 ### 1.1 Version selection and compilation
 Note: before compiling the `pipeline`engine, you need to compile the linkis project in full
 Currently, the `pipeline` engine needs to be installed and deployed by itself
 
 This engine plug-in is not included in the published installation and deployment package by default,
-You can follow this guide to deploy the installation https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin
+You can follow this guide to deploy the installation https://linkis.apache.org/blog/2022/04/15/how-to-download-engineconn-plugin
 Or manually compile the deployment according to the following process
 
 Compile separately`pipeline` 
@@ -25,7 +25,7 @@ mvn clean install
 
 ### 1.2 Material deployment and loading
 
-将 1.1 The engine package compiled in step, located in
+The engine package compiled in step 1.1 is located in
 
 ```bash
 ${linkis_code_dir}/linkis-engineconn-plugins/engineconn-plugins/pipeline/target/out/pipeline
@@ -65,7 +65,7 @@ Linkis1.XIt is carried out through labels, so it is necessary to insert data int
 [EngineConnPlugin Engine plug-in installation](../deployment/engine-conn-plugin-installation) 
 
 
-## 2 Use of engine
+## 2. Use of engine
 
 ### 2.1 Task submission via linkis cli
 

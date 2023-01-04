@@ -10,8 +10,8 @@ This article mainly refers to Docusaurus' official [blog post specifications and
 <!--truncate-->
 ## Resource path
 
-- Chinese blog post warehouse path: https://github.com/apache/incubator-linkis-website/tree/dev/i18n/zh-CN/docusaurus-plugin-content-blog
-- English blog post warehouse path: https://github.com/apache/incubator-linkis-website/tree/dev/blog
+- Chinese blog post warehouse path: https://github.com/apache/linkis-website/tree/dev/i18n/zh-CN/docusaurus-plugin-content-blog
+- English blog post warehouse path: https://github.com/apache/linkis-website/tree/dev/blog
 
 Each blog post needs to support both Chinese and English. Please do not omit the corresponding English documents when submitting.
 

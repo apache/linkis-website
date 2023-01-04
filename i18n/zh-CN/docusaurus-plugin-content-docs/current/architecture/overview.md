@@ -1,6 +1,6 @@
 ---
 title: 总览
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 Linkis 1.0 将所有微服务总体划分为三大类：公共增强服务、计算治理服务、微服务治理服务。如下图所示为Linkis 1.0 的架构图。
@@ -18,11 +18,9 @@ Linkis 1.0 将所有微服务总体划分为三大类：公共增强服务、计
 
 以下是 Linkis1.0 架构文档的目录列表：
 
-1. Linkis1.0在架构上的特点，请阅读[Linkis1.0 与 Linkis0.x 的区别](difference-between-1.0-and-0.x)。
+1. Linkis1.0公共增强服务相关文档，请阅读[公共增强服务](feature/public-enhancement-services/overview.md)。
 
-2. Linkis1.0公共增强服务相关文档，请阅读[公共增强服务](public-enhancement-services/overview.md)。
+2. Linkis1.0微服务治理相关文档，请阅读[微服务治理](service-architecture/overview.md)。
 
-3. Linkis1.0微服务治理相关文档，请阅读[微服务治理](microservice-governance-services/overview.md)。
-
-4. Linkis1.0提出的计算治理服务相关文档，请阅读 [计算治理服务](computation-governance-services/overview.md)。
+3. Linkis1.0提出的计算治理服务相关文档，请阅读 [计算治理服务](feature/computation-governance-services/overview.md)。
 

@@ -96,7 +96,7 @@ INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = labe
 | wds.linkis.presto.http.readTimeout     | 60                    | Presto 客户端的 read timeout（单位：秒）    | false |
 | wds.linkis.engineconn.concurrent.limit | 100                   | Presto 引擎最大并发数                       | false |
 
-## 3 引擎的使用
+## 3. 引擎的使用
 
 ### 3.1 准备操作
 

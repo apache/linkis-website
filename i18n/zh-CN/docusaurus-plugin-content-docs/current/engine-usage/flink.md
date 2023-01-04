@@ -1,17 +1,20 @@
 ---
-title: Flink 引擎
-sidebar_position: 8
+title: Flink
+sidebar_position: 6
 ---
 
 # Flink 引擎使用文档
 
-本文主要介绍在Linkis1.X中，flink引擎的配置、部署和使用。
+本文主要介绍在 `Linkis` 中，`flink` 引擎插件的安装、使用和配置。
 
-## 1.Flink引擎使用前的环境配置
+## 1. 前置工作
+### 1.1 引擎环境配置
 
-如果您希望在您的服务器上使用Flink引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
+如果您希望在您的服务器上使用 `Flink` 引擎，您需要保证以下的环境变量已经设置正确并且引擎的启动用户是有这些环境变量的。
 
-强烈建议您在执行flink任务之前，检查下执行用户的这些环境变量。具体方式是
+### 1.2 引擎验证
+
+强烈建议您在执行 `Flink` 任务之前，检查下执行用户的这些环境变量。具体方式是
 ```
 sudo su - ${username}
 echo ${JAVA_HOME}
@@ -27,69 +30,85 @@ echo ${FLINK_HOME}
 | FLINK_CONF_DIR  | Flink配置路径  | 必须,如 ${FLINK_HOME}/conf                                   |
 | FLINK_LIB_DIR  | Flink包路径  | 必须,${FLINK_HOME}/lib                                   |
 
-表1-1 环境配置清单
 
-## 2.Flink引擎的配置和部署
+## 2. 引擎插件安装
 
-### 2.1 Flink版本的选择和编译
+### 2.1 引擎插件准备（二选一）[非默认引擎](./overview.md)
 
-Linkis 1.0.2及以上支持的Flink版本是Flink1.12.2,理论上Linkis 1.0.2+可以支持各个版本的Flink,但是Flink各个版本之前的API变化太大,可能需要您按照API的变化修改Linkis中flink引擎的代码并重新编译。
+方式一：直接下载引擎插件包
 
-### 2.2 Flink engineConn部署和加载
-注意: 编译flink引擎之前需要进行linkis项目全量编译  
-Linkis Flink引擎默认在Linkis1.0.2+不会安装，需要您手动进行编译并进行安装。
+[Linkis 引擎插件下载](https://linkis.apache.org/zh-CN/blog/2022/04/15/how-to-download-engineconn-plugin)
+
+方式二：单独编译引擎插件（需要有 `maven` 环境）
 
 ```
-单独编译flink的方式
-${linkis_code_dir}/linkis-engineconn-plugins/flink/
+# 编译
+cd ${linkis_code_dir}/linkis-engineconn-plugins/flink/
 mvn clean install
+# 编译出来的引擎插件包，位于如下目录中
+${linkis_code_dir}/linkis-engineconn-plugins/flink/target/out/
 ```
-安装方式是将编译出来的引擎包,位置在
-```bash
-${linkis_code_dir}/linkis-engineconn-plugins/flink/target/flink-engineconn.zip
-```
-然后部署到
+
+[EngineConnPlugin 引擎插件安装](../deployment/install-engineconn.md)
+
+### 2.2 引擎插件的上传和加载
+
+将 2.1 中的引擎插件包上传到服务器的引擎目录下
 ```bash 
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
-并重启linkis-engineplugin
+上传后目录结构如下所示
+```
+linkis-engineconn-plugins/
+├── flink
+│   ├── dist
+│   │   └── v1.12.2
+│   │       ├── conf
+│   │       └── lib
+│   └── plugin
+│       └── 1.12.2
+```
+### 2.3 引擎刷新
+
+#### 2.3.1 重启刷新
+通过重启 `linkis-cg-linkismanager` 服务刷新引擎
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
-```
-engineplugin更详细的介绍可以参看下面的文章。  
-https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation
-### 2.3 Flink引擎的标签
-
-Linkis1.X是通过标签来进行的，所以需要在我们数据库中插入数据，插入的方式如下文所示。
-
-[EngineConnPlugin引擎插件安装](../deployment/engine-conn-plugin-installation) 
-
-## 3.Flink引擎的使用
-
-### 准备操作，队列设置
-
-Linkis1.X的Flink引擎是通过flink on yarn的方式进行启动的,所以需要指定用户使用的队列。指定队列的方式如图3-1所示。
-
-![yarn](https://user-images.githubusercontent.com/29391030/168045831-80836172-a582-48cd-b15d-c343b958cd75.png)  
-
-图3-1 队列设置
-
-### 准备知识,Flink引擎的两种使用方式
-Linkis的Flink引擎有两种执行方式，一种是ComputationEngineConn方式，该方式主要是在DSS-Scriptis或者Streamis-Datasource进行使用，用于调试采样，验证flink代码的正确性;另一种方式是OnceEngineConn方式，该方式主要是用于在Streamis生产中心用于启动一个流式应用。
-
-### 准备知识，FlinkSQL的Connector插件
-FlinkSQL可以支持多种数据源,例如binlog,kafka,hive等,如果您想要在Flink代码中使用这些数据源，您需要将这些connector的插件jar包放置到flink引擎的lib中，并重启下Linkis的EnginePlugin服务。如你想要在您的FlinkSQL中使用binlog作为数据源，那么您需要将flink-connector-mysql-cdc-1.1.1.jar放置到flink引擎的lib中。
-```bash 
-cd ${LINKS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart cg-linkismanager
 ```
 
-### 3.1 ComputationEngineConn方式
+### 2.3.2 检查引擎是否刷新成功
+可以查看数据库中的 `linkis_engine_conn_plugin_bml_resources` 这张表的 `last_update_time` 是否为触发刷新的时间。
 
-为了方便大家进行采样调试，我们在Scriptis新增了fql的脚本类型，专门用于执行FlinkSQL。但是需要保证您的DSS已经升级到DSS1.0.0。升级到DSS1.0.0之后，您可以直接进入Scriptis，新建fql脚本进行编辑和执行。
+```sql
+#登陆到linkis的数据库 
+select * from linkis_cg_engine_conn_plugin_bml_resources;
+```
 
-FlinkSQL的编写示例,以binlog为例
+
+## 3. Flink引擎的使用
+
+`Linkis` 的 `Flink` 引擎是通过 `flink on yarn` 的方式进行启动的,所以需要指定用户使用的队列，如下图所示。
+
+![yarn](./images/yarn-conf.png)  
+
+### 3.1 通过 `Linkis-cli` 提交任务
+
+```shell
+sh ./bin/linkis-cli -engineType flink-1.12.2 \
+-codeType sql -code "show tables"  \
+-submitUser hadoop -proxyUser hadoop
+```
+
+更多 `Linkis-Cli` 命令参数参考： [`Linkis-Cli` 使用](../user-guide/linkiscli-manual.md)
+
+### 3.2 通过 `ComputationEngineConn` 提交任务
+
+`FlinkSQL` 可以支持多种数据源,例如 `binlog` , `kafka` , `hive` 等,如果您想要在 `Flink` 代码中使用这些数据源，您需要将这些 `connector` 的插件 `jar` 包放置到 `Flink` 引擎的 `lib` 中，并重启下 `Linkis` 的 `EnginePlugin` 服务。如你想要在您的 `FlinkSQL` 中使用 `binlog` 作为数据源，那么您需要将 `flink-connector-mysql-cdc-1.1.1.jar` 放置到 `Flink` 引擎的 `lib` 中。
+
+为了方便大家进行采样调试，我们在 `Scriptis` 新增了 `fql` 的脚本类型，专门用于执行 `FlinkSQL` 。但是需要保证您的 `DSS` 已经升级到 `DSS1.0.0` 。升级到 `DSS1.0.0` 之后，您可以直接进入 `Scriptis` ，新建 `fql` 脚本进行编辑和执行。
+
+`FlinkSQL` 的编写示例,以 `binlog` 为例
 ```sql
 CREATE TABLE mysql_binlog (
  id INT NOT NULL,
@@ -107,22 +126,11 @@ CREATE TABLE mysql_binlog (
 );
 select * from mysql_binlog where id > 10;
 ```
-在Scriptis中使用select语法进行调试的时候，Flink引擎会有一个自动cancel的机制，即到了指定的时间或者采样的行数到了指定的数量，Flink引擎将会主动将任务cancel，并且将已经获取到的结果集持久化，然后前端会调用打开结果集的接口将结果集在前端进行展示。
+在 `Scriptis` 中使用 `select` 语法进行调试的时候，`Flink` 引擎会有一个自动 `cancel` 的机制，即到了指定的时间或者采样的行数到了指定的数量，`Flink` 引擎将会主动将任务 `cancel` ，并且将已经获取到的结果集持久化，然后前端会调用打开结果集的接口将结果集在前端进行展示。
 
+### 3.3 通过 `OnceEngineConn` 提交任务
 
-### 3.2 通过Linkis-cli进行任务提交
-
-Linkis 1.0后提供了cli的方式提交任务，我们只需要指定对应的EngineConn和CodeType标签类型即可，Hive的使用如下：
-```shell
-sh ./bin/linkis-cli -engineType flink-1.12.2 -codeType sql -code "show tables"  -submitUser hadoop -proxyUser hadoop
-```
-
-具体使用可以参考： [Linkis CLI Manual](../user-guide/linkiscli-manual.md).
-
-
-### 3.3 OnceEngineConn方式
-
-OnceEngineConn的使用方式是用于正式启动Flink的流式应用,具体的是通过LinkisManagerClient调用LinkisManager的createEngineConn的接口，并将代码发给创建的Flink引擎，然后Flink引擎就开始执行，此方式可以被其他系统进行调用，比如Streamis。Client的使用方式也很简单，首先新建一个maven项目，或者在您的项目中引入以下的依赖
+`OnceEngineConn` 的使用方式是用于正式启动 `Flink` 的流式应用,具体的是通过 `LinkisManagerClient` 调用 `LinkisManager` `的createEngineConn` 的接口，并将代码发给创建的 `Flink` 引擎，然后 `Flink` 引擎就开始执行，此方式可以被其他系统进行调用，比如 `Streamis` 。 `Client` 的使用方式也很简单，首先新建一个 `maven` 项目，或者在您的项目中引入以下的依赖。
 ```xml
 <dependency>
     <groupId>org.apache.linkis</groupId>
@@ -130,12 +138,12 @@ OnceEngineConn的使用方式是用于正式启动Flink的流式应用,具体的
     <version>${linkis.version}</version>
 </dependency>
 ```
-然后新建scala测试文件,点击执行，就完成了从一个binlog数据进行解析并插入到另一个mysql数据库的表中。但是需要注意的是，您必须要在maven项目中新建一个resources目录，放置一个linkis.properties文件，并指定linkis的gateway地址和api版本，如
+然后新建 `scala` 测试文件,点击执行，就完成了从一个 `binlog` 数据进行解析并插入到另一个 `mysql` 数据库的表中。但是需要注意的是，您必须要在 `maven` 项目中新建一个 `resources` 目录，放置一个 `linkis.properties` 文件，并指定 `linkis` 的 `gateway` 地址和 `api` 版本，如
 ```properties
 wds.linkis.server.version=v1
 wds.linkis.gateway.url=http://ip:9001/
 ```
-```scala
+```java
 object OnceJobTest {
   def main(args: Array[String]): Unit = {
     val sql = """CREATE TABLE mysql_binlog (

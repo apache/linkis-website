@@ -11,17 +11,17 @@ Before asking for help, please take a moment to confirm that there are already q
 
 <!--
 ## Github-Discussion Questions
-Entry: https://github.com/apache/incubator-linkis/discussions
-Question template: https://github.com/apache/incubator-linkis/discussions/2548
-step1: Review the template and notes and requirements https://github.com/apache/incubator-linkis/discussions/2548
+Entry: https://github.com/apache/linkis/discussions
+Question template: https://github.com/apache/linkis/discussions/2548
+step1: Review the template and notes and requirements https://github.com/apache/linkis/discussions/2548
 
 step2 Copy the template content
 -->
 
 
-## Method 1 Github-Issue ask questions (recommended)
+## 1.Method 1 Github-issue ask questions (recommended)
 
-### Precautions
+### 1.1 Precautions
 :::caution note
 - Please ask questions in a standardized format, so that the community students can answer them. After asking questions, please continue to pay attention to your questions.
 - Please note that in addition to screenshots, please <font color="red">paste the error log into </font> in text form, only the problem of the picture log will not be given priority to answer
@@ -30,7 +30,7 @@ step2 Copy the template content
 - If it is an error during the running phase, please attach a screenshot of the Eureka registry service list
 :::
 
-### Attachment & image upload
+### 1.2 Attachment & image upload
 If you want to attach a file attachment, drag and drop it into the comment box. Or click the bar at the bottom of the comment box to browse, select, and add files from your computer.
 ![img](/Images/community/upload-file.png)
 
@@ -41,8 +41,8 @@ In many browsers you can copy and paste the image directly into the box
 The log file should not exceed 25MB
 :::
     
-### Completion Instructions
-- Entry: https://github.com/apache/incubator-linkis/issues
+### 2.Completion instructions
+- Entry: https://github.com/apache/linkis/issues
 
 ** Step1: Enter the issue column, click to create issue **
 
@@ -66,7 +66,7 @@ The log file should not exceed 25MB
 
 
 
-## Method 2 Email consultation
+## 3.Method 2 email consultation
 
 Email Question Process
 

@@ -172,7 +172,7 @@ public class LinkisClientTest {
 
 运行上述的代码即可以完成任务提交/执行/日志/结果集获取等
 
-## 3. Scala测试代码：
+## 3. Scala测试代码
 ```scala
 package org.apache.linkis.client.test
 

@@ -13,7 +13,7 @@ sidebar_position: 2
 - It is recommended to control the version through the soft chain. You can switch the version by modifying the target address of the soft chain. For example: `linkis -> /appcom/Install/LinkisInstall/linkis-1.1.3.20220615210213`
 - The upgrade process mainly requires attention to the adjustment of the database table structure and the adjustment of some configuration parameters
 - In addition to the upgrade of the back-end services, the management console resources of linkis also need to be upgraded together
-- The main changes of each version can be found in the overview information of the version `https://linkis.apache.org/zh-CN/docs/x.x.x/release` and the version [release-note](https://linkis.apache .org/zh-CN/download/main): https://linkis.apache.org/zh-CN/download/main
+- The main changes of each version can be found in the overview information of the version `https://linkis.apache.org/docs/x.x.x/release` and the version [release-note](https://linkis.apache .org/download/main): https://linkis.apache.org/download/main
 - The database changes/configuration parameter changes of each version are based on the previous version
 
 ## 2 Service upgrade installation

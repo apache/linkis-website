@@ -7,11 +7,12 @@ tags: [engine,guide]
 
 考虑到发布包的大小和大家使用插件的情况，linkis发布的二进制安装包中只包含了部分常用引擎/hive/spark/python/shell，
 非常用引擎，项目代码中有对应的模块`flink/io_file/pipeline/sqoop`(不同版本之间可能有区别)，
-为了方便大家使用，基于linkis每个版本的release分支代码: https://github.com/apache/incubator-linkis, 编译出这部分引擎，供大家选择使用。
+为了方便大家使用，基于linkis每个版本的release分支代码: https://github.com/apache/linkis, 编译出这部分引擎，供大家选择使用。
 
  ## 下载链接  
 | **linkis版本** |  **包含的引擎** |**引擎物料包下载链接** |
 |:---- |:---- |:---- |
+|1.3.0|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>|[1.3.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.3.0-engineconn-plugin.tar)|
 |1.2.0|jdbc<br/>pipeline<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>|[1.2.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.2.0-engineconn-plugin.tar)|
 |1.1.3|jdbc<br/>pipeline<br/>flink<br/>openlookeng<br/>sqoop|[1.1.3-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.1.3-engineconn-plugin.tar)|
 |1.1.2|jdbc<br/>pipeline<br/>flink<br/>openlookeng<br/>sqoop|[1.1.2-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.1.2-engineconn-plugin.tar)|
@@ -47,5 +48,5 @@ cd 1.0.3-engineconn-plugin
 
 将需要要使用的引擎物料包拷贝至linkis的引擎插件目录，然后刷新引擎物料即可
 
-详细流程参考[安装 EngineConnPlugin 引擎](https://linkis.apache.org/zh-CN/docs/latest/deployment/engine-conn-plugin-installation)。
+详细流程参考[安装 EngineConnPlugin 引擎](https://linkis.apache.org/zh-CN/docs/latest/deployment/install-engineconn)。
 
