@@ -248,7 +248,7 @@ After receiving the notification email that the account was created successfully
 - [linkis-website](https://linkis.apache.org/team) related page update
 
 
-For detailed instructions, see [PMC/Committer Related Permission Configuration](ppmc-related-permission-configuration.md)
+For detailed instructions, see [PMC/Committer Related Permission Configuration](pmc-related-permission-configuration.md)
 
 If you want to make a public appearance in the Apache GitHub organization, you need to go to the [Apache GitHub people page](https://github.com/orgs/apache/people),
 Search for yourself, then select `Organization visibility` for `Public`.

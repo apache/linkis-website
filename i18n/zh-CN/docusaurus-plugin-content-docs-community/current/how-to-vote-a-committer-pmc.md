@@ -263,7 +263,7 @@ for more information about roles at Apache.
 - 使用【GitBox Account Linking Utility】（https://gitbox.apache.org/setup/）获取Linkis项目的写权限。
 - [linkis-website](https://linkis.apache.org/team)相关页面更新
 
-详细指引见[PMC/Committer 相关权限配置](ppmc-related-permission-configuration.md)
+详细指引见[PMC/Committer 相关权限配置](pmc-related-permission-configuration.md)
 
 如果您想在 Apache GitHub 组织中公开露面，您需要前往 [Apache GitHub 人员页面](https://github.com/orgs/apache/people)，
 搜索自己，然后选择`Organization visibility`为`Public`。

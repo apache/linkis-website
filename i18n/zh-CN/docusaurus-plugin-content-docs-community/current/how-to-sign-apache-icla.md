@@ -34,10 +34,11 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 
 ```html
 To: secretary@apache.org
+Cc: private@linkis.apache.org
 Subject: Accept to become a linkis committer
 Content:
 
-Hello Apache Linkis PMC:
+Hello everyone:
     I have accepted the Apache Linkis PMC 
 invitation to become linkis committer, the attachment 
 is my ICLA information.

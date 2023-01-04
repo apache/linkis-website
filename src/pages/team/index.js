@@ -25,11 +25,11 @@ export default function() {
     }
 
 
-    const sortToShowPPMC = () =>{
-          config.ppmc.sort((a, b) =>{
+    const sortToShowPMC = () =>{
+          config.pmc.sort((a, b) =>{
             return a.publicName.localeCompare(b.publicName)
           })
-          return  config.ppmc.map((item, i) => (
+          return  config.pmc.map((item, i) => (
                <tr>
                    <td align="left"><a href={'https://people.apache.org/committer-index.html#'+ item.apacheId} target="_blank" rel="noopener noreferrer">{item.apacheId}</a></td>
                    <td align="left">{item.githubId}</td>
@@ -61,7 +61,7 @@ export default function() {
         <br/>
         <p className="normal-desc" dangerouslySetInnerHTML={{__html:dataSource.info.desc}}></p>
         <br></br>
-        <h3 className="normal-title">PPMC({config.ppmc.length+config.mentor.length})</h3>
+        <h3 className="normal-title">PMC({config.pmc.length+config.mentor.length})</h3>
         <p className="normal-desc">{dataSource.info.tip}</p>
 
         <table>
@@ -78,7 +78,7 @@ export default function() {
             }
 
             {
-             sortToShowPPMC()
+             sortToShowPMC()
             }
            </tbody>
         </table>

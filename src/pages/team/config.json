@@ -24,11 +24,6 @@
       "apacheId": "shaofengshi",
       "githubId": "shaofengshi",
       "publicName": "Shao Feng Shi"
-    },
-    {
-      "apacheId": "allenlliu",
-      "githubId": "liuyou2",
-      "publicName": "You Liu"
     }
   ],
   "committer": [
@@ -73,12 +68,17 @@
       "publicName": "Yang Bao"
     },
     {
+      "apacheId": "allenlliu",
+      "githubId": "liuyou2",
+      "publicName": "You Liu"
+    },
+    {
       "apacheId": "zhiqiangtao",
       "githubId": "jacktao007",
       "publicName": "Zhiqiang Tao"
     }
   ],
-  "ppmc": [
+  "pmc": [
     {
       "apacheId": "alexkun",
       "githubId": "Alexkun",
