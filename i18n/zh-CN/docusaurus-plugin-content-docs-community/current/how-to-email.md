@@ -14,8 +14,8 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 邮件的主题可以大体分为以下几种类型
 - **\[DISCUSS]**  针对某一特性/功能/逻辑修改/CI/CD的讨论，可以是实现方式/设计/优化建议等等 
 - **\[PROPOSAL]** 提案，如新增/移除某些功能，和\[DISCUSS]区别并不大
-- **\[VOTE]**     对变更的投票/推选Committer/推选新的PPMC成员等，比如版本的发布，每个版本都会在社区dev邮件列表进行投票；也可以进行多种方案的选择时，发起投票。
-- **\[ANNOUNCE]** 宣布新版本完成发布，宣布推选出的新Committer/PPMC等
+- **\[VOTE]**     对变更的投票/推选Committer/推选新的PMC成员等，比如版本的发布，每个版本都会在社区dev邮件列表进行投票；也可以进行多种方案的选择时，发起投票。
+- **\[ANNOUNCE]** 宣布新版本完成发布，宣布推选出的新Committer/PMC等
 - **\[NOTICE]** 主要用来通知一些临时公告等，如社区沙箱环境停服维修/升级，web官网出现服务异常不可用等；以及线上线下周会/交流会以及各种活动信息公告等
 - **\[HELP]**   寻求帮助, 因为git的代码通知比较多，有时无法及时查阅到；另外github网络访问受限，可能有些同学无法顺利的通过github提交issue。通过邮件发起，更容易辨别和被感知到。
 - **\[VOTE]\[RESULT]** 宣布版本发布投票的结果 
@@ -27,7 +27,7 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 ** 通用规范 **
 
 - 尽可能不要发送纯 HTML 内容，而是发送纯文本。如果使用QQ邮箱，其邮件内容默认使用的是html格式，编写时请先切换至纯文本格式，详细切换指引见本文附录
-- 开发者/社区用户/PPMC成员针对以上场景的内容，发起邮件讨论/需求帮助/通知事宜等，请发送至dev@linkis.apache.org邮箱
+- 开发者/社区用户/PMC成员针对以上场景的内容，发起邮件讨论/需求帮助/通知事宜等，请发送至dev@linkis.apache.org邮箱
 - 邮件标题前请带上对应的类型前缀：如`[HELP] XXXXXXX`,`[DISCUSS] XXXXXXX`
 
 更多可以参阅官方[邮件规范](https://infra.apache.org/contrib-email-tips) https://infra.apache.org/contrib-email-tips
@@ -36,7 +36,7 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 ** 回复规范**
 
 - 邮件内容末尾，最好带上自己的署名(英文)
-- 如果是回复投票类的邮件，最好带上是否具有约束性的标识(PPMC/IPMC成员投的票具有约束性，可以加上 binding后缀 如：`+1 approve(binding)`;
+- 如果是回复投票类的邮件，最好带上是否具有约束性的标识(PMC成员投的票具有约束性，可以加上 binding后缀 如：`+1 approve(binding)`;
 普通成员投的票，无约束性，可以加上 non-binding后缀 如：`+1 approve(non-binding)` )
 - 由于部分邮箱如:163/sina 在进行邮件回复时，默认是带上的中文`回复`会导致apache 邮件识别为一封新线程邮件 
 如：https://lists.apache.org/thread/otfftdtbq0z9xsddnl7wb8tgzkhqcnof， 无法将整个邮件的线程串联起来，
@@ -84,12 +84,12 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 ** \[HELP] 示例** 
 - 寻求帮助:https://lists.apache.org/thread/br03lmd3n73lbc6n0lzcmqjbvy960wvf
 
-## 4. PPMC的邮件使用
+## 4. PMC的邮件使用
 从一个版本的确定到发布，可能会涉及具体的使用邮件的常见场景
 1. 新版本需要组织PMC和开发者进行讨论，需要记录会议纪要，确定此版本功能点，计划的大体发布时间，以及本次的release manager等，并发送会议纪要private@linkis.apache.org 邮件列表。
 2. 对于新版本的特性列表范围，需要发送投票邮件至dev@linkis.apache.org邮箱中，并需要3+ PMC同意且同意票大于反对票。
 3. 主持的周例会，会议前需要发布会议邀约提醒邮件/会议后要发送会议纪要邮件至dev@linkis.apache.org邮箱中
-4. 新的committer/ppmc投票需要发送投票邮件至private@linkis.apache.org邮箱中。新的committer/ppmc推选流程见 https://community.apache.org/newcommitter.html
+4. 新的committer/PMC投票需要发送投票邮件至private@linkis.apache.org邮箱中。新的committer/PMC推选流程见 https://community.apache.org/newcommitter.html
 
 ## 5. 版本发布投票邮件的回复
 如果发起了发布投票，验证后(详细验证流程见[如何验证](how-to-verify.md))，可以参照此回复示例进行邮件回复
@@ -97,10 +97,10 @@ Linkis的存档邮件可以在此处查看[存档邮件](https://lists.apache.or
 <font color="red">
 回复的邮件一定要带上自己检查了那些项信息，仅仅回复`+1 approve`，是无效的。
 
-PPMC/IPMC成员，投票时请带上 binding后缀，表示具有约束性投票，方便统计投票结果
+PMC成员，投票时请带上 binding后缀，表示具有约束性投票，方便统计投票结果
 </font>
 
-非PPMC/IPMC成员
+非PMC成员
 ```html
 +1 (non-binding)
 I  checked:
@@ -111,7 +111,7 @@ I  checked:
     5. ....
 ```
 
-PPMC/IPMC成员
+PMC成员
 ```html
 +1 (binding)
 I  checked:

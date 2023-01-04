@@ -44,7 +44,7 @@ For more information, please refer to the official [Mail Etiquette](https://infr
 ** Reply **
 
 - At the end of the email content, it is best to bring your own signature (English)
-- If it is a reply to a voting email, it is best to bring a binding mark (votes cast by PPMC/IPMC members are binding, you can add a binding suffix such as: `+1 approve(binding)`;
+- If it is a reply to a voting email, it is best to bring a binding mark (votes cast by PMC members are binding, you can add a binding suffix such as: `+1 approve(binding)`;
 Votes cast by ordinary members, non-binding, can be added with non-binding suffix such as: `+1 approve(non-binding)` )
 - When some mailboxes such as: 163/sina reply to emails, the default is to bring the Chinese `reply`, which will cause the apache email to be recognized as a new thread email
 For example: https://lists.apache.org/thread/otfftdtbq0z9xsddnl7wb8tgzkhqcnof, the threads of the entire mail cannot be connected in series,
@@ -92,13 +92,13 @@ Therefore, it is necessary to modify the configuration of the email reply. For d
 ** \[HELP] Example**
 - For help: https://lists.apache.org/thread/br03lmd3n73lbc6n0lzcmqjbvy960wvf
 
-## 4. Mail usage of PPMC
+## 4. Mail usage of PMC
 
 From the determination of a version to the release, it may involve specific common scenarios of using email
 1. The new version needs to organize PMC and developers to discuss, record the minutes of the meeting, determine the function points of this version, the general release time of the plan, and the release manager of this time, etc., and send the meeting minutes private@linkis.apache.org Email list.
 2. For the scope of the feature list of the new version, you need to send a voting email to dev@linkis.apache.org, and 3+ PMCs are required to agree and the yes votes are greater than the negative votes.
 3. For the weekly regular meeting hosted, the meeting invitation reminder email needs to be released before the meeting / the meeting minutes email should be sent to the dev@linkis.apache.org mailbox after the meeting
-4. New committer/ppmc votes need to be sent to private@linkis.apache.org. See https://community.apache.org/newcommitter.html for the new committee/ppmc selection process
+4. New committer/PMC votes need to be sent to private@linkis.apache.org. See https://community.apache.org/newcommitter.html for the new committee/PMC selection process
 
 
 ## 5. How to reply to version release voting emails
@@ -108,10 +108,10 @@ If you initiate a posting vote, you can refer to this response example to reply 
 <font color="red">
 When replying to the email, you must bring the information that you have checked by yourself. Simply replying to `+1 approve` is invalid.
 
-PPMC/IPMC member voting is best with the binding suffix, indicating a binding vote, which is convenient for counting voting results
+PMC member voting is best with the binding suffix, indicating a binding vote, which is convenient for counting voting results
 </font>
 
-Non-PPMC/Non-IPMC member
+Non-PMC member
 ```html
 +1 (non-binding)
 I checked:
@@ -122,7 +122,7 @@ I checked:
      5.  
 ````
 
-PPMC/IPMC member
+PMC member
 ```html
 +1 (binding)
 I checked:

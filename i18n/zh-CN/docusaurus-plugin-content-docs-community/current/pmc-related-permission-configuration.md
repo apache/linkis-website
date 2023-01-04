@@ -1,8 +1,8 @@
 ---
-title: PPMC/Committer 相关权限配置
+title: PMC/Committer 相关权限配置
 sidebar_position: 8
 ---
-> PPMC(Podling Project Management Committee)成员,绑定github账号流程/以及主要邮件订阅
+> PMC(Podling Project Management Committee)成员,绑定github账号流程/以及主要邮件订阅
 
 ## 1. 绑定github账号流程
 
@@ -101,13 +101,13 @@ Server: mail-relay.apache.org Port: 587 (STARTTLS), 465 (SSL) User/Pass: {Your L
 
 
 ### 2.2 订阅相关邮件列表
-作为PPMC一员 需要积极参与到社区建设中，推动社区健康发展，承当项目的责任和治理工作,这部分工作很多时候是通过邮件方式进行（讨论/投票/答疑等）,
-每一位PPMC成员都需要订阅以下邮件列表:
+作为PMC一员 需要积极参与到社区建设中，推动社区健康发展，承当项目的责任和治理工作,这部分工作很多时候是通过邮件方式进行（讨论/投票/答疑等）,
+每一位PMC成员都需要订阅以下邮件列表:
 
 |名称|描述|订阅邮件|退订邮件|邮件归档|
 |:-----|:--------|:------|:-------|:-----|
 | [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | linkis的社区活动信息,项目的讨论公告等 | [订阅](mailto:dev-subscribe@linkis.apache.org)   | [退订](mailto:dev-unsubscribe@linkis.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/linkis-dev)   |
-| [private@linkis.apache.org](mailto:private@linkis.apache.org) |此邮件列表是不公开的，PPMC内部可见，主要用于内部讨论 | [订阅](mailto:private-subscribe@linkis.apache.org)   | [退订](mailto:private-unsubscribe@linkis.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/linkis-private)   |
+| [private@linkis.apache.org](mailto:private@linkis.apache.org) |此邮件列表是不公开的，PMC内部可见，主要用于内部讨论 | [订阅](mailto:private-subscribe@linkis.apache.org)   | [退订](mailto:private-unsubscribe@linkis.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/linkis-private)   |
 | [general@incubator.apache.org](mailto:general@incubator.apache.org) | 孵化社区的公开邮件，主要是孵化项目的相关动态 | [订阅](mailto:general-subscribe@incubator.apache.org)   | [退订](mailto:general-unsubscribe@incubator.apache.org)   | [归档](http://mail-archives.apache.org/mod_mbox/general)   |
 
 订阅操作可以见指引[订阅邮件列表](how-to-subscribe.md)
@@ -119,4 +119,4 @@ Server: mail-relay.apache.org Port: 587 (STARTTLS), 465 (SSL) User/Pass: {Your L
 ![image](/img/community/subscribe.png)
 
 
-邮件列表订阅情况，PPMC成员可以在此查看:https://whimsy.apache.org/roster/ppmc/linkis
+邮件列表订阅情况，PMC成员可以在此查看:https://whimsy.apache.org/roster/committee/linkis#pmc 

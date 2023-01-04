@@ -17,9 +17,10 @@ If the network is poor, downloading may be time-consuming. The download is compl
 :::
 ```shell
 #If there is svn locally, you can clone to the local
-$ svn co https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/
+
+$ svn co https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/
 #or download the material file directly
-$ wget https://dist.apache.org/repos/dist/dev/incubator/linkis/${release_version}-${rc_version}/xxx.xxx
+$ wget https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/xxx.xxx
 
 ```
 ## 2. Verify that the uploaded version is compliant
@@ -38,7 +39,7 @@ First import the publisher's public key. Import KEYS from the svn repository to 
 
 #### 2.2.1 Import public key
 ```shell
-$ curl  https://downloads.apache.org/incubator/linkis/KEYS > KEYS # Download KEYS
+$ curl  https://downloads.apache.org/linkis/KEYS > KEYS # Download KEYS
 $ gpg --import KEYS # Import KEYS to local
 ```
 #### 2.2.2 Trust the public key

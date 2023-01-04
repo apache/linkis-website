@@ -1,11 +1,11 @@
 ---
-title: How to Vote New Committer/PPMC
+title: How to Vote New Committer/PMC
 sidebar_position: 6
 ---
-> Introduce the selection requirements and process for Committer and PPMC. Official guidelines can be found at: https://incubator.apache.org/guides/ppmc.html
+> Introduce the selection requirements and process for Committer and PMC. Official guidelines can be found at: https://community.apache.org/newcommitter.html
 
 ## 1. Candidate requirements
-When voting, all PPMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
+When voting, all PMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
 
 Below are some points to consider when evaluating candidates for commitment eligibility.
 1. Ability to develop collaboration with the community?
@@ -22,40 +22,40 @@ Below are some points to consider when evaluating candidates for commitment elig
    - Have a solid general understanding of the project
    - Quality of discussions in emails
    - Are their patches (if applicable) easy to apply with just a cursory review
-5. PPMC competency requirements
+5. PMC competency requirements
    - Have a more comprehensive understanding of the project
    - Ability to control project progress and version quality
    - Actively participate in/lead the construction of the community, promote the healthy development of the community, and take the initiative to undertake the responsibility and governance of the project
    - Respond proactively to questions raised by the ASF Board and take necessary action
    - Familiar with the release process of ASF
 
-In most cases, new PPMC members are nominated from the Committer team. But it is also possible to become a member of the PPMC directly, as long as the PPMC agrees to the nomination and is confident that the candidate is ready. This can be demonstrated, for example, by the fact that he/she was an Apache member, an Apache official, or a PPMC member of another project.
+In most cases, new PMC members are nominated from the Committer team. But it is also possible to become a member of the PMC directly, as long as the PMC agrees to the nomination and is confident that the candidate is ready. This can be demonstrated, for example, by the fact that he/she was an Apache member, an Apache official, or a PMC member of another project.
 
 ## 2. Detailed process of recommendation
 
 :::tip
 ${Candidate Name}: represents the electee eg: Joe Bloggs
 
-${Committer/PPMC}: represents the type of Committer/PPMC
+${Committer/PMC}: represents the type of Committer/PMC
 :::
 
 ### 2.1 Initiate community mail discussion
 
->Any linkis PPMC member can initiate a voting discussion. After PPMC finds any valuable contributions from community contributors and obtains the consent of the candidate, they can initiate a discussion on the linkis private mailing list. In the discussion email, the proposer should clarify the candidate's contribution and give the address for reviewing the corresponding contribution, so that everyone can discuss and analyze. The discussion email should be sent to private@linkis.apache.org. The discussion will last for at least 72 hours. The project team members, including the mentors, will fully express their views on the proposed email.
+>Any linkis PMC member can initiate a voting discussion. After PMC finds any valuable contributions from community contributors and obtains the consent of the candidate, they can initiate a discussion on the linkis private mailing list. In the discussion email, the proposer should clarify the candidate's contribution and give the address for reviewing the corresponding contribution, so that everyone can discuss and analyze. The discussion email should be sent to private@linkis.apache.org. The discussion will last for at least 72 hours. The project team members, including the mentors, will fully express their views on the proposed email.
 
 Here is a sample discussion email:
 
 ```html
 To: private@linkis.apache.org
-Subject: [DISCUSS] ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
+Subject: [DISCUSS] ${Candidate Name} as an Linkis ${Committer/PMC} candidate
 Content:
 
 Hi all:
-    I nominate ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
+    I nominate ${Candidate Name} as an Linkis ${Committer/PMC} candidate
  
     Judging from the contributions in recent months, ${Candidate Name} has submitted many implementations[1],[2] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in in the actual project optimization and improvement, to let the project more perfect and easier to use.
   
-    So I nominated ${Candidate Name} as ${Committer/PPMC} of the Linkis project.
+    So I nominated ${Candidate Name} as ${Committer/PMC} of the Linkis project.
   
     1. https://github.com/apache/linkis/issues/created_by/${Candidate Githubid} 
     2. https://github.com/apache/linkis/commits?author=${Candidate Githubid} 
@@ -65,17 +65,17 @@ Thanks!
 ````
     
 ### 2.2 Initiate a community mail poll
->If the discussion email does not receive any disagreement information within the specified time, the vote initiator needs to initiate a Committer or PPMC election vote on the linkis private mailing list. The main voting email is sent to private@linkis.apache.org, which lasts for at least 72 hours, and requires at least 3 votes + 1 to pass; if there is 1 -1 vote, the entire vote will fail; if a -1 vote is initiated, the voter needs to put -1 The reasons are clearly stated so that everyone can understand and understand.
+>If the discussion email does not receive any disagreement information within the specified time, the vote initiator needs to initiate a Committer or PMC election vote on the linkis private mailing list. The main voting email is sent to private@linkis.apache.org, which lasts for at least 72 hours, and requires at least 3 votes + 1 to pass; if there is 1 -1 vote, the entire vote will fail; if a -1 vote is initiated, the voter needs to put -1 The reasons are clearly stated so that everyone can understand and understand.
 
 Here is a sample poll email:
 ```html
 To: private@linkis.apache.org
-Subject: [VOTE] ${Candidate Name} as an Linkis ${Committer/PPMC} candidate
+Subject: [VOTE] ${Candidate Name} as an Linkis ${Committer/PMC} candidate
 Content:
 Hi all:
     Judging from the contributions in recent months, ${Candidate Name} has submitted many implementations[1],[2],[3] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in the actual project optimization and improvement, to let the project more perfect and easier to use.
 
-    I think making him a ${Committer/PPMC} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PPMC}.
+    I think making him a ${Committer/PMC} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PMC}.
   
     Voting will continue for at least 72 hours or until the required number of votes is reached.
  
@@ -97,15 +97,15 @@ Thanks!
 Here is an example of voting results:
 ```html
 To: private@linkis.apache.org
-Subject: [RESULTS][VOTE] ${Candidate Name} as an Linkis ${Committer/PPMC}
+Subject: [RESULTS][VOTE] ${Candidate Name} as an Linkis ${Committer/PMC}
 Content:
 
 Hi all:
-    The vote for "${Candidate Name} as an Linkis ${Committer/PPMC}" has PASSED and closed now.
+    The vote for "${Candidate Name} as an Linkis ${Committer/PMC}" has PASSED and closed now.
 
     The result is as follows:
 
-    3 PPMC +1 Votes
+    3 PMC +1 Votes
     - aaa
     - bbb
     - ccc
@@ -118,24 +118,22 @@ Hi all:
     Thanks for everyone's support!
 Thanks!
 ````
-**Note: If it is not passed, the result is "The vote for "${Candidate Name} as an Linkis ${Committer/PPMC}" has FAILED and closed now."**
+**Note: If it is not passed, the result is "The vote for "${Candidate Name} as an Linkis ${Committer/PMC}" has FAILED and closed now."**
    
-### 2.4 Added PPMC notification email
-> This step is only for the new PPMC election process. If the Committer is elected, this step is skipped and not executed.
-> The initiator of the vote needs to send a notification email to the IPMC private@incubator.apache.org mailing group and wait for at least 72 hours;
-> Email to private@incubator.apache.org, cc private@linkis.apache.org; IPMCs will analyze compliance until there is no objection.
+### 2.4 Added PMC notification email
+> his step is only for the new PMC election process. If the Committer is elected, this step is skipped and not executed.
+> The initiator of the vote needs to send a notification email to the board@apache.org mailing group and wait at least 72 hours;
+> Email board@apache.org, cc private@linkis.apache.org; board will analyze compliance until there is no objection.
 
-Send to IPMC private@incubator.apache.org cc private@linkis.apache.org . There is a 72-hour grace period between the notification by the PPMC to the IPMC and the formal invitation by the PPMC to the proposed member
-
-The following is a sample notification email for adding a PPMC:
+The following is a sample notification email for adding a PMC:
 ```html
-To: private@incubator.apache.org
+To: board@apache.org
 Cc: private@linkis.apache.org
-Subject: [NOTICE] ${Candidate Name} for Linkis PPMC
+Subject: [NOTICE] ${Candidate Name} for Linkis PMC
 Content:
 Hi everyone,
 
-    ${Candidate Name} has been voted as a new member of the Linkis PPMC.
+    ${Candidate Name} has been voted as a new member of the Linkis PMC.
 
     The vote thread is at:
     https://lists.apache.org/thread/xx
@@ -143,7 +141,7 @@ Hi everyone,
 Thanks!
 ````
 
-After 72 hours, if the IPMC has no objection to the nomination (which in most cases will not), an invitation may be sent to the candidate.
+After 72 hours, if the board has no objection to the nomination (which in most cases will not), an invitation may be sent to the candidate.
 
 ### 2.5 Send email invitations to candidates
 > After announcing the voting results, the voting initiator should send an invitation email to the candidates. The invitation email is sent to the invitees, cc private@linkis.apache.org; the invited candidates must reply to accept or reject the invitation through the specified email address.
@@ -157,16 +155,16 @@ Subject: Invitation to become Linkis committer: Joe Bloggs
     
 Hello Joe Bloggs,
 
-    The Linkis Podling Project Management Committee] (PPMC)
+    The Linkis Podling Project Management Committee] (PMC)
     hereby offers you committer privileges to the project
-    [as well as membership in the PPMC]. These privileges are
+    [as well as membership in the PMC]. These privileges are
     offered on the understanding that you'll use them
     reasonably and with common sense. We like to work on trust
     rather than unnecessary constraints.
     
     Being a committer enables you to more easily make
     changes without needing to go through the patch
-    submission process. [Being a PPMC member enables you
+    submission process. [Being a PMC member enables you
     to guide the direction of the project.]
     
     Being a committer does not require you to
@@ -195,7 +193,7 @@ Hello Joe Bloggs,
         unique Apache ID. Look to see if your preferred
         ID is already taken at
         https://people.apache.org/committer-index.html
-        This will allow the Secretary to notify the PPMC
+        This will allow the Secretary to notify the PMC
         when your iCLA has been recorded.
     
     When recording of your iCLA is noted, you will
@@ -204,21 +202,21 @@ Hello Joe Bloggs,
 
     With the expectation of your acceptance, welcome!
 
-The Apache Linkis PPMC
+The Apache Linkis PMC
 ````
 
 ### 2.6 Invitation acceptance process
 >Requires candidates for processing
 
 The new Committer should reply to `private@linkis.apache.org` (select `reply all`) and express his/her acceptance of the invitation.
-The invitation will then be considered accepted by the project's PPMC. Of course, new committers can also choose to decline the invitation.
+The invitation will then be considered accepted by the project's PMC. Of course, new committers can also choose to decline the invitation.
 
 Once the invitation is accepted, new submitters must take the following steps:
 - Subscribe to `dev@linkis.apache.org`. Usually this is already done.
 - Choose an Apache ID that has not been used [apache committers list page](http://people.apache.org/committer-index.html).
 - Download [ICLA](https://www.apache.org/licenses/icla.pdf org/licenses/cla-corporate.pdf) is expected).
 - After filling in the correct information in `icla.pdf` (or `ccla.pdf`), print it, sign it by hand, scan it into PDF, and send it as an attachment to [secretary@apache.org] (email: secretary@apache.org). (If electronic signatures are preferred, follow the steps on [this page](http://www.apache.org/licenses/contributor-agreements.html#submitting))
-- PPMC will wait for the Apache Secretary to confirm ICLA (or CCLA) filing. New submitters and PPMC will receive the following email:
+- PMC will wait for the Apache Secretary to confirm ICLA (or CCLA) filing. New submitters and PMC will receive the following email:
 
 
 ```html
@@ -233,12 +231,12 @@ Please refer to https://www.apache.org/foundation/how-it-works.html#developers
 for more information about roles at Apache.
 ````
 
-In the unlikely event that the account has not been processed, PPMC members should contact the project [Apache Incubator's VP](https://www.apache.org/foundation/), which can be accessed through the [Apache Account Submission Helper Form](https://whismy. apache.org/officers/acreq) request.
+In the unlikely event that the account has not been processed, PMC members should contact the project [Apache Incubator's VP](https://www.apache.org/foundation/), which can be accessed through the [Apache Account Submission Helper Form](https://whismy. apache.org/officers/acreq) request.
 
 In a few days, new committers will receive an email confirming account creation with the title `Welcome to the Apache Software Foundation (ASF)!`.
 
-After receiving the notification email that the account was created successfully, you can reply to the previous invitation email again to inform Linkis PPMC that your Apache Id account has been created, and request that your Apache Id be added to Linkis' official submitter list.
-(Inform the PPMC responsible for nominating you to add the new committer to the official committer list via the [Roster](https://whismy.apache.org/roster/committee/linkis) page)
+After receiving the notification email that the account was created successfully, you can reply to the previous invitation email again to inform Linkis PMC that your Apache Id account has been created, and request that your Apache Id be added to Linkis' official submitter list.
+(Inform the PMC responsible for nominating you to add the new committer to the official committer list via the [Roster](https://whismy.apache.org/roster/committee/linkis) page)
 
 ### 2.7 Setting up apache id and development environment
 >Requires candidates for processing
@@ -250,7 +248,7 @@ After receiving the notification email that the account was created successfully
 - [linkis-website](https://linkis.apache.org/team) related page update
 
 
-For detailed instructions, see [PPMC/Committer Related Permission Configuration](ppmc-related-permission-configuration.md)
+For detailed instructions, see [PMC/Committer Related Permission Configuration](pmc-related-permission-configuration.md)
 
 If you want to make a public appearance in the Apache GitHub organization, you need to go to the [Apache GitHub people page](https://github.com/orgs/apache/people),
 Search for yourself, then select `Organization visibility` for `Public`.
@@ -261,24 +259,48 @@ Search for yourself, then select `Organization visibility` for `Public`.
 The following is a sample notification email:
 ```html
 To: dev@linkis.apache.org
-Subject: [ANNOUNCE] New ${Committer/PPMC}: ${Candidate Name}
+Subject: [ANNOUNCE] New ${Committer/PMC}: ${Candidate Name}
 Content:
 Hi all:
      Hi everyone,
 
-     The Project Management Committee(PMC) for Apache Linkis has invited ${Candidate Name} to become a ${Committer/PPMC} and we are pleased to announce that he has accepted.
+     The Project Management Committee(PMC) for Apache Linkis has invited ${Candidate Name} to become a ${Committer/PMC} and we are pleased to announce that he has accepted.
 
      ${Candidate Name} is being active in the Linkis community, and we are glad to see his more interactions with the community in the future.
 
      Welcome ${Candidate Name}, and please enjoy your journey. :)
 
 Thanks!
-The Apache Linkis PPMC
+The Apache Linkis PMC
 ````
    
-At this point, the whole process is over, and the candidate officially becomes the Committer or PPMC of the project.
+At this point, the whole process is over, and the candidate officially becomes the Committer or PMC of the project.
 
-## 4 Workflow summary
+## 4 Update project status
+step1 clong status record file 
+```shell script
+svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
+```
+
+step2 update news infomation in linkis.xml
+add committer information record 
+```shell script
+<section id="News">
+      <title>News</title>
+      <ul>
+<!--    <li>YYYY-MM-DD New committer: Fred Hampton</li>    -->
+        <li>2021-08-02 Project enters incubation.</li>
+        <li>2022-02-19 First Apache Linkis release v1.0.3</li>
+        <li>2022-02-24 New Committer: Chen Xia</li>
+        <li>2022-04-15 Apache Linkis release v1.1.0</li>
+
+      </ul>
+    </section>
+```
+step3 the information show in follow file after update 
+https://incubator.apache.org/projects/linkis.html
+
+## 5 Workflow summary
 
 1. Send emails with ICLA attachments
 

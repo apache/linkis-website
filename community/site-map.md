@@ -51,7 +51,7 @@ sidebar_position: 12
 - Linkis name application jira https://issues.apache.org/jira/projects/PODLINGNAMESEARCH/issues/PODLINGNAMESEARCH-192?filter=allissues
 - Project status file https://incubator.apache.org/projects/linkis.html
 
-- View ppmc mail and other information https://whhimsy.apache.org/roster/ppmc/linkis
+- View PMC mail and other information https://whimsy.apache.org/roster/committee/linkis#pmc 
 - project file https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/linkis.xml
 - podling file https://svn.apache.org/repos/asf/incubator/public/trunk/content/podlings/linkis.yml
 

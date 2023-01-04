@@ -1,9 +1,9 @@
 ---
-title: PPMC/Committer Related Permission Configuration
+title: PMC/Committer Related Permission Configuration
 sidebar_position: 8
 ---
 
-> PPMC (Podling Project Management Committee)/Committer member, bind github account process/and main email subscription
+> PMC (Podling Project Management Committee)/Committer member, bind github account process/and main email subscription
 
 ## 1. Binding github account process
 
@@ -101,13 +101,13 @@ Server: mail-relay.apache.org Port: 587 (STARTTLS), 465 (SSL) User/Pass: {Your L
 ![image](/img/community/mail-relay.png)
 
 ### 2.2 Subscribe to related mailing lists
-As a member of PPMC, you need to actively participate in community construction, promote the healthy development of the community, undertake the responsibility and governance of the project, and this part of the work is often carried out by email (discussion/voting/answering questions, etc.),
-Every PPMC member is required to subscribe to the following mailing lists:
+As a member of PMC, you need to actively participate in community construction, promote the healthy development of the community, undertake the responsibility and governance of the project, and this part of the work is often carried out by email (discussion/voting/answering questions, etc.),
+Every PMC member is required to subscribe to the following mailing lists:
 
 |Name|Description|Subscribe Mail|Unsubscribe Mail|Mail Archive|
 |:-----|:-------|:------|:-------|:-----|
 | [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | Linkis community activity information, project discussion announcements, etc. | [Subscribe](mailto:dev-subscribe@linkis.apache.org) | [unsubscribe](mailto:dev-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-dev) |
-| [private@linkis.apache.org](mailto:private@linkis.apache.org) |This mailing list is private, visible inside PPMC, mainly for internal discussions | [Subscribe](mailto:private-subscribe@ linkis.apache.org) | [unsubscribe](mailto:private-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-private) |
+| [private@linkis.apache.org](mailto:private@linkis.apache.org) |This mailing list is private, visible inside PMC, mainly for internal discussions | [Subscribe](mailto:private-subscribe@ linkis.apache.org) | [unsubscribe](mailto:private-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-private) |
 | [general@incubator.apache.org](mailto:general@incubator.apache.org) | Public emails from the incubator community, mainly related to incubation projects | [Subscribe](mailto:general-subscribe@incubator.apache. org) | [unsubscribe](mailto:general-unsubscribe@incubator.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/general) |
 
 Subscription operations can be found in the guide [Subscribe to the mailing list](how-to-subscribe.md)
@@ -119,4 +119,4 @@ If the above subscription is unsuccessful, you can try to use the web-side tool:
 ![image](/img/community/subscribe.png)
 
 
-Mailing list subscriptions, PPMC members can view here: https://whismy.apache.org/roster/ppmc/linkis
+Mailing list subscriptions, PMC members can view here: https://whimsy.apache.org/roster/committee/linkis#pmc 

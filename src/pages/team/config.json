@@ -68,12 +68,17 @@
       "publicName": "Yang Bao"
     },
     {
+      "apacheId": "allenlliu",
+      "githubId": "liuyou2",
+      "publicName": "You Liu"
+    },
+    {
       "apacheId": "zhiqiangtao",
       "githubId": "jacktao007",
       "publicName": "Zhiqiang Tao"
     }
   ],
-  "ppmc": [
+  "pmc": [
     {
       "apacheId": "alexkun",
       "githubId": "Alexkun",
@@ -148,11 +153,6 @@
       "apacheId": "seayi",
       "githubId": "seayi",
       "publicName": "Xiaohua Yi"
-    },
-    {
-      "apacheId": "allenlliu",
-      "githubId": "liuyou2",
-      "publicName": "You Liu"
     },
     {
       "apacheId": "wangzhen",
