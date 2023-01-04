@@ -48,7 +48,7 @@ Thanks!
 
 ![example](../../../../static/img/community/email-example.png)
 
-**6.邮箱发送成功之后Apache  linkis 官方社区告知下**
+**6.邮箱发送成功之后Apache Linkis 官方社区告知下**
 
 ## 手动签名和PDF软件签名DEMO
 

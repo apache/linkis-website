@@ -32,7 +32,7 @@ Apache only accept hand-written signature or [PDF signature software](https://sm
 
 ![sign](https://user-images.githubusercontent.com/29391030/153529853-e6869cd4-7193-4403-8ebe-3d5b65e1d310.png)
 
-**5.After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor (The email address is `secretary@apache.org`), here is the mail template:**
+**5. After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor (The email address is `secretary@apache.org`), here is the mail template:**
 
 ```html
 To: secretary@apache.org
@@ -50,7 +50,7 @@ Here is a specific example:
 
 ![example](../static/img/community/email-example.png)
 
-**6.After the email is sent successfully, Apache ShenYu official community informs**
+**6. After the email is sent successfully, Apache Linkis official community informs**
 
 ## Manual signature and PDF software signature demo {#manual-signature-and-pdf-software-signature-demo}
 
