@@ -1,5 +1,5 @@
 ---
-title: Linkis built-in time variable introduction
+title: Built In Time Variable
 sidebar_position: 7
 ---
 ## 1. General

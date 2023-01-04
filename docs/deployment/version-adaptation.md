@@ -1,3 +1,8 @@
+---
+title: Version Adaptation
+sidebar_position: 8
+---
+
 #  Version Adaptation 
 
 ## 1. Function description

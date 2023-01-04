@@ -18,7 +18,7 @@ Linkis supports specifying the user who submits and executes. The linkis main pr
 
 Take hadoop user as an example:
 
-First check whether there is already a hadoop user in the system. If it already exists, you can directly authorize it; if not, create a user first, and then authorize.
+First check whether there is already a hadoop user in the system. If it already exists, you can directly authorize it, if not, create a user first, and then authorize.
 
 Check if a hadoop user already exists
 ```shell script
@@ -410,9 +410,7 @@ sh bin/linkis-cli -submitUser hadoop -engineType python-python2 -codeType python
 If the verification fails, please refer to [Step 8] for troubleshooting
 
 ## 6 Installation of development tool IDE (Scriptis) (optional)
->After installing the Scripti tool, it can support writing SQL, Pyspark, HiveQL and other scripts online on the web page
-
-For detailed instructions, see [Installation and Deployment of Tool Scriptis](integrated/install-scriptis)
+After installing the Scripti tool, it can support writing SQL, Pyspark, HiveQL and other scripts online on the web page,For detailed instructions, see [Installation and Deployment of Tool Scriptis](integrated/install-scriptis)
 
 ## 7. Supported Engines
 

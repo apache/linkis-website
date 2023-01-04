@@ -1,5 +1,5 @@
 ---
-title: linkis目录结构
+title: 目录结构
 sidebar_position: 7
 ---
 
