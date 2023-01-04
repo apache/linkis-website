@@ -608,14 +608,14 @@ Hello Linkis Community,
     Maven artifacts are available in a staging repository at:
         https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
 
-	Git tag for the release:
+	Git branch for the release:
 	    https://github.com/apache/linkis/tree/${release_version}-${rc_version}
 
 	Keys to verify the Release Candidate:
 	    https://downloads.apache.org/linkis/KEYS
 
 	GPG user ID:
-	${YOUR.GPG.USER.ID}
+	    ${YOUR.GPG.USER.ID}
 
 	The vote will be open for at least 72 hours or until necessary number of votes are reached.
 
@@ -673,7 +673,7 @@ Hello Linkis Community,
     The detail of the modifications are as follows:
     
     1. Remove the file xxx
-    2. Removes the files be built from shenyu-dashboard
+    2. Removes the files be built from linkis-web
     
     Thanks a lot for all your help.
 

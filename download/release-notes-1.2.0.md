@@ -136,10 +136,10 @@ Abbreviations:
 + \[LM][[LINKIS-2688]](https://github.com/apache/linkis/issues/2688) Upgrade the default EngineType version of the flink ec
 + \[TOOL][[LINKIS-2701]](https://github.com/apache/linkis/issues/2701) Fix github repos page License display with Unknown licenses found
 
-## Security related
+## Security Related
 + \[SPRING][[LINKIS-2395]](https://github.com/apache/linkis/issues/2395) SynchronossPartHttpMessageReader should only create temp directory when needed (CVE-2022-2296)
 
-## Dependency changes
+## Dependency Changes
 + \[COMMON]\[CG]\[ECP][[LINKIS-2301]](https://github.com/apache/linkis/pull/2301) Update dependency to fix CVEs
 + \[CG][[LINKIS-2452]](https://github.com/apache/linkis/issues/2452) Upgrade oshi-core version
 
