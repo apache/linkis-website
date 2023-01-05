@@ -156,6 +156,7 @@ Archives: 0
 
 :::caution 注意：
 自2022.12.12起，受 Maven 中央仓库网络限制，阿里云云效 Maven 中央代理仓库可能会出现部分新增依赖查找不到的情况(https://developer.aliyun.com/mvn/search)
+如果出现阿里云镜像部分依赖无法下载情况，可使用默认仓库
 ::: 
 
 Mac OS/Linux
