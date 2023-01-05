@@ -16,7 +16,6 @@ Manually decompress: tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz
 The decompression directory is as follows.
 ```
 ├── config.sh
-├── DISCLAIMER
 ├── dist
 ├── install.sh
 ├── LICENSE

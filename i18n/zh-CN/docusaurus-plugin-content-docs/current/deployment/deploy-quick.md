@@ -57,7 +57,6 @@ $ tar -xvf apache-linkis-x.x.x-incubating-bin.tar.gz
 -rw-r--r-- 1 hadoop hadoop 531847342 Feb 21 10:10 apache-linkis-1.0.3-incubating-bin.tar.gz
 drwxrwxr-x 2 hadoop hadoop      4096 Feb 21 10:13 bin  //执行环境检查和安装的脚本
 drwxrwxr-x 2 hadoop hadoop      4096 Feb 21 10:13 deploy-config // 部署时依赖的DB等环境配置信息
--rw-r--r-- 1 hadoop hadoop      1707 Jan 22  2020 DISCLAIMER-WIP
 -rw-r--r-- 1 hadoop hadoop     66058 Jan 22  2020 LICENSE
 drwxrwxr-x 2 hadoop hadoop     16384 Feb 21 10:13 licenses
 drwxrwxr-x 7 hadoop hadoop      4096 Feb 21 10:13 linkis-package // 实际的软件包，包括lib/服务启动脚本工具/db的初始化脚本/微服务的配置文件等
