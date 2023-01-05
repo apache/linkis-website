@@ -57,7 +57,6 @@ The unzipped directory structure is as follows
 -rw-r--r-- 1 hadoop hadoop 531847342 Feb 21 10:10 apache-linkis-1.0.3-incubating-bin.tar.gz
 drwxrwxr-x 2 hadoop hadoop 4096 Feb 21 10:13 bin //Script to perform environment check and install
 drwxrwxr-x 2 hadoop hadoop 4096 Feb 21 10:13 deploy-config // Environment configuration information such as DB that depends on deployment
--rw-r--r-- 1 hadoop hadoop 1707 Jan 22 2020 DISCLAIMER-WIP
 -rw-r--r-- 1 hadoop hadoop 66058 Jan 22 2020 LICENSE
 drwxrwxr-x 2 hadoop hadoop 16384 Feb 21 10:13 licenses
 drwxrwxr-x 7 hadoop hadoop 4096 Feb 21 10:13 linkis-package // The actual package, including lib/service startup script tool/db initialization script/microservice configuration file, etc.

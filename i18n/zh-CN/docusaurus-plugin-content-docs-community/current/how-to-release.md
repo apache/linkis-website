@@ -521,35 +521,13 @@ $ svn commit -m "prepare for 1.1.2-RC1"
 若svn命令出现中文乱码，可尝试设置编码格式(设置编码格式:export LANG=en_US.UTF-8)。
  
  
-## 4 验证物料包&创建git tag
+## 4 验证物料包
 
 ### 4.1 验证流程 
 
 准备的物料最好在window和类unix系统中都进行验证，避免系统兼容问题 如换行符问题
 
 详细可以参见[How to Verify release](/how-to-verify.md)
-
-### 4.2 创建git tag
-
-验证无误后，可以创建git tag
-
-:::caution 注意
-git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确保前面步骤相关的验证都没问题。
-:::
-
-**step1 创建新的 github release**
-
-进入到创建页面 https://github.com/apache/linkis/releases/new
-基于之前`release-1.1.2-rc1`分支创建名为`1.1.2-rc1`的tag，
-填写标题`Apache Linkis Release-1.1.2-RC1`，并勾选`This is a pre-release`，将该版本的release notes链接写入
-
-![image](https://user-images.githubusercontent.com/7869972/180214706-7228e5ae-f810-4e07-80fc-67fcf01688eb.png)
-
-**step2 检查**
-
-![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
-
-
 
 ## 5 发起投票
 
@@ -564,14 +542,10 @@ git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确
 所有指向校验和、签名和公钥的链接都必须引用Apache主网站https://downloads.apache.org/并应使用https://(SSL)。
 例如：https://downloads.apache.org/linkis/KEYS
 
-目前是用的DISCLAIMER-WIP免责申明，请在邮件中加入此说明`As the DISCLAIMER-WIP shows....`。
-如果后续解决了WIP待处理的问题后，可以去掉。WIP的使用，详细可见 https://issues.apache.org/jira/browse/LEGAL-469
-
-
 :::
 
 
-> Linkis 已经孵化毕业，自需要进行社区投票
+> Linkis 已经孵化毕业，只需要进行社区投票
 
 - Linkis 社区投票，发送邮件至：`dev@linkis.apache.org`
 - 在社区投票的邮件正文中的${Linkis Release Manager}，填写负责本次发布的人员，一般是邮件发送人，如`Shuai Di`
@@ -731,6 +705,7 @@ ${Linkis Release Manager}
 ## 6 正式发布
 
 ### 6.1 迁移源码与二进制包
+
 :::caution 注意
 release的分支路径名不能带rc标识
 :::
@@ -770,7 +745,6 @@ $ svn delete https://dist.apache.org/repos/dist/release/linkis/${last_release_ve
 
 > 等仓库同步到其他数据源，一般需要24小时
 
-
 ### 6.4 更新下载页面
 
 <font color='red'>中英文文档都要更新</font>
@@ -786,11 +760,31 @@ linkis的官网下载地址应该指向apache的官方地址
 ```shell script
 
 ```
-### 6.5 GitHub 版本发布
+### 6.5 GitHub 版本创建
 
-1. 合并`${release_version}-RC`分支到`master`分支(如果未合并)
-2. 打正式版本tag，投票过程中的RC版本tag可以移除
-3. 在 [GitHub Releases](https://github.com/apache/linkis/releases) 页面，更新版本号及版本说明等
+:::caution 注意
+git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确保前面步骤都没问题。
+:::
+
+
+**step1 创建新的 github release**
+
+进入到创建页面 https://github.com/apache/linkis/releases/new
+基于之前`release-1.1.2-rc1`分支创建名为`1.1.2`的tag，
+填写标题`Apache Linkis Release-1.1.2`，将该版本的release notes `https://linkis.apache.org/download/release-notes-1.1.2`链接写入
+
+```shell script
+Release-1.1.2 
+Release Notes: https://linkis.apache.org/download/release-notes-1.1.2
+
+```
+![image](https://user-images.githubusercontent.com/7869972/210697538-2568c05f-20a5-4487-94f9-9e053116ba0e.png)
+
+**step2 检查**
+
+![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
+
+**step3  合并`${release_version}-RC`分支到`master`分支(如果未合并)**
 
 
 ## 7 邮件通知版本发布完成

@@ -16,7 +16,6 @@ Linkis 提供了单独的前端管理台功能，提供了展示历史任务的�
 解压后目录为：
 ```
 ├── config.sh
-├── DISCLAIMER
 ├── dist
 ├── install.sh
 ├── LICENSE

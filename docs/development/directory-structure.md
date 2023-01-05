@@ -116,7 +116,6 @@ sidebar_position: 0
 │ └── modify_license.sh
 ├── CONTRIBUTING_CN.md
 ├── CONTRIBUTING.md
-├── DISCLAIMER
 ├── linkis-tree.txt
 ├── mvnw
 ├── mvnw.cmd
@@ -147,7 +146,6 @@ sidebar_position: 0
 │ ├── lib
 │ └── sbin
 ├── NOTICE
-├── DISCLAIMER
 ├── LICENSE
 ├── README_CN.md
 └── README.md

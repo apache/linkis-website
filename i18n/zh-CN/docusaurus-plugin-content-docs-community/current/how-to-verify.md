@@ -153,6 +153,12 @@ Archives: 0
 
 
 #### 2.4.2 项目源码编译验证
+
+:::caution 注意：
+自2022.12.12起，受 Maven 中央仓库网络限制，阿里云云效 Maven 中央代理仓库可能会出现部分新增依赖查找不到的情况(https://developer.aliyun.com/mvn/search)
+如果出现阿里云镜像部分依赖无法下载情况，可使用默认仓库
+::: 
+
 Mac OS/Linux
 ```shell
 $ ./mvnw -N install  
@@ -227,7 +233,6 @@ $ cd apache-linkis-${release_version}-bin
 
 进行如下检查：
 - [ ] 存在`LICENSE`和`NOTICE`文件
-- [ ] 存在`DISCLAIMER`或`DISCLAIMER-WIP`文件
 - [ ] `NOTICE`文件中的年份正确
 - [ ] 所有文本文件开头都有ASF许可证
 - [ ] 检查第三方依赖许可证：
@@ -281,6 +286,5 @@ I  checked:
 如果你有安装maven工具，你可以使用自己的mvn命令替换 ./mvnw或则mvnw.cmd
 
 mvnw是Maven Wrapper的缩写。它可以支持运行 Maven 项目，而无需安装 Maven 并配置环境变量。如果找不到它，它会根据配置文件，下载对应的 Maven 版本
-
 
 </font>
