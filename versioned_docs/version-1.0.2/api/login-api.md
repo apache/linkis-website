@@ -13,7 +13,7 @@ Enter the /conf/linkis-spring-cloud-services/linkis-mg-gateway directory and exe
 
 Add LDAP related configuration:  
 ```bash
-wds.linkis.ldap.proxy.url=ldap://127.0.0.1:389/ #LDAP service URL
+wds.linkis.ldap.proxy.url=ldap://127.0.0.1:1389/ #LDAP service URL
 wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com #Configuration of LDAP service    
 ```    
 

@@ -15,7 +15,7 @@ sidebar_position: 2
 
 添加LDAP相关配置：
 ```bash
-wds.linkis.ldap.proxy.url=ldap://127.0.0.1:389/ # 您的LDAP服务URL
+wds.linkis.ldap.proxy.url=ldap://127.0.0.1:1389/ # 您的LDAP服务URL
 wds.linkis.ldap.proxy.baseDN=dc=webank,dc=com # 您的LDAP服务的配置    
 ```    
     
