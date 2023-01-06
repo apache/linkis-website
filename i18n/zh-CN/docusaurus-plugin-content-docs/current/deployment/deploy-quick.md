@@ -156,7 +156,7 @@ SPARK_CONF_DIR=/appcom/config/spark-config
 #### LDAP 登录配置（可选）
 
 :::caution 注意
-默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)。
+默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)。
 :::
 
 
