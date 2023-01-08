@@ -69,7 +69,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── openlookeng
 │   ├── dist
-│   │   └── v1.5.0
+│   │   └── 1.5.0
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

@@ -20,7 +20,7 @@ hive #引擎主目录，必须为引擎的名字
 │           └── linkis-engineplugin-hive-1.0.0.jar  #引擎模块包（只需要放置单独的引擎包）
 ├── python
 │   ├── dist
-│   │   └── vpython2
+│   │   └── python2
 │   └── plugin
 │       └── python2 #版本为python2 任务请求参数的engineTypee 为python-python2
 

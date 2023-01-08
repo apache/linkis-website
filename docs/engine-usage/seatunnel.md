@@ -68,11 +68,11 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── seat tunnel
 │ ├── dist
-│ │ └── v2.1.2
-│ │ ├── conf
-│ │ └── lib
+│ │ └── 2.1.2
+│ │     ├── conf
+│ │     └── lib
 │ └── plugin
-│ └── 2.1.2
+│   └── 2.1.2
 ```
 
 ### 2.3 Engine refresh

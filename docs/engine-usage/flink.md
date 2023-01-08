@@ -60,13 +60,13 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 The directory structure after uploading is as follows
 ```
 linkis-engineconn-plugins/
-├── big
-│   ├── dist
-│ │ └── v1.12.2
-│   │       ├── conf
-│ │ └── lib
-│   └── plugin
-│ └── 1.12.2
+├── flink
+│   ├── dist
+│   │   └── 1.12.2
+│   │       ├── conf
+│   │       └── lib
+│   └── plugin
+│       └── 1.12.2
 ```
 ### 2.3 Engine refresh
 

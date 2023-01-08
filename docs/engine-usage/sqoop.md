@@ -74,11 +74,11 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── sqoop
 │ ├── dist
-│ │ └── v1.4.6
-│ │ ├── conf
-│ │ └── lib
+│ │ └── 1.4.6
+│ │     ├── conf
+│ │     └── lib
 │ └── plugin
-│ └── 1.4.6
+│   └── 1.4.6
 ```
 
 ### 2.3 Engine refresh

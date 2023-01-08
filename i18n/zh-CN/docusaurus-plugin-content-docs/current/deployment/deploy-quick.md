@@ -446,17 +446,17 @@ linkis-package/lib/linkis-engineconn-plugins/
 │       └── 2.3.3
 ├── python
 │   ├── dist
-│   │   └── vpython2
+│   │   └── python2
 │   └── plugin
 │       └── python2 #版本为python2 engineType 为python-python2
 ├── shell
 │   ├── dist
-│   │   └── v1
+│   │   └── 1
 │   └── plugin
 │       └── 1
 └── spark
     ├── dist
-    │   └── v2.4.3
+    │   └── 2.4.3
     └── plugin
         └── 2.4.3
 ```

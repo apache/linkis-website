@@ -67,13 +67,13 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 The directory structure after uploading is as follows
 ```
 linkis-engineconn-plugins/
-├── triune
-│   ├── dist
-│ │ └── v371
-│   │       ├── conf
-│ │ └── lib
-│   └── plugin
-│ └── 371
+├── trino
+│   ├── dist
+│   │   └── 371
+│   │       ├── conf
+│   │       └── lib
+│   └── plugin
+│       └── 371
 ```
 
 ### 2.3 Engine refresh

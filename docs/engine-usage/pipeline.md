@@ -33,12 +33,12 @@ The directory structure after uploading is as follows
 ```
 linkis-engineconn-plugins/
 ├── pipeline
-│   ├── dist
-│ │ └── v1
-│   │       ├── conf
-│ │ └── lib
-│   └── plugin
-│ └── 1
+│   ├── dist
+│   │   └── 1
+│   │       ├── conf
+│   │       └── lib
+│   └── plugin
+│       └── 1
 ```
 ### 1.3 Engine refresh
 

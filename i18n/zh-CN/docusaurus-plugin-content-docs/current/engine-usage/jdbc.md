@@ -63,7 +63,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── jdbc
 │   ├── dist
-│   │   └── v4
+│   │   └── 4
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

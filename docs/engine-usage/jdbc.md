@@ -62,12 +62,12 @@ The directory structure after uploading is as follows
 ```
 linkis-engineconn-plugins/
 ├── jdbc
-│   ├── dist
-│ │ └── v4
-│   │       ├── conf
-│ │ └── lib
-│   └── plugin
-│ └── 4
+│   ├── dist
+│   │   └── 4
+│   │       ├── conf
+│   │       └── lib
+│   └── plugin
+│       └── 4
 ```
 
 ### 2.3 Engine refresh

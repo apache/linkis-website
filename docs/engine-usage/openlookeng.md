@@ -69,12 +69,12 @@ The directory structure after uploading is as follows
 ```
 linkis-engineconn-plugins/
 ├── openlookeng
-│   ├── dist
-│ │ └── v1.5.0
-│   │       ├── conf
-│ │ └── lib
-│   └── plugin
-│ └── 1.5.0
+│   ├── dist
+│   │   └── 1.5.0
+│   │       ├── conf
+│   │       └── lib
+│   └── plugin
+│       └── 1.5.0
 ```
 
 ### 2.3 Engine refresh

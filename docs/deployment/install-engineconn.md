@@ -12,7 +12,7 @@ In order to facilitate the EngineConnManager to be loaded into the corresponding
 ```
 hive: engine home directory, must be the name of the engine
 └── dist # Dependency and configuration required for engine startup, different versions of the engine need to be in this directory to prevent the corresponding version directory
-    └── v1.2.1 #Must start with ‘v’ and add engine version number ‘1.2.1’
+    └── 1.2.1 #Must start with ‘v’ and add engine version number ‘1.2.1’
         └── conf # Configuration file directory required by the engine
         └── lib # Dependency package required by EngineConnPlugin
 └── plugin #EngineConnPlugin directory, this directory is used for engine management service package engine startup command and resource application

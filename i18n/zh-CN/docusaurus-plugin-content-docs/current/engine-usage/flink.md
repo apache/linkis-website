@@ -62,7 +62,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── flink
 │   ├── dist
-│   │   └── v1.12.2
+│   │   └── 1.12.2
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

@@ -69,12 +69,12 @@ ${linkis_code_dir}/linkis-engineconn-plugins/sqoop/target/out/
 ```bash 
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
-上传后目录结构如下所示
+上传后目录结构如下所示:
 ```
 linkis-engineconn-plugins/
 ├── sqoop
 │   ├── dist
-│   │   └── v1.4.6
+│   │   └── 1.4.6
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin
