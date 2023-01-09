@@ -30,7 +30,8 @@ if (TokenAuthentication.isTokenRequest(gatewayContext)) {
     //普通的用户名密码认证    
 }
 ```
-可用的token以及对应可使用的ip相关信息数据存储在表`linkis_mg_gateway_auth_token`中，详细见[表解析说明](development/table/all#16-linkis_mg_gateway_auth_token)，非实时更新，
+可用的token以及对应可使用的ip相关信息数据存储在表`linkis_mg_gateway_auth_token`中，
+详细见[表解析说明](../development/table/all#16-linkis_mg_gateway_auth_token)，非实时更新，
 会定期`wds.linkis.token.cache.expire.hour`(默认间隔12小时)刷新到服务内存中 
 
 
@@ -53,7 +54,7 @@ if (TokenAuthentication.isTokenRequest(gatewayContext)) {
 #### 示例
 
 请求地址:
-http://127.0.0.1:9001/api/rest_j/v1/entrance/submit
+`http://127.0.0.1:9001/api/rest_j/v1/entrance/submit`
 
 body参数:
 ```json
@@ -80,7 +81,7 @@ Token-User:hadoop
 
 linkis 提供的客户端认证方式都支持Token策略模式`new TokenAuthenticationStrategy()`
 
-详细可以参考[SDK 方式](user-guide/sdk-manual)
+详细可以参考[SDK 方式](../user-guide/sdk-manual)
 
 #### 示例
 ```java

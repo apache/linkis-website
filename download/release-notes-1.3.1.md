@@ -103,4 +103,8 @@ Abbreviations:
 
 ## Thanks
 The release of Apache Linkis 1.3.1 is inseparable from the contributors of the Linkis community, thanks to all community contributors, including but not limited to the following Contributors (in no particular order):
-AaronLinOops, Alexkun, jacktao007, legendtkl, peacewong, casionone, QuintinTao, cydenghua, jackxu2011, ruY9527, huiyuanjjjjuice, binbinCheng, yyuser5201314, Beacontownfc, duhanmin, whiterxine, aiceflower, weipengfei-sj, zhaoyun006, CCweixiao, Beacontownfc, mayinrain
+Alexkun, Beacontownfc, Davidhua1996, GuoPhilipse, KangTomwk, QuintinTao, aiceflower, aiceflower, 
+binbinCheng, casionone, chenmutime, dingsheng339, dlimeng, gdams, guoshupei, huangKai-2323,
+huangxiaopingRD, hunter-cloud09, hzdhgf, jacktao007, jackxu2011, jefftlin, legendtkl, liuzhuang2017, 
+lvjianhui, mayinrain, peacewong, pjfanning, ruY9527, utopianet, ws00428637, yyuser5201314,
+zhangwejun, zhangxn8, zhaoyun006, 

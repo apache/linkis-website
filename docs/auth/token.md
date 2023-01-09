@@ -30,7 +30,8 @@ if (TokenAuthentication.isTokenRequest(gatewayContext)) {
      //Common username and password authentication
 }
 ```
-Available tokens and corresponding ip-related information data are stored in the table `linkis_mg_gateway_auth_token`, see [table analysis description] (development/table/all#16-linkis_mg_gateway_auth_token) for details, non-real-time update,
+Available tokens and corresponding ip-related information data are stored in the table `linkis_mg_gateway_auth_token`, 
+see [table analysis description] (../development/table/all#16-linkis_mg_gateway_auth_token) for details, non-real-time update,
 Periodically `wds.linkis.token.cache.expire.hour` (default interval 12 hours) is refreshed into the service memory
 
 
@@ -53,7 +54,7 @@ The constructed http request method needs to add `Token-Code`, `Token-User` para
 #### Example
 
 Request address:
-http://127.0.0.1:9001/api/rest_j/v1/entrance/submit
+`http://127.0.0.1:9001/api/rest_j/v1/entrance/submit`
 
 body parameter:
 ```json
@@ -80,7 +81,7 @@ Token-User: hadoop
 
 The client authentication methods provided by linkis all support the Token strategy mode `new TokenAuthenticationStrategy()`
 
-For details, please refer to [SDK method](user-guide/sdk-manual)
+For details, please refer to [SDK method](../user-guide/sdk-manual)
 
 #### Example
 ```java
@@ -104,7 +105,9 @@ For details, please refer to [SDK method](user-guide/sdk-manual)
 ## 3 Notes
 
 ### 3.1 token configuration
-Supported tokens, the corresponding available users/applicable requester ip are controlled by the table `linkis_mg_gateway_auth_token`, the loading is not updated in real time, and the caching mechanism is used
+Supported tokens, the corresponding available users/applicable requester ip are controlled by the table `linkis_mg_gateway_auth_token`, 
+the loading is not updated in real time, and the caching mechanism is used
  
 ### 3.2 Administrator permission token
-For the restriction of high-risk operations, the token of the administrator role is required to operate, and the format of the administrator token is `admin-xxx`
+For the restriction of high-risk operations, the token of the administrator role is required to operate, 
+and the format of the administrator token is `admin-xxx`

@@ -63,6 +63,6 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 ## 场景3 数据源功能中hive数据源 
 
 如果需要连接的hive数据源，对应的 hive 集群环境，有开启kerberos认证，需要在配置集群环境时，将kerberos以及keytab认证文件信息上传。
-[iamge](Images-zh/auth/dsm-kerberos.png)
+[iamge](/Images-zh/auth/dsm-kerberos.png)
 
 

@@ -63,4 +63,4 @@ sh sbin/linkis-daemon.sh restart cg-linkismanager
 ## Scenario 3 The hive data source in the data source function
 
 If the hive data source that needs to be connected and the corresponding hive cluster environment has kerberos authentication enabled, you need to upload the kerberos and keytab authentication file information when configuring the cluster environment.
-[iamge](Images-zh/auth/dsm-kerberos.png)
+[iamge](/Images-zh/auth/dsm-kerberos.png)
