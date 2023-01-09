@@ -93,12 +93,6 @@ The simplified directory structure of Linkis 1.0 is as follows.
 │ ├── linkis-ps-bml-gc.log
 │ ├── linkis-ps-bml.log
 │ ├── linkis-ps-bml.out
-│ ├── linkis-ps-cs-gc.log
-│ ├── linkis-ps-cs.log
-│ ├── linkis-ps-cs.out
-│ ├── linkis-ps-datasource-gc.log
-│ ├── linkis-ps-datasource.log
-│ ├── linkis-ps-datasource.out
 │ ├── linkis-ps-publicservice-gc.log
 │ ├── linkis-ps-publicservice.log
 │ └── linkis-ps-publicservice.out
@@ -109,9 +103,6 @@ The simplified directory structure of Linkis 1.0 is as follows.
 │ ├── linkis\_cg-linkismanager.pid ──linkis manager microservice
 │ ├── linkis\_mg-eureka.pid ──eureka microservice
 │ ├── linkis\_mg-gateway.pid ──gateway microservice
-│ ├── linkis\_ps-bml.pid ──material library microservice
-│ ├── linkis\_ps-cs.pid ──Context microservice
-│ ├── linkis\_ps-datasource.pid ──Data source microservice
 │ └── linkis\_ps-publicservice.pid ──public microservice
 └── sbin ──microservice start and stop script directory
     ├── ext ──Start and stop script directory of each microservice
@@ -135,9 +126,6 @@ After modifying the configuration items, you can start the microservice in the s
 ├── linkis-cg-linkismanager  ──computing governance management service
 ├── linkis-mg-eureka  ──microservice registry service
 ├── linkis-mg-gateway  ──Linkis gateway service
-├── linkis-ps-bml  ──material library service
-├── linkis-ps-cs  ──context service
-├── linkis-ps-datasource  ──data source service
 └── linkis-ps-publicservice  ──public service
 ````
 **Microservice abbreviation**:

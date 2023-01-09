@@ -32,9 +32,6 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 |engineplugin|cg-engineplugin|
 |cg-engineconnmanager|cg-engineconnmanager|
 |entrance|cg-entrance|
-|bml|ps-bml|
-|contextservice|ps-cs|
-|datasource|ps-datasource|
 |configuration||
 |microservice||
 |jobhistory|ps-publicservice|
@@ -75,27 +72,6 @@ applicationName是应用名，通过应用名查找归属的微服务，去对�
 >服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance.log`
 >
 >服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance.out`
-
-- ps-bml：
->GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml-gc.log`
->
->服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.log`
->
->服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.out`
-
-- ps-cs：
->GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs-gc.log`
->
->服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.log`
->
->服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.out`
-
-- ps-datasource：
->GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource-gc.log`
->
->服务日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource.log`
->
->服务的System.out日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource.out`
 
 - ps-publicservice：
 >GC日志：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice-gc.log`

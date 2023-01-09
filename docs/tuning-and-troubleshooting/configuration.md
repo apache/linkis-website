@@ -229,7 +229,6 @@ The general configuration can be set in the global `linkis.properties`. One sett
 |-------| -------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------- |
 |v1.1.0 | wds.linkis.server.mdm.service.lib.dir | /lib/linkis-public-enhancements/linkis-ps-metadatamanager/service | Set the relative path of the data source jar package that needs to be loaded, which will be reflected call |
 |v1.1.0 | wds.linkis.server.mdm.service.instance.expire-in-seconds | 60 | Set the expiration time for loading sub-services, the service will not be loaded after this time |
-|v1.1.0 | wds.linkis.server.dsm.app.name | linkis-ps-data-source-manager | Set the service for obtaining data source information |
 |v1.1.0 | wds.linkis.server.mdm.service.kerberos.principle | hadoop/HOST@EXAMPLE.COM | set kerberos principle for linkis-metadata hive service |
 |v1.1.0 | wds.linkis.server.mdm.service.user | hadoop | set the access user of hive service |
 |v1.1.0 | wds.linkis.server.mdm.service.kerberos.krb5.path | ""    | Set the kerberos krb5 path used by the hive service |

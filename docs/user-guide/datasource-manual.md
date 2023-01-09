@@ -18,7 +18,7 @@ sidebar_position: 7
 Client module, DataSourceRemoteClient for basic management of user data sources, and MetaDataRemoteClient for metadata query operations.
 
 **linkis-datasource-manager-server**
-Data source management module, service name ps-data-source-manager. Perform basic management of data sources, and provide http interfaces such as adding, querying, modifying, and connection testing of external data sources. The rpc service is provided internally, which is convenient for the data element management module to call through rpc to query the necessary information needed to establish a connection to the database.
+Data source management module, service name ps-publicservice. Perform basic management of data sources, and provide http interfaces such as adding, querying, modifying, and connection testing of external data sources. The rpc service is provided internally, which is convenient for the data element management module to call through rpc to query the necessary information needed to establish a connection to the database.
 
 - [http interface documentation](/api/http/linkis-ps-publicservice-api/data-source-manager-api.md)
 - http interface class org.apache.linkis.metadatamanager.server.restful
@@ -37,10 +37,10 @@ The functional structure diagram is as follows:
 ![datasource](/Images/deployment/datasource/datasource.png)
 
 - The LinkisDataSourceRemoteClient client assembles the http request according to the request parameters,
-- HTTP request sent to linkis-ps-data-source-manager
-- linkis-ps-data-source-manager will perform basic parameter verification, some interfaces can only be operated by the administrator role
-- linkis-ps-data-source-manager performs basic data operations with the database
-- The data source test connection interface provided by linkis-ps-data-source-manager internally uses rpc to call the ps-metadatamanager method for connection test
+- HTTP request sent to linkis-ps-publicservice
+- linkis-datasource-manager-server-x.x.x.jar will perform basic parameter verification, some interfaces can only be operated by the administrator role
+- linkis-datasource-manager-server-x.x.x.jar performs basic data operations with the database
+- The data source test connection interface provided by linkis-datasource-manager-server-x.x.x.jar internally uses rpc to call the ps-metadatamanager method for connection test
 - The data result after the http request is processed will be mapped and converted from the result set to the entity class by annotating the DWSHttpMessageResult function
 
 LinkisDataSourceRemoteClient interface
@@ -65,9 +65,9 @@ The functional structure diagram is as follows:
 ![metadata](/Images/deployment/datasource/metadata.png)
 
 - LinkisMetaDataRemoteClient client, according to the request parameters, assemble the http request,
-- HTTP request sent to ps-metadatamanager
-- ps-metadatamanager will perform basic parameter verification,
-- The request will send an RPC request to linkis-ps-data-source-manager based on the parameter datasourceId to obtain the type of the data source, connection parameters such as username and password, etc.
+- HTTP request sent to ps-publicservice
+- ps-publicservice will perform basic parameter verification,
+- The request will send an RPC request to linkis-ps-publicservice based on the parameter datasourceId to obtain the type of the data source, connection parameters such as username and password, etc.
 - After getting the information required for the connection, load the lib package in the corresponding directory according to the data source type, and call the corresponding function method through the reflection mechanism to query the metadata information
 - The data result after the http request is processed will be mapped and converted from the result set to the entity class by annotating the DWSHttpMessageResult function
 
@@ -87,14 +87,17 @@ linkis-public-enhancements/linkis-datasource
 │ ├── common //Data source management common module
 │ └── server //Data source management service module
 ├── linkis-metadata //Module existing in the old version, reserved
+├── linkis-metadata-manager 
+│ ├── common 
+│ ├── server 
 ├── linkis-metadata-manager //Data Metadata Management Module
 │ ├── common //Data element management common module
 │ ├── server //Data element management service module
 │ └── service //Supported data sources
-│ ├── elasticsearch
-│ ├── hive
-│ ├── kafka
-│ └── mysql
+│     ├── elasticsearch
+│     ├── hive
+│     ├── kafka
+│     └── mysql
 
 
 ```
@@ -103,16 +106,15 @@ linkis-public-enhancements/linkis-datasource
 ```shell script
 /lib/linkis-public-enhancements/
 
-├── linkis-ps-data-source-manager
-├── linkis-ps-metadatamanager
-│ └── service
-│ ├── elasticsearch
-│ ├── hive
-│ ├── kafka
-│ └── mysql
+├── linkis-ps-publicservice
+│          └── metadataquery-service
+│            ├── elasticsearch
+│            ├── hive
+│            ├── kafka
+│            └── mysql
 ```
 
-`wds.linkis.server.mdm.service.lib.dir` controls the classpath loaded during reflection calls. The default value of the parameter is `/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
+`wds.linkis.server.mdm.service.lib.dir` controls the classpath loaded during reflection calls. The default value of the parameter is `/lib/linkis-public-enhancements/linkis-ps-publicservice/metadataquery-service`
 
 ### 1.5 Configuration Parameters
 

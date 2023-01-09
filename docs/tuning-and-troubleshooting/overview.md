@@ -17,9 +17,6 @@ If an interface request reports an error, we can locate the problematic microser
 | cg-engineplugin | cg-engineplugin |
 | cg-engineconnmanager | cg-engineconnmanager |
 | cg-entrance | cg-entrance |
-| ps-bml | ps-bml |
-| ps-cs | ps-cs |
-| ps-datasource | ps-datasource |
 | configuration | |
 | instance-label | |
 | jobhistory | ps-publicservice |

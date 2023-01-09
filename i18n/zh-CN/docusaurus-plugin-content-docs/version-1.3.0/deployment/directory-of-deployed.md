@@ -68,15 +68,6 @@ sidebar_position: 3.2
 │   ├── linkis-mg-gateway-gc.log
 │   ├── linkis-mg-gateway.log
 │   ├── linkis-mg-gateway.out
-│   ├── linkis-ps-cs-gc.log
-│   ├── linkis-ps-cs.log
-│   ├── linkis-ps-cs.out
-│   ├── linkis-ps-data-source-manager-gc.log
-│   ├── linkis-ps-data-source-manager.log
-│   ├── linkis-ps-data-source-manager.out
-│   ├── linkis-ps-metadatamanager-gc.log
-│   ├── linkis-ps-metadatamanager.log
-│   ├── linkis-ps-metadatamanager.out
 │   ├── linkis-ps-publicservice-gc.log
 │   ├── linkis-ps-publicservice.log
 │   └── linkis-ps-publicservice.out
@@ -87,9 +78,6 @@ sidebar_position: 3.2
 │   ├── linkis_cg-linkismanager.pid ──linkis管理器微服务
 │   ├── linkis_mg-eureka.pid ──eureka微服务
 │   ├── linkis_mg-gateway.pid ──gateway微服务
-│   ├── linkis_ps-cs.pid ──上下文微服务
-│   ├── linkis_ps-data-source-manager.pid --数据源微服务
-│   ├── linkis_ps-metadatamanager.pid  --元数据管理微服务
 │   └── linkis_ps-publicservice.pid ──公共微服务
 └── sbin 微服务启停脚本目录
      ├── ext ──各个微服务的启停脚本目录
@@ -119,10 +107,7 @@ sidebar_position: 3.2
 ├── linkis-cg-linkismanager 计算治理管理服务  
 ├── linkis-mg-eureka 微服务注册中心服务  
 ├── linkis-mg-gateway Linkis网关服务  
-├── linkis-ps-cs 上下文服务 
 ├── linkis-ps-publicservice 公共服务 
-├── linkis-ps-data-source-manager 数据源管理服务 
-├── linkis-ps-metadatamanager  元数据查询服务
  ```
 
 **微服务简称**：

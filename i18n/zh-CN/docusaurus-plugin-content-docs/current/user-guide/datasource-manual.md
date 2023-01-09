@@ -18,7 +18,7 @@ sidebar_position: 4
 客户端模块，用户数据源的基本管理的DataSourceRemoteClient，以及进行元数据的查询操作的MetaDataRemoteClient.
 
 ** linkis-datasource-manager-server **
-数据源管理模块,服务名ps-data-source-manager。对数据源的进行基本的管理，对外提供数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便元数据查询模块通过rpc调用，查询数据库建立连接需要的必要信息。
+数据源管理模块,服务名ps-publicservice。对数据源的进行基本的管理，对外提供数据源的新增，查询，修改，连接测试等http接口。对内提供了rpc服务 ，方便元数据查询模块通过rpc调用，查询数据库建立连接需要的必要信息。
 
 - [http接口文档](/api/http/linkis-ps-publicservice-api/data-source-manager-api.md)
 - http接口类 org.apache.linkis.metadatamanager.server.restful
@@ -37,10 +37,10 @@ sidebar_position: 4
 ![datasource](/Images-zh/deployment/datasource/datasource.png)
 
 - LinkisDataSourceRemoteClient客户端根据请求参数，组装http请求，
-- HTTP请求发送到linkis-ps-data-source-manager
-- linkis-ps-data-source-manager 会进行基本参数校验，部分接口只能管理员角色能操作 
-- linkis-ps-data-source-manager 与数据库进行基本的数据操作
-- linkis-ps-data-source-manager 提供的数据源测试连接的接口 内部通过rpc方式，调用ps-metadatamanager方法进行连接测试
+- HTTP请求发送到linkis-publicservice
+- linkis-datasource-manager-server-x.x.x.jar 会进行基本参数校验，部分接口只能管理员角色能操作 
+- linkis-datasource-manager-server-x.x.x.jar 与数据库进行基本的数据操作
+- linkis-datasource-manager-server-x.x.x.jar 提供的数据源测试连接的接口 内部通过rpc方式，调用ps-metadatamanager方法进行连接测试
 - http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化
 
 LinkisDataSourceRemoteClient接口 
@@ -65,9 +65,9 @@ LinkisDataSourceRemoteClient接口
 ![metadata](/Images-zh/deployment/datasource/metadata.png)
 
 - LinkisMetaDataRemoteClient客户端，根据请求参数，组装http请求， 
-- HTTP请求发送到ps-metadatamanager
-- ps-metadatamanager 会进行基本参数校验，
-- 请求会根据参数 datasourceId，发送RPC请求到linkis-ps-data-source-manager，获取该数据源的类型，连接参数如用户名密码等信息
+- HTTP请求发送到ps-publicservice
+- ps-publicservice 会进行基本参数校验，
+- 请求会根据参数 datasourceId，发送RPC请求到linkis-publicservice，获取该数据源的类型，连接参数如用户名密码等信息
 - 拿到连接需要的信息后，根据数据源类型，加载对应目录下的lib包，通过反射机制调用对应的函数方法，从而查询到元数据信息
 - http请求处理后的数据结果，会通过注解DWSHttpMessageResult功能，进行结果集到实体类的映射转化 
 
@@ -87,7 +87,10 @@ linkis-public-enhancements/linkis-datasource
 │   ├── common  //数据源管理公共模块
 │   └── server  //数据源管理服务模块
 ├── linkis-metadata //旧版本已有的模块，保留
-├── linkis-metadata-manager //元数据查询模块
+├── linkis-metadata-manager 
+│   ├── common  
+│   └── server 
+├── linkis-metadata-query //元数据查询模块
 │   ├── common //元数据查询公共模块
 │   ├── server //元数据查询服务模块
 │   └── service //支持的数据源类型 
@@ -103,15 +106,14 @@ linkis-public-enhancements/linkis-datasource
 ```shell script
 /lib/linkis-public-enhancements/
 
-├── linkis-ps-data-source-manager
-├── linkis-ps-metadatamanager
-│   └── service
+├── linkis-ps-publicservice
+│   └── metadataquery-service
 │       ├── elasticsearch
 │       ├── hive
 │       ├── kafka
 │       └── jdbc
 ```
-`wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-metadatamanager/service`
+`wds.linkis.server.mdm.service.lib.dir` 控制反射调用时加载的类路径，参数默认值是`/lib/linkis-public-enhancements/linkis-ps-publicservice/metadataquery-service`
 
 ### 1.5 配置参数 
 
@@ -139,12 +141,12 @@ linkis-public-enhancements/linkis-datasource
 
 ## 2. 数据源功能的启用
 
-linkis的启动脚本中默认不会启动数据源相关的服务两个服务（ps-data-source-manager，ps-metadatamanager），
+linkis的启动脚本中默认不会启动数据源相关的服务两个服务，
 如果想使用数据源服务，可以通过如下方式进行开启:
 修改`$LINKIS_CONF_DIR/linkis-env.sh`中的 `export ENABLE_METADATA_MANAGER=true`值为true。
 通过linkis-start-all.sh/linkis-stop-all.sh 进行服务启停时，会进行数据源服务的启动与停止。
 
-通过eureka页面查看服务是否正常启动 
+通过eureka页面查看服务是否正常启动(数据源服务现已经合并到linkis-ps-publicservice服务中)
 
 ![datasource eureka](/Images-zh/deployment/datasource/eureka.png)
 

@@ -32,9 +32,6 @@ ApplicationName is the application name. Find the microservice to which you belo
 |engineplugin|cg-engineplugin|
 |cg-engineconnmanager|cg-engineconnmanager|
 |entrance|cg-entrance|
-|bml|ps-bml|
-|contextservice|ps-cs|
-|datasource|ps-datasource|
 |configuration||
 |microservice||
 |jobhistory|ps-publicservice|
@@ -75,27 +72,6 @@ The user service address is different. We need to locate the log address first
 >Service log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance.log`
 >
 >System out log：` /${LINKIS_HOME}/logs/linkis/linkis-cg-entrance.out`
-
-- ps-bml：
->GC log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml-gc.log`
->
->Service log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.log`
->
->System out log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-bml.out`
-
-- ps-cs：
->GC log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs-gc.log`
->
->Service log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.log`
->
->System out log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-cs.out`
-
-- ps-datasource：
->GC log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource-gc.log`
->
->Service log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource.log`
->
->System out log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-datasource.out`
 
 - ps-publicservice：
 >GC log：` /${LINKIS_HOME}/logs/linkis/linkis-ps-publicservice-gc.log`
