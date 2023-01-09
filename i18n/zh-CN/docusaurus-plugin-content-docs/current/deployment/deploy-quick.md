@@ -156,11 +156,7 @@ SPARK_CONF_DIR=/appcom/config/spark-config
 #### LDAP 登录配置（可选）
 
 :::caution 注意
-<<<<<<< HEAD
-默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)。
-=======
-默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)
->>>>>>> origin/dev
+默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`(>=1.0.3版本)。
 :::
 
 
@@ -377,11 +373,7 @@ nginx的日志文件在 `/var/log/nginx/access.log` 和`/var/log/nginx/error.log
 ### 4.4 登录管理台
 
 浏览器登陆 `http://xx.xx.xx.xx:8188/#/login`
-<<<<<<< HEAD
 用户名/密码在`{LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看。
-=======
-用户名/密码在`${LINKIS_HOME}/conf/linkis-mg-gateway.properties`中查看
-
 ```shell script
 wds.linkis.admin.user= #用户
 wds.linkis.admin.password= #密码
