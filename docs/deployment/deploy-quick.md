@@ -433,7 +433,7 @@ The list of supported engines that have been adapted in this version is as follo
 
 
 
-### 7.2 View the deployed engine binbincheng
+### 7.2 View the deployed engine
 
 #### Method 1: View the engine lib package directory
 
