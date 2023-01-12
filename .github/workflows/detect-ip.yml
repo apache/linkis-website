@@ -1,0 +1,21 @@
+name: automatic detection
+
+on:
+  pull_request:
+    branches: [dev,dev-*]
+  push:
+    branches: [dev,dev-*]
+
+jobs:
+  detection:
+    name: automatic-detection
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - uses: actions/setup-node@v2.2.0
+        with:
+          node-version: 16
+
+      - run: |
+          find . -path ./out -prune -o -iname "binbincheng" -print | xargs -I % ls -lR % | grep "^-" |  wc -l
+          find . -path ./out -prune -o -iname "binbincheng" -print | xargs -I % ls -lR % | grep "^d" |  wc -l
