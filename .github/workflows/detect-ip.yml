@@ -1,4 +1,4 @@
-name: automatic detection
+name: Markdown Lint
 
 on:
   pull_request:
@@ -16,6 +16,4 @@ jobs:
         with:
           node-version: 16
 
-      - run: |
-          find . -path ./out -prune -o -iname "binbincheng" -print | xargs -I % ls -lR % | grep "^-" |  wc -l
-          find . -path ./out -prune -o -iname "binbincheng" -print | xargs -I % ls -lR % | grep "^d" |  wc -l
+      - run: grep -rn "binbincheng" *
