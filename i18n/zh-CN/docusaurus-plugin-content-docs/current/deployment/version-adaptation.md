@@ -105,10 +105,18 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 <flink.version>1.13.2</flink.version>
 ```
 
-由于flink1.12.2到1.13.2版本,有部分类进行调整,所以需要进行flink的编译和调整,编译flink选择scala的版本为2.12版本
+:::caution 临时方案
+
+注意以下复制类操作均在flink中
+
+由于flink1.12.2到1.13.2版本,有部分类进行调整,所以需要进行flink的编译和调整,编译flink选择scala的版本为2.12版本(scala版本根据自己的实际使用版本来)
+
+flink编译参考指令: mvn clean install -DskipTests -P scala-2.12 -Dfast -T 4 -Dmaven.compile.fock=true
+
+:::
 
 ```text
--- 注意,下列的类是从1.12.2给copy到1.13.2版本来
+-- 注意,下列的类是从flink的1.12.2版本给copy到flink的1.13.2版本来
 org.apache.flink.table.client.config.entries.DeploymentEntry
 org.apache.flink.table.client.config.entries.ExecutionEntry
 org.apache.flink.table.client.gateway.local.CollectBatchTableSink

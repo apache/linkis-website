@@ -107,6 +107,16 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 
 Since some classes of Flink 1.12.2 to 1.13.2 are adjusted, it is necessary to compile and adjust Flink. Select Scala version 2.12 for compiling Flink
 
+:::caution temporary plan
+
+Note that the following operations are all in flink
+
+Due to flink1.12.2 to 1.13.2, some classes are adjusted, so flink needs to be compiled and adjusted, and the version of scala selected for compiling flink is version 2.12(The scala version is based on the actual version used)
+
+flink compilation reference instruction: mvn clean install -DskipTests -P scala-2.12 -Dfast -T 4 -Dmaven.compile.fock=true
+
+:::
+
 ```text
 -- Note that the following classes are copied from version 1.12.2 to version 1.13.2
 org.apache.flink.table.client.config.entries.DeploymentEntry
