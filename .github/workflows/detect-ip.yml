@@ -1,4 +1,4 @@
-name: Markdown Lint
+name: Automatic Detection
 
 on:
   pull_request:
