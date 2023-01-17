@@ -86,7 +86,7 @@
               "connectivity": "Simplify the operation environment; decouple the upper and lower layers, which make the upper layer insensitive when bottom layers changed",
               "scalability": "Distributed microservice architecture with great scalability and extensibility; quickly integrate with the new underlying engine",
               "controllability": "Converge engine entrance, unify identity verification, high-risk prevention and control, audit records; label-based multi-level refined resource control and recovery capabilities",
-              "orchestration": "Linkis offers a basic orchestration framework to enable different strategies to manage computing tasks. Users could develop strategies like dual-active and active-standby based on this framework",
+              "orchestration": "Linkis offers a basic orchestration framework to enable different strategies to manage computing tasks. Users could develop strategies like dual-active and active-standby based on this",
               "reusability": "Highly reduced the back-end development workload of upper-level applications development; Swiftly and efficiently build a data platform tool suite based on Linkis"
           }
       }
