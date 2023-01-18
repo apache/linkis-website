@@ -655,5 +655,5 @@ Linkis official website documents are constantly improving, you can view/keyword
 Related blog post links
 - Linkis technical blog collection https://github.com/apache/linkis/issues/1233
 - Technical blog post on the official account https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
-- Official website documentation https://linkis.apache.org/docs/latest/introduction
+- Official website documentation https://linkis.apache.org/docs/latest/about/introduction
 - bili technology sharing video https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2

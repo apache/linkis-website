@@ -648,5 +648,5 @@ linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索
 相关博文链接
 - Linkis的技术博文集  https://github.com/apache/linkis/issues/1233
 - 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18
-- 官网文档 https://linkis.apache.org/zh-CN/docs/latest/introduction
+- 官网文档 https://linkis.apache.org/zh-CN/docs/latest/about/introduction
 - bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  

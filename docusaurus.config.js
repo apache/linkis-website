@@ -41,10 +41,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.3.1',
-              label: 'Next(1.3.1)'
+              path: '1.3.2',
+              label: 'Next(1.3.2)'
             },
-            '1.3.0': {
+            '1.3.1': {
               path: 'latest',
             },
           }
@@ -161,10 +161,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Doc',
           position: 'right',
           items: [
-            {label: '1.3.0', to: '/docs/latest/introduction'},
+            {label: '1.3.1', to: '/docs/latest/about/introduction'},
+            {label: '1.3.0', to: '/docs/1.3.0/introduction'},
             {label: '1.2.0', to: '/docs/1.2.0/introduction'},
             {label: '1.1.1', to: '/docs/1.1.1/introduction'},
-            {label: 'Next(1.3.1)', to: '/docs/1.3.1/about/introduction'},
+            {label: 'Next(1.3.2)', to: '/docs/1.3.2/about/introduction'},
             {label: 'All Version', to: '/versions'}
           ]
         },
@@ -219,7 +220,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           title: 'Linkis',
           items: [{
               label: 'Document',
-              href: '/docs/latest/introduction',
+              href: '/docs/latest/about/introduction',
             },
             {
               label: 'FAQ',
@@ -344,10 +345,17 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     [
       '@docusaurus/plugin-client-redirects',
       {
+        redirects: [
+          // /docs/1.3.1/introduction -> /docs/1.3.1/about/introduction
+          {
+            from: '/docs/latest/introduction',
+            to: '/docs/latest/about/introduction',
+          }
+        ],
         createRedirects(existingPath) {
           if (existingPath.includes('/latest')) {
             return [
-              existingPath.replace('/latest', '/1.3.0'),
+              existingPath.replace('/latest', '/1.3.1'),
             ];
           }
           return undefined; // Return a false value: no redirect created
