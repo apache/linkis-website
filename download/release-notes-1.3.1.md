@@ -3,7 +3,7 @@ title: Release Notes 1.3.1
 sidebar_position: 0.16
 ---
 
-Apache Linkis 1.3.1 includes all [Project Linkis-1.3.0](https://github.com/apache/linkis/projects/23).
+Apache Linkis 1.3.1 includes all [Project Linkis-1.3.1](https://github.com/apache/linkis/projects/23).
 
 Linkis 1.3.1 mainly supports Trino engine and SeaTunnel engine. The basic data management of the management console has been added, and it is possible to perform convenient interface configuration operations on some basic data (data source environment management/token token management/error code management/engine material management, etc.).
 And the existing data sources have been enhanced, adding support for oracle, kingbase, postgresql, sqlserver, db2, greenplum, dm type data sources.
