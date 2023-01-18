@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklinkis_web_apache=self.webpackChunklinkis_web_apache||[]).push([[28776],{73971:e=>{e.exports=JSON.parse('[{"label":"Feature","permalink":"/docs/latest/tags/feature","count":3}]')}}]);
