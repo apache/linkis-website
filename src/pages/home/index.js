@@ -85,10 +85,10 @@ export default function() {
             <div className="botton-row center">
 
                 {
-                   language === 'en' && <a href="/docs/latest/introduction" className="corner-botton blue-fill">{dataSource.common.learnMore}</a>
+                   language === 'en' && <a href="/docs/latest/about/introduction" className="corner-botton blue-fill">{dataSource.common.learnMore}</a>
                 }
                 {
-                   language === 'zh-CN' && <a href="/zh-CN/docs/latest/introduction" className="corner-botton blue-fill">{dataSource.common.learnMore}</a>
+                   language === 'zh-CN' && <a href="/zh-CN/docs/latest/about/introduction" className="corner-botton blue-fill">{dataSource.common.learnMore}</a>
                 }
             </div>
         </div>

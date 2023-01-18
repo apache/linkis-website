@@ -15,7 +15,7 @@
         {
           "versionLabel": "1.3.0",
           "downloadUrl": "/zh-CN/download/release-notes-1.3.0",
-          "docUrl": "/zh-CN/docs/latest/introduction",
+          "docUrl": "/zh-CN/docs/latest/about/introduction",
           "sourceTag":"1.3.0"
         }
       ],
@@ -92,7 +92,7 @@
       "latestData": [
         {
           "versionLabel": "1.3.0",
-          "docUrl": "/docs/latest/introduction",
+          "docUrl": "/docs/latest/about/introduction",
           "releaseNotes": "/download/release-notes-1.3.0",
           "sourceTag":"1.3.0"
         }

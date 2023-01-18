@@ -20,7 +20,7 @@ Helping answering the questions in the Linkis community is a very valuable way t
 
 ### 1.4 Documentation refinements
 
-You can find linkis documentations at [linkis-Website](https://linkis.apache.org/docs/latest/introduction), and the supplement of the document is also crucial to the development of Linkis.
+You can find linkis documentations at [linkis-Website](https://linkis.apache.org/docs/latest/about/introduction), and the supplement of the document is also crucial to the development of Linkis.
 
 ### 1.5 Other
 Including participating in and helping to organize community exchanges, community operation activities, etc., and other activities that can help the Linkis project and the community.

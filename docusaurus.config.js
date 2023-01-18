@@ -220,7 +220,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           title: 'Linkis',
           items: [{
               label: 'Document',
-              href: '/docs/latest/introduction',
+              href: '/docs/latest/about/introduction',
             },
             {
               label: 'FAQ',

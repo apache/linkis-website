@@ -10,10 +10,10 @@
 </p>
 
 <p align="center">
-  <a href="https://linkis.apache.org/docs/latest/introduction/" >
+  <a href="https://linkis.apache.org/docs/latest/about/introduction/" >
     <img src="https://img.shields.io/badge/document-English-blue.svg" alt="EN docs" />
   </a>
-  <a href="https://linkis.apache.org/zh-CN/docs/latest/introduction/">
+  <a href="https://linkis.apache.org/zh-CN/docs/latest/about/introduction/">
     <img src="https://img.shields.io/badge/文档-简体中文-blue.svg" alt="简体中文文档" />
   </a>
 </p>
