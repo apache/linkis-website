@@ -28,7 +28,7 @@ sidebar_position: 2
 
 ### 1.4 文档改进
 
-Linkis 文档位于[Linkis官网](https://linkis.apache.org/zh-CN/docs/latest/introduction/) ，文档的补充完善对于Linkis 的发展也至关重要。
+Linkis 文档位于[Linkis官网](https://linkis.apache.org/zh-CN/docs/latest/about/introduction/) ，文档的补充完善对于Linkis 的发展也至关重要。
 
 ### 1.5 其他
 包括参与和帮助组织社区交流、社区运营活动等，其他能够帮助Linkis 项目和社区的活动。

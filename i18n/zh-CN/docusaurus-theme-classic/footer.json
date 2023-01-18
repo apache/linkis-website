@@ -5,7 +5,7 @@
   },
   "link.item.label.Document": {
     "message": "文档",
-    "description": "The label of footer link with label=Document linking to /docs/latest/introduction"
+    "description": "The label of footer link with label=Document linking to /docs/latest/about/introduction"
   },
   "link.item.label.FAQ": {
     "message": "FAQ",
