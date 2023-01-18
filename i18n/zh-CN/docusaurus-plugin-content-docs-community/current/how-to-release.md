@@ -844,6 +844,65 @@ svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
 
 https://incubator.apache.org/clutch/linkis.html
 
+## 9 官网对应版本文档的发布
+
+创建新版本，基于当前的版本 创建要发布版本
+
+### step1 存档${publish_version}版本文档
+```shell
+npm install
+npm run docusaurus docs:version ${publish_version}
+```
+### step2 拷贝中文新版本文档
+```shell
+cd i18n/zh-CN/docusaurus-plugin-content-docs
+cp -r current  version-${publish_version}
+cp -r current.json version-${publish_version}.json
+```
+### step3 修改 version.label
+```shell
+# current.json 文件修改如下
+"message": "Next(${publish_version})" --> "message": "Next(${next_version})"
+
+# version-${publish_version}.json 文件修改如下
+"message": "Next(${publish_version})", --> "message": "${publish_version}"
+```
+
+### 修改配置 docusaurus.config.js
+```json
+ versions: {
+        current: {
+          path: '1.2.0',
+          label: 'Next(1.2.0)'
+        },
+        '1.1.1': {
+          path: 'latest',
+        },
+      }
+->
+  versions: {
+         current: {
+           path: '1.1.3',
+           label: 'Next(1.1.3)'
+         },
+         '1.2.0': {
+           path: 'latest',
+         },
+       }
+
+ items: [
+        //增加
+        {label: '${publish_version}', to: '/docs/latest/about/introduction'},
+        //修改
+        {label: '${current_version}', to: '/docs/latest/about/introduction'},
+        -->
+        {label: '${current_version}', to: '/docs/${current_version}/about/introduction'},
+        //修改
+        {label: 'Next(${publish_version})', to: '/docs/${publish_version}/about/introduction'}, 
+        -->
+        {label: 'Next(${next_version})', to: '/docs/${next_version}/about/introduction'},
+]
+```
 
 ## 附录 
 ### 附件1 release.sh
