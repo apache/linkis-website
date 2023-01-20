@@ -149,7 +149,7 @@ public class LinkisClientTest {
             .discoveryFrequency(1, TimeUnit.MINUTES)  // discovery frequency
             .loadbalancerEnabled(true)  // enable loadbalance
             .maxConnectionSize(5)   // set max Connection
-            .retryEnabled(true) // set retry
+            .retryEnabled(false) // set retry
             .readTimeout(30000)  //set read timeout
             .setAuthenticationStrategy(new StaticAuthenticationStrategy())   //AuthenticationStrategy Linkis authen suppory static and Token
             .setAuthTokenKey("hadoop")  // set submit user
