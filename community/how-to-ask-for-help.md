@@ -41,7 +41,7 @@ In many browsers you can copy and paste the image directly into the box
 The log file should not exceed 25MB
 :::
     
-### 2.Completion instructions
+### 1.3.Completion instructions
 - Entry: https://github.com/apache/linkis/issues
 
 ** Step1: Enter the issue column, click to create issue **
@@ -66,7 +66,7 @@ The log file should not exceed 25MB
 
 
 
-## 3.Method 2 email consultation
+## 2.Method 2 email consultation
 
 Email Question Process
 
