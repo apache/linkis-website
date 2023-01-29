@@ -26,7 +26,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 - **Unified Context Service**： Generate Context ID for each **task**/request,  associate and manage user and system resource files (JAR, ZIP, Properties, etc.), result set, parameter variable, function, etc., across user, system, and computing engine. Set in one place, automatic reference everywhere.
 - **Unified materials**： System and user-level unified material management, which can be shared and transferred across users and systems.
 - **Unified Data Source Manage**： Provides functions such as adding, deleting, checking, and modifying data sources of hive, es, mysql, and kafka types, version control, and connection testing.
-- **Unified MetaData Manage**： Provides database, table, and partition queries for hive, es, mysql, and kafka metadata.
+- **Unified MetaData Query**： Provides database, table, and partition queries for hive, es, mysql, and kafka metadata.
 
 ## Supported engine types
 
