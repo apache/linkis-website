@@ -2,9 +2,9 @@
 
 > Linkis1.0 common problems and solutions: [https://docs.qq.com/doc/DWlN4emlJeEJxWlR0](https://docs.qq.com/doc/DWlN4emlJeEJxWlR0)
 
-# 1. Use problems
+## 1. Use problems
 
-## Q1: The ps-cs service log of linkis reports this error: figServletWebServerApplicationContext (559)
+### Q1: The ps-cs service log of linkis reports this error: figServletWebServerApplicationContext (559)
 
 ```
 [refresh] - Exception encountered during context initi
@@ -12,14 +12,14 @@ alization - cancelling refresh attempt: org.springframework.beans.factory.BeanCr
 ```
 
 A: This is because the publicservice service did not start successfully. It is recommended to manually restart the publicservice sh/sbin/linkis-dameo.sh restart ps-publicservice
-## Q2: Linkis-eureka debugging instructions
+### Q2: Linkis-eureka debugging instructions
 A: If you need to debug the eureka program, you need to do some configuration first, as shown below
 application-eureka.yml needs to remove part of the comment configuration, and the normal startup configuration is as follows:
 ![1639466558031](/faq/q2_1.png)
 
 ![1639466558031](/faq/q2_2.png)
 
-## Q3: eureka automatically stops when it starts for the first time, and needs to be restarted manually
+### Q3: eureka automatically stops when it starts for the first time, and needs to be restarted manually
 
 A: This is because eureka does not use nohup when starting the Java process. After the session exits, the task is automatically cleaned up by the operating system. You need to modify the eureka startup script and add nohup:
 
@@ -27,17 +27,17 @@ A: This is because eureka does not use nohup when starting the Java process. Aft
 
 You can refer to PR: https://github.com/apache/linkis/pull/837/files
 
-## Q4: Linkis Entrance LogWriter missing dependencies
+### Q4: Linkis Entrance LogWriter missing dependencies
 A: Hadoop 3 needs to modify the linkis-hadoop-common pom file, see: https://linkis.apache.org/zh-CN/docs/next/development/linkis-compile-and-package/
 
-## Q5: When Linkis1.0 executes tasks, the ECP service throws the following error: Caused by: java.util.NoSuchElementException: None.get?
+### Q5: When Linkis1.0 executes tasks, the ECP service throws the following error: Caused by: java.util.NoSuchElementException: None.get?
 
 Error detailed log:
 
 Solution:
 At this time, because the corresponding engine version material does not have a corresponding record in the database table, it may be caused by an error when the ecp service is started. You can restart the ecp service to see if there is an error when uploading the BML. The corresponding table is: linkis_cg_engine_conn_plugin_bml_resources
 
-## Q6: Linkis1.X general troubleshooting method for insufficient resources
+### Q6: Linkis1.X general troubleshooting method for insufficient resources
 
 Insufficient resources fall into two situations:
 
@@ -53,7 +53,7 @@ If this resource is checked and determined to be abnormal, that is, it does not 
 After confirming that all engines under the label have been shut down, you can directly delete this resource and the associated record corresponding to the association table linkis_cg_manager_label_resource, and this resource will be automatically reset when you request again.
 Note: All engines of this label have been shut down. In the previous example, it means that the spark2.4.3 engines started by the hadoop user on Scriptis have all been shut down. You can see all the engines started by the user in the resource management of the management console. instance. Otherwise, the resource record exception of the label may also occur.
 
-## Q7: linkis startup error: NoSuchMethodErrorgetSessionManager()Lorg/eclipse/jetty/server/SessionManager
+### Q7: linkis startup error: NoSuchMethodErrorgetSessionManager()Lorg/eclipse/jetty/server/SessionManager
 
 Specific stack:
 
@@ -64,9 +64,62 @@ at org.eclipse.jetty.servlet.ServletContextHandler\$Context.getSessionCookieConf
 
 Solution: jetty-servlet and jetty-security versions need to be upgraded from 9.3.20 to 9.4.20;
 
-# 2. Environmental issues
+### Q8: Streaming clusters to run Spark tasks
+Run in streaming cluster Spark task will be submitted to the java.lang.NoSuchFieldException: DEFAULT_TINY_CACHE_SIZE error, error message is as follows.
 
-## Q1: Linkis1.0 execution task report: select list is not in group by clause
+
+```java
+2023-01-28 19:41:52.956 [ERROR] [main                                    ] o.a.s.SparkContext (91) [logError] - Error initializing SparkContext. java.lang.RuntimeException: java.lang.NoSuchFieldException: DEFAULT_TINY_CACHE_SIZE
+	at org.apache.spark.network.util.NettyUtils.getPrivateStaticField(NettyUtils.java:131) ~[spark-network-common_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.network.util.NettyUtils.createPooledByteBufAllocator(NettyUtils.java:118) ~[spark-network-common_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.network.server.TransportServer.init(TransportServer.java:95) ~[spark-network-common_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.network.server.TransportServer.<init>(TransportServer.java:74) ~[spark-network-common_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.network.TransportContext.createServer(TransportContext.java:114) ~[spark-network-common_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.rpc.netty.NettyRpcEnv.startServer(NettyRpcEnv.scala:118) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.rpc.netty.NettyRpcEnvFactory$$anonfun$4.apply(NettyRpcEnv.scala:457) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.rpc.netty.NettyRpcEnvFactory$$anonfun$4.apply(NettyRpcEnv.scala:456) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.util.Utils$$anonfun$startServiceOnPort$1.apply$mcVI$sp(Utils.scala:2253) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:160) ~[scala-library-2.11.12.jar:?]
+	at org.apache.spark.util.Utils$.startServiceOnPort(Utils.scala:2245) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.rpc.netty.NettyRpcEnvFactory.create(NettyRpcEnv.scala:461) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.rpc.RpcEnv$.create(RpcEnv.scala:56) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.SparkEnv$.create(SparkEnv.scala:246) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.SparkEnv$.createDriverEnv(SparkEnv.scala:175) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.SparkContext.createSparkEnv(SparkContext.scala:257) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:432) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.SparkContext$.getOrCreate(SparkContext.scala:2516) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.sql.SparkSession$Builder$$anonfun$6.apply(SparkSession.scala:918) ~[spark-sql_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.sql.SparkSession$Builder$$anonfun$6.apply(SparkSession.scala:910) ~[spark-sql_2.11-2.2.1.jar:2.2.1]
+	at scala.Option.getOrElse(Option.scala:121) ~[scala-library-2.11.12.jar:?]
+	at org.apache.spark.sql.SparkSession$Builder.getOrCreate(SparkSession.scala:910) ~[spark-sql_2.11-2.2.1.jar:2.2.1]
+	at org.apache.linkis.engineplugin.spark.factory.SparkEngineConnFactory.createSparkSession(SparkEngineConnFactory.scala:140) ~[linkis-engineplugin-spark-1.1.8-webank.jar:1.1.8-webank]
+	at org.apache.linkis.engineplugin.spark.factory.SparkEngineConnFactory.createEngineConnSession(SparkEngineConnFactory.scala:83) ~[linkis-engineplugin-spark-1.1.8-webank.jar:1.1.8-webank]
+	at org.apache.linkis.manager.engineplugin.common.creation.AbstractEngineConnFactory$class.createEngineConn(EngineConnFactory.scala:47) ~[linkis-engineconn-plugin-core-1.1.8-webank.jar:1.1.8-webank]
+	at org.apache.linkis.engineplugin.spark.factory.SparkEngineConnFactory.createEngineConn(SparkEngineConnFactory.scala:49) ~[linkis-engineplugin-spark-1.1.8-webank.jar:1.1.8-webank]
+	at org.apache.linkis.engineconn.core.engineconn.DefaultEngineConnManager.createEngineConn(EngineConnManager.scala:46) ~[linkis-engineconn-core-1.1.8-webank.jar:1.1.8-webank]
+	at org.apache.linkis.engineconn.launch.EngineConnServer$.main(EngineConnServer.scala:82) ~[linkis-engineconn-core-1.1.8-webank.jar:1.1.8-webank]
+	at org.apache.linkis.engineconn.launch.EngineConnServer.main(EngineConnServer.scala) ~[linkis-engineconn-core-1.1.8-webank.jar:1.1.8-webank]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_141]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_141]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_141]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_141]
+	at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:775) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:119) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala) ~[spark-core_2.11-2.2.1.jar:2.2.1]
+Caused by: java.lang.NoSuchFieldException: DEFAULT_TINY_CACHE_SIZE
+	at java.lang.Class.getDeclaredField(Class.java:2070) ~[?:1.8.0_141]
+	at org.apache.spark.network.util.NettyUtils.getPrivateStaticField(NettyUtils.java:127) ~[spark-network-common_2.11-2.2.1.jar:2.2.1]
+	... 37 more
+```
+Note: Linkis does not currently support running Spark tasks in streaming clusters.
+
+
+
+## 2. Environmental issues
+
+### Q1: Linkis1.0 execution task report: select list is not in group by clause
 
 ![1639466558031](/faq/q5_1.jpg)
 
@@ -80,11 +133,11 @@ SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
   
 
-## Q2: When executing scripts after deployment, executing commands, and collecting results, I encountered such an error, IOException: File header type must be dolphin:
+### Q2: When executing scripts after deployment, executing commands, and collecting results, I encountered such an error, IOException: File header type must be dolphin:
 
 A: This should be caused by repeated installations, resulting in the result set being written in the same file. The previous Linkis 0.X version used the result set to write append, and 1.0 has been modified to add a new one. You can clean up the result set Directory: The configuration parameter is wds.linkis.resultSet.store.path, you can clean up this directory
 
-## Q3: The json4s package conflict caused by inconsistent Spark versions, the error is as follows: Error message: caused by: java.lang.NoSuchMethodError: org.json4s.jackson.jsonMethod$
+### Q3: The json4s package conflict caused by inconsistent Spark versions, the error is as follows: Error message: caused by: java.lang.NoSuchMethodError: org.json4s.jackson.jsonMethod$
 
 solution:
 This is because of Spark jars' json4s and lib/linkis-engineplugins/spark/dist/version/lib
@@ -92,7 +145,7 @@ The json4s version in the package is inconsistent. When the official release is 
 The solution is to replace the json4s package in Spark jars with lib/linkis-engineplugins/spark/dist/version/lib
  The json4s version inside the package. In addition, there may be conflicts in the netty package, which can be handled according to the method of Json4s. Then restart the ecp service: sh sbin/linkis-damon.sh restart cg-engineplugin
 
-## Q4: When Linkis1.X submits spark sql tasks in version CDH5.16.1, how to troubleshoot 404 problems
+### Q4: When Linkis1.X submits spark sql tasks in version CDH5.16.1, how to troubleshoot 404 problems
 
 The main error message is as follows:
 
@@ -103,29 +156,29 @@ org.apache.jasper.servlet.JspServlet 89 warn - PWC6117: File "/home/hadoop/dss1.
 
 The above error message is mainly caused by the jar conflict in the cdh environment variable. You need to find the jar package where the org.apache.jasper.servlet.JspServlet class is located. The local cdh environment variable path is: /opt/cloudera/parcels/CDH -5.16.1-1.cdh5.16.1.p0.3/jars, delete the corresponding jasper-compile-${version}.jar and jsp-${version}.jar jar packages under this directory, The spark sql task can be run again without restarting the service, and the problem is solved.
 
-## Q5: running error report missing package matplotlib
+### Q5: running error report missing package matplotlib
 
 In the standard python environment, anaconda2 and anaconda3 need to be installed, and the default anaconda is anaconda2. This contains most common python libraries.
 
-## Q6: When the microservice linkis-ps-cs is started, DebuggClassWriter overrides final method visit is reported
+### Q6: When the microservice linkis-ps-cs is started, DebuggClassWriter overrides final method visit is reported
 
 Specific exception stack:
 
 Solution: jar package conflict, delete asm-5.0.4.jar;
 
-## Q7: When the shell engine schedules execution, the engine execution directory reports the following error /bin/java: No such file or directory:
+### Q7: When the shell engine schedules execution, the engine execution directory reports the following error /bin/java: No such file or directory:
 
 ![](/faq/q24_1.png)
 
 Solution: There is a problem with the environment variables of the local java, and a symbolic link needs to be made to the java command.
 
-## Q8: When the hive engine is scheduled, the error log of engineConnManager is as follows: method did not exist: SessionHandler:
+### Q8: When the hive engine is scheduled, the error log of engineConnManager is as follows: method did not exist: SessionHandler:
 
 ![](/faq/q27_1.png)
 
 Solution: Under the hive engine lib, the jetty jar package conflicts, replace jetty-security and jetty-server with 9.4.20;
 
-## Q9: When the hive engine is executing, the following error is reported Lcom/google/common/collect/UnmodifiableIterator:
+### Q9: When the hive engine is executing, the following error is reported Lcom/google/common/collect/UnmodifiableIterator:
 
 ```
 2021-03-16 13:32:23.304 ERROR [pool-2-thread-1]com.webank.wedatasphere.linkis.engineplugin.hive.executor.HiveEngineConnExecutor 140 run - query failed, reason : java.lang.AccessError: tried to access method com.google.common.collect.Iterators.emptyIterator() Lcom/google/common/collect/UnmodifiableIterator; from class org.apache.hadoop.hive.ql.exec.FetchOperator 
@@ -142,13 +195,13 @@ atcom.webank.wedatasphere.linkis.engineplugin.hive.executor.HiveEngineConnExecut
 
 Solution: guava package conflict, delete guava-25.1-jre.jar under hive/dist/v1.2.1/lib;
 
-## Q10: During engine scheduling, the following error is reported: Python processes is not alive:
+### Q10: During engine scheduling, the following error is reported: Python processes is not alive:
 
 ![](/faq/q29_1.png)
 
 Solution: Install the anaconda3 package manager on the server. After debugging python, two problems were found: (1) lack of pandas and matplotlib modules, which need to be installed manually; (2) when the new version of the python engine is executed, it depends on a higher version of python, and python3 is installed first. Next, make a symbolic link (as shown below), and restart the engineplugin service.
 
-## Q11: When the spark engine is running, the following error is reported: NoClassDefFoundError: org/apache/hadoop/hive/ql/io/orc/OrcFile:
+### Q11: When the spark engine is running, the following error is reported: NoClassDefFoundError: org/apache/hadoop/hive/ql/io/orc/OrcFile:
 
 ```
 2021-03-19 15:12:49.227 INFO  [dag-scheduler-event-loop] org.apache.spark.scheduler.DAGScheduler 57 logInfo -ShuffleMapStage 5 (show at <console>:69) failed in 21.269 s due to Job aborted due to stage failure: Task 1 in stage 5.0 failed 4 times, most recent failure: Lost task 1.3 in stage 5.0 (TID 139, cdh03, executor 6):java.lang.NoClassDefFoundError: org/apache/hadoop/hive/ql/io/orc/OrcFile 
@@ -156,9 +209,9 @@ Solution: Install the anaconda3 package manager on the server. After debugging p
 
 Solution: The classpath of the cdh6.3.2 cluster spark engine only has /opt/cloudera/parcels/CDH-6.3.2-1.cdh6.3.2.p0.1605554/lib/spark/jars, you need to add hive-exec-2.1.1- cdh6.1.0.jar, and restart spark.
 
-# Three, configuration problems
+## Three, configuration problems
 
-## Q1: The database on the left side of the script cannot be refreshed
+### Q1: The database on the left side of the script cannot be refreshed
 solution:
 a. The reason may be that the linkis-metatdata service did not read the HIVE_CONF_DIR error, you can configure the parameters of linkis-metadata: corresponding to the JDBC connection string of the metadata database
 
@@ -168,7 +221,7 @@ hive.meta.user=
 hive.meta.password=
 ```
 
-## Q2: The right side of Scriptis cannot refresh the database, and it has been refreshing (it should be noted that the metadata of linkis does not support docking sentry and Ranger for the time being, only supports native permission control of hive), error message: the front-end database tab has been refreshing state
+### Q2: The right side of Scriptis cannot refresh the database, and it has been refreshing (it should be noted that the metadata of linkis does not support docking sentry and Ranger for the time being, only supports native permission control of hive), error message: the front-end database tab has been refreshing state
 solution:
 This is because we have restricted permissions for the database on the right, and this relies on hive to enable authorized access:
 
@@ -194,7 +247,7 @@ grant all on database default to user hadoop;
 
 If you don't want to enable permission control, that is, every user can see the library table, you can modify: com/webank/wedatasphere/linkis/metadata/hive/dao/impl/HiveMetaDao.xml sql remove the permission control part
 
-## Q3: \[Scriptis][Workspace] When I log in to Scriptis, the root directory does not exist, and there are two root directories: workspace and HDFS: Error message: After logging in, the front end pops up the following message (the user’s local directory does not exist, please Contact admin to add)
+### Q3: \[Scriptis][Workspace] When I log in to Scriptis, the root directory does not exist, and there are two root directories: workspace and HDFS: Error message: After logging in, the front end pops up the following message (the user’s local directory does not exist, please Contact admin to add)
 
 solution:
 
@@ -202,11 +255,11 @@ solution:
 - b. Confirm whether wds.linkis.workspace.filesystem.hdfsuserrootpath.prefix=hdfs:///tmp/linkis/ starts with hdfs://
 - c. Confirm whether there is a user directory under the /tmp/linkis directory. The user here refers to the front-end login user, such as hadoop user login, then create: /tmp/linkis/hadoop directory, if the directory exists, confirm the directory permission login user It can be operated. If it still doesn’t work, you can refer to the error report of publicservice. The error will explain the permission or the path problem.
 
-## Q4: \[Management Console][Settings] How to adjust the yarn queue used by the task? Error message: When executing the sql task, it is reported that 1. Obtaining the Yarn queue information is abnormal or user XX cannot submit to the queue
+### Q4: \[Management Console][Settings] How to adjust the yarn queue used by the task? Error message: When executing the sql task, it is reported that 1. Obtaining the Yarn queue information is abnormal or user XX cannot submit to the queue
 solution:
 In the front end - management console - settings - general settings - Yarn queue configuration login user has permission queue
 
-## Q5: When Hive queries, it reports: Can not find zk-related classes such as: org.apache.curator.*, error message: When executing hive tasks, the log report cannot find the class starting with org.apache.curator.* , classNotFound
+### Q5: When Hive queries, it reports: Can not find zk-related classes such as: org.apache.curator.*, error message: When executing hive tasks, the log report cannot find the class starting with org.apache.curator.* , classNotFound
 
 solution:
 This is because the hive transaction is enabled, you can modify the hive-site.xml on the linkis machine to turn off the transaction configuration, refer to the hive transaction: https://www.jianshu.com/p/aa0f0fdd234c
@@ -214,7 +267,7 @@ Or put the relevant package into the engine plugin directory lib/linkis-enginepl
 
 
 
-## Q6: How does Linkis support kerberos
+### Q6: How does Linkis support kerberos
 solution:
 Obtaining Hadoop's FileSystem in linkis is implemented through the HDFSUtils class, so we put kerberos in this class, and users can see the logic of this class. The login modes currently supported are as follows:
 
@@ -241,7 +294,7 @@ wds.linkis.keytab.host=127.0.0.1 #principle authentication needs to bring the cl
 
 
 
-## Q7: Regarding Linkis, besides supporting deployment user login, can other user logins be configured?
+### Q7: Regarding Linkis, besides supporting deployment user login, can other user logins be configured?
 solution:
 sure. Deployment users are for convenience only. linkis-mg-gateway supports access by configuring LDAP service and SSO service. It does not have a user verification system. For example, to enable LDAP service access, you only need to configure linkis-mg-gateway.properties. The configuration of your LDAP server is as follows:
 
@@ -254,7 +307,7 @@ If the user needs to perform tasks, a user with the corresponding user name need
 
 
 
-## Q8: How to open Linkis management console, administrator page ECM and microservice management?
+### Q8: How to open Linkis management console, administrator page ECM and microservice management?
 
 ![](/faq/q15_1.png)
 
@@ -268,7 +321,7 @@ After the setting is complete, restart the publicservice service
 
 
 
-## Q9: When starting the microservice linkis-ps-publicservice, kJdbcUtils.getDriverClassName NPE
+### Q9: When starting the microservice linkis-ps-publicservice, kJdbcUtils.getDriverClassName NPE
 
 Specific exception stack: ExternalResourceProvider
 
@@ -278,7 +331,7 @@ Solution: Caused by linkis-ps-publicservice configuration problem, modify the th
 
 
 
-## Q10: When scheduling the hive engine, the following error is reported: EngineConnPluginNotFoundException: errorCode: 70063
+### Q10: When scheduling the hive engine, the following error is reported: EngineConnPluginNotFoundException: errorCode: 70063
 
 ![](/faq/q25_1.png)
 
@@ -294,7 +347,7 @@ If it is Spark, you need to modify dist/v2.4.3 and plugin/2.4.3 accordingly
 Finally restart the engineplugin service.
 ```
 
-## Q11: When the hive engine schedules execution, the following error is reported: opertion failed NullPointerException:
+### Q11: When the hive engine schedules execution, the following error is reported: opertion failed NullPointerException:
 
 ![](/faq/q26_1.png)
 
@@ -302,7 +355,7 @@ Solution: The server lacks environment variables, and /etc/profile adds `export 
 
 
 
-## Q12: When the spark engine starts, an error is reported get the queue information excepiton. (obtaining Yarn queue information exception) and http link exception
+### Q12: When the spark engine starts, an error is reported get the queue information excepiton. (obtaining Yarn queue information exception) and http link exception
 
 Solution: To migrate the address configuration of yarn to the DB configuration, the following configuration needs to be added:
 
@@ -321,7 +374,7 @@ config field example
 
 ![](/faq/q31_1.png)
 
-## Q13: pythonspark scheduling execution, error: initialize python executor failed ClassNotFoundException org.slf4j.impl.StaticLoggerBinder
+### Q13: pythonspark scheduling execution, error: initialize python executor failed ClassNotFoundException org.slf4j.impl.StaticLoggerBinder
 
 details as follows:
 
@@ -329,7 +382,7 @@ details as follows:
 
 Solution: The reason is that the spark server lacks slf4j-log4j12-1.7.25.jar, copy the above jar to /opt/cloudera/parcels/CDH-6.3.2-1.cdh6.3.2.p0.1605554/lib/spark/jars .
 
- ## Q14: Common package conflicts:
+### Q14: Common package conflicts:
   1. java.lang.NoSuchMethodError: javax.ws.rs.core.Application.getProperties()Ljava/util/Map;
      The conflict package is: jsr311-api-1.1.1.jar may also conflict with jessery
   2. java.lang.BootstrapMethodError: java.lang.NoSuchMethodError: javax.servlet.ServletContext.setInitParameter(Ljava/lang/String;Ljava/lang/String;)Z
@@ -346,7 +399,7 @@ Solution: The reason is that the spark server lacks slf4j-log4j12-1.7.25.jar, co
     7.org.eclipse.jetty.server.session.SessionHandler.getSessionManager()Lorg/eclipse/jetty/server/SessionManager;
     Need to replace conflicting packages: jetty-servlet and jetty-security with 9.4.20
 
-## Q15: The Mysql script running Scripts reports an error\sql engine reports an error
+### Q15: The Mysql script running Scripts reports an error\sql engine reports an error
 MYSQL script: run sql error:
 
 ```
@@ -356,14 +409,14 @@ com.webank.wedatasphere.linkis.orchestrator.ecm.exception.ECMPluginErrorExceptio
 
 Solution: modify the correct yarn address in the linkis_cg_rm_external_resource_provider table
 
-## Q16: The waiting time for scriptis to execute the script is long
+### Q16: The waiting time for scriptis to execute the script is long
 
 ![](/faq/q35_1.png)
 
 scriptis execution script waits for a long time, and reports Failed to async get EngineNode TimeoutException:
 Solution: You can check the linkismanager log, usually because the engine startup timed out
 
-## Q17: scriptis executes jdbc script and reports an error
+### Q17: scriptis executes jdbc script and reports an error
 scriptis executes the jdbc script and reports an error
 
 ```
@@ -373,14 +426,14 @@ Failed  to async get EngineNode ErrorException: errCode: 0 ,desc: operation fail
 Solution
 You need to install the corresponding engine plug-in, you can refer to: [Engine Installation Guide](/docs/latest/deployment/install-engineconn)
 
-## Q18: Turn off resource checking
+### Q18: Turn off resource checking
 Error reporting phenomenon: Insufficient resources
 Linkismanager service modify this configuration: wds.linkis.manager.rm.request.enable=false
 You can clean up resource records, or set smaller resources
 or turn off detection
 Linkismanager service modify this configuration: wds.linkis.manager.rm.request.enable=false
 
-## Q19: Executing the script reports an error
+### Q19: Executing the script reports an error
 ```
 GatewayErrorException: errCode: 11012 ,desc: Cannot find an instance in the routing chain of serviceId [linkis-cg-entrance], please retry ,ip: localhost ,port: 9001 ,serviceKind: linkis-mg-gateway
 ```
@@ -389,7 +442,7 @@ GatewayErrorException: errCode: 11012 ,desc: Cannot find an instance in the rout
 
 A: Please check whether the linkis-cg-entrance service starts normally.
 
-## Q20: ScriptIs execute script TimeoutException
+### Q20: ScriptIs execute script TimeoutException
 
 ![](/faq/q41_1.png)
 
@@ -398,20 +451,20 @@ This is because the instance is forcibly shut down, but the persistence in the d
 
 
 
-## Q21: Engine timeout setting
+### Q21: Engine timeout setting
 
 ![](/faq/q43_1.png)
 
 ① The parameter configuration of the management console can correspond to the engine parameters, and the timeout time can be modified. After saving, kill the existing engine.
 ②If the timeout configuration is not displayed, you need to manually modify the linkis-engineplugins directory, the corresponding engine plugin directory such as spark/dist/v2.4.3/conf/linkis-engineconn.properties, the default configuration is wds.linkis.engineconn.max.free.time =1h, means 1h overtime, and can have units m and h. 0 means no timeout, no automatic kill. After the change, you need to restart ecp, and kill the existing engine, and run a new task to start the engine to take effect.
 
-## Q22: When creating a new workflow, it prompts "504 Gateway Time-out"
+### Q22: When creating a new workflow, it prompts "504 Gateway Time-out"
 
 ![](/faq/q44_1.png)
 
 Error message: The instance 05f211cb021e:9108 of application linkis-ps-cs is not exists. ,ip: 5d30e4bb2f42 ,port: 9001 ,serviceKind: linkis-mg-gateway, as shown below:
 
-## Q23: Scripts execute python scripts (the content of the script is very simple print) and execute successfully normally. It can also be executed successfully through the task scheduling system. It can also be executed successfully through the job flow editing job script page, but an error is reported through job flow execution.
+### Q23: Scripts execute python scripts (the content of the script is very simple print) and execute successfully normally. It can also be executed successfully through the task scheduling system. It can also be executed successfully through the job flow editing job script page, but an error is reported through job flow execution.
 Error message:
 
 ```
@@ -439,18 +492,18 @@ Exception in thread "main" java.lang.NullPointerException
 
 Solution: The conf in the /opt/kepler/work/engine/hadoop/workDir/9c28976e-63ba-4d9d-b85e-b37d84144596 directory is empty. lib and conf are detected by the system (linkis/lib/linkis-engineconn-plugins/python) when the microservice starts, and the python engine material package zip changes, and are automatically uploaded to the engine/engineConnPublickDir/ directory. The temporary solution to the problem is to copy the lib and conf content under linkis/lib/linkis-engineconn-plugins/python to the corresponding directory of engine/engineConnPublicDir/ (that is, the external link referenced in workDir/9c28976e-63ba-4d9d-b85e-b37d84144596 Under contents. The official solution needs to solve the problem that the change of the material package cannot be successfully uploaded to engineConnPublicDir.
 
-## Q24: After installing Exchangis0.5.0, click on the dss menu to enter a new page and prompt "Sorry, Page Not Found". F12 view has 404 exception
+### Q24: After installing Exchangis0.5.0, click on the dss menu to enter a new page and prompt "Sorry, Page Not Found". F12 view has 404 exception
 Error message: F12 view vue.runtime.esm.js:6785 GET http://10.0.xx.xx:29008/udes/auth?redirect=http%3A%2F%2F10.0.xx.xx%3A29008&dssurl= http%3A%2F%2F10.0.xx.xx%3A8088&cookies=bdp-user-ticket-id%3DM7UZXQP9Ld1xeftV5DUGYeHdOc9oAFgW2HLiVea4FcQ%3D%3B%20workspaceId%3D225 404 (Not Found)
-## Q25: There is an infinite loop in configuring atlas in HIVE, resulting in stack overflow
+### Q25: There is an infinite loop in configuring atlas in HIVE, resulting in stack overflow
 You need to add all the content jar packages and subdirectories under ${ATLAS_HOME}/atlas/hook/hive/ to the lib directory of hive engine, otherwise AtlasPluginClassLoader cannot find the correct implementation class and finds the one under hive-bridge-shim class, resulting in an infinite loop
 However, the current execution method of Linkis (1.0.2) does not support subdirectories under lib, and the code needs to be modified. Refer to:
 https://github.com/apache/linkis/pull/1058
 
-## Q26: Linkis1.0.X compiles based on spark3 hadoop3 hive3 or hdp3.1.4, please refer to:
+### Q26: Linkis1.0.X compiles based on spark3 hadoop3 hive3 or hdp3.1.4, please refer to:
 https://github.com/lordk911/Linkis/commits/master
 After compiling, please recompile DSS according to the compiled package, keep the same version of scala, and use the family bucket for web modules
 
-## Q27 Linkis cannot get user name when executing jdbc task
+### Q27 Linkis cannot get user name when executing jdbc task
 2021-10-31 05:16:54.016 ERROR Task is Failed,errorMsg: NullPointerException: jdbc.username cannot be null.
 Source code: com.webank.wedatasphere.linkis.manager.engineplugin.jdbc.executer.JDBCEngineConnExecutor Received val properties = engineExecutorContext.getProperties.asInstanceOf[util.Map[String, String]] No jdbc.username parameter
 
@@ -460,7 +513,7 @@ Link: http://note.youdao.com/noteshare?id=08163f429dd2e226a13877eba8bad1e3&sub=4
 Solution 2: Compare and modify this file
 https://github.com/apache/linkis/blob/319213793881b0329022cf4137ee8d4c502395c7/linkis-engineconn-plugins/engineconn-plugins/jdbc/src/main/scala/com/webank/wedatasphere/linkis/manager/engineplugin/jdbc/ executor/JDBCEngineConnExecutor.scala
 
-## Q28: After changing the hive version in the configuration before installation, the configuration of the management console still shows the version as 2.3.3
+### Q28: After changing the hive version in the configuration before installation, the configuration of the management console still shows the version as 2.3.3
 
 ![](/faq/q50_1.png)
 
@@ -468,7 +521,7 @@ Solution 1: It is determined that there is a bug in the install.sh script, pleas
 Solution 2: If you don’t want to reinstall, you need to change all the values ​​of hive-2.3.3 in the label_value in the linkis_cg_manager_label table to the desired hive version
 Note: You are welcome to submit a PR to the github Linkis project to fix this problem, and then let us know, we will review and merge it into the code as soon as possible (currently unfixed, Deadline November 30, 2021)
 
-## Q29: When linkis-cli submits a task, it prompts GROUP BY clause; sql_mode=only_full_group_by error
+### Q29: When linkis-cli submits a task, it prompts GROUP BY clause; sql_mode=only_full_group_by error
 ```
 _8_codeExec_8 com.webank.wedatasphere.linkis.orchestrator.ecm.exception.ECMPluginErrorException: errCode: 12003 ,desc: uathadoop01:9101_8 Failed  to async get EngineNode MySQLSyntaxErrorException: Expression #6 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'dss_linkis.si.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by ,ip: uathadoop01 ,port: 9104 ,serviceKind: linkis-cg-entrance
 ```
@@ -477,15 +530,15 @@ _8_codeExec_8 com.webank.wedatasphere.linkis.orchestrator.ecm.exception.ECMPlugi
 Reason: This error occurs in mysql version 5.7 and above. Problem: Because the configuration strictly implements the "SQL92 standard", the solution: enter the /etc/mysql directory to modify the my.cnf file and add code under [mysqld]:
 sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 
-  ## Q30: An error is reported when the flink engine starts and the TokenCache is found
+### Q30: An error is reported when the flink engine starts and the TokenCache is found
 ERROR [main] com.webank.wedatasphere.linkis.engineconn.computation.executor.hook.ComputationEngineConnHook 57 error - EngineConnSever start failed! now exit. java.lang.NoClassDefFoundError: org/apache/hadoop/mapreduce/security/TokenCache
 Reason: The jar package hadoop-mapreduce-client-core.jar is missing under flink-enginecon lib, just copy a copy from hadoop lib.
 
-## Q31: When starting the flink engine/spark engine, the engine-entrance reports an error org.json4s.JsonAST$JNothing$ cannot be cast to org.json4s.JsonAST$JString
+### Q31: When starting the flink engine/spark engine, the engine-entrance reports an error org.json4s.JsonAST$JNothing$ cannot be cast to org.json4s.JsonAST$JString
 The reason is that linkis-manager reports an error in the yarn queue to obtain an exception
 Solution: Modify the linkis_cg_rm_external_resource_provider table and modify the yarn queue information corresponding to config
 
-## Q32: ClassNotFoundException is reported when the function script is executed
+### Q32: ClassNotFoundException is reported when the function script is executed
 
 ![](/faq/q55_1.png)
 
@@ -499,7 +552,7 @@ Solution: Modify the method of generating function statements, or use HiveAddJar
   }
 ```
 
-## Q33: Failed to start bean 'webServerStartStop when Linkis executes Spark task in CDH environment
+### Q33: Failed to start bean 'webServerStartStop when Linkis executes Spark task in CDH environment
 
 Detailed log:
 ```shell
@@ -521,7 +574,32 @@ at
 Reason: This is due to the conflict between the classPath and Linkis that CDH-Spark depends on at the bottom.
 Solution: On the machine where linkis is deployed, you can check the classPath in spark-env.sh, comment it out, and run it again. For details, please refer to [3282](https://github.com/apache/linkis/issues/3282)
 
-## Q34: An error is reported when running the flink task: Failed to create engineConnPlugin: com.webank.wedatasphere.linkis.engineplugin.hive.HiveEngineConnPluginjava.lang.ClassNotFoundException: com.webank.wedatasphere.linkis.engineplugin.hive.HiveEngineConnPlugin
+### Q34: An error is reported when running the flink task: Failed to create engineConnPlugin: com.webank.wedatasphere.linkis.engineplugin.hive.HiveEngineConnPluginjava.lang.ClassNotFoundException: com.webank.wedatasphere.linkis.engineplugin.hive.HiveEngineConnPlugin
 ![](/faq/q53_1.png)
 
 Reason: The configuration file in the conf in the flink engine directory is empty, and the default configuration is read (by default, the hived engine configuration is read), delete the conf about flink in the configuration table and restart ecp
+
+### Q35: Running Spark, Flink, etc., requires YARN as the task times for resource scheduling.
+
+Deployment took more than 60 seconds，Please check if the requested resources. 
+
+![](/faq/q32_3.png)
+
+Reason: 
+
+1. yarn link parameter configuration issues
+
+2. queue insufficient resource
+
+
+
+Solution:
+
+1. yarn link parameter configuration issues
+
+Check that the yarn link parameters for the `linkis_cg_rm_external_resource_provider` table configuration are valid。The correct configuration is as follows：
+![](/faq/q35_32.png)
+
+2. queue insufficient resource
+
+Refer to [Queue Settings](https://linkis.apache.org/zh-CN/docs/latest/user-guide/control-panel/param-conf#51-%E9%98%9F%E5%88%97%E8%AE%BE%E7%BD%AE) in control panel use，set up the available queues.
