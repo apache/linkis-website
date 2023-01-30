@@ -62,7 +62,7 @@ wds.linkis.keytab.proxyuser.superuser=hadoop
 会访问访问Yarn提供了ResourceManager的REST API 接口 
 如果yarn的ResourceManager 开启了kerberos认证，需要配置kerberos相关的认证信息 
 
-数据库表 linkis_cg_rm_external_resource_provider  
+数据库表 `linkis_cg_rm_external_resource_provider`  
 插入yarn数据信息  
 ```sql
 INSERT INTO `linkis_cg_rm_external_resource_provider`
@@ -83,7 +83,7 @@ INSERT INTO `linkis_cg_rm_external_resource_provider`
 );
 
 ```
-更新后，因为程序中有使用到缓存，想要立即生效，需要重启linkis-cg-linkismanager服务
+更新后，因为程序中有使用到缓存，想要立即生效，需要重启`linkis-cg-linkismanager`服务
 
 ```shell script
 sh sbin/linkis-daemon.sh  restart cg-linkismanager
@@ -94,6 +94,6 @@ sh sbin/linkis-daemon.sh  restart cg-linkismanager
 ## 场景4 数据源功能中 HIVE 数据源 
 
 如果需要连接的hive数据源，对应的 hive 集群环境，有开启kerberos认证，需要在配置集群环境时，将kerberos以及keytab认证文件信息上传。
-[iamge](/Images-zh/auth/dsm-kerberos.png)
+![](/Images-zh/auth/dsm-kerberos.png)
 
 

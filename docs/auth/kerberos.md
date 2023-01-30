@@ -83,7 +83,7 @@ INSERT INTO `linkis_cg_rm_external_resource_provider`
 );
 
 ```
-After the update, because the cache is used in the program, if you want to take effect immediately, you need to restart the linkis-cg-linkismanager service
+After the update, because the cache is used in the program, if you want to take effect immediately, you need to restart the `linkis-cg-linkismanager` service
 
 ```shell script
 sh sbin/linkis-daemon.sh restart cg-linkismanager
@@ -94,4 +94,4 @@ sh sbin/linkis-daemon.sh restart cg-linkismanager
 ## Scenario 4 The hive data source in the data source function
 
 If the hive data source that needs to be connected and the corresponding hive cluster environment has kerberos authentication enabled, you need to upload the kerberos and keytab authentication file information when configuring the cluster environment.
-[iamge](/Images-zh/auth/dsm-kerberos.png)
+![image](/Images-zh/auth/dsm-kerberos.png)

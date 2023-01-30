@@ -40,7 +40,7 @@ wds.linkis.test.user=hadoop
 ```
 
 如果只需要开启某个服务的测试模式，可以修改对应的服务配置项。
-如:只开启`entrance` 服务的测试模式 
+如 只开启 `entrance` 服务的测试模式 
 直接修改配置文件 `linkis-cg-entrance.properties`（对linkis的entrance服务生效）, 修改对应的配置如下 
 ```shell script
 #是否开启测试模式
@@ -51,7 +51,7 @@ wds.linkis.test.user=hadoop
 
 ### 2.2 Step2 重启对应的服务 
 
-修改配置后，需要重启服务，才能生效
+修改配置后，需要重启对应的服务（如果是所有服务都开启，重启所有服务），才能生效
 
 
 ### 2.3 Step3 请求验证 
