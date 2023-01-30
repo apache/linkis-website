@@ -246,7 +246,7 @@ wds.linkis.keytab.host=127.0.0.1 #principle认证需要带上的客户端IP
 当然可以。部署用户只是为了方便使用的用户。linkis-mg-gateway支持通过配置LDAP服务和SSO服务进行访问，本身没有用户校验体系，比如要开启LDAP服务访问，你只要在配置linkis-mg-gateway.properties您的LDAP服务端的配置如下：
 
 ```
-wds.linkis.ldap.proxy.url=ldap://127.0.0.1:389/#您的LDAP服务URL
+wds.linkis.ldap.proxy.url=ldap://127.0.0.1:1389/#您的LDAP服务URL
 wds.linkis.ldap.proxy.baseDN=dc=webank，dc=com#您的LDAP服务的配置
 ```
 

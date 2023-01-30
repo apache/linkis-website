@@ -246,7 +246,7 @@ solution:
 sure. Deployment users are for convenience only. linkis-mg-gateway supports access by configuring LDAP service and SSO service. It does not have a user verification system. For example, to enable LDAP service access, you only need to configure linkis-mg-gateway.properties. The configuration of your LDAP server is as follows:
 
 ```
-wds.linkis.ldap.proxy.url=ldap://127.0.0.1:389/#Your LDAP service URL
+wds.linkis.ldap.proxy.url=ldap://127.0.0.1:1389/#Your LDAP service URL
 wds.linkis.ldap.proxy.baseDN=dc=webank，dc=com#Configuration of your LDAP service
 ```
 

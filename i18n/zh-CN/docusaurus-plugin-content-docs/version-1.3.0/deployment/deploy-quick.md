@@ -476,7 +476,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 
 登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)(需要先安装前端)  
 正常如下图所示:    
-![yarn-normal](images/yarn-normal.png)
+![yarn-normal](/Images-zh/auth/yarn-normal.png)
 
 若如果无法显示：可以按以下指引调整
 
