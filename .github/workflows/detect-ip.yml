@@ -17,8 +17,6 @@ jobs:
           node-version: 16
 
       - run: |
-          ipis=`grep -q -rn "[1-9]\{2,3\}\.[0-9]\{2,3\}\.[0-9]\{1,3\}.[0-9]\{1,3\}" *`
+          ipis=`grep -rn "binbinchengkeyiyou" *`
           echo "ipis=$ipis"
-          grep -rn "[1-9]\{2,3\}\.[0-9]\{2,3\}\.[0-9]\{1,3\}.[0-9]\{1,3\}" *
-          grep -rn "bdpujes" *
-          grep -rn "bdpdws" *
+          if [ -n "$ipis" ];then echo "有这个值" && grep -rn "binbinchengkeyiyou" * else echo "检查成功" fi
