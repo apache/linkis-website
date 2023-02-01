@@ -17,6 +17,6 @@ jobs:
           node-version: 16
 
       - run: |
-          ipis=`{ grep -rn "binbinchengkeyiyou" * || false;}`
+          ipis=`{ grep -rn "binbinchengkeyiyou" * || true;}`
           echo "ipis=$ipis"
-          if [[ -n "$ipis" ]];then echo "有这个值" && grep -rn "binbinchengkeyiyou" *; else echo "检查成功"; fi
+          if [[ -n "$ipis" ]];then echo "有这个值" && grep -rn "binbinchengkeyiyou" * && exit 123; else echo "检查成功"; fi
