@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## 1. 首次安装准备事项
 
-### 1.1 Linux服务器 binbinchengkeyiyou
+### 1.1 Linux服务器
 
 **硬件要求**  
 安装linkis 微服务近10个，至少3G内存。每个微服务默认配置启动的jvm -Xmx 内存大小为 512M（内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大）。
