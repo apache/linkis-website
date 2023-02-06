@@ -65,7 +65,7 @@ Thanks!
 ````
     
 ### 2.2 Initiate a community mail poll
->If the discussion email does not receive any disagreement information within the specified time, the vote initiator needs to initiate a Committer or PMC election vote on the linkis private mailing list. The main voting email is sent to private@linkis.apache.org, which lasts for at least 72 hours, and requires at least 3 votes + 1 to pass; if there is 1 -1 vote, the entire vote will fail; if a -1 vote is initiated, the voter needs to put -1 The reasons are clearly stated so that everyone can understand and understand.
+>If the discussion email does not receive any disagreement information within the specified time, the vote initiator needs to initiate a Committer or PMC election vote on the linkis private mailing list. The main voting email is sent to private@linkis.apache.org, which lasts for requires at least 3 votes + 1 to pass; if there is 1 -1 vote, the entire vote will fail; if a -1 vote is initiated, the voter needs to put -1 The reasons are clearly stated so that everyone can understand and understand.
 
 Here is a sample poll email:
 ```html
@@ -77,7 +77,7 @@ Hi all:
 
     I think making him a ${Committer/PMC} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PMC}.
   
-    Voting will continue for at least 72 hours or until the required number of votes is reached.
+    Voting until the required number of votes is reached.
  
     Please vote accordingly:
     [ ] +1 approve
