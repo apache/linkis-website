@@ -36,7 +36,8 @@ In order to facilitate everyone's use, based on the release branch code of each 
 |Sqoop| Sqoop >= 1.4.6, <br/>(default Apache Sqoop 1.4.6)|\>=1.1.2|No|Sqoop EngineConn, support data migration tool Sqoop engine|
 |Presto|Presto >= 0.180|\>=1.2.0|No|Presto EngineConn, supports Presto SQL code|
 |ElasticSearch|ElasticSearch >=6.0|\>=1.2.0|No|ElasticSearch EngineConn, supports SQL and DSL code|
-
+|Trino | 371 | >=1.3.1 | 否 |   Trino EngineConn， 支持Trino SQL 代码 |
+|Seatunnel | 2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， 支持Seatunnel SQL 代码 |
 
 ## Install engine guide
 

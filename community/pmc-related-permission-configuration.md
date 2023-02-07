@@ -1,9 +1,9 @@
 ---
-title: PMC/Committer Related Permission Configuration
+title: PMC members/Committer Related Permission Configuration
 sidebar_position: 8
 ---
 
-> PMC (Podling Project Management Committee)/Committer member, bind github account process/and main email subscription
+> PMC ( Project Management Committee)/Committer member, bind github account process/and main email subscription
 
 ## 1. Binding github account process
 
@@ -107,7 +107,7 @@ Every PMC member is required to subscribe to the following mailing lists:
 |Name|Description|Subscribe Mail|Unsubscribe Mail|Mail Archive|
 |:-----|:-------|:------|:-------|:-----|
 | [dev@linkis.apache.org](mailto:dev@linkis.apache.org) | Linkis community activity information, project discussion announcements, etc. | [Subscribe](mailto:dev-subscribe@linkis.apache.org) | [unsubscribe](mailto:dev-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-dev) |
-| [private@linkis.apache.org](mailto:private@linkis.apache.org) |This mailing list is private, visible inside PMC, mainly for internal discussions | [Subscribe](mailto:private-subscribe@ linkis.apache.org) | [unsubscribe](mailto:private-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-private) |
+| [private@linkis.apache.org](mailto:private@linkis.apache.org) |This mailing list is private, visible inside PMC members, mainly for internal discussions | [Subscribe](mailto:private-subscribe@ linkis.apache.org) | [unsubscribe](mailto:private-unsubscribe@linkis.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/linkis-private) |
 | [general@incubator.apache.org](mailto:general@incubator.apache.org) | Public emails from the incubator community, mainly related to incubation projects | [Subscribe](mailto:general-subscribe@incubator.apache. org) | [unsubscribe](mailto:general-unsubscribe@incubator.apache.org) | [archive](http://mail-archives.apache.org/mod_mbox/general) |
 
 Subscription operations can be found in the guide [Subscribe to the mailing list](how-to-subscribe.md)

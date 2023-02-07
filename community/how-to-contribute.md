@@ -221,7 +221,7 @@ Before contributing code, you can find out what kind of submissions are popular 
 
 #### 3.1.1 How to become committer
 
-If you have submitted a valuable PR to Linkis and have been merged, or contributed continuously for more than half a year, and have led the release of at least one version, you can find a PMC of the Linkis project through the official WeChat group, if he is willing to nominate you as a committer , And are willing to state your contribution to all PMC and Committer, then a vote will be initiated; PMC and other Committers will vote together to decide whether to allow you to join, if you get enough votes, you will become Committer of the Linkis project .
+If you have submitted a valuable PR to Linkis and have been merged, or contributed continuously for more than half a year, and have led the release of at least one version, you can find a PMC members of the Linkis project through the official WeChat group, if he is willing to nominate you as a committer , And are willing to state your contribution to all PMC members and Committer, then a vote will be initiated; PMC members and other Committers will vote together to decide whether to allow you to join, if you get enough votes, you will become Committer of the Linkis project .
 
 #### 3.1.2 Committer's
 

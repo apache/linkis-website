@@ -459,7 +459,7 @@ All links to checksums, signatures, and public keys must refer to the main Apach
 
 ### 5.1 Linkis community voting stage
 
-- To vote in the Linkis community, send a voting email to `dev@linkis.apache.org`. PMC needs to check the correctness of the version according to the document, and then vote. After at least 72 hours have passed and three `+1 PMC member` votes have been counted, you can enter the next stage of voting.
+- To vote in the Linkis community, send a voting email to `dev@linkis.apache.org`. PMC members needs to check the correctness of the version according to the document, and then vote. After at least 72 hours have passed and three `+1 PMC member` votes have been counted, you can enter the next stage of voting.
 - Announce the results of the voting and send an email to the result of the voting to `dev@linkis.apache.org`.
 
 #### 5.1.1 Linkis community voting template
@@ -520,11 +520,11 @@ title:
 [RESULT][VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 content:
-Hello Apache Linkis PMC and Community,
+Hello Apache Linkis PMC members and Community,
 
     The vote closes now as 72hr have passed. The vote PASSES with
 
-    xx (+1 non-binding) votes from the PMC,
+    xx (+1 non-binding) votes from the PMC members,
     xx (+1 non-binding) votes from the rest of the developer community,
     and no further 0 or -1 votes.
 

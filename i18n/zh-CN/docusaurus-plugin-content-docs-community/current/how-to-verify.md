@@ -251,7 +251,7 @@ $ cd apache-linkis-${release_version}-bin
 <font color="red">
 回复的邮件一定要带上自己检查了那些项信息，仅仅回复`+1 approve`，是无效的。
 
-PMC在dev@linkis.apache.org linkis的社区投票时，请带上 binding后缀，表示对linkis社区中的投票具有约束性投票，方便统计投票结果。
+PMC成员在dev@linkis.apache.org linkis的社区投票时，请带上 binding后缀，表示对linkis社区中的投票具有约束性投票，方便统计投票结果。
 
 </font>
 

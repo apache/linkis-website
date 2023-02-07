@@ -17,7 +17,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 ## Features
 
 - **Support for diverse underlying computation storage engines**：  
-    Currently supported computation/storage engines: Spark, Hive, Python, Presto, ElasticSearch, MLSQL, TiSpark, JDBC, Shell, etc;      
+    Currently supported computation/storage engines: Spark, Hive, Python, Presto, ElasticSearch, MLSQL, TiSpark,Trino, SeaTunnel, JAVA , Shell, etc;      
     Computation/storage engines to be supported: Flink(Supported in version >=1.0.2), Impala, etc;      
     Supported scripting languages: SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala and JDBC, etc.  
 - **Powerful task/request governance capabilities**： With services such as Orchestrator, Label Manager and customized Spring Cloud Gateway, Linkis is able to provide multi-level labels based, cross-cluster/cross-IDC fine-grained routing, load balance, multi-tenancy, traffic control, resource control, and orchestration strategies like dual-active, active-standby, etc.  
@@ -44,7 +44,8 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 |Hadoop|Apache >=2.6.0, CDH >=5.4.0|\>=0.5.0|ongoing|Hadoop EngineConn. Supports Hadoop MR/YARN application.|
 |Python|\>=2.6|\>=0.5.0|\>=1.0.0_rc1|Python EngineConn. Supports python code.|
 |TiSpark|1.1|\>=0.5.0|ongoing|TiSpark EngineConn. Support querying TiDB data by SparkSQL.|
-
+|Trino | 371 | >=1.3.1 | 否 |   Trino EngineConn， Support Trino SQL code |
+|Seatunnel | 2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， Support Seatunnel SQL code |
 ## Download
 
 Please go to the [Linkis releases page](https://github.com/apache/linkis/releases) to download a compiled distribution or a source code package of Linkis.
