@@ -553,7 +553,7 @@ $ svn commit -m "prepare for 1.1.2-RC1"
 
 ### 5.1 Linkis 社区投票阶段
 
-1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 经过至少72小时并统计到3个`+1` PMC member票后，才能结束投票。
+1. Linkis 社区投票，发起投票邮件到`dev@linkis.apache.org`。PMC需要先按照文档检查版本的正确性，然后再进行投票。 至少统计到3个`+1` PMC member 票后，才能结束投票。
 
 2. 宣布投票结果, 发起投票结果邮件到`dev@linkis.apache.org`。
 
@@ -667,9 +667,14 @@ ${Linkis Release Manager}
 邮件正文：
 Hello Apache Linkis PMC and Community,
 
-    The vote closes now as 72hr have passed. The vote PASSES with
+    The vote closes now. The vote PASSES with
 
-    xx (+1 binding) votes from the PMC,
+    xx (+1 binding) votes from the PMC members,
+    member one
+    member two
+    member three
+    ...
+    
     xx (+1 non-binding) votes from the rest of the developer community,
     and no further 0 or -1 votes.
 

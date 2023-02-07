@@ -66,7 +66,9 @@ Thanks!
 ```
     
 ### 2.2 发起社区邮件投票
->如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在linkis的private邮件列表发起Committer或 PMC成员 的选举投票。投票邮件主送private@linkis.apache.org，至少持续72小时，至少要3票+1通过；如果存在-1投票则整个投票失败；投票人需要把-1的原因说清楚，便于大家理解和知晓。
+
+>如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在linkis的private邮件列表发起Committer或 PMC成员 的选举投票。投票邮件主送private@linkis.apache.org，至少要3票+1通过；如果存在-1投票则整个投票失败；投票人需要把-1的原因说清楚，便于大家理解和知晓。
+
 
 如下是投票邮件样例：
 ```html
@@ -78,7 +80,7 @@ Hi all:
 
     I think making him a ${Committer/PMC} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PMC}.
   
-    Voting will continue for at least 72 hours or until the required number of votes is reached.
+    Voting until the required number of votes is reached.
  
     Please vote accordingly:
     [ ] +1 approve
