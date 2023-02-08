@@ -23,7 +23,7 @@ In order to facilitate everyone's use, based on the release branch code of each 
 
 ## engine type
 
-| **Engine name** | **Support underlying component version<br/>(default dependency version)** | **Linkis 1.X version requirements** | **Whether it is included in the release package by default** | **Description** |
+| **Engine name** | **Support underlying component version<br/>(default dependency version)** | **Linkis Version Requirements** | **Included in Release Package By Default** | **Description** |
 |:---- |:---- |:---- |:---- |:---- |
 |Spark|Apache 2.0.0~2.4.7, <br/>CDH >= 5.4.0, <br/>(default Apache Spark 2.4.3)|\>=1.0.3|Yes|Spark EngineConn, supports SQL , Scala, Pyspark and R code|
 |Hive|Apache >= 1.0.0, <br/>CDH >= 5.4.0, <br/>(default Apache Hive 2.3.3)|\>=1.0.3|Yes|Hive EngineConn, supports HiveQL code|
@@ -36,7 +36,8 @@ In order to facilitate everyone's use, based on the release branch code of each 
 |Sqoop| Sqoop >= 1.4.6, <br/>(default Apache Sqoop 1.4.6)|\>=1.1.2|No|Sqoop EngineConn, support data migration tool Sqoop engine|
 |Presto|Presto >= 0.180|\>=1.2.0|No|Presto EngineConn, supports Presto SQL code|
 |ElasticSearch|ElasticSearch >=6.0|\>=1.2.0|No|ElasticSearch EngineConn, supports SQL and DSL code|
-
+|Trino | 371 | >=1.3.1 | 否 |   Trino EngineConn， 支持Trino SQL 代码 |
+|Seatunnel | 2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， 支持Seatunnel SQL 代码 |
 
 ## Install engine guide
 

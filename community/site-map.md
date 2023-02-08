@@ -57,7 +57,7 @@ sidebar_position: 12
 
 - Report reporting tool after graduation https://reporter.apache.org/wizard/ (Chair and PMC can view it)
 - Project Health Score https://reporter.apache.org/chi.py#linkis
-- PMC information update https://svn.apache.org/repos/private/committers/board/committee-info.txt (Chair and PMC can view it)
+- PMC information update https://svn.apache.org/repos/private/committers/board/committee-info.txt (Chair and PMC members can view it)
 
 
 - View submitting users over a period of time

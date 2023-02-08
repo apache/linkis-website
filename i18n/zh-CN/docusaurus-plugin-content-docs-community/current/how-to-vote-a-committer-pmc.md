@@ -2,7 +2,7 @@
 title: 如何提名新的Committer 和 PMC
 sidebar_position: 6
 ---
-> 介绍Committer 和 PMC 的推选要求以及流程。官方指引可参见：https://community.apache.org/newcommitter.html
+> 介绍Committer 和 PMC成员 的推选要求以及流程。官方指引可参见：https://community.apache.org/newcommitter.html
 
 ## 1.候选人要求
 在投票时，所有 PMC 成员都需要自己决定是否应批准候选人成为提交者。可以通过搜索[邮件列表](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/linkis/issues)/[官网文档贡献](https://github.com/apache/linkis-website)，以了解候选人如何与他人互动，以及他们所做的贡献（代码或文档补丁、建议、参与答疑等）。
@@ -29,7 +29,7 @@ sidebar_position: 6
    - 积极回复 ASF 董事会提出的问题，并采取必要的行动
    - 熟悉 ASF 的版本发布流程
 
-在大多数情况下，新的 PMC 成员是从 Committer 团队中提名的。但也可以直接成为 PMC 成员，只要 PMC 同意提名，并确信候选人已经准备好。例如，这可以通过他/她曾是 Apache 成员、Apache 官员或另一个项目的 PMC 成员这一事实来证明。
+在大多数情况下，新的 PMC 成员是从 Committer 团队中提名的。但也可以直接成为 PMC 成员，只要 PMC成员 同意提名，并确信候选人已经准备好。例如，这可以通过他/她曾是 Apache 成员、Apache 官员或另一个项目的 PMC 成员这一事实来证明。
 
 ## 2. 推举详细流程
 
@@ -66,7 +66,11 @@ Thanks!
 ```
     
 ### 2.2 发起社区邮件投票
+<<<<<<< HEAD
 >如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在linkis的private邮件列表发起Committer或 PMC 的选举投票。投票邮件主送private@linkis.apache.org，至少要3票+1通过；如果存在-1投票则整个投票失败；投票人需要把-1的原因说清楚，便于大家理解和知晓。
+=======
+>如果讨论邮件在规定时间内没有收到分歧信息，投票发起者需要在linkis的private邮件列表发起Committer或 PMC成员 的选举投票。投票邮件主送private@linkis.apache.org，至少持续72小时，至少要3票+1通过；如果存在-1投票则整个投票失败；投票人需要把-1的原因说清楚，便于大家理解和知晓。
+>>>>>>> dev
 
 如下是投票邮件样例：
 ```html
@@ -123,11 +127,11 @@ Thanks!
    
 ### 2.4 新增 PMC 的通知邮件
 
-> 该步骤只针对新的 PMC 推举流程，如果选举的是Committer，该步跳过不执行。
+> 该步骤只针对新的 PMC成员 推举流程，如果选举的是Committer，该步跳过不执行。
 > 投票发起者需要发送至 board@apache.apache.org 邮件组发送知会邮件，并等待至少72小时。
-> 邮件发送 board@apache.org，抄送private@linkis.apache.org；PMC们会分析合规性，直到没有异议。
+> 邮件发送 board@apache.org，抄送private@linkis.apache.org；PMC成员们会分析合规性，直到没有异议。
 
-如下是新增推选 PMC 的通知邮件样例：
+如下是新增推选 PMC成员 的通知邮件样例：
 ```html
 To: board@apache.org
 Cc: private@linkis.apache.org
@@ -159,7 +163,7 @@ Subject: Invitation to become Linkis committer: Joe Bloggs
     
 Hello Joe Bloggs,
 
-    The Linkis Podling Project Management Committee] (PMC) 
+    The Linkis Project Management Committee] (PMC) 
     hereby offers you committer privileges to the project 
     [as well as membership in the PMC]. These privileges are
     offered on the understanding that you'll use them
@@ -213,7 +217,7 @@ The Apache Linkis PMC
 >需要候选人进行处理
 
 新的 Committer 应回复 `private@linkis.apache.org`（选择`reply all`），并表达他/她接受邀请。
-然后，该邀请将被项目的 PMC 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
+然后，该邀请将被项目的 PMC成员 视为已接受。当然，新的 committer 也可以选择拒绝邀请。
 
 接受邀请，回复邮件示例 
 ```
@@ -234,7 +238,7 @@ XXXX
 - 选择一个未被使用过 [apache committers list page](http://people.apache.org/committer-index.html) 的 Apache ID。
 - 下载 ICLA 并签署 指引见[ICLA 签署流程](how-to-sign-apache-icla)。
 
-- PMC 将等待Apache秘书确认ICLA（或CCLA）备案。新的提交者和 PMC 将收到以下电子邮件：
+- PMC成员 将等待Apache秘书确认ICLA（或CCLA）备案。新的提交者和 PMC成员 将收到以下电子邮件：
 
 ```html
 Dear ${Candidate Name},
@@ -252,8 +256,8 @@ for more information about roles at Apache.
 
 几天后，新的提交者将收到一封来自root@apache.org帐户通知账号创建的电子邮件，标题为`Welcome to the Apache Software Foundation (ASF)!`。
 
-收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知Linkis PMC，你的Apache Id账号已经创建，请求将你的Apache Id添加到Linkis的官方提交者列表中。
-(告知负责提名你的PMC通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中）
+收到账户创建成功的通知邮件后，可以再次回复之前的邀请邮件，告知Linkis PMC成员，你的Apache Id账号已经创建，请求将你的Apache Id添加到Linkis的官方提交者列表中。
+(告知负责提名你的PMC成员通过 [Roster](https://whimsy.apache.org/roster/committee/linkis) 页面，将新的提交者添加到官方提交者列表中）
 
 ### 2.7 设置 Apache ID 和开发环境
 
@@ -290,7 +294,7 @@ Thanks!
 The Apache Linkis PMC
 ```
    
-到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PMC。
+到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PMC成员。
 
 ## 4 更新项目状态信息
 step1 克隆状态记录的文件 

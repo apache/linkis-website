@@ -25,7 +25,7 @@ The subject of the email can be roughly divided into the following types
 - **\[DISCUSS]** Discussion on a feature/function/logic modification/CI/CD, which can be implementation/design/optimization suggestion, etc.
 - **\[PROPOSAL]** Proposals, such as adding/removing certain features, are not much different from \[DISCUSS]
 - **\[VOTE]** Vote for changes/elect Committer/elect new PMC members, etc., such as version release, each version will be voted on in the community dev mailing list; you can also choose multiple options ,Poll.
-- **\[ANNOUNCE]** Announce the completion of the release of the new version, announcing the new Committer/PMC elected, etc.
+- **\[ANNOUNCE]** Announce the completion of the release of the new version, announcing the new Committer/PMC members elected, etc.
 - **\[NOTICE]** Mainly used to notify some temporary announcements, etc., such as the community sandbox environment is suspended for maintenance/upgrade, the web official website is abnormally unavailable, etc.; as well as online and offline weekly meetings/exchange meetings and various Event information announcements, etc.
 - **\[HELP]** Ask for help, because there are many git code notifications, and sometimes it is impossible to check them in time; in addition, github network access is limited, and some students may not be able to submit issues through github smoothly. Initiated by email, it is easier to identify and be perceived.
 - **\[VOTE]\[RESULT]** Announce the results of the release vote
@@ -95,10 +95,10 @@ Therefore, it is necessary to modify the configuration of the email reply. For d
 ## 4. Mail usage of PMC
 
 From the determination of a version to the release, it may involve specific common scenarios of using email
-1. The new version needs to organize PMC and developers to discuss, record the minutes of the meeting, determine the function points of this version, the general release time of the plan, and the release manager of this time, etc., and send the meeting minutes private@linkis.apache.org Email list.
-2. For the scope of the feature list of the new version, you need to send a voting email to dev@linkis.apache.org, and 3+ PMCs are required to agree and the yes votes are greater than the negative votes.
+1. The new version needs to organize PMC members and developers to discuss, record the minutes of the meeting, determine the function points of this version, the general release time of the plan, and the release manager of this time, etc., and send the meeting minutes private@linkis.apache.org Email list.
+2. For the scope of the feature list of the new version, you need to send a voting email to dev@linkis.apache.org, and 3+ PMC members are required to agree and the yes votes are greater than the negative votes.
 3. For the weekly regular meeting hosted, the meeting invitation reminder email needs to be released before the meeting / the meeting minutes email should be sent to the dev@linkis.apache.org mailbox after the meeting
-4. New committer/PMC votes need to be sent to private@linkis.apache.org. See https://community.apache.org/newcommitter.html for the new committee/PMC selection process
+4. New committer/PMC members votes need to be sent to private@linkis.apache.org. See https://community.apache.org/newcommitter.html for the new committee/PMC members selection process
 
 
 ## 5. How to reply to version release voting emails

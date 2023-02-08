@@ -229,7 +229,7 @@ git push origin dev-fix dev-fix
 
 #### 3.1.1 如何成为 Committer
 
-如果您对 Linkis 提过颇具价值的 PR 并且被合并，或是连续贡献超过半年，且至少主导过一次版本的发布，您可以通过官方微信群找到Linkis项目的一个 PMC ，如果他愿意提名您为 committer，并愿意为您陈述您的贡献给所有 PMC和Committer，那么接下来会发起一次投票；PMC和其他 Committers 将会一起投票决定是否允许您的加入，如果得到足够票数，您将成为 Linkis 项目的 Committer。
+如果您对 Linkis 提过颇具价值的 PR 并且被合并，或是连续贡献超过半年，且至少主导过一次版本的发布，您可以通过官方微信群找到Linkis项目的一个 PMC成员 ，如果他愿意提名您为 committer，并愿意为您陈述您的贡献给所有 PMC成员和Committer，那么接下来会发起一次投票；PMC成员和其他 Committers 将会一起投票决定是否允许您的加入，如果得到足够票数，您将成为 Linkis 项目的 Committer。
 
 #### 3.1.2 Committer 的权利
 
