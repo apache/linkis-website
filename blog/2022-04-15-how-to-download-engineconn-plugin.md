@@ -23,7 +23,7 @@ In order to facilitate everyone's use, based on the release branch code of each 
 
 ## engine type
 
-| **Engine name** | **Support underlying component version<br/>(default dependency version)** | **Linkis 1.X version requirements** | **Whether it is included in the release package by default** | **Description** |
+| **Engine name** | **Support underlying component version<br/>(default dependency version)** | **Linkis Version Requirements** | **Included in Release Package By Default** | **Description** |
 |:---- |:---- |:---- |:---- |:---- |
 |Spark|Apache 2.0.0~2.4.7, <br/>CDH >= 5.4.0, <br/>(default Apache Spark 2.4.3)|\>=1.0.3|Yes|Spark EngineConn, supports SQL , Scala, Pyspark and R code|
 |Hive|Apache >= 1.0.0, <br/>CDH >= 5.4.0, <br/>(default Apache Hive 2.3.3)|\>=1.0.3|Yes|Hive EngineConn, supports HiveQL code|
