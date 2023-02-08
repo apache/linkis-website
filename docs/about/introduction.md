@@ -30,7 +30,7 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 ## Supported engine types
 
-| **Engine** | **Supported Version** | **Linkis 0.X version requirement**| **Linkis 1.X version requirement** | **Description** |
+| **Engine** | **Supported Version** | **Linkis Version Requirements**| **Included in Release Package By Default** | **Description** |
 |:---- |:---- |:---- |:---- |:---- |
 |Flink |1.12.2|\>=dev-0.12.0, PR #703 not merged yet.|>=1.0.2|	Flink EngineConn. Supports FlinkSQL code, and also supports Flink Jar to Linkis Manager to start a new Yarn application.|
 |Impala|\>=3.2.0, CDH >=6.3.0"|\>=dev-0.12.0, PR #703 not merged yet.|ongoing|Impala EngineConn. Supports Impala SQL.|
