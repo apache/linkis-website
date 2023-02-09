@@ -41,7 +41,7 @@ Subject: Accept to become a linkis committer
 Content:
 
 Hello everyone:
-    I have accepted the Apache Linkis PMC members
+    I have accepted the Apache Linkis PMC 
 invitation to become linkis committer, the attachment 
 is my ICLA information.
 Thanks!

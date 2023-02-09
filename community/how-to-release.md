@@ -522,7 +522,7 @@ title:
 [RESULT][VOTE] Release Apache Linkis ${release_version} ${rc_version}
 
 content:
-Hello Apache Linkis PMC members and Community,
+Hello Apache Linkis PMC  and Community,
 
     The vote closes now as 72hr have passed. The vote PASSES with
 
