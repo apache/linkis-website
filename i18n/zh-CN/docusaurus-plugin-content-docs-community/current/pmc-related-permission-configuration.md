@@ -2,7 +2,7 @@
 title: PMC/Committer 相关权限配置
 sidebar_position: 8
 ---
-> PMC(Podling Project Management Committee)成员,绑定github账号流程/以及主要邮件订阅
+> PMC(Project Management Committee)成员,绑定github账号流程/以及主要邮件订阅
 
 ## 1. 绑定github账号流程
 

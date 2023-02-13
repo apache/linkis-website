@@ -23,7 +23,7 @@ tags: [engine,guide]
 
 ## 引擎类型 
 
-| **引擎名** | **支持底层组件版本<br/>(默认依赖版本)** | **Linkis 1.X 版本要求** | **是否默认包含在发布包中** | **说明** |
+| **引擎名** | **支持底层组件版本<br/>(默认依赖版本)** | **Linkis 版本要求** | **是否默认包含在发布包中** | **说明** |
 |:---- |:---- |:---- |:---- |:---- |
 |Spark|Apache 2.0.0~2.4.7, <br/>CDH >= 5.4.0, <br/>（默认Apache Spark 2.4.3）|\>=1.0.3|是|Spark EngineConn， 支持SQL, Scala, Pyspark 和R 代码|
 |Hive|Apache >= 1.0.0, <br/>CDH >= 5.4.0, <br/>（默认Apache Hive 2.3.3）|\>=1.0.3|是|Hive EngineConn， 支持HiveQL 代码|
@@ -36,7 +36,8 @@ tags: [engine,guide]
 |Sqoop| Sqoop >= 1.4.6, <br/>(默认Apache Sqoop 1.4.6)|\>=1.1.2|否|Sqoop EngineConn， 支持 数据迁移工具 Sqoop 引擎|
 |Presto|Presto >= 0.180|\>=1.2.0|否|Presto EngineConn， 支持Presto SQL 代码|
 |ElasticSearch|ElasticSearch >=6.0|\>=1.2.0|否|ElasticSearch EngineConn， 支持SQL 和DSL 代码|
-
+|Trino | 371 | >=1.3.1 | 否 |   Trino EngineConn， 支持Trino SQL 代码 |
+|Seatunnel | 2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， 支持Seatunnel SQL 代码 |
 
 ## 安装引擎指引 
 

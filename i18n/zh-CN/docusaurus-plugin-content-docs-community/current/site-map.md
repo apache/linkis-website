@@ -55,9 +55,9 @@ sidebar_position: 12
 - PMC 邮件等信息查看 https://whimsy.apache.org/roster/committee/linkis#pmc 
 - project 文件  https://svn.apache.org/repos/asf/incubator/public/trunk/content/projects/linkis.xml 
 - podling 文件 https://svn.apache.org/repos/asf/incubator/public/trunk/content/podlings/linkis.yml
-- 毕业后report上报工具 https://reporter.apache.org/wizard/ （主席和PMC可查看） 
+- 毕业后report上报工具 https://reporter.apache.org/wizard/ （主席和PMC成员可查看） 
 - 项目健康度评分  https://reporter.apache.org/chi.py#linkis 
-- PMC信息更新  https://svn.apache.org/repos/private/committers/board/committee-info.txt （主席和PMC可查看） 
+- PMC信息更新  https://svn.apache.org/repos/private/committers/board/committee-info.txt （主席和PMC成员可查看） 
 
 - 查看某段时间内的提交用户  
 https://github.com/apache/linkis/graphs/contributors?from=2021-08-02&to=2022-07-21&type=c

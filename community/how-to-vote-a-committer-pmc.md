@@ -1,8 +1,8 @@
 ---
-title: How to Vote New Committer/PMC
+title: How to Vote New Committer/PMC members
 sidebar_position: 6
 ---
-> Introduce the selection requirements and process for Committer and PMC. Official guidelines can be found at: https://community.apache.org/newcommitter.html
+> Introduce the selection requirements and process for Committer and PMC members. Official guidelines can be found at: https://community.apache.org/newcommitter.html
 
 ## 1. Candidate requirements
 When voting, all PMC members need to decide for themselves whether candidates should be approved as committers. This can be done by searching the [mailing list](https://lists.apache.org/list?dev@linkis.apache.org)/[ISSUES/PR](https://github.com/apache/linkis/issues )/[Official Website Documentation Contribution](https://github.com/apache/linkis-website) to understand how candidates interact with others, and the contributions they make (code or documentation patches, suggestions, participation in Q&A) Wait).
@@ -29,33 +29,33 @@ Below are some points to consider when evaluating candidates for commitment elig
    - Respond proactively to questions raised by the ASF Board and take necessary action
    - Familiar with the release process of ASF
 
-In most cases, new PMC members are nominated from the Committer team. But it is also possible to become a member of the PMC directly, as long as the PMC agrees to the nomination and is confident that the candidate is ready. This can be demonstrated, for example, by the fact that he/she was an Apache member, an Apache official, or a PMC member of another project.
+In most cases, new PMC members are nominated from the Committer team. But it is also possible to become a member of the PMC directly, as long as the PMC members agrees to the nomination and is confident that the candidate is ready. This can be demonstrated, for example, by the fact that he/she was an Apache member, an Apache official, or a PMC member of another project.
 
 ## 2. Detailed process of recommendation
 
 :::tip
 ${Candidate Name}: represents the electee eg: Joe Bloggs
 
-${Committer/PMC}: represents the type of Committer/PMC
+${Committer/PMC members}: represents the type of Committer/PMC members
 :::
 
 ### 2.1 Initiate community mail discussion
 
->Any linkis PMC member can initiate a voting discussion. After PMC finds any valuable contributions from community contributors and obtains the consent of the candidate, they can initiate a discussion on the linkis private mailing list. In the discussion email, the proposer should clarify the candidate's contribution and give the address for reviewing the corresponding contribution, so that everyone can discuss and analyze. The discussion email should be sent to private@linkis.apache.org. The discussion will last for at least 72 hours. The project team members, including the mentors, will fully express their views on the proposed email.
+>Any linkis PMC member can initiate a voting discussion. After PMC members finds any valuable contributions from community contributors and obtains the consent of the candidate, they can initiate a discussion on the linkis private mailing list. In the discussion email, the proposer should clarify the candidate's contribution and give the address for reviewing the corresponding contribution, so that everyone can discuss and analyze. The discussion email should be sent to private@linkis.apache.org. The discussion will last for at least 72 hours. The project team members, including the mentors, will fully express their views on the proposed email.
 
 Here is a sample discussion email:
 
 ```html
 To: private@linkis.apache.org
-Subject: [DISCUSS] ${Candidate Name} as an Linkis ${Committer/PMC} candidate
+Subject: [DISCUSS] ${Candidate Name} as an Linkis ${Committer/PMC members} candidate
 Content:
 
 Hi all:
-    I nominate ${Candidate Name} as an Linkis ${Committer/PMC} candidate
+    I nominate ${Candidate Name} as an Linkis ${Committer/PMC members} candidate
  
     Judging from the contributions in recent months, ${Candidate Name} has submitted many implementations[1],[2] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in in the actual project optimization and improvement, to let the project more perfect and easier to use.
   
-    So I nominated ${Candidate Name} as ${Committer/PMC} of the Linkis project.
+    So I nominated ${Candidate Name} as ${Committer/PMC members} of the Linkis project.
   
     1. https://github.com/apache/linkis/issues/created_by/${Candidate Githubid} 
     2. https://github.com/apache/linkis/commits?author=${Candidate Githubid} 
@@ -70,12 +70,12 @@ Thanks!
 Here is a sample poll email:
 ```html
 To: private@linkis.apache.org
-Subject: [VOTE] ${Candidate Name} as an Linkis ${Committer/PMC} candidate
+Subject: [VOTE] ${Candidate Name} as an Linkis ${Committer/PMC members} candidate
 Content:
 Hi all:
     Judging from the contributions in recent months, ${Candidate Name} has submitted many implementations[1],[2],[3] to the project and improved the management module for the project. During the optimization and improvement period of the project, it is hoped that more people will participate in the actual project optimization and improvement, to let the project more perfect and easier to use.
 
-    I think making him a ${Committer/PMC} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PMC}.
+    I think making him a ${Committer/PMC members} will be a recognition of his outstanding work for Linkis. So, I am happy to call VOTE to accept ${Candidate Name} as an Linkis ${Committer/PMC members}.
   
     Voting until the required number of votes is reached.
  
@@ -97,11 +97,11 @@ Thanks!
 Here is an example of voting results:
 ```html
 To: private@linkis.apache.org
-Subject: [RESULTS][VOTE] ${Candidate Name} as an Linkis ${Committer/PMC}
+Subject: [RESULTS][VOTE] ${Candidate Name} as an Linkis ${Committer/PMC members}
 Content:
 
 Hi all:
-    The vote for "${Candidate Name} as an Linkis ${Committer/PMC}" has PASSED and closed now.
+    The vote for "${Candidate Name} as an Linkis ${Committer/PMC members}" has PASSED and closed now.
 
     The result is as follows:
 
@@ -118,22 +118,22 @@ Hi all:
     Thanks for everyone's support!
 Thanks!
 ````
-**Note: If it is not passed, the result is "The vote for "${Candidate Name} as an Linkis ${Committer/PMC}" has FAILED and closed now."**
+**Note: If it is not passed, the result is "The vote for "${Candidate Name} as an Linkis ${Committer/PMC members}" has FAILED and closed now."**
    
-### 2.4 Added PMC notification email
-> his step is only for the new PMC election process. If the Committer is elected, this step is skipped and not executed.
+### 2.4 Added PMC  notification email
+> his step is only for the new PMC members election process. If the Committer is elected, this step is skipped and not executed.
 > The initiator of the vote needs to send a notification email to the board@apache.org mailing group and wait at least 72 hours;
 > Email board@apache.org, cc private@linkis.apache.org; board will analyze compliance until there is no objection.
 
-The following is a sample notification email for adding a PMC:
+The following is a sample notification email for adding a PMC members:
 ```html
 To: board@apache.org
 Cc: private@linkis.apache.org
-Subject: [NOTICE] ${Candidate Name} for Linkis PMC
+Subject: [NOTICE] ${Candidate Name} for Linkis PMC members
 Content:
 Hi everyone,
 
-    ${Candidate Name} has been voted as a new member of the Linkis PMC.
+    ${Candidate Name} has been voted as a new member of the Linkis PMC members.
 
     The vote thread is at:
     https://lists.apache.org/thread/xx
@@ -155,7 +155,7 @@ Subject: Invitation to become Linkis committer: Joe Bloggs
     
 Hello Joe Bloggs,
 
-    The Linkis Podling Project Management Committee] (PMC)
+    The Linkis Project Management Committee] (PMC)
     hereby offers you committer privileges to the project
     [as well as membership in the PMC]. These privileges are
     offered on the understanding that you'll use them
@@ -193,7 +193,7 @@ Hello Joe Bloggs,
         unique Apache ID. Look to see if your preferred
         ID is already taken at
         https://people.apache.org/committer-index.html
-        This will allow the Secretary to notify the PMC
+        This will allow the Secretary to notify the PMC members
         when your iCLA has been recorded.
     
     When recording of your iCLA is noted, you will
@@ -264,7 +264,7 @@ Content:
 Hi all:
      Hi everyone,
 
-     The Project Management Committee(PMC) for Apache Linkis has invited ${Candidate Name} to become a ${Committer/PMC} and we are pleased to announce that he has accepted.
+     The Project Management Committee(PMC) for Apache Linkis has invited ${Candidate Name} to become a ${Committer/PMC members} and we are pleased to announce that he has accepted.
 
      ${Candidate Name} is being active in the Linkis community, and we are glad to see his more interactions with the community in the future.
 

@@ -14,8 +14,7 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试用企业和
 
 ## 核心特点
 - **丰富的底层计算存储引擎支持**： 
-    **目前支持的计算存储引擎**：Spark、Hive、Flink、Python、Pipeline、Sqoop、openLooKeng、Presto、ElasticSearch、JDBC和Shell等。  
-    **待支持的计算存储引擎**：Trino(计划1.3.1)、SeaTunnel(计划1.3.1)等。  
+    **目前支持的计算存储引擎**：Spark、Hive、Flink、Python、Pipeline、Sqoop、openLooKeng、Presto、ElasticSearch、Trino、SeaTunnel、JAVA 和Shell等。  
     **支持的脚本语言**：SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala 和JDBC 等。    
 - **强大的计算治理能力**： 基于Orchestrator、Label Manager和定制的Spring Cloud Gateway等服务，Linkis能够提供基于多级标签的跨集群/跨IDC 细粒度路由、负载均衡、多租户、流量控制、资源控制和编排策略(如双活、主备等)支持能力。  
 - **全栈计算存储引擎架构支持**： 能够接收、执行和管理针对各种计算存储引擎的任务和请求，包括离线批量任务、交互式查询任务、实时流式任务和存储型任务。
@@ -43,6 +42,8 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试用企业和
 |MLSQL| MLSQL >=1.1.0|ongoing|-|MLSQL EngineConn， 支持MLSQL 代码。|
 |Hadoop|Apache >=2.6.0, <br/>CDH >=5.4.0|ongoing|-|Hadoop EngineConn， 支持Hadoop MR/YARN application。|
 |TiSpark|1.1|ongoing|-|TiSpark EngineConn， 支持用SparkSQL 查询TiDB。|
+|Trino | 371 | >=1.3.1 | 否 |   Trino EngineConn， 支持Trino SQL 代码 |
+|Seatunnel | 2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， 支持Seatunnel SQL 代码 |
 
 
 
