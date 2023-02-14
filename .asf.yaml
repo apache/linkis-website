@@ -30,6 +30,8 @@ github:
     - KangTomwk
     - guoshupei
     - rarexixi
+    - casionxia
+    - aiceflower
 notifications:
   commits: commits@linkis.apache.org
   issues: commits@linkis.apache.org
