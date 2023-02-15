@@ -63,6 +63,7 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 
 #### 5.1.1 The pom file of linkis
 
+For Linkis version < 1.3.2
 ```xml
 <hadoop.version>3.1.1</hadoop.version>
 <scala.version>2.12.10</scala.version>
@@ -74,10 +75,25 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
     <artifactId>hadoop-hdfs-client</artifactId>
     <version>${hadoop.version}</version>
 <dependency>
-```
 
+```
+For Linkis version >= 1.3.2, we only need to set `scala.version` and `scala.binary.version` if necessary
+```java
+<scala.version>2.12.10</scala.version>
+<scala.binary.version>2.12</scala.binary.version>
+```
+Because we can directly compile with hadoop-3.3 or hadoop-2.7 profile.
+Profile `hadoop-3.3` can be used for any hadoop3.x, default hadoop3.x version will be hadoop 3.3.1,
+Profile `hadoop-2.7` can be used for any hadoop2.x, default hadoop2.x version will be hadoop 2.7.2,
+other hadoop version can be specified by -Dhadoop.version=xxx
+```text
+mvn -N  install
+mvn clean install -Phadoop-3.3 -Dmaven.test.skip=true
+mvn clean install -Phadoop-3.3 -Dhadoop.version=3.1.1 -Dmaven.test.skip=true
+```
 #### 5.1.2  The pom file of linkis-hadoop-common
 
+For Linkis version < 1.3.2
 ```xml
 <!-- Notice here <version>${hadoop.version}</version> , adjust according to whether you have encountered errors --> 
 <dependency>
@@ -87,6 +103,8 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 </dependency>
 ```
 
+For Linkis version >= 1.3.2,`linkis-hadoop-common` module no need to change
+
 #### 5.1.3 The pom file of linkis-engineplugin-hive
 
 ```xml
@@ -95,8 +113,22 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 
 #### 5.1.4 The pom file of linkis-engineplugin-spark
 
+For Linkis version < 1.3.2
 ```xml
 <spark.version>3.0.1</spark.version>
+```
+
+For Linkis version >= 1.3.2
+```text
+We can directly compile with spark-3.2 or spark-2.4-hadoop-3.3 profile, if we need to used with hadoop3, then profile hadoop-3.3 will be needed.
+default spark3.x version will be spark 3.2.1. if we compile with spark-3.2 then scala version will be 2.12.15 by default,
+so we do not need to set the scala version in Linkis project pom file(mentioned in 5.1.1).
+if spark2.x used with hadoop3, for compatibility reason, profile `spark-2.4-hadoop-3.3` need to be activated.
+```
+```text
+mvn -N  install
+mvn clean install -Pspark-3.2 -Phadoop-3.3 -Dmaven.test.skip=true
+mvn clean install -Pspark-2.4-hadoop-3.3 -Phadoop-3.3 -Dmaven.test.skip=true
 ```
 
 #### 5.1.5 The pom file of flink-engineconn-flink
@@ -160,6 +192,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 
 #### 6.1.1 The pom file of linkis
 
+For Linkis version < 1.3.2
 ```xml
 <hadoop.version>3.1.1</hadoop.version>
 <json4s.version>3.2.11</json4s.version>
@@ -172,6 +205,20 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 <dependency>
 ```
 
+For Linkis version >= 1.3.2, we only need to set `json4s.version` if necessary
+```java
+<json4s.version>3.2.11</json4s.version>
+```
+Because we can directly compile with hadoop-3.3 or hadoop-2.7 profile.
+Profile `hadoop-3.3` can be used for any hadoop3.x, default hadoop3.x version will be hadoop 3.3.1,
+Profile `hadoop-2.7` can be used for any hadoop2.x, default hadoop2.x version will be hadoop 2.7.2,
+other hadoop version can be specified by -Dhadoop.version=xxx
+```text
+mvn -N  install
+mvn clean install -Phadoop-3.3 -Dmaven.test.skip=true
+mvn clean install -Phadoop-3.3 -Dhadoop.version=3.1.1 -Dmaven.test.skip=true
+```
+
 #### 6.1.2 The pom file of linkis-engineplugin-hive
 
 ```xml
@@ -180,8 +227,22 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf  file adjustment
 
 #### 6.1.3 The pom file of linkis-engineplugin-spark
 
+For Linkis version < 1.3.2
 ```xml
 <spark.version>2.3.2</spark.version>
+```
+
+For Linkis version >= 1.3.2
+```text
+We can directly compile with spark-3.2 profile, if we need to use with hadoop3, then profile hadoop-3.3 will be needed.
+default spark3.x version will be spark 3.2.1. if we compile with spark-3.2 then scala version will be 2.12.15 by default,
+so we do not need to set the scala version in Linkis project pom file(mentioned in 5.1.1).
+if spark2.x used with hadoop3, for compatibility reason, profile `spark-2.4-hadoop-3.3` need to be activated.
+```
+```text
+mvn -N  install
+mvn clean install -Pspark-3.2 -Phadoop-3.3 -Dmaven.test.skip=true
+mvn clean install -Pspark-2.4-hadoop-3.3 -Phadoop-3.3 -Dmaven.test.skip=true
 ```
 
 #### 6.1.4 linkis-label-common adjustment

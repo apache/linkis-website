@@ -63,7 +63,7 @@ SET @OPENLOOKENG_LABEL="openlookeng-1.5.0";
 
 #### 5.1.1 linkis的pom文件
 
-For Linkis version < 1.3.2
+Linkis版本小于`1.3.2`时
 ```java
 <hadoop.version>3.1.1</hadoop.version>
 <scala.version>2.12.10</scala.version>
@@ -77,15 +77,15 @@ For Linkis version < 1.3.2
 <dependency>
 ```
 
-For Linkis version >= 1.3.2, we only need to set `scala.version` and `scala.binary.version` if necessary
+当Linkis版本大于等于`1.3.2`时, 只需要设置 `scala.version` and `scala.binary.version`
 ```java
 <scala.version>2.12.10</scala.version>
 <scala.binary.version>2.12</scala.binary.version>
 ```
-Because we can directly compile with hadoop-3.3 or hadoop-2.7 profile.
-Profile `hadoop-3.3` can be used for any hadoop3.x, default hadoop3.x version will be hadoop 3.3.1,
-Profile `hadoop-2.7` can be used for any hadoop2.x, default hadoop2.x version will be hadoop 2.7.2,
-other hadoop version can be specified by -Dhadoop.version=xxx
+因为我们可以直接使用`hadoop-3.3` or `hadoop-2.7` profile来编译
+Profile `hadoop-3.3` 可以用于任意hadoop3.x, 默认hadoop3.x版本是3.3.1,
+Profile `hadoop-2.7` 可以用于任意hadoop2.x, 默认hadoop2.x版本是2.7.2,
+想要用其他版本可以编译时指定 -Dhadoop.version=xxx
 ```text
 mvn -N  install
 mvn clean install -Phadoop-3.3 -Dmaven.test.skip=true
@@ -94,7 +94,7 @@ mvn clean install -Phadoop-3.3 -Dhadoop.version=3.1.1 -Dmaven.test.skip=true
 
 #### 5.1.2 linkis-hadoop-common的pom文件
 
-For Linkis version < 1.3.2
+Linkis版本小于`1.3.2`时
 ```java
 <!-- 注意这里的 <version>${hadoop.version}</version> , 根据你有没有遇到错误来进行调整 --> 
 <dependency>
@@ -104,7 +104,7 @@ For Linkis version < 1.3.2
 </dependency>
 ```
 
-For Linkis version >= 1.3.2,`linkis-hadoop-common` module no need to change
+当Linkis版本大于等于`1.3.2`时,`linkis-hadoop-common`模块不需要变更
 
 #### 5.1.3 linkis-engineplugin-hive的pom文件
 
@@ -114,20 +114,21 @@ For Linkis version >= 1.3.2,`linkis-hadoop-common` module no need to change
 
 #### 5.1.4 linkis-engineplugin-spark的pom文件
 
-For Linkis version < 1.3.2
+Linkis版本小于`1.3.2`时
 ```java
 <spark.version>3.0.1</spark.version>
 ```
 
-For Linkis version >= 1.3.2
+当Linkis版本大于等于`1.3.2`时
 ```text
-We can directly compile with spark-3.2 profile, if we need to used with hadoop3, then profile hadoop-3.3 will be needed.
-default spark3.x version will be spark 3.2.1. if we compile with spark-3.2 then scala version will be 2.12.15 by default,
-so we do not need to set the scala version in Linkis project pom file(mentioned in 5.1.1).
+我们可以直接编译spark-3.2 profile, 如果我们同时使用hadoop3, 那么我们还需要指定hadoop-3.3 profile.
+默认 spark3.x 版本时3.2.1. 如果我们使用spark-3.2 profile编译, scala版本默认是2.12.15,因此我们不需要在项目根目录设置scala版本了（5.1.1提到当)
+如果Linkis使用hadoop3编译，同时spark仍旧是2.x版本的话，由于spark兼容性问题需要激活profile `spark-2.4-hadoop-3.3`
 ```
 ```text
 mvn -N  install
 mvn clean install -Pspark-3.2 -Phadoop-3.3 -Dmaven.test.skip=true
+mvn clean install -Pspark-2.4-hadoop-3.3 -Phadoop-3.3 -Dmaven.test.skip=true
 ```
 
 #### 5.1.5 flink-engineconn-flink的pom文件
@@ -189,7 +190,7 @@ org.apache.linkis.governance.common.conf.GovernanceCommonConf 文件调整
 
 #### 6.1.1 linkis的pom文件
 
-For Linkis version < 1.3.2
+Linkis版本小于`1.3.2`时
 ```java
 <hadoop.version>3.1.1</hadoop.version>
 <json4s.version>3.2.11</json4s.version>
@@ -202,19 +203,20 @@ For Linkis version < 1.3.2
 <dependency>
 ```
 
-For Linkis version >= 1.3.2, we only need to set `json4s.version` if necessary
+当Linkis版本大于等于`1.3.2`时, 只需要设置 `json4s.version`
 ```java
 <json4s.version>3.2.11</json4s.version>
 ```
-Because we can directly compile with hadoop-3.3 or hadoop-2.7 profile.
-Profile `hadoop-3.3` can be used for any hadoop3.x, default hadoop3.x version will be hadoop 3.3.1,
-Profile `hadoop-2.7` can be used for any hadoop2.x, default hadoop2.x version will be hadoop 2.7.2,
-other hadoop version can be specified by -Dhadoop.version=xxx
+因为我们可以直接使用`hadoop-3.3` or `hadoop-2.7` profile来编译
+Profile `hadoop-3.3` 可以用于任意hadoop3.x, 默认hadoop3.x版本是3.3.1,
+Profile `hadoop-2.7` 可以用于任意hadoop2.x, 默认hadoop2.x版本是2.7.2,
+想要用其他版本可以编译时指定 -Dhadoop.version=xxx
 ```text
 mvn -N  install
 mvn clean install -Phadoop-3.3 -Dmaven.test.skip=true
 mvn clean install -Phadoop-3.3 -Dhadoop.version=3.1.1 -Dmaven.test.skip=true
 ```
+
 #### 6.1.2 linkis-engineplugin-hive的pom文件
 
 ```java
@@ -223,20 +225,21 @@ mvn clean install -Phadoop-3.3 -Dhadoop.version=3.1.1 -Dmaven.test.skip=true
 
 #### 6.1.3 linkis-engineplugin-spark的pom文件
 
-For Linkis version < 1.3.2
+Linkis版本小于`1.3.2`时
 ```java
 <spark.version>2.3.2</spark.version>
 ```
 
-For Linkis version >= 1.3.2
+当Linkis版本大于等于`1.3.2`时
 ```text
-We can directly compile with spark-3.2 profile, if we need to use with hadoop3, then profile hadoop-3.3 will be needed.
-default spark3.x version will be spark 3.2.1. if we compile with spark-3.2 then scala version will be 2.12.15 by default,
-so we do not need to set the scala version in Linkis project pom file(mentioned in 5.1.1).
+我们可以直接编译spark-3.2 profile, 如果我们同时使用hadoop3, 那么我们还需要指定hadoop-3.3 profile.
+默认 spark3.x 版本时3.2.1. 如果我们使用spark-3.2 profile编译, scala版本默认是2.12.15,因此我们不需要在项目根目录设置scala版本了（5.1.1提到当)
+如果Linkis使用hadoop3编译，同时spark仍旧是2.x版本的话，由于spark兼容性问题需要激活profile `spark-2.4-hadoop-3.3`
 ```
 ```text
 mvn -N  install
 mvn clean install -Pspark-3.2 -Phadoop-3.3 -Dmaven.test.skip=true
+mvn clean install -Pspark-2.4-hadoop-3.3 -Phadoop-3.3 -Dmaven.test.skip=true
 ```
 
 #### 6.1.4 linkis-label-common调整
