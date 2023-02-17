@@ -16,17 +16,22 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 
 ## Features
 
-- **Support for diverse underlying computation storage engines**：  
-    Currently supported computation/storage engines: Spark, Hive, Python, Presto, ElasticSearch, MLSQL, TiSpark, JDBC, Shell, etc;      
-    Computation/storage engines to be supported: Flink(Supported in version >=1.0.2), Impala, etc;      
-    Supported scripting languages: SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala and JDBC, etc.  
-- **Powerful task/request governance capabilities**： With services such as Orchestrator, Label Manager and customized Spring Cloud Gateway, Linkis is able to provide multi-level labels based, cross-cluster/cross-IDC fine-grained routing, load balance, multi-tenancy, traffic control, resource control, and orchestration strategies like dual-active, active-standby, etc.  
-- **Support full stack computation/storage engine**： As a computation middleware, it will receive, execute and manage tasks and requests for various computation storage engines, including batch tasks, interactive query tasks, real-time streaming tasks and storage tasks;
-- **Resource management capabilities**：  ResourceManager is not only capable of managing resources for Yarn and Linkis EngineManger as in Linkis 0.X, but also able to provide label-based multi-level resource allocation and recycling, allowing itself to have powerful resource management capabilities across multiple Yarn clusters and multiple computation resource types.
-- **Unified Context Service**： Generate Context ID for each **task**/request,  associate and manage user and system resource files (JAR, ZIP, Properties, etc.), result set, parameter variable, function, etc., across user, system, and computing engine. Set in one place, automatic reference everywhere.
-- **Unified materials**： System and user-level unified material management, which can be shared and transferred across users and systems.
-- **Unified Data Source Manage**： Provides functions such as adding, deleting, checking, and modifying data sources of hive, es, mysql, and kafka types, version control, and connection testing.
-- **Unified MetaData Manage**： Provides database, table, and partition queries for hive, es, mysql, and kafka metadata.
+- **Support for diverse underlying computation storage engines** : Spark, Hive, Python, Shell, Flink, JDBC, Pipeline, Sqoop, OpenLooKeng, Presto, ElasticSearch, Trino, SeaTunnel, etc.;
+
+- **Support for diverse language** : SparkSQL, HiveSQL, Python, Shell, Pyspark, Scala, JSON and Java;
+
+- **Powerful computing governance capability** : It can provide task routing, load balancing, multi-tenant, traffic control, resource control and other capabilities based on multi-level labels;
+
+- **Support full stack computation/storage engine** : The ability to receive, execute and manage tasks and requests for various compute and storage engines, including offline batch tasks, interactive query tasks, real-time streaming tasks and data lake tasks;
+
+- **Unified context service** : supports cross-user, system and computing engine to associate and manage user and system resource files (JAR, ZIP, Properties, etc.), result sets, parameter variables, functions, UDFs, etc., one setting, automatic reference everywhere;
+
+- **Unified materials** : provides system and user level material management, can share and flow, share materials across users, across systems;
+
+- **Unified data source management** : provides the ability to add, delete, check and change information of Hive, ElasticSearch, Mysql, Kafka, MongoDB and other data sources, version control, connection test, and query metadata information of corresponding data sources;
+
+- **Error code capability** : provides error codes and solutions for common errors of tasks, which is convenient for users to locate problems by themselves;
+
 
 ## Supported engine types
 
@@ -43,7 +48,9 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 |Hive|Apache >=1.0.0, CDH >=5.4.0|\>=0.5.0|\>=1.0.0_rc1|Hive EngineConn. Supports HiveQL code.|
 |Hadoop|Apache >=2.6.0, CDH >=5.4.0|\>=0.5.0|ongoing|Hadoop EngineConn. Supports Hadoop MR/YARN application.|
 |Python|\>=2.6|\>=0.5.0|\>=1.0.0_rc1|Python EngineConn. Supports python code.|
-|TiSpark|1.1|\>=0.5.0|ongoing|TiSpark EngineConn. Support querying TiDB data by SparkSQL.|
+|TiSpark|\>=1.1|\>=0.5.0|ongoing|TiSpark EngineConn. Support querying TiDB data by SparkSQL.|
+|Trino | \>=371 | \>=1.3.1 | No |   Trino EngineConn， Support Trino SQL code |
+|Seatunnel | \>=2.1.2 | \>=1.3.1 | No | Seatunnel EngineConn， Support Seatunnel SQL code |
 
 ## Download
 
