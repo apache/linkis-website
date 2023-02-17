@@ -13,13 +13,13 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 ![有了Linkis 之后](/Images-zh/after_linkis_cn.png)
 
 ## 核心特点
-- **丰富的底层计算存储引擎支持**：Spark、Hive、Python、Shell、Flink、JDBC、Pipeline、Sqoop、OpenLooKeng、Presto、ElasticSearch、Trino、SeaTunnel等；
-- **丰富的语言支持**：SparkSQL、HiveSQL、Python、Shell、Pyspark、Scala、JSON和JAVA等；    
+- **丰富的底层计算存储引擎支持**：Spark、Hive、Python、Shell、Flink、JDBC、Pipeline、Sqoop、OpenLooKeng、Presto、ElasticSearch、Trino、SeaTunnel 等；
+- **丰富的语言支持**：SparkSQL、HiveSQL、Python、Shell、Pyspark、Scala、JSON 和 Java 等；    
 - **强大的计算治理能力**： 能够提供基于多级标签的任务路由、负载均衡、多租户、流量控制、资源控制等能力； 
 - **全栈计算存储引擎架构支持**：  能够接收、执行和管理针对各种计算存储引擎的任务和请求，包括离线批量任务、交互式查询任务、实时流式任务和数据湖任务；
 - **统一上下文服务**：支持跨用户、系统、计算引擎去关联管理用户和系统的资源文件（JAR、ZIP、Properties 等），结果集、参数变量、函数、UDF等，一处设置，处处自动引用；
 - **统一物料**： 提供了系统和用户级物料管理，可分享和流转，跨用户、跨系统共享物料；
-- **统一数据源管理**：  提供了Hive、ElasticSearch、Mysql、Kafka、MongoDB等类型数据源信息的增删查改、版本控制、连接测试和对应数据源的元数据信息查询能力；
+- **统一数据源管理**：  提供了Hive、ElasticSearch、Mysql、Kafka、MongoDB 等类型数据源信息的增删查改、版本控制、连接测试和对应数据源的元数据信息查询能力；
 - **错误码能力**：提供了任务常见错误的错误码和解决方案，方便用户自助定位问题；
 
 ## 支持的引擎类型
