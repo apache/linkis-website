@@ -21,3 +21,6 @@ jobs:
           bdpujesis=`{ grep -rn "bdpujes" * || true;}`
           bdpdwsis=`{ grep -rn "bdpdws" * || true;}`
           if [[ -n "$ipis" ]];then echo "$ipis"; fi
+          if [[ -n "$bdpujesis" ]];then echo "$bdpujesis"; fi
+          if [[ -n "$bdpdwsis" ]];then echo "$bdpdwsis"; fi
+          if [[ -n "$bdpdwsis" || -n "$ipis" || -n "$bdpujesis"]];then echo "check error!" && exit 123; else echo "check success"; fi
