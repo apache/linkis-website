@@ -36,7 +36,7 @@ linkis.session.redis.password=test123
 
 # sentinel mode
 linkis.session.redis.sentinel.master=sentinel-master-name
-linkis.session.redis.sentinel.nodes=121.1.0.0:8888,192.168.2.1:6381,192.168.3.1:6381
+linkis.session.redis.sentinel.nodes=121.1.0.0:8888,121.0.0.0:7777,121.2.0.0:6666
 linkis.session.redis.password=test123
 
 ```

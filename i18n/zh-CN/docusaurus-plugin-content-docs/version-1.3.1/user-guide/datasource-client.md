@@ -127,7 +127,7 @@ def testUpdateDataSourceParameterForEs(client:LinkisDataSourceRemoteClient): Uni
     val params = new util.HashMap[String,Any]()
     val connParams = new util.HashMap[String,Any]()
     val elasticUrls = new util.ArrayList[String]()
-    elasticUrls.add("http://172.24.2.231:9200")
+    elasticUrls.add("http://121.1.0.0:8888)
     connParams.put("elasticUrls",elasticUrls)
     params.put("connectParams",connParams)
     params.put("comment","es data source")
