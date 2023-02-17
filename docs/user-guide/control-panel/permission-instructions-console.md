@@ -9,94 +9,115 @@ sidebar_position: 10
 - history administrator (historyAdmin)
 - general user
 
+## 2. Description of function role permission chart
 
-## 2. Functional authority distinction
+The permissions that different roles have in the function
 
-### 2.1 Global History
+| Function Name | Administrator (Admin) | History Administrator (historyAdmin) | Ordinary User |
+| -------- | -------- | ----- |----- |
+| Administrator View (Global History) | √ | √ | |
+| Search Bar (Resource Management) | √ | | |
+| Parameter configuration | √ | | |
+| Global variables | √ | √ | √ |
+| ECM Management | √ | | |
+| Microservice Management | √ | | |
+| Data Source Management | √ | √ | √ |
+| Data source environment management | √ | | |
+| Data source type | √ | | |
+| UDF Management | √ | √ | √ |
+| Function Management | √ | √ | √ |
+| Tenant Tag Management | √ | | |
+| Whitelist Management | √ | | |
+| Code Retrieval (Admin View) | √ | | |
+| Code search (other functions) | √ | √ | √ |
+
+## 3. Functional authority distinction
+
+### 3.1 Global History
 The administrator view can only be viewed by historical administrators or administrators
 
-![](/Images-zh/management-desk/qhgly-img.png)
+![](/Images-en/management-desk/qhgly-img.png)
 
-### 2.2 Resource Management
+### 3.2 Resource Management
 
 The search bar is only visible to administrators
 
 ![](/Images-zh/management-desk/sslkj-img.png)
 
-### 2.3 Parameter configuration
+### 3.3 Parameter configuration
 
 Only admins can edit apps
 
 ![](/Images-zh/management-desk/glybj-img.png)
 
-### 2.4 Parameter configuration
+### 3.4 Global variables
 
 all editable
 
 ![](/Images-zh/management-desk/jksy-img.png)
 
-### 2.5 ECM Management (Admin)
+### 3.5 ECM Management (Admin)
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/ecmgl-img.png)
+![](/Images-en/management-desk/ecmgl-img.png)
 
-### 2.6 Microservice Management (Admin)
+### 3.6 Microservice Management (Admin)
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/wfwgl-img.png)
+![](/Images-en/management-desk/wfwgl-img.png)
 
-### 2.7 Data Source Management
+### 3.7 Data Source Management
 
-#### 2.7.1 Data source management
+#### 3.7.1 Data source management
 
 have authority
 
 ![](/Images-zh/management-desk/sou-img.png)
 
-#### 2.7.2 Data source environment management (Admin)
+#### 3.7.2 Data source environment management (Admin)
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/hj-img.png)
+![](/Images-en/management-desk/hj-img.png)
 
 
-#### 2.7.3 Data source type (Admin)
+#### 3.7.3 Data source type (Admin)
 
 Only administrators have permission
 
 ![](/Images-zh/management-desk/pzx-img.png)
 
-### 2.8 UDF management
+### 3.8 UDF Management
 
-#### 2.8.1 UDF management
+#### 3.8.1 UDF management
 
 have authority
 
-![](/Images-zh/management-desk/udfgl-img.png)
+![](/Images-en/management-desk/udfgl-img.png)
 
-#### 2.8.2 Function Management
+#### 3.8.2 Function Management
 
 have authority
 
 ![](/Images-zh/management-desk/fun-img.png)
 
-### 2.9 Basic data management (Admin)
+### 3.9 Basic data management (Admin)
 
-#### 2.9.1 Tenant label management
+#### 3.9.1 Tenant label management
 
 Only administrators have permission
 
 ![](/Images-zh/management-desk/zhbj-img.png)
 
-#### 2.9.2 Whitelist Management
+#### 3.9.2 Whitelist Management
 
 Only administrators have permission
 
 ![](/Images-zh/management-desk/bmdgl-img.png)
 
-### 2.10 Code Retrieval
+### 3.10 Code Retrieval
 
 The administrator view can only be viewed by administrators
 
