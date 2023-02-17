@@ -23,4 +23,4 @@ jobs:
           if [[ -n "$ipis" ]];then echo "$ipis"; fi
           if [[ -n "$bdpujesis" ]];then echo "$bdpujesis"; fi
           if [[ -n "$bdpdwsis" ]];then echo "$bdpdwsis"; fi
-          if [[ -n "$bdpdwsis" || -n "$ipis" || -n "$bdpujesis"]];then echo "check error!" && exit 123; else echo "check success"; fi
+          if [[ -n "$bdpdwsis" || -n "$ipis" || -n "$bdpujesis"]];then echo "check error!" && exit 123; else echo "check success" ;fi
