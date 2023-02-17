@@ -36,7 +36,7 @@ The permissions that different roles have in the function
 ### 3.1 Global History
 The administrator view can only be viewed by historical administrators or administrators
 
-![](/Images-en/management-desk/qhgly-img.png)
+![](/Images-zh/management-desk/qhgly-img.png)
 
 ### 3.2 Resource Management
 
@@ -60,13 +60,13 @@ all editable
 
 Only administrators have permission
 
-![](/Images-en/management-desk/ecmgl-img.png)
+![](/Images-zh/management-desk/ecmgl-img.png)
 
 ### 3.6 Microservice Management (Admin)
 
 Only administrators have permission
 
-![](/Images-en/management-desk/wfwgl-img.png)
+![](/Images-zh/management-desk/wfwgl-img.png)
 
 ### 3.7 Data Source Management
 
@@ -80,7 +80,7 @@ have authority
 
 Only administrators have permission
 
-![](/Images-en/management-desk/hj-img.png)
+![](/Images-zh/management-desk/hj-img.png)
 
 
 #### 3.7.3 Data source type (Admin)
@@ -95,7 +95,7 @@ Only administrators have permission
 
 have authority
 
-![](/Images-en/management-desk/udfgl-img.png)
+![](/Images-zh/management-desk/udfgl-img.png)
 
 #### 3.8.2 Function Management
 
