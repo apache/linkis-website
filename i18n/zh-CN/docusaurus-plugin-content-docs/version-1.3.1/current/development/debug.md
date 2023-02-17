@@ -444,7 +444,7 @@ body参数：
     "message": "OK",
     "data": {
         "taskID": 1,
-        "execID": "exec_id018017linkis-cg-entrance121.1.0.0:8888IDE_leojie_shell_0"
+        "execID": "exec_id018017linkis-cg-entrance192.168.2.3:8888IDE_leojie_shell_0"
     }
 }
 ```
