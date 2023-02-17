@@ -48,8 +48,8 @@ Since the first release of Linkis in 2019, it has accumulated more than **700** 
 |Sqoop| Sqoop >= 1.4.6, <br/>(default Apache Sqoop 1.4.6)|\>=1.1.2|No|Sqoop EngineConn, support data migration tool Sqoop engine|
 |Presto|Presto >= 0.180|\>=1.2.0|No|Presto EngineConn, supports Presto SQL code|
 |ElasticSearch|ElasticSearch >=6.0|\>=1.2.0|No|ElasticSearch EngineConn, supports SQL and DSL code|
-|Trino | >=371 | >=1.3.1 | No |   Trino EngineConn， supports Trino SQL code |
-|Seatunnel | >=2.1.2 | >=1.3.1 | No | Seatunnel EngineConn， supportt Seatunnel SQL code |
+|Trino | Trino >=371 | >=1.3.1 | No |   Trino EngineConn， supports Trino SQL code |
+|Seatunnel | Seatunnel >=2.1.2 | >=1.3.1 | No | Seatunnel EngineConn， supportt Seatunnel SQL code |
 
 ## Download
 

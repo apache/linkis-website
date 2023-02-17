@@ -36,12 +36,8 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试用企业和
 |Sqoop| Sqoop >= 1.4.6, <br/>(默认Apache Sqoop 1.4.6)|\>=1.1.2|否|Sqoop EngineConn， 支持 数据迁移工具 Sqoop 引擎。|
 |Presto|Presto >= 0.180|\>=1.2.0|否|Presto EngineConn， 支持Presto SQL 代码。|
 |ElasticSearch|ElasticSearch >=6.0|\>=1.2.0|否|ElasticSearch EngineConn， 支持SQL 和DSL 代码。|
-|Impala|Impala >= 3.2.0, CDH >=6.3.0|ongoing|-|Impala EngineConn，支持Impala SQL 代码。|
-|MLSQL| MLSQL >=1.1.0|ongoing|-|MLSQL EngineConn， 支持MLSQL 代码。|
-|Hadoop|Apache >=2.6.0, <br/>CDH >=5.4.0|ongoing|-|Hadoop EngineConn， 支持Hadoop MR/YARN application。|
-|TiSpark|>=1.1|ongoing|-|TiSpark EngineConn， 支持用SparkSQL 查询TiDB。|
-|Trino | >=371 | >=1.3.1 | 否 |   Trino EngineConn， 支持Trino SQL 代码 |
-|Seatunnel | >=2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， 支持Seatunnel SQL 代码 |
+|Trino | Trino >=371 | >=1.3.1 | 否 |   Trino EngineConn， 支持Trino SQL 代码 |
+|Seatunnel | Seatunnel >=2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， 支持Seatunnel SQL 代码 |
 
 
 
