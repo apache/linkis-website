@@ -117,7 +117,7 @@ def testCreateDataSourceForEs(client:LinkisDataSourceRemoteClient): Unit ={
 def testUpdateDataSourceParameterForKafka(client:LinkisDataSourceRemoteClient): Unit ={
     val params = new util.HashMap[String,Any]()
     val connParams = new util.HashMap[String,Any]()
-    connParams.put("brokers","172.24.2.232:9092")
+    connParams.put("brokers","121.1.0.0:8888")
     params.put("connectParams",connParams)
     params.put("comment","kafka data source")
   client.updateDataSourceParameter(UpdateDataSourceParameterAction.builder().setUser("hadoop").setDataSourceId("7").addRequestPayloads(params).build())
