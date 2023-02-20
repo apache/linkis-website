@@ -107,7 +107,7 @@ sidebar_position: 3
 |:-|:-|:-|
 |engineType| spark-2.4.3 |  指定引擎类型和版本|
 |userCreator|  user + "-AppName" | 指定运行的用户和您的APPName|
-|codeType| sql | 指定运行的脚本类型：spark支持：sql、scala、py；Hive：hql；shell：sh；python：python；presto：psql|
+|codeType| sql | 指定运行的脚本类型|
 |jobRunningTimeout| 10 | job运行10s没完成自动发起Kill，单位为s|
 |jobQueuingTimeout| 10| job排队超过10s没完成自动发起Kill，单位为s|
 |jobRetryTimeout|  10000| job因为资源等原因失败重试的等待时间，单位为ms，如果因为队列资源不足的失败，会默认按间隔发起10次重试|
