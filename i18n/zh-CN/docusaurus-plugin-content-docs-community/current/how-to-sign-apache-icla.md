@@ -10,11 +10,11 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 
 当我们需要签署ICLA时步骤如下:
 
-**1. 打开链接 [官网Licenses](https://www.apache.org/licenses/#clas) 在Contributor License Agreements 下找到CLAs并进入页面。**
+**1. 打开链接 [官网Licenses](https://www.apache.org/licenses/#clas) 在Contributor License Agreements 下找到 [CLAs](https://www.apache.org/licenses/contributor-agreements.html#clas) 并进入页面。**
 
 ![page_link](https://user-images.githubusercontent.com/29391030/153529738-96f3f75a-41e5-4947-b290-c4ea29b101f1.png)
 
-**2. 在页面上方我们可以看到两个下载链接，选择ICLA(个人CLA)并下载文件。**
+**2. 在页面上方我们可以看到两个下载链接，选择 [ICLA(个人CLA)](https://www.apache.org/licenses/icla.pdf) 并下载文件。**
 
 ![download](https://user-images.githubusercontent.com/29391030/153529788-a874aab9-786b-4131-a388-c0b5e31bdb8a.png)
 
@@ -24,6 +24,14 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 > - 姓名需要填写拼音，姓与名之间空一格，首字母均为大写，名在前姓氏在后。
 > - Committer相关的签署，则preferred Apache id(s)是必填项。
 
+填写说明：
+- **Full name**：全名：名字在前，姓氏在后，例如：如果你叫 “张大强”，就写 “Daqiang Zhang”
+- **Public name**：可以不填，默认和 `Full name` 相同
+- **Postal Address**：英文地址，需要填写邮政编码，并详细到门牌号（xx单元xxx）
+- **E-mail**：邮箱地址
+- **(optional) preferred Apache id(s)**：选择一个 [Apache committer](http://people.apache.org/committer-index.html) 页面不存在的 **SVN ID**
+- **(optional) notify project**：Apache Linkis
+
 ![information](https://user-images.githubusercontent.com/7869972/172194397-deca4649-32c1-4584-8525-2a387ca80ac6.png)
 
 **4.文件最下方的署名。** 官网支持手写或者[PDF签名软件](https://smallpdf.com/cn/sign-pdf)
@@ -32,9 +40,12 @@ Apache CLA 全称 Apache Contributor License Agreement，签署ICLA的目的是�
 
 **5.签署完之后将icla.pdf命令为 `姓名拼音-icla.pdf` 发送到导师提供的邮箱（邮箱地址为`secretary@apache.org`），下面是邮件模板：**
 
+> 注意事项:  
+> 这里不要抄送 `private@linkis.apache.org`，否则会得到反馈：`Please do not cc anyone when you submit your ICLA because it contains PII.`  
+> 上面 ICLA 中 notify project 已经写明了要通知的项目，会默认转发到 `private@linkis.apache.org`
+
 ```html
 To: secretary@apache.org
-Cc: private@linkis.apache.org
 Subject: Accept to become a linkis committer
 Content:
 
