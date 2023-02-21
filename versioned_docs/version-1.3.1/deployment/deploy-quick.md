@@ -286,16 +286,14 @@ The Linkis will start 6 microservices by default, and the linkis-cg-engineconn s
 
 ```shell script
 LINKIS-CG-ENGINECONNMANAGER Engine Management Services
-LINKIS-CG-ENGINEPLUGIN Engine Plugin Management Service
 LINKIS-CG-ENTRANCE Computing Governance Entry Service
 LINKIS-CG-LINKISMANAGER Computing Governance Management Service
 LINKIS-MG-EUREKA Microservice registry service
 LINKIS-MG-GATEWAY gateway service
-LINKIS-PS-CS context service
 LINKIS-PS-PUBLICSERVICE Public Service
 ````
 
-Note: Linkis-ps-cs, Linkis-ps-data-source-Manager and Linkis-Ps-Metadatamanager services have been merged into Linkis-Ps-PublicService in Linkis 1.3.1 and merge LINKIS-CG-ENGINECONNMANAGER services into LINKIS-CG-LINKISMANAGER.
+Note: LINKIS-PS-CS, LINKIS-PS-DATA-SOURCE-MANAGER、LINKIS-PS-METADATAMANAGER services have been merged into LINKIS-PS-PUBLICSERVICE in Linkis 1.3.1 and merge LINKIS-CG-ENGINEPLUGIN services into LINKIS-CG-LINKISMANAGER.
 
 If any services are not started, you can view detailed exception logs in the corresponding log/${service name}.log file.
 

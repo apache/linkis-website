@@ -13,17 +13,14 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 ![有了Linkis 之后](/Images-zh/after_linkis_cn.png)
 
 ## 核心特点
-- **丰富的底层计算存储引擎支持**： 
-    **目前支持的计算存储引擎**：Spark、Hive、Flink、Python、Pipeline、Sqoop、openLooKeng、Presto、ElasticSearch、JDBC和Shell等。  
-    **正在支持中的计算存储引擎**：Trino(计划1.3.1)、SeaTunnel(计划1.3.1)等。  
-    **支持的脚本语言**：SparkSQL, HiveQL, Python, Shell, Pyspark, R, Scala 和JDBC 等。    
-- **强大的计算治理能力**： 基于Orchestrator、Label Manager和定制的Spring Cloud Gateway等服务，Linkis能够提供基于多级标签的跨集群/跨IDC 细粒度路由、负载均衡、多租户、流量控制、资源控制和编排策略(如双活、主备等)支持能力。  
-- **全栈计算存储引擎架构支持**： 能够接收、执行和管理针对各种计算存储引擎的任务和请求，包括离线批量任务、交互式查询任务、实时流式任务和存储型任务。
-- **资源管理能力**：  ResourceManager 不仅具备对 Yarn 和 Linkis EngineManager 的资源管理能力，还将提供基于标签的多级资源分配和回收能力，让 ResourceManager 具备跨集群、跨计算资源类型的强大资源管理能力。
-- **统一上下文服务**：为每个计算任务生成context id，跨用户、系统、计算引擎的关联管理用户和系统资源文件（JAR、ZIP、Properties等），结果集，参数变量，函数等，一处设置，处处自动引用。
-- **统一物料**： 系统和用户级物料管理，可分享和流转，跨用户、系统共享物料。
-- **统一数据源管理**： 提供了hive、es、mysql、kafka类型数据源的增删查改、版本控制、连接测试等功能。
-- **数据源对应的元数据查询**： 提供了hive、es、mysql、kafka元数据的数据库、表、分区查询。
+- **丰富的底层计算存储引擎支持**：Spark、Hive、Python、Shell、Flink、JDBC、Pipeline、Sqoop、OpenLooKeng、Presto、ElasticSearch、Trino、SeaTunnel 等；
+- **丰富的语言支持**：SparkSQL、HiveSQL、Python、Shell、Pyspark、Scala、JSON 和 Java 等；    
+- **强大的计算治理能力**： 能够提供基于多级标签的任务路由、负载均衡、多租户、流量控制、资源控制等能力； 
+- **全栈计算存储引擎架构支持**：  能够接收、执行和管理针对各种计算存储引擎的任务和请求，包括离线批量任务、交互式查询任务、实时流式任务和数据湖任务；
+- **统一上下文服务**：支持跨用户、系统、计算引擎去关联管理用户和系统的资源文件（JAR、ZIP、Properties 等），结果集、参数变量、函数、UDF等，一处设置，处处自动引用；
+- **统一物料**： 提供了系统和用户级物料管理，可分享和流转，跨用户、跨系统共享物料；
+- **统一数据源管理**：  提供了Hive、ElasticSearch、Mysql、Kafka、MongoDB 等类型数据源信息的增删查改、版本控制、连接测试和对应数据源的元数据信息查询能力；
+- **错误码能力**：提供了任务常见错误的错误码和解决方案，方便用户自助定位问题；
 
 ## 支持的引擎类型
 | **引擎名** | **支持底层组件版本<br/>(默认依赖版本)** | **Linkis 1.X 版本要求** | **是否默认包含在发布包中** | **说明** |
@@ -39,10 +36,8 @@ Linkis 自2019年开源发布以来，已累计积累了700多家试验企业和
 |Sqoop| Sqoop >= 1.4.6, <br/>(默认Apache Sqoop 1.4.6)|\>=1.1.2|否|Sqoop EngineConn， 支持 数据迁移工具 Sqoop 引擎。|
 |Presto|Presto >= 0.180|\>=1.2.0|否|Presto EngineConn， 支持Presto SQL 代码。|
 |ElasticSearch|ElasticSearch >=6.0|\>=1.2.0|否|ElasticSearch EngineConn， 支持SQL 和DSL 代码。|
-|Impala|Impala >= 3.2.0, CDH >=6.3.0|ongoing|-|Impala EngineConn，支持Impala SQL 代码。|
-|MLSQL| MLSQL >=1.1.0|ongoing|-|MLSQL EngineConn， 支持MLSQL 代码。|
-|Hadoop|Apache >=2.6.0, <br/>CDH >=5.4.0|ongoing|-|Hadoop EngineConn， 支持Hadoop MR/YARN application。|
-|TiSpark|1.1|ongoing|-|TiSpark EngineConn， 支持用SparkSQL 查询TiDB。|
+|Trino | Trino >=371 | >=1.3.1 | 否 |   Trino EngineConn， 支持Trino SQL 代码 |
+|Seatunnel | Seatunnel >=2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， 支持Seatunnel SQL 代码 |
 
 
 
