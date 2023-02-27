@@ -276,31 +276,7 @@ The Apache Linkis PMC
    
 At this point, the whole process is over, and the candidate officially becomes the Committer or PMC of the project.
 
-## 4 Update project status
-step1 clong status record file 
-```shell script
-svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
-```
-
-step2 update news infomation in linkis.xml
-add committer information record 
-```shell script
-<section id="News">
-      <title>News</title>
-      <ul>
-<!--    <li>YYYY-MM-DD New committer: Fred Hampton</li>    -->
-        <li>2021-08-02 Project enters incubation.</li>
-        <li>2022-02-19 First Apache Linkis release v1.0.3</li>
-        <li>2022-02-24 New Committer: Chen Xia</li>
-        <li>2022-04-15 Apache Linkis release v1.1.0</li>
-
-      </ul>
-    </section>
-```
-step3 the information show in follow file after update 
-https://incubator.apache.org/projects/linkis.html
-
-## 5 Workflow summary
+## 4 Workflow summary
 
 1. Send emails with ICLA attachments
 
