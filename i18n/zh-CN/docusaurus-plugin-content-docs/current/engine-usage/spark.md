@@ -90,7 +90,6 @@ public class SparkOnceJobTest {
                         .setMaxSubmitTime(300000)
                         .setDescription("SparkTestDescription")
                         .addExecuteUser(submitUser)
-
                         .addJobContent("runType", "jar")
                         .addJobContent("spark.app.main.class", "org.apache.spark.examples.JavaWordCount")
                         // 提交的jar包获取的参数
@@ -108,16 +107,17 @@ public class SparkOnceJobTest {
                         .build();
         // endregion
         onceJob.submit();
-        onceJob.waitForCompleted(); // 网络临时不同会导致异常，建议后期修改 SDK，现阶段使用，需要做异常处理
+        // 网络临时不通会导致异常，建议后期修改 SDK，现阶段使用，需要做异常处理
+        onceJob.waitForCompleted();
     }
 }
 ```
 
 ### 3.3 通过 Restful API 提交任务
 
-现在支持直接通过 `sql`、`scala`、`python`、`data_calc(格式为json)` 运行任务。
+运行脚本类型包括 `sql`、`scala`、`python`、`data_calc(格式为json)`。
 
-[任务提交执行Rest API文档](../api/linkis-task-operator.md)
+[任务提交执行Restful API文档](../api/linkis-task-operator.md)
 
 ```http request
 POST /api/rest_j/v1/entrance/submit
@@ -127,8 +127,10 @@ Token-User: linkis
 
 {
     "executionContent": {
-        "code": "show databases",                   // 脚本内容，可以是sql，spark，scala，json
-        "runType": "sql"                            // 运行的脚本类型 sql, py（pyspark）, scala, data_calc
+        // 脚本内容，可以是sql，python，scala，json
+        "code": "show databases",
+        // 运行的脚本类型 sql, py（pyspark）, scala, data_calc
+        "runType": "sql"
     },
     "params": {
         "variable": {
@@ -144,11 +146,49 @@ Token-User: linkis
         }
     },
     "source":  {
-        "scriptPath": "file:///tmp/hadoop/test.sql"   // 非必填，file:/// 或者 hdfs:///
+        // 非必填，file:/// 或者 hdfs:///
+        "scriptPath": "file:///tmp/hadoop/test.sql"
     },
     "labels": {
-        "engineType": "spark-2.4.3",                  // 格式为：引擎类型-版本
-        "userCreator": "linkis-IDE"                   // userCreator: linkis 为用户名。IDE 是系统名，在 Linkis 后台管理。
+        // 格式为：引擎类型-版本
+        "engineType": "spark-2.4.3",
+        // userCreator: linkis 为用户名。IDE 是系统名，在 Linkis 后台管理。
+        "userCreator": "linkis-IDE"
+    }
+}
+```
+
+**按照参数中的 ids 加载udf**
+
+| 参数名                      | 说明                   |  默认值|
+|--------------------------- |------------------------|--------|
+|`linkis.user.udf.all.load`  | 是否加载用户选中的所有 UDF | true |
+|`linkis.user.udf.custom.ids`| UDF ID 列表，用 `,` 分隔 |  -   |
+
+example:
+
+```http request
+POST /api/rest_j/v1/entrance/submit
+Content-Type: application/json
+Token-Code: dss-AUTH
+Token-User: linkis
+
+{
+    "executionContent": {
+        "code": "show databases",
+        "runType": "sql"
+    },
+    "params": {
+        "configuration": {
+            "startup": {
+                "linkis.user.udf.all.load": false
+                "linkis.user.udf.custom.ids": "1,2,3"
+            }
+        }
+    },
+    "labels": {
+        "engineType": "spark-2.4.3",
+        "userCreator": "linkis-IDE"
     }
 }
 ```
@@ -308,7 +348,7 @@ Token-User: linkis
 
 ### 5.1 数组模式
 
-插件有两个字段，name 为插件名，type 为插件类型，config 为具体配置
+插件有三个字段，name 为插件名，type 为插件类型，config 为具体配置
 
 ```json
 {
@@ -465,7 +505,7 @@ Token-User: linkis
 
 | **字段名** | **说明**                                             | **字段类型** | **是否必须** | **默认值** |
 | ---------- | ---------------------------------------------------- | ------------ | ------------ | ---------- |
-| url        | 元数据中的数据库别名                                 | String       | 是           | -          |
+| url        | jdbc url                                 | String       | 是           | -          |
 | driver     | 驱动类（完全限定名）                                 | String       | 是           | -          |
 | user       | 用户名                                               | String       | 是           | -          |
 | password   | 密码                                                 | String       | 是           | -          |
@@ -498,7 +538,7 @@ linkis 中配置的 jdbc 数据源，会从 linkis 中获取数据源连接信�
 
 | **字段名** | **说明**                     | **字段类型** | **是否必须** | **默认值** |
 | ---------- |----------------------------| ------------ | ------------ | ---------- |
-| datasource | 数据源名称                      | String       | 是           | -          |
+| datasource | Linkis 中配置的数据源名称                       | String       | 是           | -          |
 | query      | 查询语句，查询中使用的函数必须符合选中的数据库的规范 | String       | 是           | -          |
 
 **样例**
@@ -558,9 +598,9 @@ linkis 中配置的 jdbc 数据源，会从 linkis 中获取数据源连接信�
 
 | **字段名**                | **说明**                                                     | **字段类型**        | **是否必须** | **默认值**                                                   |
 | ------------------------- | ------------------------------------------------------------ | ------------------- | ------------ | ------------------------------------------------------------ |
-| sourceTable / sourceQuery | transform 中的结果表名或者查询的sql语句 作为结果输出         | String              | 否           | sourceTable 和 sourceQuery 必须有一个不为空 sourceQuery 优先级更高 默认为最后一个 transform |
+| sourceTable / sourceQuery | soruce / transform 中的结果表名或者查询的sql语句 作为结果输出         | String              | 否           | sourceTable 和 sourceQuery 必须有一个不为空 sourceQuery 优先级更高 |
 | options                   | 参考 [spark 官方文档](https://spark.apache.org/docs/latest/sql-data-sources.html) | Map<String, String> | 否           |                                                              |
-| variables                 | 变量替换，类似 dt="${day}"                                   | Map<String, String> | 否           | {    "dt": "${day}",     "hour": "${hour}", }                |
+| variables                 | 变量替换，类似 `dt="${day}"`                                   | Map<String, String> | 否           | {    "dt": "${day}",     "hour": "${hour}", }                |
 
 ##### 5.3.3.1 hive
 
@@ -570,10 +610,10 @@ linkis 中配置的 jdbc 数据源，会从 linkis 中获取数据源连接信�
 | -------------- | ------------------------------------------------------------ | ------------ | ------------ | ---------- |
 | targetDatabase | 待写入数据的表所在的数据库                                   | String       | 是           | -          |
 | targetTable    | 待写入数据的表                                               | String       | 是           | -          |
-| saveMode       | 写入模式，参考 spark，默认为 overwrite                       | String       | 是           | parquet    |
+| saveMode       | 写入模式，参考 spark，默认为 `overwrite`                       | String       | 是           | overwrite    |
 | strongCheck    | 强校验，字段名，字段顺序，字段类型必须一致                   | Boolean      | 否           | true       |
-| writeAsFile    | 按文件方式写入，可以提高效率，此时 variables 中必须包含所有的分区变量 | Boolean      | 否           | false      |
-| numPartitions  | 分区个数，Dataset.repartition                                | Integer      | 否           | 10         |
+| writeAsFile    | 按文件方式写入，可以提高效率，此时 `variables` 中必须包含所有的分区变量 | Boolean      | 否           | false      |
+| numPartitions  | 分区个数，`Dataset.repartition`                                | Integer      | 否           | 10         |
 
 **样例**
 
@@ -597,14 +637,14 @@ linkis 中配置的 jdbc 数据源，会从 linkis 中获取数据源连接信�
 
 | **字段名**     | **说明**                   | **字段类型** | **是否必须** | **默认值** |
 | -------------- |--------------------------| ------------ | ------------ | ---------- |
-| url            | 元数据中的数据库别名               | String       | 是           | -          |
+| url            | jdbc url               | String       | 是           | -          |
 | driver         | 驱动类（完全限定名）               | String       | 是           | -          |
 | user           | 用户名                      | String       | 是           | -          |
 | password       | 密码                       | String       | 是           | -          |
 | targetDatabase | 待写入数据的表所在的数据库            | String       | 否           | -          |
 | targetTable    | 待写入数据的表                  | String       | 是           | -          |
 | preQueries     | 写入前执行的sql语句              | String[]     | 否           | -          |
-| numPartitions  | 分区个数，Dataset.repartition | Integer      | 否           | 10         |
+| numPartitions  | 分区个数，`Dataset.repartition` | Integer      | 否           | 10         |
 
 **样例**
 
@@ -631,11 +671,11 @@ linkis 中配置的 jdbc 数据源，会从 linkis 中获取数据源连接信�
 
 | **字段名**          | **说明**                   | **字段类型** | **是否必须** | **默认值** |
 |------------------|--------------------------| ------------ | ------------ | ---------- |
-| targetDatasource | Linkis 中配置的数据源           | String       | 否           | -          |
+| targetDatasource | Linkis 中配置的数据源名称           | String       | 否           | -          |
 | targetDatabase   | 待写入数据的表所在的数据库            | String       | 否           | -          |
 | targetTable      | 待写入数据的表                  | String       | 是           | -          |
 | preQueries       | 写入前执行的sql语句              | String[]     | 否           | -          |
-| numPartitions    | 分区个数，Dataset.repartition | Integer      | 否           | 10         |
+| numPartitions    | 分区个数，`Dataset.repartition` | Integer      | 否           | 10         |
 
 **样例**
 
@@ -660,10 +700,10 @@ linkis 中配置的 jdbc 数据源，会从 linkis 中获取数据源连接信�
 
 | **字段名**  | **说明**                               | **字段类型** | **是否必须** | **默认值** |
 | ----------- | -------------------------------------- | ------------ | ------------ | ---------- |
-| path        | 文件路径，默认为 hdfs                  | String       | 是           | -          |
-| serializer  | 文件格式，默认为 parquet               | String       | 是           | parquet    |
+| path        | 文件路径，默认为 `hdfs`                  | String       | 是           | -          |
+| serializer  | 文件格式，默认为 `parquet`               | String       | 是           | `parquet`    |
 | partitionBy |                                        | String[]     | 否           |            |
-| saveMode    | 写入模式，参考 spark，默认为 overwrite | String       | 否           |            |
+| saveMode    | 写入模式，参考 spark，默认为 `overwrite` | String       | 否           |   `overwrite`         |
 
 **样例**
 
