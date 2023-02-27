@@ -23,6 +23,7 @@ sidebar_position: 3
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceName|dataSourceName|path|true|string||
+|envId|envId|path| false |string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 |table|table|path|true|string||
@@ -76,6 +77,7 @@ sidebar_position: 3
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceName|dataSourceName|path|true|string||
+|envId|envId|path| false |string||
 |system|system|query|true|string||
 
 **Sample Response**:
@@ -240,6 +242,7 @@ sidebar_position: 3
 | Parameter name | Parameter description | Request type | Required | Data type | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceName|dataSourceName|path|true|string||
+|envId|envId|path| false |string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 

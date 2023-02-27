@@ -23,6 +23,7 @@ sidebar_position: 3
 | 参数名称  | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceName|dataSourceName|path|true|string||
+|envId|envId|path| false |string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 |table|table|path|true|string||
@@ -73,10 +74,11 @@ sidebar_position: 3
 
 **请求参数**:
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|dataSourceName|dataSourceName|path|true|string||
-|system|system|query|true|string||
+| 参数名称 | 参数说明 | 请求类型    | 是否必须  | 数据类型 | schema |
+| -------- | -------- | ----- |-------| -------- | ------ |
+|dataSourceName|dataSourceName|path| true  |string||
+|envId|envId|path| false |string||
+|system|system|query| true  |string||
 
 **响应示例**:
 ```javascript
@@ -239,6 +241,7 @@ sidebar_position: 3
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
 |dataSourceName|dataSourceName|path|true|string||
+|envId|envId|path| false |string||
 |database|database|path|true|string||
 |system|system|query|true|string||
 
