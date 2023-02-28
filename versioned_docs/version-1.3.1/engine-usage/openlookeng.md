@@ -20,7 +20,7 @@ mv hetu-cli-1.5.0-executable.jar hetu-cli
 chmod +x hetu-cli
 
 # link service
-./hetu-cli --server 172.22.32.6:9090 --catalog tpcds --schema default
+./hetu-cli --server 127.0.0.1:9090 --catalog tpcds --schema default
 
 # Execute query statement
 lk:default> select d_date_sk, d_date_id, d_date, d_month_seq from tpcds.sf1.date_dim order by d_date limit 5;
