@@ -36,7 +36,7 @@ linkis.session.redis.password=test123
 
 # 哨兵模式
 linkis.session.redis.sentinel.master=sentinel-master-name
-linkis.session.redis.sentinel.nodes=121.1.0.0:6381,121.1.0.0::6381,121.1.0.0::6381
+linkis.session.redis.sentinel.nodes=121.1.0.0:6381,127.0.0.1:6381,127.0.0.1:6381
 linkis.session.redis.password=test123
 
 ```
