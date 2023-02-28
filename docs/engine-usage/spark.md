@@ -159,41 +159,6 @@ Token-User: linkis
 }
 ```
 
-**Load udf from parameter `ids`**
-
-| parameter name             | introduction                 |  default|
-|--------------------------- |------------------------------|---------|
-|`linkis.user.udf.all.load`  | load user's all selected udf | true    |
-|`linkis.user.udf.custom.ids`| udf ID list，split by `,`    |  -      |
-
-example:
-
-```http request
-POST /api/rest_j/v1/entrance/submit
-Content-Type: application/json
-Token-Code: dss-AUTH
-Token-User: linkis
-
-{
-    "executionContent": {
-        "code": "show databases",
-        "runType": "sql"
-    },
-    "params": {
-        "configuration": {
-            "startup": {
-                "linkis.user.udf.all.load": false
-                "linkis.user.udf.custom.ids": "1,2,3"
-            }
-        }
-    },
-    "labels": {
-        "engineType": "spark-2.4.3",
-        "userCreator": "linkis-IDE"
-    }
-}
-```
-
 ## 4. Engine configuration instructions
 
 ### 4.1 Default Configuration Description

@@ -158,41 +158,6 @@ Token-User: linkis
 }
 ```
 
-**按照参数中的 ids 加载udf**
-
-| 参数名                      | 说明                   |  默认值|
-|--------------------------- |------------------------|--------|
-|`linkis.user.udf.all.load`  | 是否加载用户选中的所有 UDF | true |
-|`linkis.user.udf.custom.ids`| UDF ID 列表，用 `,` 分隔 |  -   |
-
-example:
-
-```http request
-POST /api/rest_j/v1/entrance/submit
-Content-Type: application/json
-Token-Code: dss-AUTH
-Token-User: linkis
-
-{
-    "executionContent": {
-        "code": "show databases",
-        "runType": "sql"
-    },
-    "params": {
-        "configuration": {
-            "startup": {
-                "linkis.user.udf.all.load": false
-                "linkis.user.udf.custom.ids": "1,2,3"
-            }
-        }
-    },
-    "labels": {
-        "engineType": "spark-2.4.3",
-        "userCreator": "linkis-IDE"
-    }
-}
-```
-
 ## 4.引擎配置说明
 
 ### 4.1 默认配置说明
