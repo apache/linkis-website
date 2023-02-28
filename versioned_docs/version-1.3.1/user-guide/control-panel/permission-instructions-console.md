@@ -7,7 +7,7 @@ sidebar_position: 10
 
 - Administrator (Admin): able to view all menu entries, the administrator role has the highest authority, including historical administrator authority
 - History Admin (historyAdmin): In addition to the tasks submitted by yourself, you can also view other historical tasks
-- general user
+- general user: View the task information submitted by yourself
 
 ## 2. Description of function role permission chart
 
@@ -36,37 +36,37 @@ The permissions that different roles have in the function
 ### 3.1 Global History
 The administrator view can only be viewed by historical administrators or administrators
 
-![](/Images-zh/management-desk/qhgly-img.png)
+![](/Images/control-panel/qhgly-img.png)
 
 ### 3.2 Resource Management
 
 The search bar is only visible to administrators
 
-![](/Images-zh/management-desk/sslkj-img.png)
+![](/Images/control-panel/sslkj-img.png)
 
 ### 3.3 Parameter configuration
 
 Only admins can edit apps
 
-![](/Images-zh/management-desk/glybj-img.png)
+![](/Images/control-panel/glybj-img.png)
 
 ### 3.4 Global variables
 
 all editable
 
-![](/Images-zh/management-desk/jksy-img.png)
+![](/Images/control-panel/jksy-img.png)
 
 ### 3.5 ECM Management (Admin)
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/ecmgl-img.png)
+![](/Images/control-panel/ecmgl-img.png)
 
 ### 3.6 Microservice Management (Admin)
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/wfwgl-img.png)
+![](/Images/control-panel/wfwgl-img.png)
 
 ### 3.7 Data Source Management
 
@@ -74,20 +74,20 @@ Only administrators have permission
 
 have authority
 
-![](/Images-zh/management-desk/sou-img.png)
+![](/Images/control-panel/sou-img.png)
 
 #### 3.7.2 Data source environment management (Admin)
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/hj-img.png)
+![](/Images/control-panel/hj-img.png)
 
 
 #### 3.7.3 Data source type (Admin)
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/pzx-img.png)
+![](/Images/control-panel/pzx-img.png)
 
 ### 3.8 UDF Management
 
@@ -95,13 +95,13 @@ Only administrators have permission
 
 have authority
 
-![](/Images-zh/management-desk/udfgl-img.png)
+![](/Images/control-panel/udfgl-img.png)
 
 #### 3.8.2 Function Management
 
 have authority
 
-![](/Images-zh/management-desk/fun-img.png)
+![](/Images/control-panel/fun-img.png)
 
 ### 3.9 Basic data management (Admin)
 
@@ -109,16 +109,16 @@ have authority
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/zhbj-img.png)
+![](/Images/control-panel/zhbj-img.png)
 
 #### 3.9.2 Whitelist Management
 
 Only administrators have permission
 
-![](/Images-zh/management-desk/bmdgl-img.png)
+![](/Images/control-panel/bmdgl-img.png)
 
 ### 3.10 Code Retrieval
 
 The administrator view can only be viewed by administrators
 
-![](/Images-zh/management-desk/dmjs-img.png)
+![](/Images/control-panel/dmjs-img.png)
