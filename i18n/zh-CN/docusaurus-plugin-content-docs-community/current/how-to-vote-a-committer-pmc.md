@@ -31,7 +31,7 @@ sidebar_position: 6
 
 在大多数情况下，新的 PMC 成员是从 Committer 团队中提名的。但也可以直接成为 PMC 成员，只要 PMC成员 同意提名，并确信候选人已经准备好。例如，这可以通过他/她曾是 Apache 成员、Apache 官员或另一个项目的 PMC 成员这一事实来证明。
 
-## 2.推举详细流程
+## 2. 推举详细流程
 
 :::tip 
 ${Candidate Name}：代表被选举人 如：Joe Bloggs
@@ -271,7 +271,7 @@ for more information about roles at Apache.
 搜索自己，然后选择`Organization visibility`为`Public`。
 
    
-## 3.发布公告邮件
+## 3 发布公告邮件
 >如上步骤都完成后，投票发起人向dev@linkis.apache.org邮件组发通知邮件。
 
 如下是通知邮件样例：
@@ -294,7 +294,32 @@ The Apache Linkis PMC
    
 到此，整个流程才算走完，候选人才正式的成为项目的Committer或者PMC成员。
 
-## 4.操作流程总结
+## 4 更新项目状态信息
+step1 克隆状态记录的文件 
+```shell script
+svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
+```
+
+step2 修改 linkis.xml 中的new信息
+增加committer信息记录 
+```shell script
+<section id="News">
+      <title>News</title>
+      <ul>
+<!--    <li>YYYY-MM-DD New committer: Fred Hampton</li>    -->
+        <li>2021-08-02 Project enters incubation.</li>
+        <li>2022-02-19 First Apache Linkis release v1.0.3</li>
+        <li>2022-02-24 New Committer: Chen Xia</li>
+        <li>2022-04-15 Apache Linkis release v1.1.0</li>
+
+      </ul>
+    </section>
+```
+step3 更新提交后，信息会在这里呈现 
+https://incubator.apache.org/projects/linkis.html
+
+
+## 5 操作流程总结
 1. 发送携带ICLA附件的邮件
 2. 1-2天后收到回复邮件，将在5个工作日内处理  
 3. 2-5天内收到apache账户创建成功邮件   
