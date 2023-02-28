@@ -253,7 +253,7 @@ For detailed instructions, see [PMC/Committer Related Permission Configuration](
 If you want to make a public appearance in the Apache GitHub organization, you need to go to the [Apache GitHub people page](https://github.com/orgs/apache/people),
 Search for yourself, then select `Organization visibility` for `Public`.
 
-## 3 Post announcement email
+## 3. Post announcement email
 >After the above steps are completed, the voting initiator will send a notification email to the dev@linkis.apache.org mailing group.
 
 The following is a sample notification email:
@@ -276,31 +276,7 @@ The Apache Linkis PMC
    
 At this point, the whole process is over, and the candidate officially becomes the Committer or PMC of the project.
 
-## 4 Update project status
-step1 clong status record file 
-```shell script
-svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
-```
-
-step2 update news infomation in linkis.xml
-add committer information record 
-```shell script
-<section id="News">
-      <title>News</title>
-      <ul>
-<!--    <li>YYYY-MM-DD New committer: Fred Hampton</li>    -->
-        <li>2021-08-02 Project enters incubation.</li>
-        <li>2022-02-19 First Apache Linkis release v1.0.3</li>
-        <li>2022-02-24 New Committer: Chen Xia</li>
-        <li>2022-04-15 Apache Linkis release v1.1.0</li>
-
-      </ul>
-    </section>
-```
-step3 the information show in follow file after update 
-https://incubator.apache.org/projects/linkis.html
-
-## 5 Workflow summary
+## 5. Workflow summary
 
 1. Send emails with ICLA attachments
 
