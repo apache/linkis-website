@@ -11,11 +11,11 @@ A signed ICLA is required to be on file before an individual is given commit rig
 
 The process of submitting ICLA are:
 
-**1. First, click the link [Apache Licenses](https://www.apache.org/licenses/#clas) and find CLAs under the Contributor License Agreements section.**
+**1. First, click the link [Apache Licenses](https://www.apache.org/licenses/#clas) and find [CLAs](https://www.apache.org/licenses/contributor-agreements.html#clas) under the Contributor License Agreements section.**
 
 ![page_link](https://user-images.githubusercontent.com/29391030/153529738-96f3f75a-41e5-4947-b290-c4ea29b101f1.png)
 
-**2. At the top of the page, there are two download links choose ICLA(Individual Contributor License Agreement) and download it.**
+**2. At the top of the page, there are two download links choose [ICLA(Individual Contributor License Agreement)](https://www.apache.org/licenses/icla.pdf) and download it.**
 
 ![download](https://user-images.githubusercontent.com/29391030/153529788-a874aab9-786b-4131-a388-c0b5e31bdb8a.png)
 
@@ -24,6 +24,10 @@ The process of submitting ICLA are:
 > To be noticed:
 > - Leave a space between family name and last name, remember capitalize the first letter, please write family name at first.
 > - Preferred Apache id(s) is a required field for committers.
+
+Introduction：
+- **(optional) preferred Apache id(s)**：Select a **SVN ID** which is not exists on [Apache committer](http://people.apache.org/committer-index.html).
+- **(optional) notify project**：Apache Linkis
 
 ![information](https://user-images.githubusercontent.com/7869972/172194397-deca4649-32c1-4584-8525-2a387ca80ac6.png)
 
@@ -34,9 +38,12 @@ Apache only accept hand-written signature or [PDF signature software](https://sm
 
 **5. After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor (The email address is `secretary@apache.org`), here is the mail template:**
 
+> To be noticed:  
+> Don't cc `private@linkis.apache.org`，Otherwise, you will get feedback: `Please do not cc anyone when you submit your ICLA because it contains PII.`  
+> `notify project` has already in ICLA, it will send to `private@linkis.apache.org`
+
 ```html
 To: secretary@apache.org
-Cc: private@linkis.apache.org
 Subject: Accept to become a linkis committer
 Content:
 

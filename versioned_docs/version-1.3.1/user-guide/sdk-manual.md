@@ -101,6 +101,18 @@ sidebar_position: 3
   </tr >
 </table>
 
+**Linkis common label**
+
+|label key|label value|description|
+|:-|:-|:-|
+|engineType| spark-2.4.3 | the engine type and version |
+|userCreator|  user + "-AppName" |  the running user and your AppName |
+|codeType| sql | script type|
+|jobRunningTimeout| 10 | If the job does not finish for 10s, it will automatically initiate Kill. The unit is s |
+|jobQueuingTimeout| 10|If the job queue exceeds 10s and fails to complete, Kill will be automatically initiated. The unit is s|
+|jobRetryTimeout|  10000| The waiting time for a job to fail due to resources or other reasons is ms. If a job fails due to insufficient queue resources, the retry is initiated 10 times by default |
+|tenant| hduser02|  tenant label  |
+
 ## 1. Import dependent modules
 ```
 <dependency>
