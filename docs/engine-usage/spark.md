@@ -72,6 +72,50 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
 ```
 
+### 3.3 Submitting tasks by submitting the jar package
+
+Through ` OnceEngineConn ` submit tasks (through the spark-submit submit jar package mission), submission for reference `org.apache.linkis.com putation.Client.SparkOnceJobTest`
+
+
+```java
+public class SparkOnceJobTest {
+
+    public static void main(String[] args)  {
+
+        LinkisJobClient.config().setDefaultServerUrl("http://127.0.0.1:9001");
+
+        String submitUser = "linkis";
+        String engineType = "spark";
+
+        SubmittableSimpleOnceJob onceJob =
+                // region
+                LinkisJobClient.once().simple().builder()
+                        .setCreateService("Spark-Test")
+                        .setMaxSubmitTime(300000)
+                        .setDescription("SparkTestDescription")
+                        .addExecuteUser(submitUser)
+                        .addJobContent("runType", "jar")
+                        .addJobContent("spark.app.main.class", "org.apache.spark.examples.JavaWordCount")
+                        // Parameters obtained from the submitted jar package
+                        .addJobContent("spark.app.args", "hdfs:///tmp/test_word_count.txt") // WordCount test file
+                        .addLabel("engineType", engineType + "-2.4.7")
+                        .addLabel("userCreator", submitUser + "-IDE")
+                        .addLabel("engineConnMode", "once")
+                        .addStartupParam("spark.app.name", "spark-submit-jar-test-linkis") // show in yarn Application Name
+                        .addStartupParam("spark.executor.memory", "1g")
+                        .addStartupParam("spark.driver.memory", "1g")
+                        .addStartupParam("spark.executor.cores", "1")
+                        .addStartupParam("spark.executor.instance", "1")
+                        .addStartupParam("spark.app.resource", "hdfs:///tmp/spark/spark-examples_2.11-2.3.0.2.6.5.0-292.jar")
+                        .addSource("jobName", "OnceJobTest")
+                        .build();
+        // endregion
+        onceJob.submit();
+        onceJob.waitForCompleted(); //A temporary network interruption may cause an exception. It is recommended to modify the SDK later. If the SDK is in use at this stage, exception handling is required.
+    }
+}
+```
+
 ## 4. Engine configuration instructions
 
 ### 4.1 Default Configuration Description
