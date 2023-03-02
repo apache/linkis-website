@@ -103,6 +103,40 @@ BDAP函数：由bdap创建的给用户使用的函数，如脱敏函数等。注
 
 过期函数：也是共享函数，只不过共享者标记了它为过期，暂不影响使用
 
+**按照参数中的 ids 加载udf**
+
+| 参数名                      | 说明                   |  默认值|
+|--------------------------- |------------------------|--------|
+|`linkis.user.udf.all.load`  | 是否加载用户选中的所有 UDF | true |
+|`linkis.user.udf.custom.ids`| UDF ID 列表，用 `,` 分隔 |  -   |
+
+调用样例:
+
+```http request
+POST /api/rest_j/v1/entrance/submit
+Content-Type: application/json
+Token-Code: dss-AUTH
+Token-User: linkis
+
+{
+    "executionContent": {
+        "code": "show databases",
+        "runType": "sql"
+    },
+    "params": {
+        "configuration": {
+            "startup": {
+                "linkis.user.udf.all.load": false
+                "linkis.user.udf.custom.ids": "1,2,3"
+            }
+        }
+    },
+    "labels": {
+        "engineType": "spark-2.4.3",
+        "userCreator": "linkis-IDE"
+    }
+}
+```
 
 
 ## 4.UDF共享

@@ -103,7 +103,40 @@ Shared functions: functions shared to you by others, you need to load them to us
 
 Expired function: It is also a shared function, but the sharer marked it as expired, which will not affect the use for the time being
 
+**Load udf from parameter `ids`**
 
+| parameter name             | introduction                 |  default|
+|--------------------------- |------------------------------|---------|
+|`linkis.user.udf.all.load`  | load user's all selected udf | true    |
+|`linkis.user.udf.custom.ids`| udf ID list，split by `,`    |  -      |
+
+example:
+
+```http request
+POST /api/rest_j/v1/entrance/submit
+Content-Type: application/json
+Token-Code: dss-AUTH
+Token-User: linkis
+
+{
+    "executionContent": {
+        "code": "show databases",
+        "runType": "sql"
+    },
+    "params": {
+        "configuration": {
+            "startup": {
+                "linkis.user.udf.all.load": false
+                "linkis.user.udf.custom.ids": "1,2,3"
+            }
+        }
+    },
+    "labels": {
+        "engineType": "spark-2.4.3",
+        "userCreator": "linkis-IDE"
+    }
+}
+```
 
 ## 4 UDF sharing
 Premise: The sharing function requires the user to be an administrator to use it, otherwise the front-end page will not provide an operation entry.
