@@ -18,7 +18,7 @@ sidebar_position: 0.1
 | mg-eureka | 新增 | eureka.instance.metadata-map.linkis.conf.version | 无 | Eureka元数据上报Linkis服务版本信息 |
 | mg-eureka | 修改 | eureka.client.registry-fetch-interval-seconds | 8 | Eureka Client拉取服务注册信息间隔时间（秒） |
 | mg-eureka | 新增 | eureka.instance.lease-renewal-interval-in-seconds | 4 | eureka client发送心跳给server端的频率（秒）|
-| mg-eureka | 新增 | eureka.instance.lease-expiration-duration-in-seconds | 4 | eureka 等待下一次心跳的超时时间（秒）|
+| mg-eureka | 新增 | eureka.instance.lease-expiration-duration-in-seconds | 12 | eureka 等待下一次心跳的超时时间（秒）|
 
 
 
