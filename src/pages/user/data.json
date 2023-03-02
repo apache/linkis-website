@@ -601,5 +601,17 @@
         "地点": "新西兰",
         "联系方式": "https://longbridgeapp.com",
         "业务场景": "搭建公司大数据平台，作为底层计算引擎"
-    }
+    },
+    {
+        "auther": "contact@oneesg.cn",
+        "company": "OneESG Digital Technology",
+        "location": "Beijing",
+        "contact": "contact.kong@oneesg.cn",
+        "business scenario": "build the company's big data platform for ESG data processing",
+        "公司": "一标数字",
+        "地点": "北京",
+        "联系方式": "contact@oneesg.cn",
+        "业务场景": "OneESG大数据计算平台"
+    }    
+    
 ]
