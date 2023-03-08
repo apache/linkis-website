@@ -129,18 +129,22 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
 参数示例：
 ```json
 {
-    "executionContent": {"code": "show databases", "runType":  "jdbc"},
-    "params": {"variable": {}, "configuration": {"startup":{}, 
-    "runtime": 
-    	{ 
-    		"dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
-    	}
-    }}},
-    "source":  {"scriptPath": ""},
-    "labels": {
-        "engineType": "jdbc-4",
-        "userCreator": "hadoop-IDE"
+  "executionContent": {
+    "code": "show databases",
+    "runType": "jdbc"
+  },
+  "params": {
+    "variable": {},
+    "configuration": {
+      "startup": {},
+      "runtime": {
+        "wds.linkis.engine.runtime.datasource": "ob-test"
+      }
     }
+  },
+  "labels": {
+    "engineType": "jdbc-4"
+  }
 }
 ```
 
