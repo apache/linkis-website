@@ -138,12 +138,17 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
     "configuration": {
       "startup": {},
       "runtime": {
-        "wds.linkis.engine.runtime.datasource": "ob-test"
+        "wds.linkis.engine.runtime.datasource": "test_mysql"
+
       }
     }
   },
+  "source": {
+    "scriptPath": ""
+  },
   "labels": {
-    "engineType": "jdbc-4"
+    "engineType": "jdbc-4",
+    "userCreator": "hadoop-IDE"
   }
 }
 ```
