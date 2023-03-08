@@ -123,8 +123,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
 图3-4 数据源连接测试
 
 数据源添加完成之后，就可以使用 `JDBC` 引擎的多数据源切换功能，有两种方式：
-1、 通过接口参数指定数据源名称参数，如下图：
-![](./images/muti-data-source.png)
+1、 通过接口参数指定数据源名称参数
 
 参数示例：
 ```json

@@ -123,9 +123,7 @@ Figure 3-3 Data source management
 Figure 3-4 Data source connection test
 
 After the data source is added, you can use the multi-data source switching function of the `JDBC` engine. There are two ways:
-1. Specify the data source name parameter through the interface parameter, as shown below:
-![](./images/muti-data-source.png)
-
+1. Specify the data source name parameter through the interface parameter
 Example parameters:
 ```json
 {
