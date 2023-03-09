@@ -27,7 +27,7 @@ shell
 ``` 
 
 ### 2.2 Submit tasks through Linkis SDK
-`Linkis` provides `SDK` of `Java` and `Scala` to submit tasks to `Linkis` server. For details, please refer to [JAVA SDK Manual](/docs/latest/user-guide/sdk-manual.md). For `OceanBase` tasks, you only need to modify `EngineConnType` and `CodeType` parameters in `Demo`:
+`Linkis` provides `SDK` of `Java` and `Scala` to submit tasks to `Linkis` server. For details, please refer to [JAVA SDK Manual](/docs/latest/user-guide/sdk-manual). For `OceanBase` tasks, you only need to modify `EngineConnType` and `CodeType` parameters in `Demo`:
 ```java 
 Map<String, Object> labels = new HashMap<String, Object>(); 
 labels.put (LabelKeyConstant.ENGINE_TYPE_KEY, "jdbc-4"); // required engineType Label

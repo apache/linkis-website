@@ -25,7 +25,7 @@ mysql -h${ip} -P${port} -u${username} -p${password} -D${db_name}
 ```
 
 ### 2.2 通过 Linkis SDK 提交任务
-`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务。具体可以参考 [JAVA SDK Manual](/docs/latest/user-guide/sdk-manual.md)。对于 `OceanBase` 任务您只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
+`Linkis` 提供了 `Java` 和 `Scala` 的 `SDK` 向 `Linkis` 服务端提交任务。具体可以参考 [JAVA SDK Manual](/docs/latest/user-guide/sdk-manual)。对于 `OceanBase` 任务您只需要修改 `Demo` 中的 `EngineConnType` 和 `CodeType` 参数即可:
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
 labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "jdbc-4"); // required engineType Label
