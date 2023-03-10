@@ -137,7 +137,6 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
       "startup": {},
       "runtime": {
         "wds.linkis.engine.runtime.datasource": "test_mysql"
-
       }
     }
   },

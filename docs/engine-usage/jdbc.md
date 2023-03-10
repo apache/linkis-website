@@ -137,7 +137,6 @@ Example parameters:
       "startup": {},
       "runtime": {
         "wds.linkis.engine.runtime.datasource": "test_mysql"
-
       }
     }
   },
