@@ -123,24 +123,30 @@ Figure 3-3 Data source management
 Figure 3-4 Data source connection test
 
 After the data source is added, you can use the multi-data source switching function of the `JDBC` engine. There are two ways:
-1. Specify the data source name parameter through the interface parameter, as shown below:
-![](./images/muti-data-source.png)
-
+1. Specify the data source name parameter through the interface parameter
 Example parameters:
 ```json
 {
-    "executionContent": {"code": "show databases", "runType":  "jdbc"},
-    "params": {"variable": {}, "configuration": {"startup":{}, 
-    "runtime": 
-    	{
-    		"dataSources": {"wds.linkis.engine.runtime.datasource": "test_mysql"
-    	}
-    }}},
-    "source":  {"scriptPath": ""},
-    "labels": {
-        "engineType": "jdbc-4",
-        "userCreator": "hadoop-IDE"
+  "executionContent": {
+    "code": "show databases",
+    "runType": "jdbc"
+  },
+  "params": {
+    "variable": {},
+    "configuration": {
+      "startup": {},
+      "runtime": {
+        "wds.linkis.engine.runtime.datasource": "test_mysql"
+      }
     }
+  },
+  "source": {
+    "scriptPath": ""
+  },
+  "labels": {
+    "engineType": "jdbc-4",
+    "userCreator": "hadoop-IDE"
+  }
 }
 ```
 
