@@ -71,6 +71,8 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
 ```
 
+### 3.3 通过提交jar包执行任务
+
 通过 `OnceEngineConn` 提交任务（通过 spark-submit 提交 jar 包执行任务），提交方式参考 `org.apache.linkis.computation.client.SparkOnceJobTest`
 
 ```java
@@ -107,13 +109,14 @@ public class SparkOnceJobTest {
                         .build();
         // endregion
         onceJob.submit();
+        onceJob.waitForCompleted(); // 网络临时不通会导致异常，建议后期修改 SDK，现阶段使用，需要做异常处理
         // 网络临时不通会导致异常，建议后期修改 SDK，现阶段使用，需要做异常处理
         onceJob.waitForCompleted();
     }
 }
 ```
 
-### 3.3 通过 Restful API 提交任务
+### 3.4 通过 Restful API 提交任务
 
 运行脚本类型包括 `sql`、`scala`、`python`、`data_calc(格式为json)`。
 

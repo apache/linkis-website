@@ -72,7 +72,9 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
 ```
 
-Submit task by `OnceEngineConn`（spark-submit jar）, example: `org.apache.linkis.computation.client.SparkOnceJobTest`
+### 3.3 Submitting tasks by submitting the jar package
+
+Through `OnceEngineConn` submit tasks (through the spark-submit submit jar package mission), submission for reference `org.apache.linkis.com putation.Client.SparkOnceJobTest`.
 
 ```java
 public class SparkOnceJobTest {
@@ -93,7 +95,7 @@ public class SparkOnceJobTest {
                         .addExecuteUser(submitUser)
                         .addJobContent("runType", "jar")
                         .addJobContent("spark.app.main.class", "org.apache.spark.examples.JavaWordCount")
-                        // parameter
+                        // Parameters obtained from the submitted jar package
                         .addJobContent("spark.app.args", "hdfs:///tmp/test_word_count.txt") // WordCount test file
                         .addLabel("engineType", engineType + "-2.4.7")
                         .addLabel("userCreator", submitUser + "-IDE")
@@ -108,13 +110,14 @@ public class SparkOnceJobTest {
                         .build();
         // endregion
         onceJob.submit();
+        onceJob.waitForCompleted(); //A temporary network interruption may cause an exception. It is recommended to modify the SDK later. If the SDK is in use at this stage, exception handling is required.
         // Temporary network failure will cause exceptions. It is recommended to modify the SDK later. For use at this stage, exception handling is required
         onceJob.waitForCompleted();
     }
 }
 ```
 
-### 3.3 Submitting tasks with `Restful API`
+### 3.4 Submitting tasks with `Restful API`
 
 Scripts type includes `sql`、`scala`、`python`、`data_calc(content type is json)`.
 

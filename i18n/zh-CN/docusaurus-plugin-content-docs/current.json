@@ -152,7 +152,11 @@
   "sidebar.tutorialSidebar.category.Entrance Services": {
     "message": "Entrance 服务",
     "description": "Entrance Services"
-  } 
+  },
+  "sidebar.tutorialSidebar.category.Version Feature": {
+    "message": "版本特性",
+    "description": "Version Feature"
+  }  
   
   
   
