@@ -440,22 +440,22 @@ $ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
 linkis-package/lib/linkis-engineconn-plugins/
 ├── hive
 │ ├── dist
-│ │ └── v2.3.3 #version is 2.3.3 engineType is hive-2.3.3
+│ │ └── 2.3.3 #version is 2.3.3 engineType is hive-2.3.3
 │ └── plugin
 │ └── 2.3.3
 ├── python
 │ ├── dist
-│ │ └── vpython2
+│ │ └── python2
 │ └── plugin
 │ └── python2 #version is python2 engineType is python-python2
 ├── shell
 │ ├── dist
-│ │ └── v1
+│ │ └── 1
 │ └── plugin
 │ └── 1
 └── spark
     ├── dist
-    │ └── v2.4.3
+    │ └── 2.4.3
     └── plugin
         └── 2.4.3
 ````
