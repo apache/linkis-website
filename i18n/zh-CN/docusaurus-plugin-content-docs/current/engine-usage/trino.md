@@ -69,7 +69,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── trino
 │   ├── dist
-│   │   └── v371
+│   │   └── 371
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

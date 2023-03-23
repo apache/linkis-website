@@ -66,7 +66,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── elasticsearch
 │   ├── dist
-│   │   └── v7.6.2
+│   │   └── 7.6.2
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

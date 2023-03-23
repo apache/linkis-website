@@ -74,7 +74,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── sqoop
 │   ├── dist
-│   │   └── v1.4.6
+│   │   └── 1.4.6
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

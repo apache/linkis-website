@@ -63,7 +63,7 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── jdbc
 │   ├── dist
-│ │ └── v4
+│ │ └── 4
 │   │       ├── conf
 │ │ └── lib
 │   └── plugin

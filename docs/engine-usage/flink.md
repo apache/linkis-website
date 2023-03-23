@@ -62,7 +62,7 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── big
 │   ├── dist
-│ │ └── v1.12.2
+│ │ └── 1.12.2
 │   │       ├── conf
 │ │ └── lib
 │   └── plugin

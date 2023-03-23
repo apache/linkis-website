@@ -69,7 +69,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── presto
 │   ├── dist
-│   │   └── v0.234
+│   │   └── 0.234
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

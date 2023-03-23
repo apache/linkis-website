@@ -66,7 +66,7 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── elasticsearch
 │   ├── dist
-│ │ └── v7.6.2
+│ │ └── 7.6.2
 │   │       ├── conf
 │ │ └── lib
 │   └── plugin
