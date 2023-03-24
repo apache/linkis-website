@@ -211,7 +211,7 @@ HADOOP_KEYTAB_PATH=/appcom/keytab/
 
 ### 2.4 配置 Token
 
-Linkis 1.3.2 将原有固定 Token 改为随机生成。
+Linkis 原有默认 Token 固定且长度太短存在安全隐患。因此 Linkis 1.3.2 将原有固定 Token 改为随机生成，并增加 Token 长度。
 
 新 Token 格式：应用简称-32 位随机数，如BML-928a721518014ba4a28735ec2a0da799。
 

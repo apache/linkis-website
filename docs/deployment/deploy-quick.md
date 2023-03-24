@@ -212,7 +212,7 @@ HADOOP_KEYTAB_PATH=/appcom/keytab/
 
 ### 2.4 Configure Token
 
-Linkis 1.3.2 changed the original fixed Token to random generation.
+The original default Token of Linkis is fixed and the length is too short, which has security risks. Therefore, Linkis 1.3.2 changes the original fixed Token to random generation and increases the Token length.
 
 New Token format: application abbreviation - 32-bit random number, such as BML-928a721518014ba4a28735ec2a0da799.
 
