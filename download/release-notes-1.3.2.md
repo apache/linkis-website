@@ -9,9 +9,11 @@ Linkis 1.3.2 mainly enhanced Spark engine and added the function of ETL through 
 
 The main functions are as follows:
 
-- Added Spark's ETL function using json. Support for reading and writing data from JDBC data sources configured in Linkis (including MySQL, PostgreSQL, SqlServer, Oracle, DB2, TiDB, ClickHouse, Doris)
 - Added the function for Spark to submit Jar packages
 - Allows the UDF to be loaded using the specified UDF ID configured in the background
+- Support for multi-task fixed EC execution
+- Support Eureka for reporting version metadata
+- Linkis integrates the OceanBase database
 
 Abbreviations:
 - ORCHESTRATOR: Linkis Orchestrator

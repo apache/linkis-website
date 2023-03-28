@@ -34,7 +34,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── pipeline
 │   ├── dist
-│   │   └── v1
+│   │   └── 1
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

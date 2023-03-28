@@ -9,9 +9,11 @@ Linkis 1.3.2 版本，主要对 Spark 引擎进行了增强，添加了通过 js
 
 主要功能如下：
 
-- 新增 Spark 通过 json 进行 ETL 的功能，支持通过 Linkis 中配置的 JDBC 数据源读写数据（包括 MySQL、PostgreSQL、SqlServer、Oracle、DB2、TiDB、ClickHouse、Doris）
 - 新增 Spark 提交 Jar 包的功能
 - 允许通过指定后台配置的 UDF ID 加载对应的 UDF
+- 支持多任务固定 EC 执行
+- 支持 Eureka 上报版本元数据
+- Linkis 整合 OceanBase 数据库
 
 缩写：
 - ORCHESTRATOR: Linkis Orchestrator

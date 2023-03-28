@@ -69,7 +69,7 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── soon
 │   ├── dist
-│ │ └── v0.234
+│ │ └── 0.234
 │   │       ├── conf
 │ │ └── lib
 │   └── plugin

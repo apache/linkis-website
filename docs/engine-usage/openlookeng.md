@@ -70,7 +70,7 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── openlookeng
 │   ├── dist
-│ │ └── v1.5.0
+│ │ └── 1.5.0
 │   │       ├── conf
 │ │ └── lib
 │   └── plugin

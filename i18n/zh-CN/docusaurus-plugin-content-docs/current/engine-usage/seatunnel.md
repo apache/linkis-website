@@ -68,7 +68,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 linkis-engineconn-plugins/
 ├── seatunnel
 │   ├── dist
-│   │   └── v2.1.2
+│   │   └── 2.1.2
 │   │       ├── conf
 │   │       └── lib
 │   └── plugin

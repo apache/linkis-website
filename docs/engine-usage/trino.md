@@ -69,7 +69,7 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── triune
 │   ├── dist
-│ │ └── v371
+│ │ └── 371
 │   │       ├── conf
 │ │ └── lib
 │   └── plugin

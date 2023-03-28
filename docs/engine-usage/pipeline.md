@@ -34,7 +34,7 @@ The directory structure after uploading is as follows
 linkis-engineconn-plugins/
 ├── pipeline
 │   ├── dist
-│ │ └── v1
+│ │ └── 1
 │   │       ├── conf
 │ │ └── lib
 │   └── plugin
