@@ -1,6 +1,6 @@
 {
   "version.label": {
-    "message": "Next(1.3.2)",
+    "message": "Next(1.4.0)",
     "description": "The label for version current"
   },
 
@@ -156,8 +156,8 @@
   "sidebar.tutorialSidebar.category.Version Feature": {
     "message": "版本特性",
     "description": "Version Feature"
-  }  
-  
-  
-  
+  }
+
+
+
 }
