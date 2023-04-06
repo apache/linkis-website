@@ -5,7 +5,7 @@ sidebar_position: 0.15
 
 Apache Linkis 1.3.2 包括所有 [Project Linkis-1.3.2](https://github.com/apache/linkis/projects/24)
 
-Linkis 1.3.2 版本，主要对 Spark 引擎进行了增强，添加了通过 json 进行 ETL 的功能和Spark 提交 jar 包的功能，除此之外还对 UDF 加载做了优化。
+Linkis 1.3.2 版本，主要增加了如下功能。首先对 Spark 引擎进行了增强，支持 Spark 任务提交 jar 包功能。其次对 UDF 加载做了优化，支持通过 UDF ID 加载 UDF 功能。还整合了 OceanBase 数据库，支持通过数据源功能使用 OceanBase 数据库。除此之外对标签和 Eureka 进行了增强，支持多任务固定 EC 执行和 Eureka 上报版本元数据功能。
 
 主要功能如下：
 

@@ -5,7 +5,7 @@ sidebar_position: 0.15
 
 Apache Linkis 1.3.2 includes all [Project Linkis-1.3.2](https://github.com/apache/linkis/projects/24)
 
-Linkis 1.3.2 mainly enhanced Spark engine and added the function of ETL through json and jar package submission by Spark. In addition, the UDF loading was optimized.
+Linkis version 1.3.2 mainly adds the following functions. First, the Spark engine is enhanced to support the Spark task submission jar package function. Secondly, UDF loading is optimized to support loading UDF function through UDF ID. The OceanBase database is also integrated to support the use of the OceanBase database through the data source function. In addition, tags and Eureka have been enhanced to support multi-task fixed EC execution and Eureka reporting version metadata.
 
 The main functions are as follows:
 
