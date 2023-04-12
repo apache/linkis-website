@@ -750,106 +750,9 @@ $ svn delete https://dist.apache.org/repos/dist/release/linkis/${last_release_ve
 
 > 等仓库同步到其他数据源，一般需要24小时
 
-### 6.4 更新下载页面
+### 6.4 新版本文档发布及下载页更新
 
-<font color='red'>中英文文档都要更新</font>
-
-linkis的官网下载地址应该指向apache的官方地址
-
-等待并确认新的发布版本同步至Apache镜像(https://downloads.apache.org/linkis/) 后，更新如下页面：
-- https://linkis.apache.org/zh-CN/download/main
-- https://linkis.apache.org/download/main
-- https://linkis.apache.org/zh-CN/download/release-notes-x.x.x(移除rc)
-- https://linkis.apache.org/download/release-notes-1.3.0(移除rc)
-
-```shell script
-
-```
-### 6.5 GitHub 版本创建
-
-:::caution 注意
-git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确保前面步骤都没问题。
-:::
-
-
-**step1 创建新的 github release**
-
-进入到创建页面 https://github.com/apache/linkis/releases/new
-基于之前`release-1.1.2-rc1`分支创建名为`1.1.2`的tag，
-填写标题`Apache Linkis Release-1.1.2`，将该版本的release notes `https://linkis.apache.org/download/release-notes-1.1.2`链接写入
-
-```shell script
-Release-1.1.2 
-Release Notes: https://linkis.apache.org/download/release-notes-1.1.2
-
-```
-![image](https://user-images.githubusercontent.com/7869972/210697538-2568c05f-20a5-4487-94f9-9e053116ba0e.png)
-
-**step2 检查**
-
-![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
-
-**step3  合并`${release_version}-RC`分支到`master`分支(如果未合并)**
-
-
-## 7 邮件通知版本发布完成
-
-> 请确保Apache Staging仓库已发布成功，一般是在该步骤的24小时后发布邮件
-
-发邮件到 `dev@linkis.apache.org` 、 `announce@apache.org`
-
-```html
-邮件标题：
-[ANNOUNCE] Apache Linkis ${release_version} available
-
-邮件正文：
-Hi all,
-
-Apache Linkis Team is glad to announce the new release of Apache Linkis ${release_version}.
-
-Apache Linkis builds a computation middleware layer to decouple the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), while enables cross engine context sharing, unified job& engine governance and orchestration.
-
-Download Links: https://linkis.apache.org/download/main/
-
-Release Notes: https://linkis.apache.org/download/release-notes-${release_version}
-
-Website: https://linkis.apache.org/
-
-Linkis Resources:
-- Issue: https://github.com/apache/linkis/issues
-- Mailing list: dev@linkis.apache.org
-
-- Apache Linkis Team
-
-```
-
-## 8 更新 Clutch Status 的信息
-
-### step1 克隆状态记录的文件 
-```shell script
-svn co https://svn.apache.org/repos/asf/public/trunk/content/projects/
-```
-
-### step2 修改 linkis.xml 中的new信息
-增加发布记录信息 
-```shell script
-<section id="News">
-      <title>News</title>
-      <ul>
-<!--    <li>YYYY-MM-DD New committer: Fred Hampton</li>    -->
-        <li>2021-08-02 Project enters incubation.</li>
-        <li>2022-02-19 First Apache Linkis release v1.1.2</li>
-        <li>2022-02-24 New Committer: Chen Xia</li>
-        <li>2022-04-15 Apache Linkis release v1.1.0</li>
-
-      </ul>
-    </section>
-```
-### step3 更新提交后，信息会在这里呈现 
-
-https://incubator.apache.org/clutch/linkis.html
-
-## 9 官网对应版本文档的发布
+**文档发布**
 
 创建新版本，基于当前的版本 创建要发布版本
 
@@ -906,8 +809,96 @@ cp -r current.json version-${publish_version}.json
         {label: 'Next(${publish_version})', to: '/docs/${publish_version}/about/introduction'}, 
         -->
         {label: 'Next(${next_version})', to: '/docs/${next_version}/about/introduction'},
+        //修改
+        existingPath.replace('/latest', '/${current_version}')
+        -->
+        existingPath.replace('/latest', '/${publish_version}')
 ]
 ```
+
+**更新下载页面**
+
+<font color='red'>中英文文档都要更新</font>
+
+linkis的官网下载地址应该指向apache的官方地址
+
+等待并确认新的发布版本同步至Apache镜像(https://downloads.apache.org/linkis/) 后，更新如下页面：
+- https://linkis.apache.org/zh-CN/download/main
+- https://linkis.apache.org/download/main
+- https://linkis.apache.org/zh-CN/download/release-notes-x.x.x(移除rc)
+- https://linkis.apache.org/download/release-notes-1.3.0(移除rc)
+
+### 6.5 GitHub 版本创建
+
+:::caution 注意
+git tag 一旦创建不可删除(分支可以删除)，所以在创建tag前 确保前面步骤都没问题。
+:::
+
+
+**step1 创建新的 github release**
+
+进入到创建页面 https://github.com/apache/linkis/releases/new
+基于之前`release-1.1.2-rc1`分支创建名为`1.1.2`的tag，
+填写标题`Apache Linkis Release-1.1.2`，将该版本的release notes `https://linkis.apache.org/download/release-notes-1.1.2`链接写入
+
+```shell script
+Release-1.1.2 
+Release Notes: https://linkis.apache.org/download/release-notes-1.1.2
+
+```
+![image](https://user-images.githubusercontent.com/7869972/210697538-2568c05f-20a5-4487-94f9-9e053116ba0e.png)
+
+**step2 检查**
+
+![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
+
+**step3  合并`${release_version}-RC`分支到`master`分支(如果未合并)**
+
+
+## 7 邮件通知版本发布完成
+
+> 请确保Apache Staging仓库已发布成功，一般是在该步骤的24小时后发布邮件
+
+**注意：**
+
+1. 发送 ANNOUNCE 邮件前，发布者需要先订阅 announce-subscribe@apache.org 邮箱，可参考[如何订阅邮件列表](/community/how-to-subscribe)
+
+2. ANNOUNCE 邮件发送完成后需要等待一段时间（大概一到两天）才能在 [Apache announce 邮件列表](https://lists.apache.org/list.html?announce@apache.org)显示
+
+发邮件到 `dev@linkis.apache.org` 、 `announce@apache.org`
+
+```html
+邮件标题：
+[ANNOUNCE] Apache Linkis ${release_version} available
+
+邮件正文：
+Hi all,
+
+Apache Linkis Team is glad to announce the new release of Apache Linkis ${release_version}.
+
+Apache Linkis builds a computation middleware layer to decouple the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC, WebSocket etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.), while enables cross engine context sharing, unified job& engine governance and orchestration.
+
+Download Links: https://linkis.apache.org/download/main/
+
+Release Notes: https://linkis.apache.org/download/release-notes-${release_version}
+
+Website: https://linkis.apache.org/
+
+Linkis Resources:
+- Issue: https://github.com/apache/linkis/issues
+- Mailing list: dev@linkis.apache.org
+
+- Apache Linkis Team
+
+```
+
+## 8 更新 Release 信息
+
+Apache社区健康指标会统计最近可用的Release版本。目前发布新版本后需要手动更新。
+
+更新地址： https://reporter.apache.org/addrelease.html?linkis
+
+![img](/Images/community/update-release.png)
 
 ## 附录 
 ### 附件1 release.sh

@@ -4,7 +4,7 @@ sidebar_position: 0.3
 ---
 
 ## 1. Requirement Background
-Now when Linksi tasks are submitted, they are created or reused based on the tags of EngineConn (hereinafter referred to as EC), and the ECs between multiple tasks are random. However, for the existence of multi-tasks that need to be able to meet the dependencies of the tasks, execution on the same EC cannot be well supported. Add a new EngineConnInstanceLabel to multi-tasks to fix the same EC for multiple tasks.
+Now when Linkis tasks are submitted, they are created or reused based on the tags of EngineConn (hereinafter referred to as EC), and the ECs between multiple tasks are random. However, for the existence of multi-tasks that need to be able to meet the dependencies of the tasks, execution on the same EC cannot be well supported. Add a new EngineConnInstanceLabel to multi-tasks to fix the same EC for multiple tasks.
 
 ## 2. Instructions for use
 1. The management console adds a specific label, and the adding path is as follows: login to the control panel -> ECM management -> click on an ECM instance name -> edit the EC to be fixed -> add a label of type FixdEngineConnLabel.
