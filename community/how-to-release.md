@@ -602,27 +602,120 @@ $ svn delete https://dist.apache.org/repos/dist/release/linkis/${last_release_ve
 > It usually takes 24 hours to wait for the repository to synchronize to other data sources
 
 
-### 6.4 Update download page
+### 6.4 New version document release and download page update
 
-<font color='red'>Chinese and English documents should be updated</font>
+**Document release**
 
-The official website download address of linkis should point to the official address of apache
+Create a new version, create a release version based on the current version
 
-After waiting and confirming that the new release version is synced to the Apache mirror (https://downloads.apache.org/linkis/), update the following page:
+### step1 archive ${publish_version} version document
+```shell
+npm install
+npm run docusaurus docs:version ${publish_version}
+```
+### step2 Copy the new Chinese version document
+```shell
+cd i18n/zh-CN/docusaurus-plugin-content-docs
+cp -r current version-${publish_version}
+cp -r current.json version-${publish_version}.json
+```
+### step3 modify version.label
+```shell
+# The current.json file is modified as follows
+"message": "Next(${publish_version})" --> "message": "Next(${next_version})"
 
-- https://linkis.apache.org/en-US/download/main
+# version-${publish_version}.json file is modified as follows
+"message": "Next(${publish_version})", --> "message": "${publish_version}"
+```
+
+### Modify configuration docusaurus.config.js
+```json
+ versions: {
+        current: {
+          path: '1.2.0',
+          label: 'Next(1.2.0)'
+        },
+        '1.1.1': {
+          path: 'latest',
+        },
+      }
+->
+  versions: {
+         current: {
+           path: '1.1.3',
+           label: 'Next(1.1.3)'
+         },
+         '1.2.0': {
+           path: 'latest',
+         },
+       }
+
+ items: [
+        //Increase
+        {label: '${publish_version}', to: '/docs/latest/about/introduction'},
+        //Revise
+        {label: '${current_version}', to: '/docs/latest/about/introduction'},
+        -->
+        {label: '${current_version}', to: '/docs/${current_version}/about/introduction'},
+        //Revise
+        {label: 'Next(${publish_version})', to: '/docs/${publish_version}/about/introduction'},
+        -->
+        {label: 'Next(${next_version})', to: '/docs/${next_version}/about/introduction'},
+        //Revise
+        existingPath.replace('/latest', '/${current_version}')
+        -->
+        existingPath.replace('/latest', '/${publish_version}')
+]
+```
+
+**Update download page**
+
+<font color='red'>Chinese and English documents must be updated</font>
+
+Linkis official website download address should point to the official address of apache
+
+After waiting and confirming that the new release version is synchronized to the Apache mirror (https://downloads.apache.org/linkis/), update the following page:
+- https://linkis.apache.org/zh-CN/download/main
 - https://linkis.apache.org/download/main
+- https://linkis.apache.org/zh-CN/download/release-notes-xxx (remove rc)
+- https://linkis.apache.org/download/release-notes-1.3.0 (remove rc)
 
 ### 6.5 GitHub version released
 
-1. Merge `${release_version}-RC` branch to `master` branch (if not merged)
-2. Tag the official version, and the RC version tag during the voting process can be removed
-3. On the [GitHub Releases](https://github.com/apache/linkis/releases) page, update the version number and version description, etc.
+:::caution Caution
+Once the git tag is created, it cannot be deleted (the branch can be deleted), so make sure that the previous steps are all right before creating the tag.
+:::
+
+
+**step1 Create a new github release**
+
+Go to the creation page https://github.com/apache/linkis/releases/new
+Create a tag named `1.1.2` based on the previous `release-1.1.2-rc1` branch,
+Fill in the title `Apache Linkis Release-1.1.2`, write the release notes `https://linkis.apache.org/download/release-notes-1.1.2` link of this version
+
+```shell script
+Release-1.1.2
+Release Notes: https://linkis.apache.org/download/release-notes-1.1.2
+
+```
+![image](https://user-images.githubusercontent.com/7869972/210697538-2568c05f-20a5-4487-94f9-9e053116ba0e.png)
+
+**step2 check**
+
+![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
+
+**step3 Merge `${release_version}-RC` branch to `master` branch (if not merged)**
 
 
 ## 7 Email notification version is released
 
 > Please make sure that the Apache Staging repository has been published successfully, usually mail is published 24 hours after this step
+
+**Note:**
+
+1. Before sending the ANNOUNCE email. Publishers need to subscribe to announce-subscribe@apache.org.  See [How to Subscribe to Mailing Lists](/community/how-to-subscribe)
+
+2. You need to wait for some time (about one or two days) after the ANNOUNCE email is sent to the [Apache ANNOUNCE mailing list](https://lists.apache.org/list.html?announce@apache.org)
 
 Send email to `dev@linkis.apache.org`, `announce@apache.org`
 ```html
@@ -650,6 +743,14 @@ Linkis Resources:
 - Apache Linkis Team
 
 ```
+
+## 8 Update release information
+
+The Apache Community Health Indicator counts the most recently available releases. Manual updates are currently required after new versions are released.
+
+update address: https://reporter.apache.org/addrelease.html?linkis
+
+![img](/Images/community/update-release.png)
 
 
 ## Appendix

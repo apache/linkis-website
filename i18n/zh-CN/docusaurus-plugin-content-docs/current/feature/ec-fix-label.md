@@ -4,7 +4,7 @@ sidebar_position: 0.3
 --- 
 
 ## 1. 需求背景
-现在Linksi任务提交时，是基于标签进行创建或者复用 EngineConn（以下简称EC），多个任务间的 EC 是随机的。但是对于存在多任务需要能够满足任务的依赖性，在同一个EC 上进行执行就不能很好的做支持。在多人任务中添加新的 EngineConnInstanceLabel 来满足多任务固定同一个 EC 的目的。
+现在Linkis任务提交时，是基于标签进行创建或者复用 EngineConn（以下简称EC），多个任务间的 EC 是随机的。但是对于存在多任务需要能够满足任务的依赖性，在同一个EC 上进行执行就不能很好的做支持。在多人任务中添加新的 EngineConnInstanceLabel 来满足多任务固定同一个 EC 的目的。
 
 ## 2. 使用说明
 1. 管理台添加特定标签，添加路径如下：登录管理台 -> ECM管理 -> 点击某 ECM 示例名称 -> 编辑待固定的 EC -> 添加 FixdEngineConnLabel 类型的标签。
