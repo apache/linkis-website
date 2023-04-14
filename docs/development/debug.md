@@ -254,51 +254,7 @@ org.apache.linkis.entrance.LinkisEntranceApplication
 By checking Include dependencies with "Provided" scope, you can introduce provided-level dependency packages during debugging.
 ````
 
-### 3.8 Start linkis-cg-engineplugin
-
-![engineplugin-app](/Images/development/debug/engineplugin-app.png)
-
-Parameter explanation:
-
-```shell
-[Service Name]
-linkis-cg-engineplugin
-
-[Use classpath of module]
-linkis-engineconn-plugin-server
-
-[VM Opitons]
--DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
-
-[main Class]
-org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
-
-[Add provided scope to classpath]
-By checking Include dependencies with "Provided" scope, you can introduce provided-level dependency packages during debugging.
-````
-
-When starting engineplugin, you may encounter the following error:
-
-![engineplugin-debug-error](/Images/development/debug/engineplugin-debug-error.png)
-
-You need to add the publicly dependent modules to the classpath of the ecp module, and modify the pom of pes to add the following dependencies:
-linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
-````xml
-    <dependency>
-      <groupId>org.apache.linkis</groupId>
-      <artifactId>linkis-dist</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql.connector.version}</version>
-    </dependency>
-
-````
-
-### 3.9 Start linkis-cg-engineconnmanager
+### 3.8 Start linkis-cg-engineconnmanager
 
 ![engineconnmanager-app](/Images/development/debug/engineconnmanager-app.png)
 
@@ -325,11 +281,11 @@ By checking Include dependencies with "Provided" scope, you can introduce provid
 
 Debugging the linkis-cg-engineconnmanager module only supports Mac OS and Linux systems.
 
-### 3.10 Key Configuration Modifications
+### 3.9 Key Configuration Modifications
 
 The above operation only completes the configuration of the application startup of each Linkis microservice. In addition, in the configuration file loaded when the Linkis service starts, some key configurations also need to be modified in a targeted manner, otherwise the process of starting the service or script execution Some errors will be encountered. The key configuration modifications are summarized as follows:
 
-#### 3.10.1 conf/linkis.properties
+#### 3.9.1 conf/linkis.properties
 
 ````properties
 # linkis underlying database connection parameter configuration
@@ -353,7 +309,7 @@ The directory structure of wds.linkis.home={YourPathPrefix}/linkis is as follows
 
 ![linkis-home](/Images/development/debug/linkis-home.png)
 
-#### 3.10.2 conf/linkis-cg-entrance.properties
+#### 3.9.2 conf/linkis-cg-entrance.properties
 
 ````properties
 # The log directory of the entrance service execution task
@@ -363,7 +319,7 @@ wds.linkis.entrance.config.log.path=file:///{YourPathPrefix}/linkis/data/entranc
 wds.linkis.resultSet.store.path=file:///{YourPathPrefix}/linkis/data/resultSetDir
 ````
 
-#### 3.10.3 conf/linkis-cg-engineconnmanager.properties
+#### 3.9.3 conf/linkis-cg-engineconnmanager.properties
 
 ````properties
 wds.linkis.engineconn.root.dir={YourPathPrefix}/linkis/data/engineconnRootDir
@@ -371,7 +327,7 @@ wds.linkis.engineconn.root.dir={YourPathPrefix}/linkis/data/engineconnRootDir
 
 If you do not modify it, you may encounter an exception that the path does not exist.
 
-#### 3.10.4 conf/linkis-cg-engineplugin.properties
+#### 3.9.4 conf/linkis-cg-engineplugin.properties
 
 ````properties
 wds.linkis.engineconn.home={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
@@ -381,7 +337,7 @@ wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/linkis/linkis-en
 
 The two configurations here are mainly to specify the root directory of the engine storage, and the main purpose of specifying it as target/out is that after the engine-related code or configuration changes, the engineplugin service can be restarted directly to take effect.
 
-### 3.11 Set sudo password-free for the current user
+### 3.10 Set sudo password-free for the current user
 
 When the engine is started, sudo needs to be used to execute the shell command to start the engine process. The current user on the mac generally needs to enter a password when using sudo. Therefore, it is necessary to set the sudo password-free for the current user. The setting method is as follows:
 
@@ -392,7 +348,7 @@ Replace #%admin ALL=(ALL) AL with %admin ALL=(ALL) NOPASSWD: ALL
 save file exit
 ````
 
-### 3.12 Service Test
+### 3.11 Service Test
 
 Make sure that the above services are all successfully started, and then test and submit the shell script job in postman.
 
