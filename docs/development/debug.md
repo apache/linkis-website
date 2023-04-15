@@ -301,6 +301,9 @@ wds.linkis.home=/Users/leojie/software/linkis
 
 # Set the administrator username, your local username
 wds.linkis.governance.station.admin=leojie
+
+# Set the prefer ip address
+linkis.discovery.prefer-ip-address=true
 ````
 
 Before configuring linkis underlying database connection parameters, please create linkis database and run linkis-dist/package/db/linkis_ddl.sql and linkis-dist/package/db/linkis_dml.sql to initialize all tables and data.
