@@ -174,7 +174,7 @@ $ mvnw.cmd  clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
 #### 2.4.3 web源码编译验证
 
->需要依赖node.js环境，建议使用node v14版本
+>需要依赖node.js环境，建议使用node v16版本
 
 安装依赖：
 ```shell
