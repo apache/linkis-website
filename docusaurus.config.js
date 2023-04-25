@@ -339,7 +339,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           if (locale !== 'en') {
             return `https://github.com/apache/linkis-website/edit/dev/i18n/${locale}/${docPath}`;
           }
-          return `https://github.com/apache/linkis-website/edit/dev/${versionDocsDirPath}/${docPath}`;
+          return `https://docs.qq.com/doc/DUkdTTGhVSlZ0VXVt`;
         },
       },
     ],
