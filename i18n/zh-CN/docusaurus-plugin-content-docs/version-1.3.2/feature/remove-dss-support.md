@@ -12,4 +12,6 @@ Linkis 微服务模块中依赖了 dss-gateway-support jar 包，在使用 scala
 
 ## 3. 注意事项
 
-Linkis >= 1.3.2 版本，遇到 dss support 相关的错误，可查看 $LINKIS_HOME/lib/linkis-spring-cloud-services/linkis-mg-gateway 目录下是否有 dss support 相关的 jar包，如果有删除相关 jar 包，重启服务即可。 
+- Linkis >= 1.3.2 版本，遇到 dss support 相关的错误，可查看 $LINKIS_HOME/lib/linkis-spring-cloud-services/linkis-mg-gateway 目录下是否有 dss support 相关的 jar包，如果有删除相关 jar 包，重启服务即可。 
+
+- 出现冲突的原因为 DSS 的一键安装过程中会安装 dss support 包至linkis-mg-gateway下，具体jar包为 dss-gateway-support-xxx.jar
