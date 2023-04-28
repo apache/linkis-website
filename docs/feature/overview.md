@@ -7,6 +7,8 @@ sidebar_position: 0.1
 - [Supports loading specific UDF by UDF ID](./load-udf-by-udfid.md) 
 - [Multi-task fixed EC execution](./ec-fix-label.md) 
 - [Eureka version metadata reporting](./eureka-version-metadata.md) 
+- [Remove the dss-gateway-support dependency](./remove-dss-support.md)
+- [Modify the system to initialize the default Token](./update-token.md)
 - [Linkis Integration with OceanBase](/blog/2023/03/08/linkis-integration-with-oceanbase) 
 - [version of Release-Notes](/download/release-notes-1.3.2) 
 
