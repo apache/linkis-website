@@ -191,7 +191,7 @@ public class SeatunnelOnceJobTest {
 | wds.linkis.engine.seatunnel.plugin.home                  | /opt/linkis/seatunnel  | Seatunnel安装路径                          | true |
 ### 4.2 配置修改
 
-如果默认参数不满足时，有如下几中方式可以进行一些基础参数配置
+如果默认参数不满足时，有如下几种方式可以进行一些基础参数配置
 
 #### 4.2.1 客户端配置参数
 
