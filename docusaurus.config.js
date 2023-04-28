@@ -152,7 +152,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           activeBaseRegex: `/user`,
         },
         {
-          to: '/faq/main',
+          to: 'https://docs.qq.com/doc/DUkdTTGhVSlZ0VXVt',
           position: 'left',
           label: 'FAQ',
           activeBaseRegex: `/faq/`,
