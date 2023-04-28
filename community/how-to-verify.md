@@ -165,7 +165,7 @@ $ mvnw.cmd -N install
 $ mvnw.cmd clean install -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 ````
 #### 2.4.3 Web source code compilation verification
-> This will require node.js environment. It is recommended to use node v14 version.
+> This will require node.js environment. It is recommended to use node v16 version.
 
 First, install the packages:
 ```shell

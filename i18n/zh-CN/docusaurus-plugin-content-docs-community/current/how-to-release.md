@@ -389,7 +389,7 @@ $ cp  linkis-dist/target/apache-linkis-1.1.2-bin.tar.gz   dist/apache-linkis
 ### 2.6 打包前端管理台
 
 #### 2.6.1 安装Node.js
-将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node v14版本）
+将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node v16版本）
 **该步骤仅第一次使用时需要执行。**
 
 #### 2.6.2 安装依赖包
@@ -776,7 +776,7 @@ cp -r current.json version-${publish_version}.json
 "message": "Next(${publish_version})", --> "message": "${publish_version}"
 ```
 
-### 修改配置 docusaurus.config.js
+### step4 修改配置 docusaurus.config.js
 ```json
  versions: {
         current: {

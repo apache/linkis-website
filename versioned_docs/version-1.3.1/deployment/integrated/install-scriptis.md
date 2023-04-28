@@ -21,7 +21,7 @@ Example description:
 
 ### 2.1 Install node.js
 ```shell script
-Download node.js and install it. Download address: http://nodejs.cn/download/ (It is recommended to use node v14 version) This step only needs to be executed for the first time
+Download node.js and install it. Download address: http://nodejs.cn/download/ (It is recommended to use node v16 version) This step only needs to be executed for the first time
 ````
 ### 2.2 Install learn
 ```shell script

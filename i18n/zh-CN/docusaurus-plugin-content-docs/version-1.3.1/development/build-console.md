@@ -9,7 +9,7 @@ sidebar_position: 4.0
 
 >该步骤仅第一次使用时需要执行,如果已有node环境，可跳过 
 
-将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node v14版本）
+将Node.js下载到本地，安装即可。下载地址：[http://nodejs.cn/download/](http://nodejs.cn/download/) （建议使用node v16版本）
 
 ## 1.2 源码获取
 
@@ -63,9 +63,9 @@ $ npm install
 ### 3.2  如果出现兼容问题,建议重新安装node
 [node下载地址](https://nodejs.org/zh-cn/download/)
 ```shell
-1.查看node版本(推荐使用node v14版本)
+1.查看node版本(推荐使用node v16版本)
 $ node -v
-2.下载node v14版本并且重新安装node 
+2.下载node v16版本并且重新安装node 
 ```
 
 ### 3.3  npm install下载前端依赖无法成功    

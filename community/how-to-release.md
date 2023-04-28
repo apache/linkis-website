@@ -309,7 +309,7 @@ $ cp linkis-dist/target/apache-linkis-1.0.3-bin.tar.gz dist/apache-linkis
 ### 2.6 Package front-end management console
 
 #### 2.6.1 Install Node.js
-Download Node.js to the local and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (node v14 version is recommended)
+Download Node.js to the local and install it. Download link: [http://nodejs.cn/download/](http://nodejs.cn/download/) (node v16 version is recommended)
 **This step only needs to be performed the first time you use it. **
 
 #### 2.6.2 Install dependencies
