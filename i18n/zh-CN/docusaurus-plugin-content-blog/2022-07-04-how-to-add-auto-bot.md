@@ -86,7 +86,7 @@ jobs:
 ```
 
 #### 3.5 step的使用
-每个job由多个step构成，它会从上至下依次执行。step可以运行commands（如linxu命令）以及action。
+每个job由多个step构成，它会从上至下依次执行。step可以运行commands（如linux命令）以及action。
 下面是一个输出hello world的例子：
 ```yml
 # 受限于篇幅，前面代码部分省略
