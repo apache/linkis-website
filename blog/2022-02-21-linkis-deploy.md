@@ -478,7 +478,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
 ### 6.1 Version compatibility issues
 
  The engine supported by linkis by default, for compatibility with dss, you can view this document https://github.com/apache/linkis/blob/master/README.md
-   
+
 ### 6.2 How to locate the server exception log
 
     Linkis has many microservices. If you are unfamiliar with the system, sometimes you cannot locate the specific module that has an exception. You can search through the global log.  
@@ -522,7 +522,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
   ```shell script
   Token-User:hadoop
   Token-Code: BML-AUTH
-  ````
+````
 
 ### 6.7 Troubleshooting process for abnormal problems
 
@@ -533,7 +533,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources
   ![issues](https://user-images.githubusercontent.com/29391030/156343419-81cc25e0-aa94-4c06-871c-bb036eb6d4ff.png)   
   Through the official website document search, for some problems, you can search for keywords through the official website, such as searching for "deployment". (If 404 appears,   please refresh your browser)     
   ![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)     
-   
+
 
 ## 7. How to obtain relevant information
 
@@ -543,4 +543,4 @@ Related blog post links
 - Linkis technical blog collection https://github.com/apache/linkis/issues/1233  
 - Official account technical blog post https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18  
 - Official website documentation https://linkis.apache.org/docs/latest/about/introduction/  
-- bili technology sharing video https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  
+- bilibili technology sharing video https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  

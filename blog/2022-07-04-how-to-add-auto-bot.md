@@ -95,7 +95,7 @@ jobs:
 ```
 
 #### 3.5 The use of step
-Each job is composed of multiple steps, which will be executed from top to bottom. Step can run commands (such as linxu commands) and actions.
+Each job is composed of multiple steps, which will be executed from top to bottom. Step can run commands (such as linux commands) and actions.
 
 The following is an example of outputting "Hello World":
 ```yml

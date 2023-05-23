@@ -434,7 +434,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 ![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
-  
+
 如果不存在或则未更新，先尝试手动刷新物料资源(详细见[引擎物料资源刷新](/docs/latest/deployment/install-engineconn#23-引擎刷新))。通过`log/linkis-cg-engineplugin.log`日志，查看物料失败的具体原因，很多时候可能是hdfs目录没有权限导致，检查gateway地址配置是否正确`conf/linkis.properties:wds.linkis.gateway.url`  
 
 引擎的物料资源默认上传到hdfs目录为 `/apps-data/${deployUser}/bml`  
@@ -495,7 +495,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 ### 9.0 登陆密码问题
 
       linkis默认是使用静态用户和密码,静态用户即部署用户，静态密码会在执行部署是随机生成一个密码串，存储于{InstallPath}/conf/linkis-mg-gateway.properties(>=1.0.3版本)
-      
+
 ### 9.1 版本兼容性问题   
 
 linkis默认支持的引擎，与dss兼容关系可以查看此文档 https://github.com/apache/linkis/blob/master/README.md   
@@ -578,7 +578,7 @@ linkis官网文档正在不断的完善,可以在本官网查看/关键字搜索
 - Linkis的技术博文集  https://github.com/apache/linkis/issues/1233  
 - 公众号技术博文https://mp.weixin.qq.com/mp/homepage?__biz=MzI4MDkxNzUxMg==&hid=1&sn=088cbf2bbed1c80d003c5865bc92ace8&scene=18  
 - 官网文档 https://linkis.apache.org/zh-CN/docs/latest/about/introduction  
-- bili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  
+- bilibili技术分享视频 https://space.bilibili.com/598542776?spm_id_from=333.788.b_765f7570696e666f.2  
 
 
 
