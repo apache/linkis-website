@@ -4,7 +4,7 @@ sidebar_position: 0.2
 ---
 
 ## 1. Requirement Background
-fow now we support different hadoop, hive ,spark version compile, and lower engine version may have potential risk
+fow now we support different hadoop, hive ,spark version compile, and lower engine version may have potential CVE risk
 
 ## 2. Instructions for use
 default hadoop version changes from 2.7.2 to 3.3.4
