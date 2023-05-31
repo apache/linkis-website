@@ -37,6 +37,7 @@ GET /api/rest_j/v1/metadataQuery/getSparkSql?dataSourceName=mysql&system=system&
     }
 }
 ```
+目前支持jdbc、kafka、elasticsearch、mongo数据源，可以根据SparkSQLDdl注册spark table进行查询
 
 ### 生成JdbcSQL
 参数说明：
@@ -68,6 +69,8 @@ GET /api/rest_j/v1/metadataQuery/getJdbcSql?dataSourceName=mysql&system=system&d
   }
 }
 ```
+目前支持jdbc数据源,如:mysql、oracle、postgres等,JdbcSQLDdl可以用于前端展示
+
 ## 3. 注意事项
 1. 需要先注册数据源
 
@@ -87,7 +90,7 @@ GET /api/rest_j/v1/metadataQuery/getJdbcSql?dataSourceName=mysql&system=system&d
 ```
 
 ### 生成JdbcSQL实现原理
-获取表schema信息拼接DDL
+根据表schema信息拼接DDL
 ```java
   public String generateJdbcDdlSql(String database, String table) {
         StringBuilder ddl = new StringBuilder();
@@ -129,7 +132,7 @@ GET /api/rest_j/v1/metadataQuery/getJdbcSql?dataSourceName=mysql&system=system&d
 
 mysql
 ```sql
-SHOW CREATE TABLE table
+SHOW CREATE TABLE 'table'
 ```
 
 oracle
