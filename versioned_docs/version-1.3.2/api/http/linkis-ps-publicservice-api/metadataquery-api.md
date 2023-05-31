@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## getColumns
 
-**Interface address**:`/api/rest_j/v1//metadataQuery/getColumns`
+**Interface address**:`/api/rest_j/v1/metadataQuery/getColumns`
 
 **Request method**: `GET`
 
@@ -62,7 +62,7 @@ sidebar_position: 3
 
 
 ## getDatabases
-**Interface address**:`/api/rest_j/v1//metadataQuery/getDatabases`
+**Interface address**:`/api/rest_j/v1/metadataQuery/getDatabases`
 
 **Request method**: `GET`
 
@@ -101,7 +101,7 @@ sidebar_position: 3
 
 > return value adjusted to props -> partitions
 
-**Interface address**:`/api/rest_j/v1//metadataQuery/getPartitions`
+**Interface address**:`/api/rest_j/v1/metadataQuery/getPartitions`
 
 **Request method**: `GET`
 
@@ -140,7 +140,7 @@ sidebar_position: 3
 
 ## getTableProps
 
-**Interface address**:`/api/rest_j/v1//metadataQuery/getTableProps`
+**Interface address**:`/api/rest_j/v1/metadataQuery/getTableProps`
 
 **Request method**: `GET`
 
@@ -194,7 +194,7 @@ sidebar_position: 3
 
 
 ## getPartitionProps
-**Interface address**:`/api/rest_j/v1//metadataQuery/getPartitionProps`
+**Interface address**:`/api/rest_j/v1/metadataQuery/getPartitionProps`
 
 **Request method**: `GET`
 
@@ -227,7 +227,7 @@ sidebar_position: 3
 
 
 ## getTables
-**Interface address**:`/api/rest_j/v1//metadataQuery/getTables`
+**Interface address**:`/api/rest_j/v1/metadataQuery/getTables`
 
 **Request method**: `GET`
 
