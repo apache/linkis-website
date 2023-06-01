@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## getColumns
 
-**接口地址**:`/api/rest_j/v1//metadataQuery/getColumns`
+**接口地址**:`/api/rest_j/v1/metadataQuery/getColumns`
 
 **请求方式**:`GET`
 
@@ -62,7 +62,7 @@ sidebar_position: 3
 
 
 ## getDatabases
-**接口地址**:`/api/rest_j/v1//metadataQuery/getDatabases`
+**接口地址**:`/api/rest_j/v1/metadataQuery/getDatabases`
 
 **请求方式**:`GET`
 
@@ -101,7 +101,7 @@ sidebar_position: 3
 
 > 返回值调整为 props -> partitions
 
-**接口地址**:`/api/rest_j/v1//metadataQuery/getPartitions`
+**接口地址**:`/api/rest_j/v1/metadataQuery/getPartitions`
 
 **请求方式**:`GET`
 
@@ -139,7 +139,7 @@ sidebar_position: 3
 ```
 
 ## getTableProps
-**接口地址**:`/api/rest_j/v1//metadataQuery/getTableProps`
+**接口地址**:`/api/rest_j/v1/metadataQuery/getTableProps`
 
 **请求方式**:`GET`
 
@@ -193,7 +193,7 @@ sidebar_position: 3
 
 
 ## getPartitionProps
-**接口地址**:`/api/rest_j/v1//metadataQuery/getPartitionProps`
+**接口地址**:`/api/rest_j/v1/metadataQuery/getPartitionProps`
 
 **请求方式**:`GET`
 
@@ -226,7 +226,7 @@ sidebar_position: 3
 
 
 ## getTables
-**接口地址**:`/api/rest_j/v1//metadataQuery/getTables`
+**接口地址**:`/api/rest_j/v1/metadataQuery/getTables`
 
 **请求方式**:`GET`
 
