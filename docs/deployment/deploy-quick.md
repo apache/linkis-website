@@ -66,17 +66,33 @@ drwxrwxr-x 7 hadoop hadoop 4096 Feb 21 10:13 linkis-package // The actual packag
 
 ````
 
-### 2.2 Configure database information
+### 2.2 Configure database 
+
+`vim deploy-config/linkis-env.sh`
+
+```shell script
+# Select the type of Linkis business database, default is mysql. 
+# If using PostgreSQL, please change it to postgresql.
+dbType=mysql
+```
 
 `vim deploy-config/db.sh`
 
 ```shell script
-# Database information of Linkis' own business
+# Database information of Linkis' own business - mysql
 MYSQL_HOST=xx.xx.xx.xx
 MYSQL_PORT=3306
 MYSQL_DB=linkis_test
 MYSQL_USER=test
 MYSQL_PASSWORD=xxxxx
+
+# Database information of Linkis' own business - postgresql
+PG_HOST=xx.xx.xx.xx
+PG_PORT=5432
+PG_DB=linkis_test
+PG_SCHEMA=linkis_test
+PG_USER=test
+PG_PASSWORD=123456
 
 # Provide the DB information of the Hive metadata database. If the hive engine is not involved (or just a simple trial), you can not configure it
 #Mainly used with scripts, if not configured, it will try to obtain it through the configuration file in $HIVE_CONF_DIR by default
@@ -210,6 +226,27 @@ HADOOP_KERBEROS_ENABLE=true
 HADOOP_KEYTAB_PATH=/appcom/keytab/
 ```
 
+#### S3 mode (optional)
+> Currently, it is possible to store engine execution logs and results to S3 in Linkis.
+>
+> Note: Linkis has not adapted permissions for S3, so it is not possible to grant authorization for it.
+
+`vim linkis.properties`
+```shell script
+# s3 file system
+linkis.storage.s3.access.key=xxx
+linkis.storage.s3.secret.key=xxx
+linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
+linkis.storage.s3.region=xxx
+linkis.storage.s3.bucket=xxx
+```
+
+`vim linkis-cg-entrance.properties`
+```shell script
+wds.linkis.entrance.config.log.path=s3:///linkis/logs
+wds.linkis.resultSet.store.path=s3:///linkis/results
+```
+
 ### 2.4 Configure Token
 
 The original default Token of Linkis is fixed and the length is too short, which has security risks. Therefore, Linkis 1.3.2 changes the original fixed Token to random generation and increases the Token length.
@@ -306,38 +343,50 @@ cp mysql-connector-java-5.1.49.jar ${LINKIS_HOME}/lib/linkis-spring-cloud-servic
 cp mysql-connector-java-5.1.49.jar ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ````
 
-### 3.3 Configuration Adjustment (Optional)
+### 3.3 Add postgresql driver package (Optional)
+
+If you choose to use postgresql as the business database, you need to manually add the postgresql driver.
+
+To download the postgresql driver, take version 42.5.4 as an example: [download link](https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.4/postgresql-42.5.4.jar)
+
+Copy the postgresql driver package to the lib package
+````
+cp postgresql-42.5.4.jar ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp postgresql-42.5.4.jar ${LINKIS_HOME}/lib/linkis-commons/public-module/
+````
+
+### 3.4 Configuration Adjustment (Optional)
 > The following operations are related to the dependent environment. According to the actual situation, determine whether the operation is required
 
-#### 3.3.1 kerberos authentication
+#### 3.4.1 kerberos authentication
 If the hive cluster used has kerberos mode authentication enabled, modify the configuration `${LINKIS_HOME}/conf/linkis.properties` (<=1.1.3) file
 ```shell script
 #Append the following configuration
 echo "wds.linkis.keytab.enable=true" >> linkis.properties
 ````
-#### 3.3.2 Yarn Authentication
+#### 3.4.2 Yarn Authentication
 
 When executing spark tasks, you need to use the ResourceManager of yarn, which is controlled by the configuration item `YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `.
 During installation and deployment, the `YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` information will be updated to the database table `linkis_cg_rm_external_resource_provider`. By default, access to yarn resources does not require permission verification.
 If password authentication is enabled in yarn's ResourceManager, please modify the yarn data information generated in the database table `linkis_cg_rm_external_resource_provider` after installation and deployment.
 For details, please refer to [Check whether the yarn address is configured correctly] (#811-Check whether the yarn address is configured correctly)
 
-#### 3.3.2 session
+#### 3.4.2 session
 If you are upgrading to Linkis. Deploy DSS or other projects at the same time, but the dependent linkis version introduced in other software is <1.1.1 (mainly in the lib package, the linkis-module-x.x.x.jar package of the dependent Linkis is <1.1.1), you need to modify the linkis located in ` ${LINKIS_HOME}/conf/linkis.properties` file
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ````
 
-### 3.4 Start the service
+### 3.5 Start the service
 ```shell script
 sh sbin/linkis-start-all.sh
 ````
 
-### 3.5 Modification of post-installation configuration
+### 3.6 Modification of post-installation configuration
 After the installation is complete, if you need to modify the configuration (because of port conflicts or some configuration problems, you need to adjust the configuration), you can re-execute the installation, or modify the configuration `${LINKIS_HOME}/conf/*properties` file of the corresponding service, Restart the corresponding service, such as: `sh sbin/linkis-daemon.sh start ps-publicservice`
 
 
-### 3.6 Check whether the service starts normally
+### 3.7 Check whether the service starts normally
 Visit the eureka service page (http://eurekaip:20303),
 The Linkis will start 6 microservices by default, and the linkis-cg-engineconn service in the figure below will be started only for running tasks
 ![Linkis1.0_Eureka](./images/eureka.png)
