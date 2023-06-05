@@ -160,6 +160,12 @@ Company logo Located in `static/home/user`, and the picture size must be 176 × 
 ### 3.10 Path specification
 If you want to link from a markdown document to another, it is best to use absolute path. For example, if you want to link to `quick-deploy.md`, the path should be `/docs/deployment/quick-deploy.md`.
 
+### 3.11 Version document
+For version documents (i.e. the corresponding documents for each version)
+If there are errors in stock documents (such as spelling errors, typos, formatting, etc.), it is best to adjust all versions, including both Chinese and English
+If the content of the document is optimized and not related to the version (such as supplementary design documents), update the latest two versions of the document, including both Chinese and English
+If it is a new version feature document that is strongly related to the version, such as the newly added feature description document in this version, it only needs to be added to the latest version document, including both Chinese and English
+
 ### English document title specification
 English siderbar titles should be capitalized except for prepositions, and only the first word of the title in the markdwon document should be capitalized.
 
