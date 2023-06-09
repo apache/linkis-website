@@ -450,27 +450,25 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 
 ## 4. Remote debugging service guide
 
-### 4.1 Open the remote debugging port
+Based on the code location that needs debugging, determine the corresponding service it belongs to. Use the startup script linkis-daemon.sh and configure the remote debugging port specifically for that service during startup.
 
-Identify the service where the package that needs to be debugged is located, and determine the service to which it belongs according to the location of the code to be debugged
+### 4.1 Identify the service where the package that needs to be debugged is located
 
-### 4.2 Enter ${LINKIS_HOME}/sbin/ext, modify the module configuration file to open the remote call port
-![c-port](images/c-port.png)
+Identify the service where the package that needs to be debugged is located (If you are not sure about the service name, check in ${LINKIS_HOME}/sbin/linkis-start-all.sh)
 
-### 4.3 Restart the service that needs to be debugged
+### 4.2 Restart the service needs to be debugged
 
 ```shell
-sh linkis-daemon.sh restart ps-publicservice
-````
+sh linkis-daemon.sh restart ps-publicservice debug-5005
+```
+observe the outputting starting shell command，check if it contains `-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005`, which means it starts remote debug port successfully.
 
-(If you are not sure about the service name, check in ${LINKIS_HOME}/sbin/linkis-start-all.sh )
-
-### 4.4 Compiler configuration remote debugging
+### 4.3 Compiler configuration remote debugging
 
 Open the window as shown below and configure the remote debugging port, service, and module
 ![c-debug](images/c-debug.png)
 
-### 4.5 Start debugging
+### 4.4 Start debugging
 
 Click the debug button, and the following information appears, indicating that you can start debugging
 ![debug](images/debug.png)
