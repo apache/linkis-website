@@ -6,17 +6,42 @@ sidebar_position: 0.2
 ## 1. 背景
 用户可以通过配置json的方式进行spark数据同步
 
-## 2. 使用说明
+## 2. 支持的类型 
+
+目前支持的类型
+```text
+jdbc、file、redis、kafka、elasticsearch、mongo、solr、rocketmq、datalake(hudi、delta)
+```
+
+## 3. 通用配置说明
+```text
+name: 数据源名称
+type: 包含`source`、`transformation`、`sink`，分别对应输入、转换、输出
+options: 配置参数
+saveMode: 保存模式，目前支持:`overwrite`和`append`
+path: 文件路径，可以是: 'file://' or 'hdfs://'(default)
+`resultTable`需要和`sourceTable`对应
+```
+
+## 4. 使用说明
 常见的数据同步示例如下:
 
 ### jdbc
+
+配置说明
+```text
+url: jdbc连接信息
+user: 用户名称
+password: 密码
+query: sql查询语句
+```
 
 ```json
 {
     "sources": [
         {
             "name": "jdbc",
-            "type": "",
+            "type": "source",
             "config": {
                 "resultTable": "test1",
                 "url": "jdbc:mysql://127.0.0.1:3306/dip_linkis?characterEncoding=UTF-8",
@@ -60,6 +85,13 @@ sidebar_position: 0.2
 
 ### file
 
+配置说明
+```text
+serializer: 文件格式，可以是`csv`、`parquet`等
+columnNames: 列名
+```
+
+
 ```json
 {
     "sources": [
@@ -91,6 +123,12 @@ sidebar_position: 0.2
 
 
 ### delta
+
+配置说明
+```text
+tableFormat: 目前支持`hudi`和`delta`
+```
+
 
 数据写入
 ```json
@@ -157,6 +195,12 @@ sidebar_position: 0.2
 ```
 
 ### hudi
+
+配置说明
+```text
+tableFormat: 目前支持`hudi`和`delta`
+```
+
 
 数据写入
 ```json
@@ -250,6 +294,14 @@ sidebar_position: 0.2
 
 ### kafka
 
+配置说明
+```text
+servers: kafka连接信息
+mode: 目前支持`batch`和`stream`
+topic: kafka topic名称
+```
+
+
 数据写入
 ```json
 {
@@ -312,6 +364,14 @@ sidebar_position: 0.2
 ```
 
 ### elasticsearch
+
+配置说明
+```text
+node: elasticsearch ip
+port: elasticsearch port
+index: elasticsearch索引名称
+```
+
 
 数据写入
 ```json
@@ -378,6 +438,14 @@ sidebar_position: 0.2
 
 
 ### mongo
+
+配置说明
+```text
+uri: mongo连接信息
+database: mongo database
+collection: mongo collection
+```
+
 
 数据写入
 ```json

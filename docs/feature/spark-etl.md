@@ -6,17 +6,44 @@ sidebar_position: 0.2
 ## 1. Background
 You can configure json for spark etl
 
-## 2. Instructions for use
+## 2. Supported types
+
+Currently supported types
+```text
+jdbc、file、redis、kafka、elasticsearch、mongo、solr、rocketmq、datalake(hudi、delta)
+```
+
+## 3. General configuration instructions
+```text
+name: Data source name
+type: Contain `source`、`transformation`、`sink`，Corresponding to input, transformation and output respectively
+options: Configuration parameter
+saveMode: Save mode, currently supported: `overwrite` and `append`
+path: File path，The value can be: 'file://' or 'hdfs://'(default)
+'resultTable' needs to correspond to 'sourceTable'
+```
+
+
+## 4. Instructions for use
 Common etl examples are as follows:
 
 ### jdbc
+
+Configuration description
+```text
+url: jdbc连接信息
+user: User name
+password: password
+query: sql query statement
+```
+
 
 ```json
 {
     "sources": [
         {
             "name": "jdbc",
-            "type": "",
+            "type": "source",
             "config": {
                 "resultTable": "test1",
                 "url": "jdbc:mysql://127.0.0.1:3306/dip_linkis?characterEncoding=UTF-8",
@@ -60,6 +87,13 @@ Common etl examples are as follows:
 
 ### file
 
+Configuration description
+```text
+serializer: File format, can be 'csv', 'parquet', etc
+columnNames: Column name
+```
+
+
 ```json
 {
     "sources": [
@@ -91,6 +125,12 @@ Common etl examples are as follows:
 
 
 ### delta
+
+Configuration description
+```text
+tableFormat: `hudi` and `delta` are currently supported
+```
+
 
 Data write
 ```json
@@ -157,6 +197,12 @@ Data read
 ```
 
 ### hudi
+
+Configuration description
+```text
+tableFormat: `hudi` and `delta` are currently supported
+```
+
 
 Data write
 ```json
@@ -250,6 +296,14 @@ Data read
 
 ### kafka
 
+Configuration description
+```text
+servers: kafka connection information
+mode: Currently `batch` and `stream` are supported
+topic: Name of the kafka topic
+```
+
+
 Data write
 ```json
 {
@@ -312,6 +366,14 @@ Data read
 ```
 
 ### elasticsearch
+
+Configuration description
+```text
+node: elasticsearch ip
+port: elasticsearch port
+index: elasticsearch index name
+```
+
 
 Data write
 ```json
@@ -378,6 +440,14 @@ Data read
 
 
 ### mongo
+
+Configuration description
+```text
+uri: mongo connection information
+database: mongo database
+collection: mongo collection
+```
+
 
 Data write
 ```json
