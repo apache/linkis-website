@@ -11,7 +11,7 @@ This article mainly introduces the installation, usage and configuration of the 
 
 If you want to use `Seatunnel` engine on your `Linkis` service, you need to install `Seatunnel` engine. Moreover, `Seatunnel` depends on the `Spark` or `Flink` environment. Before using the `linkis-seatunnel` engine, it is strongly recommended to run through the `Seatunnel` environment locally.
 
-`Seatunnel 2.1.2` download address: https://dlcdn.apache.org/incubator/seatunnel/2.1.2/apache-seatunnel-incubating-2.1.2-bin.tar.gz
+`Seatunnel 2.1.2` download address: https://dlcdn.apache.org/seatunnel/2.1.2/apache-seatunnel-incubating-2.1.2-bin.tar.gz
 
 | Environment variable name | Environment variable content | Required or not |
 |-----------------|----------------|-------------- -----------------------------|
