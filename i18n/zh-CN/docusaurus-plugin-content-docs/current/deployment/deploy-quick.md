@@ -73,6 +73,7 @@ drwxrwxr-x 7 hadoop hadoop      4096 Feb 21 10:13 linkis-package // 实际的软
 ```shell script
 # 选择linkis业务数据库类型，默认mysql
 # 如果使用postgresql，请改为postgresql
+# 注意: 当前配置只适用于linkis>=1.4.0
 dbType=mysql
 ```
 
@@ -87,6 +88,7 @@ MYSQL_USER=test
 MYSQL_PASSWORD=xxxxx
 
 # Linkis自身业务的数据库信息 - postgresql
+# 注意: 以下配置只适用于linkis>=1.4.0
 PG_HOST=xx.xx.xx.xx
 PG_PORT=5432
 PG_DB=linkis_test

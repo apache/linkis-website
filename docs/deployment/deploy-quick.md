@@ -73,6 +73,7 @@ drwxrwxr-x 7 hadoop hadoop 4096 Feb 21 10:13 linkis-package // The actual packag
 ```shell script
 # Select the type of Linkis business database, default is mysql. 
 # If using PostgreSQL, please change it to postgresql.
+# Note: The configuration is only applicable to Linkis version 1.4.0 or higher.
 dbType=mysql
 ```
 
@@ -87,6 +88,7 @@ MYSQL_USER=test
 MYSQL_PASSWORD=xxxxx
 
 # Database information of Linkis' own business - postgresql
+# Note: The configurations is only applicable to Linkis version 1.4.0 or higher.
 PG_HOST=xx.xx.xx.xx
 PG_PORT=5432
 PG_DB=linkis_test
