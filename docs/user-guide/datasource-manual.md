@@ -300,6 +300,17 @@ object TestMysqlClient {
 
 ````
 
+#### 3.1.3 JDBC EngineConn supported by Linkis
+- ClickHouse
+- DB2
+- DM
+- Greenplum
+- KingBase
+- MySQL
+- Oracle
+- PostgreSQL
+- SQLServer
+
 ### 3.2 Hive data source
 
 #### 3.2.1 Created through the management console
