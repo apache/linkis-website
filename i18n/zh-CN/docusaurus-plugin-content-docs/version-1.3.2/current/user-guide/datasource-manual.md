@@ -248,7 +248,8 @@ object TestMysqlClient {
 
     //创建数据源
     val dataSource = new DataSource();
-    dataSource.setDataSourceName("for-mysql-test")
+    val dataSourceName = "for-mysql-test"
+    dataSource.setDataSourceName(dataSourceName)
     dataSource.setDataSourceDesc("this is for mysql test")
     dataSource.setCreateSystem(system)
     dataSource.setDataSourceTypeId(1L)
@@ -294,14 +295,14 @@ object TestMysqlClient {
      //使用示例
     val metadataGetDatabasesAction: MetadataGetDatabasesAction = MetadataGetDatabasesAction.builder()
       .setUser(user)
-      .setDataSourceId(dataSourceId)
+      .setDataSourceName(dataSourceName)
       .setSystem(system)
       .build()
     val metadataGetDatabasesResult: MetadataGetDatabasesResult = metaDataClient.getDatabases(metadataGetDatabasesAction)
 
     val metadataGetTablesAction: MetadataGetTablesAction = MetadataGetTablesAction.builder()
       .setUser(user)
-      .setDataSourceId(dataSourceId)
+      .setDataSourceName(dataSourceName)
       .setDatabase("linkis")
       .setSystem(system)
       .build()
@@ -309,7 +310,7 @@ object TestMysqlClient {
 
     val metadataGetColumnsAction = MetadataGetColumnsAction.builder()
       .setUser(user)
-      .setDataSourceId(dataSourceId)
+      .setDataSourceName(dataSourceName)
       .setDatabase("linkis")
       .setSystem(system)
       .setTable("linkis_datasource")
@@ -433,7 +434,8 @@ object TestHiveClient {
 
    //创建数据源
     val dataSource = new DataSource();
-    dataSource.setDataSourceName("for-hive-test")
+    val dataSourceName = "for-hive-test"
+    dataSource.setDataSourceName(dataSourceName)
     dataSource.setDataSourceDesc("this is for hive test")
     dataSource.setCreateSystem(system)
     dataSource.setDataSourceTypeId(4L)
@@ -473,14 +475,14 @@ object TestHiveClient {
     //使用示例
     val metadataGetDatabasesAction: MetadataGetDatabasesAction = MetadataGetDatabasesAction.builder()
       .setUser(user)
-      .setDataSourceId(dataSourceId)
+      .setDataSourceName(dataSourceName)
       .setSystem(system)
       .build()
     val metadataGetDatabasesResult: MetadataGetDatabasesResult = metaDataClient.getDatabases(metadataGetDatabasesAction)
 
     val metadataGetTablesAction: MetadataGetTablesAction = MetadataGetTablesAction.builder()
       .setUser(user)
-      .setDataSourceId(dataSourceId)
+      .setDataSourceName(dataSourceName)
       .setDatabase("linkis_test_ind")
       .setSystem(system)
       .build()
@@ -490,7 +492,7 @@ object TestHiveClient {
 
     val metadataGetColumnsAction = MetadataGetColumnsAction.builder()
       .setUser(user)
-      .setDataSourceId(dataSourceId)
+      .setDataSourceName(dataSourceName)
       .setDatabase("linkis_test_ind")
       .setSystem(system)
       .setTable("test")
