@@ -1,6 +1,6 @@
 ---
 title: Shell Scripts Manual
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 ## 1.Introduction

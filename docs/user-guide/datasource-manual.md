@@ -1,6 +1,6 @@
 ---
 title: Data Source Manual 
-sidebar_position: 7
+sidebar_position: 4
 ---
 
 > Introduce how to use the new feature function data source of version 1.1.0
