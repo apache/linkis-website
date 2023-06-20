@@ -184,7 +184,7 @@ Example of http request parameters
 ```
 
 #### 4.2.3 File Configuration
-Configure by modifying the `linkis-engineconn.properties` file in the directory `${LINKIS_HOME}/lib/linkis-engineconn-plugins/elasticsearch/dist/v7.6.2/conf/`, as shown below:
+Configure by modifying the `linkis-engineconn.properties` file in the directory `${LINKIS_HOME}/lib/linkis-engineconn-plugins/elasticsearch/dist/7.6.2/conf/`, as shown below:
 
 ![](./images/es-config.png)
 

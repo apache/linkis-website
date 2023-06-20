@@ -184,7 +184,7 @@ http 请求参数示例
 ```
 
 #### 4.2.3 文件配置
-通过修改目录 `${LINKIS_HOME}/lib/linkis-engineconn-plugins/elasticsearch/dist/v7.6.2/conf/` 中的 `linkis-engineconn.properties` 文件进行配置，如下图：
+通过修改目录 `${LINKIS_HOME}/lib/linkis-engineconn-plugins/elasticsearch/dist/7.6.2/conf/` 中的 `linkis-engineconn.properties` 文件进行配置，如下图：
 
 ![](./images/es-config.png)
 

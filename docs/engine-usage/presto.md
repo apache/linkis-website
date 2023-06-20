@@ -181,7 +181,7 @@ Example of http request parameters
 ```
 
 #### 4.2.3 File Configuration
-Configure by modifying the `linkis-engineconn.properties` file in the directory `install path/lib/linkis-engineconn-plugins/presto/dist/v0.234/conf/`, as shown below:
+Configure by modifying the `linkis-engineconn.properties` file in the directory `install path/lib/linkis-engineconn-plugins/presto/dist/0.234/conf/`, as shown below:
 
 ![](./images/presto-file.png)
 

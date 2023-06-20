@@ -12,15 +12,15 @@ Linkis的引擎物料包安装目录为`${LINKIS_HOME}/lib/linkis-engineconn-plu
 ```html
 hive #引擎主目录，必须为引擎的名字
 │   ├──  dist  # 引擎启动需要的jar包依赖和配置，不同的版本需要在该目录放置对应的版本目录
-│   │   └── v2.3.3 # 版本号，必须以v开头加上引擎版本号，注意 不能出现-; 版本为2.3.3  任务请求参数的engineType 为hive-2.3.3
+│   │   └── 2.3.3 # 版本号 版本为2.3.3 任务请求参数的engineType 为hive-2.3.3
 │   │       └── conf # 引擎需要的配置文件目录
 │   │       └── lib  # 引擎插件需要的依赖包
 │   ├── plugin #引擎插件目录，该目录用于引擎管理服务封装引擎的启动命令和资源申请
-│       └── 2.3.3 # 引擎版本,没有v开头
+│       └── 2.3.3 # 引擎版本
 │           └── linkis-engineplugin-hive-1.0.0.jar  #引擎模块包（只需要放置单独的引擎包）
 ├── python
 │   ├── dist
-│   │   └── vpython2
+│   │   └── python2
 │   └── plugin
 │       └── python2 #版本为python2 任务请求参数的engineTypee 为python-python2
 

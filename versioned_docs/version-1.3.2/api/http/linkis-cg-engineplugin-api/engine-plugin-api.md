@@ -449,7 +449,7 @@ Request all engine plugin information
              {
                  "id": 239,
                  "engineConnType": "python",
-                 "version": "vpython2",
+                 "version": "python2",
                  "fileName": "lib.zip",
                  "lastModified": 1661950452000,
                  "fileSize": 6093507,
@@ -461,7 +461,7 @@ Request all engine plugin information
              {
                  "id": 238,
                  "engineConnType": "python",
-                 "version": "vpython2",
+                 "version": "python2",
                  "fileName": "conf.zip",
                  "lastModified": 1661950450000,
                  "fileSize": 43841,
