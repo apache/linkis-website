@@ -118,6 +118,25 @@ linkis-public-enhancements/linkis-datasource
 
 See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/tuning-and-troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
 
+### 1.6 Installation extra data drivers
+
+1.Some data drivers require to be installed by user's self, because they are possibly not compatible with the Apache license
+
+2.Extra data driver directory: ./lib/linkis-public-enhancements/linkis-ps-publicservice
+
+3.Data Drivers List
+
+|  driver name   |  driver version | download link |
+| ----------- |  ----------- |----------- |
+| db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
+| dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
+| mysql | 5.1.34 | https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar |
+|kingbase| kingbase8 | http://maven.jeecg.org/nexus/content/repositories/jeecg/kingbase/kingbase8/8/kingbase8-8.jar |
+|greenplum | 5.1.4 | https://network.pivotal.io/products/vmware-tanzu-greenplum#/releases/985537/file_groups/5749 |
+| postgresql | 42.3.1 | https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar| 
+| sqlserver | sqlserver2000 | https://www.microsoft.com/en-us/download/details.aspx?id=11774 |
+| oracle | 11.2.0.3 | http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar |
+
 ## 2. Enable data source function
 
 In the startup script of linkis, the two services related to the data source (ps-data-source-manager, ps-metadatamanager) will not be started by default.
@@ -145,8 +164,9 @@ The use of data sources is divided into three steps:
 #### 3.1.1 Created through the management console
 > You can only create configuration data sources, and test whether the data sources can be connected normally, and cannot directly query metadata
 
-Data Source Management > New Data Source > Select MySQL Type
+Implement a JDBC generic module, and then choose any item mentioned in <a href="#16-installation-extra-data-drivers"> 1.6 Installation extra data drivers</a> on the web UI. Take MySQL as an example:
 
+> Data Source Management > New Data Source > Select MySQL Type
 
 Enter relevant configuration information
 
