@@ -229,7 +229,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: 'Releases',
-              href: 'https://github.com/apache/linkis/releases',
+              to: 'https://github.com/apache/linkis/releases',
             },
           ],
         },
@@ -237,15 +237,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           title: 'Community',
           items: [{
               label: 'GitHub',
-              href: 'https://github.com/apache/linkis',
+              to: 'https://github.com/apache/linkis',
             },
             {
               label: 'Issue Tracker',
-              href: 'https://github.com/apache/linkis/issues',
+              to: 'https://github.com/apache/linkis/issues',
             },
             {
               label: 'Pull Requests',
-              href: 'https://github.com/apache/linkis/pulls',
+              to: 'https://github.com/apache/linkis/pulls',
             },
           ],
         },
@@ -261,7 +261,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: 'Mail Archive',
-              href: 'https://lists.apache.org/list.html?dev@linkis.apache.org',
+              to: 'https://lists.apache.org/list.html?dev@linkis.apache.org',
             },
           ],
         },
