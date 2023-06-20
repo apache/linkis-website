@@ -44,9 +44,9 @@ $ sha512sum --check  apache-linkis-xxxxx-src.tar.gz.sha512
 如果是下载版本的Source源码包，可以按下面简易步骤，进行编译
 
 ```shell script
-$ tar -xvf apache-linkis-xxxxx-incubating-src.tar.gz
+$ tar -xvf apache-linkis-xxxxx-src.tar.gz
 
-$ cd apache-linkis-xxxxx-incubating-src
+$ cd apache-linkis-xxxxx-src
 
 #如果本源码包是首次编译，需要执行本命令，一般执行在3分钟内完成
 $ ./mvnw -N install

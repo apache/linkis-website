@@ -29,7 +29,7 @@ mvn -N install
 mvn clean install -DskipTests
 ```
 
-编译命令运行成功之后，在目录linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-incubating-bin.tar.gz
+编译命令运行成功之后，在目录linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-bin.tar.gz
 
 ## 3. 配置并启动服务
 

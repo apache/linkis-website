@@ -232,7 +232,7 @@ org.apache.linkis.newmicroservice.server.LinkisNewmicroserviceApplication
 
 ## 2. 打包部署
 > 打包部署主要有有两个阶段 第一步是模块通过maven打包后 会将模块所需要的依赖 打包到模块对应的target目录下 linkis-new-microservice/target/out/lib。
-> 第二步是 组装完整的最终部署安装包时，需要将` linkis-new-microservice/target/out/lib` 自动拷贝至 `linkis-dist/target/apache-linkis-x.x.x-incubating-bin/linkis-package/lib`下
+> 第二步是 组装完整的最终部署安装包时，需要将` linkis-new-microservice/target/out/lib` 自动拷贝至 `linkis-dist/target/apache-linkis-x.x.x-bin/linkis-package/lib`下
 
 ### 2.1 修改新服务下的distribution.xml
 

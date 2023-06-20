@@ -54,7 +54,7 @@ mv kind-linux-amd64 /usr/bin/kind
 ### 4.1 下载或自行编译 linkis1.3.1 部署包
 使用版本：dev-1.3.1 分支编译版本
 ```
-apache-linkis-1.3.1-incubating-bin.tar.gz
+apache-linkis-1.3.1-bin.tar.gz
 ```
 ### 4.2 创建目录
 ```

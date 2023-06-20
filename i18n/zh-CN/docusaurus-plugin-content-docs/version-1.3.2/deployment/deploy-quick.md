@@ -357,7 +357,7 @@ web端是使用nginx作为静态资源服务器的，访问请求流程是:
 
 ### 4.1 下载前端安装包并解压
 ```shell script
-tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz
+tar -xvf apache-linkis-x.x.x-web-bin.tar.gz
 ```
 
 ### 4.2 修改配置config.sh
@@ -644,7 +644,7 @@ sh -x engineConnExec.sh
 
 1.执行安装之前修改注册中心eureka端口
 ```
-1. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
+1. 进入apache-linkis-x.x.x-bin.tar.gz的解压目录
 2. 执行 vi deploy-config/linkis-env.sh
 3. 修改EUREKA_PORT=20303为EUREKA_PORT=端口号
 ```
