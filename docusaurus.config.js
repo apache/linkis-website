@@ -257,7 +257,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: 'Subscribe Mail',
-              href: 'mailto:dev-subscribe@linkis.apache.org',
+              to: 'mailto:dev-subscribe@linkis.apache.org',
             },
             {
               label: 'Mail Archive',
