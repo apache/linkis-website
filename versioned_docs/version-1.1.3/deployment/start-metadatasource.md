@@ -123,9 +123,9 @@ See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameter
 
 2.Extra data driver directory: ./lib/linkis-public-enhancements/linkis-ps-publicservice
 
-3.Data Drivers List
+3.Data drivers list
 
-|  driver name   |  driver version | download link |
+|  Driver Name   |  Driver Version | Download Link |
 | ----------- |  ----------- |----------- |
 | db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
 | dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |

@@ -124,7 +124,7 @@ linkis-public-enhancements/linkis-datasource
 
 3.驱动程序列表
 
-|  drive name   |  drive version | download link |
+|  Driver Name   |  Driver Version | Download Link |
 | ----------- |  ----------- |----------- |
 | db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
 | dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
@@ -160,7 +160,7 @@ linkis的启动脚本中默认不会启动数据源相关的服务两个服务�
 - step 3. 数据源使用，查询元数据信息
 ,hive/kafka/elasticsearch配置是关联对应的集群环境配置.
 
-### 3.1  jdbc 数据源
+### 3.1  jdbc 数据源 
 #### 3.1.1 通过管理台创建
 >只能创建配置数据源，以及测试数据源是否能正常连接，无法进行直接进行元数据查询
 
