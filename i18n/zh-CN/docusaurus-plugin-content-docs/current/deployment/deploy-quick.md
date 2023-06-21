@@ -70,15 +70,33 @@ drwxrwxr-x 7 hadoop hadoop      4096 Jun 20 09:56 linkis-package // 实际的软
 
 ### 2.2 配置数据库信息
 
+`vim deploy-config/linkis-env.sh`
+
+```shell script
+# 选择linkis业务数据库类型，默认mysql
+# 如果使用postgresql，请改为postgresql
+# 注意: 当前配置只适用于linkis>=1.4.0
+dbType=mysql
+```
+
 `vim deploy-config/db.sh`
 
 ```shell script
-# Linkis自身业务的数据库信息
+# Linkis自身业务的数据库信息 - mysql
 MYSQL_HOST=xx.xx.xx.xx
 MYSQL_PORT=3306
 MYSQL_DB=linkis_test
 MYSQL_USER=test
 MYSQL_PASSWORD=xxxxx
+
+# Linkis自身业务的数据库信息 - postgresql
+# 注意: 以下配置只适用于linkis>=1.4.0
+PG_HOST=xx.xx.xx.xx
+PG_PORT=5432
+PG_DB=linkis_test
+PG_SCHEMA=linkis_test
+PG_USER=test
+PG_PASSWORD=123456
 
 # 提供 Hive 元数据数据库的 DB 信息，如果不涉及hive引擎（或则只是简单试用），可以不配置 
 #主要是配合scriptis一起使用，如果不配置，会默认尝试通过$HIVE_CONF_DIR 中的配置文件获取
@@ -211,6 +229,28 @@ HADOOP_KERBEROS_ENABLE=true
 HADOOP_KEYTAB_PATH=/appcom/keytab/
 ```
 
+
+#### S3模式（可选）
+> 目前支持将引擎执行日志和结果存储到S3 
+> 
+> 注意: linkis没有对S3做权限适配，所以无法对其做赋权操作
+
+`vim linkis.properties`
+```shell script
+# s3 file system
+linkis.storage.s3.access.key=xxx
+linkis.storage.s3.secret.key=xxx
+linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
+linkis.storage.s3.region=xxx
+linkis.storage.s3.bucket=xxx
+```
+
+`vim linkis-cg-entrance.properties`
+```shell script
+wds.linkis.entrance.config.log.path=s3:///linkis/logs
+wds.linkis.resultSet.store.path=s3:///linkis/results
+```
+
 ### 2.4 配置 Token
 
 Linkis 原有默认 Token 固定且长度太短存在安全隐患。因此 Linkis 1.3.2 将原有固定 Token 改为随机生成，并增加 Token 长度。
@@ -306,33 +346,40 @@ Your default account password is [hadoop/5e8e312b4]`
 cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
 cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
-
-### 3.3 配置调整（可选）
+### 3.3 添加postgresql驱动包 (可选)
+如果选择使用postgresql作为业务数据库，需要手动添加postgresql驱动
+下载postgresql驱动 以42.5.4版本为例：[下载链接](https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.4/postgresql-42.5.4.jar)
+拷贝postgresql驱动包至lib包下
+```
+cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
+```
+### 3.4 配置调整（可选）
 > 以下操作，跟依赖的环境有关，根据实际情况，确定是否需要操作 
 
-#### 3.3.1 Yarn的认证 
+#### 3.4.1 Yarn的认证 
 
 执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
 执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
 如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
 详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)。
 
-#### 3.3.2 session 
+#### 3.4.2 session 
 如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件。
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```
 
-### 3.4 启动服务
+### 3.5 启动服务
 ```shell script
 sh sbin/linkis-start-all.sh
 ```
 
-### 3.5 安装后配置的修改
+### 3.6 安装后配置的修改
 安装完成后，如果需要修改配置（因端口冲突或则某些配置有问题需要调整配置），可以重新执行安装，或则修改对应服务的配置`${LINKIS_HOME}/conf/*properties`文件后，重启对应的服务，如：`sh sbin/linkis-daemon.sh start ps-publicservice`。
 
 
-### 3.6 检查服务是否正常启动 
+### 3.7 检查服务是否正常启动 
 访问eureka服务页面（http://eurekaip:20303），
 默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动。
 ![Linkis1.0_Eureka](./images/eureka.png)
