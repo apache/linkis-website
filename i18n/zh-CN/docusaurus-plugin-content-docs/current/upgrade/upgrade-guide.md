@@ -126,7 +126,7 @@ cp ${LINKIS_HOME_OLD}/lib/linkis-spring-cloud-services/linkis-mg-gateway/dss-gat
 ### 5.1 下载前端安装包并解压
 上传至管理台所在的服务器上 ，解压
 ```shell script
-tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz
+tar -xvf apache-linkis-x.x.x-web-bin.tar.gz
 ```
 
 

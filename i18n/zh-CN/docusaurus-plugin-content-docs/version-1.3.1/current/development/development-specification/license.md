@@ -77,7 +77,7 @@ copyright notice that is included in or attached to the work.
 
 ### 2.2 示例 场景 2
 
-项目编译依赖了`org.apache.ant:ant:1.9.1`,ant-1.9.1.jar会在最后的编译安装包`target/apache-linkis-x.x.x-incubating-bin/linkis-package/lib`中
+项目编译依赖了`org.apache.ant:ant:1.9.1`,ant-1.9.1.jar会在最后的编译安装包`target/apache-linkis-x.x.x-bin/linkis-package/lib`中
 可以解压ant-1.9.1.jar，从jar包中提取LICENSE/NOTICE文件，如果没有，则需要找到对应的版本源码 
 找到py4j-0.10.7-src.zip 对应的版本源码分支，如果对应版本分支没有，则选择主分支
 - 项目源码位于:https://github.com/apache/ant/tree/rel/1.9.1

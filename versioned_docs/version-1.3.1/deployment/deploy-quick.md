@@ -46,23 +46,25 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 , download the corresponding The installation package (project installation package and management console installation package)
 - Method 2: Compile the project installation package and management console according to [Linkis Compile and Package](../development/build) and [Front-end Management Console Compile](../development/build-console) Installation package
 
-After uploading the installation package `apache-linkis-x.x.x-incubating-bin.tar.gz`, decompress the installation package
+After uploading the installation package `apache-linkis-x.x.x-bin.tar.gz`, decompress the installation package
 
 ```shell script
-$ tar -xvf apache-linkis-x.x.x-incubating-bin.tar.gz
+$ tar -xvf apache-linkis-x.x.x-bin.tar.gz
 ````
 
 The unzipped directory structure is as follows
 ```shell script
--rw-r--r-- 1 hadoop hadoop 531847342 Feb 21 10:10 apache-linkis-1.0.3-incubating-bin.tar.gz
-drwxrwxr-x 2 hadoop hadoop 4096 Feb 21 10:13 bin //Script to perform environment check and install
-drwxrwxr-x 2 hadoop hadoop 4096 Feb 21 10:13 deploy-config // Environment configuration information such as DB that depends on deployment
--rw-r--r-- 1 hadoop hadoop 66058 Jan 22 2020 LICENSE
-drwxrwxr-x 2 hadoop hadoop 16384 Feb 21 10:13 licenses
-drwxrwxr-x 7 hadoop hadoop 4096 Feb 21 10:13 linkis-package // The actual package, including lib/service startup script tool/db initialization script/microservice configuration file, etc.
--rw-r--r-- 1 hadoop hadoop 83126 Jan 22 2020 NOTICE
--rw-r--r-- 1 hadoop hadoop 7900 Jan 22 2020 README_CN.md
--rw-r--r-- 1 hadoop hadoop 8184 Jan 22 2020 README.md
+-rw-r--r-- 1 hadoop hadoop 518192043 Jun 20 09:50 apache-linkis-1.3.1-bin.tar.gz
+drwxrwxr-x 2 hadoop hadoop      4096 Jun 20 09:56 bin //Script to perform environment check and install
+drwxrwxr-x 2 hadoop hadoop      4096 Jun 20 09:56 deploy-config // Environment configuration information such as DB that depends on deployment
+drwxrwxr-x 4 hadoop hadoop      4096 Jun 20 09:56 docker
+drwxrwxr-x 4 hadoop hadoop      4096 Jun 20 09:56 helm
+-rwxrwxr-x 1 hadoop hadoop     84732 Jan 22  2020 LICENSE
+drwxr-xr-x 2 hadoop hadoop     20480 Jun 20 09:56 licenses
+drwxrwxr-x 7 hadoop hadoop      4096 Jun 20 09:56 linkis-package // The actual package, including lib/service startup script tool/db initialization script/microservice configuration file, etc.
+-rwxrwxr-x 1 hadoop hadoop    119503 Jan 22  2020 NOTICE
+-rw-r--r-- 1 hadoop hadoop     11959 Jan 22  2020 README_CN.md
+-rw-r--r-- 1 hadoop hadoop     12587 Jan 22  2020 README.md
 
 ````
 

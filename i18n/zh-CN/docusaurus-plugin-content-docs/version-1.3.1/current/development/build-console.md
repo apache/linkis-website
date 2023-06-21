@@ -38,7 +38,7 @@ $ npm install
 ```
 $ npm run build
 ```
-上述命令执行成功后，会生成前端管理台安装包 `apache-linkis-${version}-incubating-web-bin.tar.gz`，可以直接将该文件夹放进您的静态服务器中，或者参考[安装文档](../deployment/deploy-console.md)，使用脚本进行部署安装。
+上述命令执行成功后，会生成前端管理台安装包 `apache-linkis-${version}-web-bin.tar.gz`，可以直接将该文件夹放进您的静态服务器中，或者参考[安装文档](../deployment/deploy-console.md)，使用脚本进行部署安装。
 
 ## 3 . 注意事项
 ### 3.1 Windows下npm install 步骤报错

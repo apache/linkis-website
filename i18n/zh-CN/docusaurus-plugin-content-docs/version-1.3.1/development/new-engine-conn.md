@@ -203,7 +203,7 @@ linkis-dist/src/main/assembly/distribution.xml
 mvn clean install -DskipTests
 ```
 
-编译成功后在linkis-dist/target/apache-linkis-1.x.x-incubating-bin.tar.gz和linkis-engineconn-plugins/jdbc/target/目录下找到out.zip。
+编译成功后在linkis-dist/target/apache-linkis-1.x.x-bin.tar.gz和linkis-engineconn-plugins/jdbc/target/目录下找到out.zip。
 
 上传out.zip文件到Linkis的部署节点，解压缩到Linkis安装目录/lib/linkis-engineconn-plugins/下面：
 

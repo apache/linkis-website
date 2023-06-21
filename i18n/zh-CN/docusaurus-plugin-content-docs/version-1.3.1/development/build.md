@@ -56,7 +56,7 @@ __编译环境要求：__  必须 **JDK8** 以上，**Oracle/Sun** 和 **OpenJDK
 
 ```bash
     #详细路径如下
-    linkis-x.x.x/linkis-dist/target/apache-linkis-x.x.x-incubating-bin.tar.gz
+    linkis-x.x.x/linkis-dist/target/apache-linkis-x.x.x-bin.tar.gz
 ```
 
 ## 3 常见问题 
