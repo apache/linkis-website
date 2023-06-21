@@ -10,14 +10,14 @@ sidebar_position: 3
 After Linkis 1.0, the engine is managed by EngineConnManager, and the EngineConnPlugin (ECP) supports real-time effectiveness.
 In order to facilitate the EngineConnManager to be loaded into the corresponding EngineConnPlugin by labels, it needs to be packaged according to the following directory structure (take hive as an example):
 ```
-hive: engine home directory, must be the name of the engine
-└── dist # Dependency and configuration required for engine startup, different versions of the engine need to be in this directory to prevent the corresponding version directory
-    └── v1.2.1 #Must start with ‘v’ and add engine version number ‘1.2.1’
-        └── conf # Configuration file directory required by the engine
-        └── lib # Dependency package required by EngineConnPlugin
-└── plugin #EngineConnPlugin directory, this directory is used for engine management service package engine startup command and resource application
-    └── 1.2.1 # Engine version
-        └── linkis-engineplugin-hive-1.0.0-RC1.jar #Engine module package (only need to place a separate engine package)
+hive engine home directory, must be the name of the engine
+│   ├──  dist  # Dependency and configuration required for engine startup, different versions of the engine need to be in this directory to prevent the corresponding version directory
+│   │   └── 2.3.3 # Engine version
+│   │       └── conf # Configuration file directory required by the engine
+│   │       └── lib  # Dependency package required by EngineConnPlugin
+│   ├── plugin #EngineConnPlugin directory, this directory is used for engine management service package engine startup command and resource application
+│       └── 2.3.3 # Engine version
+│           └── linkis-engineplugin-hive-1.0.0.jar  #Engine module package (only need to place a separate engine package)   
 ```
 If you are adding a new engine, you can refer to hive's assembly configuration method, source code directory: linkis-engineconn-pluginshive/src/main/assembly/distribution.xml
 ## 2. Engine Installation

@@ -178,7 +178,7 @@ http 请求参数示例
 ```
 
 #### 4.2.3 文件配置
-通过修改目录 `install path/lib/linkis-engineconn-plugins/presto/dist/v0.234/conf/` 中的 `linkis-engineconn.properties` 文件进行配置，如下图：
+通过修改目录 `install path/lib/linkis-engineconn-plugins/presto/dist/0.234/conf/` 中的 `linkis-engineconn.properties` 文件进行配置，如下图：
 
 ![](./images/presto-file.png)
 

@@ -31,7 +31,7 @@ sidebar_position: 0.1
 **Sample Request**:
 ```
 #url
-http://ip:port/api/rest_j/v1/engineplugin/refresh?ecType=hive&version=v2.3.3 
+http://ip:port/api/rest_j/v1/engineplugin/refresh?ecType=hive&version=2.3.3 
 
 #Request Header
 Content-Type:application/json

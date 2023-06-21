@@ -31,7 +31,7 @@ sidebar_position: 2
 **请求示例**:
 ```
 #url
-http://ip:port/api/rest_j/v1/engineplugin/refresh?ecType=hive&version=v2.3.3 
+http://ip:port/api/rest_j/v1/engineplugin/refresh?ecType=hive&version=2.3.3 
 
 #请求头部
 Content-Type:application/json

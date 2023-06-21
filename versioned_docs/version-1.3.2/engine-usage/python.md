@@ -106,7 +106,7 @@ Example of http request parameters
 ```
 
 #### 4.2.3 File Configuration
-Configure by modifying the `linkis-engineconn.properties` file in the directory `${LINKIS_HOME}/lib/linkis-engineconn-plugins/python/dist/vpython2/conf/`, as shown below:
+Configure by modifying the `linkis-engineconn.properties` file in the directory `${LINKIS_HOME}/lib/linkis-engineconn-plugins/python/dist/python2/conf/`, as shown below:
 
 ![](./images/python-conf.png)
 
