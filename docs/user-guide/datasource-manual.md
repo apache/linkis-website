@@ -164,7 +164,23 @@ The use of data sources is divided into three steps:
 #### 3.1.1 Created through the management console
 > You can only create configuration data sources, and test whether the data sources can be connected normally, and cannot directly query metadata
 
-Implement a JDBC generic module, and then choose any item mentioned in <a href="#16-installation-extra-data-drivers"> 1.6 Installation extra data drivers</a> on the web UI. Take MySQL as an example:
+Implement a JDBC generic module, and then choose any item mentioned below on the web UI. 
+
+| Data Source | Link |
+| ----------- |----------- |
+|  mysql      | https://www.mysql.com |
+|  oracle     | https://www.oracle.com/database/technologies |
+|  kingbase   | https://www.kingbase.com.cn |
+|  postgresql | https://www.postgresql.org |
+|  sqlserver  | https://www.microsoft.com/en-us/sql-server |
+|  db2        | https://www.ibm.com/products/db2/database |
+|  greenplum  | https://greenplum.org |
+|  dm         | https://dmdatabases.com |
+|  doris      | https://doris.apache.org |
+|  clickhouse | https://clickhouse.com | 
+
+
+Take MySQL as an example:
 
 > Data Source Management > New Data Source > Select MySQL Type
 
