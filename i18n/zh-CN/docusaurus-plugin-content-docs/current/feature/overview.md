@@ -3,16 +3,6 @@ title: 版本总览
 sidebar_position: 0.1
 --- 
 
-- [支持 Spark 任务提交 Jar 包功能](./spark-submit-jar.md)
-- [支持通过UDF ID 加载特定的 UDF](./load-udf-by-udfid.md)
-- [多任务固定 EC 执行](./ec-fix-label.md)
-- [Eureka 版本元数据上报](./eureka-version-metadata.md)
-- [移除 dss-gateway-support 依赖](./remove-dss-support.md)
-- [修改系统初始化默认 Token](./update-token.md)
-- [Linkis 整合 OceanBase](/blog/2023/03/08/linkis-integration-with-oceanbase)
-- [版本的 Release-Notes](/download/release-notes-1.3.2)
-
-
 
 ## 参数变化 
 
