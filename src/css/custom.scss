@@ -102,7 +102,7 @@ aside {
     .info-item{
       padding: 0 10px 0 28px;
       &.sperator{
-       padding: 0 10px; 
+       padding: 0 10px;
       }
     }
   }
@@ -161,6 +161,7 @@ aside {
 
 .home-page {
   padding: 64px 0 30px;
+  min-height: 92vh;
 
   &.feature {
     background: #eee url(/static/home/features_bg.png) center no-repeat;
@@ -168,7 +169,7 @@ aside {
   }
 
   &.slogan {
-    margin-top: -60px;
+    // margin-top: -60px;
     background: #eee url(/static/home/banner_bg.png) center no-repeat;
     background-size: cover;
   }
@@ -544,6 +545,9 @@ aside {
   .home-page {
     &.introduce {
       padding-bottom: 0;
+    }
+    &.slogan{
+        margin-top: -60px;
     }
     .concept{
       grid-template-columns: repeat(1, 1fr);
