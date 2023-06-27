@@ -1,6 +1,6 @@
 ---
 title: DataSource Client SDK
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 > ```
