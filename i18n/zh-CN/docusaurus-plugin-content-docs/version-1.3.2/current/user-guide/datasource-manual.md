@@ -321,15 +321,20 @@ object TestMysqlClient {
 
 ```
 #### 3.1.3 Linkis已支持的JDBC EngineConn
-- ClickHouse
-- DB2
-- DM
-- Greenplum
-- KingBase
 - MySQL
 - Oracle
+- KingBase
 - PostgreSQL
 - SQLServer
+- DB2
+- Greenplum
+- DM
+- Doris
+- ClickHouse
+- TiDB
+- Starrocks
+- Gaussdb
+- OceanBase
 
 ### 3.2  Hive 数据源
 
