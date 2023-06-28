@@ -358,3 +358,168 @@ object LinkisClientTest {
   }
 }
 ```
+
+
+## 4. Once SDK Usage
+The Linkis-cli client supports submitting tasks of the Once type. After the engine process is started, the task will only be run once, and it will be automatically destroyed after the task ends.
+
+OnceEngineConn calls LinkisManager's createEngineConn interface through LinkisManagerClient, and sends the code to the engine created by the user, and then the engine starts to execute
+
+write a test class
+Use clien conditions
+
+```java
+1. Configure the correct and available gateway address:
+LinkisJobClient.config().setDefaultServerUrl("http://ip:9001");
+2. Write the engine parameters, configuration items, and execution code in the code:
+  String code = "env {
+                           + " spark.app.name = \"SeaTunnel\"\n"
+                           + "spark.executor.instances = 2\n"
+                           + "spark.executor.cores = 1\n"
+                           + " spark.executor.memory = \"1g\"\n"
+                           + "}\n"
+                           + "\n"
+                           + "source {\n"
+                           + "Fake {\n"
+                           + " result_table_name = \"my_dataset\"\n"
+                           + " }\n"
+                           + "\n"
+                           + "}\n"
+                           + "\n"
+                           + "transform {\n"
+                           + "}\n"
+                           + "\n"
+                           + "sink {\n"
+                           + " Console {}\n"
+                           + "}";
+3. Create an Once mode object: SubmittableSimpleOnceJob:
+SubmittableSimpleOnceJob = LinkisJobClient.once()
+                 .simple()
+                 .builder()
+                 .setCreateService("seatunnel-Test")
+                 .setMaxSubmitTime(300000) timeout
+                 .addLabel(LabelKeyUtils.ENGINE_TYPE_LABEL_KEY(), "seatunnel-2.1.2") engine label
+                 .addLabel(LabelKeyUtils.USER_CREATOR_LABEL_KEY(), "hadoop-seatunnel") user label
+                 .addLabel(LabelKeyUtils.ENGINE_CONN_MODE_LABEL_KEY(), "once") engine mode label
+                 .addStartupParam(Configuration.IS_TEST_MODE().key(), true) Whether to enable the test mode
+                 .addExecuteUser("hadoop") execute user
+                 .addJobContent("runType", "spark") execution engine
+                 .addJobContent("code", code) execute code
+                 .addJobContent("master", "local[4]")
+                 .addJobContent("deploy-mode", "client")
+                 .addSource("jobName", "OnceJobTest") name
+                 .build();
+
+```
+
+Test class sample code:
+
+```java
+package org.apache.linkis.ujes.client
+
+import org.apache.linkis.common.utils.Utils
+import java.util.concurrent.TimeUnit
+import java.util
+import org.apache.linkis.computation.client.LinkisJobBuilder
+import org.apache.linkis.computation.client.once.simple.{SimpleOnceJob, SimpleOnceJobBuilder, SubmittableSimpleOnceJob}
+import org.apache.linkis.computation.client.operator.impl.{EngineConnLogOperator, EngineConnMetricsOperator, EngineConnProgressOperator}
+import org.apache.linkis.computation.client.utils.LabelKeyUtils
+import scala.collection.JavaConverters._
+
+object SqoopOnceJobTest extends App {
+        LinkisJobBuilder.setDefaultServerUrl("http://gateway address:9001")
+        val logPath = "C:\\Users\\resources\\log4j.properties"
+        System.setProperty("log4j.configurationFile", logPath)
+        val startUpMap = new util. HashMap[String, AnyRef]
+        startUpMap.put("wds.linkis.engineconn.java.driver.memory", "1g")
+        val builder = SimpleOnceJob. builder(). setCreateService("Linkis-Client")
+        .addLabel(LabelKeyUtils.ENGINE_TYPE_LABEL_KEY, "sqoop-1.4.6")
+        .addLabel(LabelKeyUtils.USER_CREATOR_LABEL_KEY, "hadoop-Client")
+        .addLabel(LabelKeyUtils.ENGINE_CONN_MODE_LABEL_KEY, "once")
+        .setStartupParams(startUpMap)
+        .setMaxSubmitTime(30000)
+        .addExecuteUser("hadoop")
+        val onceJob = importJob(builder)
+        val time = System. currentTimeMillis()
+        onceJob. submit()
+        println(onceJob. getId)
+        val logOperator = onceJob.getOperator(EngineConnLogOperator.OPERATOR_NAME).asInstanceOf[EngineConnLogOperator]
+        println(onceJob. getECMServiceInstance)
+        logOperator. setFromLine(0)
+        logOperator.setECMServiceInstance(onceJob.getECMServiceInstance)
+        logOperator.setEngineConnType("sqoop")
+        logOperator.setIgnoreKeywords("[main],[SpringContextShutdownHook]")
+        var progressOperator = onceJob.getOperator(EngineConnProgressOperator.OPERATOR_NAME).asInstanceOf[EngineConnProgressOperator]
+        var metricOperator = onceJob.getOperator(EngineConnMetricsOperator.OPERATOR_NAME).asInstanceOf[EngineConnMetricsOperator]
+        var end = false
+        var rowBefore = 1
+        while (!end || rowBefore > 0) {
+        if (onceJob. isCompleted) {
+        end = true
+        metricOperator = null
+        }
+        logOperator. setPageSize(100)
+        Utils. tryQuietly {
+        val logs = logOperator.apply()
+        logs. logs. asScala. foreach(log => {
+        println(log)
+        })
+        rowBefore = logs. logs. size
+        }
+        Thread. sleep(3000)
+        Option(metricOperator).foreach(operator => {
+        if (!onceJob.isCompleted) {
+        println(s"Metric monitoring: ${operator.apply()}")
+        println(s"Progress: ${progressOperator.apply()}")
+        }
+        })
+        }
+        onceJob. isCompleted
+        onceJob. waitForCompleted()
+        println(onceJob. getStatus)
+        println(TimeUnit. SECONDS. convert(System. currentTimeMillis() - time, TimeUnit. MILLISECONDS) + "s")
+        System. exit(0)
+
+        def importJob(jobBuilder: SimpleOnceJobBuilder): SubmittableSimpleOnceJob = {
+        jobBuilder
+        .addJobContent("sqoop.env.mapreduce.job.queuename", "queue_1003_01")
+        .addJobContent("sqoop. mode", "import")
+        .addJobContent("sqoop.args.connect", "jdbc:mysql://database address/library name")
+        .addJobContent("sqoop.args.username", "database account")
+        .addJobContent("sqoop.args.password", "database password")
+        .addJobContent("sqoop.args.query", "select * from linkis_ps_udf_manager where 1=1 and $CONDITIONS")
+        #The table must exist $CONDITIONS is indispensable
+        .addJobContent("sqoop.args.hcatalog.database", "janicegong_ind")
+        .addJobContent("sqoop.args.hcatalog.table", "linkis_ps_udf_manager_sync2")
+        .addJobContent("sqoop.args.hcatalog.partition.keys", "ds")
+        .addJobContent("sqoop.args.hcatalog.partition.values", "20220708")
+        .addJobContent("sqoop.args.num.mappers", "1")
+        .build()
+        }
+        def exportJob(jobBuilder: SimpleOnceJobBuilder): SubmittableSimpleOnceJob = {
+        jobBuilder
+        .addJobContent("sqoop.env.mapreduce.job.queuename", "queue_1003_01")
+        .addJobContent("sqoop. mode", "import")
+        .addJobContent("sqoop.args.connect", "jdbc:mysql://database address/library name")
+        .addJobContent("sqoop.args.username", "database account")
+        .addJobContent("sqoop.args.password", "database password")
+        .addJobContent("sqoop.args.query", "select * from linkis_ps_udf_manager where 1=1 and $CONDITIONS")
+        #The table must exist $CONDITIONS is indispensable
+        .addJobContent("sqoop.args.hcatalog.database", "janicegong_ind")
+        .addJobContent("sqoop.args.hcatalog.table", "linkis_ps_udf_manager_sync2")
+        .addJobContent("sqoop.args.hcatalog.partition.keys", "ds")
+        .addJobContent("sqoop.args.hcatalog.partition.values", "20220708")
+        .addJobContent("sqoop.args.num.mappers", "1")
+        .build
+        }
+        }
+```
+
+Once mode support engine:
+
+|Name|Need to modify the configuration item|
+|:----|:----|
+|Flink|1. Available gateway address: LinkisJobClient.config().setDefaultServerUrl("http://xxx:9001");<br>2. Engine label: addLabel(LabelKeyUtils.ENGINE_TYPE_LABEL_KEY(), "flink-1.12. 2")<br>3. Tenant label: .addLabel(LabelKeyUtils.USER_CREATOR_LABEL_KEY(), "hadoop-Streamis")<br>4.once mode label: .addLabel(LabelKeyUtils.ENGINE_CONN_MODE_LABEL_KEY(), "once")<br >5. Execution user: .addExecuteUser("hadoop")<br>6. Execution type: .addJobContent("runType", "sql")<br>7. Execution code: .addJobContent("code", sql)< br>8. Task name: .addSource("jobName", "OnceJobTest")<br><br>Remarks: Complete demo:<br>[https://linkis.apache.org/zh-CN/docs/latest /engine-usage/flink](https://linkis.apache.org/zh-CN/docs/latest/engine-usage/flink)<br>Submit tasks through OnceEngineConn|
+|Sqoop|1. Available gateway address: LinkisJobClient.config().setDefaultServerUrl("http://xxx:9001");<br>2.SimpleOnceJob.builder().setCreateService("Linkis-Client") <br >3. Engine label: .addLabel(LabelKeyUtils.ENGINE_TYPE_LABEL_KEY, "sqoop-1.4.6")<br>4. Tenant label: .addLabel(LabelKeyUtils.USER_CREATOR_LABEL_KEY, "hadoop-Client")<br>5.once mode label :.addLabel(LabelKeyUtils.ENGINE_CONN_MODE_LABEL_KEY, "once")<br>6. Startup parameters setStartupParams(startUpMap):<br>Remarks: Complete demo:<br>[https://linkis.apache.org/zh-CN/ docs/latest/engine-usage/sqoop](https://linkis.apache.org/zh-CN/docs/latest/engine-usage/sqoop)<br>Submit tasks through OnceEngineConn|
+|Spark|1. Available gateway addresses: LinkisJobClient.config().setDefaultServerUrl("http://xxx:9001");<br>2. Fixed parameters: LinkisJobClient.once()<br> .simple()< br> .builder()<br> .setCreateService("Spark-Test")<br> .setMaxSubmitTime(300000)<br> .setDescription("SparkTestDescription")<br> .addExecuteUser(submitUser)<br> .addJobContent( "runType", "jar")<br> .addJobContent("spark.app.main.class", "org.apache.spark.examples.JavaWordCount")<br> .addJobContent("spark.app.args", "hdfs:///tmp/log.log -a 10 -b=12")<br> .addJobContent(<br> "spark.extconf", "spark.a=d\nspark.c=d\nspark. args.start_date=2022-06-14")<br>3. Engine label: .addLabel("engineType", "spark-2.4.7")<br>4. Tenant label: .addLabel("userCreator", " spark-IDE")<br>5.once mode label: .addLabel("engineConnMode", "once")<br>6. Startup parameters: addStartupParam("spark.app.name", "spark-submit-jar- test-xi")<br>7. Resource package: "spark.app.resource", "hdfs:///spark/spark-examples_2.11-2.3.0.2.6.5.0-292.jar")<br >8. Task name: .addSource("jobName", "OnceJobTest")|
+|Seatunnel|1. Available gateway address: LinkisJobClient.config().setDefaultServerUrl("http://xxx:9001");<br>2. Engine label: addLabel(LabelKeyUtils.ENGINE_TYPE_LABEL_KEY(), "seatunnel-2.1. 2")<br>3. Tenant label: .addLabel(LabelKeyUtils.USER_CREATOR_LABEL_KEY(), "hadoop-seatunnel")<br>4.once mode label: .addLabel(LabelKeyUtils.ENGINE_CONN_MODE_LABEL_KEY(), "once")<br >5. Execution user: .addExecuteUser("hadoop")<br>6. Execution type: .addJobContent("runType", "spark")<br>7. Execution code: .addJobContent("code", sql)< br>8. Task name:.addSource("jobName", "OnceJobTest")<br>9..addJobContent("master", "local[4]")<br>10.addJobContent("deploy-mode", "client")<br><br>Remarks: Complete demo:<br>[https://linkis.apache.org/zh-CN/docs/latest/engine-usage/seatunnel](https://linkis. apache.org/zh-CN/docs/latest/engine-usage/seatunnel)<br>Submit tasks via OnceEngineConn|
