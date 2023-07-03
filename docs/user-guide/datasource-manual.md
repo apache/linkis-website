@@ -118,6 +118,20 @@ linkis-public-enhancements/linkis-datasource
 
 See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/tuning-and-troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
 
+### 1.6 Add Data Driver
+
+| drive name | drive version  | download link                                                                                    |
+|------------|----------------|--------------------------------------------------------------------------------------------------|
+| db2        | db2jcc4        | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads                         |
+| dameng     | DmJdbcDriver18 | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip                                        |
+| mysql      | 5.1.34         | https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar |
+| kingbase   | kingbase8      | http://maven.jeecg.org/nexus/content/repositories/jeecg/kingbase/kingbase8/8/kingbase8-8.jar     |
+| greenplum  | 5.1.4          | https://network.pivotal.io/products/vmware-tanzu-greenplum#/releases/985537/file_groups/5749     |
+| postgresql | 42.3.1         | https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar            |
+| sqlserver  | sqlserver2000  | https://www.microsoft.com/en-us/download/details.aspx?id=11774                                   |
+| oracle     | 11.2.0.3       | http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar           |
+| Clickhouse | 0.2.6          | https://pypi.org/project/clickhouse-driver/                                                      |
+
 ## 2. Enable data source function
 
 In the startup script of linkis, the two services related to the data source (ps-data-source-manager, ps-metadatamanager) will not be started by default.
