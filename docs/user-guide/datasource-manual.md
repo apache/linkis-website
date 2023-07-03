@@ -120,6 +120,10 @@ See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameter
 
 ### 1.6 Add Data Driver
 
+1. background: because some data source driver is not compatible with Apache License, we need introduce new driver.
+2. new driver location: (./lib/linkis-public-enhancements/linkis-ps-publicservice)
+3. data driver list:
+
 | drive name | drive version  | download link                                                                                    |
 |------------|----------------|--------------------------------------------------------------------------------------------------|
 | db2        | db2jcc4        | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads                         |
