@@ -118,6 +118,8 @@ linkis-public-enhancements/linkis-datasource
 
 See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameters](/docs/1.1.0/tuning-and-troubleshooting/configuration#6-datasource-and-metadata-service-configuration-parameters)
 
+### 1.6 for test peter
+
 ## 2. Enable data source function
 
 In the startup script of linkis, the two services related to the data source (ps-data-source-manager, ps-metadatamanager) will not be started by default.
