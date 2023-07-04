@@ -122,7 +122,7 @@ See [Tuning and Troubleshooting>Parameter List#datasourceConfiguration Parameter
 
 1. background: because some data source driver is not compatible with Apache License, we need introduce new driver.
 2. new driver location: (./lib/linkis-public-enhancements/linkis-ps-publicservice)
-3. data driver list:
+3. data driver list:(created by zhaowenkai)
 
 | drive name | drive version  | download link                                                                                    |
 |------------|----------------|--------------------------------------------------------------------------------------------------|
