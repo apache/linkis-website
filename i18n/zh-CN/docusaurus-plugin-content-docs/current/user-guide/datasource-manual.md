@@ -134,7 +134,7 @@ linkis-public-enhancements/linkis-datasource
 | postgresql | 42.3.1 | https://repo1.maven.org/maven2/org/postgresql/postgresql/42.3.1/postgresql-42.3.1.jar| 
 | sqlserver | sqlserver2000 | https://www.microsoft.com/en-us/download/details.aspx?id=11774 |
 | oracle | 11.2.0.3 | http://www.datanucleus.org/downloads/maven2/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar |
-｜ clickhouse | 0.2.6 | https://pypi.org/project/clickhouse-driver/ |
+| clickhouse | 0.2.6 | https://pypi.org/project/clickhouse-driver/ |
 
 
 
