@@ -6,13 +6,13 @@ sidebar_position: 2
 >  Linkis任务执行是Linkis的核心功能，调用到Linkis的计算治理服务、公共增强服务，微服务治理的三层服务，现在已经支持了OLAP、OLTP、Streaming等引擎类型的任务执行，本文将对OLAP类型引擎的任务提交、准备、执行、结果返回等流程进行介绍。
 
 ## 关键名词：
-LinkisMaster：Linkis的计算治理服务层架中的管理服务，主要包含了AppManager、ResourceManager、LabelManager等几个管控服务。原名LinkisManager服务
-Entrance：计算治理服务层架中的入口服务，完成任务的调度、状态管控、任务信息推送等功能
-Orchestrator：Linkis的编排服务，提供强大的编排和计算策略能力，满足多活、主备、事务、重放、限流、异构和混算等多种应用场景的需求。现阶段Orchestrator被Entrance服务所依赖
-EngineConn（EC）：引擎连接器，负责接受任务并提交给底层引擎如Spark、hive、Flink、Presto、trino等进行执行
-EngineConnManager（ECM）：Linkis 的EC进程管理服务，负责管控EngineConn的生命周期（启动、停止）
-LinkisEnginePluginServer：该服务负责管理各个引擎的启动物料和配置，另外提供每个EngineConn的启动命令获取，以及每个EngineConn所需要的资源
-PublicEnhencementService（PES）： 公共增强服务，为其他微服务模块提供统一配置管理、上下文服务、物料库、数据源管理、微服务管理和历史任务查询等功能的模块
+LinkisMaster：Linkis的计算治理服务层架中的管理服务，主要包含了AppManager、ResourceManager、LabelManager等几个管控服务。原名LinkisManager服务。  
+Entrance：计算治理服务层架中的入口服务，完成任务的调度、状态管控、任务信息推送等功能。  
+Orchestrator：Linkis的编排服务，提供强大的编排和计算策略能力，满足多活、主备、事务、重放、限流、异构和混算等多种应用场景的需求。现阶段Orchestrator被Entrance服务所依赖。  
+EngineConn（EC）：引擎连接器，负责接受任务并提交给底层引擎如Spark、hive、Flink、Presto、trino等进行执行。  
+EngineConnManager（ECM）：Linkis 的EC进程管理服务，负责管控EngineConn的生命周期（启动、停止）。  
+LinkisEnginePluginServer：该服务负责管理各个引擎的启动物料和配置，另外提供每个EngineConn的启动命令获取，以及每个EngineConn所需要的资源。  
+PublicEnhencementService（PES）： 公共增强服务，为其他微服务模块提供统一配置管理、上下文服务、物料库、数据源管理、微服务管理和历史任务查询等功能的模块。  
 
 ## 一、Linkis交互式任务执行架构
 ### 1.1、任务执行思考
