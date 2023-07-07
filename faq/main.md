@@ -290,7 +290,7 @@ Specific modification steps:
 cd /appcom/Install/dss-linkis/linkis/lib/linkis-engineconn-plugins/，
 Modify the v2.1.1 directory name in the dist directory to v1.2.1
 Modify the subdirectory name 2.1.1 under the plugin directory to the default version 1.2.1
-If it is Spark, you need to modify dist/v2.4.3 and plugin/2.4.3 accordingly
+If it is Spark, you need to modify dist/2.4.3 and plugin/2.4.3 accordingly
 Finally restart the engineplugin service.
 ```
 

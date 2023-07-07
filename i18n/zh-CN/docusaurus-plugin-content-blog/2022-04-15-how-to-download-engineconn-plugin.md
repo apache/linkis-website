@@ -9,9 +9,10 @@ tags: [engine,guide]
 非常用引擎，项目代码中有对应的模块`flink/io_file/pipeline/sqoop`(不同版本之间可能有区别)，
 为了方便大家使用，基于linkis每个版本的release分支代码: https://github.com/apache/linkis, 编译出这部分引擎，供大家选择使用。
 
- ## 下载链接  
+ ## 下载链接
 | **linkis版本** |  **包含的引擎** |**引擎物料包下载链接** |
 |:---- |:---- |:---- |
+|1.3.2|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>trino<br/>seatunnel<br/>|[1.3.2-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.3.2-engineconn-plugin.tar)|
 |1.3.1|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>trino<br/>seatunnel<br/>|[1.3.1-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.3.1-engineconn-plugin.tar)|
 |1.3.0|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>|[1.3.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.3.0-engineconn-plugin.tar)|
 |1.2.0|jdbc<br/>pipeline<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>|[1.2.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.2.0-engineconn-plugin.tar)|
@@ -21,7 +22,7 @@ tags: [engine,guide]
 |1.1.0|jdbc<br/>pipeline<br/>flink<br/>|[1.1.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.1.0-engineconn-plugin.tar)|
 |1.0.3|jdbc<br/>pipeline<br/>flink<br/>|[1.0.3-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.0.3-engineconn-plugin.tar)|
 
-## 引擎类型 
+## 引擎类型
 
 | **引擎名** | **支持底层组件版本<br/>(默认依赖版本)** | **Linkis 版本要求** | **是否默认包含在发布包中** | **说明** |
 |:---- |:---- |:---- |:---- |:---- |
@@ -39,12 +40,12 @@ tags: [engine,guide]
 |Trino | Trino >=371 | >=1.3.1 | 否 |   Trino EngineConn， 支持Trino SQL 代码 |
 |Seatunnel | Seatunnel >=2.1.2 | >=1.3.1 | 否 | Seatunnel EngineConn， 支持Seatunnel SQL 代码 |
 
-## 安装引擎指引 
+## 安装引擎指引
 
 下载引擎的物料包后，解压包
 ```html
-tar -xvf  1.0.3-engineconn-plugin.tar 
-cd 1.0.3-engineconn-plugin 
+tar -xvf  1.0.3-engineconn-plugin.tar
+cd 1.0.3-engineconn-plugin
 
 ```
 

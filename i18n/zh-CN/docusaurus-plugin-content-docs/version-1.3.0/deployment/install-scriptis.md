@@ -32,7 +32,7 @@ sidebar_position: 4.1
 
 #### 3.1.1 安装 node.js
 ```shell script
-将 node.js 下载，安装即可。下载地址：http://nodejs.cn/download/ （ 建议使用node v14版本） 该步骤仅第一次使用时需要执行
+将 node.js 下载，安装即可。下载地址：http://nodejs.cn/download/ （ 建议使用node v16版本） 该步骤仅第一次使用时需要执行
 ```
 #### 3.1.2 安装 learn
 ```shell script

@@ -29,7 +29,7 @@ mvn -N install
 mvn clean install -DskipTests
 ```
 
-编译命令运行成功之后，在目录linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-incubating-bin.tar.gz
+编译命令运行成功之后，在目录linkis/linkis-dist/target/下可找到编译好的安装包：apache-linkis-版本号-bin.tar.gz
 
 ## 3. 配置并启动服务
 
@@ -255,51 +255,7 @@ org.apache.linkis.entrance.LinkisEntranceApplication
 通过勾选Include dependencies with “Provided” scope ，可以在调试时，引入provided级别的依赖包。
 ```
 
-### 3.8 启动linkis-cg-engineplugin
-
-![engineplugin-app](/Images/development/debug/engineplugin-app.png)
-
-参数解释：
-
-```shell
-[Service Name]
-linkis-cg-engineplugin
-
-[Use classpath of module]
-linkis-engineconn-plugin-server
-
-[VM Opitons]
--DserviceName=linkis-cg-engineplugin -Xbootclasspath/a:{YourPathPrefix}/linkis/linkis-dist/package/conf
-
-[main Class]
-org.apache.linkis.engineplugin.server.LinkisEngineConnPluginServer
-
-[Add provided scope to classpath]
-通过勾选Include dependencies with “Provided” scope ，可以在调试时，引入provided级别的依赖包。
-```
-
-启动engineplugin的时候可能会遇到如下报错：
-
-![engineplugin-debug-error](/Images/development/debug/engineplugin-debug-error.png)
-
-需要把公共依赖的模块加到ecp模块的classpath下，修改pes的pom增加以下依赖：
-linkis-computation-governance/linkis-engineconn/linkis-engineconn-plugin-server/pom.xml
-```xml
-    <dependency>
-      <groupId>org.apache.linkis</groupId>
-      <artifactId>linkis-dist</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql.connector.version}</version>
-    </dependency>
-
-```
-
-### 3.9 启动linkis-cg-engineconnmanager
+### 3.8 启动linkis-cg-engineconnmanager
 
 ![engineconnmanager-app](/Images/development/debug/engineconnmanager-app.png)
 
@@ -329,11 +285,11 @@ org.apache.linkis.ecm.server.LinkisECMApplication
 
 
 
-### 3.10 关键配置修改
+### 3.9 关键配置修改
 
 以上操作只是完成了对Linkis各个微服务启动Application的配置，除此之外，Linkis服务启动时所加载的配置文件中，有些关键配置也需要做针对性地修改，否则启动服务或脚本执行的过程中会遇到一些报错。关键配置的修改归纳如下：
 
-####  3.10.1 conf/linkis.properties
+####  3.9.1 conf/linkis.properties
 
 ```properties
 # linkis底层数据库连接参数配置
@@ -349,6 +305,12 @@ wds.linkis.home=/Users/leojie/software/linkis
 
 # 设置管理员用户名，你的本机用户名
 wds.linkis.governance.station.admin=leojie
+
+# 设置ip地址优先
+linkis.discovery.prefer-ip-address=true
+
+# 设置ec调试启用
+wds.linkis.engineconn.debug.enable=true
 ```
 
 在配置linkis底层数据库连接参数之前，请创建linkis数据库，并运行linkis-dist/package/db/linkis_ddl.sql和linkis-dist/package/db/linkis_dml.sql来初始化所有表和数据。
@@ -357,7 +319,7 @@ wds.linkis.governance.station.admin=leojie
 
 ![linkis-home](/Images/development/debug/linkis-home.png)
 
-#### 3.10.2 conf/linkis-cg-entrance.properties
+#### 3.9.2 conf/linkis-cg-entrance.properties
 
 ```properties
 # entrance服务执行任务的日志目录
@@ -367,7 +329,7 @@ wds.linkis.entrance.config.log.path=file:///{YourPathPrefix}/linkis/data/entranc
 wds.linkis.resultSet.store.path=file:///{YourPathPrefix}/linkis/data/resultSetDir
 ```
 
-#### 3.10.3 conf/linkis-cg-engineconnmanager.properties
+#### 3.9.3 conf/linkis-cg-engineconnmanager.properties
 
 ```properties
 wds.linkis.engineconn.root.dir={YourPathPrefix}/linkis/data/engineconnRootDir
@@ -375,7 +337,7 @@ wds.linkis.engineconn.root.dir={YourPathPrefix}/linkis/data/engineconnRootDir
 
 不修改可能会遇到路径不存在异常。
 
-#### 3.10.4 conf/linkis-cg-engineplugin.properties
+#### 3.9.4 conf/linkis-cg-engineplugin.properties
 
 ```properties
 wds.linkis.engineconn.home={YourPathPrefix}/linkis/linkis-engineconn-plugins/shell/target/out
@@ -385,7 +347,7 @@ wds.linkis.engineconn.plugin.loader.store.path={YourPathPrefix}/linkis/linkis-en
 
 这里两个配置主要为了指定引擎存储的根目录，指定为target/out的主要目的是，引擎相关代码或配置改动后可以直接重启engineplugin服务后生效。
 
-### 3.11 为当前用户设置sudo免密
+### 3.10 为当前用户设置sudo免密
 
 引擎拉起时需要使用sudo来执行启动引擎进程的shell命令，mac上当前用户使用sudo时一般都需要输入密码，因此，需要为当前用户设置sudo免密，设置方法如下：
 
@@ -396,7 +358,7 @@ sudo visudo
 保存文件退出
 ```
 
-### 3.12 服务测试
+### 3.11 服务测试
 
 保证上述服务都是成功启动状态，然后在postman中测试提交运行shell脚本作业。
 
@@ -492,27 +454,28 @@ GET http://127.0.0.1:9001/api/rest_j/v1/filesystem/openFile?path=file:///Users/l
 
 ## 4. 远程调试服务指引
 
-### 4.1 打开远程调试端口
+根据需要调试的代码位置,确定其所属的服务，使用启动脚本`linkis-daemon.sh`，启动时针对该服务设置远程调试端口。
 
-明确需要调试的包所在的服务，并根据需要调试的代码位置,确定其所属的服务
+### 4.1 确认要调试的包所在的服务
 
-### 4.2 进入{LINKIS_HOME}/sbin/ext,修改模块配置文件开启远程调用端口
-![c-port](images/c-port.png)
+根据需要调试的代码位置,确定其所属的服务(如果不确定服务名称,在 ${LINKIS_HOME}/sbin/linkis-start-all.sh 内查询)
 
-### 4.3 重启需要调试的服务
+### 4.2 重启需要调试的服务
+
+进入{LINKIS_HOME}/sbin目录，在启动命令中添加debug参数，指定远程调试端口。
 
 ```shell
-sh linkis-daemon.sh restart ps-publicservice
+sh linkis-daemon.sh restart ps-publicservice debug-5005
 ```
+观察输出的启动命令，是否包含`-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005`,包含则说明添加远程调试端口成功。
 
-(如果不确定服务名称,在 ${LINKIS_HOME}/sbin/linkis-start-all.sh 内查询)
-
-### 4.4 编译器配置远程调试
+### 4.3 编译器配置远程调试
 
 如下图所示打开窗口并配置远程调试的端口,服务,以及模块  
 ![c-debug](images/c-debug.png)
 
-### 4.5 开始调试
+### 4.4 开始调试
 
 点击调试按钮,出现如下信息代表可以开始调试  
 ![debug](images/debug.png)
+

@@ -41,10 +41,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.3.2',
-              label: 'Next(1.3.2)'
+              path: '1.4.0',
+              label: 'Next(1.4.0)'
             },
-            '1.3.1': {
+            '1.3.2': {
               path: 'latest',
             },
           }
@@ -152,7 +152,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           activeBaseRegex: `/user`,
         },
         {
-          to: '/faq/main',
+          to: 'https://docs.qq.com/doc/DUkdTTGhVSlZ0VXVt',
           position: 'left',
           label: 'FAQ',
           activeBaseRegex: `/faq/`,
@@ -161,11 +161,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Doc',
           position: 'right',
           items: [
-            {label: '1.3.1', to: '/docs/latest/about/introduction'},
+            {label: '1.3.2', to: '/docs/latest/about/introduction'},
+            {label: '1.3.1', to: '/docs/1.3.1/about/introduction'},
             {label: '1.3.0', to: '/docs/1.3.0/introduction'},
             {label: '1.2.0', to: '/docs/1.2.0/introduction'},
             {label: '1.1.1', to: '/docs/1.1.1/introduction'},
-            {label: 'Next(1.3.2)', to: '/docs/1.3.2/about/introduction'},
+            {label: 'Next(1.4.0)', to: '/docs/1.4.0/about/introduction'},
             {label: 'All Version', to: '/versions'}
           ]
         },
@@ -228,7 +229,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: 'Releases',
-              href: 'https://github.com/apache/linkis/releases',
+              to: 'https://github.com/apache/linkis/releases',
             },
           ],
         },
@@ -236,15 +237,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           title: 'Community',
           items: [{
               label: 'GitHub',
-              href: 'https://github.com/apache/linkis',
+              to: 'https://github.com/apache/linkis',
             },
             {
               label: 'Issue Tracker',
-              href: 'https://github.com/apache/linkis/issues',
+              to: 'https://github.com/apache/linkis/issues',
             },
             {
               label: 'Pull Requests',
-              href: 'https://github.com/apache/linkis/pulls',
+              to: 'https://github.com/apache/linkis/pulls',
             },
           ],
         },
@@ -256,11 +257,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             {
               label: 'Subscribe Mail',
-              href: 'mailto:dev-subscribe@linkis.apache.org',
+              to: 'mailto:dev-subscribe@linkis.apache.org',
             },
             {
               label: 'Mail Archive',
-              href: 'https://lists.apache.org/list.html?dev@linkis.apache.org',
+              to: 'https://lists.apache.org/list.html?dev@linkis.apache.org',
             },
           ],
         },
@@ -355,7 +356,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         createRedirects(existingPath) {
           if (existingPath.includes('/latest')) {
             return [
-              existingPath.replace('/latest', '/1.3.1'),
+              existingPath.replace('/latest', '/1.3.2'),
             ];
           }
           return undefined; // Return a false value: no redirect created

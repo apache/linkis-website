@@ -14,7 +14,7 @@ tags: [github]
 
 - kind 0.14.0
 - docker  20.10.17
-- node v14.19.3
+- node v16.0.0
 
 注意：
 
@@ -90,7 +90,7 @@ mavne 3.5+
 
 （1）安装版本
 
-node v14.19.3
+node v16.0.0
 
 （2）安装nvm
 

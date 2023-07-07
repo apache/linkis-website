@@ -16,7 +16,7 @@ kind 0.14.0
 
 docker  20.10.17
 
-node v14.19.3
+node v16.0.0
 
 Note:
 
@@ -94,7 +94,7 @@ mavne 3.5+
 
 （1）version
 
-node v14.19.3
+node v16.0.0
 
 （2）install the nvm
 

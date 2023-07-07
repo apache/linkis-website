@@ -46,37 +46,57 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ，下载对应的安装包（项目安装包和管理台安装包）。
 - 方式2：根据[Linkis 编译打包](../development/build)和[前端管理台编译](../development/build-console) 自行编译出项目安装包和管理台安装包。
 
-上传安装包`apache-linkis-x.x.x-incubating-bin.tar.gz`后，进行解压安装包 
+上传安装包`apache-linkis-x.x.x-bin.tar.gz`后，进行解压安装包 
 
 ```shell script
-$ tar -xvf apache-linkis-x.x.x-incubating-bin.tar.gz
+$ tar -xvf apache-linkis-x.x.x-bin.tar.gz
 ```
 
 解压后的目录结构如下
 ```shell script
--rw-r--r-- 1 hadoop hadoop 531847342 Feb 21 10:10 apache-linkis-1.0.3-incubating-bin.tar.gz
-drwxrwxr-x 2 hadoop hadoop      4096 Feb 21 10:13 bin  //执行环境检查和安装的脚本
-drwxrwxr-x 2 hadoop hadoop      4096 Feb 21 10:13 deploy-config // 部署时依赖的DB等环境配置信息
--rw-r--r-- 1 hadoop hadoop     66058 Jan 22  2020 LICENSE
-drwxrwxr-x 2 hadoop hadoop     16384 Feb 21 10:13 licenses
-drwxrwxr-x 7 hadoop hadoop      4096 Feb 21 10:13 linkis-package // 实际的软件包，包括lib/服务启动脚本工具/db的初始化脚本/微服务的配置文件等
--rw-r--r-- 1 hadoop hadoop     83126 Jan 22  2020 NOTICE
--rw-r--r-- 1 hadoop hadoop      7900 Jan 22  2020 README_CN.md
--rw-r--r-- 1 hadoop hadoop      8184 Jan 22  2020 README.md
+-rw-r--r-- 1 hadoop hadoop 518192043 Jun 20 09:50 apache-linkis-1.3.1-bin.tar.gz
+drwxrwxr-x 2 hadoop hadoop      4096 Jun 20 09:56 bin  //执行环境检查和安装的脚本
+drwxrwxr-x 2 hadoop hadoop      4096 Jun 20 09:56 deploy-config // 部署时依赖的DB等环境配置信息
+drwxrwxr-x 4 hadoop hadoop      4096 Jun 20 09:56 docker
+drwxrwxr-x 4 hadoop hadoop      4096 Jun 20 09:56 helm
+-rwxrwxr-x 1 hadoop hadoop     84732 Jan 22  2020 LICENSE
+drwxr-xr-x 2 hadoop hadoop     20480 Jun 20 09:56 licenses
+drwxrwxr-x 7 hadoop hadoop      4096 Jun 20 09:56 linkis-package // 实际的软件包，包括lib/服务启动脚本工具/db的初始化脚本/微服务的配置文件等
+-rwxrwxr-x 1 hadoop hadoop    119503 Jan 22  2020 NOTICE
+-rw-r--r-- 1 hadoop hadoop     11959 Jan 22  2020 README_CN.md
+-rw-r--r-- 1 hadoop hadoop     12587 Jan 22  2020 README.md
 
 ```
 
 ### 2.2 配置数据库信息
 
+`vim deploy-config/linkis-env.sh`
+
+```shell script
+# 选择linkis业务数据库类型，默认mysql
+# 如果使用postgresql，请改为postgresql
+# 注意: 当前配置只适用于linkis>=1.4.0
+dbType=mysql
+```
+
 `vim deploy-config/db.sh`
 
 ```shell script
-# Linkis自身业务的数据库信息
+# Linkis自身业务的数据库信息 - mysql
 MYSQL_HOST=xx.xx.xx.xx
 MYSQL_PORT=3306
 MYSQL_DB=linkis_test
 MYSQL_USER=test
 MYSQL_PASSWORD=xxxxx
+
+# Linkis自身业务的数据库信息 - postgresql
+# 注意: 以下配置只适用于linkis>=1.4.0
+PG_HOST=xx.xx.xx.xx
+PG_PORT=5432
+PG_DB=linkis_test
+PG_SCHEMA=linkis_test
+PG_USER=test
+PG_PASSWORD=123456
 
 # 提供 Hive 元数据数据库的 DB 信息，如果不涉及hive引擎（或则只是简单试用），可以不配置 
 #主要是配合scriptis一起使用，如果不配置，会默认尝试通过$HIVE_CONF_DIR 中的配置文件获取
@@ -209,6 +229,86 @@ HADOOP_KERBEROS_ENABLE=true
 HADOOP_KEYTAB_PATH=/appcom/keytab/
 ```
 
+
+#### S3模式（可选）
+> 目前支持将引擎执行日志和结果存储到S3 
+> 
+> 注意: linkis没有对S3做权限适配，所以无法对其做赋权操作
+
+`vim linkis.properties`
+```shell script
+# s3 file system
+linkis.storage.s3.access.key=xxx
+linkis.storage.s3.secret.key=xxx
+linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
+linkis.storage.s3.region=xxx
+linkis.storage.s3.bucket=xxx
+```
+
+`vim linkis-cg-entrance.properties`
+```shell script
+wds.linkis.entrance.config.log.path=s3:///linkis/logs
+wds.linkis.resultSet.store.path=s3:///linkis/results
+```
+
+### 2.4 配置 Token
+
+Linkis 原有默认 Token 固定且长度太短存在安全隐患。因此 Linkis 1.3.2 将原有固定 Token 改为随机生成，并增加 Token 长度。
+
+新 Token 格式：应用简称-32 位随机数，如BML-928a721518014ba4a28735ec2a0da799。
+
+Token 可能在 Linkis 服务自身使用，如通过 Shell 方式执行任务、BML 上传等，也可能在其它应用中使用，如 DSS、Qualitis 等应用访问 Linkis。
+
+#### 查看 Token
+**通过 SQL 语句查看**
+```sql
+select * from linkis_mg_gateway_auth_token;
+```
+**通过管理台查看**
+
+登录管理台 -> 基础数据管理 -> 令牌管理 
+![](/Images-zh/deployment/token-list.png)
+
+#### 检查 Token 配置
+
+Linkis 服务本身使用 Token 时，配置文件中 Token 需与数据库中 Token 一致。通过应用简称前缀匹配。
+
+$LINKIS_HOME/conf/linkis.properites文件 Token 配置
+
+```
+linkis.configuration.linkisclient.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.bml.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.context.client.auth.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.errorcode.auth.token=BML-928a721518014ba4a28735ec2a0da799
+
+wds.linkis.client.test.common.tokenValue=LINKIS_CLI-215af9e265ae437ca1f070b17d6a540d
+
+wds.linkis.filesystem.token.value=WS-52bce72ed51741c7a2a9544812b45725
+wds.linkis.gateway.access.token=WS-52bce72ed51741c7a2a9544812b45725
+
+wds.linkis.server.dsm.auth.token.value=DSM-65169e8e1b564c0d8a04ee861ca7df6e
+```
+
+$LINKIS_HOME/conf/linkis-cli/linkis-cli.properties文件 Token 配置
+```
+wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
+```
+
+#### 注意事项
+
+**全量安装**
+
+对于全量安装新版本 Linkis 时， install.sh 脚本中会自动处理配置文件和数据库 Token 保持一致。因此 Linkis 服务自身 Token 无需修改。各应用可通过管理台查询并使用新 Token。
+
+**版本升级**
+
+版本升级时，数据库 Token 并未修改，因此无需修改配置文件和应用 Token。
+
+**Token 过期问题**
+
+当遇到 Token 令牌无效或已过期问题时可以检查 Token 是否配置正确，可通过管理台查询 Token。
+
 ## 3. 安装和启动
 
 ### 3.1 执行安装脚本：
@@ -246,33 +346,40 @@ Your default account password is [hadoop/5e8e312b4]`
 cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
 cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
-
-### 3.3 配置调整（可选）
+### 3.3 添加postgresql驱动包 (可选)
+如果选择使用postgresql作为业务数据库，需要手动添加postgresql驱动
+下载postgresql驱动 以42.5.4版本为例：[下载链接](https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.4/postgresql-42.5.4.jar)
+拷贝postgresql驱动包至lib包下
+```
+cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
+```
+### 3.4 配置调整（可选）
 > 以下操作，跟依赖的环境有关，根据实际情况，确定是否需要操作 
 
-#### 3.3.1 Yarn的认证 
+#### 3.4.1 Yarn的认证 
 
 执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
 执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
 如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
 详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)。
 
-#### 3.3.2 session 
+#### 3.4.2 session 
 如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件。
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```
 
-### 3.4 启动服务
+### 3.5 启动服务
 ```shell script
 sh sbin/linkis-start-all.sh
 ```
 
-### 3.5 安装后配置的修改
+### 3.6 安装后配置的修改
 安装完成后，如果需要修改配置（因端口冲突或则某些配置有问题需要调整配置），可以重新执行安装，或则修改对应服务的配置`${LINKIS_HOME}/conf/*properties`文件后，重启对应的服务，如：`sh sbin/linkis-daemon.sh start ps-publicservice`。
 
 
-### 3.6 检查服务是否正常启动 
+### 3.7 检查服务是否正常启动 
 访问eureka服务页面（http://eurekaip:20303），
 默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动。
 ![Linkis1.0_Eureka](./images/eureka.png)
@@ -297,7 +404,7 @@ web端是使用nginx作为静态资源服务器的，访问请求流程是:
 
 ### 4.1 下载前端安装包并解压
 ```shell script
-tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz
+tar -xvf apache-linkis-x.x.x-web-bin.tar.gz
 ```
 
 ### 4.2 修改配置config.sh
@@ -433,22 +540,22 @@ $ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
 linkis-package/lib/linkis-engineconn-plugins/
 ├── hive
 │   ├── dist
-│   │   └── v2.3.3  #版本为2.3.3  engineType 为hive-2.3.3
+│   │   └── 2.3.3  #版本为2.3.3  engineType 为hive-2.3.3
 │   └── plugin
 │       └── 2.3.3
 ├── python
 │   ├── dist
-│   │   └── vpython2
+│   │   └── python2
 │   └── plugin
 │       └── python2 #版本为python2 engineType 为python-python2
 ├── shell
 │   ├── dist
-│   │   └── v1
+│   │   └── 1
 │   └── plugin
 │       └── 1
 └── spark
     ├── dist
-    │   └── v2.4.3
+    │   └── 2.4.3
     └── plugin
         └── 2.4.3
 ```
@@ -584,7 +691,7 @@ sh -x engineConnExec.sh
 
 1.执行安装之前修改注册中心eureka端口
 ```
-1. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
+1. 进入apache-linkis-x.x.x-bin.tar.gz的解压目录
 2. 执行 vi deploy-config/linkis-env.sh
 3. 修改EUREKA_PORT=20303为EUREKA_PORT=端口号
 ```

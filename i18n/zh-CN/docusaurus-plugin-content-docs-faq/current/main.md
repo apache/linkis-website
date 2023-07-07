@@ -290,7 +290,7 @@ wds.linkis.governance.station.admin=hadoop,peacewong
 cd /appcom/Install/dss-linkis/linkis/lib/linkis-engineconn-plugins/，
 修改dist目录下的v2.1.1 目录名 修改为v1.2.1 
 修改plugin目录下的子目录名2.1.1 为 默认版本的1.2.1
-如果是Spark需要相应修改dist/v2.4.3 和plugin/2.4.3
+如果是Spark需要相应修改dist/2.4.3 和plugin/2.4.3
 最后重启engineplugin服务。
 ```
 

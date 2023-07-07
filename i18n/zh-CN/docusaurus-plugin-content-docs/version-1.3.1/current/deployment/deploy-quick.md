@@ -46,24 +46,25 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ，下载对应的安装包（项目安装包和管理台安装包）。
 - 方式2：根据[Linkis 编译打包](../development/build)和[前端管理台编译](../development/build-console) 自行编译出项目安装包和管理台安装包。
 
-上传安装包`apache-linkis-x.x.x-incubating-bin.tar.gz`后，进行解压安装包 
+上传安装包`apache-linkis-x.x.x-bin.tar.gz`后，进行解压安装包 
 
 ```shell script
-$ tar -xvf apache-linkis-x.x.x-incubating-bin.tar.gz
+$ tar -xvf apache-linkis-x.x.x-bin.tar.gz
 ```
 
 解压后的目录结构如下
 ```shell script
--rw-r--r-- 1 hadoop hadoop 531847342 Feb 21 10:10 apache-linkis-1.0.3-incubating-bin.tar.gz
-drwxrwxr-x 2 hadoop hadoop      4096 Feb 21 10:13 bin  //执行环境检查和安装的脚本
-drwxrwxr-x 2 hadoop hadoop      4096 Feb 21 10:13 deploy-config // 部署时依赖的DB等环境配置信息
--rw-r--r-- 1 hadoop hadoop     66058 Jan 22  2020 LICENSE
-drwxrwxr-x 2 hadoop hadoop     16384 Feb 21 10:13 licenses
-drwxrwxr-x 7 hadoop hadoop      4096 Feb 21 10:13 linkis-package // 实际的软件包，包括lib/服务启动脚本工具/db的初始化脚本/微服务的配置文件等
--rw-r--r-- 1 hadoop hadoop     83126 Jan 22  2020 NOTICE
--rw-r--r-- 1 hadoop hadoop      7900 Jan 22  2020 README_CN.md
--rw-r--r-- 1 hadoop hadoop      8184 Jan 22  2020 README.md
-
+-rw-r--r-- 1 hadoop hadoop 518192043 Jun 20 09:50 apache-linkis-1.3.1-bin.tar.gz
+drwxrwxr-x 2 hadoop hadoop      4096 Jun 20 09:56 bin  //执行环境检查和安装的脚本
+drwxrwxr-x 2 hadoop hadoop      4096 Jun 20 09:56 deploy-config // 部署时依赖的DB等环境配置信息
+drwxrwxr-x 4 hadoop hadoop      4096 Jun 20 09:56 docker
+drwxrwxr-x 4 hadoop hadoop      4096 Jun 20 09:56 helm
+-rwxrwxr-x 1 hadoop hadoop     84732 Jan 22  2020 LICENSE
+drwxr-xr-x 2 hadoop hadoop     20480 Jun 20 09:56 licenses
+drwxrwxr-x 7 hadoop hadoop      4096 Jun 20 09:56 linkis-package // 实际的软件包，包括lib/服务启动脚本工具/db的初始化脚本/微服务的配置文件等
+-rwxrwxr-x 1 hadoop hadoop    119503 Jan 22  2020 NOTICE
+-rw-r--r-- 1 hadoop hadoop     11959 Jan 22  2020 README_CN.md
+-rw-r--r-- 1 hadoop hadoop     12587 Jan 22  2020 README.md
 ```
 
 ### 2.2 配置数据库信息
@@ -297,7 +298,7 @@ web端是使用nginx作为静态资源服务器的，访问请求流程是:
 
 ### 4.1 下载前端安装包并解压
 ```shell script
-tar -xvf apache-linkis-x.x.x-incubating-web-bin.tar.gz
+tar -xvf apache-linkis-x.x.x-web-bin.tar.gz
 ```
 
 ### 4.2 修改配置config.sh
@@ -584,7 +585,7 @@ sh -x engineConnExec.sh
 
 1.执行安装之前修改注册中心eureka端口
 ```
-1. 进入apache-linkis-x.x.x-incubating-bin.tar.gz的解压目录
+1. 进入apache-linkis-x.x.x-bin.tar.gz的解压目录
 2. 执行 vi deploy-config/linkis-env.sh
 3. 修改EUREKA_PORT=20303为EUREKA_PORT=端口号
 ```

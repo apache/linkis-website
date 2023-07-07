@@ -9,6 +9,9 @@ on:
     # Run everyday at 9:00 AM (See https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)
     - cron: "0 5 * * *"
 
+env:
+  NODE_OPTIONS: --max-old-space-size=8192
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -51,7 +54,7 @@ jobs:
           npm run build
           cp .asf.yaml build
           cp .htaccess build
-          cp doap.rdf build   
+          cp doap.rdf build
       - name: Link checker
         uses: untitaker/hyperlink@0.1.21
         with:

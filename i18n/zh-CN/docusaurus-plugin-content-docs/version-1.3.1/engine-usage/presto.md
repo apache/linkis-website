@@ -111,7 +111,6 @@ sh ./bin/linkis-cli -engineType presto-0.234 \
 -runtimeMap wds.linkis.presto.url=http://127.0.0.1:8080 \
 -runtimeMap wds.linkis.presto.catalog=hive \
 -runtimeMap  wds.linkis.presto.schema=default  \
--runtimeMap wds.linkis.presto.catalog=hive \
 -submitUser hadoop -proxyUser hadoop
 ```
 
