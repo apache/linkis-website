@@ -3,10 +3,9 @@ title: Public Service
 sidebar_position: 2
 ---
 ## **Background**
+Why do we need to add public enhanced capabilities after we use Linkis as a unified gateway or JobServer? This is after we actually developed multiple upper-level application tools, and found that if a UDF and variable debugging were defined in the IDE tool, after publishing to the scheduling tool, these UDFs and variables need to be redefined again. When some dependent jar packages, configuration files, etc. change, two places also need to be modified.
+Aiming at these issues like the common context across upper-layer application tools, after we realized the unified entry of tasks as Linkis, we wondered whether Linkis could provide this public enhancement capability, and provide some common features that can be used by multiple application tools. The ability to reuse. Therefore, a layer of public enhanced service PES is designed at the Linkis layer.
 
-PublicService is a comprehensive service composed of multiple sub-modules such as "configuration", "jobhistory", "udf", "variable", etc. Linkis 
-1.0 added label management based on version 0.9. Linkis doesn't need to set the parameters every time during the execution of different jobs.
-Many variables, functions and configurations can be reused after the user completes the settings once, and of course that they can also be shared with other users.
 
 ## **Architecture diagram**
 
@@ -14,24 +13,11 @@ Many variables, functions and configurations can be reused after the user comple
 
 ## **Architecture Introduction**
 
-1. linkis-configuration：Provides query and save operations for global settings and general settings, especially engine configuration parameters.
+The capabilities are now provided:
 
-2. linkis-jobhistory：Specially used for storage and query of historical execution task, users can obtain the historical tasks through the interface provided by "jobhistory", include logs, status and execution content.
-At the same time, the historical task also support the paging query operation.The administrator can view all the historical tasks, but the ordinary users can only view their own tasks.
-
-3. Linkis-udf：Provides the user function management capability in Linkis, which can be divided into shared functions, personal functions, system functions and the functions used by engine.
-Once the user selects one, it will be automatically loaded for users to directly quote in the code and reuse between different scripts when the engine starting. 
-
-4. Linkis-variable：Provides the global variable management capability in Linkis, store and query the user-defined global variables。
-
-5. linkis-instance-label：Provides two modules named "label server" and "label client" for labeling Engine and EM. It also provides node-based label addition, deletion, modification and query capabilities.
-The main functions are as follows:
-
--   Provides resource management capabilities for some specific labels to assist RM in more refined resource management.
-
--   Provides labeling capabilities for users. The user label will be automatically added for judgment when applying for the engine. 
-
--   Provides the label analysis module, which can parse the users' request into a bunch of labels。
-
--   With the ability of node label management, it is mainly used to provide the label  CRUD capability of the node and the label resource management to manage the resources of certain labels, marking the maximum resource, minimum resource and used resource of a Label.
-
+- Provide unified data source capability: data sources are defined and managed uniformly at the Linkis layer, and application tools only need to use the data source name, and no longer need to maintain the connection information of the corresponding data source. And the meaning of the data source is the same between different tools. And it provides the query ability of the metadata of the corresponding data source.
+- Provide public UDF capabilities: Unify the definition specifications and semantics of UDF and small functions, so that multiple tools can be used when defined in one place.
+- The ability to provide a unified context: support the transfer of information between tasks, including the transfer of variables, result sets, and resource files between multiple tasks, and provide the ability to transfer context between tasks.
+- The ability to provide unified materials: Provide unified materials, support shared access to these materials among multiple tools, and materials support storage of various file types, and support version control.
+- Ability to provide unified configuration and variables: Provides unified configuration capabilities to support templated configuration of different engine parameter templates, custom variables, built-in commonly used system variables and time format variables, etc.
+- Ability to provide public error codes: Provide unified error code capabilities, classify and code crops of commonly used computing storage engines and knowledge bases, and provide a convenient SDK for calling.
