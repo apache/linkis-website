@@ -33,9 +33,8 @@ Including participating in and helping to organize community exchanges, communit
 
 There are many branches,including temporary branches,in Linkis repository,but only three of them matter:
 
-- master: The source code of the last stable release, and occasionally hotfix submissions;
+- master: main development branch;
 - release-*: stable release version;*
-- *dev-*: main development branch;
 - feature-*: Development branches for some larger new features that need to be jointly developed by the community
 
 #### 2.1.1 Concept
