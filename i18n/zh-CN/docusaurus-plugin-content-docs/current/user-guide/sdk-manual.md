@@ -260,14 +260,15 @@ import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder
 import org.apache.linkis.manager.label.constant.LabelKeyConstant
 import org.apache.linkis.ujes.client.request._
 import org.apache.linkis.ujes.client.response._
-
 import java.util
 import java.util.concurrent.TimeUnit
+
+import org.apache.linkis.ujes.client.UJESClient
 
 object LinkisClientTest {
   // 1. build config: linkis gateway url
   val clientConfig = DWSClientConfigBuilder.newBuilder()
-    .addServerUrl("http://127.0.0.1:9001/") //set linkis-mg-gateway url: http://{ip}:{port}
+    .addServerUrl("http://127.0.0.1:8088/") //set linkis-mg-gateway url: http://{ip}:{port}
     .connectionTimeout(30000) //connectionTimeOut
     .discoveryEnabled(false) //disable discovery
     .discoveryFrequency(1, TimeUnit.MINUTES) // discovery frequency
@@ -341,16 +342,17 @@ object LinkisClientTest {
   def toSubmit(user: String, code: String): JobExecuteResult = {
     // 1. build  params
     // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
-    val labels: util.Map[String, Any] = new util.HashMap[String, Any]
+    val labels: util.Map[String, AnyRef] = new util.HashMap[String, AnyRef]
     labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
     labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-APPName"); // 请求的用户和应用名，两个参数都不能少，其中APPName不能带有"-"建议替换为"_"
     labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // 指定脚本类型
 
-    val startupMap = new java.util.HashMap[String, Any]()
+    val startupMap = new java.util.HashMap[String, AnyRef]()
     // Support setting engine native parameters,For example: parameters of engines such as spark/hive
-    startupMap.put("spark.executor.instances", 2);
+    val instances: Integer = 2
+    startupMap.put("spark.executor.instances", instances)
     // setting linkis params
-    startupMap.put("wds.linkis.rm.yarnqueue", "default");
+    startupMap.put("wds.linkis.rm.yarnqueue", "default")
     // 2. build jobSubmitAction
     val jobSubmitAction = JobSubmitAction.builder
       .addExecuteCode(code)

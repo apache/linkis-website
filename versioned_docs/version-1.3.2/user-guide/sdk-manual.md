@@ -254,46 +254,47 @@ import org.apache.linkis.httpclient.dws.config.DWSClientConfigBuilder
 import org.apache.linkis.manager.label.constant.LabelKeyConstant
 import org.apache.linkis.ujes.client.request._
 import org.apache.linkis.ujes.client.response._
-
 import java.util
 import java.util.concurrent.TimeUnit
 
+import org.apache.linkis.ujes.client.UJESClient
+
 object LinkisClientTest {
-  // 1. build config: linkis gateway url
-  val clientConfig = DWSClientConfigBuilder.newBuilder()
-    .addServerUrl("http://127.0.0.1:9001/") //set linkis-mg-gateway url: http://{ip}:{port}
-    .connectionTimeout(30000) //connectionTimeOut
-    .discoveryEnabled(false) //disable discovery
-    .discoveryFrequency(1, TimeUnit.MINUTES) // discovery frequency
-    .loadbalancerEnabled(true) // enable loadbalance
-    .maxConnectionSize(5) // set max Connection
-    .retryEnabled(false) // set retry
-    .readTimeout(30000) //set read timeout
-    .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authen suppory static and Token
-    .setAuthTokenKey("hadoop") // set submit user
-    .setAuthTokenValue("hadoop") // set passwd or token (setAuthTokenValue("BML-AUTH"))
-    .setDWSVersion("v1") //link rest version v1
-    .build();
+        // 1. build config: linkis gateway url
+        val clientConfig = DWSClientConfigBuilder.newBuilder()
+        .addServerUrl("http://127.0.0.1:9001/") //set linkis-mg-gateway url: http://{ip}:{port}
+        .connectionTimeout(30000) //connectionTimeOut
+        .discoveryEnabled(false) //disable discovery
+        .discoveryFrequency(1, TimeUnit.MINUTES) // discovery frequency
+        .loadbalancerEnabled(true) // enable loadbalance
+        .maxConnectionSize(5) // set max Connection
+        .retryEnabled(false) // set retry
+        .readTimeout(30000) //set read timeout
+        .setAuthenticationStrategy(new StaticAuthenticationStrategy()) //AuthenticationStrategy Linkis authen suppory static and Token
+        .setAuthTokenKey("hadoop") // set submit user
+        .setAuthTokenValue("hadoop") // set passwd or token (setAuthTokenValue("BML-AUTH"))
+        .setDWSVersion("v1") //link rest version v1
+        .build();
 
-  // 2. new Client(Linkis Client) by clientConfig
-  val client = UJESClient(clientConfig)
+        // 2. new Client(Linkis Client) by clientConfig
+        val client = UJESClient(clientConfig)
 
-  def main(args: Array[String]): Unit = {
-    val user = "hadoop" // execute user user needs to be consistent with the value of AuthTokenKey
-    val executeCode = "df=spark.sql(\"show tables\")\n" +
-      "show(df)"; // code support:sql/hql/py/scala
-    try {
-      // 3. build job and execute
-      println("user : " + user + ", code : [" + executeCode + "]")
-      // It is recommended to use submit, which supports the transfer of task labels
-      val jobExecuteResult = toSubmit(user, executeCode)
-      println("execId: " + jobExecuteResult.getExecID + ", taskId: " + jobExecuteResult.taskID)
-      // 4. get job info
-      var jobInfoResult = client.getJobInfo(jobExecuteResult)
-      where logFromLen = 0
-      val logSize = 100
-      val sleepTimeMills: Int = 1000
-      while (!jobInfoResult.isCompleted) {
+        def main(args: Array[String]): Unit = {
+        val user = "hadoop" // execute user user needs to be consistent with the value of AuthTokenKey
+        val executeCode = "df=spark.sql(\"show tables\")\n" +
+        "show(df)"; // code support:sql/hql/py/scala
+        try {
+        // 3. build job and execute
+        println("user : " + user + ", code : [" + executeCode + "]")
+        // It is recommended to use submit, which supports the transfer of task labels
+        val jobExecuteResult = toSubmit(user, executeCode)
+        println("execId: " + jobExecuteResult.getExecID + ", taskId: " + jobExecuteResult.taskID)
+        // 4. get job info
+        var jobInfoResult = client.getJobInfo(jobExecuteResult)
+        var logFromLen = 0
+        val logSize = 100
+        val sleepTimeMills: Int = 1000
+        while (!jobInfoResult.isCompleted) {
         // 5. get progress and log
         val progress = client.progress(jobExecuteResult)
         println("progress: " + progress.getProgress)
@@ -302,59 +303,60 @@ object LinkisClientTest {
         val logArray = logObj.getLog
         // 0: info 1: warn 2: error 3: all
         if (logArray != null && logArray.size >= 4 && StringUtils.isNotEmpty(logArray.get(3))) {
-          println(s"log: ${logArray.get(3)}")
+        println(s"log: ${logArray.get(3)}")
         }
         Utils.sleepQuietly(sleepTimeMills)
         jobInfoResult = client.getJobInfo(jobExecuteResult)
-      }
-      if (!jobInfoResult.isSucceed) {
+        }
+        if (!jobInfoResult.isSucceed) {
         println("Failed to execute job: " + jobInfoResult.getMessage)
         throw new Exception(jobInfoResult.getMessage)
-      }
+        }
 
-      // 6. Get the result set list (if the user submits multiple SQLs at a time,
-      // multiple result sets will be generated)
-      val jobInfo = client.getJobInfo(jobExecuteResult)
-      val resultSetList = jobInfoResult.getResultSetList(client)
-      println("All result set list:")
-      resultSetList.foreach(println)
-      val oneResultSet = jobInfo.getResultSetList(client).head
-      // 7. get resultContent
-      val resultSetResult: ResultSetResult = client.resultSet(ResultSetAction.builder.setPath(oneResultSet).setUser(jobExecuteResult.getUser).build)
-      println("metadata: " + resultSetResult.getMetadata) // column name type
-      println("res: " + resultSetResult.getFileContent) //row data
-    } catch {
-      case e: Exception => {
+        // 6. Get the result set list (if the user submits multiple SQLs at a time,
+        // multiple result sets will be generated)
+        val jobInfo = client.getJobInfo(jobExecuteResult)
+        val resultSetList = jobInfoResult.getResultSetList(client)
+        println("All result set list:")
+        resultSetList.foreach(println)
+        val oneResultSet = jobInfo.getResultSetList(client).head
+        // 7. get resultContent
+        val resultSetResult: ResultSetResult = client.resultSet(ResultSetAction.builder.setPath(oneResultSet).setUser(jobExecuteResult.getUser).build)
+        println("metadata: " + resultSetResult.getMetadata) // column name type
+        println("res: " + resultSetResult.getFileContent) //row data
+        } catch {
+        case e: Exception => {
         e.printStackTrace() //please use log
-      }
-    }
-    IOUtils.closeQuietly(client)
-  }
+        }
+        }
+        IOUtils.closeQuietly(client)
+        }
 
 
-  def toSubmit(user: String, code: String): JobExecuteResult = {
-    // 1. build  params
-    // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
-    val labels: util.Map[String, Any] = new util.HashMap[String, Any]
-    labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
-    labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-APPName"); // The requested user and application name, both parameters must be missing, where APPName cannot contain "-", it is recommended to replace it with "_"
-    labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // specify the script type
+        def toSubmit(user: String, code: String): JobExecuteResult = {
+        // 1. build  params
+        // set label map :EngineTypeLabel/UserCreatorLabel/EngineRunTypeLabel/Tenant
+        val labels: util.Map[String, AnyRef] = new util.HashMap[String, AnyRef]
+        labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
+        labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, user + "-APPName"); // The requested user and application name, both parameters must be missing, where APPName cannot contain "-", it is recommended to replace it with "_"
+        labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py"); // specify the script type
 
-    val startupMap = new java.util.HashMap[String, Any]()
-    // Support setting engine native parameters,For example: parameters of engines such as spark/hive
-    startupMap.put("spark.executor.instances", 2);
-    // setting linkis params
-    startupMap.put("wds.linkis.rm.yarnqueue", "default");
-    // 2. build jobSubmitAction
-    val jobSubmitAction = JobSubmitAction.builder
-      .addExecuteCode(code)
-      .setStartupParams(startupMap)
-      .setUser(user) //submit user
-      .addExecuteUser(user) //execute user
-      .setLabels(labels) .
-      .build
-    // 3. to execute
-    client.submit(jobSubmitAction)
-  }
-}
+        val startupMap = new java.util.HashMap[String, AnyRef]()
+        // Support setting engine native parameters,For example: parameters of engines such as spark/hive
+        val instances: Integer = 2
+        startupMap.put("spark.executor.instances", instances)
+        // setting linkis params
+        startupMap.put("wds.linkis.rm.yarnqueue", "default");
+        // 2. build jobSubmitAction
+        val jobSubmitAction = JobSubmitAction.builder
+        .addExecuteCode(code)
+        .setStartupParams(startupMap)
+        .setUser(user) //submit user
+        .addExecuteUser(user) //execute user
+        .setLabels(labels)
+        .build
+        // 3. to execute
+        client.submit(jobSubmitAction)
+        }
+        }
 ```
