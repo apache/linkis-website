@@ -71,6 +71,21 @@ labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required exe
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
 ```
 
+Spark还支持提交Scala代码和Pyspark代码：
+````java
+
+//scala 
+labels.put(LabelKeyConstant.CODE_TYPE_KEY, "scala");
+code:
+val df=spark.sql("show tables")
+show(df)        
+//pyspark
+/labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py");
+code:
+df=spark.sql("show tables")
+show(df)
+````
+
 ### 3.3 通过提交jar包执行任务
 
 通过 `OnceEngineConn` 提交任务（通过 spark-submit 提交 jar 包执行任务），提交方式参考 `org.apache.linkis.computation.client.SparkOnceJobTest`

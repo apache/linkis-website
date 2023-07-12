@@ -155,3 +155,28 @@ insert into `linkis_ps_configuration_config_value` (`config_key_id`, `config_val
 (select `relation`.`config_key_id` AS `config_key_id`, '' AS `config_value`, `relation`.`engine_type_label_id` AS `config_label_id` FROM linkis_ps_configuration_key_engine_relation relation
 INNER JOIN linkis_cg_manager_label label ON relation.engine_type_label_id = label.id AND label.label_value = @PYTHON_ALL);
 ```
+
+
+### 4.4 其他python样例代码
+
+```python
+import pandas as pd
+ 
+data = {'name': ['aaaaaa', 'bbbbbb', 'cccccc'], 'pay': [4000, 5000, 6000]}
+frame = pd.DataFrame(data)
+show.show(frame)
+
+
+print('new reuslt')
+
+from matplotlib import pyplot as plt
+
+x=[4,8,10]
+y=[12,16,6]
+x2=[6,9,11]
+y2=[6,15,7]
+plt.bar(x,y,color='r',align='center')
+plt.bar(x2,y2,color='g',align='center')
+plt.show()
+
+```
