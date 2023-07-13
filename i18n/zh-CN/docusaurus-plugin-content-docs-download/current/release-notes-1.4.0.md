@@ -3,7 +3,7 @@ title: Release Notes 1.4.0
 sidebar_position: 0.14
 ---
 
-Apache Linkis 1.4.0 包括所有 [Project Linkis-1.3.4](https://github.com/apache/linkis/projects/26)
+Apache Linkis 1.4.0 包括所有 [Project Linkis-1.4.0](https://github.com/apache/linkis/projects/26)
 
 Linkis 1.4.0 版本，主要增加了如下功能：将 hadoop、spark、hive 默认版本升级为3.x；减少基础引擎不同版本兼容性问题；Hive EC 支持并发提交任务；ECM 服务重启时不 kill EC；linkis-storage 支持 S3 和 OSS 文件系统；支持更多的数据源，如：tidb、starrocks、Gaussdb等；增加 postgresql 数据库支持；以及对Spark ETL 功能增强，支持 Excel、Redis、Mongo、Elasticsearch等；同时对版本号升级规则及代码提交默认合并分支做了修改。
 

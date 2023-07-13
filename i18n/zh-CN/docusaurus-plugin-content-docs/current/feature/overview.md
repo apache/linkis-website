@@ -12,7 +12,7 @@ sidebar_position: 0.1
 - [ECM重启时不kill EC](./ecm-takes-over-ec.md)
 - [Spark ETL 功能增强](./spark-etl.md)
 - [版本号及分支修改说明](./version-and-branch-intro.md)
-- [版本的 Release-Notes](/download/release-notes-1.3.4)
+- [版本的 Release-Notes](/download/release-notes-1.4.0)
 
 ## 参数变化 
 
