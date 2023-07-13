@@ -7,13 +7,19 @@ sidebar_position: 0.1
 > Linkis task execution is the core function of Linkis. It calls to Linkis's computing governance service, public enhancement service, and three-tier services of microservice governance. Now it supports the execution of tasks of OLAP, OLTP, Streaming and other engine types. This article will discuss OLAP The process of task submission, preparation, execution, and result return of the type engine is introduced.
 
 ## Keywords:
-LinkisMaster: The management service in the computing governance service layer of Linkis mainly includes several management and control services such as AppManager, ResourceManager, and LabelManager. Formerly known as LinkisManager service
-Entrance: The entry service in the computing governance service layer, which completes the functions of task scheduling, status control, task information push, etc.
-Orchestrator: Linkis' orchestration service provides powerful orchestration and computing strategy capabilities to meet the needs of multiple application scenarios such as multi-active, active-standby, transaction, replay, current limiting, heterogeneous and mixed computing. At this stage, Orchestrator is relied on by the Entrance service
-EngineConn (EC): Engine connector, responsible for accepting tasks and submitting them to underlying engines such as Spark, hive, Flink, Presto, trino, etc. for execution
-EngineConnManager (ECM): Linkis' EC process management service, responsible for controlling the life cycle of EngineConn (start, stop)
-LinkisEnginePluginServer: This service is responsible for managing the startup materials and configuration of each engine, and also provides the startup command acquisition of each EngineConn, as well as the resources required by each EngineConn
-PublicEnhencementService (PES): A public enhancement service, a module that provides functions such as unified configuration management, context service, material library, data source management, microservice management, and historical task query for other microservice modules
+LinkisMaster: The management service in the computing governance service layer of Linkis mainly includes several management and control services such as AppManager, ResourceManager, and LabelManager. Formerly known as LinkisManager service.  
+
+Entrance: The entry service in the computing governance service layer, which completes the functions of task scheduling, status control, task information push, etc.  
+
+Orchestrator: Linkis' orchestration service provides powerful orchestration and computing strategy capabilities to meet the needs of multiple application scenarios such as multi-active, active-standby, transaction, replay, current limiting, heterogeneous and mixed computing. At this stage, Orchestrator is relied on by the Entrance service.  
+
+EngineConn (EC): Engine connector, responsible for accepting tasks and submitting them to underlying engines such as Spark, hive, Flink, Presto, trino, etc. for execution.  
+
+EngineConnManager (ECM): Linkis' EC process management service, responsible for controlling the life cycle of EngineConn (start, stop).  
+
+LinkisEnginePluginServer: This service is responsible for managing the startup materials and configuration of each engine, and also provides the startup command acquisition of each EngineConn, as well as the resources required by each EngineConn.  
+
+PublicEnhencementService (PES): A public enhancement service, a module that provides functions such as unified configuration management, context service, material library, data source management, microservice management, and historical task query for other microservice modules.
 
 ## 1. Linkis interactive task execution architecture
 ### 1.1, Task execution thinking
