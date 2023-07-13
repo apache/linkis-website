@@ -124,7 +124,7 @@ linkis-public-enhancements/linkis-datasource
 
 3.驱动程序列表
 
-|  drive name   |  drive version | download link |
+|  Driver Name   |  Driver Version | Download Link |
 | ----------- |  ----------- |----------- |
 | db2      | db2jcc4 | https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads |
 | dameng   |   DmJdbcDriver18     | https://download.dameng.com/eco/docs/JAVA_Mybatis_lib.zip |
@@ -164,9 +164,25 @@ linkis的启动脚本中默认不会启动数据源相关的服务两个服务�
 #### 3.1.1 通过管理台创建
 >只能创建配置数据源，以及测试数据源是否能正常连接，无法进行直接进行元数据查询
 
-底层做个通用jdbc模块，web界面上可以选择1.6中任意一种数据源，以mysql为例
+底层实现一个通用jdbc模块，web界面上可以选择下表中任意一种数据源
 
-数据源管理>新增数据源>选择mysql类型
+| Data Source | Link |
+| ----------- |----------- |
+|  mysql      | https://www.mysql.com |
+|  oracle     | https://www.oracle.com/database/technologies |
+|  kingbase   | https://www.kingbase.com.cn |
+|  postgresql | https://www.postgresql.org |
+|  sqlserver  | https://www.microsoft.com/en-us/sql-server |
+|  db2        | https://www.ibm.com/products/db2/database |
+|  greenplum  | https://greenplum.org |
+|  dm         | https://dmdatabases.com |
+|  doris      | https://doris.apache.org |
+|  clickhouse | https://clickhouse.com | 
+
+
+以mysql为例:
+
+> 数据源管理>新增数据源>选择mysql类型
 
 
 输入相关的配置信息
