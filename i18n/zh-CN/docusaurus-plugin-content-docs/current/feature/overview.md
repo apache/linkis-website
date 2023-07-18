@@ -8,7 +8,7 @@ sidebar_position: 0.1
 - [Hive 引擎连接器支持并发任务](./hive-engine-support-concurrent.md)
 - [linkis-storage 支持 S3 和 OSS 文件系统](./storage-add-support-oss.md)
 - [支持更多的数据源](./spark-etl.md)
-- [增加 postgresql 数据库支持](/docs/deployment/deploy-quick.md)
+- [增加 postgresql 数据库支持](../deployment/deploy-quick.md)
 - [ECM重启时不kill EC](./ecm-takes-over-ec.md)
 - [Spark ETL 功能增强](./spark-etl.md)
 - [版本号及分支修改说明](./version-and-branch-intro.md)
