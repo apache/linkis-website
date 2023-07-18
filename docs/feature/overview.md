@@ -8,7 +8,7 @@ sidebar_position: 0.1
 - [Hive engine connector supports concurrent tasks](./hive-engine-support-concurrent.md)
 - [linkis-storage supports S3 and OSS file systems](./storage-add-support-oss.md)
 - [Support more data sources](./spark-etl.md)
-- [Add postgresql database support](/docs/deployment/deploy-quick.md)
+- [Add postgresql database support](../deployment/deploy-quick.md)
 - [Do not kill EC when ECM restarts](./ecm-takes-over-ec.md)
 - [Spark ETL enhancements](./spark-etl.md)
 - [version number and branch modification instructions](./version-and-branch-intro.md)
