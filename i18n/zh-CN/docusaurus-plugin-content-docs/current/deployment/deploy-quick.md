@@ -235,7 +235,7 @@ HADOOP_KEYTAB_PATH=/appcom/keytab/
 > 
 > 注意: linkis没有对S3做权限适配，所以无法对其做赋权操作
 
-`vim linkis.properties`
+`vim $LINKIS_HOME/conf/linkis.properties`
 ```shell script
 # s3 file system
 linkis.storage.s3.access.key=xxx
@@ -245,7 +245,7 @@ linkis.storage.s3.region=xxx
 linkis.storage.s3.bucket=xxx
 ```
 
-`vim linkis-cg-entrance.properties`
+`vim $LINKIS_HOME/conf/linkis-cg-entrance.properties`
 ```shell script
 wds.linkis.entrance.config.log.path=s3:///linkis/logs
 wds.linkis.resultSet.store.path=s3:///linkis/results
@@ -273,7 +273,7 @@ select * from linkis_mg_gateway_auth_token;
 
 Linkis 服务本身使用 Token 时，配置文件中 Token 需与数据库中 Token 一致。通过应用简称前缀匹配。
 
-$LINKIS_HOME/conf/linkis.properites文件 Token 配置
+$LINKIS_HOME/conf/linkis.properties文件 Token 配置
 
 ```
 linkis.configuration.linkisclient.auth.token.value=BML-928a721518014ba4a28735ec2a0da799

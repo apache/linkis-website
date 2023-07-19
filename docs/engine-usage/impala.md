@@ -1,42 +1,32 @@
 ---
 title: Impala
-sidebar_position: 15
+sidebar_position: 12
 ---
 
 This article mainly introduces the installation, usage and configuration of the `Impala` engine plugin in `Linkis`.
 
-
 ## 1. Pre-work
 
-### 1.1 Engine installation
+### 1.1 Environment installation
 
-If you want to use the `Impala` engine on your `Linkis` service, you need to prepare the Impala service and provide connection information, such as the connection address of the Impala cluster, SASL username and password, etc.
+If you want to use the Impala engine on your server, you need to prepare the Impala service and provide connection information, such as the connection address of the Impala cluster, SASL user name and password, etc.
 
-### 1.2 Service Verification
+### 1.2 Environment verification
 
-```shell
-# prepare trino-cli
-wget https://repo1.maven.org/maven2/io/trino/trino-cli/374/trino-cli-374-executable.jar
-mv trill-cli-374-executable.jar trill-cli
-chmod +x trino-cli
+Execute the impala-shell command to get the following output, indicating that the impala service is available.
+```
+[root@8f43473645b1 /]# impala-shell
+Starting Impala Shell without Kerberos authentication
+Connected to 8f43473645b1:21000
+Server version: impalad version 2.12.0-cdh5.15.0 RELEASE (build 23f574543323301846b41fa5433690df32efe085)
+***************************************************** *********************************
+Welcome to the Impala shell.
+(Impala Shell v2.12.0-cdh5.15.0 (23f5745) built on Thu May 24 04:07:31 PDT 2018)
 
-# Execute the task
-./trino-cli --server localhost:8080 --execute 'show tables from system.jdbc'
-
-# Get the following output to indicate that the service is available
-"attributes"
-"catalogs"
-"columns"
-"procedure_columns"
-"procedures"
-"pseudo_columns"
-"schemas"
-"super_tables"
-"super_types"
-"table_types"
-"tables"
-"types"
-"udts"
+When pretty-printing is disabled, you can use the '--output_delimiter' flag to set
+the delimiter for fields in the same row. The default is ','.
+***************************************************** *********************************
+[8f43473645b1:21000] >
 ```
 
 ## 2. Engine plugin deployment
@@ -101,7 +91,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 
 ```shell
 sh ./bin/linkis-cli -submitUser impala \
--engineType impala-3.4.0 -code 'select * from default.test limit 10' \
+-engineType impala-3.4.0 -code 'show databases;' \
 -runtimeMap linkis.es.http.method=GET \
 -runtimeMap linkis.impala.servers=127.0.0.1:21050
 ```
@@ -143,37 +133,23 @@ More `Linkis-Cli` command parameter reference: [Linkis-Cli usage](../user-guide/
 
 If the default parameters are not satisfied, there are the following ways to configure some basic parameters
 
-#### 4.2.1 Management console configuration
-
-![](./images/trino-config.png)
-
-Note: After modifying the configuration under the `IDE` tag, you need to specify `-creator IDE` to take effect (other tags are similar), such as:
-
-```shell
-sh ./bin/linkis-cli -creator IDE -submitUser hadoop \
- -engineType impala-3.4.0 -codeType sql \
- -code 'select * from system.jdbc.schemas limit 10' 
-```
-
-#### 4.2.2 Task interface configuration
+#### 4.2.1 Task interface configuration
 Submit the task interface and configure it through the parameter `params.configuration.runtime`
 
 ```shell
 Example of http request parameters
 {
-    "executionContent": {"code": "select * from system.jdbc.schemas limit 10;", "runType":  "sql"},
+    "executionContent": {"code": "show databases;", "runType":  "sql"},
     "params": {
                     "variable": {},
                     "configuration": {
                             "runtime": {
-                                "linkis.trino.url":"http://127.0.0.1:8080",
-                                "linkis.trino.catalog ":"hive",
-                                "linkis.trino.schema ":"default"
-                                }
+                                "linkis.impala.servers"="127.0.0.1:21050"
                             }
-                    },
+                    }
+                },
     "labels": {
-        "engineType": "trino-371",
+        "engineType": "impala-3.4.0",
         "userCreator": "hadoop-IDE"
     }
 }
@@ -185,7 +161,7 @@ Example of http request parameters
 
 ```
 linkis_ps_configuration_config_key: Insert the key and default values ​​​​of the configuration parameters of the engine
-linkis_cg_manager_label: insert engine label such as: trino-375
+linkis_cg_manager_label: insert engine label such as: impala-3.4.0
 linkis_ps_configuration_category: Insert the directory association of the engine
 linkis_ps_configuration_config_value: Insert the configuration that the engine needs to display
 linkis_ps_configuration_key_engine_relation: the relationship between configuration items and engines

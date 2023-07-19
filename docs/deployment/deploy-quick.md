@@ -235,7 +235,7 @@ HADOOP_KEYTAB_PATH=/appcom/keytab/
 >
 > Note: Linkis has not adapted permissions for S3, so it is not possible to grant authorization for it.
 
-`vim linkis.properties`
+`vim $LINKIS_HOME/conf/linkis.properties`
 ```shell script
 # s3 file system
 linkis.storage.s3.access.key=xxx
@@ -245,7 +245,7 @@ linkis.storage.s3.region=xxx
 linkis.storage.s3.bucket=xxx
 ```
 
-`vim linkis-cg-entrance.properties`
+`vim $LINKIS_HOME/conf/linkis-cg-entrance.properties`
 ```shell script
 wds.linkis.entrance.config.log.path=s3:///linkis/logs
 wds.linkis.resultSet.store.path=s3:///linkis/results
