@@ -202,11 +202,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
 sh ./bin/linkis-cli -creator IDE \
 -engineType jdbc-4 -codeType jdbc \
 -code "show tables"  \
--submitUser hadoop -proxyUser hadoop \
--runtimeMap wds.linkis.jdbc.connect.url=jdbc:mysql://127.0.0.1:3306 \
--runtimeMap wds.linkis.jdbc.driver=com.mysql.jdbc.Driver \
--runtimeMap wds.linkis.jdbc.username=root \
--runtimeMap wds.linkis.jdbc.password=123456 \
+-submitUser hadoop -proxyUser hadoop
 ```
 
 #### 4.2.2 任务接口配置

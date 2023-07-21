@@ -496,10 +496,10 @@ wds.linkis.admin.password= #密码
 sh bin/linkis-cli -submitUser  hadoop  -engineType shell-1 -codeType shell  -code "whoami"
 
 #hive引擎任务
-sh bin/linkis-cli -submitUser  hadoop  -engineType hive-2.3.3  -codeType hql  -code "show tables"
+sh bin/linkis-cli -submitUser  hadoop  -engineType hive-3.1.3  -codeType hql  -code "show tables"
 
 #spark引擎任务
-sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -code "show tables"
+sh bin/linkis-cli -submitUser  hadoop  -engineType spark-3.2.1 -codeType sql  -code "show tables"
 
 #python引擎任务
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
@@ -540,9 +540,9 @@ $ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
 linkis-package/lib/linkis-engineconn-plugins/
 ├── hive
 │   ├── dist
-│   │   └── 2.3.3  #版本为2.3.3  engineType 为hive-2.3.3
+│   │   └── 3.1.3  #版本为 3.1.3 engineType 为hive-3.1.3
 │   └── plugin
-│       └── 2.3.3
+│       └── 3.1.3
 ├── python
 │   ├── dist
 │   │   └── python2
@@ -555,9 +555,9 @@ linkis-package/lib/linkis-engineconn-plugins/
 │       └── 1
 └── spark
     ├── dist
-    │   └── 2.4.3
+    │   └── 3.2.1
     └── plugin
-        └── 2.4.3
+        └── 3.2.1
 ```
 
 #### 方式2: 查看linkis的数据库表
@@ -585,13 +585,13 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 INSERT INTO `linkis_cg_rm_external_resource_provider`
 (`resource_type`, `name`, `labels`, `config`) VALUES
 ('Yarn', 'sit', NULL,
-'{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "2.7.2",\r\n"authorEnable":false,\r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
+'{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "3.3.4",\r\n"authorEnable":false,\r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
 );
 
 config字段属性
 
 "rmWebAddress": "http://xx.xx.xx.xx:8088",  #需要带上http以及端口
-"hadoopVersion": "2.7.2",
+"hadoopVersion": "3.3.4",
 "authorEnable":true, //是否需要认证 可以在浏览器中通过访问http://xx.xx.xx.xx:8088验证用户名和密码
 "user":"user",//用户名
 "pwd":"pwd"//密码
