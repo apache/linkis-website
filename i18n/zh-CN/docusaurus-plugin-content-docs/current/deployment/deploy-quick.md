@@ -339,12 +339,12 @@ Your default account password is [hadoop/5e8e312b4]`
 
 :::
 
-下载mysql驱动 以5.1.49版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar) https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar
+下载mysql驱动 以 8.0.28 版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar)
 
 拷贝mysql 驱动包至lib包下 
 ```
-cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-8.0.28.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-8.0.28.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
 ### 3.3 添加postgresql驱动包 (可选)
 如果选择使用postgresql作为业务数据库，需要手动添加postgresql驱动
