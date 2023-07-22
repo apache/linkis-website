@@ -235,7 +235,7 @@ HADOOP_KEYTAB_PATH=/appcom/keytab/
 >
 > Note: Linkis has not adapted permissions for S3, so it is not possible to grant authorization for it.
 
-`vim linkis.properties`
+`vim $LINKIS_HOME/conf/linkis.properties`
 ```shell script
 # s3 file system
 linkis.storage.s3.access.key=xxx
@@ -245,7 +245,7 @@ linkis.storage.s3.region=xxx
 linkis.storage.s3.bucket=xxx
 ```
 
-`vim linkis-cg-entrance.properties`
+`vim $LINKIS_HOME/conf/linkis-cg-entrance.properties`
 ```shell script
 wds.linkis.entrance.config.log.path=s3:///linkis/logs
 wds.linkis.resultSet.store.path=s3:///linkis/results
@@ -507,10 +507,10 @@ wds.linkis.admin.password= #Password
 sh bin/linkis-cli -submitUser hadoop -engineType shell-1 -codeType shell -code "whoami"
 
 #hive engine tasks
-sh bin/linkis-cli -submitUser hadoop -engineType hive-2.3.3 -codeType hql -code "show tables"
+sh bin/linkis-cli -submitUser hadoop -engineType hive-3.1.3 -codeType hql -code "show tables"
 
 #spark engine tasks
-sh bin/linkis-cli -submitUser hadoop -engineType spark-2.4.3 -codeType sql -code "show tables"
+sh bin/linkis-cli -submitUser hadoop -engineType spark-3.2.1 -codeType sql -code "show tables"
 
 #python engine task
 sh bin/linkis-cli -submitUser hadoop -engineType python-python2 -codeType python -code 'print("hello, world!")'
@@ -551,9 +551,9 @@ $ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
 linkis-package/lib/linkis-engineconn-plugins/
 ├── hive
 │ ├── dist
-│ │ └── 2.3.3 #version is 2.3.3 engineType is hive-2.3.3
+│ │ └── 3.1.3 #version is 3.1.3 engineType is hive-3.1.3
 │ └── plugin
-│ └── 2.3.3
+│ └── 3.1.3
 ├── python
 │ ├── dist
 │ │ └── python2
@@ -566,9 +566,9 @@ linkis-package/lib/linkis-engineconn-plugins/
 │ └── 1
 └── spark
     ├── dist
-    │ └── 2.4.3
+    │ └── 3.2.1
     └── plugin
-        └── 2.4.3
+        └── 3.2.1
 ````
 
 #### Method 2: View the database table of linkis
@@ -595,13 +595,13 @@ Insert yarn data information
 INSERT INTO `linkis_cg_rm_external_resource_provider`
 (`resource_type`, `name`, `labels`, `config`) VALUES
 ('Yarn', 'sit', NULL,
-'{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "2.7.2",\r\n"authorEnable":false, \r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
+'{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "3.3.4",\r\n"authorEnable":false, \r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
 );
 
 config field properties
 
 "rmWebAddress": "http://xx.xx.xx.xx:8088", #need to bring http and port
-"hadoopVersion": "2.7.2",
+"hadoopVersion": "3.3.4",
 "authorEnable":true, //Whether authentication is required You can verify the username and password by visiting http://xx.xx.xx.xx:8088 in the browser
 "user":"user",//username
 "pwd":"pwd"//Password

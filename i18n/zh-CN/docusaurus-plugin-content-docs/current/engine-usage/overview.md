@@ -14,8 +14,8 @@ sidebar_position: 0
 
 | 引擎          | 默认引擎 | 默认版本 |
 |-------------| -- | ----   |
-| [Spark](./spark.md)       | 是 | 2.4.3 |
-| [Hive](./hive.md)        | 是 | 2.3.3 |
+| [Spark](./spark.md)       | 是 | 3.2.1 |
+| [Hive](./hive.md)        | 是 | 3.1.3 |
 | [Python](./python.md)      | 是 | python2 |
 | [Shell](./shell.md)       | 是 | 1 |
 | [JDBC](./jdbc.md)        | 否 | 4 |
