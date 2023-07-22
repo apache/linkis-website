@@ -14,8 +14,8 @@ Supported engines and version information are as follows:
 
 | Engine | Default Engine | Default Version |
 |--------------| -- | ---- |
-| [Spark](./spark.md) | Yes | 2.4.3 |
-| [Hive](./hive.md) | yes | 2.3.3 |
+| [Spark](./spark.md) | Yes | 3.2.1 |
+| [Hive](./hive.md) | yes | 3.1.3 |
 | [Python](./python.md) | yes | python2 |
 | [Shell](./shell.md) | Yes | 1 |
 | [JDBC](./jdbc.md) | No | 4 |

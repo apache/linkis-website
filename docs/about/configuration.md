@@ -40,9 +40,9 @@ Linkis binary packages are compiled based on the following software versions:
 
 | Component | Version | Description |
 | --- | --- | --- |
-| Hadoop | 2.7.2 | |
-| Hive | 2.3.3 | |
-| Spark | 2.4.3 | |
+| Hadoop | 3.3.4 | |
+| Hive | 3.1.3 | |
+| Spark | 3.2.1 | |
 | Flink | 1.12.2 | |
 | openLooKeng | 1.5.0 | |
 | Sqoop | 1.4.6 | |

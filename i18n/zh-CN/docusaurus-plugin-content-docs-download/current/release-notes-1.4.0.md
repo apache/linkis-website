@@ -44,20 +44,15 @@ Linkis 1.4.0 版本，主要增加了如下功能：将 hadoop、spark、hive �
 - \[EC][LINKIS-4263](https://github.com/apache/linkis/pull/4263) 将 Hadoop、Spark、Hive 默认版本升级为3.x
 - \[EC-Hive][LINKIS-4359](https://github.com/apache/linkis/pull/4359)  Hive EC 支持并发任务
 - \[COMMON][LINKIS-4435](https://github.com/apache/linkis/pull/4435)  linkis-storage 支持 S3 文件系统
-- \[ECM][LINKIS-4452](https://github.com/apache/linkis/pull/4452) ECM 重启时不 kill EC
-- \[COMMON][LINKIS-4524](https://github.com/apache/linkis/pull/4524)支持 postgresql 数据库
+- \[ECM][LINKIS-4452](https://github.com/apache/linkis/pull/4452) ECM 无状态化，重启时不 kill EC
+- \[COMMON][LINKIS-4524](https://github.com/apache/linkis/pull/4524) 支持 postgresql 数据库
 - \[DMS][LINKIS-4486](https://github.com/apache/linkis/pull/4486) 支持 Tidb 数据源 
-- \[DMS][LINKIS-4496](https://github.com/apache/linkis/pull/4496) 支持 Starrocks 数据源
-- \[DMS][LINKIS-4513](https://github.com/apache/linkis/pull/4513) 支持 Gaussdb 数据源 
-- \[DMS][LINKIS-](https://github.com/apache/linkis/pull/4581) 支持 OceanBase 数据源 
-- \[EC-Spark][LINKIS-4568](https://github.com/apache/linkis/pull/4568) Spark JDBC支持 dm 和 kingbase 数据库
+- \[EC-Spark][LINKIS-4568](https://github.com/apache/linkis/pull/4568) Spark JDBC支持 dm 数据库
 - \[EC-Spark][LINKIS-4539](https://github.com/apache/linkis/pull/4539) Spark etl 支持 excel
 - \[EC-Spark][LINKIS-4534](https://github.com/apache/linkis/pull/4534) Spark etl 支持 redis
-- \[EC-Spark][LINKIS-4564](https://github.com/apache/linkis/pull/4564) Spark etl 支持 RocketMQ
 - \[EC-Spark][LINKIS-4560](https://github.com/apache/linkis/pull/4560) Spark etl 支持 mongo and es
-- \[EC-Spark][LINKIS-4569](https://github.com/apache/linkis/pull/4569) Spark etl 支持 solr
 - \[EC-Spark][LINKIS-4563](https://github.com/apache/linkis/pull/4563) Spark etl 支持 kafka
-- \[EC-Spark][LINKIS-4538](https://github.com/apache/linkis/pull/4538) Spark etl 支持数据湖
+- \[EC-Spark][LINKIS-4538](https://github.com/apache/linkis/pull/4538) Spark etl 支持数据湖 (hudi、delta)
 
 
 ## 增强点
@@ -65,6 +60,8 @@ Linkis 1.4.0 版本，主要增加了如下功能：将 hadoop、spark、hive �
 - \[COMMON][LINKIS-4425](https://github.com/apache/linkis/pull/4425) 代码优化，删除了无用的代码
 - \[COMMON][LINKIS-4368](https://github.com/apache/linkis/pull/4368) 代码优化，移除 json4s 依赖
 - \[COMMON][LINKIS-4357](https://github.com/apache/linkis/pull/4357) 文件上传接口优化
+- \[COMMON][LINKIS-4678](https://github.com/apache/linkis/pull/4678) Linkis JDBC Driver优化支持对接不同类型的引擎和任务
+- \[COMMON][LINKIS-4554](https://github.com/apache/linkis/pull/4554) 增加任务链路跟踪日志，方便通过唯一任务ID定位问题
 - \[ECM][LINKIS-4449](https://github.com/apache/linkis/pull/4449) ECM 代码优化
 - \[EC][LINKIS-4341](https://github.com/apache/linkis/pull/4341) 优化 CustomerDelimitedJSONSerDe 代码逻辑
 - \[EC-Openlookeng][LINKIS-](https://github.com/apache/linkis/pull/4474) Openlookeng EC 代码转换为 Java

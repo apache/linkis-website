@@ -42,7 +42,7 @@ default
 
 <https://github.com/apache/linkis/pull/541>
 
-默认支持的 `Hive` 版本是2.3.3，如果您想修改 `Hive` 的版本，您可以找到 `linkis-engineplugin-hive` 模块，修改 `<hive.version\>` 标签，然后单独编译此模块即可
+默认支持的 `Hive` 版本是 3.1.3 ，如果您想修改 `Hive` 的版本，您可以找到 `linkis-engineplugin-hive` 模块，修改 `<hive.version\>` 标签，然后单独编译此模块即可
 
 [EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
@@ -51,7 +51,7 @@ default
 ### 3.1 通过 `Linkis-cli` 提交任务
 
 ```shell
-sh ./bin/linkis-cli -engineType hive-2.3.3 \
+sh ./bin/linkis-cli -engineType hive-3.1.3 \
 -codeType hql -code "show databases"  \
 -submitUser hadoop -proxyUser hadoop
 ```
@@ -64,7 +64,7 @@ sh ./bin/linkis-cli -engineType hive-2.3.3 \
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
-labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-2.3.3"); // required engineType Label
+labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-3.1.3"); // required engineType Label
 labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 ```
@@ -94,7 +94,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 
 ```shell
 sh ./bin/linkis-cli -creator IDE \
--engineType hive-2.3.3 -codeType hql \
+-engineType hive-3.1.3 -codeType hql \
 -code "show databases"  \
 -submitUser hadoop -proxyUser hadoop
 ```
@@ -115,7 +115,7 @@ http 请求参数示例
                             }
                     },
     "labels": {
-        "engineType": "hive-2.3.3",
+        "engineType": "hive-3.1.3",
         "userCreator": "hadoop-IDE"
     }
 }
@@ -127,7 +127,7 @@ http 请求参数示例
 
 ```
 linkis_ps_configuration_config_key:  插入引擎连接器的配置参数的key和默认values
-linkis_cg_manager_label：插入引擎连接器标签如：hive-2.3.3
+linkis_cg_manager_label：插入引擎连接器标签如：hive-3.1.3
 linkis_ps_configuration_category： 插入引擎连接器的目录关联关系
 linkis_ps_configuration_config_value： 插入引擎连接器需要展示的配置
 linkis_ps_configuration_key_engine_relation:配置项和引擎连接器的关联关系
@@ -137,7 +137,7 @@ linkis_ps_configuration_key_engine_relation:配置项和引擎连接器的关联
 
 ```sql
 -- set variable
-SET @HIVE_LABEL="hive-2.3.3";
+SET @HIVE_LABEL="hive-3.1.3";
 SET @HIVE_ALL=CONCAT('*-*,',@HIVE_LABEL);
 SET @HIVE_IDE=CONCAT('*-IDE,',@HIVE_LABEL);
 
