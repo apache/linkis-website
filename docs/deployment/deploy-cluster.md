@@ -89,24 +89,48 @@ Total memory: 300 people online at the same time * 1G memory for a single engine
 
 ## 2. Process of distributed deployment
 
->The following is just a reference example, taking two servers as an example for distributed deployment. At present, the one-click installation script does not have good support for distributed deployment, and manual adjustment and deployment are required.
+>All services of Linkis support distributed and multi-cluster deployment. It is recommended to complete stand-alone deployment on one machine before distributed deployment, and ensure the normal use of Linkis functions.
 
-If you have already successfully deployed linkis in a stand-alone mode on server A, and now you want to add a server B for distributed deployment, you can refer to the following steps
+At present, the one-click installation script does not have good support for distributed deployment, and manual adjustment and deployment are required. For the specific distributed deployment, you can refer to the following steps, assuming that the user has completed the single-machine deployment on machine A.
 
-Mode: Eureka service multi-active deployment, some services are deployed on server A, and some services are deployed on server B
 
-### 2.1 Environment preparation for distributed deployment
+### 2.1 Environment preparation for distributed deployment  
 Like server A, server B needs basic environment preparation, please refer to [Linkis environment preparation](deploy-quick#3-linkis%E7%8E%AF%E5%A2%83%E5%87%86%E5% A4%87)
 
+**Network Check**
+
+Check whether the service machines that need distributed deployment are connected to each other, and you can use the ping command to check
+```
+ping IP
+```
+
+**Permission check**
+
+Check whether there is a hadoop user on each machine and whether the hadoop user has sudo authority.
+
+**Required Environmental Checks**
+
+Each linkis service depends on some basic environments before starting or when tasks are executed. Please check the basic environment of each machine according to the table below. For specific inspection methods, refer to [Linkis environment preparation] (deploy-quick#3-linkis%E7%8E%AF%E5 %A2%83%E5%87%86%E5%A4%87)
+
+|Service Name|Dependency Environment|
+|-|-|
+|mg-eureka|Java|
+|mg-gateway|Java|
+|ps-publicservice|Java、Hadoop|
+|cg-linkismanager|Java|
+|cg-entrance|Java|
+|cg-engineconnmanager|Java, Hive, Spark, Python, Shell|
+
+
+Note: If you need to use other non-default engines, you also need to check whether the environment of the corresponding engine on the machine where the cg-engineconnmanager service is located is OK. The engine environment can refer to each [engine in use](https://linkis.apache.org/zh- CN/docs/latest/engine-usage/overview) to check the pre-work.
+
 ### 2.2 Eureka multi-active configuration adjustment
-The registration center Eureka service needs to be deployed on server A and server B,
 
-
-Modify the Eureka configuration file, add the configuration addresses of both Eurekas, and let the Eureka services register with each other.
-On server A, make the following configuration changes
+Modify the Eureka configuration file on machine A, add the Eureka configuration addresses of all machines, and let the Eureka services register with each other.  
+On server A, make the following configuration changes, taking two Eureka clusters as an example.
 
 ```
-Revise $LINKIS_HOME/conf/application-eureka.yml和$LINKIS_HOME/conf/application-linkis.yml configuration
+Modify $LINKIS_HOME/conf/application-eureka.yml and $LINKIS_HOME/conf/application-linkis.yml configuration
 
 eureka:
   client:
@@ -120,11 +144,11 @@ wds.linkis.eureka.defaultZone=http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port
 ```
 
 ### 2.3 Synchronization of installation materials
-On server A, package the successfully installed directory `$LINKIS_HOME` of linkis, then copy and decompress it to the same directory on server B.
-At this point, if the `sbin/linkis-start-all.sh` command is started on server A and server B to start all services, then all services have two instances. You can visit the eureka service display page `http:/eurekaIp1:port1, or http:/eurekaIp2:port2` to view
+Create the same directory `$LINKIS_HOME` on all other machines as on machine A. On server A, package the successfully installed directory `$LINKIS_HOME` of linkis, then copy and decompress it to the same directory on other machines.
+At this point, if the `sbin/linkis-start-all.sh` script is executed to start all services on server A and other machines, then all services have n instances, where n is the number of machines. You can visit the eureka service display page `http:/eurekaIp1:port1, or http:/eurekaIp2:port2` to view.
 
 ### 2.4 Adjust startup script
-According to the actual situation, determine the services that need to be deployed on server A and server B,
+According to the actual situation, determine the Linkis service that needs to be deployed on each machine,
 For example, the microservice `linkis-cg-engineconnmanager` will not be deployed on server A,
 Then modify the one-click start-stop script of server A, `sbin/linkis-start-all.sh`, `sbin/linkis-stop-all.sh`, and comment out the start-stop commands related to the `cg-engineconnmanager` service
 ```html

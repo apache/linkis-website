@@ -91,21 +91,45 @@ EngineConnManager（ECM）使用总资源
 
 ##  2 分布式部署的流程
 
->以下只是一个参考样例，以两台服务器为例进行分布式部署。目前一键安装脚本对分布式部署还没有很好的支持，需要手动进行调整部署。
+>Linkis的所有服务都支持分布式、多集群部署，建议在分布式部署前，先在一台机器上完成单机部署，并保证 Linkis 各功能正常使用。
 
-假如已经在服务器A上，成功以单机方式部署了linkis，现在想添加一台服务器B，进行分布式部署，可以参考以下步骤
+目前一键安装脚本对分布式部署还没有很好的支持，需要手动进行调整部署。具体分布式部署，可以参考以下步骤，假设用户已经在 A 机器上完成了单机部署。
 
-模式：Eureka服务多活部署 ，部分服务部署在服务器A，部分服务部署在服务器B上 
 
 ### 2.1 分布式部署的环境准备  
 和服务器A一样，服务器B需要进行基础的环境准备，请参考[Linkis环境准备](deploy-quick#3-linkis%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87)
 
+**网络检查**
+
+检查需要分布式部署的各服务机器是否网络互通，可用 ping 命令进行检查
+```
+ping IP
+```
+
+**权限检查**
+
+检查各机器上是否有 hadoop 用户以及hadoop用户是否有 sudo 权限。
+
+**必要的环境检查**
+
+Linkis各服务启动前或任务执行时会依赖一些基础环境，请根据下表检查各机器基础环境，具体检查方法参考[Linkis环境准备](deploy-quick#3-linkis%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87)
+
+|服务名称|依赖环境|
+|-|-|
+|mg-eureka|Java|
+|mg-gateway|Java|
+|ps-publicservice|Java、Hadoop|
+|cg-linkismanager|Java|
+|cg-entrance|Java|
+|cg-engineconnmanager|Java、Hive、Spark、Python、Shell|
+
+
+注意：如需使用其它非默认引擎，还需要检查cg-engineconnmanager服务所在机器上对应引擎的环境是否OK，引擎环境可参考各[引擎使用中](https://linkis.apache.org/zh-CN/docs/latest/engine-usage/overview)中的前置工作进行检查。
+
 ### 2.2 Eureka多活配置调整 
-注册中心Eureka服务，需要部署在服务器A和服务器B上，
 
-
-修改Eureka配置文件,把两台Eureka的配置地址都加上，让Eureka服务之间相互注册。  
-在服务器A上，进行如下配置修改  
+修改 A 机器上 Eureka 配置文件,把所有机器的 Eureka 的配置地址都加上，让 Eureka 服务之间相互注册。  
+在服务器A上，进行如下配置修改，以两台 Eureka 集群为例。
 
 ```
 修改 $LINKIS_HOME/conf/application-eureka.yml和$LINKIS_HOME/conf/application-linkis.yml配置
@@ -122,11 +146,11 @@ wds.linkis.eureka.defaultZone=http:/eurekaIp1:port1/eureka/,http:/eurekaIp2:port
 ```
 
 ### 2.3 安装物料的同步
-在服务器A上，将linkis的成功安装的目录`$LINKIS_HOME` 打包，然后拷贝并解压到服务器B的相同目录下。
-此时，如果在服务器A上以及服务器B上，启动`sbin/linkis-start-all.sh`命令启动所有服务，那么所有服务都有两个实例。 可以访问eureka服务展示页面 `http:/eurekaIp1:port1，或http:/eurekaIp2:port2` 查看
+在其它所有机器上创建同机器 A 上相同的目录 `$LINKIS_HOME` 。在服务器A上，将linkis的成功安装的目录`$LINKIS_HOME` 打包，然后拷贝并解压到其它机器相同目录下。
+此时，如果在服务器A上以及其它机器上，执行`sbin/linkis-start-all.sh`脚本启动所有服务，那么所有服务都有n个实例，n为机器数量。 可以访问eureka服务展示页面 `http:/eurekaIp1:port1，或http:/eurekaIp2:port2` 查看
 
 ### 2.4 调整启动脚本 
-根据实际情况，确定服务器A和服务器B上需要部署的服务，
+根据实际情况，确定各机器上需要部署的Linkis服务，
 比如 微服务`linkis-cg-engineconnmanager` 不会部署在服务器A上，
 则修改服务器A的一键启停脚本，`sbin/linkis-start-all.sh`，`sbin/linkis-stop-all.sh`，将`cg-engineconnmanager`服务相关的启停命令，注释掉 
 ```html
@@ -149,4 +173,4 @@ sbin/linkis-stop-all.sh
 - 分部署部署时，linkis的安装目录建议保持一致，方便统一管控，相关的配置文件最好也保持一致 
 - 如果某些服务器，端口已被其他应用占用，无法使用时，需要调整该服务端口
 - mg-gateway的多活部署，目前因为登陆session不支持分布式，用一个用户的请求，需要请求到同一个gateway实例上，可以通过nginx的ip hash负载均衡方式来支持
-- 一键启停脚本，根据实际情况，进行调整，对于不再本本服务器上部署的微服务，需要在一键启动脚本中，将对应的启停命令注释掉。
+- 一键启停脚本，根据实际情况，进行调整，对于不再本服务器上部署的微服务，需要在一键启动脚本中，将对应的启停命令注释掉。
