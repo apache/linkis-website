@@ -5,38 +5,28 @@ sidebar_position: 12
 
 本文主要介绍在 `Linkis` 中，`Impala` 引擎插件的安装、使用和配置。
 
-
 ## 1. 前置工作
 
-### 1.1 引擎安装
+### 1.1 环境安装
 
-如果您希望在您的 `Linkis` 服务上使用 `Impala` 引擎，您需要准备 Impala 服务并提供连接信息，如 Impala 集群的连接地址、SASL用户名和密码等
+如果您希望在您的服务器上使用 Impala 引擎，您需要准备 Impala 服务并提供连接信息，如 Impala 集群的连接地址、SASL用户名和密码等
 
-### 1.2 服务验证
+### 1.2 环境验证
 
-```shell
-# 准备 trino-cli
-wget https://repo1.maven.org/maven2/io/trino/trino-cli/374/trino-cli-374-executable.jar
-mv trino-cli-374-executable.jar trino-cli
-chmod +x trino-cli
+执行 impala-shell 命令得到如下输出代表 impala 服务可用。
+```
+[root@8f43473645b1 /]# impala-shell
+Starting Impala Shell without Kerberos authentication
+Connected to 8f43473645b1:21000
+Server version: impalad version 2.12.0-cdh5.15.0 RELEASE (build 23f574543323301846b41fa5433690df32efe085)
+***********************************************************************************
+Welcome to the Impala shell.
+(Impala Shell v2.12.0-cdh5.15.0 (23f5745) built on Thu May 24 04:07:31 PDT 2018)
 
-#  执行任务
-./trino-cli --server localhost:8080 --execute 'show tables from system.jdbc'
-
-# 得到如下输出代表服务可用
-"attributes"
-"catalogs"
-"columns"
-"procedure_columns"
-"procedures"
-"pseudo_columns"
-"schemas"
-"super_tables"
-"super_types"
-"table_types"
-"tables"
-"types"
-"udts"
+When pretty-printing is disabled, you can use the '--output_delimiter' flag to set
+the delimiter for fields in the same row. The default is ','.
+***********************************************************************************
+[8f43473645b1:21000] >
 ```
 
 ## 2. 引擎插件部署
@@ -101,7 +91,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 
 ```shell
 sh ./bin/linkis-cli -submitUser impala \
--engineType impala-3.4.0 -code 'select * from default.test limit 10' \
+-engineType impala-3.4.0 -code 'show databases;' \
 -runtimeMap linkis.es.http.method=GET \
 -runtimeMap linkis.impala.servers=127.0.0.1:21050
 ```
@@ -143,37 +133,23 @@ sh ./bin/linkis-cli -submitUser impala \
 
 如果默认参数不满足时，有如下几中方式可以进行一些基础参数配置
 
-#### 4.2.1 管理台配置
-
-![](./images/trino-config.png)
-
-注意: 修改 `IDE` 标签下的配置后需要指定 `-creator IDE` 才会生效（其它标签类似），如：
-
-```shell
-sh ./bin/linkis-cli -creator IDE -submitUser hadoop \
- -engineType impala-3.4.0 -codeType sql \
- -code 'select * from system.jdbc.schemas limit 10' 
-```
-
-#### 4.2.2 任务接口配置
+#### 4.2.1 任务接口配置
 提交任务接口，通过参数 `params.configuration.runtime` 进行配置
 
 ```shell
 http 请求参数示例 
 {
-    "executionContent": {"code": "select * from system.jdbc.schemas limit 10;", "runType":  "sql"},
+    "executionContent": {"code": "show databases;", "runType":  "sql"},
     "params": {
                     "variable": {},
                     "configuration": {
                             "runtime": {
-                                "linkis.trino.url":"http://127.0.0.1:8080",
-                                "linkis.trino.catalog ":"hive",
-                                "linkis.trino.schema ":"default"
-                                }
+                                "linkis.impala.servers"="127.0.0.1:21050"
                             }
-                    },
+                    }
+                },
     "labels": {
-        "engineType": "trino-371",
+        "engineType": "impala-3.4.0",
         "userCreator": "hadoop-IDE"
     }
 }
@@ -185,7 +161,7 @@ http 请求参数示例
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
-linkis_cg_manager_label：插入引擎label如：trino-375
+linkis_cg_manager_label：插入引擎label如：impala-3.4.0
 linkis_ps_configuration_category： 插入引擎的目录关联关系
 linkis_ps_configuration_config_value： 插入引擎需要展示的配置
 linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系

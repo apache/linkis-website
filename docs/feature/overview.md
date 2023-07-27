@@ -1,19 +1,18 @@
---- 
-title: Version Feature 
-sidebar_position: 0.1 
---- 
+---
+title: version overview
+sidebar_position: 0.1
+---
 
-- [hadoop, spark, hive default version upgraded to 3.x](./upgrade-base-engine-version.md)
-- [Reduce compatibility issues of different versions of the base engine](./base-engine-compatibilty.md)
+- [Base engine dependencies, compatibility, default version optimization](./base-engine-compatibilty.md)
 - [Hive engine connector supports concurrent tasks](./hive-engine-support-concurrent.md)
 - [Support more data sources](./spark-etl.md)
-- [linkis-storage supports S3 file systems (Experimental version)](../deployment/deploy-quick.md)
-- [Add postgresql database support (Experimental version)](../deployment/deploy-quick.md)
+- [linkis-storage supports S3 file systems (Experimental version)](../deployment/deploy-quick#343-s3-mode-optional)
+- [Add postgresql database support (Experimental version)](../deployment/deploy-quick#22-configure-database)
 - [Add impala engine support（Experimental version）](../engine-usage/impala.md)
-- [Add postgresql database support](../deployment/deploy-quick.md)
 - [Do not kill EC when ECM restarts](./ecm-takes-over-ec.md)
 - [Spark ETL enhancements](./spark-etl.md)
-- [version number and branch modification instructions](./version-and-branch-intro.md)
+- [Generate SQL from data source](./datasource-generate-sql.md)
+- [Other feature description](./other.md)
 - [version of Release-Notes](/download/release-notes-1.4.0)
 
 ## Parameter changes
@@ -24,9 +23,10 @@ sidebar_position: 0.1
 | mg-eureka | Add | eureka.instance.metadata-map.linkis.conf.version | None | Eureka metadata report Linkis service version information |
 | mg-eureka | Modify | eureka.client.registry-fetch-interval-seconds | 8 | Eureka Client pull service registration information interval (seconds) |
 | mg-eureka | New | eureka.instance.lease-renewal-interval-in-seconds | 4 | The frequency (seconds) at which the eureka client sends heartbeats to the server |
-| mg-eureka | new | eureka.instance.lease-expiration-duration-in-seconds | 12 | eureka waits for the next heartbeat timeout (seconds) |
+| mg-eureka | new | eureka.instance.lease-expiration-duration-in-seconds | 12 | eureka waits for the next heartbeat timeout (seconds)|
 | EC-shell | Modify | wds.linkis.engineconn.support.parallelism | true | Whether to enable parallel execution of shell tasks |
 | EC-shell | Modify | linkis.engineconn.shell.concurrent.limit | 15 | Concurrent number of shell tasks |
+| Entrance  | Modify | linkis.entrance.auto.clean.dirty.data.enable | true | Whether to clean dirty data during startup |
 
 
 ## Database table changes

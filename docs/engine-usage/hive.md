@@ -42,7 +42,7 @@ The version of `Hive` supports `hive1.x` and `hive2.x`. The default is to suppor
 
 <https://github.com/apache/linkis/pull/541>
 
-The `hive` version supported by default is 2.3.3, if you want to modify the `hive` version, you can find the `linkis-engineplugin-hive` module, modify the \<hive.version\> tag, and then compile this module separately Can
+The `hive` version supported by default is 3.1.3, if you want to modify the `hive` version, you can find the `linkis-engineplugin-hive` module, modify the \<hive.version\> tag, and then compile this module separately Can
 
 [EngineConnPlugin engine plugin installation](../deployment/install-engineconn.md)
 
@@ -51,7 +51,7 @@ The `hive` version supported by default is 2.3.3, if you want to modify the `hiv
 ### 3.1 Submitting tasks via `Linkis-cli`
 
 ```shell
-sh ./bin/linkis-cli -engineType hive-2.3.3 \
+sh ./bin/linkis-cli -engineType hive-3.1.3 \
 -codeType hql -code "show databases"  \
 -submitUser hadoop -proxyUser hadoop
 ```
@@ -65,7 +65,7 @@ For the `Hive` task, you only need to modify `EngineConnType` and `CodeType` par
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
-labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-2.3.3"); // required engineType Label
+labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "hive-3.1.3"); // required engineType Label
 labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "hql"); // required codeType
 ```
@@ -95,7 +95,7 @@ Note: After modifying the configuration under the `IDE` tag, you need to specify
 
 ```shell
 sh ./bin/linkis-cli -creator IDE \
--engineType hive-2.3.3 -codeType hql \
+-engineType hive-3.1.3 -codeType hql \
 -code "show databases"  \
 -submitUser hadoop -proxyUser hadoop
 ```
@@ -116,7 +116,7 @@ Example of http request parameters
                             }
                     },
     "labels": {
-        "engineType": "hive-2.3.3",
+        "engineType": "hive-3.1.3",
         "userCreator": "hadoop-IDE"
     }
 }
@@ -128,7 +128,7 @@ Example of http request parameters
 
 ```
 linkis_ps_configuration_config_key: Insert the key and default values ​​​​of the configuration parameters of the engine
-linkis_cg_manager_label: insert engine label such as: hive-2.3.3
+linkis_cg_manager_label: insert engine label such as: hive-3.1.3
 linkis_ps_configuration_category: Insert the directory association of the engine
 linkis_ps_configuration_config_value: The configuration that the insertion engine needs to display
 linkis_ps_configuration_key_engine_relation: The relationship between the configuration item and the engine
@@ -138,7 +138,7 @@ The initial data related to the engine in the table is as follows
 
 ```sql
 -- set variable
-SET @HIVE_LABEL="hive-2.3.3";
+SET @HIVE_LABEL="hive-3.1.3";
 SET @HIVE_ALL=CONCAT('*-*,',@HIVE_LABEL);
 SET @HIVE_IDE=CONCAT('*-IDE,',@HIVE_LABEL);
 
