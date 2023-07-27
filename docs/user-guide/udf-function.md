@@ -17,7 +17,30 @@ Overall step description
 
 **Step1 Writing jar packages locally**
 
-UDF Example：https://help.aliyun.com/apsara/agile/v_3_6_0_20210705/odps/ase-user-guide/udf-example.html
+Hive UDF Example：
+1. add hive dependency
+```xml
+<dependency>
+    <groupId>org.apache.hive</groupId>
+    <artifactId>hive-exec</artifactId>
+    <version>3.1.3</version>
+</dependency>
+```
+2. create UDF class
+```java
+import org.apache.hadoop.hive.ql.exec.UDF;
+
+public class UDFExample extends UDF {
+    public Integer evaluate(Integer value) {
+        return value == null ? null : value + 1;
+    }
+}
+```
+
+3. package
+```shell
+mvn package
+```
 
 **Step2【Scriptis >> Workspace】Upload jar package**
 Select the corresponding folder and right-click to select Upload

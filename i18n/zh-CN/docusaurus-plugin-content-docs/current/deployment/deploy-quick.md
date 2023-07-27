@@ -229,72 +229,6 @@ HADOOP_KERBEROS_ENABLE=true
 HADOOP_KEYTAB_PATH=/appcom/keytab/
 ```
 
-
-#### S3模式（可选）
-> 目前支持将引擎执行日志和结果存储到S3 
-> 
-> 注意: linkis没有对S3做权限适配，所以无法对其做赋权操作
-
-`vim linkis.properties`
-```shell script
-# s3 file system
-linkis.storage.s3.access.key=xxx
-linkis.storage.s3.secret.key=xxx
-linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
-linkis.storage.s3.region=xxx
-linkis.storage.s3.bucket=xxx
-```
-
-`vim linkis-cg-entrance.properties`
-```shell script
-wds.linkis.entrance.config.log.path=s3:///linkis/logs
-wds.linkis.resultSet.store.path=s3:///linkis/results
-```
-
-### 2.4 配置 Token
-
-Linkis 原有默认 Token 固定且长度太短存在安全隐患。因此 Linkis 1.3.2 将原有固定 Token 改为随机生成，并增加 Token 长度。
-
-新 Token 格式：应用简称-32 位随机数，如BML-928a721518014ba4a28735ec2a0da799。
-
-Token 可能在 Linkis 服务自身使用，如通过 Shell 方式执行任务、BML 上传等，也可能在其它应用中使用，如 DSS、Qualitis 等应用访问 Linkis。
-
-#### 查看 Token
-**通过 SQL 语句查看**
-```sql
-select * from linkis_mg_gateway_auth_token;
-```
-**通过管理台查看**
-
-登录管理台 -> 基础数据管理 -> 令牌管理 
-![](/Images-zh/deployment/token-list.png)
-
-#### 检查 Token 配置
-
-Linkis 服务本身使用 Token 时，配置文件中 Token 需与数据库中 Token 一致。通过应用简称前缀匹配。
-
-$LINKIS_HOME/conf/linkis.properites文件 Token 配置
-
-```
-linkis.configuration.linkisclient.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.bml.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.context.client.auth.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.errorcode.auth.token=BML-928a721518014ba4a28735ec2a0da799
-
-wds.linkis.client.test.common.tokenValue=LINKIS_CLI-215af9e265ae437ca1f070b17d6a540d
-
-wds.linkis.filesystem.token.value=WS-52bce72ed51741c7a2a9544812b45725
-wds.linkis.gateway.access.token=WS-52bce72ed51741c7a2a9544812b45725
-
-wds.linkis.server.dsm.auth.token.value=DSM-65169e8e1b564c0d8a04ee861ca7df6e
-```
-
-$LINKIS_HOME/conf/linkis-cli/linkis-cli.properties文件 Token 配置
-```
-wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
-```
-
 #### 注意事项
 
 **全量安装**
@@ -308,6 +242,17 @@ wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
 **Token 过期问题**
 
 当遇到 Token 令牌无效或已过期问题时可以检查 Token 是否配置正确，可通过管理台查询 Token。
+
+**Python 版本问题**
+Linkis 升级为 1.4.0 后默认 Spark 版本升级为 3.x，无法兼容 python2。因此如果需要使用 pyspark 功能需要做如下修改。
+1. 映射 python2 命令为 python3
+```
+sudo ln -snf /usr/bin/python3 /usr/bin/python2
+```
+2. spark 引擎连接器配置 $LINKIS_HOME/lib/linkis-engineconn-plugins/spark/dist/3.2.1/conf/linkis-engineconn.properties 中添加如下配置，指定python安装路径
+```
+pyspark.python3.path=/usr/bin/python3
+```
 
 ## 3. 安装和启动
 
@@ -370,6 +315,27 @@ cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ```
 
+#### 3.4.3 S3 模式
+> 目前支持将引擎执行日志和结果存储到 S3 文件系统 
+> 
+> 注意: linkis没有对 S3 做权限适配，所以无法对其做赋权操作
+
+`vim $LINKIS_HOME/conf/linkis.properties`
+```shell script
+# s3 file system
+linkis.storage.s3.access.key=xxx
+linkis.storage.s3.secret.key=xxx
+linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
+linkis.storage.s3.region=xxx
+linkis.storage.s3.bucket=xxx
+```
+
+`vim $LINKIS_HOME/conf/linkis-cg-entrance.properties`
+```shell script
+wds.linkis.entrance.config.log.path=s3:///linkis/logs
+wds.linkis.resultSet.store.path=s3:///linkis/results
+```
+
 ### 3.5 启动服务
 ```shell script
 sh sbin/linkis-start-all.sh
@@ -397,6 +363,51 @@ LINKIS-PS-PUBLICSERVICE 公共服务
 
 如果有服务未启动，可以在对应的log/${服务名}.log文件中查看详细异常日志。
 
+### 3.8 配置 Token
+
+Linkis 原有默认 Token 固定且长度太短存在安全隐患。因此 Linkis 1.3.2 将原有固定 Token 改为随机生成，并增加 Token 长度。
+
+新 Token 格式：应用简称-32 位随机数，如BML-928a721518014ba4a28735ec2a0da799。
+
+Token 可能在 Linkis 服务自身使用，如通过 Shell 方式执行任务、BML 上传等，也可能在其它应用中使用，如 DSS、Qualitis 等应用访问 Linkis。
+
+#### 查看 Token
+**通过 SQL 语句查看**
+```sql
+select * from linkis_mg_gateway_auth_token;
+```
+**通过管理台查看**
+
+登录管理台 -> 基础数据管理 -> 令牌管理 
+![](/Images-zh/deployment/token-list.png)
+
+#### 检查 Token 配置
+
+Linkis 服务本身使用 Token 时，配置文件中 Token 需与数据库中 Token 一致。通过应用简称前缀匹配。
+
+$LINKIS_HOME/conf/linkis.properites文件 Token 配置
+
+```
+linkis.configuration.linkisclient.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.bml.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.context.client.auth.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.errorcode.auth.token=BML-928a721518014ba4a28735ec2a0da799
+
+wds.linkis.client.test.common.tokenValue=LINKIS_CLI-215af9e265ae437ca1f070b17d6a540d
+
+wds.linkis.filesystem.token.value=WS-52bce72ed51741c7a2a9544812b45725
+wds.linkis.gateway.access.token=WS-52bce72ed51741c7a2a9544812b45725
+
+wds.linkis.server.dsm.auth.token.value=DSM-65169e8e1b564c0d8a04ee861ca7df6e
+```
+
+$LINKIS_HOME/conf/linkis-cli/linkis-cli.properties文件 Token 配置
+```
+wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
+```
+
+其它应用使用 Token 时，需要修改其 Token 配置与数据库中 Token 一致。
 
 ## 4. 安装web前端
 web端是使用nginx作为静态资源服务器的，访问请求流程是:
@@ -730,7 +741,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 Cookie: bdp-user-ticket-id=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 - 方式3 http请求头添加静态的Token令牌  
-  Token在conf/token.properties进行配置
+  Token在conf/linkis.properties进行配置
   如:TEST-AUTH=hadoop,root,user01
 ```shell script
 Token-Code:TEST-AUTH

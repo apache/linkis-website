@@ -230,71 +230,6 @@ HADOOP_KERBEROS_ENABLE=true
 HADOOP_KEYTAB_PATH=/appcom/keytab/
 ```
 
-#### S3 mode (optional)
-> Currently, it is possible to store engine execution logs and results to S3 in Linkis.
->
-> Note: Linkis has not adapted permissions for S3, so it is not possible to grant authorization for it.
-
-`vim linkis.properties`
-```shell script
-# s3 file system
-linkis.storage.s3.access.key=xxx
-linkis.storage.s3.secret.key=xxx
-linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
-linkis.storage.s3.region=xxx
-linkis.storage.s3.bucket=xxx
-```
-
-`vim linkis-cg-entrance.properties`
-```shell script
-wds.linkis.entrance.config.log.path=s3:///linkis/logs
-wds.linkis.resultSet.store.path=s3:///linkis/results
-```
-
-### 2.4 Configure Token
-
-The original default Token of Linkis is fixed and the length is too short, which has security risks. Therefore, Linkis 1.3.2 changes the original fixed Token to random generation and increases the Token length.
-
-New Token format: application abbreviation - 32-bit random number, such as BML-928a721518014ba4a28735ec2a0da799.
-
-Token may be used in the Linkis service itself, such as executing tasks through Shell, uploading BML, etc., or it may be used in other applications, such as DSS, Qualitis and other applications to access Linkis.
-
-#### View Token
-**View via SQL statement**
-```sql
-select * from linkis_mg_gateway_auth_token;
-```
-**View via Admin Console**
-
-Log in to the management console -> basic data management -> token management
-![](/Images/deployment/token-list.png)
-
-#### Check Token configuration
-
-When the Linkis service itself uses Token, the Token in the configuration file must be consistent with the Token in the database. Match by applying the short name prefix.
-
-$LINKIS_HOME/conf/linkis.properites file Token configuration
-
-```
-linkis.configuration.linkisclient.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.bml.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.context.client.auth.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.errorcode.auth.token=BML-928a721518014ba4a28735ec2a0da799
-
-wds.linkis.client.test.common.tokenValue=LINKIS_CLI-215af9e265ae437ca1f070b17d6a540d
-
-wds.linkis.filesystem.token.value=WS-52bce72ed51741c7a2a9544812b45725
-wds.linkis.gateway.access.token=WS-52bce72ed51741c7a2a9544812b45725
-
-wds.linkis.server.dsm.auth.token.value=DSM-65169e8e1b564c0d8a04ee861ca7df6e
-```
-
-$LINKIS_HOME/conf/linkis-cli/linkis-cli.properties file Token configuration
-```
-wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
-```
-
 #### Notice
 
 **Full installation**
@@ -381,6 +316,27 @@ If you are upgrading to Linkis. Deploy DSS or other projects at the same time, b
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
 ````
 
+#### S3 mode (optional)
+> Currently, it is possible to store engine execution logs and results to S3 in Linkis.
+>
+> Note: Linkis has not adapted permissions for S3, so it is not possible to grant authorization for it.
+
+`vim linkis.properties`
+```shell script
+# s3 file system
+linkis.storage.s3.access.key=xxx
+linkis.storage.s3.secret.key=xxx
+linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
+linkis.storage.s3.region=xxx
+linkis.storage.s3.bucket=xxx
+```
+
+`vim linkis-cg-entrance.properties`
+```shell script
+wds.linkis.entrance.config.log.path=s3:///linkis/logs
+wds.linkis.resultSet.store.path=s3:///linkis/results
+```
+
 ### 3.5 Start the service
 ```shell script
 sh sbin/linkis-start-all.sh
@@ -408,6 +364,52 @@ Note: LINKIS-PS-CS, LINKIS-PS-DATA-SOURCE-MANAGER、LINKIS-PS-METADATAMANAGER se
 
 If any services are not started, you can view detailed exception logs in the corresponding log/${service name}.log file.
 
+
+### 3.8 Configure Token
+
+The original default Token of Linkis is fixed and the length is too short, which has security risks. Therefore, Linkis 1.3.2 changes the original fixed Token to random generation and increases the Token length.
+
+New Token format: application abbreviation - 32-bit random number, such as BML-928a721518014ba4a28735ec2a0da799.
+
+Token may be used in the Linkis service itself, such as executing tasks through Shell, uploading BML, etc., or it may be used in other applications, such as DSS, Qualitis and other applications to access Linkis.
+
+#### View Token
+**View via SQL statement**
+```sql
+select * from linkis_mg_gateway_auth_token;
+```
+**View via Admin Console**
+
+Log in to the management console -> basic data management -> token management
+![](/Images/deployment/token-list.png)
+
+#### Check Token configuration
+
+When the Linkis service itself uses Token, the Token in the configuration file must be consistent with the Token in the database. Match by applying the short name prefix.
+
+$LINKIS_HOME/conf/linkis.properites file Token configuration
+
+```
+linkis.configuration.linkisclient.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.bml.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.context.client.auth.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.errorcode.auth.token=BML-928a721518014ba4a28735ec2a0da799
+
+wds.linkis.client.test.common.tokenValue=LINKIS_CLI-215af9e265ae437ca1f070b17d6a540d
+
+wds.linkis.filesystem.token.value=WS-52bce72ed51741c7a2a9544812b45725
+wds.linkis.gateway.access.token=WS-52bce72ed51741c7a2a9544812b45725
+
+wds.linkis.server.dsm.auth.token.value=DSM-65169e8e1b564c0d8a04ee861ca7df6e
+```
+
+$LINKIS_HOME/conf/linkis-cli/linkis-cli.properties file Token configuration
+```
+wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
+```
+
+When other applications use Token, they need to modify their Token configuration to be consistent with the Token in the database.
 
 ## 4. Install the web frontend
 The web side uses nginx as the static resource server, and the access request process is:
@@ -738,7 +740,7 @@ For details, please refer to the CDH adaptation blog post
 Cookie: bdp-user-ticket-id=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ````
 - Method 3 Add a static Token to the http request header
-  Token is configured in conf/token.properties
+  Token is configured in conf/linkis.properties
   Such as: TEST-AUTH=hadoop,root,user01
 ```shell script
 Token-Code: TEST-AUTH
