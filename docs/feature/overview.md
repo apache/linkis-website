@@ -5,9 +5,10 @@ sidebar_position: 0.1
 
 - [Base engine dependencies, compatibility, default version optimization](./base-engine-compatibilty.md)
 - [Hive engine connector supports concurrent tasks](./hive-engine-support-concurrent.md)
-- [add Impala plugin support](../engine-usage/impala.md)
-- [linkis-storage supports S3 file system](../deployment/deploy-quick#s3-mode-optional)
-- [Add postgresql database support](../deployment/deploy-quick#33-add-postgresql-driver-package-optional)
+- [Support more data sources](./spark-etl.md)
+- [linkis-storage supports S3 file systems (Experimental version)](../deployment/deploy-quick#s3-mode-optional)
+- [Add postgresql database support (Experimental version)](../deployment/deploy-quick#22-configure-database)
+- [Add impala engine support（Experimental version）](../engine-usage/impala.md)
 - [Spark ETL enhancements](./spark-etl.md)
 - [Generate SQL from data source](./datasource-generate-sql.md)
 - [Other feature description](./other.md)

@@ -15,7 +15,29 @@ sidebar_position: 5
 
 **Step1 本地编写jar包**
 
-UDF示例：https://help.aliyun.com/apsara/agile/v_3_6_0_20210705/odps/ase-user-guide/udf-example.html
+Hive UDF示例：
+1. 引入 hive 依赖
+```xml
+<dependency>
+    <groupId>org.apache.hive</groupId>
+    <artifactId>hive-exec</artifactId>
+    <version>3.1.3</version>
+</dependency>
+```
+2. 编写UDF 类
+```java
+import org.apache.hadoop.hive.ql.exec.UDF;
+
+public class UDFExample extends UDF {
+    public Integer evaluate(Integer value) {
+        return value == null ? null : value + 1;
+    }
+}
+
+3. 编译打包
+```shell
+mvn package
+```
 
 **Step2【Scriptis >> 工作空间】上传jar包**
 选择对应的文件夹 鼠标右键 选择上传

@@ -229,11 +229,96 @@ HADOOP_KERBEROS_ENABLE=true
 HADOOP_KEYTAB_PATH=/appcom/keytab/
 ```
 
+#### 注意事项
 
-#### S3模式（可选）
-> 目前支持将引擎执行日志和结果存储到S3 
+**全量安装**
+
+对于全量安装新版本 Linkis 时， install.sh 脚本中会自动处理配置文件和数据库 Token 保持一致。因此 Linkis 服务自身 Token 无需修改。各应用可通过管理台查询并使用新 Token。
+
+**版本升级**
+
+版本升级时，数据库 Token 并未修改，因此无需修改配置文件和应用 Token。
+
+**Token 过期问题**
+
+当遇到 Token 令牌无效或已过期问题时可以检查 Token 是否配置正确，可通过管理台查询 Token。
+
+**Python 版本问题**
+Linkis 升级为 1.4.0 后默认 Spark 版本升级为 3.x，无法兼容 python2。因此如果需要使用 pyspark 功能需要做如下修改。
+1. 映射 python2 命令为 python3
+```
+sudo ln -snf /usr/bin/python3 /usr/bin/python2
+```
+2. spark 引擎连接器配置 $LINKIS_HOME/lib/linkis-engineconn-plugins/spark/dist/3.2.1/conf/linkis-engineconn.properties 中添加如下配置，指定python安装路径
+```
+pyspark.python3.path=/usr/bin/python3
+```
+
+## 3. 安装和启动
+
+### 3.1 执行安装脚本：
+
+```bash
+    sh bin/install.sh
+```
+
+install.sh脚本会询问您是否需要初始化数据库并导入元数据。如果选择初始化，会把数据库中的表数据清空重新初始化。
+
+**<font color="red">第一次安装必须选清空数据库</font>**
+
+:::tip 注意
+- 如果出现报错，又不清楚具体是执行什么命令报错，可以加 -x 参数`sh -x bin/install.sh`，将shell脚本执行过程日志打印出来，方便定位问题。
+- 权限问题:`mkdir: cannot create directory ‘xxxx’: Permission denied`,请确认部署用户是否拥有该路径的读写权限。
+:::
+
+执行成功提示如下:
+```shell script
+`Congratulations! You have installed Linkis 1.0.3 successfully, please use sh /data/Install/linkis/sbin/linkis-start-all.sh to start it!  
+Your default account password is [hadoop/5e8e312b4]`
+```
+
+### <font color="red">3.2 添加mysql驱动包</font>
+
+:::caution 注意
+因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包（**若是通过集成的全家桶物料包安装，则无需手动添加**），安装部署时需要自行添加依赖到对应的lib包中。 可以在对应的目录下查看是否存在，如果不存在则需要添加。
+
+:::
+
+下载mysql驱动 以 8.0.28 版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar)
+
+拷贝mysql 驱动包至lib包下 
+```
+cp mysql-connector-java-8.0.28.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-8.0.28.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
+```
+### 3.3 添加postgresql驱动包 (可选)
+如果选择使用postgresql作为业务数据库，需要手动添加postgresql驱动
+下载postgresql驱动 以42.5.4版本为例：[下载链接](https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.4/postgresql-42.5.4.jar)
+拷贝postgresql驱动包至lib包下
+```
+cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
+```
+### 3.4 配置调整（可选）
+> 以下操作，跟依赖的环境有关，根据实际情况，确定是否需要操作 
+
+#### 3.4.1 Yarn的认证 
+
+执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
+执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
+如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
+详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)。
+
+#### 3.4.2 session 
+如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件。
+```shell
+echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
+```
+
+#### 3.4.3 S3 模式
+> 目前支持将引擎执行日志和结果存储到 S3 文件系统 
 > 
-> 注意: linkis没有对S3做权限适配，所以无法对其做赋权操作
+> 注意: linkis没有对 S3 做权限适配，所以无法对其做赋权操作
 
 `vim $LINKIS_HOME/conf/linkis.properties`
 ```shell script
@@ -251,7 +336,34 @@ wds.linkis.entrance.config.log.path=s3:///linkis/logs
 wds.linkis.resultSet.store.path=s3:///linkis/results
 ```
 
-### 2.4 配置 Token
+### 3.5 启动服务
+```shell script
+sh sbin/linkis-start-all.sh
+```
+
+### 3.6 安装后配置的修改
+安装完成后，如果需要修改配置（因端口冲突或则某些配置有问题需要调整配置），可以重新执行安装，或则修改对应服务的配置`${LINKIS_HOME}/conf/*properties`文件后，重启对应的服务，如：`sh sbin/linkis-daemon.sh start ps-publicservice`。
+
+
+### 3.7 检查服务是否正常启动 
+访问eureka服务页面（http://eurekaip:20303），
+默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动。
+![Linkis1.0_Eureka](./images/eureka.png)
+
+```shell script
+LINKIS-CG-ENGINECONNMANAGER 引擎管理服务 
+LINKIS-CG-ENTRANCE  计算治理入口服务
+LINKIS-CG-LINKISMANAGER  计算治理管理服务 
+LINKIS-MG-EUREKA        微服务注册中心服务   
+LINKIS-MG-GATEWAY  网关服务 
+LINKIS-PS-PUBLICSERVICE 公共服务 
+```
+
+注意：在 Linkis 1.3.1 中已将 LINKIS-PS-CS、LINKIS-PS-DATA-SOURCE-MANAGER、LINKIS-PS-METADATAMANAGER服务合并到LINKIS-PS-PUBLICSERVICE，将LINKIS-CG-ENGINEPLUGIN服务合并到LINKIS-CG-LINKISMANAGER。
+
+如果有服务未启动，可以在对应的log/${服务名}.log文件中查看详细异常日志。
+
+### 3.8 配置 Token
 
 Linkis 原有默认 Token 固定且长度太短存在安全隐患。因此 Linkis 1.3.2 将原有固定 Token 改为随机生成，并增加 Token 长度。
 
@@ -295,108 +407,7 @@ $LINKIS_HOME/conf/linkis-cli/linkis-cli.properties文件 Token 配置
 wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
 ```
 
-#### 注意事项
-
-**全量安装**
-
-对于全量安装新版本 Linkis 时， install.sh 脚本中会自动处理配置文件和数据库 Token 保持一致。因此 Linkis 服务自身 Token 无需修改。各应用可通过管理台查询并使用新 Token。
-
-**版本升级**
-
-版本升级时，数据库 Token 并未修改，因此无需修改配置文件和应用 Token。
-
-**Token 过期问题**
-
-当遇到 Token 令牌无效或已过期问题时可以检查 Token 是否配置正确，可通过管理台查询 Token。
-
-## 3. 安装和启动
-
-### 3.1 执行安装脚本：
-
-```bash
-    sh bin/install.sh
-```
-
-install.sh脚本会询问您是否需要初始化数据库并导入元数据。如果选择初始化，会把数据库中的表数据清空重新初始化。
-
-**<font color="red">第一次安装必须选清空数据库</font>**
-
-:::tip 注意
-- 如果出现报错，又不清楚具体是执行什么命令报错，可以加 -x 参数`sh -x bin/install.sh`，将shell脚本执行过程日志打印出来，方便定位问题。
-- 权限问题:`mkdir: cannot create directory ‘xxxx’: Permission denied`,请确认部署用户是否拥有该路径的读写权限。
-:::
-
-执行成功提示如下:
-```shell script
-`Congratulations! You have installed Linkis 1.0.3 successfully, please use sh /data/Install/linkis/sbin/linkis-start-all.sh to start it!  
-Your default account password is [hadoop/5e8e312b4]`
-```
-
-### <font color="red">3.2 添加mysql驱动包</font>
-
-:::caution 注意
-因为mysql-connector-java驱动是GPL2.0协议，不满足Apache开源协议关于license的政策，因此从1.0.3版本开始，提供的Apache版本官方部署包，默认是没有mysql-connector-java-x.x.x.jar的依赖包（**若是通过集成的全家桶物料包安装，则无需手动添加**），安装部署时需要自行添加依赖到对应的lib包中。 可以在对应的目录下查看是否存在，如果不存在则需要添加。
-
-:::
-
-下载mysql驱动 以5.1.49版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar) https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar
-
-拷贝mysql 驱动包至lib包下 
-```
-cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
-```
-### 3.3 添加postgresql驱动包 (可选)
-如果选择使用postgresql作为业务数据库，需要手动添加postgresql驱动
-下载postgresql驱动 以42.5.4版本为例：[下载链接](https://repo1.maven.org/maven2/org/postgresql/postgresql/42.5.4/postgresql-42.5.4.jar)
-拷贝postgresql驱动包至lib包下
-```
-cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
-```
-### 3.4 配置调整（可选）
-> 以下操作，跟依赖的环境有关，根据实际情况，确定是否需要操作 
-
-#### 3.4.1 Yarn的认证 
-
-执行spark任务时，需要使用到yarn的ResourceManager，通过配置项`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088 `控制。
-执行安装部署时，会将`YARN_RESTFUL_URL=http://xx.xx.xx.xx:8088` 信息更新到数据库表中 `linkis_cg_rm_external_resource_provider`中时候，默认访问yarn资源是不需权限验证的，
-如果yarn的ResourceManager开启了密码权限验证，请安装部署后，修改数据库表 `linkis_cg_rm_external_resource_provider` 中生成的yarn数据信息,
-详细可以参考[查看yarn地址是否配置正确](#811-查看yarn地址是否配置正确)。
-
-#### 3.4.2 session 
-如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件。
-```shell
-echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
-```
-
-### 3.5 启动服务
-```shell script
-sh sbin/linkis-start-all.sh
-```
-
-### 3.6 安装后配置的修改
-安装完成后，如果需要修改配置（因端口冲突或则某些配置有问题需要调整配置），可以重新执行安装，或则修改对应服务的配置`${LINKIS_HOME}/conf/*properties`文件后，重启对应的服务，如：`sh sbin/linkis-daemon.sh start ps-publicservice`。
-
-
-### 3.7 检查服务是否正常启动 
-访问eureka服务页面（http://eurekaip:20303），
-默认会启动6个 Linkis 微服务，其中下图linkis-cg-engineconn服务为运行任务才会启动。
-![Linkis1.0_Eureka](./images/eureka.png)
-
-```shell script
-LINKIS-CG-ENGINECONNMANAGER 引擎管理服务 
-LINKIS-CG-ENTRANCE  计算治理入口服务
-LINKIS-CG-LINKISMANAGER  计算治理管理服务 
-LINKIS-MG-EUREKA        微服务注册中心服务   
-LINKIS-MG-GATEWAY  网关服务 
-LINKIS-PS-PUBLICSERVICE 公共服务 
-```
-
-注意：在 Linkis 1.3.1 中已将 LINKIS-PS-CS、LINKIS-PS-DATA-SOURCE-MANAGER、LINKIS-PS-METADATAMANAGER服务合并到LINKIS-PS-PUBLICSERVICE，将LINKIS-CG-ENGINEPLUGIN服务合并到LINKIS-CG-LINKISMANAGER。
-
-如果有服务未启动，可以在对应的log/${服务名}.log文件中查看详细异常日志。
-
+其它应用使用 Token 时，需要修改其 Token 配置与数据库中 Token 一致。
 
 ## 4. 安装web前端
 web端是使用nginx作为静态资源服务器的，访问请求流程是:
@@ -730,7 +741,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 Cookie: bdp-user-ticket-id=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 - 方式3 http请求头添加静态的Token令牌  
-  Token在conf/token.properties进行配置
+  Token在conf/linkis.properties进行配置
   如:TEST-AUTH=hadoop,root,user01
 ```shell script
 Token-Code:TEST-AUTH

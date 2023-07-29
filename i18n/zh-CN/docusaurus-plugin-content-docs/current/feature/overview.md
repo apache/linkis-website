@@ -5,9 +5,10 @@ sidebar_position: 0.1
 
 - [基础引擎依赖性、兼容性、默认版本优化](./base-engine-compatibilty.md)
 - [Hive 引擎连接器支持并发任务](./hive-engine-support-concurrent.md)
-- [新增 Impala 引擎支持](../engine-usage/impala.md)
-- [linkis-storage 支持 S3 文件系统](../deployment/deploy-quick#s3模式可选)
-- [增加 postgresql 数据库支持](../deployment/deploy-quick.md#33-添加postgresql驱动包-可选)
+- [支持更多的数据源](./spark-etl.md)
+- [linkis-storage 支持 S3 文件系统（实验版本）](../deployment/deploy-quick#343-s3-模式)
+- [增加 postgresql 数据库支持（实验版本）](../deployment/deploy-quick#22-配置数据库信息)
+- [增加 impala 引擎支持（实验版本）](../engine-usage/impala.md)
 - [Spark ETL 功能增强](./spark-etl.md)
 - [根据数据源生成SQL](./datasource-generate-sql.md)
 - [其它特性说明](./other.md)
