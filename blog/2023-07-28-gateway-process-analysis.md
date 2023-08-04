@@ -1,7 +1,7 @@
 ---
 title: Linkis1.3.2 Gateway Process Analysis
 authors: [ahaoyao]
-tags: [blog,linki1.3.0,service merge]
+tags: [blog,linkis1.3.2,gateway]
 ---
 ### Linkis 1.3.2 Process diagram
 

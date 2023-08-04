@@ -1,18 +1,18 @@
 ---
 title: Linkis1.3.2 Gateway流程分析
 authors: [ahaoyao]
-tags: [blog,linki1.3.0,service merge]
+tags: [blog,linki1.3.2,gateway]
 ---
 ### Linkis 1.3.2 流程图解
 
 GateWay采用的是webFlux的响应式编程，其整个流程与spring mvc 类似
 
-| 框架  | Gateway | spring mvc |
-|-----|---------|------------|
-| 请求分发    | DispatcherHandler        | DispatcherServlet           |
-| 请求映射    | HandlerMapping        | HandlerMapping           |
-| 请求适配    | HanderAdaper        | HanderAdaper           |
-| 请求处理    | WebHander        | Hander           |
+| 框架    | Gateway            | spring mvc         |
+|-------|--------------------|--------------------|
+| 请求分发  | DispatcherHandler  | DispatcherServlet  |
+| 请求映射  | HandlerMapping     | HandlerMapping     |
+| 请求适配  | HanderAdaper       | HanderAdaper       |
+| 请求处理  | WebHander          | Hander             |
 		
 ### 流程图
 
