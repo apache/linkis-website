@@ -41,10 +41,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.4.0',
-              label: 'Next(1.4.0)'
+              path: '1.5.0',
+              label: 'Next(1.5.0)'
             },
-            '1.3.2': {
+            '1.4.0': {
               path: 'latest',
             },
           }
@@ -161,12 +161,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Doc',
           position: 'right',
           items: [
-            {label: '1.3.2', to: '/docs/latest/about/introduction'},
+            {label: '1.4.0', to: '/docs/latest/about/introduction'},
+            {label: '1.3.2', to: '/docs/1.3.2/about/introduction'},
             {label: '1.3.1', to: '/docs/1.3.1/about/introduction'},
             {label: '1.3.0', to: '/docs/1.3.0/introduction'},
             {label: '1.2.0', to: '/docs/1.2.0/introduction'},
             {label: '1.1.1', to: '/docs/1.1.1/introduction'},
-            {label: 'Next(1.4.0)', to: '/docs/1.4.0/about/introduction'},
+            {label: 'Next(1.5.0)', to: '/docs/1.5.0/about/introduction'},
             {label: 'All Version', to: '/versions'}
           ]
         },
@@ -356,7 +357,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         createRedirects(existingPath) {
           if (existingPath.includes('/latest')) {
             return [
-              existingPath.replace('/latest', '/1.3.2'),
+              existingPath.replace('/latest', '/1.4.0'),
             ];
           }
           return undefined; // Return a false value: no redirect created
