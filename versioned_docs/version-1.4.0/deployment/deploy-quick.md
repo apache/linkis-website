@@ -390,7 +390,7 @@ select * from linkis_mg_gateway_auth_token;
 **View via Admin Console**
 
 Log in to the management console -> basic data management -> token management
-![](/Images-en/deployment/token-list.png)
+![](/Images/deployment/token-list.png)
 
 #### Check Token configuration
 
