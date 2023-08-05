@@ -5,7 +5,9 @@ sidebar_position: 0.14
 
 Apache Linkis 1.4.0 包括所有 [Project Linkis-1.4.0](https://github.com/apache/linkis/projects/26)
 
-Linkis 1.4.0 版本，主要增加了如下功能：将 hadoop、spark、hive 默认版本升级为3.x；减少基础引擎不同版本兼容性问题；Hive EC 支持并发提交任务；ECM 服务重启时不 kill EC；linkis-storage 支持 S3 和 OSS 文件系统；支持更多的数据源，如：tidb、starrocks、Gaussdb等；增加 postgresql 数据库支持；以及对Spark ETL 功能增强，支持 Excel、Redis、Mongo、Elasticsearch等；同时对版本号升级规则及代码提交默认合并分支做了修改。
+Linkis 1.4.0 版本，主要新增如下特性功能：适配的 Hadoop、Hive、Spark 默认版本升级为3.x (Hadoop2.7.2-3.3.4， Hive2.3.3-3.1.3，spark2.4.3-3.2.1 补充下具体的版本信息), 并支持编译参数控制版本，以降低改造适配非默认基础引擎版本的难度；Hive EC 支持并发模式运行任务，可大幅降低机器资源使用，提高hive任务并发；ECM 服务重启时不 kill EC，为优雅重启提供支持；任务日志结果集的存储，新增对S3 和 OSS 文件系统模式的支持；数据源服务新增对，如：tidb、starrocks、Gaussdb等的支持；服务支持适配postgresql 数据库模式部署（实验性）；新增Impala引擎支持（实验性）;以及对Spark ETL 功能增强，支持 Excel、Redis、Mongo、Elasticsearch等；
+
+@陌悉之陌 release 描述可以优化下
 
 
 主要功能如下：
@@ -14,9 +16,11 @@ Linkis 1.4.0 版本，主要增加了如下功能：将 hadoop、spark、hive �
 - 减少基础引擎不同版本兼容性问题
 - 支持 Hive EC 并发执行任务
 - 支持 ECM 服务重启时不 kill EC
-- linkis-storage 支持 S3 和 OSS 文件系统
+
 - 支持更多的数据源，如：tidb、starrocks、Gaussdb等
-- 增加 postgresql 数据库支持
+- 增加 postgresql 数据库支持（实验性）
+- linkis-storage 支持 S3 和 OSS 文件系统（实验性）
+- 新增 Impala 引擎连接器支持（实验性）
 - 对Spark ETL 功能增强
 - 版本号升级规则及提交代码默认合并分支修改
 
