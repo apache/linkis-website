@@ -7,8 +7,6 @@ Apache Linkis 1.4.0 includes all [Project Linkis-1.4.0](https://github.com/apach
 
 Linkis 1.4.0 version, the main new features are as follows: Adapted Hadoop, Hive, Spark The default version is upgraded to 3.x (Hadoop2.7.2-3.3.4, Hive2.3.3-3.1.3, spark2.4.3-3.2 .1 Supplement the specific version information), and support compilation parameters to control the version, so as to reduce the difficulty of transforming and adapting to the non-default base engine version; Hive EC supports running tasks in concurrent mode, which can greatly reduce the use of machine resources and improve the concurrency of hive tasks; ECM service does not kill EC when restarting, providing support for graceful restart; storage of task log result sets, new support for S3 and OSS file system modes; new support for data source services, such as: tidb, starrocks, Gaussdb, etc. ; Service support adapts to postgresql database mode deployment (experimental); Added Impala engine support (experimental); and enhanced Spark ETL functions, supporting Excel, Redis, Mongo, Elasticsearch, etc.;
 
-@未读之寿release The description can be optimized
-
 
 The main functions are as follows:
 

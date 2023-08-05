@@ -7,8 +7,6 @@ Apache Linkis 1.4.0 包括所有 [Project Linkis-1.4.0](https://github.com/apach
 
 Linkis 1.4.0 版本，主要新增如下特性功能：适配的 Hadoop、Hive、Spark 默认版本升级为3.x (Hadoop2.7.2-3.3.4， Hive2.3.3-3.1.3，spark2.4.3-3.2.1 补充下具体的版本信息), 并支持编译参数控制版本，以降低改造适配非默认基础引擎版本的难度；Hive EC 支持并发模式运行任务，可大幅降低机器资源使用，提高hive任务并发；ECM 服务重启时不 kill EC，为优雅重启提供支持；任务日志结果集的存储，新增对S3 和 OSS 文件系统模式的支持；数据源服务新增对，如：tidb、starrocks、Gaussdb等的支持；服务支持适配postgresql 数据库模式部署（实验性）；新增Impala引擎支持（实验性）;以及对Spark ETL 功能增强，支持 Excel、Redis、Mongo、Elasticsearch等；
 
-@陌悉之陌 release 描述可以优化下
-
 
 主要功能如下：
 
