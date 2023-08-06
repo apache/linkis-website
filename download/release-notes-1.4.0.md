@@ -46,7 +46,7 @@ abbreviation:
 - \[EC][LINKIS-4263](https://github.com/apache/linkis/pull/4263) upgrade the default version of Hadoop, Spark, Hive to 3.x
 - \[EC-Hive][LINKIS-4359](https://github.com/apache/linkis/pull/4359) Hive EC supports concurrent tasks
 - \[COMMON][LINKIS-4435](https://github.com/apache/linkis/pull/4435) linkis-storage supports S3 file system
-- \[ECM][LINKIS-4452](https://github.com/apache/linkis/pull/4452) ECM 无电影化，reboot when not kill EC
+- \[ECM][LINKIS-4452](https://github.com/apache/linkis/pull/4452) support not kill EC when restarting ECM service
 - \[COMMON][LINKIS-4524](https://github.com/apache/linkis/pull/4524) supports postgresql database
 - \[DMS][LINKIS-4486](https://github.com/apache/linkis/pull/4486) supports Tidb data source
 - \[EC-Spark][LINKIS-4568](https://github.com/apache/linkis/pull/4568) Spark JDBC supports dm database
