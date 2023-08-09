@@ -1,6 +1,6 @@
 ---
 title: 【开发经验】Apache linkis +DSS 的编译到部署
-authors: [huasir]
+authors: [Casion]
 tags: [blog,linkis,dss]
 ---
 ### 背景

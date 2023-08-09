@@ -1,6 +1,6 @@
 ---
 title: 【源码解读】Linkis引擎物料管理功能剖析
-authors: [CCweixiao]
+authors: [Casion]
 tags: [blog,linkis]
 ---
 ### 目录导读

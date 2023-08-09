@@ -1,6 +1,6 @@
 ---
 title: [Development Experience] Compilation to Deployment of Apache Linkis+DSS
-authors: [huasir]
+authors: [Casion]
 tags: [blog,linkis,dss]
 ---
 ### Background

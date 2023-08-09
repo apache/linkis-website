@@ -1,6 +1,6 @@
 ---
 title: [Practical Experience] Deploying Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2
-authors: [kongslove]
+authors: [Casion]
 tags: [blog,linkis1.1.1,cdh]
 ---
 ### Preface

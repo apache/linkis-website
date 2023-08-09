@@ -1,6 +1,6 @@
 ---
 title: 【安装部署】Linkis1.3.0+DSS1.1.1 Ansible 单机一键安装脚本
-authors: [wubolive]
+authors: [Casion]
 tags: [blog,linkis1.3.0,ansible]
 ---
 ### 一、简介

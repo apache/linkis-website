@@ -1,6 +1,6 @@
 ---
 title: 【实践经验】基于CDH6.3.2部署Linkis1.1.1和DSS1.1.0
-authors: [kongslove]
+authors: [Casion]
 tags: [blog,linkis1.1.1,cdh]
 ---
 ### 前言

@@ -1,6 +1,6 @@
 ---
 title: [Installation and Deployment] Linkis1.3.0+DSS1.1.1 Ansible Single Machine One Click Installation Script
-authors: [wubolive]
+authors: [Casion]
 tags: [blog,linkis1.3.0,ansible]
 ---
 ### 一、Brief Introduction

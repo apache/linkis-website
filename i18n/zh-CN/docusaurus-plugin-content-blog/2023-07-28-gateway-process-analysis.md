@@ -1,6 +1,6 @@
 ---
 title: Linkis1.3.2 Gateway流程分析
-authors: [ahaoyao]
+authors: [Casion]
 tags: [blog,linki1.3.2,gateway]
 ---
 ### Linkis 1.3.2 流程图解

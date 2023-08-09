@@ -1,6 +1,6 @@
 ---
 title: 【源码解读】Linkis1.1.1 Entrance执行分析
-authors: [guoshupei]
+authors: [Casion]
 tags: [blog,linkis1.1.1,entrance]
 ---
 ### 前言
