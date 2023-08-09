@@ -1,7 +1,5 @@
 ---
-title: [Source Code Interpretation] Analysis of the Material Management Function of the Linkis Engine
-authors: [peacewong]
-tags: [blog,linkis]
+title: Analysis of the Material Management Function of the Linkis Engine
 ---
 ### Catalog Guide
 
