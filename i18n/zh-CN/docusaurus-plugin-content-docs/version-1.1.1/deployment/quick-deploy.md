@@ -482,7 +482,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```sql
 INSERT INTO `linkis_cg_rm_external_resource_provider`
 (`resource_type`, `name`, `labels`, `config`) VALUES
-('Yarn', 'sit', NULL,
+('Yarn', 'default', NULL,
 '{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "2.7.2",\r\n"authorEnable":false,\r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
 );
 

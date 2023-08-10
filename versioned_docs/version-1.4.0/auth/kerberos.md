@@ -67,7 +67,7 @@ Insert yarn data information
 ```sql
 INSERT INTO `linkis_cg_rm_external_resource_provider`
 (`resource_type`, `name`, `labels`, `config`) VALUES
-('Yarn', 'sit', NULL,
+('Yarn', 'default', NULL,
 '
      {
          "rmWebAddress": "http://xx.xx.xx.xx:8088",

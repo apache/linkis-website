@@ -611,7 +611,7 @@ Insert yarn data information
 ```sql
 INSERT INTO `linkis_cg_rm_external_resource_provider`
 (`resource_type`, `name`, `labels`, `config`) VALUES
-('Yarn', 'sit', NULL,
+('Yarn', 'default', NULL,
 '{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "3.3.4",\r\n"authorEnable":false, \r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
 );
 
