@@ -1,7 +1,5 @@
 ---
-title: [Installation and Deployment] Linkis1.3.0+DSS1.1.1 Ansible Single Machine One Click Installation Script
-authors: [Casion]
-tags: [blog,linkis1.3.0,ansible]
+title: Installation and Deployment-Linkis1.3.0+DSS1.1.1 Ansible Single Machine One Click Installation Script
 ---
 ### 一、Brief Introduction
 
@@ -95,7 +93,7 @@ ok: [dss-service] => {
 }
 ```
 After execution, you can access: http://192.168.1.52 View the information page, which records the access addresses and account passwords of all services.
-![](/static/Images/blog/view-information-page.png)
+![](/Images/blog/view-information-page.png)
 
 #### 3.3 Deploy other services
 ```

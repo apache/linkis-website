@@ -16,7 +16,7 @@ GateWay adopts Reactive programming of webFlux, and its whole process is similar
 		
 ### flow chart
 
-![](/static/Images/gateway/flow-chart.png)
+![](/Images/gateway/flow-chart.png)
 
 
 ### Linkis 1.3.2 Process Description
@@ -28,7 +28,7 @@ Authenticate SecurityFilter. doFilter ->Parse phase to determine Application Nam
 ```
 Simplify the process as follows:
 
-![](/static/Images/gateway/simplify-the-process.png)
+![](/Images/gateway/simplify-the-process.png)
 
 ### Authentication
 In terms of functionality, the core SecurityFilter.doFilter method is separated from authentication, and the main operations include:
@@ -50,7 +50,7 @@ Special note: All parses are executed serially and will not interrupt, so the re
 #### General Parse processing
 - DefaultGatewayParser
   After calling the custom parse class for processing, it also performs general processing. When there is no ServiceInstance, it will match the ServiceInstance (publicservice, metadataquery, etc.) with general rules based on the RequestURI. Alternatively, it can be understood that if the parse implementation is written separately, it is a service that requires special processing.
-  ![](/static/Images/gateway/general-parse-processing.png)
+  ![](/Images/gateway/general-parse-processing.png)
 
 ### Route stage
 The Route stage mainly determines the Instance

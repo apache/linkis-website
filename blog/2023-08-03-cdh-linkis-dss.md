@@ -1,7 +1,5 @@
 ---
-title: [Practical Experience] Deploying Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2
-authors: [Casion]
-tags: [blog,linkis1.1.1,cdh]
+title: Practical Experience-Deploying Linkis1.1.1 and DSS1.1.0 based on CDH6.3.2
 ---
 ### Preface
 
@@ -73,14 +71,14 @@ wds.linkis.keytab.host.enabled=false
 wds.linkis.keytab.host=your_host
 ```
 2、Starting an error after replacing the Hadoop dependency package: java.lang.NoClassDefFoundError:org/apache/commons/configuration2/Configuration
-![](/static/Images/blog/hadoop-start-error.png)
+![](/Images/blog/hadoop-start-error.png)
 
 Reason: Configuration class conflict, add a commons configuration 2-2.1.1.jar under the linkis commons module to resolve the conflict
 
 3、Running Spark, Python, etc. in the script reports an error of no plugin for XXX
 Phenomenon: After modifying the Spark/Python version in the configuration file, starting the engine reports an error of no plugin for XXX
 
-![](/static/Images/blog/no-plugin-error.png)
+![](/Images/blog/no-plugin-error.png)
 
 Reason: The versions of the engine have been written dead in the LabelCommonConfig.java and GovernanceCommonConf.scala classes. The corresponding versions have been modified, and after compilation, all jars containing these two classes (linkis computation governance common-1.1.1. jar and linkis label common-1.1.1. jar) have been replaced in linkis and other components (including schedules)
 
@@ -92,21 +90,16 @@ Reason: The versions of the engine have been written dead in the LabelCommonConf
 pythonVersion=/usr/local/bin/python3.6
 ```
 5、Failed to run pyspark task and reported an error
-![](/static/Images/blog/pyspark-task-error.png)
+![](/Images/blog/pyspark-task-error.png)
 
 Reason: PYSPARK not set VERSION
 Solution:
 Set two parameters under/etc/profile
 
-```
-export PYSPARK_PYTHON=/usr/local/bin/python3.6
-
-export PYSPARK_DRIVER_PYTHON=/usr/local/bin/python3.6
-```
 6、Error in executing pyspark task
 java.lang.NoSuchFieldError: HIVE_STATS_JDBC_TIMEOUT
 
-![](/static/Images/blog/pyspark-no-such-field-error.png)
+![](/Images/blog/pyspark-no-such-field-error.png)
 
 Reason: Spark2.4.8 uses the hive1.2.1 package, but our hive has been upgraded to version 2.1.1. This parameter has been removed from hive2, and the code in Spark-SQL still needs to call this parameter of hive, resulting in an error,
 So HIVE was removed from the spark SQL/live code_ STATS_ JDBC_ The TIMEOUT parameter is recompiled and packaged to replace the spark hive in Spark2.4.8_ 2.11-2.4.8.jar
@@ -117,7 +110,7 @@ Phenomenon: User A was used to execute a jdbc task 1, and the engine selected it
 Analyze the reason:
 ConnectionManager::getConnection
 
-![](/static/Images/blog/jdbc-connection-manager.png)
+![](/Images/blog/jdbc-connection-manager.png)
 When creating a datasource here, it is determined whether to create it based on the key, which is a jdbc URL. However, this granularity may be a bit large because different users may access the same datasource, such as hive. Their URLs are the same, but their account passwords are different. Therefore, when the first user creates a datasource, the username is already specified, and when the second user enters, When this data source was found to exist, it was directly used instead of creating a new datasource, resulting in the code submitted by user B being executed through A.
 Solution: Reduce the key granularity of the data source cache map and change it to jdbc. URL+jdbc. user.
 

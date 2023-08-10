@@ -1,14 +1,12 @@
 ---
-title: [Development Experience] Compilation to Deployment of Apache Linkis+DSS
-authors: [Casion]
-tags: [blog,linkis,dss]
+title: Development Experience-Compilation to Deployment of Apache Linkis+DSS
 ---
 ### Background
 
 With the development of our business and the updating and iteration of community products, we have found that linkis1.2.0 and dss1.1.1 can better meet our needs for real-time data warehousing and machine learning. Compared to the currently used linkis 0.9.3 and dss 0.7.0, there have been significant structural adjustments and design optimizations in task scheduling and plugin access. Based on the above reasons, we now need to upgrade the existing version. Due to the large version span, our upgrade idea is to redeploy a new version and migrate the original business data. The following are specific practical operations, hoping to provide reference for everyone.
 
 ### Obtain source code
-![](/static/Images/blog/resource-code.png)
+![](/Images/blog/resource-code.png)
 
 ```
  git clone git@github.com:yourgithub/incubator-linkis.git
@@ -119,7 +117,7 @@ Install the new version of links1.2.0 and dss1.1.0 on the app machine first. Kee
 
 #### Collect installation package
 
-![](/static/Images/blog/collect-installation-package.png)
+![](/Images/blog/collect-installation-package.png)
 
 #### Install MySQL
 ```
@@ -132,7 +130,7 @@ tar zxvf apache-linkis-1.2.0-incubating-bin.tar.gz -C linkis
 cd linkis
 vi deploy-config/db.sh # Configuration database
 ```
-![](/static/Images/blog/install-linkis.png)
+![](/Images/blog/install-linkis.png)
 
 Key parameter configuration
 ```
@@ -170,7 +168,7 @@ Implement safety insurance chekcEnv.sh
 ```
 bin]# ./checkEnv.sh
 ```
-![](/static/Images/blog/check-env.png)
+![](/Images/blog/check-env.png)
 Because I am using the Docker locally to install MySQL, I need to install an additional MySQL client
 ```
 wget https://repo.mysql.com//mysql80-community-release-el7-7.noarch.rpm
@@ -190,16 +188,16 @@ Attempt to install linkis
 ```
  sh bin/install.sh
 ```
-![](/static/Images/blog/sh-bin-install-sh.png)
+![](/Images/blog/sh-bin-install-sh.png)
 Open the management interface of Spark2 in Ambari, add environment variables, and restart the related services of Spark2
-![](/static/Images/blog/advanced-spark2-env.png)
+![](/Images/blog/advanced-spark2-env.png)
 Finally passed verification
-![](/static/Images/blog/check-env1.png)
+![](/Images/blog/check-env1.png)
 ```
 sh bin/install.sh
 ```
 For the first installation, the database needs to be initialized. Simply select 2
-![](/static/Images/blog/data-source-init-choose-2.png)
+![](/Images/blog/data-source-init-choose-2.png)
 
 According to the official website prompt, you need to download the MySQL driver package yourself and place it in the corresponding directory. I used to check and found that there is already a MySQL package. It should be because the MySQL scope was removed during the previous compilation, but the version is incorrect. We are using 5.7 in production, but the driver is the MySQL 8 driver package. So it's best to adjust the MySQL driver version first when compiling.![](/static/Images/blog/choose-true-mysql-version.png)
 
@@ -213,7 +211,7 @@ mv mysql-connector-java-8.0.28.jar mysql-connector-java-8.0.28.jar.bak#需要cd�
 sh sbin/linkis-start-all.sh
 ```
 Browser Open，http://app:20303/，There are a total of 10 services, and it seems like there is no problem
-![](/static/Images/blog/open-eureka-service.png)
+![](/Images/blog/open-eureka-service.png)
 
 #### Installing linkis-web
 ```
@@ -229,16 +227,16 @@ user  root; # Change the default user to their own root
 nginx -s reload
 ```
 Visiting again seems to be correct
-![](/static/Images/blog/login.png)
+![](/Images/blog/login.png)
 
 View default username and password
 ```
 cat LinkisInstall/conf/linkis-mg-gateway.properties
 ```
-![](/static/Images/blog/linkis-mg-gateway.png)
+![](/Images/blog/linkis-mg-gateway.png)
 
 Log in to the linkis management console
-![](/static/Images/blog/linkis-console.png)
+![](/Images/blog/linkis-console.png)
 
 Quick verification using linkis cli
 ```
@@ -256,7 +254,7 @@ errDesc: 21304, Task is Failed,errorMsg: errCode: 12003 ,desc: app:9101_4 Failed
 ```
 
 Management Console View Log Information
-![](/static/Images/blog/console-log-info.png)
+![](/Images/blog/console-log-info.png)
 
 My hive uses the Tez engine, and I need to manually copy the Tez engine related packages to the hive plugin's lib
 ```
@@ -266,7 +264,7 @@ sh bin/linkis-cli -submitUser root -engineType hive-3.1.0 -codeType hql -code "s
 ```
 
 Running again, but still not running, seems to be missing Jackson's library
-![](/static/Images/blog/miss-jackson-jar.png)
+![](/Images/blog/miss-jackson-jar.png)
 
 ```
 // Links commons/links hadoop common needs to be added manually, dependencies need to be added and repackaged
@@ -328,7 +326,7 @@ Run again, run successfully, and there seems to be no problem with the deploymen
 Explanation: Since DSS was installed by another colleague, I will not show it here. For details, please refer to the installation on the official website. Here, I will mainly explain the problems encountered during the integration of DSS and Linkis.
 1. When logging in to dss, the log of linkis mg gateway displays TooManyServiceException
    As shown in the figure：
-   ![](/static/Images/blog/install-dss.png)
+   ![](/Images/blog/install-dss.png)
    The specific logs in the gateway are as follows
 ```
 2022-11-11 11:27:06.194 [WARN ] [reactor-http-epoll-6                    ] o.a.l.g.r.DefaultGatewayRouter (129) [apply] - org.apache.linkis.gateway.exception.TooManyServiceException: errCode: 11010 ,desc: Cannot find a correct serviceId for parsedServiceId dss, service list is: List(dss-framework-project-server, dss-apiservice-server, dss-scriptis-server, dss-framework-orchestrator-server-dev, dss-flow-entrance, dss-guide-server, dss-workflow-server-dev) ,ip: app ,port: 9001 ,serviceKind: linkis-mg-gateway
@@ -337,7 +335,7 @@ Explanation: Since DSS was installed by another colleague, I will not show it he
         at org.apache.linkis.gateway.route.AbstractGatewayRouter.findService(GatewayRouter.scala:70) ~[linkis-gatew
 ```
 The general idea is that the dss cannot be found. Coincidentally, I found a piece of gawayParser code under the plugin in the dss and tried to copy it to the case COMMON of the parse method in the GatewayParser_ Before REGEX, introduce dependent methods, variables, and packages based on compilation prompts. As shown in the figure:
-![](/static/Images/blog/gateway-parse-code.png)
+![](/Images/blog/gateway-parse-code.png)
 
 Successfully logged in (remember to restart the mg geteway service on linkis).
 

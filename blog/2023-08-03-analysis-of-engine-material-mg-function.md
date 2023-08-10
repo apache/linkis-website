@@ -1,5 +1,5 @@
 ---
-title: Analysis of the Material Management Function of the Linkis Engine
+title: Source Code Interpretation-Analysis of the Material Management Function of the Linkis Engine
 ---
 ### Catalog Guide
 
@@ -10,7 +10,7 @@ Introduction: This article takes the engine related material management process 
 #### 1. BML Material Warehouse Service
 
 The BML material library is a functional module under the Public Enhancement Service (PS) - public enhanced service architecture in Linkis.
-![](/static/Images/blog/public-enhancement-service.png)
+![](/Images/blog/public-enhancement-service.png)
 
 In the architecture system of Linkis, the concept of materials refers to various file data that is uniformly stored and managed, including script code, resource files, third-party jars, relevant class libraries and configuration files required for engine startup, and keytab files used for security authentication.
 
@@ -25,13 +25,13 @@ The material file adopts an appending method, which can merge multiple versions 
 Material service provides lifecycle management for operational tasks such as file upload, update, and download. At the same time, there are two forms of using material services: rest interface and SDK, and users can choose according to their own needs.
 
 The BML architecture diagram is as follows:
-![](/static/Images/blog/bml-service.png)
+![](/Images/blog/bml-service.png)
 
 The above overview of BML architecture can be found in the official website documentation：https://linkis.apache.org/zh-CN/docs/latest/architecture/public_enhancement_services/bml
 
 #### 2. BML Material Warehouse Service Bottom Table Model
 Before delving into the process details of BML material management, it is necessary to first sort out the database table models that BML material management services rely on at the bottom.
-![](/static/Images/blog/linkis-ps-bml.png)
+![](/Images/blog/linkis-ps-bml.png)
 
 Linkis that can be combined with Linkis_ The ddl. SQL file and the engine material upload and update process described in the following content are used to understand the field meanings of bml resources related tables and the field relationships between tables.
 
@@ -153,7 +153,7 @@ Each material upload will construct a ResourceTask to complete the file upload p
 ResourceTask resourceTask = ResourceTask.createUploadTask(resourceId, user, properties);
 taskDao.insert(resourceTask);
 
-taskDao.updateState(resourceTask.getId(), TaskState.RUNNING.getValue(), new Date());
+// taskDao.updateState(resourceTask.getId(), TaskState.RUNNING.getValue(), new Date());
 ```
 3) The actual operation of writing material files into the material library is completed by the upload method in the ResourceServiceImpl class. Within the upload method, a set of byte streams corresponding to List<MultipartFile>files will be persisted to the material library file storage system; Store the properties data of the material file in the resource record table (linkis_ps bml resources) and resource version record table (linkis_ps bml resources version).
 ```

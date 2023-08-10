@@ -1,22 +1,20 @@
 ---
-title: [Source Code Interpretation] Linkis1.1.1 Entry Execution Analysis
-authors: [Casion]
-tags: [blog,linkis1.1.1,entrance]
+title: Source Code Interpretation-Linkis1.1.1 Entry Execution Analysis
 ---
 ### Preface
 
 The following is a diagram based on the source code analysis of Linkisv1.1.1: Entry service execution process.
 All subsequent explanations revolve around this picture, so when reading the explanation, please refer to the entire picture to understand. The explanation idea is to break the whole into parts, accumulate points into lines, and gather lines into surfaces.
-![](/static/Images/blog/entry-service-execution-process.jpg)
+![](/Images/blog/entry-service-execution-process.jpg)
 
 Roughly divide the above figure into:
 Environment initialization area: The EntranceContext that needs to be initialized when the entire Entrance service starts
 Submit task area: Users call the EntranceRestfulApi interface to submit tasks, as well as job construction, interceptor operations, etc
 Execution area: The job submitted from the submission area contains all operations throughout the entire job lifecycle
-![](/static/Images/blog/entrance-context.png)
+![](/Images/blog/entrance-context.png)
 
 ### Environment initialization area
-![](/static/Images/blog/env-init.png)
+![](/Images/blog/env-init.png)
 ```
 The Entry function is finely divided and each performs its own duties, making it easy to expand. The injection of the entire environment can be viewed in the EnteranceSpringConfiguration configuration class, which is introduced from left to right in sequence below
 
@@ -39,7 +37,7 @@ EnteranceEventListenerBus event listener service: a general event listener servi
 ```
 
 ### Submit Task Area
-![](/static/Images/blog/submit-task.png)
+![](/Images/blog/submit-task.png)
 ```
 Mainly explained by the user calling the execute() method of EnteranceRestfulApi. There are mainly four important steps
 
@@ -50,7 +48,7 @@ Submit the job to the scheduler to obtain the execId
 ```
 
 ### Execution region
-![](/static/Images/blog/excute-area.png)
+![](/Images/blog/excute-area.png)
 ```
 ParallelGroup: Stores some parameters that FIFOUserConsumer will use, but parameter changes should not take effect in real time
 
