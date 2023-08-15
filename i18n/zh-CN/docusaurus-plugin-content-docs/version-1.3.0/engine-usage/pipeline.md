@@ -37,10 +37,10 @@ ${linkis_code_dir}/linkis-engineconn-plugins/pipeline/target/out/pipeline
 将 步骤 1.1获取到的引擎物料包，上传到服务器的引擎目录下`${LINKIS_HOME}/lib/linkis-engineplugins`
 
 
-并重启linkis-engineplugin进行引擎刷新
+并重启linkis-cg-linkismanager进行引擎刷新
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 
 检查引擎是否刷新成功：可以查看数据库中的linkis_engine_conn_plugin_bml_resources这张表的last_update_time是否为触发刷新的时间。

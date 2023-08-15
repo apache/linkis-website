@@ -39,7 +39,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 And restart the `linkis engineplugin` to refresh the engine
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 Or refresh through the engine interface. After the engine is placed in the corresponding directory, send a refresh request to the `linkis CG engineconplugin service` through the HTTP interface.
 - Interface`http://${engineconn-plugin-server-IP}:${port}/api/rest_j/v1/rpc/receiveAndReply`
