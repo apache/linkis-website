@@ -73,5 +73,5 @@ cd /Linkis1.0.0/sbin
 
 ## Execute linkis-daemon script
 
-sh linkis-daemon.sh restart linkis-engine-plugin-server
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```

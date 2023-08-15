@@ -55,7 +55,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 并重启linkis-engineplugin
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 engineplugin更详细的介绍可以参看下面的文章。  
 https://linkis.apache.org/zh-CN/docs/1.1.1/deployment/engine-conn-plugin-installation
@@ -82,7 +82,7 @@ Linkis的Flink引擎有两种执行方式，一种是ComputationEngineConn方式
 FlinkSQL可以支持多种数据源,例如binlog,kafka,hive等,如果您想要在Flink代码中使用这些数据源，您需要将这些connector的插件jar包放置到flink引擎的lib中，并重启下Linkis的EnginePlugin服务。如你想要在您的FlinkSQL中使用binlog作为数据源，那么您需要将flink-connector-mysql-cdc-1.1.1.jar放置到flink引擎的lib中。
 ```bash 
 cd ${LINKS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 
 ### 3.1 ComputationEngineConn方式

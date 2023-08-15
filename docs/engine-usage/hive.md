@@ -38,9 +38,11 @@ default
 
 The binary installation package released by `linkis` includes the `Hive` engine plug-in by default, and users do not need to install it additionally.
 
-The version of `Hive` supports `hive1.x` and `hive2.x`. The default is to support `hive on MapReduce`. If you want to change to `Hive on Tez`, you need to modify it according to this `pr`.
+The version of `Hive` supports `hive1.x` and `hive2.x`. The default is to support `hive on MapReduce`. If you want to change to `Hive on Tez`,Linkis is compatible with hive on tez and requires the following steps:
+- You need to copy Tez-related dependencies to {LINKIS_HOME}/lib/linkis-engineconn-plugins/hive/dist/3.1.3/lib is the dist not plugin directory . You can also modify hive ec pom to add tez dependency compile
+- vim {LINKIS_HOME}/lib/linkis-engineconn-plugins/hive/dist/3.1.3/conf/linkis-engineconn.properties and update linkis.hive.engine.type=tez
+- sh linkis-daemon.sh restart linkis-cg-manager
 
-<https://github.com/apache/linkis/pull/541>
 
 The `hive` version supported by default is 3.1.3, if you want to modify the `hive` version, you can find the `linkis-engineplugin-hive` module, modify the \<hive.version\> tag, and then compile this module separately Can
 

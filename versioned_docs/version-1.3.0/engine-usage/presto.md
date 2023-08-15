@@ -38,7 +38,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 And restart linkis-engineplugin (or refresh through the engine interface)
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 Check whether the engine refresh is successful: You can check whether the last_update_time of the linkis_engine_conn_plugin_bml_resources table in the database is the time when the refresh is triggered.
 

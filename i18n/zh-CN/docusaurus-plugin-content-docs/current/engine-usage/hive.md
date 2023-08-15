@@ -38,9 +38,12 @@ default
 
 `linkis` 发布的二进制安装包中默认包含了 `Hive` 引擎插件，用户无需额外安装。
 
-`Hive` 的版本是支持 `Hive1.x` 和` Hive2.x` ，默认是支持 `Hive on MapReduce` ，如果您想改成 `Hive on Tez` ，需要您按照此 `PR` 进行一下修改。
+`Hive` 的版本是支持 `Hive1.x` 和` Hive2.x` ，默认是支持 `Hive on MapReduce` ，如果您想改成 `Hive on Tez`,
+Linkis是可以兼容hive on tez的需要以下步骤：
+- 需要将Tez相关的依赖拷贝到 {LINKIS_HOME}/lib/linkis-engineconn-plugins/hive/dist/3.1.3/lib 是dist not plugin 目录[1]. 你也可以修改hive ec pom增加tez dependency重新编译
+- vim {LINKIS_HOME}/lib/linkis-engineconn-plugins/hive/dist/3.1.3/conf/linkis-engineconn.properties and update linkis.hive.engine.type=tez
+- sh linkis-daemon.sh restart linkis-cg-manager
 
-<https://github.com/apache/linkis/pull/541>
 
 默认支持的 `Hive` 版本是 3.1.3 ，如果您想修改 `Hive` 的版本，您可以找到 `linkis-engineplugin-hive` 模块，修改 `<hive.version\>` 标签，然后单独编译此模块即可
 
