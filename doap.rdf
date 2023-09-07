@@ -26,7 +26,7 @@
     <license rdf:resource="http://spdx.org/licenses/Apache-2.0" />
     <name>Apache Linkis</name>
     <homepage rdf:resource="http://linkis.apache.org/" />
-    <asfext:pmc rdf:resource="http://incubator.apache.org" />
+    <asfext:pmc rdf:resource="http://linkis.apache.org" />
     <shortdesc>Apache Linkis builds a layer of computation middleware between upper applications and underlying engines.</shortdesc>
     <description>Apache Linkis is a computation middleware project, which decouples the upper applications and the underlying data engines, provides standardized interfaces (REST, JDBC etc.) to easily connect to various underlying engines (Spark, Presto, Flink, etc.).</description>
     <bug-database rdf:resource="https://github.com/apache/linkis/issues" />
