@@ -591,7 +591,17 @@ linkis-package/lib/linkis-engineconn-plugins/
 ```shell script
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
+### 7.3 非默认引擎检查
+非默认引擎的检查通过手工执行脚本`checkAdd.sh + 引擎名称`来检查，具体脚本参见目录（`bin/checkAdd.sh`) 。具体的检查方法如下：
 
+```shell script
+function print_usage(){
+  echo "Usage: checkAdd [EngineName]"
+  echo " EngineName : The Engine name that you want to check"
+  echo " Engine list as bellow: JDBC Flink openLooKeng Pipeline Presto Sqoop Elasticsearch "
+}
+
+```
 
 ## 8. 常见异常问题排查指引
 ### 8.1. Yarn队列检查
