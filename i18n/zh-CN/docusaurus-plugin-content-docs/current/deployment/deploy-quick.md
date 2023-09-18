@@ -42,20 +42,20 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 | 引擎类型       | 适配情况       | 是否默认 |检查方法               |
 |---------------|-------------------|-----------------------|
-| yum           | >=1.0.0 已适配   | 是     |`command -v yum`        |
-| java          | >=1.0.0 已适配   | 是     |`java -version`         |
-| Python        | >=1.0.0 已适配   | 是     |`python --version`      |
-| mysql         | >=1.0.0 已适配   | 是     |`command -v mysql`      |
-| telnet        | >=1.0.0 已适配   | 是     |`command -v telnet`     |
-| tar           | >=1.0.0 已适配   | 是     |`command -v tar`        |
-| sed           | >=1.0.0 已适配   | 是     |`command -v sed`        |
-| lsof          | >=1.0.0 已适配   | 是     |`command -v lsof`       |
-| hdfs          | >=1.0.0 已适配   | 是     |`command -v hdfs`       |
-| shell         | >=1.0.0 已适配   | 是     |`command -v $SHELL`     |
-| spark-sql     | >=1.0.0 已适配   | 是     |`command -v spark-sql`  |
-| Shell         | >=1.0.0 已适配   | 是     |`command -v mysql`      |
-| Hive          | >=1.0.0 已适配   | 是     |`command -v mysql`      |
-| Spark         |  3.2.1          | 是     |`spark-submit --version`|
+| yum           | >=1.0.0 已适配   | 是     |command -v yum          |
+| java          | >=1.0.0 已适配   | 是     |java -version           |
+| Python        | >=1.0.0 已适配   | 是     |python --version        |
+| mysql         | >=1.0.0 已适配   | 是     |command -v mysql        |
+| telnet        | >=1.0.0 已适配   | 是     |command -v telnet       |
+| tar           | >=1.0.0 已适配   | 是     |command -v tar          |
+| sed           | >=1.0.0 已适配   | 是     |command -v sed          |
+| lsof          | >=1.0.0 已适配   | 是     |command -v lsof         |
+| hdfs          | >=1.0.0 已适配   | 是     |command -v hdfs         |
+| shell         | >=1.0.0 已适配   | 是     |command -v $SHELL       |
+| spark-sql     | >=1.0.0 已适配   | 是     |command -v spark-sql    |
+| Shell         | >=1.0.0 已适配   | 是     |command -v mysql        |
+| Hive          | >=1.0.0 已适配   | 是     |command -v mysql        |
+| Spark         |  3.2.1          | 是     |spark-submit --version  |
 | JDBC          | 4               | **否** |通过java程序调用          |
 | Flink         | 	1.12.2         | **否** |curl服务端口验证          |
 | openLooKeng   | 1.5.0           | **否** |通过java程序调用          |
