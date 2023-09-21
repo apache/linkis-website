@@ -40,7 +40,7 @@
     </repository>
     <programming-language>Java</programming-language>
     <programming-language>Scala</programming-language>
-    <category rdf:resource="https://projects.apache.org/projects.html?category#big-data" />
+    <category rdf:resource="http://projects.apache.org/category/big-data" />
   </Project>
 </rdf:RDF>
 
