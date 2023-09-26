@@ -40,31 +40,31 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
  
 对于环境的检查分为两部分：一是对于默认环境的检查，<font color="red">检查脚本位于` bin/checkEnv.sh`目录中</font>，在执行`install.sh`脚本时调用`checkEnv.sh`脚本进行检查；二是非默认引擎，<font color="red">检查脚本位于` bin/check Add.sh`目录中</font>，若后续调用中使用非默认引擎时，可执行`checkEnv.sh <引擎名称>`执行检查。相关环境的检查规则如下：
 
-|引擎类型        |适配情况          |是否默认|检查方法                |
-|----------------|------------------|--------|------------------------|
-| yum            | >=1.0.0 已适配  | 是     | command -v yum         |
-| java           | >=1.0.0 已适配  | 是     | java -version          |
-| Python         | >=1.0.0 已适配  | 是     | python --version       |
-| mysql          | >=1.0.0 已适配  | 是     | command -v mysql       |
-| telnet         | >=1.0.0 已适配  | 是     | command -v telnet      |
-| tar            | >=1.0.0 已适配  | 是     | command -v tar         |
-| sed            | >=1.0.0 已适配  | 是     | command -v sed         |
-| lsof           | >=1.0.0 已适配  | 是     | command -v lsof        |
-| hdfs           | >=1.0.0 已适配  | 是     | command -v hdfs        |
-| shell          | >=1.0.0 已适配  | 是     | command -v $SHELL      |
-| spark-sql      | >=1.0.0 已适配  | 是     | command -v spark-sql   |
-| Spark          |  3.2.1         | 是     | spark-submit --version |
-| Hive           | >=1.0.0 已适配  | 是     |通过脚本检查版本        |
-| JDBC           | 4              | **否** |通过java程序调用        |
-| Flink          | 	1.12.2        | **否** |curl服务端口验证        |
-| openLooKeng    | 1.5.0          | **否** |通过java程序调用        |
-| Pipeline       | 1              | **否** |命令连接                |
-| Presto         | 0.234          | **否** |presto --server调用      |
-| Sqoop          | 1.4.6          | **否** |sqoop list-databases验证|
-| Elasticsearch  | 7.6.2          | **否** |curl服务端口验证        |
-
-
-
+| 引擎类型          | 适配情况        | 是否默认  | 检查方法                   |
+|---------------|-------------|-------|------------------------|
+| yum           | >=1.0.0 已适配 | 是     | command -v yum         |
+| java          | >=1.0.0 已适配 | 是     | java -version          |
+| Python        | >=1.0.0 已适配 | 是     | python --version       |
+| mysql         | >=1.0.0 已适配 | 是     | command -v mysql       |
+| telnet        | >=1.0.0 已适配 | 是     | command -v telnet      |
+| tar           | >=1.0.0 已适配 | 是     | command -v tar         |
+| sed           | >=1.0.0 已适配 | 是     | command -v sed         |
+| lsof          | >=1.0.0 已适配 | 是     | command -v lsof        |
+| hdfs          | >=1.0.0 已适配 | 是     | command -v hdfs        |
+| shell         | >=1.0.0 已适配 | 是     | command -v $SHELL      |
+| spark-sql     | >=1.0.0 已适配 | 是     | command -v spark-sql   |
+| Spark         | 3.2.1       | 是     | spark-submit --version |
+| Hive          | >=1.0.0 已适配 | 是     | 通过脚本检查版本               |
+| JDBC          | 4           | **否** | 通过java程序调用             |
+| Flink         | 	1.12.2     | **否** | curl服务端口验证             |
+| openLooKeng   | 1.5.0       | **否** | 通过java程序调用             |
+| Pipeline      | 1           | **否** | 命令连接                   |
+| Presto        | 0.234       | **否** | presto --server调用      |
+| Sqoop         | 1.4.6       | **否** | sqoop list-databases验证 |
+| Elasticsearch | 7.6.2       | **否** | curl服务端口验证             |
+| Impala        | 4.2.0       | **否** | impala-shell -i 连接     |
+| Trino         | 426         | **否** | trino-cli --server     |
+| Seatunnel     | 2.1.2       | **否** | curl服务端口验证             |
 ## 2. 配置修改
 
 ### 2.1 安装包准备
