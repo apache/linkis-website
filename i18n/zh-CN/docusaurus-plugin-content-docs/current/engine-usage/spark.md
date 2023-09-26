@@ -176,6 +176,13 @@ Token-User: linkis
 }
 ```
 
+### 3.5 通过 `Linkis-cli` 提交spark yarn cluster任务
+
+```shell
+# 使用 `engingeConnRuntimeMode=yarnCluster` 来指定yarn cluster模式
+sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnRuntimeMode=yarnCluster -submitUser hadoop -proxyUser hadoop -code "select 123"
+```
+
 ## 4.引擎配置说明
 
 ### 4.1 默认配置说明
