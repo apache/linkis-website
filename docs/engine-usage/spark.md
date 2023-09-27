@@ -178,6 +178,96 @@ Token-User: linkis
 }
 ```
 
+### 3.5 Submitting tasks to Kubernetes
+
+#### 3.5.1 External Resource Provider Configuration
+
+To submit task to kubernetes cluster, you need to add cluster configuration on `Linkis Control Panel->Basic Data Management->External Resource Provider Manage` as show in the figure. The `Resource Type` must be set to `Kubernetes` while the `Name` can be customized.
+
+![k8s](./images/k8s-config.png) 
+
+The parameters to be set in the `Config` are shown in the following table:
+
+| 配置              | 说明                                                         |
+| ----------------- | ------------------------------------------------------------ |
+| k8sMasterUrl      | Full URL of the API Server such as`https://172.31.226.155:6443`. This parameter must be configured. |
+| k8sConfig         | Location of the kubeconfig file such as`/home/hadoop/.kube/config`. If this parameter is configured, the following three parameters do not need to be configured. |
+| k8sCaCertData     | CA certificate for clusters in kubeconfig corresponding to `certificate-authority-data`. If `k8sConfig` is not configured, you need to configure this parameter |
+| k8sClientCertData | Client certificate in kubeconfig corresponding to `client-certificate-data`，If `k8sConfig` is not configured, you need to configure this parameter |
+| k8sClientKeyData  | Client private key in kubeconfig corresponding to `client-key-data`，If `k8sConfig` is not configured, you need to configure this parameter |
+
+#### 3.5.2 Label Configuration for ECM
+
+After external provider configuration, you need to configure corresponding cluster label information on `ECM Managerment` as shown in the figure. You need to selete `yarnCluster`for label type and `K8S-cluster name` for label value where the cluster name is the name specified in `External Resource Provider Configuration` such as `K8S-default` if the name is set to `default` in the previous step.
+
+> Due to compatibility issues with `ClusterLabel`, the Key value has not been changed yet（yarnCluster）.
+
+![k8s-ecm-label](./images/k8s-ecm-label.png)
+
+#### 3.5.3 Description of parameters
+
+When using`linkis-cli` to submit task, the parameters that need to be set are as follows:
+
+* Specify the cluster to execute the task. If the cluster name is `default` when configuring the external provider, you need to specify the value of the `k8sCluster` as `'K8S-default'` when submitting the task;
+* To distinguish it from the `k8s-operator` submitting method, you need to specify the `spark.master` parameter as `k8s-native`;
+* Currently spark once job tasks on k8s only support `cluster` deploy mode, you need to set `spark.submit.deployMode` to `cluster`.
+
+The corresponding Spark parameter of Linkis parameters as follows:
+
+| Linkis Parameters                       | Spark Parameters                                        | Default Value       |
+| --------------------------------------- | ------------------------------------------------------- | ------------------- |
+| linkis.spark.k8s.master.url             | --master                                                | empty string        |
+| linkis.spark.k8s.serviceAccount         | spark.kubernetes.authenticate.driver.serviceAccountName | empty string        |
+| linkis.spark.k8s.image                  | spark.kubernetes.container.image                        | apache/spark:v3.2.1 |
+| linkis.spark.k8s.imagePullPolicy        | spark.kubernetes.container.image.pullPolicy             | Always              |
+| linkis.spark.k8s.namespace              | spark.kubernetes.namespace                              | default             |
+| linkis.spark.k8s.ui.port                | spark.ui.port                                           | 4040                |
+| linkis.spark.k8s.executor.request.cores | spark.kubernetes.executor.request.cores                 | 1                   |
+| linkis.spark.k8s.driver.request.cores   | spark.kubernetes.driver.request.cores                   | 1                   |
+
+#### 3.5.4 Example of commands for submission
+
+submitting task with jar
+
+```shell
+linkis-cli --mode once \
+-engineType spark-3.2.1 \
+-labelMap engineConnMode=once \
+-k8sCluster 'K8S-default' \
+-jobContentMap runType='jar' \
+-jobContentMap spark.app.main.class='org.apache.spark.examples.SparkPi' \
+-confMap spark.master='k8s-native' \
+-confMap spark.app.name='spark-submit-jar-k8s' \
+-confMap spark.app.resource='local:///opt/spark/examples/jars/spark-examples_2.12-3.2.1.jar' \
+-confMap spark.submit.deployMode='cluster' \
+-confMap linkis.spark.k8s.serviceAccount='spark' \
+-confMap linkis.spark.k8s.master.url='k8s://https://172.31.226.155:6443' \
+-confMap linkis.spark.k8s.config.file='/home/hadoop/.kube/config' \
+-confMap linkis.spark.k8s.imagePullPolicy='IfNotPresent' \
+-confMap linkis.spark.k8s.namespace='default'
+```
+
+submitting task with py
+
+```shell
+linkis-cli --mode once \
+-engineType spark-3.2.1 \
+-labelMap engineConnMode=once \
+-k8sCluster 'K8S-default' \
+-jobContentMap runType='py' \
+-confMap spark.master='k8s-native' \
+-confMap spark.app.name='spark-submit-py-k8s' \
+-confMap spark.app.resource='local:///opt/spark/examples/src/main/python/pi.py' \
+-confMap spark.submit.deployMode='cluster' \
+-confMap spark.submit.pyFiles='local:///opt/spark/examples/src/main/python/wordcount.py' \
+-confMap linkis.spark.k8s.serviceAccount='spark' \
+-confMap linkis.spark.k8s.master.url='k8s://https://172.31.226.155:6443' \
+-confMap linkis.spark.k8s.config.file='/home/hadoop/.kube/config' \
+-confMap linkis.spark.k8s.imagePullPolicy='IfNotPresent' \
+-confMap linkis.spark.k8s.namespace='default' \
+-confMap linkis.spark.k8s.image="apache/spark-py:v3.2.1"
+```
+
 ## 4. Engine configuration instructions
 
 ### 4.1 Default Configuration Description
