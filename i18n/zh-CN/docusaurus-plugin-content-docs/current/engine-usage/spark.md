@@ -176,9 +176,16 @@ Token-User: linkis
 }
 ```
 
-### 3.5 提交任务到Kubernetes
+### 3.5 通过 `Linkis-cli` 提交spark yarn cluster任务
 
-#### 3.5.1 拓展资源配置
+```shell
+# 使用 `engingeConnRuntimeMode=yarnCluster` 来指定yarn cluster模式
+sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnRuntimeMode=yarnCluster -submitUser hadoop -proxyUser hadoop -code "select 123"
+```
+
+### 3.6 通过 `Linkis-cli` 提交spark k8s cluster任务
+
+#### 3.6.1 拓展资源配置
 
 用户首先需要在Linkis控制台中配置拓展资源信息，在**Linkis控制台->基础数据管理->拓展资源管理**中新增Kubernetes集群配置，如下图所示。其中**资源类型**必须设置为`Kubernetes`，**名称**可自定义。
 
@@ -194,7 +201,7 @@ Token-User: linkis
 | k8sClientCertData | kubeconfig中的客户端证书，对应`client-certificate-data`，如果不配置k8sConfig，则需要配置该参数 |
 | k8sClientKeyData  | kubeconfig中的客户端私钥，对应`client-key-data`，如果不配置k8sConfig，则需要配置该参数 |
 
-#### 3.5.2 ECM标签配置
+#### 3.6.2 ECM标签配置
 
 配置完拓展资源后，需要在**ECM管理**中配置对应ECM的集群标签信息，如图所示，其中标签类型选择`yarnCluster`，标签值填写`K8S-集群名称`，这里的集群名称指的是上一步拓展资源配置中的名称，如名称配置为`default`，则此处标签值应设置为`K8S-default`。
 
@@ -202,7 +209,7 @@ Token-User: linkis
 
 ![k8s-ecm-label](./images/k8s-ecm-label.png)
 
-#### 3.5.3 提交参数说明
+#### 3.6.3 提交参数说明
 
 以linkis-cli为例，提交任务需要设置的参数：
 
@@ -223,7 +230,7 @@ Token-User: linkis
 | linkis.spark.k8s.executor.request.cores | spark.kubernetes.executor.request.cores                 | 1                   |
 | linkis.spark.k8s.driver.request.cores   | spark.kubernetes.driver.request.cores                   | 1                   |
 
-#### 3.5.4 提交命令示例
+#### 3.6.4 提交命令示例
 
 提交jar任务
 
