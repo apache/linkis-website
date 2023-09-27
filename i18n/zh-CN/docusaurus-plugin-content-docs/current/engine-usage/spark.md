@@ -195,7 +195,7 @@ sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnR
 
 | 配置              | 说明                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| k8sMasterUrl      | API Server的完整URL，如`https://172.31.226.155:6443`，该参数必须配置 |
+| k8sMasterUrl      | API Server的完整URL，如`https://xxx.xxx.xxx.xxx:6443`，该参数必须配置 |
 | k8sConfig         | kubeconfig文件的位置，如`/home/hadoop/.kube/config`，如果配置了该参数，则不需要配置以下三个参数 |
 | k8sCaCertData     | kubeconfig中集群的CA证书，对应`certificate-authority-data`，如果不配置k8sConfig，则需要配置该参数 |
 | k8sClientCertData | kubeconfig中的客户端证书，对应`client-certificate-data`，如果不配置k8sConfig，则需要配置该参数 |
@@ -246,7 +246,7 @@ linkis-cli --mode once \
 -confMap spark.app.resource='local:///opt/spark/examples/jars/spark-examples_2.12-3.2.1.jar' \
 -confMap spark.submit.deployMode='cluster' \
 -confMap linkis.spark.k8s.serviceAccount='spark' \
--confMap linkis.spark.k8s.master.url='k8s://https://172.31.226.155:6443' \
+-confMap linkis.spark.k8s.master.url='k8s://https://xxx.xxx.xxx.xxx:6443' \
 -confMap linkis.spark.k8s.config.file='/home/hadoop/.kube/config' \
 -confMap linkis.spark.k8s.imagePullPolicy='IfNotPresent' \
 -confMap linkis.spark.k8s.namespace='default'
@@ -266,7 +266,7 @@ linkis-cli --mode once \
 -confMap spark.submit.deployMode='cluster' \
 -confMap spark.submit.pyFiles='local:///opt/spark/examples/src/main/python/wordcount.py' \
 -confMap linkis.spark.k8s.serviceAccount='spark' \
--confMap linkis.spark.k8s.master.url='k8s://https://172.31.226.155:6443' \
+-confMap linkis.spark.k8s.master.url='k8s://https://xxx.xxx.xxx.xxx:6443' \
 -confMap linkis.spark.k8s.config.file='/home/hadoop/.kube/config' \
 -confMap linkis.spark.k8s.imagePullPolicy='IfNotPresent' \
 -confMap linkis.spark.k8s.namespace='default' \

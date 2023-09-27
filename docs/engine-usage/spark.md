@@ -197,7 +197,7 @@ The parameters to be set in the `Config` are shown in the following table:
 
 | 配置              | 说明                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| k8sMasterUrl      | Full URL of the API Server such as`https://172.31.226.155:6443`. This parameter must be configured. |
+| k8sMasterUrl      | Full URL of the API Server such as`https://xxx.xxx.xxx.xxx:6443`. This parameter must be configured. |
 | k8sConfig         | Location of the kubeconfig file such as`/home/hadoop/.kube/config`. If this parameter is configured, the following three parameters do not need to be configured. |
 | k8sCaCertData     | CA certificate for clusters in kubeconfig corresponding to `certificate-authority-data`. If `k8sConfig` is not configured, you need to configure this parameter |
 | k8sClientCertData | Client certificate in kubeconfig corresponding to `client-certificate-data`，If `k8sConfig` is not configured, you need to configure this parameter |
@@ -248,7 +248,7 @@ linkis-cli --mode once \
 -confMap spark.app.resource='local:///opt/spark/examples/jars/spark-examples_2.12-3.2.1.jar' \
 -confMap spark.submit.deployMode='cluster' \
 -confMap linkis.spark.k8s.serviceAccount='spark' \
--confMap linkis.spark.k8s.master.url='k8s://https://172.31.226.155:6443' \
+-confMap linkis.spark.k8s.master.url='k8s://https://xxx.xxx.xxx.xxx:6443' \
 -confMap linkis.spark.k8s.config.file='/home/hadoop/.kube/config' \
 -confMap linkis.spark.k8s.imagePullPolicy='IfNotPresent' \
 -confMap linkis.spark.k8s.namespace='default'
@@ -268,7 +268,7 @@ linkis-cli --mode once \
 -confMap spark.submit.deployMode='cluster' \
 -confMap spark.submit.pyFiles='local:///opt/spark/examples/src/main/python/wordcount.py' \
 -confMap linkis.spark.k8s.serviceAccount='spark' \
--confMap linkis.spark.k8s.master.url='k8s://https://172.31.226.155:6443' \
+-confMap linkis.spark.k8s.master.url='k8s://https://xxx.xxx.xxx.xxx:6443' \
 -confMap linkis.spark.k8s.config.file='/home/hadoop/.kube/config' \
 -confMap linkis.spark.k8s.imagePullPolicy='IfNotPresent' \
 -confMap linkis.spark.k8s.namespace='default' \
