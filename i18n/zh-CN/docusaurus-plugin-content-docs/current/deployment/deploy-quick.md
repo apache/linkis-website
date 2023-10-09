@@ -12,9 +12,9 @@ sidebar_position: 1
 
 
 ### 1.2 添加部署用户
- 
->部署用户: linkis核心进程的启动用户，同时此用户会默认作为管理员权限，<font color="red">部署过程中会生成对应的管理员登录密码，位于`conf/linkis-mg-gateway.properties`文件中</font>
-Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`sudo -u  ${linkis-user}` 切换到对应用户下，然后执行对应的引擎启动命令，所以引擎`linkis-engine`进程归属的用户是任务的执行者（因此部署用户需要有sudo权限，而且是免密的）。
+
+> 部署用户: linkis核心进程的启动用户，同时此用户会默认作为管理员权限，<font color="red">部署过程中会生成对应的管理员登录密码，位于`conf/linkis-mg-gateway.properties`文件中</font>
+> Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`sudo -u ${linkis-user}` 切换到对应用户下，然后执行对应的引擎启动命令，所以引擎`linkis-engine`进程归属的用户是任务的执行者（因此部署用户需要有sudo权限，而且是免密的）。
 
 以hadoop用户为例:
 
@@ -36,9 +36,9 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 <font color='red'>以下操作都是在hadoop用户下进行</font>
 
-### 1.3 环境检查
+### 1.3 依赖环境准备
  
-对于环境的检查分为两部分：一是对于默认环境的检查，<font color="red">检查脚本位于` bin/checkEnv.sh`目录中</font>，在执行`install.sh`脚本时调用`checkEnv.sh`脚本进行检查；二是非默认引擎，<font color="red">检查脚本位于` bin/check Add.sh`目录中</font>，若后续调用中使用非默认引擎时，可执行`checkEnv.sh <引擎名称>`执行检查。相关环境的检查规则如下：
+对于依赖环境的准备分为两部分：一是对于默认引擎的检查，<font color="red">检查脚本位于` bin/checkEnv.sh`目录中</font>，在执行`install.sh`脚本时调用`checkEnv.sh`脚本进行检查；二是非默认引擎，<font color="red">检查脚本位于` bin/check Add.sh`目录中</font>，若后续调用中使用非默认引擎时，可执行`checkEnv.sh <引擎名称>`执行检查。相关环境的检查规则如下：
 
 | 引擎类型          | 适配情况        | 是否默认  | 检查方法                   |
 |---------------|-------------|-------|------------------------|
@@ -592,16 +592,30 @@ linkis-package/lib/linkis-engineconn-plugins/
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 ### 7.3 非默认引擎检查
-非默认引擎的检查通过手工执行脚本`checkAdd.sh + 引擎名称`来检查，具体脚本参见目录（`bin/checkAdd.sh`) 。具体的检查方法如下：
+非默认引擎的检查通过手工执行脚本`sh $LINKIS_HOME/bin/checkAdd.sh ${engineType}`来检查，具体脚本参见目录（`$LINKIS_HOME/bin/checkAdd.sh`) 。具体的检查方法如下：
 
 ```shell script
 function print_usage(){
   echo "Usage: checkAdd [EngineName]"
   echo " EngineName : The Engine name that you want to check"
-  echo " Engine list as bellow: JDBC Flink openLooKeng Pipeline Presto Sqoop Elasticsearch "
+  echo " Engine list as bellow: JDBC Flink openLooKeng  Presto Sqoop Elasticsearch "
 }
 
 ```
+非默认引擎检查过程中使用到的参数分为两类：一类是数据引擎连接信息，在`$LINKIS_HOME/deploy-config/db.sh`中定义；另一类是引用参数，包括检查开关、版本定义、java路径等，在`$LINKIS_HOME/deploy-config/db.sh`定义。相关的引擎及参数描述如下：
+| 引擎类型    | 使用到的参数         | 参数描述  |
+|---------------|--------------------|----------------------|
+| JDBC          | ${MYSQL_HOST}, ${MYSQL_PORT}, ${MYSQL_DB}, ${MYSQL_USER}, ${MYSQL_PASSWORD} | MySQL引擎连接信息，包括主机IP、端口、数据库名、用户、密码|
+| JDBC          | ${MYSQL_CONNECT_JAVA_PATH} | MySQL驱动连接所在目录|
+| Flink         | ${FLINK_HOME}          | 定义 FLink 安装所在目录，包含Flink执行脚本和样例    |
+| openLooKeng   | ${OLK_HOST}, ${OLK_PORT}, ${OLK_CATALOG}, ${OLK_SCHEMA}, {OLK_USER}, ${OLK_PASSWORD}|openLooKeng引擎连接信息，包括主机IP、端口、编目、模式、用户名、密码|
+| openLooKeng   | ${OLK_JDBC_PATH} | openLooKeng连接器目录|
+| Presto        | ${PRESTO_HOST}, ${PRESTO_PORT}, ${PRESTO_CATALOG}, ${PRESTO_SCHEMA}|Presto引擎连接信息，包括主机IP、端口、编目、模式|
+| Sqoop         | ${HIVE_META_URL}, ${HIVE_META_USER}, ${HIVE_META_PASSWORD}| sqoop连接hive的连接信息，包括服务地址、用户名、密码 |
+| Elasticsearch | ${ES_RESTFUL_URL} | Elasticsearch服务地址    |
+| Impala        | ${IMPALA_HOST}, ${IMPALA_PORT}| impala连接信息，包括主机 IP 、端口|
+| Trino         | ${TRINO_COORDINATOR_HOST}, ${TRINO_COORDINATOR_PORT}, ${TRINO_COORDINATOR_CATALOG}, ${TRINO_COORDINATOR_SCHEMA}| trino连接信息，包括主机IP、端口、类别、编目、模式|
+| Seatunnel     | ${SEATUNNEL_HOST}, ${SEATUNNEL_PORT} | Seatunnel连接信息，包括主机IP、端口|
 
 ## 8. 常见异常问题排查指引
 ### 8.1. Yarn队列检查

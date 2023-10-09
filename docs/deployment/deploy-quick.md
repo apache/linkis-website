@@ -36,34 +36,34 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 <font color='red'>The following operations are performed under the hadoop user</font>
 
-### 1.3 installation enviroment check
+### 1.3 installation dependencies check
 Two parts of engines checking：1, for default engines ，<font color="red"> checking script is located in ` bin/checkEnv.sh`</font>，while execute `install.sh`script, it will revoke `checkEnv.sh` for default engines check；2,Addtional engines check，<font color="red"> the checking scripts located in ` bin/check Add.sh`</font>. if you need to check addtional engines，just execute `checkEnv.sh <engine-name>`. engines check list as bellow：
 
-| engine        | verion  | default | check method                    |
-|---------------|---------|---------|---------------------------------|
-| yum           | >=1.0.0 | Yes     | command -v yum                  |
-| java          | >=1.0.0 | Yes     | java -version                   |
-| Python        | >=1.0.0 | Yes     | python --version                |
-| mysql         | >=1.0.0 | Yes     | command -v mysql                |
-| telnet        | >=1.0.0 | Yes     | command -v telnet               |
-| tar           | >=1.0.0 | Yes     | command -v tar                  |
-| sed           | >=1.0.0 | Yes     | command -v sed                  |
-| lsof          | >=1.0.0 | Yes     | command -v lsof                 |
-| hdfs          | >=1.0.0 | Yes     | command -v hdfs                 |
-| shell         | >=1.0.0 | Yes     | command -v $SHELL               |
-| spark-sql     | >=1.0.0 | Yes     | command -v spark-sql            |
-| Spark         | 3.2.1   | Yes     | spark-submit --version          |
-| Hive          | >=1.0.0 | Yes     | Beeline jdbc Mysql              |
-| JDBC          | 4       | **No**  | mini java programs              |
-| Flink         | 	1.12.2 | **No**  | curl http service host&Port     |
-| openLooKeng   | 1.5.0   | **No**  | mini java programs              |
-| Pipeline      | 1       | **No**  | shell command                   |
-| Presto        | 0.234   | **No**  | presto --server connection      |
-| Sqoop         | 1.4.6   | **No**  | sqoop list-databases connection |
-| Elasticsearch | 7.6.2   | **No**  | curl http service host&Port     |
-| Impala        | 4.2.0   | **No**  | impala-shell -i connection      |
-| Trino         | 426     | **No**  | trino-cli --server connection   |
-| Seatunnel     | 2.1.2   | **No**  | curl http service host&Port     |
+| dependencies  | verion  | Necessary | verification method             |
+|---------------|---------|-----------|---------------------------------|
+| yum           | >=1.0.0 | Yes       | command -v yum                  |
+| java          | >=1.0.0 | Yes       | java -version                   |
+| Python        | >=1.0.0 | Yes       | python --version                |
+| mysql         | >=1.0.0 | Yes       | command -v mysql                |
+| telnet        | >=1.0.0 | Yes       | command -v telnet               |
+| tar           | >=1.0.0 | Yes       | command -v tar                  |
+| sed           | >=1.0.0 | Yes       | command -v sed                  |
+| lsof          | >=1.0.0 | Yes       | command -v lsof                 |
+| hdfs          | >=1.0.0 | Yes       | command -v hdfs                 |
+| shell         | >=1.0.0 | Yes       | command -v $SHELL               |
+| spark-sql     | >=1.0.0 | Yes       | command -v spark-sql            |
+| Spark         | 3.2.1   | Yes       | spark-submit --version          |
+| Hive          | >=1.0.0 | Yes       | Beeline jdbc Mysql              |
+| JDBC          | 4       | **No**    | mini java programs              |
+| Flink         | 	1.12.2 | **No**    | curl http service host&Port     |
+| openLooKeng   | 1.5.0   | **No**    | java programs to check          |
+| Pipeline      | 1       | **No**    | shell command                   |
+| Presto        | 0.234   | **No**    | presto --server connection      |
+| Sqoop         | 1.4.6   | **No**    | sqoop list-databases connection |
+| Elasticsearch | 7.6.2   | **No**    | curl http service host&Port     |
+| Impala        | 4.2.0   | **No**    | impala-shell -i connection      |
+| Trino         | 426     | **No**    | trino-cli --server connection   |
+| Seatunnel     | 2.1.2   | **No**    | curl http service host&Port     |
 
 ## 2. Configuration modification
 
@@ -603,7 +603,7 @@ linkis-package/lib/linkis-engineconn-plugins/
 select * from linkis_cg_engine_conn_plugin_bml_resources
 ````
 ### 7.3 additional engines check
-The additonal engines check are done manually by executing the script`checkAdd.sh + engine name`. Please refer to the directory (`bin/checkAdd.sh`) . The specific checking method is as follows:
+The additonal engines check are done manually by executing the script`sh $LINKIS_HOME/bin/checkAdd.sh ${engineType}`. Please refer to the directory (`$LINKIS_HOME/bin/checkAdd.sh`) . The specific checking method is as follows:
 ```shell script
 function print_usage(){
   echo "Usage: checkAdd [EngineName]"
@@ -612,6 +612,20 @@ function print_usage(){
 }
 
 ```
+The parameters used in the addtional engines checking process are divided into two categories: one for  the data engine connection information, defined in `$LINKIS_HOME/deploy-config/db.sh`; the other  is the reference parameters, including check switches, version definitions, Java paths, etc., defined in `$LINKIS_HOME/deploy-config/db.sh`.  engines and parameters descriptions are as follows:
+| EngineType    | Parameters         | parameter description  |
+|---------------|--------------------|----------------------|
+| JDBC          | ${MYSQL_HOST}, ${MYSQL_PORT}, ${MYSQL_DB}, ${MYSQL_USER}, ${MYSQL_PASSWORD} | MySQL engine connection information, including host IP, port, database name, username, password|
+| JDBC          | ${MYSQL_CONNECT_JAVA_PATH} | MySQL JDBC Driver directory|
+| Flink         | ${FLINK_HOME}          | he installation directory of Flink, including Flink execution scripts and samples    |
+| openLooKeng   | ${OLK_HOST}, ${OLK_PORT}, ${OLK_CATALOG}, ${OLK_SCHEMA}, {OLK_USER}, ${OLK_PASSWORD}| openLooKeng engine connection information, including host IP, port, catalog, schema, username, password|
+| openLooKeng   | ${OLK_JDBC_PATH} | openLooKeng connector directory|
+| Presto        | ${PRESTO_HOST}, ${PRESTO_PORT}, ${PRESTO_CATALOG}, ${PRESTO_SCHEMA}| Presto engine connection information, including host IP, port, catalog, schema|
+| Sqoop         | ${HIVE_META_URL}, ${HIVE_META_USER}, ${HIVE_META_PASSWORD}| sqoop connection information for connecting to Hive, including service address, username, password|
+| Elasticsearch | ${ES_RESTFUL_URL} | Elasticsearch RestfulAPI URL    |
+| Impala        | ${IMPALA_HOST}, ${IMPALA_PORT}| Impala connection information, including host IP and port|
+| Trino         | ${TRINO_COORDINATOR_HOST}, ${TRINO_COORDINATOR_PORT}, ${TRINO_COORDINATOR_CATALOG}, ${TRINO_COORDINATOR_SCHEMA}| Trino connection information, including host IP, port, catalog, and schema|
+| Seatunnel     | ${SEATUNNEL_HOST}, ${SEATUNNEL_PORT} | Seatunnel connection information, including host IP and port|
 
 ## 8. Troubleshooting Guidelines for Common Abnormal Problems
 ### 8.1. Yarn Queue Check
