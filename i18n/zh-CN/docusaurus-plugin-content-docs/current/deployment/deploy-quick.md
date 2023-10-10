@@ -40,31 +40,16 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
  
 对于依赖环境的准备分为两部分：一是对于默认引擎的检查，<font color="red">检查脚本位于` bin/checkEnv.sh`目录中</font>，在执行`install.sh`脚本时调用`checkEnv.sh`脚本进行检查；二是非默认引擎，<font color="red">检查脚本位于` bin/check Add.sh`目录中</font>，若后续调用中使用非默认引擎时，可执行`checkEnv.sh <引擎名称>`执行检查。相关环境的检查规则如下：
 
-| 引擎类型          | 适配情况        | 是否默认  | 检查方法                   |
-|---------------|-------------|-------|------------------------|
-| yum           | >=1.0.0 已适配 | 是     | command -v yum         |
-| java          | >=1.0.0 已适配 | 是     | java -version          |
-| Python        | >=1.0.0 已适配 | 是     | python --version       |
-| mysql         | >=1.0.0 已适配 | 是     | command -v mysql       |
-| telnet        | >=1.0.0 已适配 | 是     | command -v telnet      |
-| tar           | >=1.0.0 已适配 | 是     | command -v tar         |
-| sed           | >=1.0.0 已适配 | 是     | command -v sed         |
-| lsof          | >=1.0.0 已适配 | 是     | command -v lsof        |
-| hdfs          | >=1.0.0 已适配 | 是     | command -v hdfs        |
-| shell         | >=1.0.0 已适配 | 是     | command -v $SHELL      |
-| spark-sql     | >=1.0.0 已适配 | 是     | command -v spark-sql   |
-| Spark         | 3.2.1       | 是     | spark-submit --version |
-| Hive          | >=1.0.0 已适配 | 是     | 通过脚本检查版本               |
-| JDBC          | 4           | **否** | 通过java程序调用             |
-| Flink         | 	1.12.2     | **否** | curl服务端口验证             |
-| openLooKeng   | 1.5.0       | **否** | 通过java程序调用             |
-| Pipeline      | 1           | **否** | 命令连接                   |
-| Presto        | 0.234       | **否** | presto --server调用      |
-| Sqoop         | 1.4.6       | **否** | sqoop list-databases验证 |
-| Elasticsearch | 7.6.2       | **否** | curl服务端口验证             |
-| Impala        | 4.2.0       | **否** | impala-shell -i 连接     |
-| Trino         | 426         | **否** | trino-cli --server     |
-| Seatunnel     | 2.1.2       | **否** | curl服务端口验证             |
+| 引擎类型           | 是否必装 | 安装直通车                                                                                                       |
+|----------------|------|-------------------------------------------------------------------------------------------------------------|
+| JDK（1.8.0 141） | 必需   | [安装JDK和设置JAVA_HOME](https://docs.oracle.com/cd/E19509-01/820-5483/6ngsiu065/index.html)                     |
+| mysql（5.5+）    | 必需   | [安装MySQL](https://docs.oracle.com/cd/E69403_01/html/E56873/mysql.html)                                      |
+| Python(3.6.8)  | 必需   | [Python安装和使用](https://docs.python.org/zh-cn/3/using/index.html)                                             |
+| Nginx          | 必需   | [Nginx安装指南](http://nginx.org/en/linux_packages.html#instructions)                                           |
+| Hadoop（(2.7.2） | 必需   | [Hadoop快速入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6) |
+| Spark（2.4.3）   | 必需   | [Spark安装入门](https://spark.apache.org/downloads.html)                                                        |
+| Hive(3.1.3)    | 必需   | [Hive安装指南](https://cwiki.apache.org/confluence/display/hive/adminmanual+installation)                       |
+
 ## 2. 配置修改
 
 ### 2.1 安装包准备
@@ -600,22 +585,23 @@ function print_usage(){
   echo " EngineName : The Engine name that you want to check"
   echo " Engine list as bellow: JDBC Flink openLooKeng  Presto Sqoop Elasticsearch "
 }
-
 ```
+
 非默认引擎检查过程中使用到的参数分为两类：一类是数据引擎连接信息，在`$LINKIS_HOME/deploy-config/db.sh`中定义；另一类是引用参数，包括检查开关、版本定义、java路径等，在`$LINKIS_HOME/deploy-config/db.sh`定义。相关的引擎及参数描述如下：
-| 引擎类型    | 使用到的参数         | 参数描述  |
-|---------------|--------------------|----------------------|
-| JDBC          | ${MYSQL_HOST}, ${MYSQL_PORT}, ${MYSQL_DB}, ${MYSQL_USER}, ${MYSQL_PASSWORD} | MySQL引擎连接信息，包括主机IP、端口、数据库名、用户、密码|
-| JDBC          | ${MYSQL_CONNECT_JAVA_PATH} | MySQL驱动连接所在目录|
-| Flink         | ${FLINK_HOME}          | 定义 FLink 安装所在目录，包含Flink执行脚本和样例    |
-| openLooKeng   | ${OLK_HOST}, ${OLK_PORT}, ${OLK_CATALOG}, ${OLK_SCHEMA}, {OLK_USER}, ${OLK_PASSWORD}|openLooKeng引擎连接信息，包括主机IP、端口、编目、模式、用户名、密码|
-| openLooKeng   | ${OLK_JDBC_PATH} | openLooKeng连接器目录|
-| Presto        | ${PRESTO_HOST}, ${PRESTO_PORT}, ${PRESTO_CATALOG}, ${PRESTO_SCHEMA}|Presto引擎连接信息，包括主机IP、端口、编目、模式|
-| Sqoop         | ${HIVE_META_URL}, ${HIVE_META_USER}, ${HIVE_META_PASSWORD}| sqoop连接hive的连接信息，包括服务地址、用户名、密码 |
-| Elasticsearch | ${ES_RESTFUL_URL} | Elasticsearch服务地址    |
-| Impala        | ${IMPALA_HOST}, ${IMPALA_PORT}| impala连接信息，包括主机 IP 、端口|
-| Trino         | ${TRINO_COORDINATOR_HOST}, ${TRINO_COORDINATOR_PORT}, ${TRINO_COORDINATOR_CATALOG}, ${TRINO_COORDINATOR_SCHEMA}| trino连接信息，包括主机IP、端口、类别、编目、模式|
-| Seatunnel     | ${SEATUNNEL_HOST}, ${SEATUNNEL_PORT} | Seatunnel连接信息，包括主机IP、端口|
+
+| 引擎类型          | 使用到的参数                                                                                                          | 参数描述                                     |
+|---------------|-----------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| JDBC          | ${MYSQL_HOST}, ${MYSQL_PORT}, ${MYSQL_DB}, ${MYSQL_USER}, ${MYSQL_PASSWORD}                                     | MySQL引擎连接信息，包括主机IP、端口、数据库名、用户、密码         |
+| JDBC          | ${MYSQL_CONNECT_JAVA_PATH}                                                                                      | MySQL驱动连接所在目录                            |
+| Flink         | ${FLINK_HOME}                                                                                                   | 定义 FLink 安装所在目录，包含Flink执行脚本和样例           |
+| openLooKeng   | ${OLK_HOST}, ${OLK_PORT}, ${OLK_CATALOG}, ${OLK_SCHEMA}, {OLK_USER}, ${OLK_PASSWORD}                            | openLooKeng引擎连接信息，包括主机IP、端口、编目、模式、用户名、密码 |
+| openLooKeng   | ${OLK_JDBC_PATH}                                                                                                | openLooKeng连接器目录                         |
+| Presto        | ${PRESTO_HOST}, ${PRESTO_PORT}, ${PRESTO_CATALOG}, ${PRESTO_SCHEMA}                                             | Presto引擎连接信息，包括主机IP、端口、编目、模式             |
+| Sqoop         | ${HIVE_META_URL}, ${HIVE_META_USER}, ${HIVE_META_PASSWORD}                                                      | sqoop连接hive的连接信息，包括服务地址、用户名、密码           |
+| Elasticsearch | ${ES_RESTFUL_URL}                                                                                               | Elasticsearch服务地址                        |
+| Impala        | ${IMPALA_HOST}, ${IMPALA_PORT}                                                                                  | impala连接信息，包括主机 IP 、端口                   |
+| Trino         | ${TRINO_COORDINATOR_HOST}, ${TRINO_COORDINATOR_PORT}, ${TRINO_COORDINATOR_CATALOG}, ${TRINO_COORDINATOR_SCHEMA} | trino连接信息，包括主机IP、端口、类别、编目、模式             |
+| Seatunnel     | ${SEATUNNEL_HOST}, ${SEATUNNEL_PORT}                                                                            | Seatunnel连接信息，包括主机IP、端口                  |
 
 ## 8. 常见异常问题排查指引
 ### 8.1. Yarn队列检查
