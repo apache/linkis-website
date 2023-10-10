@@ -39,15 +39,15 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ### 1.3 installation dependencies check
 Two parts of engines checking：1, for default engines ，<font color="red"> checking script is located in ` bin/checkEnv.sh`</font>，while execute `install.sh`script, it will revoke `checkEnv.sh` for default engines check；2,Addtional engines check，<font color="red"> the checking scripts located in ` bin/check Add.sh`</font>. if you need to check addtional engines，just execute `checkEnv.sh <engine-name>`. engines check list as bellow：
 
-| EngineType     | Necessary | Installation Guide                                                                                          |
-|----------------|-----------|-------------------------------------------------------------------------------------------------------------|
-| JDK（1.8.0 141） | mandatory | [安装JDK和设置JAVA_HOME](https://docs.oracle.com/cd/E19509-01/820-5483/6ngsiu065/index.html)                     |
-| mysql（5.5+）    | mandatory | [安装MySQL](https://docs.oracle.com/cd/E69403_01/html/E56873/mysql.html)                                      |
-| Python(3.6.8)  | mandatory | [Python安装和使用](https://docs.python.org/zh-cn/3/using/index.html)                                             |
-| Nginx          | mandatory | [Nginx安装指南](http://nginx.org/en/linux_packages.html#instructions)                                           |
-| Hadoop（(2.7.2） | mandatory | [Hadoop快速入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6) |
-| Spark（2.4.3）   | mandatory | [Spark安装入门](https://spark.apache.org/downloads.html)                                                        |
-| Hive(3.1.3)    | mandatory | [Hive安装指南](https://cwiki.apache.org/confluence/display/hive/adminmanual+installation)                       |
+| EngineType     | Necessary | Installation Guide                                                                                                 |
+|----------------|-----------|--------------------------------------------------------------------------------------------------------------------|
+| JDK（1.8.0 141） | mandatory | [Install JDK and setting JAVA_HOME](https://docs.oracle.com/cd/E19509-01/820-5483/6ngsiu065/index.html)            |
+| mysql（5.5+）    | mandatory | [MySQL installation](https://docs.oracle.com/cd/E69403_01/html/E56873/mysql.html)                                  |
+| Python(3.6.8)  | mandatory | [Python installation and user guide](https://docs.python.org/zh-cn/3/using/index.html)                             |
+| Nginx          | mandatory | [Nginx installation](http://nginx.org/en/linux_packages.html#instructions)                                         |
+| Hadoop（(2.7.2） | mandatory | [Hadoop quickstart](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6) |
+| Spark（2.4.3）   | mandatory | [Spark download and installtion](https://spark.apache.org/downloads.html)                                          |
+| Hive(3.1.3)    | mandatory | [Hive installation](https://cwiki.apache.org/confluence/display/hive/adminmanual+installation)                     |
 
 
 ## 2. Configuration modification
