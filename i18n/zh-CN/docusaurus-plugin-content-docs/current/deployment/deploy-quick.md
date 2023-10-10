@@ -45,7 +45,7 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 | JDK（1.8.0 141） | 必需   | [安装JDK和设置JAVA_HOME](https://docs.oracle.com/cd/E19509-01/820-5483/6ngsiu065/index.html)                     |
 | mysql（5.5+）    | 必需   | [安装MySQL](https://docs.oracle.com/cd/E69403_01/html/E56873/mysql.html)                                      |
 | Python(3.6.8)  | 必需   | [Python安装和使用](https://docs.python.org/zh-cn/3/using/index.html)                                             |
-| Nginx          | 必需   | [Nginx安装指南](http://nginx.org/en/linux_packages.html#instructions)                                           |
+| Nginx(1.14.1)  | 必需   | [Nginx安装指南](http://nginx.org/en/linux_packages.html#instructions)                                           |
 | Hadoop（(2.7.2） | 必需   | [Hadoop快速入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6) |
 | Spark（2.4.3）   | 必需   | [Spark安装入门](https://spark.apache.org/downloads.html)                                                        |
 | Hive(3.1.3)    | 必需   | [Hive安装指南](https://cwiki.apache.org/confluence/display/hive/adminmanual+installation)                       |
