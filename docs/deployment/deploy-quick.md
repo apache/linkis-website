@@ -599,19 +599,37 @@ linkis-package/lib/linkis-engineconn-plugins/
     └── plugin
         └── 3.2.1
 ```
-
 #### Method 2: View the database table of linkis
 ```shell script
 select * from linkis_cg_engine_conn_plugin_bml_resources
+````
+### 7.3 additional engines check
+The additonal engines check are done manually by executing the script`sh $LINKIS_HOME/bin/checkAdd.sh ${engineType}`. Please refer to the directory (`$LINKIS_HOME/bin/checkAdd.sh`) . The specific checking method is as follows:
+```shell script
+function print_usage(){
+  echo "Usage: checkAdd [EngineName]"
+  echo " EngineName : The Engine name that you want to check"
+  echo " Engine list as bellow: JDBC Flink openLooKeng Pipeline Presto Sqoop Elasticsearch "
+}
 
->If you need to use the spark/hive/flink engine
+```
+The parameters used in the addtional engines checking process are divided into two categories: one for  the data engine connection information, defined in `$LINKIS_HOME/deploy-config/db.sh`; the other  is the reference parameters, including check switches, version definitions, Java paths, etc., defined in `$LINKIS_HOME/deploy-config/db.sh`.  engines and parameters descriptions are as follows:
+| EngineType    | Parameters         | parameter description  |
+|---------------|--------------------|----------------------|
+| JDBC          | ${MYSQL_HOST}, ${MYSQL_PORT}, ${MYSQL_DB}, ${MYSQL_USER}, ${MYSQL_PASSWORD} | MySQL engine connection information, including host IP, port, database name, username, password|
+| JDBC          | ${MYSQL_CONNECT_JAVA_PATH} | MySQL JDBC Driver directory|
+| Flink         | ${FLINK_HOME}          | he installation directory of Flink, including Flink execution scripts and samples    |
+| openLooKeng   | ${OLK_HOST}, ${OLK_PORT}, ${OLK_CATALOG}, ${OLK_SCHEMA}, {OLK_USER}, ${OLK_PASSWORD}| openLooKeng engine connection information, including host IP, port, catalog, schema, username, password|
+| openLooKeng   | ${OLK_JDBC_PATH} | openLooKeng connector directory|
+| Presto        | ${PRESTO_HOST}, ${PRESTO_PORT}, ${PRESTO_CATALOG}, ${PRESTO_SCHEMA}| Presto engine connection information, including host IP, port, catalog, schema|
+| Sqoop         | ${HIVE_META_URL}, ${HIVE_META_USER}, ${HIVE_META_PASSWORD}| sqoop connection information for connecting to Hive, including service address, username, password|
+| Elasticsearch | ${ES_RESTFUL_URL} | Elasticsearch RestfulAPI URL    |
+| Impala        | ${IMPALA_HOST}, ${IMPALA_PORT}| Impala connection information, including host IP and port|
+| Trino         | ${TRINO_COORDINATOR_HOST}, ${TRINO_COORDINATOR_PORT}, ${TRINO_COORDINATOR_CATALOG}, ${TRINO_COORDINATOR_SCHEMA}| Trino connection information, including host IP, port, catalog, and schema|
+| Seatunnel     | ${SEATUNNEL_HOST}, ${SEATUNNEL_PORT} | Seatunnel connection information, including host IP and port|
 
-After logging in, check whether the yarn queue resources can be displayed normally (click the button in the lower right corner of the page) (you need to install the front end first).
-
-Normal as shown in the figure below:    
-![yarn-normal](images/yarn-normal.png)
-
-If it cannot be displayed: You can adjust it according to the following guidelines
+## 8. Troubleshooting Guidelines for Common Abnormal Problems
+### 8.1. Yarn Queue Check
 
 #### 8.1.1 Check whether the yarn address is configured correctly
 Database table `linkis_cg_rm_external_resource_provider``
