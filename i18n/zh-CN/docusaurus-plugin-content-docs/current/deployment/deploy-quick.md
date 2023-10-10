@@ -8,7 +8,7 @@ sidebar_position: 1
 ### 1.1 Linux服务器
 
 **硬件要求**  
-安装linkis 微服务近10个，至少3G内存。每个微服务默认配置启动的jvm -Xmx 内存大小为 512M（内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大）。
+安装linkis 微服务近6个，至少3G内存。每个微服务默认配置启动的jvm -Xmx 内存大小为 512M（内存不够的情况下，可以尝试调小至256/128M，内存足够情况下也可以调大）。
 
 
 ### 1.2 添加部署用户
@@ -16,7 +16,7 @@ sidebar_position: 1
 > 部署用户: linkis核心进程的启动用户，同时此用户会默认作为管理员权限，<font color="red">部署过程中会生成对应的管理员登录密码，位于`conf/linkis-mg-gateway.properties`文件中</font>
 > Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`sudo -u ${linkis-user}` 切换到对应用户下，然后执行对应的引擎启动命令，所以引擎`linkis-engine`进程归属的用户是任务的执行者（因此部署用户需要有sudo权限，而且是免密的）。
 
-以hadoop用户为例:
+以hadoop用户为例（<font color="red">linkis中很多配置用户默认都使用hadoop用户，建议初次安装者使用hadoop用户，否则在安装过程中可能会遇到很多意想不到的错误</font>）:
 
 先查看系统中是否已经有 hadoop 用户，若已经存在，则直接授权即可，若不存在，先创建用户，再授权。
 
@@ -66,7 +66,7 @@ $ tar -xvf apache-linkis-x.x.x-bin.tar.gz
 
 解压后的目录结构如下
 ```shell script
--rw-r--r-- 1 hadoop hadoop 518192043 Jun 20 09:50 apache-linkis-1.3.1-bin.tar.gz
+-rw-r--r-- 1 hadoop hadoop 518192043 Jun 20 09:50 apache-linkis-x.x.x-bin.tar.gz
 drwxrwxr-x 2 hadoop hadoop      4096 Jun 20 09:56 bin  //执行环境检查和安装的脚本
 drwxrwxr-x 2 hadoop hadoop      4096 Jun 20 09:56 deploy-config // 部署时依赖的DB等环境配置信息
 drwxrwxr-x 4 hadoop hadoop      4096 Jun 20 09:56 docker
@@ -241,73 +241,18 @@ HADOOP_KERBEROS_ENABLE=true
 HADOOP_KEYTAB_PATH=/appcom/keytab/
 ```
 
-
-#### S3模式（可选）
-> 目前支持将引擎执行日志和结果存储到S3 
-> 
-> 注意: linkis没有对S3做权限适配，所以无法对其做赋权操作
-
-`vim linkis.properties`
-```shell script
-# s3 file system
-linkis.storage.s3.access.key=xxx
-linkis.storage.s3.secret.key=xxx
-linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
-linkis.storage.s3.region=xxx
-linkis.storage.s3.bucket=xxx
-```
-
-`vim linkis-cg-entrance.properties`
-```shell script
-wds.linkis.entrance.config.log.path=s3:///linkis/logs
-wds.linkis.resultSet.store.path=s3:///linkis/results
-```
-
 ### 2.4 配置 Token
+文件位于 `bin/install.sh`
 
-Linkis 原有默认 Token 固定且长度太短存在安全隐患。因此 Linkis 1.3.2 将原有固定 Token 改为随机生成，并增加 Token 长度。
+Linkis 1.3.2 版本为保证系统安全性已将 Token 值改为32位随机生成，具体可查看[Token变更说明](https://linkis.apache.org/zh-CN/docs/1.3.2/feature/update-token/)。
 
-新 Token 格式：应用简称-32 位随机数，如BML-928a721518014ba4a28735ec2a0da799。
-
-Token 可能在 Linkis 服务自身使用，如通过 Shell 方式执行任务、BML 上传等，也可能在其它应用中使用，如 DSS、Qualitis 等应用访问 Linkis。
-
-#### 查看 Token
-**通过 SQL 语句查看**
-```sql
-select * from linkis_mg_gateway_auth_token;
-```
-**通过管理台查看**
-
-登录管理台 -> 基础数据管理 -> 令牌管理 
-![](/Images-zh/deployment/token-list.png)
-
-#### 检查 Token 配置
-
-Linkis 服务本身使用 Token 时，配置文件中 Token 需与数据库中 Token 一致。通过应用简称前缀匹配。
-
-$LINKIS_HOME/conf/linkis.properites文件 Token 配置
+使用随机生成Token，初次与[WDS其它组件](https://github.com/WeDataSphere/DataSphereStudio/blob/master/README-ZH.md)对接时会遇到很多 Token 验证失败的问题，建议初次安装时不使用随机生成Token，修改如下配置为 true 即可。 
 
 ```
-linkis.configuration.linkisclient.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.bml.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.context.client.auth.value=BML-928a721518014ba4a28735ec2a0da799
-wds.linkis.errorcode.auth.token=BML-928a721518014ba4a28735ec2a0da799
-
-wds.linkis.client.test.common.tokenValue=LINKIS_CLI-215af9e265ae437ca1f070b17d6a540d
-
-wds.linkis.filesystem.token.value=WS-52bce72ed51741c7a2a9544812b45725
-wds.linkis.gateway.access.token=WS-52bce72ed51741c7a2a9544812b45725
-
-wds.linkis.server.dsm.auth.token.value=DSM-65169e8e1b564c0d8a04ee861ca7df6e
+DEBUG_MODE=true
 ```
 
-$LINKIS_HOME/conf/linkis-cli/linkis-cli.properties文件 Token 配置
-```
-wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
-```
-
-#### 注意事项
+### 2.5 注意事项
 
 **全量安装**
 
@@ -319,7 +264,18 @@ wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
 
 **Token 过期问题**
 
-当遇到 Token 令牌无效或已过期问题时可以检查 Token 是否配置正确，可通过管理台查询 Token。
+当遇到 Token 令牌无效或已过期问题时可以检查 Token 是否配置正确，可通过管理台 ==> 基础数据管理 ==> 令牌管理，查询 Token。
+
+**Python 版本问题**
+Linkis 升级为 1.4.0 后默认 Spark 版本升级为 3.x，无法兼容 python2。因此如果需要使用 pyspark 功能需要做如下修改。
+1. 映射 python2 命令为 python3
+```
+sudo ln -snf /usr/bin/python3 /usr/bin/python2
+```
+2. spark 引擎连接器配置 $LINKIS_HOME/lib/linkis-engineconn-plugins/spark/dist/3.2.1/conf/linkis-engineconn.properties 中添加如下配置，指定python安装路径
+```
+pyspark.python3.path=/usr/bin/python3
+```
 
 ## 3. 安装和启动
 
@@ -340,7 +296,7 @@ install.sh脚本会询问您是否需要初始化数据库并导入元数据。�
 
 执行成功提示如下:
 ```shell script
-`Congratulations! You have installed Linkis 1.0.3 successfully, please use sh /data/Install/linkis/sbin/linkis-start-all.sh to start it!  
+`Congratulations! You have installed Linkis x.x.x successfully, please use sh /data/Install/linkis/sbin/linkis-start-all.sh to start it!  
 Your default account password is [hadoop/5e8e312b4]`
 ```
 
@@ -351,12 +307,12 @@ Your default account password is [hadoop/5e8e312b4]`
 
 :::
 
-下载mysql驱动 以5.1.49版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar) https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar
+下载mysql驱动 以 8.0.28 版本为例：[下载链接](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar)
 
 拷贝mysql 驱动包至lib包下 
 ```
-cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
-cp mysql-connector-java-5.1.49.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
+cp mysql-connector-java-8.0.28.jar  ${LINKIS_HOME}/lib/linkis-spring-cloud-services/linkis-mg-gateway/
+cp mysql-connector-java-8.0.28.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
 ```
 ### 3.3 添加postgresql驱动包 (可选)
 如果选择使用postgresql作为业务数据库，需要手动添加postgresql驱动
@@ -380,6 +336,27 @@ cp postgresql-42.5.4.jar  ${LINKIS_HOME}/lib/linkis-commons/public-module/
 如果您是对Linkis的升级。同时部署DSS或者其他项目，但其它软件中引入的依赖linkis版本<1.1.1(主要看lib包中，所依赖的Linkis的linkis-module-x.x.x.jar包 <1.1.1），则需要修改位于`${LINKIS_HOME}/conf/linkis.properties`文件。
 ```shell
 echo "wds.linkis.session.ticket.key=bdp-user-ticket-id" >> linkis.properties
+```
+
+#### 3.4.3 S3 模式
+> 目前支持将引擎执行日志和结果存储到 S3 文件系统 
+> 
+> 注意: linkis没有对 S3 做权限适配，所以无法对其做赋权操作
+
+`vim $LINKIS_HOME/conf/linkis.properties`
+```shell script
+# s3 file system
+linkis.storage.s3.access.key=xxx
+linkis.storage.s3.secret.key=xxx
+linkis.storage.s3.endpoint=http://xxx.xxx.xxx.xxx:xxx
+linkis.storage.s3.region=xxx
+linkis.storage.s3.bucket=xxx
+```
+
+`vim $LINKIS_HOME/conf/linkis-cg-entrance.properties`
+```shell script
+wds.linkis.entrance.config.log.path=s3:///linkis/logs
+wds.linkis.resultSet.store.path=s3:///linkis/results
 ```
 
 ### 3.5 启动服务
@@ -409,6 +386,51 @@ LINKIS-PS-PUBLICSERVICE 公共服务
 
 如果有服务未启动，可以在对应的log/${服务名}.log文件中查看详细异常日志。
 
+### 3.8 配置 Token
+
+Linkis 原有默认 Token 固定且长度太短存在安全隐患。因此 Linkis 1.3.2 将原有固定 Token 改为随机生成，并增加 Token 长度。
+
+新 Token 格式：应用简称-32 位随机数，如BML-928a721518014ba4a28735ec2a0da799。
+
+Token 可能在 Linkis 服务自身使用，如通过 Shell 方式执行任务、BML 上传等，也可能在其它应用中使用，如 DSS、Qualitis 等应用访问 Linkis。
+
+#### 查看 Token
+**通过 SQL 语句查看**
+```sql
+select * from linkis_mg_gateway_auth_token;
+```
+**通过管理台查看**
+
+登录管理台 -> 基础数据管理 -> 令牌管理 
+![](/Images-zh/deployment/token-list.png)
+
+#### 检查 Token 配置
+
+Linkis 服务本身使用 Token 时，配置文件中 Token 需与数据库中 Token 一致。通过应用简称前缀匹配。
+
+$LINKIS_HOME/conf/linkis.properties文件 Token 配置
+
+```
+linkis.configuration.linkisclient.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.bml.auth.token.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.context.client.auth.value=BML-928a721518014ba4a28735ec2a0da799
+wds.linkis.errorcode.auth.token=BML-928a721518014ba4a28735ec2a0da799
+
+wds.linkis.client.test.common.tokenValue=LINKIS_CLI-215af9e265ae437ca1f070b17d6a540d
+
+wds.linkis.filesystem.token.value=WS-52bce72ed51741c7a2a9544812b45725
+wds.linkis.gateway.access.token=WS-52bce72ed51741c7a2a9544812b45725
+
+wds.linkis.server.dsm.auth.token.value=DSM-65169e8e1b564c0d8a04ee861ca7df6e
+```
+
+$LINKIS_HOME/conf/linkis-cli/linkis-cli.properties文件 Token 配置
+```
+wds.linkis.client.common.tokenValue=BML-928a721518014ba4a28735ec2a0da799
+```
+
+其它应用使用 Token 时，需要修改其 Token 配置与数据库中 Token 一致。
 
 ## 4. 安装web前端
 web端是使用nginx作为静态资源服务器的，访问请求流程是:
@@ -508,10 +530,10 @@ wds.linkis.admin.password= #密码
 sh bin/linkis-cli -submitUser  hadoop  -engineType shell-1 -codeType shell  -code "whoami"
 
 #hive引擎任务
-sh bin/linkis-cli -submitUser  hadoop  -engineType hive-2.3.3  -codeType hql  -code "show tables"
+sh bin/linkis-cli -submitUser  hadoop  -engineType hive-3.1.3  -codeType hql  -code "show tables"
 
 #spark引擎任务
-sh bin/linkis-cli -submitUser  hadoop  -engineType spark-2.4.3 -codeType sql  -code "show tables"
+sh bin/linkis-cli -submitUser  hadoop  -engineType spark-3.2.1 -codeType sql  -code "show tables"
 
 #python引擎任务
 sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType python  -code 'print("hello, world!")'
@@ -540,6 +562,11 @@ sh bin/linkis-cli -submitUser  hadoop  -engineType python-python2 -codeType pyth
 | Flink         | >=1.0.0 已适配   | **不包含** |
 | openLooKeng   | >=1.1.1 已适配   | **不包含** |
 | Sqoop         | >=1.1.2 已适配  | **不包含** |
+| Trino         | >=1.3.2 已适配  | **不包含** |
+| Presto        | >=1.3.2 已适配  | **不包含** |
+| Elasticsearch | >=1.3.2 已适配  | **不包含** |
+| Seatunnel     | >=1.3.2 已适配  | **不包含** |
+| Impala        | >=1.4.0 已适配  | **不包含** |
 
 
 
@@ -552,9 +579,9 @@ $ tree linkis-package/lib/linkis-engineconn-plugins/ -L 3
 linkis-package/lib/linkis-engineconn-plugins/
 ├── hive
 │   ├── dist
-│   │   └── 2.3.3  #版本为2.3.3  engineType 为hive-2.3.3
+│   │   └── 3.1.3  #版本为 3.1.3 engineType 为hive-3.1.3
 │   └── plugin
-│       └── 2.3.3
+│       └── 3.1.3
 ├── python
 │   ├── dist
 │   │   └── python2
@@ -567,9 +594,9 @@ linkis-package/lib/linkis-engineconn-plugins/
 │       └── 1
 └── spark
     ├── dist
-    │   └── 2.4.3
+    │   └── 3.2.1
     └── plugin
-        └── 2.4.3
+        └── 3.2.1
 ```
 
 #### 方式2: 查看linkis的数据库表
@@ -621,14 +648,14 @@ function print_usage(){
 ```sql
 INSERT INTO `linkis_cg_rm_external_resource_provider`
 (`resource_type`, `name`, `labels`, `config`) VALUES
-('Yarn', 'sit', NULL,
-'{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "2.7.2",\r\n"authorEnable":false,\r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
+('Yarn', 'default', NULL,
+'{\r\n"rmWebAddress": "http://xx.xx.xx.xx:8088",\r\n"hadoopVersion": "3.3.4",\r\n"authorEnable":false,\r\n"user":"hadoop",\r\n"pwd":"123456"\r\n}'
 );
 
 config字段属性
 
 "rmWebAddress": "http://xx.xx.xx.xx:8088",  #需要带上http以及端口
-"hadoopVersion": "2.7.2",
+"hadoopVersion": "3.3.4",
 "authorEnable":true, //是否需要认证 可以在浏览器中通过访问http://xx.xx.xx.xx:8088验证用户名和密码
 "user":"user",//用户名
 "pwd":"pwd"//密码
@@ -767,7 +794,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 Cookie: bdp-user-ticket-id=xxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 - 方式3 http请求头添加静态的Token令牌  
-  Token在conf/token.properties进行配置
+  Token在conf/linkis.properties进行配置
   如:TEST-AUTH=hadoop,root,user01
 ```shell script
 Token-Code:TEST-AUTH

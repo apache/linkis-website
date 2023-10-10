@@ -73,6 +73,6 @@ cd /Linkis1.0.0/sbin
 
 ## 执行linkis-daemon脚本
 
-sh linkis-daemon.sh restart linkis-engine-plugin-server
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 

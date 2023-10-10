@@ -57,7 +57,7 @@ ${LINKIS_HOME}/lib/linkis-engineplugins
 and restart linkis-engineplugin 
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 More engineplugin details can be found in the following article.  
 https://linkis.apache.org/docs/1.1.1/deployment/engine-conn-plugin-installation

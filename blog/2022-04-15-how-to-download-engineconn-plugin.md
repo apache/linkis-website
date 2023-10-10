@@ -12,6 +12,7 @@ In order to facilitate everyone's use, based on the release branch code of each 
  ## Download link
 | **linkis version** | **engines included** |**engine material package download link** |
 |:---- |:---- |:---- |
+|1.4.0|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>trino<br/>impala<br/>|[1.4.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.4.0-engineconn-plugin.tar)|
 |1.3.2|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>trino<br/>seatunnel<br/>|[1.3.2-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.3.2-engineconn-plugin.tar)|
 |1.3.1|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>trino<br/>seatunnel<br/>|[1.3.1-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.3.1-engineconn-plugin.tar)|
 |1.3.0|jdbc<br/>pipeline<br/>io_file<br/>flink<br/>openlookeng<br/>sqoop<br/>presto<br/>elasticsearch<br/>|[1.3.0-engineconn-plugin.tar](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeDatasphere/Linkis/engineconn-plugin/1.3.0-engineconn-plugin.tar)|
@@ -30,7 +31,7 @@ In order to facilitate everyone's use, based on the release branch code of each 
 |Hive|Apache >= 1.0.0, <br/>CDH >= 5.4.0, <br/>(default Apache Hive 2.3.3)|\>=1.0.3|Yes|Hive EngineConn, supports HiveQL code|
 |Python|Python >= 2.6, <br/>(default Python2*)|\>=1.0.3|Yes|Python EngineConn, supports python code|
 |Shell|Bash >= 2.0|\>=1.0.3|Yes|Shell EngineConn, supports Bash shell code|
-|JDBC|MySQL >= 5.0, Hive >=1.2.1, <br/>(default Hive-jdbc 2.3.4)|\>=1.0.3|No |JDBC EngineConn, already supports MySQL and HiveQL, can be extended quickly Support other engines with JDBC Driver package, such as Oracle|
+|JDBC|MySQL >= 5.0, Hive >=1.2.1, <br/>(default Hive-jdbc 2.3.4)|\>=1.0.3|No |JDBC EngineConn, already supports Mysql,Oracle,KingBase,PostgreSQL,SqlServer,DB2,Greenplum,DM,Doris,ClickHouse,TiDB,Starrocks,GaussDB and OceanBase, can be extended quickly Support other engines with JDBC Driver package, such as SQLite|
 |Flink |Flink >= 1.12.2, <br/>(default Apache Flink 1.12.2)|\>=1.0.2|No |Flink EngineConn, supports FlinkSQL code, also supports starting a new Yarn in the form of Flink Jar Application|
 |Pipeline|-|\>=1.0.2|No|Pipeline EngineConn, supports file import and export|
 |openLooKeng|openLooKeng >= 1.5.0, <br/>(default openLookEng 1.5.0)|\>=1.1.1|No|openLooKeng EngineConn, supports querying data virtualization engine with Sql openLooKeng|

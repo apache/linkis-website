@@ -307,7 +307,7 @@ cd /appcom/Install/dss-linkis/linkis/lib/linkis-engineconn-plugins/，
 解法：yarn的地址配置迁移DB配置，需要增加如下配置：
 
 ```
-INSERT INTO `linkis_cg_rm_external_resource_provider` (`resource_type`, `name`, `labels`, `config`) VALUES ('Yarn', 'sit', NULL, '{\r\n"rmWebAddress": "http://xxip:xxport",\r\n"hadoopVersion": "2.7.2",\r\n"authorEnable":true,\r\n"user":"hadoop",\r\n"pwd":"xxxx"\r\n}');
+INSERT INTO `linkis_cg_rm_external_resource_provider` (`resource_type`, `name`, `labels`, `config`) VALUES ('Yarn', 'default', NULL, '{\r\n"rmWebAddress": "http://xxip:xxport",\r\n"hadoopVersion": "2.7.2",\r\n"authorEnable":true,\r\n"user":"hadoop",\r\n"pwd":"xxxx"\r\n}');
 
 config 字段示例
 {

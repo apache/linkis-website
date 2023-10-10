@@ -95,7 +95,11 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 ```shell
 sh ./bin/linkis-cli -engineType jdbc-4 \
 -codeType jdbc -code "show tables" \
--submitUser hadoop -proxyUser hadoop
+-submitUser hadoop -proxyUser hadoop \
+-runtimeMap wds.linkis.jdbc.connect.url=jdbc:mysql://127.0.0.1:3306/linkis_db \
+-runtimeMap wds.linkis.jdbc.driver=com.mysql.jdbc.Driver \
+-runtimeMap wds.linkis.jdbc.username=test \
+-runtimeMap wds.linkis.jdbc.password=123456
 ```
 
 More `Linkis-Cli` command parameter reference: [`Linkis-Cli` usage](../user-guide/linkiscli-manual.md)
@@ -198,11 +202,7 @@ Note: After modifying the configuration under the `IDE` tag, you need to specify
 sh ./bin/linkis-cli -creator IDE \
 -engineType jdbc-4 -codeType jdbc \
 -code "show tables"  \
--submitUser hadoop -proxyUser hadoop \
--runtimeMap wds.linkis.jdbc.connect.url=jdbc:mysql://127.0.0.1:3306 \
--runtimeMap wds.linkis.jdbc.driver=com.mysql.jdbc.Driver \
--runtimeMap wds.linkis.jdbc.username=root \
--runtimeMap wds.linkis.jdbc.password=123456 \
+-submitUser hadoop -proxyUser hadoop
 ```
 
 #### 4.2.2 Task interface configuration

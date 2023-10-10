@@ -65,10 +65,10 @@ ${linkis_code_dir}/linkis-enginepconn-plugins/engineconn-plugins/sqoop/target/sq
 ```bash 
 ${LINKIS_HOME}/lib/linkis-engineplugins
 ```
-并重启linkis-engineplugin
+并重启linkis-cg-linkismanager
 ```bash
 cd ${LINKIS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 engineplugin更详细的介绍可以参看下面的文章。
   

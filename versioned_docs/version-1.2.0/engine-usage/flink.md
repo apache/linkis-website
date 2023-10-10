@@ -81,7 +81,7 @@ Linkis’ Flink engine has two execution methods. One is the ComputationEngineCo
 FlinkSQL can support a variety of data sources, such as binlog, kafka, hive, etc. If you want to use these data sources in Flink code, you need to put the plug-in jar packages of these connectors into the lib of the flink engine, and restart Linkis EnginePlugin service. If you want to use binlog as a data source in your FlinkSQL, then you need to put flink-connector-mysql-cdc-1.1.1.jar into the lib of the flink engine.
 ```bash
 cd ${LINKS_HOME}/sbin
-sh linkis-daemon.sh restart cg-engineplugin
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 
 ### 3.1 ComputationEngineConn method
