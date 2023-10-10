@@ -36,8 +36,9 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 <font color='red'>The following operations are performed under the hadoop user</font>
 
-### 1.3 installation dependencies check
-Two parts of engines checking：1, for default engines ，<font color="red"> checking script is located in ` bin/checkEnv.sh`</font>，while execute `install.sh`script, it will revoke `checkEnv.sh` for default engines check；2,Addtional engines check，<font color="red"> the checking scripts located in ` bin/check Add.sh`</font>. if you need to check addtional engines，just execute `checkEnv.sh <engine-name>`. engines check list as bellow：
+### 1.3 installation dependencies 
+
+Linkis depends on such engines as bellow，all the mandatory engines will be check in installation scripts`${LINKIS_HOME}/bin/checkEnv.sh`
 
 | EngineType     | Necessary | Installation Guide                                                                                                 |
 |----------------|-----------|--------------------------------------------------------------------------------------------------------------------|
