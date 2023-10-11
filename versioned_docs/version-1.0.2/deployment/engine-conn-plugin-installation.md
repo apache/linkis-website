@@ -81,7 +81,7 @@ If it is an existing engine and a new version is added, you can modify the versi
 ### cd to the sbin directory, restart linkis-engineconn-plugin-server
 cd /Linkis1.0.0/sbin
 ## Execute linkis-daemon script
-sh linkis-daemon.sh restart linkis-engine-plugin-server
+sh linkis-daemon.sh restart linkis-cg-linkismanager
 ```
 
 3.Check whether the engine refresh is successful: If you encounter problems during the refresh process and need to confirm whether the refresh is successful, you can check whether the last_update_time of the linkis_engine_conn_plugin_bml_resources table in the database is the time when the refresh is triggered.

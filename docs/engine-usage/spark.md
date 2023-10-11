@@ -32,7 +32,7 @@ Welcome to
       ______
      /__/__ ___ _____/ /__
     _\ \/ _ \/ _ `/ __/ '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 2.4.3
+   /__ / .__/\_,_/_/ /_/\_\   version 3.2.1
       /_/
 
 Using Python version 2.7.13 (default, Sep 30 2017 18:12:43)
@@ -43,7 +43,7 @@ SparkSession available as 'spark'.
 
 The `Spark` engine plugin is included in the binary installation package released by `linkis` by default, and users do not need to install it additionally.
 
-In theory `Linkis` supports all versions of `spark2.x` and above. The default supported version is `Spark2.4.3`. If you want to use another version of `spark`, such as `spark2.1.0`, you just need to modify the version of the plugin `spark` and compile it. Specifically, you can find the `linkis-engineplugin-spark` module, change the value of the `<spark.version>` tag in the `maven` dependency to 2.1.0, and then compile this module separately.
+In theory `Linkis` supports all versions of `spark2.x` and above. The default supported version is `Spark3.2.1`. If you want to use another version of `spark`, such as `spark2.1.0`, you just need to modify the version of the plugin `spark` and compile it. Specifically, you can find the `linkis-engineplugin-spark` module, change the value of the `<spark.version>` tag in the `maven` dependency to 2.1.0, and then compile this module separately.
 
 [EngineConnPlugin engine plugin installation](../deployment/install-engineconn.md)
 
@@ -53,10 +53,10 @@ In theory `Linkis` supports all versions of `spark2.x` and above. The default su
 
 ```shell
 # codeType correspondence py-->pyspark sql-->sparkSQL scala-->Spark scala
-sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -code "show databases"  -submitUser hadoop -proxyUser hadoop
 
 # You can specify the yarn queue in the submission parameter by -confMap wds.linkis.yarnqueue=dws
-sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show databases"  -submitUser hadoop -proxyUser hadoop
 ```
 More `Linkis-Cli` command parameter reference: [Linkis-Cli usage](../user-guide/linkiscli-manual.md)
 
@@ -67,10 +67,26 @@ For `Spark` tasks you only need to modify the `EngineConnType` and `CodeType` pa
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
-labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
+labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-3.2.1"); // required engineType Label
 labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
 ```
+
+You can also submit scala and python code:
+````java
+
+//scala 
+labels.put(LabelKeyConstant.CODE_TYPE_KEY, "scala");
+code:
+val df=spark.sql("show tables")
+show(df)        
+//pyspark
+/labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py");
+code:
+df=spark.sql("show tables")
+show(df)
+````
+
 
 ### 3.3 Submitting tasks by submitting the jar package
 
@@ -155,11 +171,18 @@ Token-User: linkis
     },
     "labels": {
         // pattern：engineType-version
-        "engineType": "spark-2.4.3",
+        "engineType": "spark-3.2.1",
         // userCreator: linkis is username。IDE is system that be configed in Linkis。
         "userCreator": "linkis-IDE"
     }
 }
+```
+
+### 3.5 Submitting spark yarn cluster tasks via `Linkis-cli`
+
+```shell
+# Use `engingeConnRuntimeMode=yarnCluster` to specify the yarn cluster mode
+sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnRuntimeMode=yarnCluster -submitUser hadoop -proxyUser hadoop -code "select 123"
 ```
 
 ## 4. Engine configuration instructions
@@ -191,7 +214,7 @@ Note: After modifying the configuration under the `IDE` tag, you need to specify
 
 ```shell
 sh ./bin/linkis-cli -creator IDE \
--engineType spark-2.4.3 -codeType sql \
+-engineType spark-3.2.1 -codeType sql \
 -code "show databases"  \
 -submitUser hadoop -proxyUser hadoop
 ```
@@ -212,7 +235,7 @@ Example of http request parameters
                             }
                     },
     "labels": {
-        "engineType": "spark-2.4.3",
+        "engineType": "spark-3.2.1",
         "userCreator": "hadoop-IDE"
     }
 }
@@ -224,7 +247,7 @@ Example of http request parameters
 
 ```
 linkis_ps_configuration_config_key: Insert the key and default values ​​​​of the configuration parameters of the engine
-linkis_cg_manager_label: insert engine label such as: spark-2.4.3
+linkis_cg_manager_label: insert engine label such as: spark-3.2.1
 linkis_ps_configuration_category: The directory association relationship of the insertion engine
 linkis_ps_configuration_config_value: The configuration that the insertion engine needs to display
 linkis_ps_configuration_key_engine_relation: The relationship between the configuration item and the engine
@@ -234,7 +257,7 @@ The initial data in the table related to the `spark` engine is as follows
 
 ```sql
 -- set variable
-SET @SPARK_LABEL="spark-2.4.3";
+SET @SPARK_LABEL="spark-3.2.1";
 SET @SPARK_ALL=CONCAT('*-*,',@SPARK_LABEL);
 SET @SPARK_IDE=CONCAT('*-IDE,',@SPARK_LABEL);
 

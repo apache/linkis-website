@@ -32,7 +32,7 @@ Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /__ / .__/\_,_/_/ /_/\_\   version 2.4.3
+   /__ / .__/\_,_/_/ /_/\_\   version 3.2.1
       /_/
 
 Using Python version 2.7.13 (default, Sep 30 2017 18:12:43)
@@ -43,7 +43,7 @@ SparkSession available as 'spark'.
 
 `Linkis` 发布的二进制安装包中默认包含了 `Spark` 引擎插件，用户无需额外安装。
 
-理论上 `Linkis` 支持的 `Spark2.x` 以上的所有版本。默认支持的版本为 `Spark2.4.3` 。如果您想使用其他的 `Spark` 版本，如 `Spark2.1.0` ，则您仅仅需要将插件 `Spark` 的版本进行修改，然后进行编译即可。具体的，您可以找到 `linkis-engineplugin-spark` 模块，将 `maven` 依赖中 `<spark.version>` 标签的值改成 2.1.0 ，然后单独编译此模块即可。
+理论上 `Linkis` 支持的 `Spark2.x` 以上的所有版本。默认支持的版本为 `Spark3.2.1` 。如果您想使用其他的 `Spark` 版本，如 `Spark2.1.0` ，则您仅仅需要将插件 `Spark` 的版本进行修改，然后进行编译即可。具体的，您可以找到 `linkis-engineplugin-spark` 模块，将 `maven` 依赖中 `<spark.version>` 标签的值改成 2.1.0 ，然后单独编译此模块即可。
 
 [EngineConnPlugin引擎插件安装](../deployment/install-engineconn.md)
 
@@ -53,10 +53,10 @@ SparkSession available as 'spark'.
 
 ```shell
 # codeType对应关系 py-->pyspark  sql-->sparkSQL scala-->Spark scala
-sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -code "show databases"  -submitUser hadoop -proxyUser hadoop
 
 # 可以在提交参数通过-confMap wds.linkis.yarnqueue=dws  来指定yarn 队列
-sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show databases"  -submitUser hadoop -proxyUser hadoop
+sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql  -confMap wds.linkis.yarnqueue=dws -code "show databases"  -submitUser hadoop -proxyUser hadoop
 ```
 更多 `Linkis-Cli` 命令参数参考： [Linkis-Cli 使用](../user-guide/linkiscli-manual.md)
 
@@ -66,10 +66,25 @@ sh ./bin/linkis-cli -engineType spark-2.4.3 -codeType sql  -confMap wds.linkis.y
 
 ```java
 Map<String, Object> labels = new HashMap<String, Object>();
-labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-2.4.3"); // required engineType Label
+labels.put(LabelKeyConstant.ENGINE_TYPE_KEY, "spark-3.2.1"); // required engineType Label
 labels.put(LabelKeyConstant.USER_CREATOR_TYPE_KEY, "hadoop-IDE");// required execute user and creator
 labels.put(LabelKeyConstant.CODE_TYPE_KEY, "sql"); // required codeType py,sql,scala
 ```
+
+Spark还支持提交Scala代码和Pyspark代码：
+````java
+
+//scala 
+labels.put(LabelKeyConstant.CODE_TYPE_KEY, "scala");
+code:
+val df=spark.sql("show tables")
+show(df)        
+//pyspark
+/labels.put(LabelKeyConstant.CODE_TYPE_KEY, "py");
+code:
+df=spark.sql("show tables")
+show(df)
+````
 
 ### 3.3 通过提交jar包执行任务
 
@@ -154,11 +169,18 @@ Token-User: linkis
     },
     "labels": {
         // 格式为：引擎类型-版本
-        "engineType": "spark-2.4.3",
+        "engineType": "spark-3.2.1",
         // userCreator: linkis 为用户名。IDE 是系统名，在 Linkis 后台管理。
         "userCreator": "linkis-IDE"
     }
 }
+```
+
+### 3.5 通过 `Linkis-cli` 提交spark yarn cluster任务
+
+```shell
+# 使用 `engingeConnRuntimeMode=yarnCluster` 来指定yarn cluster模式
+sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnRuntimeMode=yarnCluster -submitUser hadoop -proxyUser hadoop -code "select 123"
 ```
 
 ## 4.引擎配置说明
@@ -190,7 +212,7 @@ Token-User: linkis
 
 ```shell
 sh ./bin/linkis-cli -creator IDE \
--engineType spark-2.4.3 -codeType sql \
+-engineType spark-3.2.1 -codeType sql \
 -code "show databases"  \
 -submitUser hadoop -proxyUser hadoop
 ```
@@ -211,7 +233,7 @@ http 请求参数示例
         }
     },
     "labels": {
-        "engineType": "spark-2.4.3",
+        "engineType": "spark-3.2.1",
         "userCreator": "hadoop-IDE"
     }
 }
@@ -223,7 +245,7 @@ http 请求参数示例
 
 ```
 linkis_ps_configuration_config_key:  插入引擎的配置参数的key和默认values
-linkis_cg_manager_label：插入引擎label如：spark-2.4.3
+linkis_cg_manager_label：插入引擎label如：spark-3.2.1
 linkis_ps_configuration_category： 插入引擎的目录关联关系
 linkis_ps_configuration_config_value： 插入引擎需要展示的配置
 linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
@@ -233,7 +255,7 @@ linkis_ps_configuration_key_engine_relation:配置项和引擎的关联关系
 
 ```sql
 -- set variable
-SET @SPARK_LABEL="spark-2.4.3";
+SET @SPARK_LABEL="spark-3.2.1";
 SET @SPARK_ALL=CONCAT('*-*,',@SPARK_LABEL);
 SET @SPARK_IDE=CONCAT('*-IDE,',@SPARK_LABEL);
 
