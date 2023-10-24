@@ -13,10 +13,16 @@
       "release": "Release Note",
       "latestData": [
         {
-          "versionLabel": "1.3.0",
-          "downloadUrl": "/zh-CN/download/release-notes-1.3.0",
+          "versionLabel": "1.4.0",
+          "downloadUrl": "/zh-CN/download/release-notes-1.4.0",
           "docUrl": "/zh-CN/docs/latest/about/introduction",
-          "sourceTag":"1.3.0"
+          "sourceTag":"1.4.0"
+        },
+        {
+          "versionLabel": "1.3.2",
+          "downloadUrl": "/zh-CN/download/release-notes-1.3.2",
+          "docUrl": "/zh-CN/docs/1.3.2/about/introduction",
+          "sourceTag":"1.3.2"
         }
       ],
       "nextData": [
@@ -26,6 +32,12 @@
         }
       ],
       "historyData": [
+        {
+          "versionLabel": "1.3.0",
+        "downloadUrl": "/zh-CN/download/release-notes-1.3.0",
+        "docUrl": "/zh-CN/docs/latest/about/introduction",
+        "sourceTag":"1.3.0"
+      },
         {
           "versionLabel": "1.2.0",
           "downloadUrl": "/zh-CN/download/release-notes-1.2.0",
@@ -91,10 +103,16 @@
       "release": "Release Note",
       "latestData": [
         {
-          "versionLabel": "1.3.0",
+          "versionLabel": "1.4.0",
           "docUrl": "/docs/latest/about/introduction",
-          "releaseNotes": "/download/release-notes-1.3.0",
-          "sourceTag":"1.3.0"
+          "downloadUrl": "/download/release-notes-1.4.0",
+          "sourceTag":"1.4.0"
+        },
+        {
+          "versionLabel": "1.3.2",
+          "docUrl": "/docs/1.3.2/about/introduction",
+          "downloadUrl": "/download/release-notes-1.3.2",
+          "sourceTag":"1.3.2"
         }
       ],
       "nextData": [
@@ -105,50 +123,56 @@
       ],
       "historyData": [
         {
+          "versionLabel": "1.3.0",
+          "docUrl": "/docs/1.3.0/introduction",
+        "downloadUrl": "/download/release-notes-1.3.0",
+        "sourceTag":"1.3.0"
+      },
+        {
           "versionLabel": "1.2.0",
           "docUrl": "/docs/1.2.0/introduction",
-          "releaseNotes": "/download/release-notes-1.2.0",
+          "downloadUrl": "/download/release-notes-1.2.0",
           "sourceTag":"1.2.0"
         },
         {
           "versionLabel": "1.1.3",
           "docUrl": "/docs/1.1.3/introduction",
-          "releaseNotes": "/download/release-notes-1.1.3",
+          "downloadUrl": "/download/release-notes-1.1.3",
           "sourceTag":"1.1.3"
         },
         {
           "versionLabel": "1.1.2",
           "docUrl": "/docs/1.1.2/introduction",
-          "releaseNotes": "/download/release-notes-1.1.2",
+          "downloadUrl": "/download/release-notes-1.1.2",
           "sourceTag":"1.1.2"
         },
         {
           "versionLabel": "1.1.1",
           "docUrl": "/docs/1.1.1/introduction",
-          "releaseNotes": "/download/release-notes-1.1.1",
+          "downloadUrl": "/download/release-notes-1.1.1",
           "sourceTag":"1.1.1"
         },
         {
           "versionLabel": "1.1.0",
           "docUrl": "/docs/1.1.0/introduction",
-          "releaseNotes": "/download/release-notes-1.1.0",
+          "downloadUrl": "/download/release-notes-1.1.0",
           "sourceTag":"release-1.1.0"
         },
         {
           "versionLabel": "1.0.3",
           "docUrl": "/docs/1.0.3/introduction",
-          "releaseNotes": "/download/release-notes-1.0.3",
+          "downloadUrl": "/download/release-notes-1.0.3",
           "sourceTag":"release-1.0.3"
         },
         {
           "versionLabel": "1.0.2",
-          "releaseNotes": "/download/release-notes-1.0.2",
+          "downloadUrl": "/download/release-notes-1.0.2",
           "docUrl": "/docs/1.0.2/introduction",
           "sourceTag":"1.0.2"
         },
         {
           "versionLabel": "0.11.0",
-          "releaseNotes": "https://github.com/apache/linkis/releases/tag/0.11.0",
+          "downloadUrl": "https://github.com/apache/linkis/releases/tag/0.11.0",
           "docUrl": "/docs/0.11.0/introduction",
           "sourceTag":"0.11.0"
         }

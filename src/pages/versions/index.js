@@ -15,7 +15,7 @@ export default function() {
             <div className={styles['divone']}><br/>
                 <h1>{dataSource.title}</h1>
                 <br/>
-                <h3>{dataSource.latestVersion}</h3>
+                {/* <h3>{dataSource.latestVersion}</h3> */}
                 <p>{dataSource.latestVersionExplain}</p>
                 <table>
                   <tbody>
