@@ -5,7 +5,7 @@ sidebar_position: 2
 
 ## 1. 介绍
 
-Linkis-Cli 是一个用于向Linkis提交任务的Shell命令行程序。
+Linkis-Cli 是一个用于向Linkis提交任务的Shell命令行程序。需要注意的是，Linkis-Cli默认使用Once模式提交任务，引擎进程启动后只运行一次任务，任务结束后自动销毁
 
 ## 2. 基础案例
 
@@ -233,6 +233,16 @@ Map前缀包括：
     task-906-result-3.txt
 ```
 
+### 5.7 linkis-cli复用引擎进程
+Linkis-Cli默认使用Once模式提交任务，如果想复用引擎进程，可以采用以下2种方式：
+1. 通过`-labelMap`参数禁用Once模式：
+   ```bash
+   sh /bin/linkis-cli -engineType spark-2.4.3 -codeType sql -labelMap executeOnce=false -code "select count(*) from testdb.test;"  -submitUser hadoop -proxyUser hadoop 
+   ```
+2. 在用户自定义配置文件里配置：
+```properties
+   wds.linkis.client.label.executeOnce=false
+```
 
 
     
