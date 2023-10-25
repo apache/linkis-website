@@ -12,9 +12,9 @@ sidebar_position: 1
 
 
 ### 1.2 添加部署用户
- 
->部署用户: linkis核心进程的启动用户，同时此用户会默认作为管理员权限，<font color="red">部署过程中会生成对应的管理员登录密码，位于`conf/linkis-mg-gateway.properties`文件中</font>
-Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`sudo -u  ${linkis-user}` 切换到对应用户下，然后执行对应的引擎启动命令，所以引擎`linkis-engine`进程归属的用户是任务的执行者（因此部署用户需要有sudo权限，而且是免密的）。
+
+> 部署用户: linkis核心进程的启动用户，同时此用户会默认作为管理员权限，<font color="red">部署过程中会生成对应的管理员登录密码，位于`conf/linkis-mg-gateway.properties`文件中</font>
+> Linkis支持指定提交、执行的用户。linkis主要进程服务会通过`sudo -u ${linkis-user}` 切换到对应用户下，然后执行对应的引擎启动命令，所以引擎`linkis-engine`进程归属的用户是任务的执行者（因此部署用户需要有sudo权限，而且是免密的）。
 
 以hadoop用户为例（<font color="red">linkis中很多配置用户默认都使用hadoop用户，建议初次安装者使用hadoop用户，否则在安装过程中可能会遇到很多意想不到的错误</font>）:
 
@@ -36,7 +36,19 @@ hadoop ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
 <font color='red'>以下操作都是在hadoop用户下进行</font>
 
+### 1.3 依赖环境
+ 
+Linkis需要的环境引擎如下列表所示，这些必需的引擎在安装检查脚本`${LINKIS_HOME}/bin/checkENv.sh`中检查。
 
+| 引擎类型           | 是否必装 | 安装直通车                                                                                                       |
+|----------------|------|-------------------------------------------------------------------------------------------------------------|
+| JDK（1.8.0 141） | 必需   | [安装JDK和设置JAVA_HOME](https://docs.oracle.com/cd/E19509-01/820-5483/6ngsiu065/index.html)                     |
+| mysql（5.5+）    | 必需   | [安装MySQL](https://docs.oracle.com/cd/E69403_01/html/E56873/mysql.html)                                      |
+| Python(3.6.8)  | 必需   | [Python安装和使用](https://docs.python.org/zh-cn/3/using/index.html)                                             |
+| Nginx(1.14.1)  | 必需   | [Nginx安装指南](http://nginx.org/en/linux_packages.html#instructions)                                           |
+| Hadoop（(2.7.2） | 必需   | [Hadoop快速入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6) |
+| Spark（2.4.3）   | 必需   | [Spark安装入门](https://spark.apache.org/downloads.html)                                                        |
+| Hive(3.1.3)    | 必需   | [Hive安装指南](https://cwiki.apache.org/confluence/display/hive/adminmanual+installation)                       |
 
 ## 2. 配置修改
 
@@ -591,7 +603,32 @@ linkis-package/lib/linkis-engineconn-plugins/
 ```shell script
 select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
+### 7.3 非默认引擎检查
+非默认引擎的检查通过手工执行脚本`sh $LINKIS_HOME/bin/checkAdd.sh ${engineType}`来检查，具体脚本参见目录（`$LINKIS_HOME/bin/checkAdd.sh`) 。具体的检查方法如下：
 
+```shell script
+function print_usage(){
+  echo "Usage: checkAdd [EngineName]"
+  echo " EngineName : The Engine name that you want to check"
+  echo " Engine list as bellow: JDBC Flink openLooKeng  Presto Sqoop Elasticsearch "
+}
+```
+
+非默认引擎检查过程中使用到的参数分为两类：一类是数据引擎连接信息，在`$LINKIS_HOME/deploy-config/db.sh`中定义；另一类是引用参数，包括检查开关、版本定义、java路径等，在`$LINKIS_HOME/deploy-config/db.sh`定义。相关的引擎及参数描述如下：
+
+| 引擎类型          | 使用到的参数                                                                                                          | 参数描述                                     |
+|---------------|-----------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| JDBC          | ${MYSQL_HOST}, ${MYSQL_PORT}, ${MYSQL_DB}, ${MYSQL_USER}, ${MYSQL_PASSWORD}                                     | MySQL引擎连接信息，包括主机IP、端口、数据库名、用户、密码         |
+| JDBC          | ${MYSQL_CONNECT_JAVA_PATH}                                                                                      | MySQL驱动连接所在目录                            |
+| Flink         | ${FLINK_HOME}                                                                                                   | 定义 FLink 安装所在目录，包含Flink执行脚本和样例           |
+| openLooKeng   | ${OLK_HOST}, ${OLK_PORT}, ${OLK_CATALOG}, ${OLK_SCHEMA}, {OLK_USER}, ${OLK_PASSWORD}                            | openLooKeng引擎连接信息，包括主机IP、端口、编目、模式、用户名、密码 |
+| openLooKeng   | ${OLK_JDBC_PATH}                                                                                                | openLooKeng连接器目录                         |
+| Presto        | ${PRESTO_HOST}, ${PRESTO_PORT}, ${PRESTO_CATALOG}, ${PRESTO_SCHEMA}                                             | Presto引擎连接信息，包括主机IP、端口、编目、模式             |
+| Sqoop         | ${HIVE_META_URL}, ${HIVE_META_USER}, ${HIVE_META_PASSWORD}                                                      | sqoop连接hive的连接信息，包括服务地址、用户名、密码           |
+| Elasticsearch | ${ES_RESTFUL_URL}                                                                                               | Elasticsearch服务地址                        |
+| Impala        | ${IMPALA_HOST}, ${IMPALA_PORT}                                                                                  | impala连接信息，包括主机 IP 、端口                   |
+| Trino         | ${TRINO_COORDINATOR_HOST}, ${TRINO_COORDINATOR_PORT}, ${TRINO_COORDINATOR_CATALOG}, ${TRINO_COORDINATOR_SCHEMA} | trino连接信息，包括主机IP、端口、类别、编目、模式             |
+| Seatunnel     | ${SEATUNNEL_HOST}, ${SEATUNNEL_PORT}                                                                            | Seatunnel连接信息，包括主机IP、端口                  |
 
 ## 8. 常见异常问题排查指引
 ### 8.1. Yarn队列检查
