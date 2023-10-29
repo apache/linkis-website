@@ -11,7 +11,7 @@ Github为广大开发者提供了一个[github action市场](https://github.com/
 
 ## 2 一些名词术语
 #### 2.1 什么是持续集成
-简单说就是自动化程序，举个例子，对于前端程序员每次提交代码到 Github 的仓库后，Github 都会自动创建一个虚拟机（Mac / Windows / Linux 任我们选），来执行一段或多段指令（由我们定），例如：
+简单说就是自动化程序，举个例子，对于前端程序员每次提交代码到 Github 的仓库，Github 都会自动创建一个虚拟机（Mac / Windows / Linux 任我们选），来执行一段或多段指令（由我们定），例如：
 
 ```bash
 npm install
