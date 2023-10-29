@@ -276,6 +276,24 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       darkTheme: darkCodeTheme,
     },
     scripts: ['/script/matomo.js'],
+    metadatas: [
+      {
+        name: 'og:title',
+        content: 'Apache Linkis',
+      },
+      {
+        name: 'og:description',
+        content: 'Linkis builds a computation middleware layer to facilitate connection, governance and orchestration between the upper applications and the underlying data engines.',
+      },
+      {
+        name: 'og:image',
+        content: 'img/logo.png',
+      },
+      {
+        name: 'og:url',
+        content: 'https://linkis.apache.org',
+      },
+    ],
   },
   plugins: [
      [
