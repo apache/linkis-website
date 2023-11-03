@@ -184,7 +184,7 @@ labels.put(LabelKeyConstant.CODE_TYPE_KEY, "jdbc"); // required codeType
 | wds.linkis.jdbc.connect.url        | jdbc:mysql://127.0.0.1:10000    |是  | jdbc连接地址 |
 | wds.linkis.jdbc.driver       | 无            |是  | jdbc连接驱动 |
 | wds.linkis.jdbc.username       | 无    |是              | 数据库连接用户名                 |
-| wds.linknis.jdbc.password       | 无       |是           | 数据库链接密码                   |
+| wds.linkis.jdbc.password       | 无       |是           | 数据库链接密码                   |
 | wds.linkis.jdbc.connect.max     | 10       |否        | jdbc引擎最大连接数                       |
 | wds.linkis.jdbc.version     | jdbc4       |否        | jdbc版本                       |
 
