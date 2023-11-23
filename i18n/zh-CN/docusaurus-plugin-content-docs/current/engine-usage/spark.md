@@ -185,6 +185,8 @@ sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnR
 
 ### 3.6 通过 `Linkis-cli` 提交spark k8s cluster任务
 
+提交任务前，请在Kubernetes上安装metric server，在资源校验过程中会调用到相关的API。
+
 #### 3.6.1 拓展资源配置
 
 用户首先需要在Linkis控制台中配置拓展资源信息，在**Linkis控制台->基础数据管理->拓展资源管理**中新增Kubernetes集群配置，如下图所示。其中**资源类型**必须设置为`Kubernetes`，**名称**可自定义。
@@ -272,6 +274,28 @@ linkis-cli --mode once \
 -confMap linkis.spark.k8s.namespace='default' \
 -confMap linkis.spark.k8s.image="apache/spark-py:v3.2.1"
 ```
+
+#### 3.6.5 补充说明
+
+**旧版本升级说明**
+
+* 需要使用`linkis-dist/package/db/upgrade/1.5.0_schema/mysql/linkis_ddl.sql`进行升级数据库字段，具体是将`linkis_cg_manager_label`的`label_key`字段长度从32增加到50。
+
+  ```sql
+  ALTER TABLE `linkis_cg_manager_label` MODIFY COLUMN label_key varchar(50);
+  ```
+
+* 1.5.0版本以前，构建CombineLabel时是不包括ClusterLabel的，为兼容旧版本，当提交的ClusterLabel值为Yarn-default时，构建CombineLabel时仍然不包含ClusterLabel，可通过设置`linkis.combined.without.yarn.default`为false来关闭该功能（默认为true）。
+
+  > 具体原因是，如果在旧版本有提交过跟该ClusterLabel相关的任务，在数据库会有对应的资源记录，当升级到新版本之后，由于CombineLabel包含了ClusterLabel，所以在提交该类型的任务时，数据库的资源记录会发生冲突，所以为兼容旧版本，对于Yarn-default（ClusterLabel默认值）的CombineLabel构建仍然不包含ClusterLabel。
+  > 如果是直接安装的最新版本，则不需要考虑这个问题，因为数据库里没有会发生冲突的记录，可以将`linkis.combined.without.yarn.default`设置为false以提升可读性。
+
+**提交任务的校验过程**
+
+提交Spark Once Job任务到K8S要经过两层资源校验，两层校验通过后任务才会真正提交到K8S集群：
+
+1. 首先会进行用户的资源配额校验，详细过程参考[**ResourceManager 架构**](architecture/feature/computation-governance-services/linkis-manager/resource-manager.md)。
+2. 其次会进行K8S集群的资源校验，如果当前namespace下配置了resourceQuota，则优先通过resourceQuota来进行校验，否则直接通过metric server计算集群的可用资源来进行校验。
 
 ## 4.引擎配置说明
 

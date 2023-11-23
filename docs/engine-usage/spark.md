@@ -187,6 +187,8 @@ sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnR
 
 ### 3.6 Submitting spark K8S cluster tasks via `Linkis-cli`
 
+Before submitting the task, please install the `metric server` on Kubernetes, as relevant APIs will be invoked during the resource validation process.
+
 #### 3.6.1 External Resource Provider Configuration
 
 To submit task to kubernetes cluster, you need to add cluster configuration on `Linkis Control Panel->Basic Data Management->External Resource Provider Manage` as show in the figure. The `Resource Type` must be set to `Kubernetes` while the `Name` can be customized.
@@ -274,6 +276,28 @@ linkis-cli --mode once \
 -confMap linkis.spark.k8s.namespace='default' \
 -confMap linkis.spark.k8s.image="apache/spark-py:v3.2.1"
 ```
+
+#### 3.6.5 Supplemental instructions
+
+**Upgrade instructions for old version**
+
+* You need to use `linkis-dist/package/db/upgrade/1.5.0_schema/mysql/linkis_ddl.sql` to upgrade the database fields. Specifically, the `label_key` field of `linkis_cg_manager_label` needs to be increased from 32 to 50 in length.
+
+  ```sql
+  ALTER TABLE `linkis_cg_manager_label` MODIFY COLUMN label_key varchar(50);
+  ```
+
+* Prior to version 1.5.0, when building CombineLabel, ClusterLabel was not included. To maintain compatibility with older versions, when the submitted ClusterLabel value is 'Yarn-default', ClusterLabel is still not included when building CombineLabel. You can disable this feature by setting `linkis.combined.without.yarn.default` to false (default is true).
+
+  > The specific reason is that if tasks related to that ClusterLabel were submitted in old versions, corresponding resource records would exist in the database. After upgrading to the new version, since CombineLabel includes ClusterLabel, conflicts would occur in the database's resource records when submitting tasks of this type. Therefore, to maintain compatibility with older versions, the construction of CombineLabel for Yarn-default (the default value of ClusterLabel) still does not include ClusterLabel.
+  > If the latest version is installed directly, this issue does not need to be considered because there are no conflicting records in the database. You can set `linkis.combined.without.yarn.default` to false to improve readability.
+
+**Validation of submitting tasks**
+
+Submitting a Spark Once Job to K8S involves two levels of resource validation, and the task will only be submitted to the K8S cluster after passing both levels of validation:
+
+1. First, user resource quota validation will be performed. For detailed process, please refer to [**ResourceManager Architecture**](architecture/feature/computation-governance-services/linkis-manager/resource-manager.md).
+2. Next, resource validation for the K8S cluster will be performed. If a resourceQuota is configured under the current namespace, it will be prioritized for validation. Otherwise, the available resources of the cluster will be calculated directly through the metric server for validation.
 
 ## 4. Engine configuration instructions
 
