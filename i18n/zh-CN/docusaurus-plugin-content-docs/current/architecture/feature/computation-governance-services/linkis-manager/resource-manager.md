@@ -21,7 +21,7 @@ Linkis中，与RM产生交互的其它服务主要有：
 
 ### 资源的类型与格式
 
-![05](/Images-zh/Architecture/rm-05.png)
+![05](/Images-zh/Architecture/rm-07.png)
 
 如上图所示，所有的资源类均实现一个顶层的Resource接口，该接口定义了所有资源类均需要支持的计算和比较的方法，并进行相应的数学运算符的重载，使得资源之间能够像数字一样直接被计算和比较。
 
@@ -35,15 +35,17 @@ Linkis中，与RM产生交互的其它服务主要有：
 
 当前支持的资源类型如下表所示，所有的资源都有对应的json序列化与反序列化方法，能够通过json格式进行存储和在网络间传递：
 
-| 资源类型              | 描述                                                   |
-|-----------------------|--------------------------------------------------------|
-| MemoryResource        | 内存资源                                               |
-| CPUResource           | CPU资源                                                |
-| LoadResource          | 同时具备内存与CPU的资源                                |
-| YarnResource          | Yarn队列资源（队列，队列内存，队列CPU，队列实例数）    |
-| LoadInstanceResource  | 服务器资源（内存，CPU，实例数）                        |
-| DriverAndYarnResource | 驱动器与执行器资源（同时具备服务器资源，Yarn队列资源） |
-| SpecialResource       | 其它自定义资源                                         |
+| 资源类型                    | 描述                                                       |
+| --------------------------- | ---------------------------------------------------------- |
+| MemoryResource              | 内存资源                                                   |
+| CPUResource                 | CPU资源                                                    |
+| LoadResource                | 同时具备内存与CPU的资源                                    |
+| YarnResource                | Yarn队列资源（队列，队列内存，队列CPU，队列实例数）        |
+| KubernetesResource          | K8S集群资源（Namespace，CPU，内存）                        |
+| LoadInstanceResource        | 服务器资源（内存，CPU，实例数）                            |
+| DriverAndYarnResource       | 驱动器与Yarn执行器资源（同时具备服务器资源，Yarn队列资源） |
+| DriverAndKubernetesResource | 驱动器与K8S执行器资源（同时具备服务器资源，K8S资源）       |
+| SpecialResource             | 其它自定义资源                                             |
 
 ### 可用资源管理
 
