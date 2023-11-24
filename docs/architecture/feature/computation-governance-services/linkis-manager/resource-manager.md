@@ -15,7 +15,7 @@ In Linkis, other services that interact with RM mainly include:
 2. The engine connector, referred to as EC, is the actual execution unit of user operations. At the same time, as the actual user of the resource, the EC is responsible for reporting the actual use of the resource to the RM. Each EC has a corresponding resource record in the RM: during the startup process, it is reflected as a locked resource; during the running process, it is reflected as a used resource; after being terminated, the resource record is subsequently deleted.  
 ![04](/Images/Architecture/rm-04.png)  
 ## 3. Resource type and format
-![05](/Images/Architecture/rm-05.png)  
+![05](/Images/Architecture/rm-07.png)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As shown in the figure above, all resource classes implement a top-level Resource interface, which defines the calculation and comparison methods that all resource classes need to support, and overloads the corresponding mathematical operators to enable resources to be Directly calculated and compared like numbers.  
 
 | Operator | Correspondence Method | Operator | Correspondence Method |
@@ -34,9 +34,11 @@ In Linkis, other services that interact with RM mainly include:
 | CPUResource | CPU Resource |
 | LoadResource | Both memory and CPU resources |
 | YarnResource | Yarn queue resources (queue, queue memory, queue CPU, number of queue instances) |
+| KubernetesResource | Kubernetes resources（namespace, CPU, memory） |
 | LoadInstanceResource | Server resources (memory, CPU, number of instances) |
-| DriverAndYarnResource | Driver and executor resources (with server resources and Yarn queue resources at the same time) |
-| SpecialResource | Other custom resources |  
+| DriverAndYarnResource | Driver and Yarn executor resources (with server resources and Yarn queue resources at the same time) |
+| DriverAndKubernetesResource | Driver and Kubernetes executor resources (with server resources and Kubernetes resources at the same time) |
+| SpecialResource | Other custom resources |
 
 ## 4. Available resource management
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The available resources in the RM mainly come from two sources: the available resources reported by the ECM, and the resource limits configured according to tags in the Configuration module.  
