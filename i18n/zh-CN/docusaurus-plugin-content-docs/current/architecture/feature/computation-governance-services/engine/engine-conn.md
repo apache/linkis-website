@@ -61,7 +61,7 @@ linkis-engineconn-common引擎连接器的通用模块，定义了引擎连接�
 |核心Service|核心功能|
 |:----|:----|
 |EngineCreationContext|包含了EngineConn在启动期间的上下文信息|
-|EngineConn|包含了EngineConn的具体信息，如类型、与层计算存储引擎的具体连接信息等|
+|EngineConn|包含了EngineConn的具体信息，如类型、与底层计算存储引擎的具体连接信息等|
 |EngineExecution|提供Executor的创建逻辑|
 |EngineConnHook|定义引擎启动各个阶段前后的操作|
 
@@ -125,7 +125,7 @@ linkis-accessible-executor：能够被访问的Executor底层抽象。可以通�
 2. EngineConn进程的默认启动用户为提交用户
 ### 6.2 性能
 
-支持并发的EngineConn支持同事并发跑大量任务，如单个trino的EngineConn可以同时跑300多个trino任务
+支持并发的EngineConn支持同时并发跑大量任务，如单个trino的EngineConn可以同时跑300多个trino任务
 
 ### 6.3 容量
 
