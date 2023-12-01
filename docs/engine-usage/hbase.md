@@ -22,7 +22,7 @@ echo ${JAVA_HOME}
 
 ### 2.1 Engine plugin preparation [non-default engine](./overview.md)
 
-Method 2: Compile the engine plug-in separately (requires a `maven` environment)
+Compile the engine plug-in separately (requires a `maven` environment)
 
 ```
 # compile
