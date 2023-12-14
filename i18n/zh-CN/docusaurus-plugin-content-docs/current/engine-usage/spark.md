@@ -182,11 +182,15 @@ Token-User: linkis
 ```shell
 # 上传linkis spark引擎的lib下的jar包 (根据您的实际安装目录修改以下参数)
 cd /appcom/Install/linkis/lib/linkis-engineconn-plugins/spark/dist/3.2.1/lib
-hdfs dfs -put *.jar hdfs:///spark/cluster/
+hdfs dfs -put *.jar hdfs:///spark/cluster
 
 # 上传linkis 配置文件 (根据您的实际安装目录修改以下参数)
 cd /appcom/Install/linkis/conf
-hdfs dfs -put * hdfs:///spark/cluster/
+hdfs dfs -put * hdfs:///spark/cluster
+
+# 上传hive-site.xml  (根据您的实际安装目录修改以下参数)
+cd $HIVE_CONF_DIR
+hdfs dfs -put hive-site.xml hdfs:///spark/cluster
 ```
 可以通过`linkis.spark.yarn.cluster.jars`参数来修改`hdfs:///spark/cluster` 
 

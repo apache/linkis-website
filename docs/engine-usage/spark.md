@@ -184,11 +184,15 @@ Upload the jar package and configuration
 ```shell
 # Upload the jar package under the lib of the linkis spark engine (modify the following parameters according to your actual installation directory)
 cd /appcom/Install/linkis/lib/linkis-engineconn-plugins/spark/dist/3.2.1/lib
-hdfs dfs -put *.jar hdfs:///spark/cluster/
+hdfs dfs -put *.jar hdfs:///spark/cluster
 
 # Upload the linkis configuration file (modify the following parameters according to your actual installation directory)
 cd /appcom/Install/linkis/conf
-hdfs dfs -put * hdfs:///spark/cluster/
+hdfs dfs -put * hdfs:///spark/cluster
+
+# Upload hive-site.xml (modify the following parameters according to your actual installation directory)
+cd $HIVE_CONF_DIR
+hdfs dfs -put hive-site.xml hdfs:///spark/cluster
 ```
 Can pass `linkis.spark.yarn.cluster.jars`parameters to modify`hdfs:///spark/cluster`
 
