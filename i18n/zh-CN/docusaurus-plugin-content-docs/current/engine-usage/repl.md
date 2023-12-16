@@ -73,6 +73,7 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
 
 ### 3.1 通过 `Linkis-cli` 提交`java`任务
 
+单个方法
 ```shell
  sh bin/linkis-cli -engineType repl-1  -code  \
 "import org.apache.commons.lang3.StringUtils;
@@ -81,6 +82,22 @@ select * from linkis_cg_engine_conn_plugin_bml_resources;
         System.out.println(StringUtils.isEmpty(\"hello\"));
     }" \
   -codeType repl -runtimeMap linkis.repl.type=java
+```
+
+多个方法
+```shell
+ sh bin/linkis-cli -engineType repl-1  -code  \
+"import org.apache.commons.lang3.StringUtils;
+
+    public void sayHello() {
+        System.out.println(\"hello\");
+        System.out.println(StringUtils.isEmpty(\"hello\"));
+    }
+    public void sayHi() {
+        System.out.println(\"hi\");
+        System.out.println(StringUtils.isEmpty(\"hi\"));
+    }" \
+  -codeType repl -runtimeMap linkis.repl.type=java -runtimeMap linkis.repl.method.name=sayHi
 ```
 
 ### 3.2 通过 `Linkis-cli` 提交`scala`任务

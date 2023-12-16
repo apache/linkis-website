@@ -178,6 +178,23 @@ Token-User: linkis
 
 ### 3.5 通过 `Linkis-cli` 提交spark yarn cluster任务
 
+上传jar包和配置
+```shell
+# 上传linkis spark引擎的lib下的jar包 (根据您的实际安装目录修改以下参数)
+cd /appcom/Install/linkis/lib/linkis-engineconn-plugins/spark/dist/3.2.1/lib
+hdfs dfs -put *.jar hdfs:///spark/cluster
+
+# 上传linkis 配置文件 (根据您的实际安装目录修改以下参数)
+cd /appcom/Install/linkis/conf
+hdfs dfs -put * hdfs:///spark/cluster
+
+# 上传hive-site.xml  (根据您的实际安装目录修改以下参数)
+cd $HIVE_CONF_DIR
+hdfs dfs -put hive-site.xml hdfs:///spark/cluster
+```
+可以通过`linkis.spark.yarn.cluster.jars`参数来修改`hdfs:///spark/cluster` 
+
+执行测试用例
 ```shell
 # 使用 `engingeConnRuntimeMode=yarnCluster` 来指定yarn cluster模式
 sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnRuntimeMode=yarnCluster -submitUser hadoop -proxyUser hadoop -code "select 123"
