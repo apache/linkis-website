@@ -50,7 +50,7 @@ ${linkis_code_dir}/linkis-engineconn-plugins/flink/target/flink-engineconn.zip
 ```
 然后部署到
 ```bash 
-${LINKIS_HOME}/lib/linkis-engineplugins
+${LINKIS_HOME}/lib/linkis-engineconn-plugins
 ```
 并重启linkis-cg-linkismanager
 ```bash

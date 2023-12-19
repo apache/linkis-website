@@ -62,7 +62,7 @@ ${linkis_code_dir}/linkis-engineconn-plugins/trino/target/out/
 
 将 2.1 中的引擎包上传到服务器的引擎目录下
 ```bash 
-${LINKIS_HOME}/lib/linkis-engineplugins
+${LINKIS_HOME}/lib/linkis-engineconn-plugins
 ```
 上传后目录结构如下所示
 ```

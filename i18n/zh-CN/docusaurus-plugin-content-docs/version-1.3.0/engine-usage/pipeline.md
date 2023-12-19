@@ -34,7 +34,7 @@ ${linkis_code_dir}/linkis-engineconn-plugins/pipeline/target/out/pipeline
 ### 1.2 物料的部署和加载
 
 
-将 步骤 1.1获取到的引擎物料包，上传到服务器的引擎目录下`${LINKIS_HOME}/lib/linkis-engineplugins`
+将 步骤 1.1获取到的引擎物料包，上传到服务器的引擎目录下`${LINKIS_HOME}/lib/linkis-engineconn-plugins`
 
 
 并重启linkis-cg-linkismanager进行引擎刷新
