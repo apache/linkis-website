@@ -87,9 +87,9 @@ A:这个应该是重复安装导致的，导致结果集写到同一个文件里
 ## Q3: Spark版本不一致导致的json4s包冲突问题，报错如下：错误信息:caused by: java.lang.NoSuchMethodError: org.json4s.jackson.jsonMethod$
 
 解决方案:
-这个是因为Spark jars的json4s和lib/linkis-engineplugins/spark/dist/version/lib
+这个是因为Spark jars的json4s和lib/linkis-engineconn-plugins/spark/dist/version/lib
 包里面的json4s版本不一致，官方发布release时会在后面注明Spark的支持版本，如果不一致会存在该问题。
-解决办法将Spark jars里面的json4s的包替换掉lib/linkis-engineplugins/spark/dist/version/lib
+解决办法将Spark jars里面的json4s的包替换掉lib/linkis-engineconn-plugins/spark/dist/version/lib
  包里面的json4s版本。另外netty包也可能存在冲突，可按Json4s的方法进行处理.然后重启ecp服务即可：sh sbin/linkis-damon.sh restart cg-engineplugin
 
 ## Q4: Linkis1.X在CDH5.16.1版本提交spark sql任务时，404的问题排查方法
@@ -210,7 +210,7 @@ grant all on database default to user hadoop;
 
 解决方案:
 这是因为开启了hive事务，可以在linkis的机器上面修改hive-site.xml关掉事务配置，参考hive事务：https://www.jianshu.com/p/aa0f0fdd234c
-或者将相关包放到引擎插件目录中lib/linkis-engineplugins/hive/dist/version/lib
+或者将相关包放到引擎插件目录中lib/linkis-engineconn-plugins/hive/dist/version/lib
 
 
 
@@ -403,7 +403,7 @@ linkis-cg-linkismanager.log中， 重复打印Need a ServiceInstance(linkis-cg-e
 ![](/faq/q43_1.png)
 
 ①管理台参数配置，可以对应引擎参数，可以修改超时时间。保存后kill现有引擎即可。
-②如未显示超时配置，需要手动修改 linkis-engineplugins目录下，对应引擎插件目录 如 spark/dist/v2.4.3/conf/linkis-engineconn.properties ，默认配置 wds.linkis.engineconn.max.free.time=1h ，表示1h超时，可带单位m 、h。0表示不超时，不会自动kill。改完需要重启ecp，并且kill现有引擎，跑新任务起引擎即可生效。
+②如未显示超时配置，需要手动修改 linkis-engineconn-plugins目录下，对应引擎插件目录 如 spark/dist/v2.4.3/conf/linkis-engineconn.properties ，默认配置 wds.linkis.engineconn.max.free.time=1h ，表示1h超时，可带单位m 、h。0表示不超时，不会自动kill。改完需要重启ecp，并且kill现有引擎，跑新任务起引擎即可生效。
 
 ## Q22:  新建工作流的时候，提示“504 Gateway Time-out”
 

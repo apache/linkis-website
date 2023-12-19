@@ -59,7 +59,7 @@ ${linkis_code_dir}/linkis-engineconn-plugins/elasticsearch/target/out/
 
 Upload the engine plug-in package in 2.1 to the engine directory of the server
 ```bash 
-${LINKIS_HOME}/lib/linkis-engineplugins
+${LINKIS_HOME}/lib/linkis-engineconn-plugins
 ```
 The directory structure after uploading is as follows
 ```

@@ -48,7 +48,7 @@ ${linkis_code_dir}/linkis-enginepconn-lugins/engineconn-plugins/flink/target/fli
 ```
 Then deploy to
 ```bash
-${LINKIS_HOME}/lib/linkis-engineplugins
+${LINKIS_HOME}/lib/linkis-engineconn-plugins
 ```
 And restart linkis-engineplugin
 ```bash
