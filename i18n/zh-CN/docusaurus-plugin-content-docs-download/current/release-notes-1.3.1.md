@@ -105,7 +105,7 @@ Linkis 1.3.1 版本主要支持 Trino 引擎 和 SeaTunnel 引擎。增加了管
 
 
 ## 致谢
-Apache Linkis 1.3.1 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不发先后）:
+Apache Linkis 1.3.1 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不分先后）:
 Alexkun, Beacontownfc, Davidhua1996, GuoPhilipse, KangTomwk, QuintinTao, aiceflower, aiceflower, 
 binbinCheng, casionone, chenmutime, dingsheng339, dlimeng, gdams, guoshupei, huangKai-2323,
 huangxiaopingRD, hunter-cloud09, hzdhgf, jacktao007, jackxu2011, jefftlin, legendtkl, liuzhuang2017, 

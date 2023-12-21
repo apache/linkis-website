@@ -79,5 +79,5 @@ Linkis 1.3.2 版本，主要增加了如下功能：对 Spark 引擎进行了增
 
 
 ## 致谢
-Apache Linkis 1.3.2 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不发先后）:
+Apache Linkis 1.3.2 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不分先后）:
 1Teng, aiceflower, Alexkun, Beacontownfc, binbinCheng, casionone, CharlieYan24, chenmutime, FinalTarget, geekmu9527, GuoPhilipse, guoshupei, huangKai-2323, hunter-cloud09, ichenfeiyang, jacktao007, jackxu2011, legendtkl, liaotian1005, mayinrain, peacewong, pjfanning, QuantumXiecao, rarexixi, utopianet, ws00428637。

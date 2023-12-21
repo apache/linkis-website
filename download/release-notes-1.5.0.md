@@ -45,7 +45,7 @@ abbreviation:
 ## New features
 - \[EC][LINKIS-5008](https://github.com/apache/linkis/pull/5008) The registration center supports Nacos
 - \[GATEWAY][LINKIS-4992](https://github.com/apache/linkis/pull/4992) Gateway supports access control configuration
-- \[EC-REPL][LINKIS-4940](https://github.com/apache/linkis/pull/4940) Added Repl interpreter engine to support execution of scala and Java code
+- \[EC-REPL][LINKIS-4937](https://github.com/apache/linkis/pull/4937) Added Repl interpreter engine to support execution of scala and Java code
 - \[EC-NEBULA][LINKIS-4903](https://github.com/apache/linkis/pull/4903) Added nebula engine
 - \[EC-HBASE][LINKIS-4891](https://github.com/apache/linkis/pull/4891) Added Hbase engine
 - \[EC-SPARK][LINKIS-4850](https://github.com/apache/linkis/pull/4850) Spark supports On Yarn Cluster operation
