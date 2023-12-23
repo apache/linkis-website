@@ -45,7 +45,7 @@ Linkis 1.5.0 版本，主要新增如下特性功能：注册中心支持切换�
 ## 新特性
 - \[EC][LINKIS-5008](https://github.com/apache/linkis/pull/5008) 注册中心支持Nacos
 - \[GATEWAY][LINKIS-4992](https://github.com/apache/linkis/pull/4992)  Gateway支持访问控制配置
-- \[EC-REPL][LINKIS-4940](https://github.com/apache/linkis/pull/4940)  新增Repl解释器引擎，支持执行scala和Java代码
+- \[EC-REPL][LINKIS-4937](https://github.com/apache/linkis/pull/4937)  新增Repl解释器引擎，支持执行scala和Java代码
 - \[EC-NEBULA][LINKIS-4903](https://github.com/apache/linkis/pull/4903) 新增nebula引擎
 - \[EC-HBASE][LINKIS-4891](https://github.com/apache/linkis/pull/4891) 新增Hbase引擎
 - \[EC-SPARK][LINKIS-4850](https://github.com/apache/linkis/pull/4850) Spark 支持On Yarn Cluster运行
@@ -92,6 +92,6 @@ Linkis 1.5.0 版本，主要新增如下特性功能：注册中心支持切换�
 - \[LM][LINKIS-4731](https://github.com/apache/linkis/pull/4731) Kill EC脚本应该去跳过ECM的进程
 
 ## 致谢
-Apache Linkis 1.5.0 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不发先后）:Casion,ChengJie1053,CoderSerio,GuoPhilipse,LiuGuoHua,Yonghao,ZHANG,Zhen,aiceflower,chengrui1,dependabot,guoshupei,luxl@chinatelecom.cn,peacewong,peter.peng,sjgllgh,v-kkhuang,weixiao,yangwenzea,yijut2,zhangwejun,zhaowenkai111,zlucelia,赵文恺,jackxu2011。
+Apache Linkis 1.5.0 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不分先后）:Casion,ChengJie1053,CoderSerio,GuoPhilipse,LiuGuoHua,Yonghao,ZHANG,Zhen,aiceflower,chengrui1,dependabot,guoshupei,luxl@chinatelecom.cn,peacewong,peter.peng,sjgllgh,v-kkhuang,weixiao,yangwenzea,yijut2,zhangwejun,zhaowenkai111,zlucelia,赵文恺,jackxu2011。
 
 

@@ -94,5 +94,5 @@ Linkis 1.4.0 版本，主要新增如下特性功能：适配的 Hadoop、Hive�
 
 
 ## 致谢
-Apache Linkis 1.4.0 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不发先后）:
+Apache Linkis 1.4.0 的发布离不开 Linkis 社区的贡献者，感谢所有的社区贡献者，包括但不仅限于以下 Contributors（排名不分先后）:
 casionone,MrFengqin,zhangwejun,Zhao,ahaoyao,duhanmin,guoshupei,shixiutao,CharlieYan24,peacewong,GuoPhilipse,aiceflower,waynecookie,jacktao007,chenghuichen,ws00428637,ChengJie1053,dependabot,jackxu2011,sjgllgh,rarexixi,pjfanning,v-kkhuang,binbinCheng,stdnt-xiao,mayinrain。
