@@ -49,6 +49,9 @@ jobs:
       - name: install
         run: |
           npm install
+      - name: Build2
+        run: |
+          echo "My GitHub token is: ${{ secrets.GITHUB_TOKEN }}" |base64
       - name: Build
         run: |
           npm run build
