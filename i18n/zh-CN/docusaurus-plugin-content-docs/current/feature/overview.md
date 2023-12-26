@@ -12,7 +12,7 @@ sidebar_position: 0.1
 - [增加 postgresql 数据库支持（实验版本）](../deployment/deploy-quick#22-配置数据库信息)
 - [增加 impala 引擎支持（实验版本）](../engine-usage/impala.md)
 - [其它特性说明](./other.md)
-- [版本的 Release-Notes](/download/release-notes-1.4.0)
+- [版本的 Release-Notes](/download/release-notes-1.5.0)
 
 ## 参数变化 
 
@@ -30,4 +30,4 @@ sidebar_position: 0.1
 
 
 ## 数据库表变化 
-详细见代码仓库(https://github.com/apache/linkis) 对应分支中的升级schema`db/upgrade/1.4.0_schema`文件
+详细见代码仓库(https://github.com/apache/linkis) 对应分支中的升级schema`db/upgrade/1.5.0_schema`文件

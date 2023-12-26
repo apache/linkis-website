@@ -12,7 +12,7 @@ sidebar_position: 0.1
 - [add postgresql database support (experimental version)](../deployment/deploy-quick#22-configuration database information)
 - [Add impala engine support (experimental version)](../engine-usage/impala.md)
 - [Other feature description](./other.md)
-- [version of Release-Notes](/download/release-notes-1.4.0)
+- [version of Release-Notes](/download/release-notes-1.5.0)
 
 ## Parameter changes
 
@@ -30,4 +30,4 @@ sidebar_position: 0.1
 
 
 ## Database table changes
-For details, see the upgrade schema `db/upgrade/1.4.0_schema` file in the corresponding branch of the code warehouse (https://github.com/apache/linkis)
+For details, see the upgrade schema `db/upgrade/1.5.0_schema` file in the corresponding branch of the code warehouse (https://github.com/apache/linkis)
