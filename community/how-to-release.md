@@ -477,16 +477,16 @@ Hello Linkis Community,
     This is a call for vote to release Apache Linkis version ${release_version}-${rc_version}.
 
     Release notes:
-        https://github.com/apache/linkis/releases/tag/v${release_version}-${rc_version}
-    
+        https://linkis.apache.org/download/release-notes-${release_version}
+
     The release candidates:
         https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version}/
     
-     Maven artifacts are available in a staging repository at:
+    Maven artifacts are available in a staging repository at:
         https://repository.apache.org/content/repositories/orgapachelinkis-{staging-id}
-    
-    Git tag for the release:
-        https://github.com/apache/linkis/tree/v${release_version}-${rc_version}
+
+    Git branch for the release:
+        https://github.com/apache/linkis/tree/${release_version}-${rc_version}
     
     Keys to verify the Release Candidate:
         https://downloads.apache.org/linkis/KEYS
@@ -510,7 +510,10 @@ Hello Linkis Community,
     [] LICENSE and NOTICE files are correct for each Linkis repo.
     [] All files have license headers if necessary.
     [] No unlicensed compiled archives bundled in source archive.
-    
+
+    Steps to validate the release，Please refer to:
+        https://linkis.apache.org/community/how-to-verify
+
 Thanks,
 ${Linkis Release Manager}
 ```
@@ -572,7 +575,7 @@ Move source and binary packages from svn's `dev` directory to the `release` dire
 
 ```shell
 #Mobile source package and binary package
-$ svn mv https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/ linkis/ -m "transfer packages for ${release_version}-${rc_version}"
+$ svn mv https://dist.apache.org/repos/dist/dev/linkis/${release_version}-${rc_version} https://dist.apache.org/repos/dist/release/linkis/${release_version} -m "transfer packages for ${release_version}-${rc_version}" 
 
 # The following operations decide whether to update the key of the release branch according to the actual situation
 # Clear the KEYS in the original release directory
