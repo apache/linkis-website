@@ -197,7 +197,7 @@ To submit task to kubernetes cluster, you need to add cluster configuration on `
 
 The parameters to be set in the `Config` are shown in the following table:
 
-| 配置              | 说明                                                         |
+| Conf              | Desc                                                         |
 | ----------------- | ------------------------------------------------------------ |
 | k8sMasterUrl      | Full URL of the API Server such as`https://xxx.xxx.xxx.xxx:6443`. This parameter must be configured. |
 | k8sConfig         | Location of the kubeconfig file such as`/home/hadoop/.kube/config`. If this parameter is configured, the following three parameters do not need to be configured. |
