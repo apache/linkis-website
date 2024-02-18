@@ -63,7 +63,7 @@ ${linkis_code_dir}/linkis-enginepconn-plugins/engineconn-plugins/sqoop/target/sq
 ```
 然后上传部署到linkis服务器
 ```bash 
-${LINKIS_HOME}/lib/linkis-engineplugins
+${LINKIS_HOME}/lib/linkis-engineconn-plugins
 ```
 并重启linkis-cg-linkismanager
 ```bash

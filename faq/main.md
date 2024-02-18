@@ -87,9 +87,9 @@ A: This should be caused by repeated installations, resulting in the result set 
 ## Q3: The json4s package conflict caused by inconsistent Spark versions, the error is as follows: Error message: caused by: java.lang.NoSuchMethodError: org.json4s.jackson.jsonMethod$
 
 solution:
-This is because of Spark jars' json4s and lib/linkis-engineplugins/spark/dist/version/lib
+This is because of Spark jars' json4s and lib/linkis-engineconn-plugins/spark/dist/version/lib
 The json4s version in the package is inconsistent. When the official release is released, the supported version of Spark will be indicated later. If it is inconsistent, this problem will exist.
-The solution is to replace the json4s package in Spark jars with lib/linkis-engineplugins/spark/dist/version/lib
+The solution is to replace the json4s package in Spark jars with lib/linkis-engineconn-plugins/spark/dist/version/lib
  The json4s version inside the package. In addition, there may be conflicts in the netty package, which can be handled according to the method of Json4s. Then restart the ecp service: sh sbin/linkis-damon.sh restart cg-engineplugin
 
 ## Q4: When Linkis1.X submits spark sql tasks in version CDH5.16.1, how to troubleshoot 404 problems
@@ -210,7 +210,7 @@ In the front end - management console - settings - general settings - Yarn queue
 
 solution:
 This is because the hive transaction is enabled, you can modify the hive-site.xml on the linkis machine to turn off the transaction configuration, refer to the hive transaction: https://www.jianshu.com/p/aa0f0fdd234c
-Or put the relevant package into the engine plugin directory lib/linkis-engineplugins/hive/dist/version/lib
+Or put the relevant package into the engine plugin directory lib/linkis-engineconn-plugins/hive/dist/version/lib
 
 
 
@@ -403,7 +403,7 @@ This is because the instance is forcibly shut down, but the persistence in the d
 ![](/faq/q43_1.png)
 
 ① The parameter configuration of the management console can correspond to the engine parameters, and the timeout time can be modified. After saving, kill the existing engine.
-②If the timeout configuration is not displayed, you need to manually modify the linkis-engineplugins directory, the corresponding engine plugin directory such as spark/dist/v2.4.3/conf/linkis-engineconn.properties, the default configuration is wds.linkis.engineconn.max.free.time =1h, means 1h overtime, and can have units m and h. 0 means no timeout, no automatic kill. After the change, you need to restart ecp, and kill the existing engine, and run a new task to start the engine to take effect.
+②If the timeout configuration is not displayed, you need to manually modify the linkis-engineconn-plugins directory, the corresponding engine plugin directory such as spark/dist/v2.4.3/conf/linkis-engineconn.properties, the default configuration is wds.linkis.engineconn.max.free.time =1h, means 1h overtime, and can have units m and h. 0 means no timeout, no automatic kill. After the change, you need to restart ecp, and kill the existing engine, and run a new task to start the engine to take effect.
 
 ## Q22: When creating a new workflow, it prompts "504 Gateway Time-out"
 

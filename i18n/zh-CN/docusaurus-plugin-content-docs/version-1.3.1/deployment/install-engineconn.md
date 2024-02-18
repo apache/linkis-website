@@ -85,7 +85,7 @@ ${linkis_code_dir}/linkis-engineconn-plugins/{插件模块名}/target/out/{插�
 
 将 2.1 步编译出来的引擎包，上传到服务器的引擎目录下
 ```bash 
-${LINKIS_HOME}/lib/linkis-engineplugins
+${LINKIS_HOME}/lib/linkis-engineconn-plugins
 ```
 
 ### 2.4 并配置默认的引擎版本(可选)

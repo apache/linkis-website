@@ -180,10 +180,141 @@ Token-User: linkis
 
 ### 3.5 Submitting spark yarn cluster tasks via `Linkis-cli`
 
+Upload the jar package and configuration
+```shell
+# Upload the jar package under the lib of the linkis spark engine (modify the following parameters according to your actual installation directory)
+cd /appcom/Install/linkis/lib/linkis-engineconn-plugins/spark/dist/3.2.1/lib
+hdfs dfs -put *.jar hdfs:///spark/cluster
+
+# Upload the linkis configuration file (modify the following parameters according to your actual installation directory)
+cd /appcom/Install/linkis/conf
+hdfs dfs -put * hdfs:///spark/cluster
+
+# Upload hive-site.xml (modify the following parameters according to your actual installation directory)
+cd $HIVE_CONF_DIR
+hdfs dfs -put hive-site.xml hdfs:///spark/cluster
+```
+Can pass `linkis.spark.yarn.cluster.jars`parameters to modify`hdfs:///spark/cluster`
+
+Execute the test case
 ```shell
 # Use `engingeConnRuntimeMode=yarnCluster` to specify the yarn cluster mode
 sh ./bin/linkis-cli -engineType spark-3.2.1 -codeType sql -labelMap engingeConnRuntimeMode=yarnCluster -submitUser hadoop -proxyUser hadoop -code "select 123"
 ```
+
+### 3.6 Submitting spark K8S cluster tasks via `Linkis-cli`
+
+Before submitting the task, please install the `metric server` on Kubernetes, as relevant APIs will be invoked during the resource validation process.
+
+#### 3.6.1 External Resource Provider Configuration
+
+To submit task to kubernetes cluster, you need to add cluster configuration on `Linkis Control Panel->Basic Data Management->External Resource Provider Manage` as show in the figure. The `Resource Type` must be set to `Kubernetes` while the `Name` can be customized.
+
+![k8s](./images/k8s-config.png) 
+
+The parameters to be set in the `Config` are shown in the following table:
+
+| Conf              | Desc                                                         |
+| ----------------- | ------------------------------------------------------------ |
+| k8sMasterUrl      | Full URL of the API Server such as`https://xxx.xxx.xxx.xxx:6443`. This parameter must be configured. |
+| k8sConfig         | Location of the kubeconfig file such as`/home/hadoop/.kube/config`. If this parameter is configured, the following three parameters do not need to be configured. |
+| k8sCaCertData     | CA certificate for clusters in kubeconfig corresponding to `certificate-authority-data`. If `k8sConfig` is not configured, you need to configure this parameter |
+| k8sClientCertData | Client certificate in kubeconfig corresponding to `client-certificate-data`，If `k8sConfig` is not configured, you need to configure this parameter |
+| k8sClientKeyData  | Client private key in kubeconfig corresponding to `client-key-data`，If `k8sConfig` is not configured, you need to configure this parameter |
+
+#### 3.6.2 Label Configuration for ECM
+
+After external provider configuration, you need to configure corresponding cluster label information on `ECM Managerment` as shown in the figure. You need to selete `yarnCluster`for label type and `K8S-cluster name` for label value where the cluster name is the name specified in `External Resource Provider Configuration` such as `K8S-default` if the name is set to `default` in the previous step.
+
+> Due to compatibility issues with `ClusterLabel`, the Key value has not been changed yet（yarnCluster）.
+
+![k8s-ecm-label](./images/k8s-ecm-label.png)
+
+#### 3.6.3 Description of parameters
+
+When using`linkis-cli` to submit task, the parameters that need to be set are as follows:
+
+* Specify the cluster to execute the task. If the cluster name is `default` when configuring the external provider, you need to specify the value of the `k8sCluster` as `'K8S-default'` when submitting the task;
+* To distinguish it from the `k8s-operator` submitting method, you need to specify the `spark.master` parameter as `k8s-native`;
+* Currently spark once job tasks on k8s only support `cluster` deploy mode, you need to set `spark.submit.deployMode` to `cluster`.
+
+The corresponding Spark parameter of Linkis parameters as follows:
+
+| Linkis Parameters                       | Spark Parameters                                        | Default Value       |
+| --------------------------------------- | ------------------------------------------------------- | ------------------- |
+| linkis.spark.k8s.master.url             | --master                                                | empty string        |
+| linkis.spark.k8s.serviceAccount         | spark.kubernetes.authenticate.driver.serviceAccountName | empty string        |
+| linkis.spark.k8s.image                  | spark.kubernetes.container.image                        | apache/spark:v3.2.1 |
+| linkis.spark.k8s.imagePullPolicy        | spark.kubernetes.container.image.pullPolicy             | Always              |
+| linkis.spark.k8s.namespace              | spark.kubernetes.namespace                              | default             |
+| linkis.spark.k8s.ui.port                | spark.ui.port                                           | 4040                |
+| linkis.spark.k8s.executor.request.cores | spark.kubernetes.executor.request.cores                 | 1                   |
+| linkis.spark.k8s.driver.request.cores   | spark.kubernetes.driver.request.cores                   | 1                   |
+
+#### 3.6.4 Example of commands for submission
+
+submitting task with jar
+
+```shell
+linkis-cli --mode once \
+-engineType spark-3.2.1 \
+-labelMap engineConnMode=once \
+-k8sCluster 'K8S-default' \
+-jobContentMap runType='jar' \
+-jobContentMap spark.app.main.class='org.apache.spark.examples.SparkPi' \
+-confMap spark.master='k8s-native' \
+-confMap spark.app.name='spark-submit-jar-k8s' \
+-confMap spark.app.resource='local:///opt/spark/examples/jars/spark-examples_2.12-3.2.1.jar' \
+-confMap spark.submit.deployMode='cluster' \
+-confMap linkis.spark.k8s.serviceAccount='spark' \
+-confMap linkis.spark.k8s.master.url='k8s://https://xxx.xxx.xxx.xxx:6443' \
+-confMap linkis.spark.k8s.config.file='/home/hadoop/.kube/config' \
+-confMap linkis.spark.k8s.imagePullPolicy='IfNotPresent' \
+-confMap linkis.spark.k8s.namespace='default'
+```
+
+submitting task with py
+
+```shell
+linkis-cli --mode once \
+-engineType spark-3.2.1 \
+-labelMap engineConnMode=once \
+-k8sCluster 'K8S-default' \
+-jobContentMap runType='py' \
+-confMap spark.master='k8s-native' \
+-confMap spark.app.name='spark-submit-py-k8s' \
+-confMap spark.app.resource='local:///opt/spark/examples/src/main/python/pi.py' \
+-confMap spark.submit.deployMode='cluster' \
+-confMap spark.submit.pyFiles='local:///opt/spark/examples/src/main/python/wordcount.py' \
+-confMap linkis.spark.k8s.serviceAccount='spark' \
+-confMap linkis.spark.k8s.master.url='k8s://https://xxx.xxx.xxx.xxx:6443' \
+-confMap linkis.spark.k8s.config.file='/home/hadoop/.kube/config' \
+-confMap linkis.spark.k8s.imagePullPolicy='IfNotPresent' \
+-confMap linkis.spark.k8s.namespace='default' \
+-confMap linkis.spark.k8s.image="apache/spark-py:v3.2.1"
+```
+
+#### 3.6.5 Supplemental instructions
+
+**Upgrade instructions for old version**
+
+* You need to use `linkis-dist/package/db/upgrade/1.5.0_schema/mysql/linkis_ddl.sql` to upgrade the database fields. Specifically, the `label_key` field of `linkis_cg_manager_label` needs to be increased from 32 to 50 in length.
+
+  ```sql
+  ALTER TABLE `linkis_cg_manager_label` MODIFY COLUMN label_key varchar(50);
+  ```
+
+* Prior to version 1.5.0, when building CombineLabel, ClusterLabel was not included. To maintain compatibility with older versions, when the submitted ClusterLabel value is 'Yarn-default', ClusterLabel is still not included when building CombineLabel. You can disable this feature by setting `linkis.combined.without.yarn.default` to false (default is true).
+
+  > The specific reason is that if tasks related to that ClusterLabel were submitted in old versions, corresponding resource records would exist in the database. After upgrading to the new version, since CombineLabel includes ClusterLabel, conflicts would occur in the database's resource records when submitting tasks of this type. Therefore, to maintain compatibility with older versions, the construction of CombineLabel for Yarn-default (the default value of ClusterLabel) still does not include ClusterLabel.
+  > If the latest version is installed directly, this issue does not need to be considered because there are no conflicting records in the database. You can set `linkis.combined.without.yarn.default` to false to improve readability.
+
+**Validation of submitting tasks**
+
+Submitting a Spark Once Job to K8S involves two levels of resource validation, and the task will only be submitted to the K8S cluster after passing both levels of validation:
+
+1. First, user resource quota validation will be performed. For detailed process, please refer to [**ResourceManager Architecture**](architecture/feature/computation-governance-services/linkis-manager/resource-manager.md).
+2. Next, resource validation for the K8S cluster will be performed. If a resourceQuota is configured under the current namespace, it will be prioritized for validation. Otherwise, the available resources of the cluster will be calculated directly through the metric server for validation.
 
 ## 4. Engine configuration instructions
 

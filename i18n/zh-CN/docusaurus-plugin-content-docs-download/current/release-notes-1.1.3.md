@@ -75,6 +75,6 @@ Apache Linkis 1.1.3 包括所有 [Project Linkis-1.1.3](https://github.com/apach
 * \[Common][[Linkis-2182]](https://github.com/apache/linkis/pull/2182) 升级 gson:2.8.5 至gson:2.8.9版本 
 
 ## 致谢
-Apache Linkis 1.1.3的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不发先后）: Alexkun、CCweixiao、Davidhua1996、QuintinTao、casionone、det101、doroxinrui、huiyuanjjjjuice、husofskyzy、hzdhgf、jackxu2011、legendtkl、liuyou2、peacewong 、pjfanning、ruY9527、saLeox、seayi、wForget、wallezhang、yyuser5201314
+Apache Linkis 1.1.3的发布离不开Linkis社区的贡献者,感谢所有的社区贡献者，包括但不仅限于以下Contributors（排名不分先后）: Alexkun、CCweixiao、Davidhua1996、QuintinTao、casionone、det101、doroxinrui、huiyuanjjjjuice、husofskyzy、hzdhgf、jackxu2011、legendtkl、liuyou2、peacewong 、pjfanning、ruY9527、saLeox、seayi、wForget、wallezhang、yyuser5201314
 
 

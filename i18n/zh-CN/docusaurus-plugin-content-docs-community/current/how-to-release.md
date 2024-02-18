@@ -512,7 +512,7 @@ $ cd  dist/linkis_svn_dev/
 $ svn status
 # 添加到svn版本
 $ svn add 1.1.2-RC1
-$  status
+$ svn status
 #提交至svn远程服务器 
 $ svn commit -m "prepare for 1.1.2-RC1"
 
@@ -670,9 +670,9 @@ Hello Apache Linkis PMC and Community,
     The vote closes now. The vote PASSES with
 
     xx (+1 binding) votes from the PMC members,
-    member one
-    member two
-    member three
+    - member one
+    - member two
+    - member three
     ...
     
     xx (+1 non-binding) votes from the rest of the developer community,

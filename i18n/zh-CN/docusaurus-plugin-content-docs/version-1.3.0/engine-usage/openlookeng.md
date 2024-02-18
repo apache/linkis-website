@@ -36,7 +36,7 @@ ${linkis_code_dir}/linkis-engineconn-plugins/openlookeng/target/out/openlookeng
 ```
 上传到服务器的引擎目录下
 ```bash 
-${LINKIS_HOME}/lib/linkis-engineplugins
+${LINKIS_HOME}/lib/linkis-engineconn-plugins
 ```
 并重启linkis-cg-linkismanager（或则通过引擎接口进行刷新）
 ```bash
