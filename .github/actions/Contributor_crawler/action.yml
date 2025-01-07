@@ -1,0 +1,16 @@
+name: "Github Crawler"
+
+description: "Auto crawl github repo contributors."
+
+inputs:
+  repo:
+    description: "The repo that needs to crawl."
+    required: true
+  num:
+    description: "How many contributors need to be crawled."
+    required: true
+
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

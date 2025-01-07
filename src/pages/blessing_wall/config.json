@@ -1,0 +1,634 @@
+{
+  "zh-CN": {
+    "info": {
+      "tip": "(排名不分先后)",
+      "title": "Linkis 寄语墙"
+    },
+    "blessing":[
+      {
+        "avatar": "/zh-CN/blessing/wangxiaogang.png",
+        "name": "王小刚",
+        "utterance": "希望 WeDataSphere 越办越好，一起为国家数字化转型而努力。",
+        "company": "中国电信天翼云",
+        "post": "大数据平台负责人"
+      },
+      {
+        "avatar": "/zh-CN/blessing/zhuhui.jpg",
+        "name": "朱辉",
+        "utterance": "希望 WeDataSphere 社区能够在数据平台领域为大家贡献更多的开源项目，真正帮助大家降低大数据技术的落地成本，为企业大数据使用提升效率。",
+        "company": "BOSS直聘",
+        "post": "大数据平台负责人"
+      },
+      {
+        "avatar": "/zh-CN/blessing/luxiaolong.jpg",
+        "name": "陆小龙",
+        "utterance": "祝 WeDataSphere 越来越好，有更多项目成为 Apache 顶级项目，感谢在产品使用，二次开发中帅哥，强哥，华哥，友哥，平哥等社区大佬的大力支持和帮助。",
+        "company": "天翼云",
+        "post": "研发专家"
+      },
+      {
+        "avatar": "/zh-CN/blessing/tangjianfeng.png",
+        "name": "汤剑锋",
+        "utterance": "希望 WeDataSphere 越来越健壮，社区越来越活跃。",
+        "company": "顺丰科技",
+        "post": "开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/gujian.jpg",
+        "name": "顾坚",
+        "utterance": "接触微众的 DSS 已有半年多，DSS 优秀的框架设计，配合 Linkis 计算中间件，极大的简化了上层应用的开发。借助 DSS，我们团队快速开发了多个数据中台的模块。希望DSS 社区能越办越好，能有更多的开发者加入代码贡献，让 Linkis 支持更多的底层引擎，丰富 DSS 社区生态的第三方应用组件。",
+        "company": "上海仙翁科技有限公司",
+        "post": "JAVA工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/nuoge.jpg",
+        "name": "诺格",
+        "utterance": "DSS 做了一件伟大的事：让天下没有难走的大数据之路，让人人都是分析师不再遥不可及，让一站式开发分析运维不再割裂。向 DSS 致敬～",
+        "company": "",
+        "post": "数据研发专家"
+      },
+      {
+        "avatar": "/zh-CN/blessing/xujie.jpg",
+        "name": "徐杰",
+        "utterance": "非常认同 WeDataSphere 一站式的理念，该理念很好的屏蔽底层开源组件的复杂性，极大的降低了大数据开发的门槛，让用户可以更专注自己的业务实现，实现数据价值最大化。虽然目前因为使用技术复杂性与组件的多样性暂时还没有达到开箱即用的效果，但这正是我们努力的方向，随着更多的用户和专家加入到该项目中，不断对打磨产品，未来该产品将会越来越智能化、人性化，未来可期。另外，作为一名开发人员，非常荣幸的参与到 WeDataSphere Linkis 组件的开发中，希望自己可以为社区贡献自己更多的力量。",
+        "company": "天翼云",
+        "post": "高级开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/tangyang.png",
+        "name": "唐洋",
+        "utterance": "WeDataSphere 就像一盏灯塔，让更多爱好者踏上大数据平台之路！",
+        "company": "",
+        "post": "高级DevOps工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/zhanghaicheng.png",
+        "name": "张海成",
+        "utterance": "当今物联网时代，用户才是商业战场的核心，为了快速响应用户的需求，借助平台化的力量可以事半功倍。不断快速响应、探索、挖掘、引领用户的需求，才是企业得以生存和持续发展的关键因素，而我们今天的主角 WeDataSphere 就是这样一款集数据资产管理、数据质量管理、数据模型管理以及数据应用管理等综合性数据中台应用能力的数据中台系统，我们可以借助此系统完成数据资源的整合利用，快速形成数据服务能力，为公司经营决策、精细化运营提供有力支撑。最后祝 WeDataSphere 社区大会取得圆满成功！",
+         "company": "安徽航信",
+        "post": "大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/kangming.png",
+        "name": "康敏",
+        "utterance": "在这个5G、云计算、大数据、人工智能时代，WeDataSphere 作为开源领域第一个开源的数据计算平台，使用者越来越多社区也越来越活跃，期望 WeDataSphere 干出最强数据引擎，WeDataSphere 前进一小步，中国开源前进一大步。", 
+        "company": "安徽航信",
+        "post": "搬运工"
+      },
+      {
+        "avatar": "/zh-CN/blessing/liaoyongtao.png",
+        "name": "廖永涛",
+        "utterance": "计算中间件 Linkis 很好地解决大数据生态中多中计算引擎紧耦合、难拓展的难题，有效避免重复造轮子、应用孤岛等问题，在新版本中引入了 Flink 引擎更是大大地简化了流批一体化数据平台建设难度，基于 Linkis 拓展的 WeDataSphere 更是为业界的共性问题提供了一站式解决方案，期望社区的能够蓬勃发展，引领数据计算新浪潮。",
+        "company": "大疆",
+        "post": "大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/zhenglinfeng.png",
+        "name": "郑林峰",
+        "utterance": "希望2022年 WeDataSphere 社区能够有越来越多的人参与进来，为更多的组织、个人解决更多的问题，让越来越多的用户了解，使用并优化 WeDataSphere 的社区的相关产物，希望2022年的 WeDataSphere 越来越好。",
+        "company": "恒生电子",
+        "post": "数据平台架构师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/zhaoqixiang.png",
+        "name": "赵启翔",
+        "utterance": "与 WeDataSphere 社区一起共同成长，共同进步。",
+        "company": "",
+        "post": "软件开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/fushuai.png",
+        "name": "付帅",
+        "utterance": "2020年底遇见 WeDataSphere 到现在近一年的时间，从开始对 WeDataSphere 的一无所知，到现在 WeDataSphere 应用到公司的开发和生产，WeDataSphere 帮助我们脱离了杂乱无章的大数据野蛮应用时代，使一切变得井然有序，不仅提升了开发、响应效率，也让整个流程变的规范且有迹可循，短时间内发生如此大的改善离不开 WeDataSphere 和社区大神们的帮助，这个过程也让我获益匪浅。期待 WeDataSphere 社区未来越来越好!",
+        "company": "河姆渡",
+        "post": "大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/jielongping.png",
+        "name": "介龙平",
+        "utterance": "WDS 提供了从数据应用开发到数据可视化、从批量作业到流式计算等功能丰富的组件，使一站式的数据开发和数据管理平台得以飞入寻常“百姓家”，期望 WDS 社区愈加壮大，平台功能越来越完善，期望 Linkis 早日毕业成为 Apache 顶级项目。",
+        "company": "合合信息",
+        "post": "大数据基础架构组平台工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/sunsicheng.png",
+        "name": "孙思诚",
+        "utterance": "很高兴 WeDataSphere 社区能够取得现在的成就，祝愿 WeDataSphere 社区能够越办越好。",
+        "company": "",
+        "post": "大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/fanyashun.png",
+        "name": "樊顺雅",
+        "utterance": "WeDataSphere 社区是一个开放的、专业的、有韧性的社区，在需求、运营以及技术上等有着深厚积累和沉淀，我便因 Apache 孵化项目 Linkis 而与社区结缘，也亲自参与了并见证 Linkis 的成长，我希望 WeDataSphere 社区做出更多更好的产品，孵化更多的开源项目，为开源社区做出更多的贡献。",
+        "company": "",
+        "post": "部门开发负责人"
+      },
+      {
+        "avatar": "/zh-CN/blessing/qiandongjun.png",
+        "name": "钱栋军",
+        "utterance": "祝 WeDataSphere 社区以开放、包容的姿态融入大数据生态，做大、做深。",
+        "company": "上海理想公司",
+        "post": "资深软件开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/chenlin.jpg",
+        "name": "陈林",
+        "utterance": "自从越来越多的应用选择开源以来，便开启了属于开源的时代，个人很看好 WeDataSphere，多亏了开源的本性，问题的一个解决方法，能通过各种各样的方式另作它用，也有幸成为其中一员，希望 WeDataSphere 被更多的金融行业开发人员使用。",
+        "company": "",
+        "post": "技术总监"
+      },
+      {
+        "avatar": "/zh-CN/blessing/yanzhou.jpg",
+        "name": "闫洲",
+        "utterance": "WeDataSphere 系列产品在开源大数据产品里的理念和设计都比较优秀，尤其技术文档相当完备。祝愿 WeDataSphere 社区越办越好，尽早成为顶级的大数据开源项目，加油！",
+        "company": "安徽华米科技",
+        "post": "数据中台负责人"
+      },
+      {
+        "avatar": "/zh-CN/blessing/zhuhailin.png",
+        "name": "祝海林",
+        "utterance": "WeDataSphere 刚开源时我就第一时间关注并且撰写文章支持。作为市面种类繁多的引擎的统一入口，极大的简化了多引擎的管理和维护，价值很大。相信WeDataSphere 社区会越来越好，加油。",
+        "company": "Kyligence",
+        "post": "资深数据架构师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/chenxinwei.jpg",
+        "name": "陈新伟",
+        "utterance": "祝 WeDataSphere 越来越壮大，成为大数据领域具有重要影响力的开源社区。",
+        "company": "",
+        "post": "高级大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/liuyong.png",
+        "name": "刘勇",
+        "utterance": "WeDataSphere 是一套金融级、一站式、开源开放的大数据平台套件，是社区少有的完整的数据处理平台体系，希望能有更多的个人和组织参与产品的开发和生态的构建，使得大数据处理技术更加简单和高效，也希望更多的个人和组织能够享受到社区开源大数据技术带来的便捷，达到“人人为我，我为人人”的共赢局面。",
+        "company": "中国移动",
+        "post": "大数据高级架构师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/nielei.jpg",
+        "name": "聂磊",
+        "utterance": "目前理想汽车已经全面上线使用 Linkis 做为公司大数据平台计算治理中间件，目前在适配1.0的过程中。希望 Linkis 社区越来越好，我们也会继续跟随社区大佬一起献计献策把 Linkis 做的越来越好。",
+        "company": "理想汽车",
+        "post": "平台大数据架构师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/zhangxianghao.png",
+        "name": "张相皓",
+        "utterance": "很开心加入到 WeDataSphere 大家庭，看到了社区各项目的技术飞速成长，越来越多的贡献者加入到各个项目，从文档、代码等方面贡献自己的力量。希望 WeDataSphere 受到越来越多的人关注、使用。",
+        "company": "之江实验室",
+        "post": "协同平台研发主管"
+      },
+      {
+        "avatar": "/zh-CN/blessing/yelu.jpg",
+        "name": "野鹿",
+        "utterance": "Linkis 和 DSS 可以很方便的接入自定义插件；代码结构良好、易读、易于理解，并易于修改、维护。祝 WeDataSphere 社区越来越活跃，更好的服务于数据行业。",
+        "company": "长桥证券",
+        "post": "数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/Lunescode.jpg",
+        "name": "Lunescode",
+        "utterance": "祝 Linkis 早日毕业，成为 Apache 顶级项目！",
+        "company": "",
+        "post": "技术总监"
+      },
+      {
+        "avatar": "/zh-CN/blessing/wangzhen.jpg",
+        "name": "王震",
+        "utterance": "我在早期就接触到了 WeDataSphere 社区，使用 Linkis 作为统一的大数据组件接入服务，结合 WeDataSphere 社区其它相关项目打造了一站式的数据开发平台，有效的提升了大数据团队的数据开发效率并降低了维护成本。WeDataSphere 社区拥有强大且活跃的用户群体，在使用的过程中，社区伙伴给予了很大的帮助和支持，也有幸参与到了社区项目的部分开发工作中，伴随着社区共同进步，希望能够有更多志同道合的伙伴们加入到 WeDataSphere 社区，使用社区优秀的项目为公司带来可观的收益，一起完善社区建设，也预祝 Linkis 项目早日从 Apache 基金会顺利毕业成为顶级项目，并期待社区打造更多优秀的项目。",
+        "company": "爱奇艺",
+        "post": "高级研发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/yanxingwei.jpg",
+        "name": "闫辛未",
+        "utterance": "祝 WDS 做大做强，勇创辉煌。",
+        "company": "艾佳生活网",
+        "post": "软件研发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/congchuanbing.jpg",
+        "name": "崇传兵",
+        "utterance": "首先祝贺 Linkis 进入 Apache 孵化器。WeDataSphere 作为大数据领域的解决方案，给大家带来了太多惊喜，让大家找到了技术的归属。预祝 WeDataSphere 社区越走越远，星光闪耀。",
+        "company": "新奥新智科技有限公司",
+        "post": "开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/houjunxiong.jpg",
+        "name": "侯俊雄",
+        "utterance": "祝社区越来越好，同心协力开发出影响世界的大数据产品！",
+        "company": "海康威视研究院",
+        "post": "高级大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/gaosai.png",
+        "name": "高赛",
+        "utterance": "愿 WDS 社区立足当下展望未来，进一步扩大影响力，可以有更多开发者参与进来，共同成长，共同进步。",
+        "company": "",
+        "post": "软件工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/shizhouyi.png",
+        "name": "施洲轶",
+        "utterance": "从2019年底接触微众开源的 Linkis 以及 DataSphereStudio，目前它已经成为了支持公司近百位开发和分析师使用的大数据开发套件。希望 WeDataSphere 发展的越来越好，提供更多好用的新组件和新功能，我们也会持续关注，共同助力开源社区的发展。",
+        "company": "Mobtech",
+        "post": "大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/hanshuai.jpg",
+        "name": "韩帅",
+        "utterance": "希望 Linkis 越来越好，架构越来越轻便，运用起来越来越灵活。",
+        "company": "邮政储蓄银行",
+        "post": "大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/xufei.png",
+        "name": "徐飞",
+        "utterance": "作为 WeDataSphere 套件的深度使用者， 期待 WeDataSphere 成为开源领域最流行使用最广泛的数据开发套件，为数据开发领域赋能。前面有给 Linkis 在 pyspark3 中提供过一些支持方式，也在公司内部改造过支持 AWS，支持 ranger 权限等，期待后续多多参与到社区中，也多为社区多做贡献。",
+        "company": "新奥新智",
+        "post": "数据平台架构师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/zhuliuwu.png",
+        "name": "朱六五",
+        "utterance": "DSS 平台以及调度结合一体化的平台，使得数据开发的门槛大大降低，尤其是工作拖拽的前端界面，产品的理念非常方便及先进。同时 Linkis 在插件扩展性支持非常多的组件，扩展以及使用均十分方便。同时非常荣幸能够有机会能够见证 Linkis 社区的开源活动，Linkis 在大数据平台一体化集成方面对中小企业有着天然的优势，击中许多企业的真正的痛点，使得许多中小企业有了自建大数据平台的能力，希望在 Linkis 开源社区的道路上越来越好，社区越来越活跃，使用者以及贡献者越来越多，成为世界级的顶级开源项目。",
+        "company": "",
+        "post": "数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/sunshun.png",
+        "name": "孙顺",
+        "utterance": "Linkis 是一款很棒的大数据中间件产品，帮助我们向用户提供了便捷高效的 Spark 和 Flink 集群的计算能力，我们希望与社区一同发展进步，祝愿社区蓬勃壮大，早日晋升 Apache 顶流项目！",
+        "company": "Garena",
+        "post": "数据平台开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/zhangrong.png",
+        "name": "张荣",
+        "utterance": "在构建数据中台能力的战略中，首次接触到 WDS 技术栈，当时如一股清流引入眼前，解决了我们在计算资源管理、任务编排、可视化展示端到端的流程，大大缩短了能力构建的周期，快速取得商业价值。抱着回馈升源的心态，与 WDS 社区小伙伴沟通 Linkis on k8s、数据服务等特性，期望在来来的开源之路上笃行致远，早日毕业。",
+        "company": "荣耀终端有限公司",
+        "post": "架构师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/narcasserun.jpg",
+        "name": "narcasserun",
+        "utterance": "希望 WeDataSphere 社区可以在一站式，开源开放的道路上越走越远，吸引更多的开发者，组织加入社区的建设中来。",
+        "company": "",
+        "post": "大数据平台高级开发"
+      },
+      {
+        "avatar": "/zh-CN/blessing/jobar.png",
+        "name": "jobar",
+        "utterance": "首先要祝福 WeDataSphere 加入了 Apache 大家族！关注WeDataSphere 很久了，也非常希望为 WeDataSphere 做出一些贡献。WeDataSphere 提供了非常丰富的数据平台组件，涵盖了从大数据基础设施，数据存储，数据ETL以及实时计算的功能，祝愿 WeDataSphere 更上一层楼，发展的越来越好，为广大的国内外同业提供更好的服务！",
+        "company": "",
+        "post": "高级架构师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/hcl3039359.png",
+        "name": "hcl3039359",
+        "utterance": "祝贺 WeDataSphere 更上一层楼，希望 WeDataSphere 越办越好，功能越来越丰富，吸引越来越多的开发者，同时也希望自己多做贡献与社区一同成长！",
+        "company": "",
+        "post": "大数据开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/linweijiang.jpg",
+        "name": "lin伟江",
+        "utterance": "祝贺 WeDataSphere 更上一层楼，希望 WeDataSphere 越办越好，功能越来越丰富，吸引越来越多的开发者，同时也希望自己多做贡献与社区一同成长！",
+        "company": "",
+        "post": "架构师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/yangzhiyue.jpg",
+        "name": "杨峙岳",
+        "utterance": "感谢 WeDataSphere 社区让大数据平台搭建变得方便低成本，同时也在 WeDataSphere 社区中学习到了很多知识，认识了很多志同道合的朋友，祝愿 WeDataSphere 社区越来越好，帮助越来越多的人，成为开源社区的标杆！",
+        "company": "区块链科技公司",
+        "post": "开发工程师"
+      },
+      {
+        "avatar": "/zh-CN/blessing/taozhiqiang.png",
+        "name": "陶志强",
+        "utterance": "WeDataSphere 迈出了国产化大数据处理平台的第一步，其设计理念先进，是国内少有的完整的数据处理平台，使大数据处理变得可控、简单、高效，希望 WDS 社区越办越好，跟随社区大佬一起参与社区建设，不仅能够获得先进的生产力工具，还能提升个人技术技能。",
+        "company": "中通服公众信息产业股份有限公司",
+        "post": "开发工程师"
+      }                        
+    ]
+  },
+  "en": {
+    "info": {
+     "tip": "(In no particular order)",
+     "title": "Linkis Blessing Wall"
+    },
+    "blessing":[
+      {
+        "avatar": "/blessing/wangxiaogang.png",
+        "name": "Xiaogang Wang",
+        "utterance": "We hope that WeDataSphere will become better and better, and work together for national digital transformation.",
+        "company": "中国电信天翼云",
+        "post": "Head of big data platform"
+      },
+      {
+        "avatar": "/blessing/zhuhui.jpg",
+        "name": "Hui Zhu",
+        "utterance": "We hope that the WeDataSphere community can contribute more open source projects to you in the field of data platform, truly help you reduce the landing cost of big data technology and improve the efficiency of enterprise big data use.",
+        "company": "BOSS直聘",
+        "post": "Head of big data platform"
+      },
+      {
+        "avatar": "/blessing/luxiaolong.jpg",
+        "name": "Xiaolong Lu",
+        "utterance": "I wish WeDataSphere better and better, and more projects will become top projects of Apache. Thank you for the strong support and help of handsome, qiang, Hua, You, Ping and other community leaders in product use and secondary development.",
+        "company": "天翼云",
+        "post": "R & D expert"
+      },
+      {
+        "avatar": "/blessing/tangjianfeng.png",
+        "name": "Jianfeng Tang",
+        "utterance": "We hope that the WeDataSphere will become more and more robust and the community will become more and more active.",
+        "company": "顺丰科技",
+        "post": "Development Engineer"
+      },
+      {
+        "avatar": "/blessing/gujian.jpg",
+        "name": "Jian Gu",
+        "utterance": "I have been in contact with Weizhong DSS for more than half a year. The excellent framework design of DSS, combined with the Linkis computing middleware, greatly simplifies the development of upper layer applications. With the help of DSS, our team has quickly developed modules of multiple data consoles. It is hoped that the DSS community will become better and better, and more developers will contribute code, so that Linkis can support more underlying engines and enrich the third-party application components of the DSS community ecology.",
+        "company": "顺丰科技",
+        "post": "Development Engineer"
+      },
+      {
+        "avatar": "/blessing/nuoge.jpg",
+        "name": "Ge Nuo",
+        "utterance": "DSS has done a great thing: let the world have no difficult big data Road, let everyone be an analyst no longer out of reach, and let the one-stop development, analysis, operation and maintenance no longer be separated. Pay tribute to DSS.",
+        "company": "",
+        "post": "Data R & D expert"
+      },
+      {
+        "avatar": "/blessing/xujie.jpg",
+        "name": "Jie Xu",
+        "utterance": "We very much agree with the one-stop concept of WeDataSphere, which well shields the complexity of the underlying open source components, greatly reduces the threshold of big data development, allows users to focus more on their own business implementation and maximize the value of data. Although the out of the box effect has not been achieved due to the complexity of technology and the diversity of components, this is the direction of our efforts. As more users and experts join the project and continue to polish the product, the product will become more and more intelligent and humanized in the future, and the future can be expected. In addition, as a developer, I am honored to participate in the development of the WeDataSphere linkis component. I hope I can contribute more to the community.",
+        "company": "天翼云",
+        "post": "Senior Development Engineer"
+      },
+      {
+        "avatar": "/blessing/tangyang.png",
+        "name": "Yang Tang",
+        "utterance": "Wedatasphere is like a beacon, allowing more lovers to embark on the road of big data platform!",
+        "company": "",
+        "post": "Senior DevOps Engineer"
+      },
+      {
+        "avatar": "/blessing/zhanghaicheng.png",
+        "name": "Haicheng Zhang",
+        "utterance": "In today's Internet of things era, users are the core of the business battlefield. In order to quickly respond to users' needs, we can get twice the result with half the effort with the help of platform. Continuous rapid response, exploration, mining and leading the needs of users are the key factors for the survival and sustainable development of enterprises. Today, our protagonist, wedatasphere, is such a data middle office system that integrates data asset management, data quality management, data model management, data application management and other comprehensive data middle office application capabilities. With this system, we can complete the integration and utilization of data resources, Rapidly develop data service capabilities to provide strong support for the company's business decisions and refined operations.Finally, I wish the WeDataSphere community conference a complete success!",
+        "company": "安徽航信",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/kangming.png",
+        "name": "Ming Kang",
+        "utterance": "In this 5g, cloud computing, big data and artificial intelligence era, as the first open source data computing platform in the open source field, wedatasphere has more and more users and more active communities. We expect wedatasphere to be the strongest data engine. Wedatasphere will take a small step forward and China's open source will take a big step forward.", 
+        "company": "安徽航信",
+        "post": "Engineer"
+      },
+      {
+        "avatar": "/blessing/liaoyongtao.png",
+        "name": "Yongtao Liao",
+        "utterance": "The computing middleware, linkis, solves the problems of tight coupling and difficult expansion of many computing engines in the big data ecosystem, and effectively avoids the problems of repeated wheel building and application islands. The introduction of Flink engine in the new version greatly simplifies the construction of the stream batch integrated data platform. The extended wedatasphere based on linkis provides a one-stop solution to common problems in the industry. It is expected that the community can flourish, Leading a new wave of data computing.",
+        "company": "大疆",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/zhenglinfeng.png",
+        "name": "Linfeng Zheng",
+        "utterance": "It is hoped that in 2022, more and more people will participate in the wedatasphere community, solve more problems for more organizations and individuals, let more and more users know, use and optimize the relevant products of the wedatasphere community, and hope that the wedatasphere in 2022 will be better and better.",
+        "company": "恒生电子",
+        "post": "Data Platform Architect"
+      },
+      {
+        "avatar": "/blessing/zhaoqixiang.png",
+        "name": "Qixiang Zhao",
+        "utterance": "Grow and progress together with the wedatasphere community.",
+        "company": "",
+        "post": "Software Engineer"
+      },
+      {
+        "avatar": "/blessing/fushuai.png",
+        "name": "Shuai Fu",
+        "utterance": "It has been nearly a year since we met wedatasphere at the end of 2020. From the beginning when we knew nothing about wedatasphere to the development and production of wedatasphere application in the company, wedatasphere has helped us break away from the chaotic era of big data barbaric application, making everything orderly, not only improving the development and response efficiency, but also making the whole process standardized and traceable, Such a big improvement in a short time can not be achieved without the help of wedatasphere and the community gods. This process has also benefited me a lot. We look forward to the future of the wedatasphere community getting better and better!",
+        "company": "河姆渡",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/jielongping.png",
+        "name": "Longping Jie",
+        "utterance": "WDS provides components with rich functions from data application development to data visualization, from batch operation to flow computing, so that the one-stop data development and data management platform can fly into the common people's home. It is expected that the WDS community will grow and the platform functions will become more and more perfect. It is expected that linkis will graduate as soon as possible and become a top project of Apache.",
+        "company": "合合信息",
+        "post": "Big Data Infrastructure Platform Engineer"
+      },
+      {
+        "avatar": "/blessing/sunsicheng.png",
+        "name": "Sicheng Sun",
+        "utterance": "I am very glad that the wedatasphere community has achieved its current achievements. I wish the WeDataSphere community better and better.",
+        "company": "",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/fanyashun.png",
+        "name": "Fanya Shun",
+        "utterance": "The wedatasphere community is an open, professional and resilient community with profound accumulation and precipitation in demand, operation and technology. I became attached to the community because of the Apache incubation project linkis, and personally participated in and witnessed the growth of linkis. I hope the wedatasphere community can make more and better products, incubate more open source projects and make more contributions to the open source community.",
+        "company": "",
+        "post": "Department Development Leader"
+      },
+      {
+        "avatar": "/blessing/qiandongjun.png",
+        "name": "Dongjun Qian",
+        "utterance": "I wish the wedatasphere community to integrate into the big data ecosystem with an open and inclusive attitude and become bigger and deeper.",
+        "company": "上海理想公司",
+        "post": "Senior Software Development Engineer"
+      },
+      {
+        "avatar": "/blessing/chenlin.jpg",
+        "name": "Lin Chen",
+        "utterance": "Since more and more applications choose open source, it has opened an era of open source. I am optimistic about wedatasphere. Thanks to the nature of open source, a solution to the problem can be used for other purposes in a variety of ways. I am also lucky to be one of them. I hope that wedatasphere will be used by more developers in the financial industry.",
+        "company": "",
+        "post": "Technical Director"
+      },
+      {
+        "avatar": "/blessing/yanzhou.jpg",
+        "name": "Zhou Yan",
+        "utterance": "The concept and design of wedatasphere series products in open source big data products are excellent, especially the technical documents are quite complete. Wish the wedatasphere community better and better, and become a top-level big data open source project as soon as possible. Come on!",
+        "company": "安徽华米科技",
+        "post": "Head of Data Engineer"
+      },
+      {
+        "avatar": "/blessing/zhuhailin.png",
+        "name": "Hailin Zhu",
+        "utterance": "When wedatasphere was just open source, I immediately paid attention to it and wrote articles to support it. As the unified entrance to a wide variety of engines in the market, it greatly simplifies the management and maintenance of multiple engines, and is of great value. I believe the wedatasphere community will get better and better. Come on.",
+        "company": "Kyligence",
+        "post": "Senior Data Architect"
+      },
+      {
+        "avatar": "/blessing/chenxinwei.jpg",
+        "name": "Xinwei Chen",
+        "utterance": "I wish wedatasphere will grow stronger and become an influential open source community in the big data field.",
+        "company": "",
+        "post": "Senior Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/liuyong.png",
+        "name": "Yong Liu",
+        "utterance": "Wedatasphere is a financial, one-stop, open source and open big data platform suite. It is a rare and complete data processing platform system in the community. We hope that more individuals and organizations can participate in product development and ecological construction, making big data processing technology simpler and more efficient. We also hope that more individuals and organizations can enjoy the convenience brought by the community's open source big data technology, Achieve a win-win situation of \"everyone for me, I for everyone\".",
+        "company": "中国移动",
+        "post": "Senior Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/nielei.jpg",
+        "name": "Lei Nie",
+        "utterance": "At present, ideal automobile has been fully launched and uses linkis as the computing governance middleware of the company's big data platform. At present, it is in the process of adapting 1.0. I hope the linkis community is getting better and better, and we will continue to follow the community leaders to make suggestions to make linkis better and better.",
+        "company": "理想汽车",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/zhangxianghao.png",
+        "name": "Xianghao Zhang",
+        "utterance": "I am very happy to join the wedatasphere family. I have seen the rapid technological growth of various projects in the community. More and more contributors have joined various projects and contributed their strength from the aspects of documents, codes and so on. We hope that wedatasphere will be noticed and used by more and more people.",
+        "company": "之江实验室",
+        "post": "Collaborative Platform R & D Director"
+      },
+      {
+        "avatar": "/blessing/yelu.jpg",
+        "name": "Lu Ye",
+        "utterance": "Linkis and DSS can easily access custom plug-ins; The code is well structured, easy to read, easy to understand, and easy to modify and maintain. May the wedatasphere community become more and more active and serve the data industry better.",
+        "company": "长桥证券",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/Lunescode.jpg",
+        "name": "Lunescode",
+        "utterance": "I wish linkis an early graduation and become a top Apache project!",
+        "company": "",
+        "post": "Technical Director"
+      },
+      {
+        "avatar": "/blessing/wangzhen.jpg",
+        "name": "王震",
+        "utterance": "I came into contact with the wedatasphere community at an early stage. I used linkis as a unified big data component access service, combined with other related projects in the wedatasphere community to create a one-stop data development platform, which effectively improved the data development efficiency of the big data team and reduced the maintenance cost. The wedatasphere community has a strong and active user group. In the process of using it, community partners have given great help and support, and have the honor to participate in some development of community projects. With the common progress of the community, we hope that more like-minded partners can join the wedatasphere community, use the community's excellent projects to bring considerable benefits to the company, and improve the community construction together, I also wish the linkis project a successful graduation from the Apache foundation to become a top-level project at an early date, and look forward to the community building more excellent projects.",
+        "company": "爱奇艺",
+        "post": "高级研发工程师"
+      },
+      {
+        "avatar": "/blessing/yanxingwei.jpg",
+        "name": "Xinwei Yan",
+        "utterance": "I wish WDS to become bigger and stronger, and create brilliance bravely.",
+        "company": "艾佳生活网",
+        "post": "Software Engineer"
+      },
+      {
+        "avatar": "/blessing/congchuanbing.jpg",
+        "name": "Chuanbing Chong",
+        "utterance": "First of all, congratulations to linkis on entering the Apache incubator. As a solution in the big data field, wedatasphere has brought us too many surprises and made us find out where the technology belongs. I wish the wedatasphere community will go further and further, and the stars will shine.",
+        "company": "新奥新智科技有限公司",
+        "post": "Software Engineer"
+      },
+      {
+        "avatar": "/blessing/houjunxiong.jpg",
+        "name": "Junxiong Hou",
+        "utterance": "I wish the community better and better, and work together to develop big data products that affect the world!",
+        "company": "海康威视研究院",
+        "post": "Software Engineer"
+      },
+      {
+        "avatar": "/blessing/gaosai.png",
+        "name": "Sai Gao",
+        "utterance": "t is hoped that WDS community will base itself on the present and look forward to the future, further expand its influence, and allow more developers to participate, grow and progress together.",
+        "company": "",
+        "post": "Software Engineer"
+      },
+      {
+        "avatar": "/blessing/shizhouyi.png",
+        "name": "Zhouyi Shi",
+        "utterance": "Since the end of 2019, we have been in contact with wechat's open source linkis and dataspherestudio. At present, it has become a big data development kit that supports the company's nearly 100 developers and analysts. We hope that the development of wedatasphere will be better and better, providing more useful new components and functions. We will also continue to pay attention to it and jointly help the development of the open source community.",
+        "company": "Mobtech",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/hanshuai.jpg",
+        "name": "Shuai Han",
+        "utterance": "I hope that linkis will become better and better, the architecture will become more and more portable, and the application will become more and more flexible.",
+        "company": "邮政储蓄银行",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/xufei.png",
+        "name": "Fei Xu",
+        "utterance": "As a deep user of the wedatasphere suite, we expect that wedatasphere will become the most popular and widely used data development suite in the open source field, enabling the data development field. In the past, some support methods have been provided to linkis in pyspark3, and AWS and ranger permissions have been transformed in the company. We look forward to participating in the community and making more contributions to the community in the future.",
+        "company": "新奥新智",
+        "post": "Data Platform Architect"
+      },
+      {
+        "avatar": "/blessing/zhuliuwu.png",
+        "name": "Liuwu Zhu",
+        "utterance": "The DSS platform and the integrated scheduling platform have greatly reduced the threshold of data development, especially the front-end interface of work dragging. The product concept is very convenient and advanced. At the same time, linkis supports many components in plug-in extensibility, which is very convenient for extension and use. At the same time, it is a great honor to have the opportunity to witness the open source activities of the linkis community. Linkis has a natural advantage for small and medium-sized enterprises in the integration of big data platforms, hitting the real pain point of many enterprises, making many small and medium-sized enterprises have the ability to build their own big data platforms. I hope that the road of the linkis open source community will be better and better, the community will be more and more active, and there will be more and more users and contributors, Become a world-class top open source project.",
+        "company": "",
+        "post": "Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/sunshun.png",
+        "name": "Shun Sun",
+        "utterance": "Linkis is a great big data middleware product, which helps us provide users with convenient and efficient computing power of spark and Flink clusters. We hope to develop and progress together with the community. We wish the community to grow vigorously and promote Apache top stream project as soon as possible!",
+        "company": "Garena",
+        "post": "Data Platform Engineer"
+      },
+      {
+        "avatar": "/blessing/zhangrong.png",
+        "name": "Rong Zhang",
+        "utterance": "In the strategy of building data midrange capabilities, we first came into contact with the WDS technology stack. At that time, it was introduced like a clear stream, which solved our end-to-end processes in computing resource management, task scheduling, and visual display, greatly shortened the cycle of capability building, and quickly obtained business value. With the mindset of feedback and source upgrading, we communicated with WDS community partners about the features of linkage on k8s, data services, etc. we hope to make great progress on the coming open source road and graduate as soon as possible.",
+        "company": "荣耀终端有限公司",
+        "post": "Architect"
+      },
+      {
+        "avatar": "/blessing/narcasserun.jpg",
+        "name": "narcasserun",
+        "utterance": "It is hoped that the wedatasphere community can go further and further on the road of one-stop, open source and opening, attracting more developers and organizations to join the construction of the community.",
+        "company": "",
+        "post": "Senior Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/jobar.png",
+        "name": "jobar",
+        "utterance": "First of all, I would like to wish wedatasphere to join the Apache family! I have been following wedatasphere for a long time, and I really hope to make some contributions to wedatasphere. Wedatasphere provides a wealth of data platform components, covering the functions of big data infrastructure, data storage, data ETL and real-time computing. I wish wedatasphere a higher level and better development, and provide better services for the vast number of domestic and foreign peers!",
+        "company": "",
+        "post": "Senior Architect"
+      },
+      {
+        "avatar": "/blessing/hcl3039359.png",
+        "name": "hcl3039359",
+        "utterance": "Congratulations on the further development of wedatasphere. I hope wedatasphere will be better and better, with more and more functions, attracting more and more developers. At the same time, I hope I can make more contributions and grow with the community!",
+        "company": "",
+        "post": "Big Data Development Engineer"
+      },
+      {
+        "avatar": "/blessing/linweijiang.jpg",
+        "name": "Weijiang Lin",
+        "utterance": "The wedatasphere community is a great community, and everyone is very helpful. I wish the wedatasphere community conference a complete success, and I hope wedatasphere can do better and better!",
+        "company": "",
+        "post": "Architect"
+      },
+      {
+        "avatar": "/blessing/yangzhiyue.jpg",
+        "name": "Zhiyue Yang",
+        "utterance": "Thanks to the wedatasphere community for making it easy and low-cost to build a big data platform. At the same time, I have learned a lot of knowledge in the wedatasphere community and met a lot of like-minded friends. I wish the wedatasphere community better and better, help more and more people, and become the benchmark of the open source community!",
+        "company": "区块链科技公司",
+        "post": "Sodtware Engineer"
+      },
+      {
+        "avatar": "/blessing/taozhiqiang.png",
+        "name": "Zhiqiang Tao",
+        "utterance": "Wedatasphere has taken the first step in the localization of big data processing platform. Its design concept is advanced. It is a rare and complete data processing platform in China, making big data processing controllable, simple and efficient. We hope that WDS community will become better and better. Following community leaders to participate in community construction, we can not only obtain advanced productivity tools, but also improve personal technical skills.",
+        "company": "中通服公众信息产业股份有限公司",
+        "post": "Sodtware Engineer"
+      }              
+    ]
+  }
+}
