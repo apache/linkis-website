@@ -1,0 +1,82 @@
+{
+  "version.label": {
+    "message": "1.0.3",
+    "description": "The label for version 1.0.3"
+  },
+  "sidebar.tutorialSidebar.category.Deployment": {
+    "message": "安装部署",
+    "description": "The label for category Deployment in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User Guide": {
+    "message": "用户手册",
+    "description": "The label for category User Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Engine Usage": {
+    "message": "引擎使用",
+    "description": "The label for category Engine Usage in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tuning And Troubleshooting": {
+    "message": "调优排障",
+    "description": "The label for category Tuning And Troubleshooting in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.API Docs": {
+    "message": "API文档",
+    "description": "The label for category API Docs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Architecture": {
+    "message": "架构分析",
+    "description": "The label for category Architecture in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Commons": {
+    "message": "公共模块",
+    "description": "The label for category Commons in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Computation Governance Services": {
+    "message": "计算治理服务架构",
+    "description": "The label for category Computation Governance Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Engine": {
+    "message": "引擎服务",
+    "description": "The label for category Engine Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Linkis Manager": {
+    "message": "Manager架构",
+    "description": "The label for category Linkis Manager in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Public Enhancement Services": {
+    "message": "公共增强服务",
+    "description": "The label for category Public Enhancement Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Context Service": {
+    "message": "Context Service统一上下文",
+    "description": "The label for category Public Enhancement Services in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Microservice Governance Services": {
+    "message": "微服务治理架构",
+    "description": "The label for category Microservice Governance Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Orchestrator": {
+    "message": "编排器架构",
+    "description": "The label for category Orchestrator Services in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Upgrade Guide": {
+    "message": "版本升级",
+    "description": "The label for category Upgrade Guide in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Development": {
+    "message": "开发文档",
+    "description": "The label for category Development Doc in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Development Specification": {
+    "message": "开发规范",
+    "description": "The label for category Development Specification in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Components": {
+    "message": "组件介绍",
+    "description": "The label for category Components in sidebar tutorialSidebar"
+  }
+}
