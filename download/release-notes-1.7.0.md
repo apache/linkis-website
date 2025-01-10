@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.7.0
-sidebar_position: 88
+sidebar_position: 87
 ---
 
 Apache Linkis 1.7.0 version mainly adds the following features: Linkis's RPC function supports automatic retries, introduces the Spring boot Admin module for monitoring and managing Linkis services, EC supports setting the status to unhealthy and automatically exiting when idle, and adds containerized mode in the ECM service, allowing specific IPs and ports for communication with the outside world to be assigned to specific engines in this mode.
