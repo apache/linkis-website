@@ -10,6 +10,9 @@
 <p align="center">
   <a href="https://linkis.apache.org/">https://linkis.apache.org/</a>
 </p>
+<p align="center">
+  <a href="https://deepwiki.com/apache/linkis">Apache Linkis | DeepWiki</a>
+</p>
 
 <p align="center">
   <a href="https://linkis.apache.org/docs/latest/about/introduction/" >
