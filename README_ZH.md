@@ -6,7 +6,7 @@
   <strong>Linkis 构建了一层计算中间件，方便上层应用与底层数据引擎之间的连接、治理和编排。</strong>
 </p>
 <p align="center">
-  <a href="https://linkis.apache.org/">https://linkis.apache.org/</a>
+  <a href="https://linkis.apache.org/">Apache Linkis | 官网</a>
 </p>
 <p align="center">
   <a href="https://deepwiki.com/apache/linkis">Apache Linkis | DeepWiki</a>
