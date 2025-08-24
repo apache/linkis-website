@@ -29,7 +29,7 @@ Linkis 支持运行在 Intel x86-64 架构的 64 位通用硬件服务器平台�
 | 16核+ | 32GB+ | SAS | 千兆网卡 | 1+  |
 
 > **注意：**
-> 
+>
 > - 以上建议配置为部署 Linkis的最低配置，生产环境强烈推荐使用更高的配置
 > - 硬盘大小配置建议 50GB+ ，系统盘和数据盘分开
 
@@ -92,7 +92,21 @@ Apache Linkis 可以通过参数接入LDAP实现多用户管理，可以在`link
 
 ![](./images/ldap.png)
 
-### 2.4 关闭资源检查
+### 2.4 OAuth设置
+Apache Linkis 可以通过参数接入OAuth实现SSO登录，可以在`linkis-mg-gateway.properties`替换或追加此配置。
+
+|           参数名          | 默认值   |  描述                                                       |
+| ------------------------- | -------  | -----------------------------------------------------------|
+| wds.linkis.gateway.conf.enable.oauth.auth | false  | 是否启用 OAuth 认证 |
+| wds.linkis.gateway.auth.oauth.authentication.url |  | OAuth 2.0 授权端点 URL，用于获取授权码 |
+| wds.linkis.gateway.auth.oauth.exchange.url |  | 令牌交换端点 URL，用于将授权码转换为访问令牌 |
+| wds.linkis.gateway.auth.oauth.validate.url |  | 用户验证端点 URL，用于通过访问令牌获取用户身份信息 |
+| wds.linkis.gateway.auth.oauth.validate.field |  | 包含用户名的 JSON 响应字段名 |
+| wds.linkis.gateway.auth.oauth.client.id |  | OAuth 客户端 ID |
+| wds.linkis.gateway.auth.oauth.client.secret |  | OAuth 客户端密钥 |
+| wds.linkis.gateway.auth.oauth.scope |  | OAuth 授权范围 |
+
+### 2.5 关闭资源检查
 Apache Linkis 提交任务时有时会调试异常，如：资源不足；可以在`linkis-cg-linkismanager.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -101,7 +115,7 @@ Apache Linkis 提交任务时有时会调试异常，如：资源不足；可以
 
 ![](./images/resource-enable.png)
 
-### 2.5 开启引擎调试
+### 2.6 开启引擎调试
 Apache Linkis EC可以开启调试模式，可以在`linkis-cg-linkismanager.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -110,7 +124,7 @@ Apache Linkis EC可以开启调试模式，可以在`linkis-cg-linkismanager.pro
 
 ![](./images/engine-debug.png)
 
-### 2.6 Hive元数据配置
+### 2.7 Hive元数据配置
 Apache Linkis 的public-service服务需要读取hive的元数据；可以在`linkis-ps-publicservice.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -121,7 +135,7 @@ Apache Linkis 的public-service服务需要读取hive的元数据；可以在`li
 
 ![](./images/hive-meta.png)
 
-### 2.7 Linkis 数据库配置
+### 2.8 Linkis 数据库配置
 Apache Linkis 访问默认使用Mysql作为数据存储，可以在`linkis.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -132,7 +146,7 @@ Apache Linkis 访问默认使用Mysql作为数据存储，可以在`linkis.prope
 
 ![](./images/linkis-db.png)
 
-### 2.8 Linkis Session 缓存配置
+### 2.9 Linkis Session 缓存配置
 Apache Linkis 支持使用redis进行session的共享；可以在`linkis.properties`替换或追加此配置。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -144,7 +158,7 @@ Apache Linkis 支持使用redis进行session的共享；可以在`linkis.propert
 
 ![](./images/redis.png)
 
-### 2.9 Linkis 模块开发配置
+### 2.10 Linkis 模块开发配置
 Apache Linkis 开发时可通过此参数，自定义加载模块的数据库、Rest接口、实体对象；可以在`linkis-ps-publicservice.properties`进行修改，多个模块之间使用逗号分割。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -156,7 +170,7 @@ Apache Linkis 开发时可通过此参数，自定义加载模块的数据库、
 
 ![](./images/deverlop-conf.png)
 
-### 2.10 Linkis 模块开发配置
+### 2.11 Linkis 模块开发配置
 Apache Linkis 开发时可通过此参数，自定义加载模块的路由；可以在`linkis.properties`进行修改，多个模块之间使用逗号分割。
 
 |           参数名          | 默认值   |  描述                                                       |
@@ -165,7 +179,7 @@ Apache Linkis 开发时可通过此参数，自定义加载模块的路由；可
 
 ![](./images/list-conf.png)
 
-### 2.11 Linkis 文件系统及物料存放路径
+### 2.12 Linkis 文件系统及物料存放路径
 Apache Linkis 开发时可通过此参数，自定义加载模块的路由；可以在`linkis.properties`进行修改，多个模块之间使用逗号分割。
 
 |           参数名          | 默认值   |  描述                                                       |
