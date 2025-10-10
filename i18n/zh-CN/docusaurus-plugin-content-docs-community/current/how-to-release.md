@@ -263,7 +263,7 @@ mvn --encrypt-password <apache password>
 
 如当前开发的源码分支为dev-1.1.2，需要发布1.1.2的版本，创建分支：release-1.1.2-rc1
 
-![image](https://user-images.githubusercontent.com/7869972/172558655-c734e37d-b005-4016-9821-e6ee047faf1e.png)
+![image](/Images-zh/Architecture/create-branch.png)
 
 #### 2.1.2 clone对应的release分支到本地 
 ```shell script
@@ -700,11 +700,11 @@ ${Linkis Release Manager}
 所有邮件存档都可以在[dev@linkis.apache.org](https://lists.apache.org/list.html?dev@linkis.apache.org) 查到，一个邮件线程，可以通过下方的[Permanent link to this email]
 获取到该邮件的可访问的url地址 
 
-![image](https://user-images.githubusercontent.com/7869972/201943103-9add304d-ca25-4b78-8282-38424f73a28b.png)
+![image](/Images/community/mail-thread.png)
 
 有些邮箱163/sina 回复时候 默认是带上中文“回复”会导致apache 邮件 识别为一封新线程邮件，需要修改配置。
 
-![image](https://user-images.githubusercontent.com/7869972/201942374-5d9b7b93-5211-4c9b-be53-86c9b4ec7bfe.png)
+![image](/Images/community/mail-thread-rep.png)
 
 
 ## 6 正式发布
@@ -848,11 +848,11 @@ Release-1.1.2
 Release Notes: https://linkis.apache.org/download/release-notes-1.1.2
 
 ```
-![image](https://user-images.githubusercontent.com/7869972/210697538-2568c05f-20a5-4487-94f9-9e053116ba0e.png)
+![image](/Images/community/create-github-version.png)
 
 **step2 检查**
 
-![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
+![image](/Images/community/create-github-version-check.png)
 
 **step3  合并`${release_version}-RC`分支到`master`分支(如果未合并)**
 
@@ -993,8 +993,8 @@ svn commit -m "prepare for ${release_version} ${rc_version}"
 
 ** Gmail邮箱切换纯文本格式 **
 
-![image](https://user-images.githubusercontent.com/7869972/152912490-a5038505-e487-4451-be9a-e26021877e4f.png)
+![image](/Images/community/mail-txt.png)
 
 ** QQ邮箱切换纯文本格式 **
 
-![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)
+![image](/Images/community/qq-mail-txt.png)

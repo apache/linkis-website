@@ -179,7 +179,7 @@ Visit the page https://linkis.apache.org/zh-CN/user
 
 ## 4 新增文档
 
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) md文档建议通过访问官网查看,通过github查看md文档存在图片等静态资源无法正确显示问题
+md文档建议通过访问官网查看,通过github查看md文档存在图片等静态资源无法正确显示问题
 
 - 英文文档 docs/对应目录为即将发布的下一Next版本，历史存档版本存放在versioned_docs/version-${versionno}目录下。
 - 中文文档 放在i18n/zh-CN/docusaurus-plugin-content-docs/对应目录下，current为即将发布的下一个版本.version-${versionno}为历史存档版本。
@@ -196,12 +196,10 @@ Apache内部机制会将asf-staging分支内容部署至测试环境，所以当
 
 ## 6 注意点
 - 添加中文文档的同时需要加上英文文档,否则无法展示添加的页面  
-- 添加文档的时候注意文档侧边栏节点展示的名称字段(title)和侧边栏节点展示的顺序字段(sidebar_position),如下图   
-![pg-ch](https://user-images.githubusercontent.com/29391030/161209898-847d0d43-8721-41a0-a30b-25896aabe56c.png)
+- 添加文档的时候注意文档侧边栏节点展示的名称字段(title)和侧边栏节点展示的顺序字段(sidebar_position)
 
 ## 7 致谢 
 
-[![由 Netlify 部署](https://www.netlify.com/img/global/badges/netlify-color-accent.svg "由 Netlify 部署")](https://www.netlify.com/)
 [Netlify](https://www.netlify.com/) 为本网站提供拉取请求的构建、检查和预览。
 
 
