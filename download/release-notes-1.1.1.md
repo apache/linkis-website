@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.1.1
-sidebar_position: 7
+sidebar_position: 97
 ---
 
 Apache Linkis 1.1.1 includes all of [Project Linkis-1.1.1](https://github.com/apache/linkis/projects/18).

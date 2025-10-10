@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.5.0
-sidebar_position: 0.13
+sidebar_position: 89
 ---
 
 Apache Linkis 1.5.0 includes all [Project Linkis-1.5.0](https://github.com/apache/linkis/projects/27)
