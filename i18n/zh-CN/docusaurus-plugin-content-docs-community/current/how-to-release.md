@@ -816,6 +816,8 @@ cp -r current.json version-${publish_version}.json
 ]
 ```
 
+还需要修改src/pages/versions/config.json的版本信息
+
 **更新下载页面**
 
 <font color='red'>中英文文档都要更新</font>
