@@ -1,0 +1,163 @@
+{
+  "version.label": {
+    "message": "1.6.0",
+    "description": "The label for version current"
+  },
+
+  "sidebar.tutorialSidebar.category.About Linkis": {
+    "message": "关于 Linkis"
+  },
+
+  "sidebar.tutorialSidebar.category.Quick Experience": {
+    "message": "快速体验",
+    "description": "The label for category Quick in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Deployment": {
+    "message": "部署指南",
+    "description": "The label for category advanced Deployment in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User Guide": {
+    "message": "使用指南",
+    "description": "The label for category User Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Engine Usage": {
+    "message": "引擎使用",
+    "description": "The label for category Engine Usage in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tuning And Troubleshooting": {
+    "message": "调优排障",
+    "description": "The label for category Tuning And Troubleshooting in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Error Guide": {
+    "message": "错误码",
+    "description": "The label for category Error Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.API Docs": {
+    "message": "API文档",
+    "description": "The label for category API Docs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Table Structure": {
+    "message": "表结构",
+    "description": "The label for category   Table Structure in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Architecture": {
+    "message": "架构设计",
+    "description": "The label for category Architecture in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Commons": {
+    "message": "公共依赖模块",
+    "description": "The label for category Commons in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Computation Governance Services": {
+    "message": "计算治理模块",
+    "description": "The label for category Computation Governance Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Engine": {
+    "message": "引擎服务",
+    "description": "The label for category Engine Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Linkis Manager": {
+    "message": "Manager架构",
+    "description": "The label for category Linkis Manager in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Public Enhancement Services": {
+    "message": "公共增强模块",
+    "description": "The label for category Public Enhancement Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Context Service": {
+    "message": "上下文服务",
+    "description": "The label for category Public Enhancement Services in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Microservice Governance Services": {
+    "message": "微服务实例模块",
+    "description": "The label for category Microservice Governance Services in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Orchestrator": {
+    "message": "编排器架构",
+    "description": "The label for category Orchestrator Services in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Upgrade Guide": {
+    "message": "升级指南",
+    "description": "The label for category Upgrade Guide in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Development": {
+    "message": "开发指南",
+    "description": "The label for category Development Doc in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Development Specification": {
+    "message": "开发规范",
+    "description": "The label for category Development Specification in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Components": {
+    "message": "组件介绍",
+    "description": "The label for category Components in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Engine Plugin Management Service": {
+    "message": "引擎插件管理服务",
+    "description": "Engine Plugin Management Service"
+  },
+  "sidebar.tutorialSidebar.category.Computing Governance Portal Service": {
+    "message": "计算治理入口服务",
+    "description": "Computing Governance Portal Service"
+  },
+  "sidebar.tutorialSidebar.category.Computing Governance Management Services": {
+    "message": "计算治理管理服务",
+    "description": "Computing Governance Management Services"
+  },
+  "sidebar.tutorialSidebar.category.Public Service": {
+    "message": "公共服务",
+    "description": "Public Service"
+  },
+  "sidebar.tutorialSidebar.category.Quick Start": {
+    "message": "快速上手",
+    "description": "quick start"
+  },
+  "sidebar.tutorialSidebar.category.Integrated": {
+    "message": "集成",
+    "description": "integrated"
+  },
+  "sidebar.tutorialSidebar.category.Console Manual": {
+    "message": "管理台的使用",
+    "description": "console manual"
+  },
+  "sidebar.tutorialSidebar.category.Security Authentication": {
+    "message": "安全认证"
+  },
+  "sidebar.tutorialSidebar.category.Service Architecture": {
+    "message": "微服务架构",
+    "description": "linkis service architecture"
+  },
+  "sidebar.tutorialSidebar.category.Feature": {
+    "message": "关键特性架构",
+    "description": "key feature architechture"
+  },
+  "sidebar.tutorialSidebar.category.Control Panel": {
+    "message": "管理台的使用",
+    "description": "control panel usage"
+  },
+  "sidebar.tutorialSidebar.category.Advice Configuration": {
+    "message": "建议配置",
+    "description": "Linkis advice configuration"
+  },
+  "sidebar.tutorialSidebar.category.LinkisManger Services": {
+    "message": "LinkisManger 服务",
+    "description": "LinkisManger Services"
+  },
+  "sidebar.tutorialSidebar.category.Entrance Services": {
+    "message": "Entrance 服务",
+    "description": "Entrance Services"
+  },
+  "sidebar.tutorialSidebar.category.Version Feature": {
+    "message": "版本特性",
+    "description": "Version Feature"
+  }
+
+
+
+}

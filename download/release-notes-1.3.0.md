@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.3.0
-sidebar_position: 0.17
+sidebar_position: 93
 ---
 
 Apache Linkis 1.3.0 includes all [Project Linkis-1.3.0](https://github.com/apache/linkis/projects/14).

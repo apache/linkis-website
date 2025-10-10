@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.3.2
-sidebar_position: 0.15
+sidebar_position: 91
 ---
 
 Apache Linkis 1.3.2 包括所有 [Project Linkis-1.3.2](https://github.com/apache/linkis/projects/24)
