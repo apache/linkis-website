@@ -13,6 +13,9 @@ npm# Intellij
 .docusaurus
 .cache-loader
 
+# claude files
+.claude
+
 .DS_Store
 dist
 dist-ssr
