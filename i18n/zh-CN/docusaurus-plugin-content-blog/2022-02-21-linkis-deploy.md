@@ -384,7 +384,7 @@ wds.linkis.admin.password= #密码
 
 登录后查看能否正常显示yarn队列资源(点击页面右下角按钮)  
 正常如下图所示:    
-![yarn-normal](https://user-images.githubusercontent.com/7869972/159955494-2f305a38-a3d6-4798-83aa-58cde23bc436.png)
+![yarn-normal](/Images/blog/159955494-2f305a38-a3d6-4798-83aa-58cde23bc436.png)
 
 若如果无法显示：可以按以下指引调整 
 
@@ -430,7 +430,7 @@ select *  from linkis_cg_engine_conn_plugin_bml_resources
 ```
 
 正常如下： 
-![bml](https://user-images.githubusercontent.com/29391030/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
+![bml](/Images/blog/156343249-9f6dca8f-4e0d-438b-995f-4f469270a22d.png)
 
 查看引擎的物料记录是否存在(如果有更新,查看更新时间是否正确)。
 
@@ -512,7 +512,7 @@ less log/* |grep -5n exception(或则less log/* |grep -5n ERROR)
 
 ** step1:找到引擎的启动部署目录 **  
 方式1：如果执行日志中有显示，可以在管理台上查看到 如下图:        
-![engine-log](https://user-images.githubusercontent.com/29391030/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
+![engine-log](/Images/blog/156343802-9d47fa98-dc70-4206-b07f-df439b291028.png)
 方式2:如果方式1中没有找到，可以通过找到`conf/linkis-cg-engineconnmanager.properties`配置的`wds.linkis.engineconn.root.dir`的参数，该值就是引擎启动部署的目录，子目录按执行引擎的用户进行了隔离。
 ```shell script
 如果不清楚taskid，可以按时间排序后进行选择 ll -rt /appcom/tmp/${执行的用户}/workDir   
@@ -548,7 +548,7 @@ CDH本身不是使用的官方标准的hive/spark包,进行适配时，最好修
 - 方式1 可以开启[免登陆模式指引](/docs/latest/api/login-api/#2免登录配置)  
 - 方式2 postman中的，请求头带上登陆成功的cookie值
 cookie值可以在浏览器端登陆成功后，获取
-![bml](https://user-images.githubusercontent.com/7869972/157619718-3afb480f-6087-4d5c-9a77-5e75c8cb4a3c.png)
+![bml](/Images/blog/157619718-3afb480f-6087-4d5c-9a77-5e75c8cb4a3c.png)
 
 ```shell script
 Cookie: bdp-user-ticket-id=xxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -566,9 +566,9 @@ Token-User:hadoop
 按上述罗列的一些场景的方式进行基础问题的排查  
 [QA文档](https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq)中查找是否有解决方案，链接：https://docs.qq.com/doc/DSGZhdnpMV3lTUUxq  
 通过搜索issue中的内容,看是否能找到解决方案        
-![issues](https://user-images.githubusercontent.com/29391030/156343419-81cc25e0-aa94-4c06-871c-bb036eb6d4ff.png)    
+![issues](/Images/blog/156343419-81cc25e0-aa94-4c06-871c-bb036eb6d4ff.png)
 通过官网文档搜索，对于某些问题，可以通过官网搜索关键字进行查询，比如搜索"部署"相关。(如果出现404,请浏览器中刷新一下)          
-![search](https://user-images.githubusercontent.com/29391030/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)  
+![search](/Images/blog/156343459-7911bd05-4d8d-4a7b-b9f8-35c152d52c41.png)
 
 
 ## 10. 相关的资料如何获取 

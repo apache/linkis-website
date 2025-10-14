@@ -19,11 +19,11 @@ openLooKeng ec的实现基于Linkis的EngineConn Plugin（ECP）进行扩展，�
 具体实现为openLooKengEngineConnExecutor继承于ConcurrentComputationExecutor，支持多用户多任务并发，并且支持对接到多个不同的openLooKeng集群。
 ## 架构
 架构图：
-![image](https://user-images.githubusercontent.com/7869972/166736911-c0f50968-3996-40d0-afdf-52b35d4cd71c.png)
+![image](/Images/blog/166736911-c0f50968-3996-40d0-afdf-52b35d4cd71c.png)
 
 
 任务流转图如下：
-  ![image](https://user-images.githubusercontent.com/7869972/166737177-57f8f84a-b16d-44bd-b7cf-a61fc2cc160c.png)
+  ![image](/Images/blog/166737177-57f8f84a-b16d-44bd-b7cf-a61fc2cc160c.png)
 
 基于Linkis和openLooKeng的能力可以提供如下能力：
 - 1.基于Linkis的计算中间件层的连接能力可以让上层应用工具快速对接使用openLooKeng，提交任务，并获取日志、进度、结果。
