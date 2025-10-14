@@ -12,6 +12,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        'http-equiv': 'Content-Security-Policy',
+        content: "img-src 'self' data: https: http: blob:; object-src 'none';"
+      }
+    }
+  ],
   organizationName: 'Apache Linkis', // Usually your GitHub org/user name.
   projectName: 'Apache Linkis', // Usually your repo name.
   i18n: {
