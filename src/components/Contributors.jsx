@@ -44,7 +44,6 @@ export default (props) => {
             }
             html += `<td>
                         <a href="${c.html_url}" target="_blank">
-                            <img src="${c.avatar_url}" height="20" /> 
                             <span style={{ whiteSpace: 'nowrap' }}>@${c.login}</span>
                         </a>
                     </td>`;
@@ -77,8 +76,7 @@ export default (props) => {
                             return (
                                 <td>
                                     <a href={`${curv.html_url}`} target="_blank">
-                                        <img src={`${curv.avatar_url}`} height="20" /> 
-                                        <span style={{ whiteSpace: 'nowrap' }}>{curv.login}</span>
+                                        <span style={{ whiteSpace: 'nowrap' }}>@{curv.login}</span>
                                     </a>
                                 </td>
                             )
