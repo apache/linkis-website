@@ -93,7 +93,21 @@ Apache Linkis can access LDAP through parameters to achieve multi-user managemen
 
 ![](./images/ldap.png)
 
-### 2.4 Turn off resource checking
+### 2.4 OAuth Settings
+Apache Linkis can use OAuth to authenticate users, and this configuration can be replaced or added in `linkis-mg-gateway.properties`.
+
+| parameter name | default value | description |
+| ------------------------- | ------- | --------------------------------------------------------------|
+|wds.linkis.gateway.conf.enable.oauth.auth| false  | Whether to enable OAuth authentication |
+|wds.linkis.gateway.auth.oauth.authentication.url|  | OAuth 2.0 authorization endpoint URL for obtaining authorization code |
+|wds.linkis.gateway.auth.oauth.exchange.url|  |Token exchange endpoint URL for converting authorization code to access token |
+|wds.linkis.gateway.auth.oauth.validate.url|  |User validation endpoint URL for retrieving user identity via access token|
+|wds.linkis.gateway.auth.oauth.validate.field|  |JSON response field name containing username|
+|wds.linkis.gateway.auth.oauth.client.id|  | OAuth client ID|
+|wds.linkis.gateway.auth.oauth.client.secret|  | OAuth client secret|
+|wds.linkis.gateway.auth.oauth.scope|  | OAuth scope|
+
+### 2.5 Turn off resource checking
 Apache Linkis sometimes debugs exceptions when submitting tasks, such as: insufficient resources; you can replace or append this configuration in `linkis-cg-linkismanager.properties`.
 
 | parameter name | default value | description |
@@ -102,7 +116,7 @@ Apache Linkis sometimes debugs exceptions when submitting tasks, such as: insuff
 
 ![](./images/resource-enable.png)
 
-### 2.5 Enable engine debugging
+### 2.6 Enable engine debugging
 Apache Linkis EC can enable debugging mode, and this configuration can be replaced or added in `linkis-cg-linkismanager.properties`.
 
 | parameter name | default value | description |
@@ -111,7 +125,7 @@ Apache Linkis EC can enable debugging mode, and this configuration can be replac
 
 ![](./images/engine-debug.png)
 
-### 2.6 Hive metadata configuration
+### 2.7 Hive metadata configuration
 The public-service service of Apache Linkis needs to read hive metadata; this configuration can be replaced or appended in `linkis-ps-publicservice.properties`.
 
 | parameter name | default value | description |
@@ -122,7 +136,7 @@ The public-service service of Apache Linkis needs to read hive metadata; this co
 
 ![](./images/hive-meta.png)
 
-### 2.7 Linkis database configuration
+### 2.8 Linkis database configuration
 Apache Linkis access uses Mysql as data storage by default, you can replace or append this configuration in `linkis.properties`.
 
 | parameter name | default value | description |
@@ -133,7 +147,7 @@ Apache Linkis access uses Mysql as data storage by default, you can replace or a
 
 ![](./images/linkis-db.png)
 
-### 2.8 Linkis Session cache configuration
+### 2.9 Linkis Session cache configuration
 Apache Linkis supports using redis for session sharing; this configuration can be replaced or appended in `linkis.properties`.
 
 | parameter name | default value | description |
@@ -145,7 +159,7 @@ Apache Linkis supports using redis for session sharing; this configuration can b
 
 ![](./images/redis.png)
 
-### 2.9 Linkis module development configuration
+### 2.10 Linkis module development configuration
 When developing Apache Linkis, you can use this parameter to customize the database, Rest interface, and entity objects of the loading module; you can modify it in `linkis-ps-publicservice.properties`, and use commas to separate multiple modules.
 
 | parameter name | default value | description |
@@ -157,7 +171,7 @@ When developing Apache Linkis, you can use this parameter to customize the datab
 
 ![](./images/deverlop-conf.png)
 
-### 2.10 Linkis module development configuration
+### 2.11 Linkis module development configuration
 This parameter can be used to customize the route of loading modules during Apache Linkis development; it can be modified in `linkis.properties`, and commas are used to separate multiple modules.
 
 | parameter name | default value | description |
@@ -166,7 +180,7 @@ This parameter can be used to customize the route of loading modules during Apac
 
 ![](./images/list-conf.png)
 
-### 2.11 Linkis file system and material storage path
+### 2.12 Linkis file system and material storage path
 This parameter can be used to customize the route of loading modules during Apache Linkis development; it can be modified in `linkis.properties`, and commas are used to separate multiple modules.
 
 | parameter name | default value | description |
