@@ -19,11 +19,11 @@ That is, tasks submitted by multiple users can run in one EC process at the same
 The specific implementation is that openLooKengEngineConnExecutor inherits from ConcurrentComputationExecutor, supports multi-user multi-task concurrency, and supports docking to multiple different openLooKeng clusters.
 ## Architecture
 Architecture diagram:
-![image](https://user-images.githubusercontent.com/7869972/166736911-c0f50968-3996-40d0-afdf-52b35d4cd71c.png)
+![image](/Images/blog/166736911-c0f50968-3996-40d0-afdf-52b35d4cd71c.png)
 
 
 The task flow diagram is as follows:
-  ![image](https://user-images.githubusercontent.com/7869972/166737177-57f8f84a-b16d-44bd-b7cf-a61fc2cc160c.png)
+  ![image](/Images/blog/166737177-57f8f84a-b16d-44bd-b7cf-a61fc2cc160c.png)
 
 The capabilities based on Linkis and openLooKeng can provide the following capabilities:
 - 1. The connection capability of the computing middleware layer based on Linkis allows upper-layer application tools to quickly connect to openLooKeng, submit tasks, and obtain logs, progress, and results.

@@ -1,6 +1,6 @@
 ---
 title: Release Notes 1.7.0
-sidebar_position: 88
+sidebar_position: 87
 ---
 
 Apache Linkis 1.7.0 版本，主要新增如下特性功能： Linkis的RPC功能支持自动重试、引入Spring boot Admin模块，监控管理Linkis服务、EC支持设置状态为unhealthy并在空闲时自动退出、在ECM服务中添加容器化模式，允许在该模式下将与外界通信的特定IP和端口等

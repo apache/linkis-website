@@ -13,6 +13,12 @@
       "release": "Release Note",
       "latestData": [
         {
+          "versionLabel": "1.8.0",
+          "downloadUrl": "/zh-CN/download/release-notes-1.8.0",
+          "docUrl": "/zh-CN/docs/latest/about/introduction",
+          "sourceTag":"1.8.0"
+        },
+        {
           "versionLabel": "1.7.0",
           "downloadUrl": "/zh-CN/download/release-notes-1.7.0",
           "docUrl": "/zh-CN/docs/latest/about/introduction",
@@ -39,8 +45,8 @@
       ],
       "nextData": [
         {
-          "versionLabel": "Next-1.8.0(WIP)",
-          "docUrl": "/zh-CN/docs/1.8.0/about/introduction"
+          "versionLabel": "Next-1.9.0(WIP)",
+          "docUrl": "/zh-CN/docs/1.9.0/about/introduction"
         }
       ],
       "historyData": [
