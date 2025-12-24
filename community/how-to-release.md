@@ -559,11 +559,11 @@ ${Linkis Release Manager}
 All mailing archives can be found at [dev@linkis.apache.org](https://lists.apache.org/list.html?dev@linkis.apache.org), a mailing thread, via the [ Permanent link to this email]
 Get the accessible url address of the email
 
-![image](https://user-images.githubusercontent.com/7869972/201943103-9add304d-ca25-4b78-8282-38424f73a28b.png)
+![image](/Images/community/mail-thread.png)
 
 Some mailboxes 163/sina reply with the Chinese "reply" by default, which will cause the apache mail to be recognized as a new thread mail, and the configuration needs to be modified.
 
-![image](https://user-images.githubusercontent.com/7869972/201942374-5d9b7b93-5211-4c9b-be53-86c9b4ec7bfe.png)
+![image](/Images/community/mail-thread-rep.png)
 
 ## 6 Official release
 
@@ -701,11 +701,11 @@ Release-1.1.2
 Release Notes: https://linkis.apache.org/download/release-notes-1.1.2
 
 ```
-![image](https://user-images.githubusercontent.com/7869972/210697538-2568c05f-20a5-4487-94f9-9e053116ba0e.png)
+![image](/Images/community/create-github-version.png)
 
 **step2 check**
 
-![image](https://user-images.githubusercontent.com/7869972/172566107-12475a5b-2fba-4dbe-9e96-f4a7a67aa4a9.png)
+![image](/Images/community/create-github-version-check.png)
 
 **step3 Merge `${release_version}-RC` branch to `master` branch (if not merged)**
 
@@ -847,8 +847,8 @@ For more information, please refer to the official [Email Specification](https:/
 
 ** Gmail mailbox switch to plain text format **
 
-![image](https://user-images.githubusercontent.com/7869972/152912490-a5038505-e487-4451-be9a-e26021877e4f.png)
+![image](/Images/community/mail-txt.png)
 
 ** QQ mailbox switch to plain text format **
 
-![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)
+![image](/Images/community/qq-mail-txt.png)

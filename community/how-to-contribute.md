@@ -44,7 +44,7 @@ Fork library: From https://github.com/apache/linkis fork to your own personal re
 #### 2.1.2 Synchronize the latest code of the original warehouse branch to your own fork library
 1. Enter the user project page and select the branch to be updated
 2. Click fetch upstream under the code download button and select fetch and merge (if the branch of your own fork library is accidentally polluted, you can delete the branch and synchronize the new branch of the original warehouse to your own fork library. For instructions, see [Synchronize the new branch of the original repository to your own fork repository](#213-synchronize-the-new-branch-of-the-original-repository-to-your-own-fork-repository))
-   ![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
+   ![update-code](/Images/Architecture/update-code.png)
 
 #### 2.1.3 Synchronize the new branch of the original repository to your own fork repository
 

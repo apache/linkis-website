@@ -180,7 +180,7 @@ English siderbar titles should be capitalized except for prepositions, and only 
 
 ## 4 New documents
 
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) The md document is recommended to be viewed by visiting the official website and viewing the md document through github. There is a problem that static resources such as pictures cannot be displayed correctly
+ The md document is recommended to be viewed by visiting the official website and viewing the md document through github. There is a problem that static resources such as pictures cannot be displayed correctly
 
 - The English document docs/ corresponds to the next Next version to be released, and the historical archive version is stored in the versioned_docs/version-${versionno} directory.
 - Chinese documents are placed in the corresponding directory of i18n/zh-CN/docusaurus-plugin-content-docs/, current is the next version to be released. version-${versionno} is the historical archive version.
@@ -197,12 +197,10 @@ After the verification is correct, the asf-staging branch can be merged to the a
 
 ## 6 Points for attention
 - When adding Chinese documents, you need to add English documents at the same time, otherwise the added page cannot be displayed  
-- When adding a document, pay attention to the document node name and node sorting fields, as shown in the following figure  
-![pg-eng](https://user-images.githubusercontent.com/29391030/161210331-497bbc90-369d-4401-b9dd-fe63bbaba850.png)
+- When adding a document, pay attention to the document node name and node sorting fields
 
 ## 7 Acknowledgments
 
-[![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg "Deploys by Netlify")](https://www.netlify.com/) 
 [Netlify](https://www.netlify.com) kindly provides pull request builds, checks and previews for this website.
 
 ## 8 Other
