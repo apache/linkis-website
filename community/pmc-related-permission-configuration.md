@@ -17,7 +17,7 @@ sidebar_position: 8
 Log in to https://id.apache.org and set the [Your GitHub Username] field in LDAP to your own GitHub ID. Enter your password Click submit changes.
 
 
-![Open-Apache's-GitHub-warehouse1](https://user-images.githubusercontent.com/29391030/153324492-cc4e4348-5e4b-450f-a23f-6c208e1a26fb.png)
+![Open-Apache's-GitHub-warehouse1](/Images/community/153324492-cc4e4348-5e4b-450f-a23f-6c208e1a26fb.png)
 
 **Way 2**
 Visit https://whismy.apache.org/roster/committer/xxx (replace with your apache id) to modify the corresponding data.
@@ -30,19 +30,19 @@ You need to install TOTP software on the mobile phone, search for TOTP in the ap
 
 step1 Visit the personal account security settings page https://github.com/settings/security and select the fourth item [Account security]
 
-![open-Apache's-GitHub-warehouse4](https://user-images.githubusercontent.com/29391030/153325044-4b68a5c0-959a-4077-abdf-5ad5e67aa26a.png)
+![open-Apache's-GitHub-warehouse4](/Images/community/153325044-4b68a5c0-959a-4077-abdf-5ad5e67aa26a.png)
 
 step2 Select【Set up using an app】Next step
 
-![open-Apache's-GitHub-warehouse5](https://user-images.githubusercontent.com/29391030/153325063-ea61ad8c-cbbc-4053-8a37-35d315dc3b00.png)
+![open-Apache's-GitHub-warehouse5](/Images/community/153325063-ea61ad8c-cbbc-4053-8a37-35d315dc3b00.png)
 
 Step3 enter the qr code binding page, scan the code with the pre-downloaded totp type app (such as Google identity authenticator、Microsoft Authenticator), and input the 6 displayed on the mobile phone as the token
 
-![open-Apache's-GitHub-warehouse6](https://user-images.githubusercontent.com/29391030/153325084-b57d3647-a6a5-4e15-9e9c-3c2f632c0655.png)
+![open-Apache's-GitHub-warehouse6](/Images/community/153325084-b57d3647-a6a5-4e15-9e9c-3c2f632c0655.png)
 
 step4 Download recover codes, then enter the success page and click done to bind successfully
 
-![open-Apache's-GitHub-warehouse7](https://user-images.githubusercontent.com/29391030/153325124-a523bd8c-f6d5-44ce-8372-3804d9c693c6.png)
+![open-Apache's-GitHub-warehouse7](/Images/community/153325124-a523bd8c-f6d5-44ce-8372-3804d9c693c6.png)
 
 Notice
 When 2FA verification is turned on, you need to use the username/password + mobile phone authentication code to log in to GitHub.
@@ -54,24 +54,24 @@ If 2FA is turned off in the future, you will be delisted from this project, and 
 ### 1.4 Open permission application on gitbox
 step1 Visit https://gitbox.apache.org/setup/ to authorize the associated apache account
 
-![open-Apache's-GitHub-warehouse8](https://user-images.githubusercontent.com/29391030/153325227-f917e9c3-16ea-42d4-8432-4b63fd5849da.png)
+![open-Apache's-GitHub-warehouse8](/Images/community/153325227-f917e9c3-16ea-42d4-8432-4b63fd5849da.png)
 
 step 2 Authorize the associated github account
 
-![open-Apache's-GitHub-warehouse9](https://user-images.githubusercontent.com/29391030/153325245-e2eea319-278f-4254-afb8-7e1ec418f004.png)
+![open-Apache's-GitHub-warehouse9](/Images/community/153325245-e2eea319-278f-4254-afb8-7e1ec418f004.png)
 
 step3 mfa status check
 
-![open-Apache's-GitHub-warehouse10](https://user-images.githubusercontent.com/29391030/153325267-71761576-9467-49a1-809b-2a5c0fc1a681.png)
+![open-Apache's-GitHub-warehouse10](/Images/community/153325267-71761576-9467-49a1-809b-2a5c0fc1a681.png)
 
 Notice
 After successful execution, the following figure is shown. After the success, the write permission will be activated within about an hour. If MFA Status says "User not a member of the ASF GitHub organisation. Please make sure you are a part of the ASF Organisation on GitHub and have 2FA enabled. Visit id.apache.org and set your GitHub ID to be invited to the org .” Please check whether [Associating apache and github accounts] is completed/2FA is enabled, if it is normal, please verify it later, because there is a delay in acquiring MFA status for new members.
 
-![open-Apache's-GitHub-warehouse11](https://user-images.githubusercontent.com/29391030/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
+![open-Apache's-GitHub-warehouse11](/Images/community/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
 
 After the successful invitation, the personal github account information can be seen that the affiliated organization has apache
 
-![open-Apache's-GitHub-warehouse3](https://user-images.githubusercontent.com/29391030/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
+![open-Apache's-GitHub-warehouse3](/Images/community/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
 
 ### 1.5 Related links documentation
 [github uses TOTP to enable 2FA authentication] https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication

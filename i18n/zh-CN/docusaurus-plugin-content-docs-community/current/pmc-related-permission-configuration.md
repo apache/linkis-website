@@ -16,7 +16,7 @@ sidebar_position: 8
 **方式1** 
 登陆  https://id.apache.org LDAP中的[Your GitHub Username]字段设置为自己的 GitHub ID。输入密码 点击submit changes 。
 
-![Open-Apache's-GitHub-warehouse1](https://user-images.githubusercontent.com/29391030/153324492-cc4e4348-5e4b-450f-a23f-6c208e1a26fb.png)
+![Open-Apache's-GitHub-warehouse1](/Images/community/153324492-cc4e4348-5e4b-450f-a23f-6c208e1a26fb.png)
 
 **方式2** 
 访问https://whimsy.apache.org/roster/committer/xxx (替换成你的apache id)  修改对应的数据
@@ -29,19 +29,19 @@ sidebar_position: 8
 
 step1 访问个人账号安全设置页面 https://github.com/settings/security 选择第四项[Account security]
 
-![open-Apache's-GitHub-warehouse4](https://user-images.githubusercontent.com/29391030/153325044-4b68a5c0-959a-4077-abdf-5ad5e67aa26a.png)
+![open-Apache's-GitHub-warehouse4](/Images/community/153325044-4b68a5c0-959a-4077-abdf-5ad5e67aa26a.png)
 
 step2 选择【Set up using an app】 下一步
 
-![open-Apache's-GitHub-warehouse5](https://user-images.githubusercontent.com/29391030/153325063-ea61ad8c-cbbc-4053-8a37-35d315dc3b00.png)
+![open-Apache's-GitHub-warehouse5](/Images/community/153325063-ea61ad8c-cbbc-4053-8a37-35d315dc3b00.png)
 
 step3 进入二维码绑定页面，使用事先下载好的totp类型app（如：Google 身份验证器、Microsoft Authenticator）扫码，录入手机端显示的6为令牌
 
-![open-Apache's-GitHub-warehouse6](https://user-images.githubusercontent.com/29391030/153325084-b57d3647-a6a5-4e15-9e9c-3c2f632c0655.png)
+![open-Apache's-GitHub-warehouse6](/Images/community/153325084-b57d3647-a6a5-4e15-9e9c-3c2f632c0655.png)
 
 step4 下载recover codes ，然后进入成功页面 点击done 绑定成功
 
-![open-Apache's-GitHub-warehouse7](https://user-images.githubusercontent.com/29391030/153325124-a523bd8c-f6d5-44ce-8372-3804d9c693c6.png)
+![open-Apache's-GitHub-warehouse7](/Images/community/153325124-a523bd8c-f6d5-44ce-8372-3804d9c693c6.png)
 
 注意
 当开启2FA验证后，需要使用用户名/密码 + 手机认证码的方式来登录GitHub。
@@ -53,25 +53,25 @@ step4 下载recover codes ，然后进入成功页面 点击done 绑定成功
 ### 1.4 gitbox上开启权限申请
 step1 访问 https://gitbox.apache.org/setup/ 授权关联apache账号 
 
-![open-Apache's-GitHub-warehouse8](https://user-images.githubusercontent.com/29391030/153325227-f917e9c3-16ea-42d4-8432-4b63fd5849da.png)
+![open-Apache's-GitHub-warehouse8](/Images/community/153325227-f917e9c3-16ea-42d4-8432-4b63fd5849da.png)
 
 step 2  授权关联github账号
 
-![open-Apache's-GitHub-warehouse9](https://user-images.githubusercontent.com/29391030/153325245-e2eea319-278f-4254-afb8-7e1ec418f004.png)
+![open-Apache's-GitHub-warehouse9](/Images/community/153325245-e2eea319-278f-4254-afb8-7e1ec418f004.png)
 
 step3 mfa status校验
 
-![open-Apache's-GitHub-warehouse10](https://user-images.githubusercontent.com/29391030/153325267-71761576-9467-49a1-809b-2a5c0fc1a681.png)
+![open-Apache's-GitHub-warehouse10](/Images/community/153325267-71761576-9467-49a1-809b-2a5c0fc1a681.png)
 
 注意
 执行成功后如下图。成功后大概一小时内会开通写权限。如果MFA Status 提示“User not a member of the ASF GitHub organisation. Please make sure you are a part of the ASF Organisation on GitHub and have 2FA enabled. Visit id.apache.org and set your GitHub ID to be invited to the org.” 请检查【关联apache与github账号】是否完成/2FA是否开启，如都正常请稍后在进行验证，因为新成员获取 MFA 状态有延迟。
 
-![open-Apache's-GitHub-warehouse11](https://user-images.githubusercontent.com/29391030/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
+![open-Apache's-GitHub-warehouse11](/Images/community/153325293-654c1cd4-7b2c-44be-94b0-9520e2ea05c1.png)
 
 
 成功邀约后 个人github账户信息可以看到归属组织有了apache 
 
-![open-Apache's-GitHub-warehouse3](https://user-images.githubusercontent.com/29391030/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
+![open-Apache's-GitHub-warehouse3](/Images/community/153324664-6633b5be-a5b5-400a-b9db-685c4eeab8ad.png)
 
 ### 1.5 相关链接文档
 【github使用TOTP启用2FA认证】https://docs.github.com/cn/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication

@@ -12,6 +12,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        'http-equiv': 'Content-Security-Policy',
+        content: "img-src 'self' data: https: http: blob:; object-src 'none';"
+      }
+    }
+  ],
   organizationName: 'Apache Linkis', // Usually your GitHub org/user name.
   projectName: 'Apache Linkis', // Usually your repo name.
   i18n: {
@@ -41,10 +50,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           editUrl: 'https://github.com/apache/linkis-website/edit/dev/',
           versions: {
             current: {
-              path: '1.8.0',
-              label: 'Next(1.8.0)'
+              path: '1.9.0',
+              label: 'Next(1.9.0)'
             },
-            '1.7.0': {
+            '1.8.0': {
               path: 'latest',
             },
           }
@@ -161,7 +170,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           label: 'Doc',
           position: 'right',
           items: [
-            {label: '1.7.0', to: '/docs/latest/about/introduction'},
+            {label: '1.8.0', to: '/docs/latest/about/introduction'},
+            {label: '1.7.0', to: '/docs/1.7.0/about/introduction'},
             {label: '1.6.0', to: '/docs/1.6.0/about/introduction'},
             {label: '1.5.0', to: '/docs/1.5.0/about/introduction'},
             {label: '1.4.0', to: '/docs/1.4.0/about/introduction'},
@@ -169,7 +179,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             // {label: '1.3.0', to: '/docs/1.3.0/introduction'},
             // {label: '1.2.0', to: '/docs/1.2.0/introduction'},
             // {label: '1.1.1', to: '/docs/1.1.1/introduction'},
-            {label: 'Next(1.8.0)', to: '/docs/1.8.0/about/introduction'},
+            {label: 'Next(1.9.0)', to: '/docs/1.9.0/about/introduction'},
             {label: 'All Version', to: '/versions'}
           ]
         },
@@ -359,7 +369,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         createRedirects(existingPath) {
           if (existingPath.includes('/latest')) {
             return [
-              existingPath.replace('/latest', '/1.7.0'),
+              existingPath.replace('/latest', '/1.8.0'),
             ];
           }
           return undefined; // Return a false value: no redirect created
