@@ -51,7 +51,7 @@ fork库: 从https://github.com/apache/linkis fork到自己个人仓库 成为for
 #### 2.1.2 同步原仓库分支最新代码到自己的fork库   
 1.进入用户项目页面,选中要更新的分支  
 2.点击code下载按钮下方的Fetch upstream,选择Fetch and merge (如自己的fork库该分支不小心污染了，可以删除该分支后，同步原仓库新分支到自己的fork库，参见指引[同步原仓库分支最新代码到自己的fork库](#213-同步原仓库新分支到自己的fork库))
-![update-code](https://user-images.githubusercontent.com/29391030/161004948-44469d93-b2d0-48ae-a707-188f20fbb8c3.png)
+![update-code](/Images-zh/Architecture/update-code.png)
 
 #### 2.1.3 同步原仓库新分支到自己的fork库
 

@@ -13,11 +13,11 @@ The process of submitting ICLA are:
 
 **1. First, click the link [Apache Licenses](https://www.apache.org/licenses/#clas) and find [CLAs](https://www.apache.org/licenses/contributor-agreements.html#clas) under the Contributor License Agreements section.**
 
-![page_link](https://user-images.githubusercontent.com/29391030/153529738-96f3f75a-41e5-4947-b290-c4ea29b101f1.png)
+![page_link](/Images/community/153529738-96f3f75a-41e5-4947-b290-c4ea29b101f1.png)
 
 **2. At the top of the page, there are two download links choose [ICLA(Individual Contributor License Agreement)](https://www.apache.org/licenses/icla.pdf) and download it.**
 
-![download](https://user-images.githubusercontent.com/29391030/153529788-a874aab9-786b-4131-a388-c0b5e31bdb8a.png)
+![download](/Images/community/153529788-a874aab9-786b-4131-a388-c0b5e31bdb8a.png)
 
 **3. Open the PDF, and fill in the following columns in English.**
 
@@ -29,12 +29,12 @@ Introduction：
 - **(optional) preferred Apache id(s)**：Select a **SVN ID** which is not exists on [Apache committer](http://people.apache.org/committer-index.html).
 - **(optional) notify project**：Apache Linkis
 
-![information](https://user-images.githubusercontent.com/7869972/172194397-deca4649-32c1-4584-8525-2a387ca80ac6.png)
+![information](/Images/community/172194397-deca4649-32c1-4584-8525-2a387ca80ac6.png)
 
 **4. The signature at the bottom of the document:**
 Apache only accept hand-written signature or [PDF signature software](https://smallpdf.com/cn/sign-pdf)
 
-![sign](https://user-images.githubusercontent.com/29391030/153529853-e6869cd4-7193-4403-8ebe-3d5b65e1d310.png)
+![sign](/Images/community/153529853-e6869cd4-7193-4403-8ebe-3d5b65e1d310.png)
 
 **5. After signing, send the icla.pdf command as `username-icla.pdf` to the email address provided by the instructor (The email address is `secretary@apache.org`), here is the mail template:**
 

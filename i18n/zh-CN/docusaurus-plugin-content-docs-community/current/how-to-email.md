@@ -126,7 +126,7 @@ I  checked:
 
 ** QQ邮箱切换纯文本格式 **
 
-![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)
+![image](/Images-zh/Architecture/use-qq-email.png)
 
 ** 邮箱配置回复默认主题关键字 **
 中文`回复：`会存在问题
