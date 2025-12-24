@@ -136,7 +136,7 @@ I checked:
 ## 6. Appendix
 ** QQ mailbox switch to plain text format **
 
-![image](https://user-images.githubusercontent.com/11496700/149449779-d0116bb1-de9e-4cc4-98fb-af3327b15c09.png)
+![image](/Images/Architecture/use-qq-email.png)
 
 
 ** Email configuration reply default subject keywords **
