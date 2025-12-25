@@ -49,7 +49,7 @@ export default function() {
   return (
     <Layout
       title={siteConfig.title}
-      description="Description will go into a meta tag in <head />">
+      description="Linkis builds a computation middleware layer to facilitate connection, governance and orchestration between the upper applications and the underlying data engines.">
       <main>
         <Home/>
       </main>

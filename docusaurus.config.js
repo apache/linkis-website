@@ -86,6 +86,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     ],
   ],
   themeConfig: {
+    image: '/img/linkis_logo.png',
     algolia: {
       appId: 'AE29KQB3IA',
       apiKey: '9ca054a67ee2403605e78587a518b0d6',
