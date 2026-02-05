@@ -217,14 +217,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           ],
         },
         {
+          type: "localeDropdown",
+          position: "right",
+        },
+        {
           href: 'https://github.com/apache/linkis',
           'aria-label': 'GitHub',
           className: 'header-github-link',
           position: 'right',
-        },
-        {
-          type: "localeDropdown",
-          position: "right",
         },
       ],
     },
