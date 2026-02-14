@@ -1,5 +1,5 @@
 ---
-title: built-in time variable
+title: Built-in Time Variable
 sidebar_position: 6
 ---
 

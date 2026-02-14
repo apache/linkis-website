@@ -1,5 +1,5 @@
 ---
-title: Stand-alone deployment
+title: Stand-alone Deployment
 sidebar_position: 1
 ---
 

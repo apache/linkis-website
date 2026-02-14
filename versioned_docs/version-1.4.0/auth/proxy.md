@@ -1,5 +1,5 @@
 ---
-title: proxy authentication
+title: Proxy Authentication
 sidebar_position: 4
 ---
 
