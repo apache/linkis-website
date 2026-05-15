@@ -32,6 +32,19 @@ github:
     - rarexixi
     - casionxia
     - aiceflower
+  rulesets:
+    - name: "Default Branch Protection"
+      type: branch
+      branches:
+        includes:
+          - "~DEFAULT_BRANCH"
+          - "release/*"
+          - "rel/*"
+        excludes: []
+      bypass_teams:
+        - root
+      restrict_deletion: true
+      restrict_force_push: true
 notifications:
   commits: commits@linkis.apache.org
   issues: commits@linkis.apache.org
@@ -39,10 +52,10 @@ notifications:
 
 # If this branch is asf-staging, it will be published to https://linkis.staged.apache.org/
 staging:
-  profile: ~
-  whoami:  asf-staging
+  profile:
+  whoami: asf-staging
 
 # asf-site branch will show up at https://linkis.apache.org
 publish:
-  whoami:  asf-site
+  whoami: asf-site
 
